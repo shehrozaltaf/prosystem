@@ -1,0 +1,88 @@
+UserIPAddress: 192.168.56.1 - July-2-2020 5:14 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:18 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:19 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:20 pm
+idUser: 1, UserName: dmu@aku
+Action: Add Page setting -> Function: addPageData() 
+Result: 34
+PostData: pageName = Employee Entry
+pageUrl = employee_entry
+isParent = 1
+idParent = 
+menuIcon = 
+menuClass = employee_entry
+isMenu = 0
+sort_no = 2
+createdBy = 1
+createdDateTime = 2020-07-02 14:20:47
+
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:21 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:21 pm
+idUser: 1, UserName: dmu@aku
+Action: Logout
+Result: User dmu@aku: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:21 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:23 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:27 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:28 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:32 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-2-2020 5:33 pm
+idUser: 1, UserName: dmu@aku
+Action: Logout
+Result: User dmu@aku: Logout
+PostData: 
+-------------------------------------------------

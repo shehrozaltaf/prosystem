@@ -1,0 +1,36 @@
+UserIPAddress: 192.168.56.1 - July-6-2020 10:45 am
+idUser: , UserName: 
+Action: Invalid Password1
+Result: User : incorrect password1
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-6-2020 10:46 am
+idUser: , UserName: 
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-6-2020 10:46 am
+idUser: , UserName: 
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-6-2020 10:46 am
+idUser: , UserName: 
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-6-2020 10:47 am
+idUser: , UserName: 
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - July-6-2020 10:50 am
+idUser: , UserName: 
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------

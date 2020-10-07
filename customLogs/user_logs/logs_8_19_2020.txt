@@ -1,0 +1,6 @@
+UserIPAddress: 192.168.56.1 - August-19-2020 5:51 pm
+idUser: , UserName: 
+Action: Logout
+Result: User : Logout
+PostData: 
+-------------------------------------------------

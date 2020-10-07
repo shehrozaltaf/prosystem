@@ -1,0 +1,42 @@
+UserIPAddress: 10.1.42.84 - October-7-2020 11:21 am
+idUser: 45, UserName: 45
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:21 am
+idUser: 45, UserName: 45
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:21 am
+idUser: 45, UserName: 45
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:21 am
+idUser: 45, UserName: 45
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:22 am
+idUser: 45, UserName: 45
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:22 am
+idUser: 45, UserName: 45
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:37 am
+idUser: 45, UserName: 45
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
