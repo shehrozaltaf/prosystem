@@ -22,3 +22,129 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:52 am
+idUser: 1, UserName: 1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:53 am
+idUser: 1, UserName: 1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:56 am
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Budget System
+pageUrl = budget_system
+isParent = 1
+idParent = 1
+menuIcon = icon-list
+menuClass = nav_budget_system
+isMenu = 1
+sort_no = 21
+createdBy = 1
+createdDateTime = 2020-10-07 08:56:20
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:56 am
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Projects
+pageUrl = projects
+isParent = 1
+idParent = 0
+menuIcon = icon-list
+menuClass = nav_projects
+isMenu = 1
+sort_no = 22
+createdBy = 1
+createdDateTime = 2020-10-07 08:56:42
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:57 am
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Budget
+pageUrl = budget
+isParent = 1
+idParent = 0
+menuIcon = icon-list
+menuClass = nav_budget
+isMenu = 0
+sort_no = 23
+createdBy = 1
+createdDateTime = 2020-10-07 08:57:03
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 11:58 am
+idUser: 1, UserName: 1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 12:18 pm
+idUser: 1, UserName: 1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 12:25 pm
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Employee
+pageUrl = employee
+isParent = 1
+idParent = 0
+menuIcon = icon-list
+menuClass = nav_budget_employee
+isMenu = 1
+sort_no = 24
+createdBy = 1
+createdDateTime = 2020-10-07 09:25:19
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 12:25 pm
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Actual
+pageUrl = actual
+isParent = 1
+idParent = 0
+menuIcon = icon-list
+menuClass = nav_actual
+isMenu = 1
+sort_no = 25
+createdBy = 1
+createdDateTime = 2020-10-07 09:25:39
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 12:26 pm
+idUser: 1, UserName: 1
+Action: Add Page setting -> Function: addPageData() 
+Result: 1
+PostData: pageName = Projected
+pageUrl = projected
+isParent = 1
+idParent = 0
+menuIcon = icon-list
+menuClass = nav_projected
+isMenu = 1
+sort_no = 26
+createdBy = 1
+createdDateTime = 2020-10-07 09:26:01
+isActive = 1
+
+-------------------------------------------------

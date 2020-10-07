@@ -7,7 +7,7 @@ class Projected extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        $this->load->model('mprojected');
+        $this->load->model('budget_model/mprojected');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -29,7 +29,7 @@ class Projected extends CI_controller
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('projected', $data);
+        $this->load->view('budget_views/projected', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }

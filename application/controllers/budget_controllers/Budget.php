@@ -7,7 +7,7 @@ class Budget extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        $this->load->model('mbudget');
+        $this->load->model('budget_model/mbudget');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -29,7 +29,7 @@ class Budget extends CI_controller
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('budget', $data);
+        $this->load->view('budget_views/budget', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }

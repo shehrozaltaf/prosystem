@@ -1,8 +1,4 @@
-<?php
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-ob_start();
+<?php ob_start();
 
 class Settings extends CI_controller
 {
@@ -171,6 +167,7 @@ class Settings extends CI_controller
             $formArray['sort_no'] = (isset($_POST['sort_no']) ? $_POST['sort_no'] : 999);
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $formArray['isActive'] = 1;
             $checkProjectByURL = $MSettings->checkPagesByURL($formArray['pageUrl']);
             if (isset($checkProjectByURL[0]->pageUrl) && count($checkProjectByURL[0]->pageUrl) >= 1) {
                 $result = 4;
@@ -210,7 +207,6 @@ class Settings extends CI_controller
         $result = $MSettings->getPageById($this->input->post('id'));
         echo json_encode($result, true);
     }
-
 
     function deletePageData()
     {

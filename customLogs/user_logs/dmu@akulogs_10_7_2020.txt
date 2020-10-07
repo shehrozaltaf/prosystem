@@ -1,0 +1,65 @@
+UserIPAddress: 10.1.42.84 - October-7-2020 3:07 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:07 pm
+idUser: 1, UserName: dmu@aku
+Action: Logout
+Result: User dmu@aku: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:10 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:10 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:17 pm
+idUser: 1, UserName: dmu@aku
+Action: Add Page setting -> Function: addPageData() 
+Result: 42
+PostData: pageName = HR System
+pageUrl = hrsystem
+isParent = 1
+idParent = 1
+menuIcon = 
+menuClass = nav_hr_system
+isMenu = 1
+sort_no = 1
+createdBy = 1
+createdDateTime = 2020-10-07 12:17:46
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:22 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-7-2020 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

@@ -8,7 +8,7 @@ class Mprojected extends CI_Model
     function getAll()
     {
         $this->db->select('*');
-        $this->db->from('projected');
+        $this->db->from('b_projected');
         $this->db->where('isActive', 1);
         $this->db->order_By('idPrjn', 'DESC');
         $query = $this->db->get();

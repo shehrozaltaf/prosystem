@@ -11,6 +11,16 @@ class Custom extends CI_Model
         $this->load->library('session');
     }
 
+
+    function selectAllQuery($table, $orderBy)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_By($orderBy, 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function selectAll($Qry)
     {
         $query = $this->db->query($Qry);
@@ -22,32 +32,22 @@ class Custom extends CI_Model
         }
     }
 
-    function selectAllQuery($table, $orderBy)
-    {
-        $this->db->select('*');
-        $this->db->from($table);
-        $this->db->order_By($orderBy, 'ASC');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-
     function Insert($Data, $idReturn, $table, $getLastId = 'N')
     {
         $insert = $this->db->insert($table, $Data);
-
         if ($insert) {
-            if (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
+            if ($getLastId === 'Y') {
+                $returnValue = $this->db->insert_id();
+            } elseif (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
                 $returnValue = 1;
             } else {
                 $returnValue = $Data[$idReturn];
             }
             return $returnValue;
         } else {
-            return false;
+            return FALSE;
         }
     }
-
 
     function Edit($Data, $key, $value, $table)
     {
@@ -76,9 +76,8 @@ class Custom extends CI_Model
     /*==========Log=============*/
     function trackLogs($array, $log_type)
     {
-
         date_default_timezone_set("Asia/Karachi");
-        $UserName = (isset($array['login_username']) ? $array['login_username'] : $_SESSION['login']['idUser']);
+        $UserName = (isset($array['UserName ']) ? $array['UserName '] : $_SESSION['login']['username']);
         if (isset($log_type) && $log_type == 'user_logs') {
             $logFilePath = 'customLogs/user_logs/' . $UserName . 'logs_' . date("n_j_Y") . '.txt';
         } else {
@@ -104,8 +103,9 @@ class Custom extends CI_Model
         $txt = fopen($logFilePath, "a") or die("Unable to open file!");
         fwrite($txt, $log);
         fclose($txt);
-//        echo file_put_contents($logFilePath . date("n_j_Y") . '.txt', $log);
     }
+
+    /*======================Custom Functions======================*/
 
 
     function getDataFromTableByID($id)

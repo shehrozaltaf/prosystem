@@ -28,6 +28,7 @@ class MSettings extends CI_Model
         $this->db->select('*');
         $this->db->from('pages');
         $this->db->where('isActive', 1);
+        $this->db->order_By('sort_no', 'ASC');
         $this->db->order_By('idPages', 'DESC');
         $query = $this->db->get();
         return $query->result();

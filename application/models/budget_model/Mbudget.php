@@ -8,7 +8,7 @@ class Mbudget extends CI_Model
     function getAll()
     {
         $this->db->select('*');
-        $this->db->from('budget');
+        $this->db->from('b_budget');
         $this->db->where('isActive', 1);
         $this->db->order_By('idBugt', 'DESC');
         $query = $this->db->get();

@@ -79,6 +79,18 @@ class Dashboard extends CI_controller
                         }
                     }
                     $Menu .= ' </ul></li>';
+                } elseif ($pages->isParent == 2) {
+                    $Menu .= '<li class="navigation-header active"><span>' . $pages->pageName . '</span></li>';
+                    if (isset($pages->myrow_options) && $pages->myrow_options != '') {
+                        foreach ($pages->myrow_options as $options) {
+                            $Menu .= '<li class=" nav-item ' . $options->menuClass . '">
+                                    <a href="' . base_url('index.php/' . $options->pageUrl) . '" class="">
+                                        <i class="feather ' . $options->menuIcon . '"></i>
+                                        <span class="menu-title" data-i18n="' . $options->pageName . '">' . $options->pageName . '</span>
+                                    </a>
+                              </li>';
+                        }
+                    }
                 } else {
                     $Menu .= '<li class=" nav-item ' . $pages->menuClass . '">
                                     <a href="' . base_url('index.php/' . $pages->pageUrl) . '" class="">

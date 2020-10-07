@@ -7,7 +7,7 @@ class Actual extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        $this->load->model('mactual');
+        $this->load->model('budget_model/mactual');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -31,7 +31,7 @@ class Actual extends CI_controller
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('actual', $data);
+        $this->load->view('budget_views/actual', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }

@@ -1159,7 +1159,7 @@ input:focus ~ .bg-light {
 }
 
 .primary.gradient-light {
-    color: #ce9ffc !important;
+    color: #84c3bb !important;
 }
 
 .bg-primary.bg-gradient-light {
@@ -1593,7 +1593,7 @@ input:focus ~ .bg-primary {
 }
 
 .primary {
-    color: #7367f0 !important;
+    color: #84c3bb !important;
 }
 
 .bg-primary {
