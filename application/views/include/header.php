@@ -41,7 +41,7 @@
     <script src="<?php echo base_url(); ?>assets/js/core.js" type="text/javascript"></script>
     <!-- BEGIN Vendor JS-->
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
+<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/tables/datatable/datatables.min.css">-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendors/css/pickers/pickadate/pickadate.css">
 </head>
