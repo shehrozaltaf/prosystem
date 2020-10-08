@@ -1,9 +1,31 @@
+
 <style>
     .invalid-feedback {
         position: absolute;
     }
 </style>
+<script>
+    $(document).on('click', '#chk_landline', function () {
+        if ($('#chk_landline').prop('checked') == true) {
+            $('#landline').val('999999999999999');
+            $('#landline').prop('disabled', 'disabled');
+        } else {
+            $('#landline').val('');
+            $('#landline').removeAttr('disabled');
+        }
+    });
 
+    $(document).on('click', '#chk_emrlandline', function () {
+        if ($('#chk_emrlandline').prop('checked') == true) {
+            $('#emlandno').val('99999999');
+            $('#emlandno').prop('disabled', 'disabled');
+        } else {
+            $('#emlandno').val('');
+            $('#emlandno').removeAttr('disabled');
+        }
+    });
+
+</script>
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -80,7 +102,7 @@
                                                                        placeholder="Full Name" name="empname"
                                                                        onkeypress="return lettersOnly_WithSpace();"
                                                                        style="text-transform: uppercase;" required
-                                                                       value="<?php echo($editemp[0]->empname) ?>"
+                                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
                                                                 >
                                                             </div>
                                                         </div>
@@ -96,7 +118,7 @@
                                                                 <input type="text" id="cnicno"
                                                                        class="form-control" placeholder="CNIC NO"
                                                                        name="cnicno" required
-                                                                       value="<?php echo($editemp[0]->cnicno) ?>"
+                                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
                                                                 >
                                                             </div>
                                                         </div>
@@ -111,7 +133,7 @@
                                                                 <input type="text" id="dob" required
                                                                        placeholder="Date of Birth"
                                                                        class="form-control" name="dob"
-                                                                       value="<?php echo($editemp[0]->dob) ?>">
+                                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,7 +204,7 @@
                                                             <input type="text" id="resaddr" class="form-control"
                                                                    required
                                                                    name="resaddr" maxlength="200"
-                                                                   value="<?php echo($editemp[0]->resaddr) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -198,6 +220,18 @@
                                                                    onkeypress="return numeralsOnly();"
                                                                    class="form-control" name="landline" maxlength="15"
                                                                    value="<?php echo($editemp[0]->landlineccode . $editemp[0]->landline) ?>">
+                                                            <fieldset>
+                                                                <div class="vs-checkbox-con vs-checkbox-primary">
+                                                                    <input id="chk_landline" type="checkbox"
+                                                                           value="false">
+                                                                    <span class="vs-checkbox">
+                                                            <span class="vs-checkbox--check">
+                                                                <i class="vs-icon feather icon-check"></i>
+                                                            </span>
+                                                        </span>
+                                                                    <span class="">Not Available</span>
+                                                                </div>
+                                                            </fieldset>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -292,6 +326,18 @@
                                                                    onkeypress="return numeralsOnly();"
                                                                    value="<?php echo($editemp[0]->emlandnoccode . $editemp[0]->emlandno) ?>"
                                                             >
+                                                            <fieldset>
+                                                                <div class="vs-checkbox-con vs-checkbox-primary">
+                                                                    <input id="chk_emrlandline" name="chk_emrlandline" type="checkbox"
+                                                                           value="false">
+                                                                    <span class="vs-checkbox">
+                                                            <span class="vs-checkbox--check">
+                                                                <i class="vs-icon feather icon-check"></i>
+                                                            </span>
+                                                        </span>
+                                                                    <span class="">Not Available</span>
+                                                                </div>
+                                                            </fieldset>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1577,9 +1623,9 @@
         <?php } ?>
 
 
-        for (var [key, value] of formData.entries()) {
+        /*for (var [key, value] of formData.entries()) {
             console.log(key + " - " + value);
-        }
+        }*/
 
         if (validateData(formData)) {
 
@@ -1690,14 +1736,14 @@
                 if ($("#pic").val() != "") {
                     formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
                 } else {
-                    formData.append('pic', $("#lbl_pic").html());
+                    formData.append('imgfile', $("#lbl_pic").html());
                 }
 
 
                 if ($("#doc").val() != "") {
                     formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
                 } else {
-                    formData.append('doc', $("#lbl_doc").html());
+                    formData.append('docfile', $("#lbl_doc").html());
                 }
 
 
@@ -1729,7 +1775,7 @@
 
 
                                     str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                        "<td class='summaryNewVal'>" + $("#lbl_pic").text() + "</td>" +
+                                        "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>" +
                                         "<td class='summaryFldOldVal' style='display:none;'></td>" +
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
@@ -1748,7 +1794,7 @@
 
 
                                     str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                        "<td class='summaryNewVal'>" + $("#lbl_doc").text() + "</td>" +
+                                        "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>" +
                                         "<td class='summaryFldOldVal' style='display:none;'></td>" +
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
@@ -1799,814 +1845,6 @@
 
                 }
 
-                /*for (var [key, value] of formData.entries()) {
-                    //console.log(key, value);
-
-                    //old_data_array = $.JSON(old_array);
-
-                    //console.log(key + " - " + value + "   ***   " + old_array[0].key);
-
-                    for (var a = 0; a < 1; a++) {
-
-                        console.log(key + " - " + value + "   ***   " + old_array[0]);
-                    }
-                }*/
-
-
-                /*$.each(old_array[0], function(index, value){
-                    console.log(index + ": " + value + '<br>');
-                });*/
-
-
-                /*if (formData.get("ddlemptype") != old_array[0].ddlemptype) {
-
-                    str += "<tr><td>Employee Type</td>";
-
-                    if (old_array[0].ddlemptype == $("#ddlemptype option:selected").val()) {
-                        str += "<td>" + old_array[0].ddlemptype + "</td><td>" + $("#ddlemptype :selected").text() + "</td>";
-                    }
-
-                    str += "</tr>";
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("ddlcategory") != old_array[0].ddlcategory) {
-
-                    str += "<tr><td>Category</td>";
-
-                    $("#ddlcategory").each(function (index, elem) {
-                        console.log(index + " - " + elem.options.text());
-                    });
-
-                    if (old_array[0].ddlcategory != $("#ddlcategory option:selected").val()) {
-                        str += "<td>" + old_array[0].ddlcategory + "</td><td>" + $("#ddlcategory :selected").text() + "</td>";
-                    }
-
-                    str += "</tr>";
-
-                    isaudit = true;
-
-                }*/
-
-
-                /*if (formData.get("ddlcategory") != old_array[0].ddlcategory) {
-
-                    if (old_array[0].ddlcategory == "0") {
-                        str += "<tr><td>Category</td><td>Category</td>";
-                    } else if (old_array[0].ddlcategory == "1") {
-                        str += "<tr><td>Category</td><td>Academic</td>";
-                    } else if (old_array[0].ddlcategory == "2") {
-                        str += "<tr><td>Category</td><td>Administration</td>";
-                    } else if (old_array[0].ddlcategory == "3") {
-                        str += "<tr><td>Category</td><td>Allied Health</td>";
-                    }
-
-                    if (formData.get("ddlcategory") == "0") {
-                        str += "<td>Category</td>";
-                    } else if (formData.get("ddlcategory") == "1") {
-                        str += "<td>Academic</td>";
-                    } else if (formData.get("ddlcategory") == "2") {
-                        str += "<td>Administration</td>";
-                    } else if (formData.get("ddlcategory") == "3") {
-                        str += "<td>Allied Health</td>";
-                    }
-
-
-                    str += "<td><input id='dt_ddlcategory' name='dt_ddlcategory' type='text' class='form-control pickadate-short-string' /></td>";
-
-                    str += "</tr>";
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("empname") != old_array[0].empname) {
-                    str += "<tr><td>Employee Name</td><td>" + old_array[0].empname + "</td><td>" + formData.get("empname") + "</td></tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cnicno") != old_array[0].cnicno) {
-                    str += "<tr><td>CNIC No</td><td>" + old_array[0].cnicno + "</td><td>" + formData.get("cnicno") + "</td>";
-                    str += "<td><input id='dt_cnicno' name='dt_cnicno' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("dob") != old_array[0].dob) {
-                    str += "<tr><td>Birth Date</td><td>" + old_array[0].dob + "</td><td>" + formData.get("dob") + "</td>";
-                    str += "<td><input id='dt_dob' name='dt_dob' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("qual") != old_array[0].qual) {
-
-                    if (old_array[0].qual == "0") {
-                        str += "<tr><td>Qualification</td><td>Qualification</td>";
-                    } else if (old_array[0].qual == "1") {
-                        str += "<tr><td>MATRIC</td><td>MATRIC</td>";
-                    } else if (old_array[0].qual == "2") {
-                        str += "<tr><td>INTERMEDIATE</td><td>INTERMEDIATE</td>";
-                    } else if (old_array[0].qual == "3") {
-                        str += "<tr><td>BACHELOR OF ARTS</td><td>BACHELOR OF ARTS</td>";
-                    } else if (old_array[0].qual == "4") {
-                        str += "<tr><td>BACHELOR OF SCIENCE</td><td>BACHELOR OF SCIENCE</td>";
-                    } else if (old_array[0].qual == "5") {
-                        str += "<tr><td>BACHELOR OF COMMERCE</td><td>BACHELOR OF COMMERCE</td>";
-                    }
-
-                    if (formData.get("qual") == "0") {
-                        str += "<td>Qualification</td>";
-                    } else if (formData.get("qual") == "1") {
-                        str += "<td>MATRIC</td>";
-                    } else if (formData.get("qual") == "2") {
-                        str += "<td>INTERMEDIATE</td>";
-                    } else if (formData.get("qual") == "3") {
-                        str += "<td>BACHELOR OF ARTS</td>";
-                    } else if (formData.get("qual") == "4") {
-                        str += "<td>BACHELOR OF SCIENCE</td>";
-                    } else if (formData.get("qual") == "5") {
-                        str += "<td>BACHELOR OF COMMERCE</td>";
-                    }
-
-                    str += "<td><input id='dt_qual' name='dt_qual' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("landlineccode") != old_array[0].landlineccode) {
-                    str += "<tr><td>Country Code Landline</trtd><td>" + old_array[0].landlineccode + "</td><td>" + formData.get("landlineccode") + "</td>";
-                    str += "<td><input id='dt_landlineccode' name='dt_landlineccode' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("landline") != old_array[0].landline) {
-                    str += "<tr><td>Landline No</td><td>" + old_array[0].landline + "</td><td>" + formData.get("landline") + "</td>";
-                    str += "<td><input id='dt_landline' name='dt_landline' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cellno1ccode") != old_array[0].cellno1ccode) {
-                    str += "<tr><td>Country Code Cell1</td><td>" + old_array[0].cellno1ccode + "</td><td>" + formData.get("cellno1ccode") + "</td>";
-                    str += "<td><input id='dt_cellno1ccode' name='dt_cellno1ccode' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cellno1") != old_array[0].cellno1) {
-                    str += "<tr><td>Cell No. 1</td><td>" + old_array[0].cellno1 + "</td><td>" + formData.get("cellno1") + "</td>";
-                    str += "<td><input id='dt_cellno1' name='dt_cellno1' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cellno2ccode") != old_array[0].cellno2ccode) {
-                    str += "<tr><td>Country Code Cell2</td><td>" + old_array[0].cellno2ccode + "</td><td>" + formData.get("cellno2ccode") + "</td>";
-                    str += "<td><input id='dt_cellno2ccode' name='dt_cellno2ccode' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cellno2") != old_array[0].cellno2) {
-
-                    if (formData.get("cellno2") != "" && old_array[0].cellno2 != null) {
-                        str += "<tr><td>Cell No. 2</td><td>" + old_array[0].cellno2 + "</td><td>" + formData.get("cellno2") + "</td>";
-                        str += "<td><input id='dt_cellno2' name='dt_cellno2' type='text' class='form-control pickadate-short-string' /></td>";
-                        str += "</tr>";
-
-
-                        isaudit = true;
-                    }
-                }
-
-                if (formData.get("personnme") != old_array[0].personnme) {
-                    str += "<tr><td>Person Name</td><td>" + old_array[0].personnme + "</td><td>" + formData.get("personnme") + "</td>";
-                    str += "<td><input id='dt_personnme' name='dt_personnme' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("emcellnoccode") != old_array[0].emcellnoccode) {
-                    str += "<tr><td>Country Code Emergency Cell</td><td>" + old_array[0].emcellnoccode + "</td><td>" + formData.get("emcellnoccode") + "</td>";
-                    str += "<td><input id='dt_emcellnoccode' name='dt_emcellnoccode' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("emcellno") != old_array[0].emcellno) {
-                    str += "<tr><td>Person Name (For Emergency)</td><td>" + old_array[0].emcellno + "</td><td>" + formData.get("emcellno") + "</td>";
-                    str += "<td><input id='dt_emcellno' name='dt_emcellno' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("emlandnoccode") != old_array[0].emlandnoccode) {
-                    str += "<tr><td>Country Code Emergency Landline</td><td>" + old_array[0].emlandnoccode + "</td><td>" + formData.get("emlandnoccode") + "</td>";
-                    str += "<td><input id='dt_emlandnoccode' name='dt_emlandnoccode' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("emlandno") != old_array[0].emlandno) {
-                    str += "<tr><td>Person</td><td>" + old_array[0].emlandno + "</td><td>" + formData.get("emlandno") + "</td>";
-                    str += "<td><input id='dt_emlandno' name='dt_emlandno' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("resaddr") != old_array[0].resaddr) {
-                    str += "<tr><td>Residential Address</td><td>" + old_array[0].resaddr + "</td><td>" + formData.get("resaddr") + "</td>";
-                    str += "<td><input id='dt_resaddr' name='dt_resaddr' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("gncno") != old_array[0].gncno) {
-                    str += "<tr><td>GNC No</td><td>" + old_array[0].gncno + "</td><td>" + formData.get("gncno") + "</td>";
-                    str += "<td><input id='dt_gncno' name='dt_gncno' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("ddlband") != old_array[0].ddlband) {
-
-                    if (old_array[0].ddlband == "0") {
-                        str += "<tr><td>Band</td><td>Band</td>";
-                    } else if (old_array[0].ddlband == "1") {
-                        str += "<tr><td>AD1</td><td>AD1</td>";
-                    } else if (old_array[0].ddlband == "2") {
-                        str += "<tr><td>AD2</td><td>AD2</td>";
-                    } else if (old_array[0].ddlband == "3") {
-                        str += "<tr><td>AD3</td><td>AD3</td>";
-                    } else if (old_array[0].ddlband == "4") {
-                        str += "<tr><td>AD4</td><td>AD4</td>";
-                    } else if (old_array[0].ddlband == "5") {
-                        str += "<tr><td>AD5</td><td>AD5</td>";
-                    } else if (old_array[0].ddlband == "6") {
-                        str += "<tr><td>AD6</td><td>AD6</td>";
-                    } else if (old_array[0].ddlband == "7") {
-                        str += "<tr><td>AD7</td><td>AD7</td>";
-                    } else if (old_array[0].ddlband == "8") {
-                        str += "<tr><td>AD8</td><td>AD8</td>";
-                    } else if (old_array[0].ddlband == "9") {
-                        str += "<tr><td>AC1</td><td>AC1</td>";
-                    } else if (old_array[0].ddlband == "10") {
-                        str += "<tr><td>AC2</td><td>AC2</td>";
-                    } else if (old_array[0].ddlband == "11") {
-                        str += "<tr><td>AC3</td><td>AC3</td>";
-                    } else if (old_array[0].ddlband == "12") {
-                        str += "<tr><td>AC4</td><td>AC4</td>";
-                    } else if (old_array[0].ddlband == "13") {
-                        str += "<tr><td>AC5</td><td>AC5</td>";
-                    } else if (old_array[0].ddlband == "14") {
-                        str += "<tr><td>AC6</td><td>AC6</td>";
-                    } else if (old_array[0].ddlband == "15") {
-                        str += "<tr><td>AH1</td><td>AH1</td>";
-                    } else if (old_array[0].ddlband == "16") {
-                        str += "<tr><td>AH2</td><td>AH2</td>";
-                    } else if (old_array[0].ddlband == "17") {
-                        str += "<tr><td>AH3</td><td>AH3</td>";
-                    }
-
-                    if (formData.get("ddlband") == "0") {
-                        str += "<td>Band</td>";
-                    } else if (formData.get("ddlband") == "1") {
-                        str += "<td>AD1</td>";
-                    } else if (formData.get("ddlband") == "2") {
-                        str += "<td>AD2</td>";
-                    } else if (formData.get("ddlband") == "3") {
-                        str += "<td>AD3</td>";
-                    } else if (formData.get("ddlband") == "4") {
-                        str += "<td>AD4</td>";
-                    } else if (formData.get("ddlband") == "5") {
-                        str += "<td>AD5</td>";
-                    } else if (formData.get("ddlband") == "6") {
-                        str += "<td>AD6</td>";
-                    } else if (formData.get("ddlband") == "7") {
-                        str += "<td>AD7</td>";
-                    } else if (formData.get("ddlband") == "8") {
-                        str += "<td>AD7</td>";
-                    } else if (formData.get("ddlband") == "9") {
-                        str += "<td>AD8</td>";
-                    } else if (formData.get("ddlband") == "10") {
-                        str += "<td>AC1</td>";
-                    } else if (formData.get("ddlband") == "11") {
-                        str += "<td>AC2</td>";
-                    } else if (formData.get("ddlband") == "12") {
-                        str += "<td>AC3</td>";
-                    } else if (formData.get("ddlband") == "13") {
-                        str += "<td>AC4</td>";
-                    } else if (formData.get("ddlband") == "14") {
-                        str += "<td>AC5</td>";
-                    } else if (formData.get("ddlband") == "15") {
-                        str += "<td>AC6</td>";
-                    } else if (formData.get("ddlband") == "16") {
-                        str += "<td>AH1</td>";
-                    } else if (formData.get("ddlband") == "17") {
-                        str += "<td>AH2</td>";
-                    } else if (formData.get("ddlband") == "18") {
-                        str += "<td>AH3</td>";
-                    }
-
-                    str += "<td><input id='dt_ddlband' name='dt_ddlband' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("titdesi") != old_array[0].titdesi) {
-                    str += "<tr><td>Title / Designation</td><td>" + old_array[0].titdesi + "</td><td>" + formData.get("titdesi") + "</td>";
-                    str += "<td><input id='dt_titdesi' name='dt_titdesi' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("rehiredt") != old_array[0].rehiredt) {
-                    str += "<tr><td>Rehire Date</td><td>" + old_array[0].rehiredt + "</td><td>" + formData.get("rehiredt") + "</td>";
-                    str += "<td><input id='dt_rehiredt' name='dt_rehiredt' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("conexpiry") != old_array[0].conexpiry) {
-                    str += "<tr><td>Contract Expiry Date</td><td>" + old_array[0].conexpiry + "</td><td>" + formData.get("conexpiry") + "</td>";
-                    str += "<td><input id='dt_conexpiry' name='dt_conexpiry' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("workproj") != old_array[0].workproj) {
-                    str += "<tr><td>Working Project</td><td>" + old_array[0].workproj + "</td><td>" + formData.get("workproj") + "</td>";
-                    str += "<td><input id='dt_workproj' name='dt_workproj' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-                if (formData.get("chargproj") != old_array[0].chargproj) {
-                    str += "<tr><td>Charging Project</td><td>" + old_array[0].chargproj + "</td><td>" + formData.get("chargproj") + "</td>";
-                    str += "<td><input id='dt_chargproj' name='dt_chargproj' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("ddlloc") != old_array[0].ddlloc) {
-
-                    if (old_array[0].ddlloc == "0") {
-                        str += "<tr><td>Location</td><td>Location</td>";
-                    } else if (old_array[0].ddlband == "1") {
-                        str += "<tr><td>Karachi</td><td>Karachi</td>";
-                    } else if (old_array[0].ddlband == "2") {
-                        str += "<tr><td>Matiari</td><td>Matiari</td>";
-                    } else if (old_array[0].ddlband == "3") {
-                        str += "<tr><td>Dadu</td><td>Dadu</td>";
-                    } else if (old_array[0].ddlband == "4") {
-                        str += "<tr><td>Thatta</td><td>Thatta</td>";
-                    } else if (old_array[0].ddlband == "5") {
-                        str += "<tr><td>Jamshoro</td><td>Jamshoro</td>";
-                    }
-
-                    if (formData.get("ddlband") == "0") {
-                        str += "<td>Location</td>";
-                    } else if (formData.get("ddlband") == "1") {
-                        str += "<td>Karachi</td>";
-                    } else if (formData.get("ddlband") == "2") {
-                        str += "<td>Matiari</td>";
-                    } else if (formData.get("ddlband") == "3") {
-                        str += "<td>Dadu</td>";
-                    } else if (formData.get("ddlband") == "4") {
-                        str += "<td>Thatta</td>";
-                    } else if (formData.get("ddlband") == "5") {
-                        str += "<td>Jamshoro</td>";
-                    }
-
-                    str += "<td><input id='dt_ddlband' name='dt_ddlband' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("supernme") != old_array[0].supernme) {
-                    str += "<tr><td>Supervisor Name</td><td>" + old_array[0].supernme + "</td><td>" + formData.get("supernme") + "</td>";
-                    str += "<td><input id='dt_supernme' name='dt_supernme' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("hiresalary") != old_array[0].hiresalary) {
-                    str += "<tr><td>Hiring Salary</td><td>" + old_array[0].hiresalary + "</td><td>" + formData.get("hiresalary") + "</td>";
-                    str += "<td><input id='dt_hiresalary' name='dt_hiresalary' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("ddlhardship") != old_array[0].ddlhardship) {
-
-                    if (old_array[0].ddlhardship == "0") {
-                        str += "<tr><td>Harship Allowance</td><td>Harship Allowance</td>";
-                    } else if (old_array[0].ddlhardship == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].ddlhardship == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("ddlhardship") == "0") {
-                        str += "<td>Harship Allowance</td>";
-                    } else if (formData.get("ddlhardship") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("ddlhardship") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-
-                    str += "<td><input id='dt_ddlhardship' name='dt_ddlhardship' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("amount") != old_array[0].amount) {
-                    str += "<tr><td>Amount</td><td>" + old_array[0].amount + "</td><td>" + formData.get("amount") + "</td>";
-                    str += "<td><input id='dt_amount' name='dt_amount' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("benefits") != old_array[0].benefits) {
-
-                    if (old_array[0].benefits == "0") {
-                        str += "<tr><td>Harship Allowance</td><td>Benefits</td>";
-                    } else if (old_array[0].benefits == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].benefits == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("benefits") == "0") {
-                        str += "<td>Benefits</td>";
-                    } else if (formData.get("benefits") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("benefits") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_benefits' name='dt_benefits' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("peme") != old_array[0].peme) {
-
-                    if (old_array[0].peme == "0") {
-                        str += "<tr><td>PEME</td><td>PEME</td>";
-                    } else if (old_array[0].peme == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].peme == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("peme") == "0") {
-                        str += "<td>PEME</td>";
-                    } else if (formData.get("peme") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("peme") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_peme' name='dt_peme' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("gop") != old_array[0].gop) {
-
-                    if (old_array[0].gop == "0") {
-                        str += "<tr><td>General Orientation Program</td><td>General Orientation Program</td>";
-                    } else if (old_array[0].gop == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].gop == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("gop") == "0") {
-                        str += "<td>General Orientation Program</td>";
-                    } else if (formData.get("gop") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("gop") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_gop' name='dt_gop' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("gopdt") != old_array[0].gopdt) {
-                    str += "<tr><td>GOP Date</td><td>" + old_array[0].gopdt + "</td><td>" + formData.get("gopdt") + "</td>";
-                    str += "<td><input id='dt_gopdt' name='dt_gopdt' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("entity") != old_array[0].entity) {
-
-                    if (old_array[0].entity == "0") {
-                        str += "<tr><td>Entity</td><td>Entity</td>";
-                    } else if (old_array[0].entity == "1") {
-                        str += "<tr><td>IDRL</td><td>IDRL</td>";
-                    } else if (old_array[0].entity == "2") {
-                        str += "<tr><td>NRL</td><td>NRL</td>";
-                    } else if (old_array[0].entity == "3") {
-                        str += "<tr><td>DMU</td><td>DMU</td>";
-                    } else if (old_array[0].entity == "4") {
-                        str += "<tr><td>Admin Project Management</td><td>Admin Project Management</td>";
-                    }
-
-
-                    if (formData.get("entity") == "0") {
-                        str += "<td>Entity</td>";
-                    } else if (formData.get("entity") == "1") {
-                        str += "<td>IDRL</td>";
-                    } else if (formData.get("entity") == "2") {
-                        str += "<td>NRL</td>";
-                    } else if (formData.get("entity") == "3") {
-                        str += "<td>DMU</td>";
-                    } else if (formData.get("entity") == "4") {
-                        str += "<td>Admin Project Management</td>";
-                    }
-
-                    str += "<td><input id='dt_entity' name='dt_entity' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("dept") != old_array[0].dept) {
-
-                    if (old_array[0].dept == "0") {
-                        str += "<tr><td>Department</td><td>Department</td>";
-                    } else if (old_array[0].dept == "1") {
-                        str += "<tr><td>Paeds</td><td>Paeds</td>";
-                    } else if (old_array[0].dept == "2") {
-                        str += "<tr><td>Obgyn</td><td>Obgyn</td>";
-                    } else if (old_array[0].dept == "3") {
-                        str += "<tr><td>DMU</td><td>DMU</td>";
-                    } else if (old_array[0].dept == "4") {
-                        str += "<tr><td>IGHD</td><td>IGHD</td>";
-                    }
-
-
-                    if (formData.get("dept") == "0") {
-                        str += "<td>Department</td>";
-                    } else if (formData.get("dept") == "1") {
-                        str += "<td>Paeds</td>";
-                    } else if (formData.get("dept") == "2") {
-                        str += "<td>Obgyn</td>";
-                    } else if (formData.get("dept") == "3") {
-                        str += "<td>COE</td>";
-                    } else if (formData.get("dept") == "4") {
-                        str += "<td>IGHD</td>";
-                    }
-
-                    str += "<td><input id='dt_dept' name='dt_dept' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("cardissue") != old_array[0].cardissue) {
-
-                    if (old_array[0].cardissue == "0") {
-                        str += "<tr><td>ID Card Issued</td><td>ID Card Issued</td>";
-                    } else if (old_array[0].cardissue == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].cardissue == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("cardissue") == "0") {
-                        str += "<td>ID Card Issued</td>";
-                    } else if (formData.get("cardissue") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("cardissue") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_cardissue' name='dt_cardissue' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("letterapp") != old_array[0].letterapp) {
-
-                    if (old_array[0].letterapp == "0") {
-                        str += "<tr><td>Letter Of Appointment Received</td><td>Letter Of Appointment Received</td>";
-                    } else if (old_array[0].letterapp == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].letterapp == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("letterapp") == "0") {
-                        str += "<td>Letter Of Appointment Received</td>";
-                    } else if (formData.get("letterapp") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("letterapp") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_letterapp' name='dt_letterapp' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("confirmation") != old_array[0].confirmation) {
-
-                    if (old_array[0].confirmation == "0") {
-                        str += "<tr><td>Confirmation</td><td>Confirmation</td>";
-                    } else if (old_array[0].confirmation == "1") {
-                        str += "<tr><td>Yes</td><td>Yes</td>";
-                    } else if (old_array[0].confirmation == "2") {
-                        str += "<tr><td>No</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("confirmation") == "0") {
-                        str += "<td>Confirmation</td>";
-                    } else if (formData.get("confirmation") == "1") {
-                        str += "<td>Yes</td>";
-                    } else if (formData.get("confirmation") == "2") {
-                        str += "<td>No</td>";
-                    }
-
-                    str += "<td><input id='dt_confirmation' name='dt_confirmation' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (formData.get("status") != old_array[0].status) {
-
-                    if (old_array[0].status == "0") {
-                        str += "<tr><td>Status</td><td>Status</td>";
-                    } else if (old_array[0].status == "1") {
-                        str += "<tr><td>Active</td><td>Yes</td>";
-                    } else if (old_array[0].status == "2") {
-                        str += "<tr><td>InActive</td><td>No</td>";
-                    }
-
-
-                    if (formData.get("status") == "0") {
-                        str += "<td>Status</td>";
-                    } else if (formData.get("status") == "1") {
-                        str += "<td>Active</td>";
-                    } else if (formData.get("status") == "2") {
-                        str += "<td>InActive</td>";
-                    }
-
-                    str += "<td><input id='dt_status' name='dt_status' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if (old_array[0].remarks == null && formData.get("remarks") == "") {
-
-                } else {
-                    if (formData.get("remarks") != old_array[0].remarks) {
-                        str += "<tr><td>Remarks</td><td>" + old_array[0].remarks + "</td><td>" + formData.get("remarks") + "</td>";
-                        str += "<td><input id='dt_remarks' name='dt_remarks' type='text' class='form-control pickadate-short-string' /></td>";
-                        str += "</tr>";
-
-                        isaudit = true;
-                    }
-                }
-
-
-                if ($("#lbl_pic").html() != old_array[0].pic) {
-                    str += "<tr><td>Picture</td><td>" + old_array[0].pic + "</td><td>" + "assets/emppic/" + $("#lbl_pic").html() + "</td>";
-                    str += "<td><input id='dt_pic' name='dt_pic' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
-
-                if ($("#lbl_doc").html() != old_array[0].doc) {
-                    str += "<tr><td>Documents</td><td>" + old_array[0].doc + "</td><td>" + "assets/docs/" + $("#lbl_doc").html() + "</td>";
-                    str += "<td><input id='dt_doc' name='dt_doc' type='text' class='form-control pickadate-short-string' /></td>";
-                    str += "</tr>";
-
-
-                    isaudit = true;
-                }
-
 
                 /*for (var [key, value] of formData.entries()) {
                     //console.log(key, value);
@@ -2643,11 +1881,11 @@
 
 
     function editData() {
-
-        var data = {};
+        var data = [];
         var results = [];
         var flag = 0;
 
+        var formData = new FormData($("#frm")[0]);
         $(".summaryRow").each(function () {
             var summaryFldid = $(this).attr('data-key');
             var summaryFldName = $(this).find('.summaryFldName').text();
@@ -2663,7 +1901,6 @@
             var SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
             var summaryFldOldVal = $(this).find('.summaryFldOldVal').text();
             var summaryFldNewVal = $(this).find('.summaryFldNewVal').text();
-
             results.push({
                 'summaryFldid': summaryFldid,
                 'summaryFldName': summaryFldName,
@@ -2675,12 +1912,19 @@
             });
         });
 
-        data['results'] = results;
+
+        /*for (var [key, value] of formData.entries()) {
+            console.log(key + " - " + value);
+        }*/
+
+
+        formData.append('results', JSON.stringify(results));
+
 
         if (flag == 0) {
-            CallAjax('<?php echo base_url('index.php/employee_entry/editRecord'); ?>', data, 'POST', function (result) {
+            // showloader();
+            CallAjax('<?php echo base_url('index.php/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
                 //hideloader();
-
                 if (result == 1) {
                     toastMsg('Success', 'Record Saved Successfully', 'success');
 
@@ -2698,7 +1942,7 @@
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
-            });
+            }, true);
         } else {
             toastMsg('Error', 'Something went wrong', 'error');
         }
@@ -2932,10 +2176,10 @@
 
                         if (inp.val() == "" || inp.val() == "undefined" || inp.val() == "0" || inp.val() == "undefined" || inp.val() == "NULL" || inp.val() == "null" || inp.val() == null) {
 
-                            console.log(i[0] + " - " + inp.val());
+                            //console.log(i[0] + " - " + inp.val());
 
                             $("#lblerr_landline").remove();
-                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field1</span>');
+                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field</span>');
                             flag = 1;
                         }
 
@@ -2944,7 +2188,7 @@
                             console.log($('#' + i[0]).id + " - " + inp.val());
 
                             $("#lblerr_landline").remove();
-                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field2</span>');
+                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field</span>');
                             flag = 1;
                         }
 
