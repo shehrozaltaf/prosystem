@@ -74,6 +74,15 @@
     }
 
 </style>
+
+<script src="<?php echo base_url() ?>assets/build/js/intlTelInput.js"></script>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/build/css/intlTelInput.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/build/css/demo.css">
+
+<script src="<?php echo base_url() ?>assets/js/scripts/jquery.maskedinput.js"></script>
+<script src="<?php echo base_url() ?>assets/js/scripts/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/scripts/jquery.inputmask.bundle.js"></script>
+
 <script>
     $(document).on('click', '#chk_landline', function () {
         if ($('#chk_landline').prop('checked') == true) {
@@ -96,6 +105,8 @@
     });
 
 </script>
+
+
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -138,8 +149,10 @@
                                                                 <span id="lbl_empno">Employee Number</span>
                                                             </div>
                                                             <div class="col-md-10">
+                                                                <?php
 
-                                                                <?php if (isset($editemp[0]->empno)) { ?>
+
+                                                                if (isset($editemp[0]->empno)) { ?>
 
                                                                     <input type="text" id="empno" disabled="disabled"
                                                                            class="form-control" maxlength="6"
@@ -161,10 +174,30 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
-                                                                <span id="lbl_empname">Full Name <br>(Use Capital Letters)</span>
+                                                                <span id="lbl_empname">Official Email<br/><span
+                                                                            style="color: #FF0000">(without aku.edu)<span></span>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <input type="text" id="offemail"
+                                                                       class="form-control" maxlength="70"
+                                                                       placeholder="Official Email" name="offemail"
+                                                                       onkeypress="return ValidateEmail();"
+                                                                       required
+                                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_empname">Full Name <br><span
+                                                                            style="color: #FF0000">(Use Capital Letters)</span></span>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <input type="text" id="empname"
@@ -222,7 +255,7 @@
                                                                 $oldValQ = '';
                                                                 if (isset($qualification) && $qualification != '') {
                                                                     foreach ($qualification as $v) {
-                                                                        if ($v->id === $editemp[0]->qual) {
+                                                                        if (isset($editemp) && $v->id === $editemp[0]->qual) {
                                                                             $oldValQ = $v->id;
                                                                             $oldLabelQ = $v->qualification;
                                                                             $html_options_Q .= '<option selected="selected" data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
@@ -272,9 +305,26 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="resaddr" class="form-control"
+                                                                   placeholder="Residential Address"
                                                                    required
                                                                    name="resaddr" maxlength="200"
                                                                    value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_resaddr">Personal Email</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="text" id="peremail" class="form-control"
+                                                                   placeholder="Personal Email"
+                                                                   required
+                                                                   name="peremail" maxlength="100"
+                                                                   value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -288,8 +338,9 @@
                                                         <div class="col-md-10">
                                                             <input type="tel" id="landline" required
                                                                    onkeypress="return numeralsOnly();"
+                                                                   placeholder="Landline Number"
                                                                    class="form-control" name="landline" maxlength="15"
-                                                                   value="<?php echo($editemp[0]->landlineccode . $editemp[0]->landline) ?>">
+                                                                   value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
 
 
                                                             <!--<div class="form-group">
@@ -319,9 +370,10 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="tel" id="cellno1" maxlength="11" required
+                                                                   placeholder="Mobile Number (Primary)"
                                                                    class="form-control" name="cellno1"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->cellno1ccode . $editemp[0]->cellno1) ?>">
+                                                                   value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -333,8 +385,9 @@
                                                         <div class="col-md-10">
                                                             <input type="tel" id="cellno2" maxlength="11" required
                                                                    class="form-control" name="cellno2"
+                                                                   placeholder="Mobile Number (Alternate)"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->cellno2ccode . $editemp[0]->cellno2) ?>"
+                                                                   value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -371,9 +424,10 @@
                                                         <div class="col-md-10">
                                                             <input type="text" id="personnme" maxlength="70" required
                                                                    class="form-control" name="personnme"
+                                                                   placeholder="Person Name"
                                                                    style="text-transform: uppercase;"
                                                                    onkeypress="return lettersOnly_WithSpace();"
-                                                                   value="<?php echo($editemp[0]->personnme) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -387,7 +441,8 @@
                                                             <input type="tel" id="emcellno" maxlength="11" required
                                                                    class="form-control" name="emcellno"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->emcellnoccode . $editemp[0]->emcellno) ?>"
+                                                                   placeholder="Mobile Number"
+                                                                   value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -401,7 +456,8 @@
                                                             <input type="tel" id="emlandno" maxlength="8" required
                                                                    class="form-control" name="emlandno"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->emlandnoccode . $editemp[0]->emlandno) ?>"
+                                                                   placeholder="Landline No."
+                                                                   value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -449,7 +505,7 @@
                                                             $oldValQ = '';
                                                             if (isset($employeeType) && $employeeType != '') {
                                                                 foreach ($employeeType as $v) {
-                                                                    if ($v->id === $editemp[0]->ddlemptype) {
+                                                                    if (isset($editemp) && $v->id === $editemp[0]->ddlemptype) {
                                                                         $oldValQ = $v->id;
                                                                         $oldLabelQ = $v->emptype;
                                                                         $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
@@ -480,7 +536,7 @@
                                                             $oldValQ = '';
                                                             if (isset($category) && $category != '') {
                                                                 foreach ($category as $v) {
-                                                                    if ($v->id === $editemp[0]->ddlcategory) {
+                                                                    if (isset($editemp) && $v->id === $editemp[0]->ddlcategory) {
                                                                         $oldValQ = $v->id;
                                                                         $oldLabelQ = $v->category;
                                                                         $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
@@ -506,8 +562,9 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="gncno"
+                                                                   placeholder="GNC Number"
                                                                    class="form-control" name="gncno" required
-                                                                   value="<?php echo($editemp[0]->gncno) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -525,7 +582,7 @@
                                                             $oldValQ = '';
                                                             if (isset($band) && $band != '') {
                                                                 foreach ($band as $v) {
-                                                                    if ($v->id === $editemp[0]->ddlband) {
+                                                                    if (isset($editemp) && $v->id === $editemp[0]->ddlband) {
                                                                         $oldValQ = $v->id;
                                                                         $oldLabelQ = $v->band;
                                                                         $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
@@ -557,7 +614,7 @@
                                                             $oldValQ = '';
                                                             if (isset($designation) && $designation != '') {
                                                                 foreach ($designation as $v) {
-                                                                    if ($v->id === $editemp[0]->titdesi) {
+                                                                    if (isset($editemp) && $v->id === $editemp[0]->titdesi) {
                                                                         $oldValQ = $v->id;
                                                                         $oldLabelQ = $v->desig;
                                                                         $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
@@ -583,8 +640,9 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="rehiredt" required
+                                                                   placeholder="Hire / Rehire Date"
                                                                    class="form-control" name="rehiredt"
-                                                                   value="<?php echo($editemp[0]->rehiredt) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -597,8 +655,9 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="conexpiry" required
+                                                                   placeholder="Contract Expiry"
                                                                    class="form-control" name="conexpiry"
-                                                                   value="<?php echo($editemp[0]->conexpiry) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -612,7 +671,8 @@
                                                         <div class="col-md-10">
                                                             <input type="text" id="workproj" MaxLength="70" required
                                                                    class="form-control" name="workproj"
-                                                                   value="<?php echo($editemp[0]->workproj) ?>"
+                                                                   placeholder="Working Project"
+                                                                   value="<?php echo(isset($editemp[0]->workproj) ? $editemp[0]->workproj : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -625,8 +685,9 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="chargproj" required
+                                                                   placeholder="Charging Project"
                                                                    class="form-control" name="chargproj"
-                                                                   value="<?php echo($editemp[0]->chargproj) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->chargproj) ? $editemp[0]->chargproj : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -645,7 +706,7 @@
                                                             $oldValQ = '';
                                                             if (isset($location) && $location != '') {
                                                                 foreach ($location as $v) {
-                                                                    if ($v->id === $editemp[0]->ddlloc) {
+                                                                    if (isset($editemp) && $v->id === $editemp[0]->ddlloc) {
                                                                         $oldValQ = $v->id;
                                                                         $oldLabelQ = $v->location;
                                                                         $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
@@ -673,8 +734,9 @@
                                                             <input type="text" id="supernme" maxlength="70" required
                                                                    class="form-control" name="supernme"
                                                                    style="text-transform: uppercase;"
+                                                                   placeholder="Supervisor Name"
                                                                    onkeypress="return lettersOnly_WithSpace();"
-                                                                   value="<?php echo($editemp[0]->supernme) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->supernme) ? $editemp[0]->supernme : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -688,8 +750,9 @@
                                                         <div class="col-md-10">
                                                             <input type="text" id="hiresalary" maxlength="7" required
                                                                    class="form-control" name="hiresalary"
+                                                                   placeholder="Hiring Salary"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->hiresalary) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->hiresalary) ? $editemp[0]->hiresalary : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -701,13 +764,13 @@
                                                             <span id="lbl_ddlhardship">Hardship Allowance</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->ddlhardship === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->ddlhardship === 1) {
                                                                 echo '<select id="ddlhardship" data-oldval="1" data-oldlabel="Yes" name="ddlhardship" required class="form-control">';
                                                                 echo '<option data-text="" value="0">Hardship Allowance</option>';
                                                                 echo '<option data-text="Yes" selected="selected" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->ddlhardship === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->ddlhardship === 2) {
                                                                 echo '<select id="ddlhardship" data-oldval="2" data-oldlabel="No" name="ddlhardship" required class="form-control">';
                                                                 echo '<option data-text="" value="0">Hardship Allowance</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
@@ -733,8 +796,9 @@
                                                         <div class="col-md-10">
                                                             <input type="text" id="amount" MaxLength="6" required
                                                                    class="form-control" name="amount"
+                                                                   placeholder="Amount"
                                                                    onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo($editemp[0]->amount) ?>"
+                                                                   value="<?php echo(isset($editemp[0]->amount) ? $editemp[0]->amount : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -746,13 +810,13 @@
                                                             <span id="lbl_benefits">Benefits</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->benefits === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->benefits === 1) {
                                                                 echo '<select id="benefits" name="benefits" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option data-text="" value="0">Benefits</option>';
                                                                 echo '<option data-text="Yes" selected="selected" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->benefits === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->benefits === 2) {
                                                                 echo '<select id="benefits" name="benefits" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option data-text="" value="0">Benefits</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
@@ -802,13 +866,13 @@
                                                             <span id="lbl_peme">PEME</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->peme === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->peme === 1) {
                                                                 echo '<select id="peme" name="peme" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option value="0" data-text="">PEME</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->peme === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->peme === 2) {
                                                                 echo '<select id="peme" name="peme" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option value="0" data-text="">PEME</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
@@ -832,13 +896,13 @@
                                                             <span id="lbl_gop">General Orientation Program</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->gop === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->gop === 1) {
                                                                 echo '<select id="gop" name="gop" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option value="0" data-text="">General Orientation Program</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->gop === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->gop === 2) {
                                                                 echo '<select id="gop" name="gop" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option value="0" data-text="">General Orientation Program</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
@@ -864,7 +928,8 @@
                                                         <div class="col-md-10">
                                                             <input type="text" id="gopdt" required
                                                                    class="form-control" name="gopdt"
-                                                                   value="<?php echo($editemp[0]->gopdt) ?>"
+                                                                   placeholder="GOP Date"
+                                                                   value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -879,7 +944,7 @@
 
                                                             <?php
 
-                                                            if ($editemp[0]->entity === 1) {
+                                                            if (isset($editemp) && $editemp[0]->entity === 1) {
                                                                 echo '<select id="entity" name="entity" data-oldval="1" data-oldlabel="IDRL" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Entity</option>';
                                                                 echo '<option selected="selected" value="1" data-text="IDRL">IDRL</option>';
@@ -887,7 +952,7 @@
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
                                                                 echo '<option value="4" data-text="Admin Project Management">Admin Project Management</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->entity === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->entity === 2) {
                                                                 echo '<select id="entity" name="entity" data-oldval="2" data-oldlabel="NRL" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Entity</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
@@ -895,7 +960,7 @@
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
                                                                 echo '<option value="4" data-text="Admin Project Management">Admin Project Management</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->entity === 3) {
+                                                            } else if (isset($editemp) && $editemp[0]->entity === 3) {
                                                                 echo '<select id="entity" name="entity" data-oldval="3" data-oldlabel="DMU" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Entity</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
@@ -903,7 +968,7 @@
                                                                 echo '<option selected="selected" value="3" data-text="DMU">DMU</option>';
                                                                 echo '<option value="4" data-text="Admin Project Management">Admin Project Management</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->entity === 4) {
+                                                            } else if (isset($editemp) && $editemp[0]->entity === 4) {
                                                                 echo '<select id="entity" name="entity" data-oldval="4" data-oldlabel="Admin Project Management" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Entity</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
@@ -932,7 +997,7 @@
                                                             <span id="lbl_dept">Department</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->dept === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->dept === 1) {
                                                                 echo '<select id="dept" name="dept" data-oldval="1" data-oldlabel="Paeds" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Department</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Paeds">Paeds</option>';
@@ -940,7 +1005,7 @@
                                                                 echo '<option value="3" data-text="COE">COE</option>';
                                                                 echo '<option value="4" data-text="IGHD">IGHD</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->dept === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->dept === 2) {
                                                                 echo '<select id="dept" name="dept" data-oldval="2" data-oldlabel="Obgyn" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Department</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
@@ -948,7 +1013,7 @@
                                                                 echo '<option value="3" data-text="COE">COE</option>';
                                                                 echo '<option value="4" data-text="IGHD">IGHD</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->dept === 3) {
+                                                            } else if (isset($editemp) && $editemp[0]->dept === 3) {
                                                                 echo '<select id="dept" name="dept" data-oldval="3" data-oldlabel="COE" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Department</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
@@ -956,7 +1021,7 @@
                                                                 echo '<option selected="selected" value="3" data-text="COE">COE</option>';
                                                                 echo '<option value="4" data-text="IGHD">IGHD</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->dept === 4) {
+                                                            } else if (isset($editemp) && $editemp[0]->dept === 4) {
                                                                 echo '<select id="dept" name="dept" data-oldval="4" data-oldlabel="IGHD" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Department</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
@@ -985,13 +1050,13 @@
                                                             <span id="lbl_cardissue">ID Card Issued</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->cardissue === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->cardissue === 1) {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option value="0" data-text="">ID Card Issued</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
-                                                            } else if ($editemp[0]->cardissue === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->cardissue === 2) {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option value="0" data-text="">ID Card Issued</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
@@ -1015,12 +1080,12 @@
                                                             <span id="lbl_letterapp">Letter Of Appointment Received</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->letterapp === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->letterapp === 1) {
                                                                 echo '<select id="letterapp" name="letterapp" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Letter Of Appointment Received';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
-                                                            } else if ($editemp[0]->letterapp === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->letterapp === 2) {
                                                                 echo '<select id="letterapp" name="letterapp" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Letter Of Appointment Received';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
@@ -1046,12 +1111,12 @@
                                                             <span id="lbl_confirmation">Confirmation</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->confirmation === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->confirmation === 1) {
                                                                 echo '<select id="confirmation" name="confirmation" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Confirmation</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
-                                                            } else if ($editemp[0]->confirmation === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->confirmation === 2) {
                                                                 echo '<select id="confirmation" name="confirmation" data-oldval="2" data-oldlabel="No" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Confirmation</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
@@ -1075,12 +1140,12 @@
                                                             <span id="lbl_status">Status</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <?php if ($editemp[0]->status === 1) {
+                                                            <?php if (isset($editemp) && $editemp[0]->status === 1) {
                                                                 echo '<select id="status" name="status" data-oldval="1" data-oldlabel="Active" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Status</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Active">Active</option>';
                                                                 echo '<option value="2" data-text="InActive">InActive</option>';
-                                                            } else if ($editemp[0]->status === 2) {
+                                                            } else if (isset($editemp) && $editemp[0]->status === 2) {
                                                                 echo '<select id="status" name="status" data-oldval="2" data-oldlabel="InActive" required class="form-control">';
                                                                 echo '<option value="0" data-text="">Status</option>';
                                                                 echo '<option value="1" data-text="Active">Active</option>';
@@ -1107,7 +1172,7 @@
                                                             <textarea id="remarks" rows="5" required
                                                                       class="form-control" name="remarks"
                                                                       placeholder="Remarks"
-                                                            ><?php echo($editemp[0]->remarks) ?></textarea>
+                                                            ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1116,13 +1181,18 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
-                                                            <span>Upload Pic</span>
+                                                            <?php if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                                echo '<span>Replace Pic</span>';
+                                                            } else {
+                                                                echo '<span>Upload Pic</span>';
+                                                            }
+                                                            ?>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="file" class="custom-file-input" required
                                                                    id="pic" name="pic" accept="image/jpeg">
 
-                                                            <?php if (isset($editemp[0]->pic)) {
+                                                            <?php if (isset($editemp) && isset($editemp[0]->pic)) {
                                                                 echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
                                                                    for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
                                                             } else {
@@ -1139,14 +1209,18 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
-                                                            <span>Upload Docs</span>
+                                                            <?php if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                                echo '<span>Add Docs</span>';
+                                                            } else {
+                                                                echo '<span>Upload Docs</span>';
+                                                            }
+                                                            ?>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="file" class="custom-file-input" required
                                                                    id="doc" name="doc" accept="application/pdf">
 
-                                                            <?php if (isset($editemp[0]->doc)) {
-
+                                                            <?php if (isset($editemp) && isset($editemp[0]->doc)) {
                                                                 echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
                                                                    for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
 
@@ -1283,7 +1357,7 @@
 
 
     $(document).on("click", "#cmdCancel", function () {
-        window.location.href = '<?php echo base_url('index.php/employee_entry'); ?>';
+        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry'); ?>';
     });
 
 
@@ -1367,6 +1441,32 @@
     }
 
 
+    function ValidateEmail(evt) {
+
+        var iserr = true;
+
+        evt = (evt) ? evt : event;
+        var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+            ((evt.which) ? evt.which : 0));
+
+        if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+            (charCode < 97 || charCode > 122) && charCode != 46) {
+            alert("Please enter valid string value ");
+            iserr = false;
+        }
+
+        return iserr;
+    }
+
+
+    $(document).on("blur", "#peremail", function () {
+        if ($("#peremail").val().indexOf('.') == -1 || $("#peremail").val().indexOf('@') == -1) {
+            alert('Please enter valid email address');
+            return false;
+        }
+    });
+
+
     function numeralsOnly_decimal(evt) {
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
@@ -1394,7 +1494,7 @@
 
 
     function getEmpType_Ajax() {
-        CallAjax('<?php echo base_url('index.php/Employee_entry/getEmpType'); ?>', {}, 'POST', function (result) {
+        CallAjax('<?php echo base_url('index.php/hr_controllers/Employee_entry/getEmpType'); ?>', {}, 'POST', function (result) {
             if (result != '' && JSON.parse(result).length > 0) {
                 var a = JSON.parse(result);
                 try {
@@ -1599,7 +1699,7 @@
                 formData.append('emlandnoccode', "+" + arr[5]);
 
 
-                CallAjax('<?php echo base_url('index.php/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
                     //hideloader();
 
                     if (result == 1) {
@@ -1992,7 +2092,7 @@
 
         if (flag == 0) {
             // showloader();
-            CallAjax('<?php echo base_url('index.php/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
                 //hideloader();
                 if (result == 1) {
                     toastMsg('Success', 'Record Saved Successfully', 'success');
@@ -2198,13 +2298,9 @@
                     formData.append('doc', $("#lbl_doc").html());
                 }
 
-                formData.append('landlineccode','+92');
-                formData.append('cellno1ccode','+92');
-                formData.append('emcellnoccode','+92');
-                formData.append('emlandnoccode','+92');
 
 
-                CallAjax('<?php echo base_url('index.php/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
                     //hideloader();
 
                     if (result == 1) {
@@ -2320,6 +2416,28 @@
                             flag = 1;
                         }
 
+                    } else if (i[0] == "peremail") {
+
+                        var inp = $('#' + i[0]);
+
+                        if (inp.val() == "" || inp.val() == "undefined" || inp.val() == "0" || inp.val() == "undefined" || inp.val() == "NULL" || inp.val() == "null" || inp.val() == null) {
+                            $("#lblerr_peremail").remove();
+                            inp.after('<span id="lblerr_peremail" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field</span>');
+                            flag = 1;
+                        } else {
+
+                            if (inp.val() != "") {
+
+                                if (inp.val().indexOf('.') == -1 || inp.val().indexOf('@') == -1) {
+
+                                    $("#lblerr_peremail").remove();
+                                    inp.after('<span id="lblerr_peremail" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Invalid personal email</span>');
+                                    flag = 1;
+
+                                }
+                            }
+                        }
+
                     } else {
 
                         var inp = $('#' + i[0]);
@@ -2380,7 +2498,6 @@
                 }
             }
         }
-
 
 
         if (flag == 0) {
@@ -3457,7 +3574,7 @@
             }
 
 
-            CallAjax('<?php echo base_url('index.php/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
                 //hideloader();
 
                 if (result == 1) {
@@ -3578,7 +3695,7 @@
             }
 
 
-            CallAjax('<?php echo base_url('index.php/employee_entry/addRecord_SaveDraft'); ?>', formData, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord_SaveDraft'); ?>', formData, 'POST', function (result) {
                 //hideloader();
 
                 if (result == 1) {

@@ -11,6 +11,7 @@ class Employee_entry extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
+        $this->load->model('hr_model/Mempmodel');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -19,7 +20,6 @@ class Employee_entry extends CI_controller
     function index()
     {
         $data = array();
-        
 
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
@@ -29,17 +29,17 @@ class Employee_entry extends CI_controller
             "result" => "View Dashboard Users page. Fucntion: index()");
         $Custom->trackLogs($trackarray, "user_logs");
 
-        $data['employeeType'] = $Custom->selectAllQuery('emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('category', 'id');
-        $data['qualification'] = $Custom->selectAllQuery('qualification', 'id');
-        $data['band'] = $Custom->selectAllQuery('band', 'id');
-        $data['designation'] = $Custom->selectAllQuery('desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
+        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
+        $data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
+        $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
+        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('employee_entry', $data);
+        $this->load->view('hr_views/employee_entry', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }
@@ -246,7 +246,7 @@ class Employee_entry extends CI_controller
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
 
 
-            $InsertData = $Custom->Insert($formArray, 'id', 'forms', 'N');
+            $InsertData = $Custom->Insert($formArray, 'id', 'employee', 'N');
 
 
             if (isset($_FILES["imgfile"]["name"])) {
@@ -433,7 +433,9 @@ class Employee_entry extends CI_controller
 
             $id = $_SESSION['id'];
 
-            $old_data = $Custom->getEmployeeData($id);
+            $Mempmdel = new Mempmodel();
+
+            $old_data = $Mempmdel->getEmployeeData($id);
 
             $this->AuditTrials();
 
@@ -473,7 +475,7 @@ class Employee_entry extends CI_controller
 
                     unset($formArray['results']);
 
-                    $EditData = $Custom->Edit($formArray, 'id', $id, 'forms');
+                    $EditData = $Custom->Edit($formArray, 'id', $id, 'employee');
                 }
             }
 
@@ -582,7 +584,7 @@ class Employee_entry extends CI_controller
 
                 $ins_data["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
 
-                $InsertData = $Custom->Insert($ins_data, 'ID', 'tblAuditTrials', 'N');
+                $InsertData = $Custom->Insert($ins_data, 'ID', 'hr_AuditTrials', 'N');
             }
         } else {
             echo 2;
@@ -718,7 +720,7 @@ class Employee_entry extends CI_controller
 
 
         $Custom = new Custom();
-        $InsertData = $Custom->Insert($formArray, 'id', 'forms', 'N');
+        $InsertData = $Custom->Insert($formArray, 'id', 'employee', 'N');
 
 
         if (isset($_FILES["imgfile"]["name"])) {
@@ -816,21 +818,23 @@ class Employee_entry extends CI_controller
     {
         $Custom = new Custom();
 
-        $data['employeeType'] = $Custom->selectAllQuery('emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('category', 'id');
-        $data['qualification'] = $Custom->selectAllQuery('qualification', 'id');
-        $data['band'] = $Custom->selectAllQuery('band', 'id');
-        $data['designation'] = $Custom->selectAllQuery('desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
+        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
+        $data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
+        $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
+        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
 
 
-        $data['editemp'] = $Custom->getDataFromTableByID($id, 'forms');
+        $Mempmdel = new Mempmodel();
+
+        $data['editemp'] = $Mempmdel->getDataFromTableByID($id, 'hr_employee');
 
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('employee_entry', $data);
+        $this->load->view('hr_views/employee_entry', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
 
@@ -839,17 +843,16 @@ class Employee_entry extends CI_controller
 
     public function getSupervisorName($supernme)
     {
-        echo $supernme;
-        exit();
-        $Custom = new Custom();
 
-        $data['datasuper'] = $Custom->getSupervisorName($supernme, 'forms');
+        $Mempmdel = new Mempmodel();
+
+        $data['datasuper'] = $Mempmdel->getSupervisorName($supernme, 'hr_employee');
 
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('employee_entry', $data);
+        $this->load->view('hr_views/employee_entry', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
 

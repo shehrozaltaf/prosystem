@@ -4,3 +4,687 @@ Action: Login Success
 Result: User admin1: Login Success
 PostData: 
 -------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 9:55 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 9:55 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:04 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:04 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:05 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:05 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:06 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:06 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:08 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:10 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:10 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:11 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:11 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:13 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:14 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:14 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:15 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:15 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:16 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:16 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:16 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:16 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:16 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:17 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:19 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 10:35 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:17 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:18 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:19 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:20 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:21 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:22 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:22 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:23 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:24 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:24 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:29 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:30 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:30 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:31 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:32 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:33 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:34 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:36 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:36 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:36 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:41 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:43 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:45 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:45 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:46 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:48 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:48 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:59 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:59 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:59 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 11:59 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:04 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:04 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:05 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:05 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:05 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:05 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:05 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:06 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:07 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:07 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:07 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:07 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:07 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:08 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:08 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:09 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:10 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:10 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:10 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:10 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:11 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:11 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:12 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:12 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:13 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:15 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:16 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:21 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:22 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:22 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:22 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:22 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:24 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:25 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:25 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:25 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:29 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:30 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 12:30 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:15 pm
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:15 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:16 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:16 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:17 pm
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:18 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:18 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:18 pm
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:18 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:18 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:19 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:19 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:30 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:31 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:39 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:40 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 2:40 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - October-9-2020 4:28 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------

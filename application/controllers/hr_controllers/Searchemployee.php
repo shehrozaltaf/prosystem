@@ -16,6 +16,7 @@ class Searchemployee extends CI_Controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
+        $this->load->model('hr_model/Mempmodel');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -26,12 +27,10 @@ class Searchemployee extends CI_Controller
         $data = array();
 
         $MSettings = new MSettings();
+        $Mempmodel = new Mempmodel();
         $Custom = new Custom();
 
-        $data['datatbl'] = $Custom->selectAll("select id, case when ddlemptype = 1 then 'Payroll' when ddlemptype = 2 then 'Service Contract' when ddlemptype = 3 then 'Consultancy Contract' end 'EmployeeType',
-      case when ddlcategory = 1 then 'Academic' when ddlcategory = 2 then 'Administration' when ddlcategory = 3 then 'Allied Health' end 'EmployeeCategory',
-empno 'EmployeeNo', empname 'EmployeeName'
-from forms");
+        $data['datatbl'] = $Mempmodel->getAllEmployee();
 
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         /*==========Log=============*/
@@ -52,7 +51,7 @@ from forms");
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('searchemployee', $data);
+        $this->load->view('hr_views/searchemployee', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }
@@ -117,8 +116,6 @@ from forms");
             </li>';
         echo $Menu;
     }
-
-
 
 
 }

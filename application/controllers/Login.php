@@ -29,7 +29,7 @@ class Login extends CI_Controller
         $SeesionInfo = $this->session->all_userdata();
 
         if (isset($_SESSION['login']['idUser'])) {
-            redirect(base_url('index.php/employee_entry'));
+            redirect(base_url('index.php/hr_controllers/employee_entry'), refresh);
         } else {
             $this->load->view('auth/login', $data);
         }
