@@ -1,0 +1,6 @@
+UserIPAddress: 192.168.56.1 - October-9-2020 9:41 am
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
