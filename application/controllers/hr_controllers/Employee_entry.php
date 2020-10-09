@@ -19,6 +19,7 @@ class Employee_entry extends CI_controller
     function index()
     {
         $data = array();
+        
 
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
