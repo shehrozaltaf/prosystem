@@ -179,7 +179,7 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
                                                                 <span id="lbl_empname">Official Email<br/><span
-                                                                            style="color: #FF0000">(without aku.edu)<span></span>
+                                                                            style="font-weight: bold">(without aku.edu)<span></span>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <input type="text" id="offemail"
@@ -197,7 +197,7 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
                                                                 <span id="lbl_empname">Full Name <br><span
-                                                                            style="color: #FF0000">(Use Capital Letters)</span></span>
+                                                                            style="font-weight: bold">(Use Capital Letters)</span></span>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <input type="text" id="empname"
@@ -247,9 +247,34 @@
                                                             <div class="col-md-2">
                                                                 <span id="lbl_qual">Highest Qualification</span>
                                                             </div>
-                                                            <div class="col-md-10">
+                                                            <div class="col-md-2">
                                                                 <?php
-                                                                $html_options_Q = '<option value="0">Highest Qualification</option>';
+
+                                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                                $htmlQ = '';
+                                                                $oldLabelQ = '';
+                                                                $oldValQ = '';
+                                                                if (isset($degree) && $degree != '') {
+                                                                    foreach ($degree as $v) {
+                                                                        if (isset($editemp) && $v->id === $editemp[0]->degree) {
+                                                                            $oldValQ = $v->id;
+                                                                            $oldLabelQ = $v->degree;
+                                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
+                                                                        } else {
+                                                                            $html_options_Q .= '<option data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                $htmlQ .= '<select class="select2 form-control" id="degree"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="degree">';
+                                                                $htmlQ .= $html_options_Q;
+                                                                $htmlQ .= '</select>';
+                                                                echo $htmlQ;
+
+                                                                /******* qualification code below *********/
+
+                                                                /*$html_options_Q = '<option value="0">&nbsp;</option>';
                                                                 $htmlQ = '';
                                                                 $oldLabelQ = '';
                                                                 $oldValQ = '';
@@ -268,10 +293,40 @@
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="qual">';
                                                                 $htmlQ .= $html_options_Q;
                                                                 $htmlQ .= '</select>';
-                                                                echo $htmlQ;
+                                                                echo $htmlQ;*/
                                                                 ?>
 
                                                             </div>
+
+                                                            <div class="col-md-2">
+                                                                <?php
+
+                                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                                $htmlQ = '';
+                                                                $oldLabelQ = '';
+                                                                $oldValQ = '';
+                                                                if (isset($field) && $field != '') {
+                                                                    foreach ($field as $v) {
+                                                                        if (isset($editemp) && $v->id === $editemp[0]->field) {
+                                                                            $oldValQ = $v->id;
+                                                                            $oldLabelQ = $v->field;
+                                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
+                                                                        } else {
+                                                                            $html_options_Q .= '<option data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                $htmlQ .= '<select class="select2 form-control" id="field"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="field">';
+                                                                $htmlQ .= $html_options_Q;
+                                                                $htmlQ .= '</select>';
+                                                                echo $htmlQ;
+
+                                                                ?>
+
+                                                            </div>
+
                                                         </div>
                                                     </div>
 
@@ -499,7 +554,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
-                                                            $html_options_Q = '<option value="0">Employment Type</option>';
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
                                                             $oldLabelQ = '';
                                                             $oldValQ = '';
@@ -530,7 +585,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
-                                                            $html_options_Q = '<option value="0">Job</option>';
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
                                                             $oldLabelQ = '';
                                                             $oldValQ = '';
@@ -576,7 +631,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
-                                                            $html_options_Q = '<option value="0">Band</option>';
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
                                                             $oldLabelQ = '';
                                                             $oldValQ = '';
@@ -608,7 +663,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
-                                                            $html_options_Q = '<option value="0">Designation</option>';
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
                                                             $oldLabelQ = '';
                                                             $oldValQ = '';
@@ -700,7 +755,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
-                                                            $html_options_Q = '<option value="0">Location</option>';
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
                                                             $oldLabelQ = '';
                                                             $oldValQ = '';
@@ -766,19 +821,19 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->ddlhardship === 1) {
                                                                 echo '<select id="ddlhardship" data-oldval="1" data-oldlabel="Yes" name="ddlhardship" required class="form-control">';
-                                                                echo '<option data-text="" value="0">Hardship Allowance</option>';
+                                                                echo '<option data-text="" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" selected="selected" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->ddlhardship === 2) {
                                                                 echo '<select id="ddlhardship" data-oldval="2" data-oldlabel="No" name="ddlhardship" required class="form-control">';
-                                                                echo '<option data-text="" value="0">Hardship Allowance</option>';
+                                                                echo '<option data-text="" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
                                                                 echo '<option data-text="No" selected="selected" value="2">No</option>';
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="ddlhardship" data-oldval="" data-oldlabel="" name="ddlhardship" required class="form-control">';
-                                                                echo '<option data-text="" selected="selected" value="0">Hardship Allowance</option>';
+                                                                echo '<option data-text="" selected="selected" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
@@ -812,19 +867,19 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->benefits === 1) {
                                                                 echo '<select id="benefits" name="benefits" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option data-text="" value="0">Benefits</option>';
+                                                                echo '<option data-text="" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" selected="selected" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->benefits === 2) {
                                                                 echo '<select id="benefits" name="benefits" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option data-text="" value="0">Benefits</option>';
+                                                                echo '<option data-text="" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
                                                                 echo '<option data-text="No" selected="selected" value="2">No</option>';
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="benefits" name="benefits" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option data-text="" selected="selected" value="0">Benefits</option>';
+                                                                echo '<option data-text="" selected="selected" value="0">&nbsp;</option>';
                                                                 echo '<option data-text="Yes" value="1">Yes</option>';
                                                                 echo '<option data-text="No" value="2">No</option>';
                                                                 echo '</select>';
@@ -868,19 +923,19 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->peme === 1) {
                                                                 echo '<select id="peme" name="peme" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option value="0" data-text="">PEME</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->peme === 2) {
                                                                 echo '<select id="peme" name="peme" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option value="0" data-text="">PEME</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option selected="selected" value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="peme" name="peme" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">PEME</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
@@ -898,19 +953,19 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->gop === 1) {
                                                                 echo '<select id="gop" name="gop" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option value="0" data-text="">General Orientation Program</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->gop === 2) {
                                                                 echo '<select id="gop" name="gop" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option value="0" data-text="">General Orientation Program</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option selected="selected" value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="gop" name="gop" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">General Orientation Program</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
@@ -946,7 +1001,7 @@
 
                                                             if (isset($editemp) && $editemp[0]->entity === 1) {
                                                                 echo '<select id="entity" name="entity" data-oldval="1" data-oldlabel="IDRL" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Entity</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="IDRL">IDRL</option>';
                                                                 echo '<option value="2" data-text="NRL">NRL</option>';
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
@@ -954,7 +1009,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->entity === 2) {
                                                                 echo '<select id="entity" name="entity" data-oldval="2" data-oldlabel="NRL" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Entity</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
                                                                 echo '<option selected="selected" value="2" data-text="NRL">NRL</option>';
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
@@ -962,7 +1017,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->entity === 3) {
                                                                 echo '<select id="entity" name="entity" data-oldval="3" data-oldlabel="DMU" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Entity</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
                                                                 echo '<option value="2" data-text="NRL">NRL</option>';
                                                                 echo '<option selected="selected" value="3" data-text="DMU">DMU</option>';
@@ -970,7 +1025,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->entity === 4) {
                                                                 echo '<select id="entity" name="entity" data-oldval="4" data-oldlabel="Admin Project Management" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Entity</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
                                                                 echo '<option value="2" data-text="NRL">NRL</option>';
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
@@ -978,7 +1033,7 @@
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="entity" name="entity" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">Entity</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="IDRL">IDRL</option>';
                                                                 echo '<option value="2" data-text="NRL">NRL</option>';
                                                                 echo '<option value="3" data-text="DMU">DMU</option>';
@@ -999,7 +1054,7 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->dept === 1) {
                                                                 echo '<select id="dept" name="dept" data-oldval="1" data-oldlabel="Paeds" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Department</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Paeds">Paeds</option>';
                                                                 echo '<option value="2" data-text="Obgyn">Obgyn</option>';
                                                                 echo '<option value="3" data-text="COE">COE</option>';
@@ -1007,7 +1062,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->dept === 2) {
                                                                 echo '<select id="dept" name="dept" data-oldval="2" data-oldlabel="Obgyn" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Department</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
                                                                 echo '<option selected="selected" value="2" data-text="Obgyn">Obgyn</option>';
                                                                 echo '<option value="3" data-text="COE">COE</option>';
@@ -1015,7 +1070,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->dept === 3) {
                                                                 echo '<select id="dept" name="dept" data-oldval="3" data-oldlabel="COE" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Department</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
                                                                 echo '<option value="2" data-text="Obgyn">Obgyn</option>';
                                                                 echo '<option selected="selected" value="3" data-text="COE">COE</option>';
@@ -1023,7 +1078,7 @@
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->dept === 4) {
                                                                 echo '<select id="dept" name="dept" data-oldval="4" data-oldlabel="IGHD" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Department</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
                                                                 echo '<option value="2" data-text="Obgyn">Obgyn</option>';
                                                                 echo '<option value="3" data-text="COE">COE</option>';
@@ -1031,7 +1086,7 @@
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="dept" name="dept" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">Department</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Paeds">Paeds</option>';
                                                                 echo '<option value="2" data-text="Obgyn">Obgyn</option>';
                                                                 echo '<option value="3" data-text="COE">COE</option>';
@@ -1052,19 +1107,19 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->cardissue === 1) {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option value="0" data-text="">ID Card Issued</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->cardissue === 2) {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option value="0" data-text="">ID Card Issued</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option selected="selected" value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             } else {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">ID Card Issued</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes>Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
@@ -1082,24 +1137,24 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->letterapp === 1) {
                                                                 echo '<select id="letterapp" name="letterapp" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Letter Of Appointment Received';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->letterapp === 2) {
                                                                 echo '<select id="letterapp" name="letterapp" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Letter Of Appointment Received';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option selected="selected" value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             } else {
                                                                 echo '<select id="letterapp" name="letterapp" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">Letter Of Appointment Received';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             }
                                                             ?>
-                                                            </option>
-
-                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1113,22 +1168,24 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->confirmation === 1) {
                                                                 echo '<select id="confirmation" name="confirmation" data-oldval="1" data-oldlabel="Yes" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Confirmation</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->confirmation === 2) {
                                                                 echo '<select id="confirmation" name="confirmation" data-oldval="2" data-oldlabel="No" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Confirmation</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option selected="selected" value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             } else {
                                                                 echo '<select id="confirmation" name="confirmation" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">Confirmation</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
+                                                                echo '</select>';
                                                             }
                                                             ?>
-                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1142,22 +1199,24 @@
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp[0]->status === 1) {
                                                                 echo '<select id="status" name="status" data-oldval="1" data-oldlabel="Active" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Status</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option selected="selected" value="1" data-text="Active">Active</option>';
                                                                 echo '<option value="2" data-text="InActive">InActive</option>';
+                                                                echo '</select>';
                                                             } else if (isset($editemp) && $editemp[0]->status === 2) {
                                                                 echo '<select id="status" name="status" data-oldval="2" data-oldlabel="InActive" required class="form-control">';
-                                                                echo '<option value="0" data-text="">Status</option>';
+                                                                echo '<option value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Active">Active</option>';
                                                                 echo '<option selected="selected" value="2" data-text="InActive">InActive</option>';
+                                                                echo '</select>';
                                                             } else {
                                                                 echo '<select id="status" name="status" data-oldval="" data-oldlabel="" required class="form-control">';
-                                                                echo '<option selected="selected" value="0" data-text="">Status</option>';
+                                                                echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
                                                                 echo '<option value="1" data-text="Active">Active</option>';
                                                                 echo '<option value="2" data-text="InActive">InActive</option>';
+                                                                echo '</select>';
                                                             }
                                                             ?>
-                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1522,7 +1581,9 @@
         $('#qual').css('border', '1px solid #babfc7');
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
+
+        //$('#qual').css('border', '1px solid #babfc7');
+
         $('#landline').css('border', '1px solid #babfc7');
         $('#cellno1').css('border', '1px solid #babfc7');
         $('#cellno2').css('border', '1px solid #babfc7');
@@ -1555,6 +1616,8 @@
         $('#remarks').css('border', '1px solid #babfc7');
         $('#pic').css('border', '1px solid #babfc7');
         $('#doc').css('border', '1px solid #babfc7');
+        $('#degree').css('border', '1px solid #babfc7');
+        $('#field').css('border', '1px solid #babfc7');
 
         var iserror = false;
 
@@ -1733,7 +1796,9 @@
         $('#ddlcategory').css('border', '1px solid #babfc7');
         $('#empno').css('border', '1px solid #babfc7');
         $('#empname').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
+
+        //$('#qual').css('border', '1px solid #babfc7');
+
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
         $('#qual').css('border', '1px solid #babfc7');
@@ -1769,6 +1834,8 @@
         $('#remarks').css('border', '1px solid #babfc7');
         $('#pic').css('border', '1px solid #babfc7');
         $('#doc').css('border', '1px solid #babfc7');
+        $('#degree').css('border', '1px solid #babfc7');
+        $('#field').css('border', '1px solid #babfc7');
 
         var iserror = false;
         var isaudit = false;
@@ -2297,7 +2364,6 @@
                 } else {
                     formData.append('doc', $("#lbl_doc").html());
                 }
-
 
 
                 CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {

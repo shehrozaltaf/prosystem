@@ -31,7 +31,11 @@ class Employee_entry extends CI_controller
 
         $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
         $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
-        $data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+        //$data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+
+        $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
+        $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
+
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
@@ -820,7 +824,13 @@ class Employee_entry extends CI_controller
 
         $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
         $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
-        $data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+
+        //$data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
+
+
+        $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
+        $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
+
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');

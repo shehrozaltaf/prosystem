@@ -22,14 +22,14 @@ class Mempmodel extends CI_Model
 
     function getDataFromTableByID($id)
     {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate FROM hr_employee where id='$id'");
+        $query = $this->db->query("SELECT e.id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,e.degree,e.field,d.id id1,d.degree degree1,f.id idf,f.field ffield FROM hr_employee e inner join hr_degree d on e.degree = d.id inner join hr_field f on e.field = f.id where e.id='$id'");
         return $query->result();
     }
 
 
     function getSupervisorName($supernme)
     {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate FROM hr_employee where supernme like '" . $supernme . "%'");
+        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where supernme like '" . $supernme . "%'");
 
         echo $supernme;
 
@@ -39,7 +39,7 @@ class Mempmodel extends CI_Model
 
     function getEmployeeData($id)
     {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate FROM hr_employee where id='$id'");
+        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where id='$id'");
 
         foreach ($query->result() as $row) {
             $results['results'] = array(
@@ -87,7 +87,9 @@ class Mempmodel extends CI_Model
                 "status" => $row->status,
                 "remarks" => $row->remarks,
                 "pic" => $row->pic,
-                "doc" => $row->doc
+                "doc" => $row->doc,
+                "degree" => $row->degree,
+                "field" => $row->field
             );
         }
 
