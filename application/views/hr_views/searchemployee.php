@@ -4,7 +4,11 @@
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/fixedHeader.bootstrap.min.css">
 
-
+<style>
+    .modal td, th {
+        padding: 4px 10px;
+    }
+</style>
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -16,10 +20,9 @@
                         <h2 class="content-header-title float-left mb-0">Employee Search</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="searchemployee">Employee Search</a>
-                                </li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Employee Search</a></li>
                             </ol>
                         </div>
                     </div>
@@ -37,8 +40,19 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p class="float-right h4">
+                                                    <label for="CheckAll">Check All</label>
+                                                    <input type="checkbox" name="CheckAll" value="Check All"
+                                                           id="CheckAll" onclick="checkAll(this)"/>
+                                                </p>
+                                            </div>
+                                        </div>
                                         <div class="table-responsive">
+
                                             <table class="table table-striped childTable" id="empTable">
+
                                                 <thead>
                                                 <tr>
                                                     <th>S.No</th>
@@ -47,6 +61,7 @@
                                                     <th>Employee No</th>
                                                     <th>Employee Name</th>
                                                     <th>Action</th>
+                                                    <th>Check</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -57,7 +72,7 @@
                                                         $sno++;
                                                         ?>
 
-                                                        <tr>
+                                                        <tr class="fgtr">
                                                             <td>
                                                                 <?php echo $sno ?>
                                                             </td>
@@ -86,12 +101,26 @@
                                                                     </a>
                                                                 <?php } ?>
                                                             </td>
+                                                            <td><input type="checkbox" class="checkboxes"
+                                                                       data-emp="<?php echo $rows->EmployeeNo ?>"
+                                                                       name="locked_clusters" value="1"
+                                                                       onclick="updBtnToggle()"
+                                                                       id="locked_clusters_<?php echo $key ?>"/></td>
                                                         </tr>
                                                     <?php }
                                                 } ?>
 
                                                 </tbody>
                                             </table>
+                                        </div>
+
+                                        <div class="row updBtn hide">
+                                            <div class="col-sm-12">
+                                                <button type="button"
+                                                        onclick="updBtnModal()"
+                                                        id="btn-Upd" class="btn bg-secondary white addbtn">Update All
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +132,6 @@
         </div>
     </div>
 </div>
-
 
 <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
     <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
@@ -127,6 +155,76 @@
     </div>
 <?php } ?>
 
+
+<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+    <div class="modal fade text-left" id="editEmpModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel_editEmpModal"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_editEmpModal">Edit Employees</h4>
+                    <input type="hidden" id="delete_idPage" name="delete_idPage">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to edit these employees?</p>
+                    <div class="model_htmlcontent"></div>
+                    <table width='100%'>
+                        <tr>
+                            <th width='30%'>Field Name</th>
+                            <th width='30%'>Value</th>
+                            <th width='30%'>Eff Date</th>
+                        </tr>
+
+                        <tr>
+                            <td class='project'>Project</td>
+                            <td class='summaryNewVal'>
+                                <select id="upd_bulkProject" name="upd_bulkProject" class=" select2">
+                                    <option>Select Project</option>
+                                    <?php
+                                    if (isset($project) && $project != '') {
+                                        foreach ($project as $k => $v) {
+                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td class='SummaryEftDate'>
+                                <input id='dt_' name='dt_' type='text' class='form-control pickadate-short-string'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='project'>Location</td>
+                            <td class='summaryNewVal'>
+                                <select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2">
+                                    <option>Select Location</option>
+                                    <?php
+                                    if (isset($location) && $location != '') {
+                                        foreach ($location as $k => $v) {
+                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td class='SummaryEftDate'>
+                                <input id='dt_' name='dt_' type='text' class='form-control pickadate-short-string'/>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updBtnSave()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+
 <!-- END: Content-->
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
@@ -145,6 +243,8 @@
 <!-- END: Page JS-->
 
 <script>
+
+
     $(document).ready(function () {
 
         $('#empTable').DataTable({
@@ -193,6 +293,103 @@
         });
 
     });
+
+    function updBtnModal() {
+        var employees = [];
+        var employees_no = '';
+        var count = $('.fgtr').find('.checkboxes');
+        var empHtml = '';
+        var str = '';
+        for (var i = 0; i < count.length; i++) {
+            employees_no = $(count[i]).attr('data-emp');
+            if ($(count[i]).is(':checked')) {
+
+                employees.push({'employees_no': employees_no});
+            }
+        }
+        if (employees.length >= 1) {
+            $.each(employees, function (i, v) {
+                if (i == 0) {
+                    empHtml += v.employees_no ;
+                } else {
+                    empHtml += ', ' + v.employees_no;
+                }
+            });
+            str += '<p>Employee: <span  class="danger">' + empHtml + '</span></p>';
+            $(".model_htmlcontent").html(str);
+            $("#editEmpModal").modal('show');
+            pickDate();
+        } else {
+            toastMsg('Employee', 'Please select Employee', 'error');
+        }
+    }
+
+    function updBtnSave() {
+
+        var data = {};
+        var employees = [];
+        var employees_no = '';
+        var count = $('.fgtr').find('.checkboxes');
+        for (var i = 0; i < count.length; i++) {
+            employees_no = $(count[i]).attr('data-emp');
+            if ($(count[i]).is(':checked')) {
+                employees.push({'employees_no': employees_no});
+            }
+        }
+        if (employees.length >= 1) {
+            $('#btn-Edit').css('display', 'none');
+            data['clusters'] = employees;
+            /*CallAjax("< ?php echo base_url() . 'index.php/Cluster_lock/setLock' ?>", data, "POST", function (Result) {
+                if (Result == 1) {
+                    toastMsg('Success', 'Successfully Changed', 'success');
+                    setTimeout(function () {
+                        $('#btn-Edit').css('display', 'block');
+                        window.location.reload();
+                    }, 2000);
+                } else if (Result == 3) {
+                    toastMsg('Error', 'Invalid Cluster', 'error');
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            });*/
+        } else {
+            toastMsg('Cluster', 'Please select Cluster', 'error');
+        }
+    }
+
+    function updBtnToggle() {
+        var employees = [];
+        var employees_no = '';
+        var count = $('.fgtr').find('.checkboxes');
+        for (var i = 0; i < count.length; i++) {
+            employees_no = $(count[i]).attr('data-emp');
+            if ($(count[i]).is(':checked')) {
+                employees.push({'employees_no': employees_no});
+            }
+        }
+        if (employees.length >= 1) {
+            $('.updBtn').removeClass('hide').addClass('show');
+        } else {
+            $('.updBtn').removeClass('show').addClass('hide');
+        }
+    }
+
+    function checkAll(ele) {
+        var checkboxes = document.getElementsByTagName('input');
+        if (ele.checked) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = true;
+                }
+            }
+        } else {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    }
 
 
     function getEdit(obj) {
