@@ -480,6 +480,8 @@ class Employee_entry extends CI_controller
                     unset($formArray['results']);
 
                     $EditData = $Custom->Edit($formArray, 'id', $id, 'employee');
+
+                    $_SESSION['id'] = '';
                 }
             }
 
@@ -719,8 +721,16 @@ class Employee_entry extends CI_controller
         //array_push($formArray, $_FILES["imgfile"]["name"], $_FILES["docfile"]["name"]);
 
 
-        $formArray["pic"] = $_FILES["imgfile"]["name"];
-        $formArray["doc"] = $_FILES["docfile"]["name"];
+        $formArray["pic"] = $_FILES["pic"]["name"];
+        $formArray["doc"] = $_FILES["doc"]["name"];
+
+
+        $id = $_SESSION['id'];
+        $Mempmdel = new Mempmodel();
+        $data_old = $Mempmdel->getEmployeeData($id);
+
+        print_r($data_old);
+        die();
 
 
         $Custom = new Custom();

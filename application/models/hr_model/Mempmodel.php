@@ -46,7 +46,7 @@ class Mempmodel extends CI_Model
                 "ddlemptype" => $row->ddlemptype,
                 "ddlcategory" => $row->ddlcategory,
                 "empno" => $row->empno,
-                "offemail," => $row->offemail,
+                "offemail" => $row->offemail,
                 "empname" => $row->empname,
                 "cnicno" => $row->cnicno,
                 "dob" => $row->dob,
