@@ -138,6 +138,9 @@
                                                 <th>Location</th>
                                                 <th>Remarks</th>
                                                 <th>Status</th>
+                                                <th>Expiry</th>
+                                                <th>Settings</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
@@ -155,6 +158,9 @@
                                                 <th>Location</th>
                                                 <th>Remarks</th>
                                                 <th>Status</th>
+                                                <th>Expiry</th>
+                                                <th>Settings</th>
+                                                <th>Action</th>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -169,6 +175,101 @@
     </div>
 </div>
 <!-- END: Content-->
+<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+    <div class="modal fade text-left" id="expiryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_expiry"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_expiry">Expire Date</h4>
+                    <input type="hidden" id="expiry_id" name="expiry_id">
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="expiryDateTime" class="label-control">Expire Date</label>
+                                <input type="text" class="form-control mypickadat" id="expiryDateTime"
+                                       name="expiryDateTime"
+                                       autocomplete="expiryDateTime" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="saveExpiry()">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+    <div class="modal fade text-left" id="assignCustodianModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel_assignCustodian"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_assignCustodian">Assign Custodian</h4>
+                    <input type="hidden" id="assignCustodian_id" name="assignCustodian_id">
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="custodian_location" class="label-control">Locations</label>
+                                <select class="select2 form-control" id="custodian_location" name="custodian_location">
+                                    <?php
+                                    if (isset($location) && $location != '') {
+                                        foreach ($location as $k => $v) {
+                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="custodian_project" class="label-control">Project</label>
+                                <select class="select2 form-control" id="custodian_project" name="custodian_project">
+                                    <?php
+                                    if (isset($project) && $project != '') {
+                                        foreach ($project as $k => $v) {
+                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '(' . $v->proj_code . ')</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="custodian_emp" class="label-control">Owner/Employee</label>
+                                <select class="select2 form-control" id="custodian_emp" name="custodian_emp">
+                                    <?php
+                                    if (isset($employees) && $employees != '') {
+                                        foreach ($employees as $k => $e) {
+                                            echo '<option value="' . $e->empno . '">' . $e->empname . '(' . $e->empno . ')</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger myCustodianbtn" onclick="saveCustodian()">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
@@ -181,6 +282,114 @@
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 
 <script>
+
+    $(document).ready(function () {
+        mydate();
+    });
+
+    function mydate() {
+        $('.mypickadat').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2019, 12, 1),
+            max: false,
+            format: 'dd-mm-yyyy'
+        });
+    }
+
+    function getExpiry(obj) {
+        var id = $(obj).attr('data-id');
+        var va = $(obj).attr('data-expiry');
+        if (id != '' && id != undefined && va != '' && va != undefined) {
+            $('#expiryDateTime').val(va);
+            $('#expiry_id').val(id);
+            $('#expiryModal').modal('show');
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+            return false;
+        }
+    }
+
+    function saveExpiry() {
+        var data = {};
+        data['expiry_id'] = $('#expiry_id').val();
+        data['expiryDateTime'] = $('#expiryDateTime').val();
+        if (data['expiry_id'] == '' || data['expiry_id'] == undefined || data['expiry_id'] == 0 ||
+            data['expiryDateTime'] == '' || data['expiryDateTime'] == undefined || data['expiryDateTime'] == 0) {
+            toastMsg('Error', 'Invalid Expiry Date Time', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/setExpiry')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    toastMsg('Success', 'Successfully set Expiry Date Time', 'success');
+                    $('#expiryModal').modal('hide');
+                    setTimeout(function () {
+                        getData()
+                    }, 500);
+                } else if (res == 3) {
+                    toastMsg('Error', 'Invalid Asset Id', 'error');
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            });
+        }
+    }
+
+    function getCustodianData(obj) {
+        var data = {};
+        data['id'] = $(obj).attr('data-id');
+        if (data['id'] != '' && data['id'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/getCustodianData')?>', data, 'POST', function (result) {
+                if (result != '' && JSON.parse(result).length > 0) {
+                    var a = JSON.parse(result);
+                    try {
+                        $('#assignCustodian_id').val(data['id']);
+                        $('#custodian_location').val(a[0]['loc']).attr('selected', 'selected').trigger('change');
+                        $('#custodian_project').val(a[0]['proj_code']).attr('selected', 'selected').trigger('change');
+                        $('#custodian_emp').val(a[0]['username']).attr('selected', 'selected').trigger('change');
+                    } catch (e) {
+                    }
+                    $('#assignCustodianModal').modal('show');
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+    }
+
+    function saveCustodian() {
+        var data = {};
+        data['assignCustodian_id'] = $('#assignCustodian_id').val();
+        data['custodian_location'] = $('#custodian_location').val();
+        data['custodian_project'] = $('#custodian_project').val();
+        data['custodian_emp'] = $('#custodian_emp').val();
+        var vd = validateData(data);
+        if (vd) {
+            showloader();
+            $('.myCustodianbtn').addClass('hide').attr('disabled', 'disabled');
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/saveCustodianData')?>', data, 'POST', function (res) {
+                hideloader();
+                $('.myCustodianbtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        $('#assignCustodianModal').modal('hide');
+                        toastMsg(response[0], response[1], 'success');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1500)
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+    }
 
     function format(d) {
         var html = '';
@@ -257,7 +466,10 @@
                 {"data": "username"},
                 {"data": "loc"},
                 {"data": "remarks"},
-                {"data": "status"}
+                {"data": "status"},
+                {"data": "expiryDateTime"},
+                {"data": "Settings"},
+                {"data": "Action"}
             ],
             order: [
                 [1, 'desc']

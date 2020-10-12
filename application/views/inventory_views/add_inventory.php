@@ -162,7 +162,6 @@
             CallAjax('<?php echo base_url('index.php/inventory_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-                console.log(result);
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {

@@ -34,7 +34,7 @@ class MInventory extends CI_Model
             $this->db->where("(i.aaftag like '%" . $searchdata['aaftag'] . "%')");
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
-            $this->db->where('i.location', $searchdata['location']);
+            $this->db->where('i.loc', $searchdata['location']);
         }
         if (isset($searchdata['project']) && $searchdata['project'] != '' && $searchdata['project'] != null) {
             $this->db->where('i.project', $searchdata['project']);
@@ -70,7 +70,7 @@ class MInventory extends CI_Model
             $this->db->where("(i.aaftag like '%" . $searchdata['aaftag'] . "%')");
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
-            $this->db->where('i.location', $searchdata['location']);
+            $this->db->where('i.loc', $searchdata['location']);
         }
         if (isset($searchdata['project']) && $searchdata['project'] != '' && $searchdata['project'] != null) {
             $this->db->where('i.project', $searchdata['project']);
@@ -85,6 +85,24 @@ class MInventory extends CI_Model
 
         $this->db->select('count(id) as cnttotal');
         $this->db->from('i_paedsinventory i');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getEmployees()
+    {
+        $this->db->select('empno, empname');
+        $this->db->from('hr_employee');
+        $this->db->where('status', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getCustodian($id)
+    {
+        $this->db->select('*');
+        $this->db->from('i_paedsinventory');
+        $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->result();
     }
