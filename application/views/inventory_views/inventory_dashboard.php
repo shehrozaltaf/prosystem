@@ -89,9 +89,9 @@
                                                 <label for="status">Status</label>
                                                 <select class="select2 form-control" id="status" name="status">
                                                     <option value="0">All Status</option>
+                                                    <option value="OK">OK</option>
                                                     <option value="RETURNED TO AGENCY">RETURNED TO AGENCY</option>
                                                     <option value="RETIRED">RETIRED</option>
-                                                    <option value="OK">OK</option>
                                                     <option value="STOLEN">STOLEN</option>
                                                     <option value="NOT WORKING">NOT WORKING</option>
                                                     <option value="NA">NA</option>

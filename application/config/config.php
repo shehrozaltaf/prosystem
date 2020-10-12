@@ -1,4 +1,4 @@
-<?php
+<?php  date_default_timezone_set("Asia/Karachi");
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
