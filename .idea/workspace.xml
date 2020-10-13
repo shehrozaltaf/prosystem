@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/budget_views/project_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/budget_views/actual.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/actual.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/budget_views/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/budget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="79" column="65" lean-forward="true" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
+            <state relative-caret-position="490">
+              <caret line="81" column="30" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="81" selection-end-column="30" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
               </folding>
@@ -33,19 +33,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="544">
+              <caret line="81" column="112" selection-start-line="81" selection-start-column="112" selection-end-line="81" selection-end-column="112" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+            <state relative-caret-position="190">
+              <caret line="81" column="106" selection-start-line="81" selection-start-column="106" selection-end-line="81" selection-end-column="106" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,10 +132,7 @@
         <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
         <option value="$PROJECT_DIR$/application/views/employee_entry_new.php" />
         <option value="$PROJECT_DIR$/application/models/MSettings.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mactual.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
@@ -146,6 +166,12 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/budget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/actual.php" />
       </list>
     </option>
   </component>
@@ -178,19 +204,6 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,13 +212,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="budget_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -316,11 +322,25 @@
       <option name="project" value="LOCAL" />
       <updated>1602494784092</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="budget system">
+      <created>1602581339841</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602581339841</updated>
+    </task>
+    <task id="LOCAL-00009" summary="budget system">
+      <created>1602581586041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602581586041</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42843000" />
+    <option name="totallyTimeSpent" value="43240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -372,14 +392,14 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="budget system" />
     <MESSAGE value="HR System EmpEntry" />
     <MESSAGE value="HR system Search Employee By shehroz" />
     <MESSAGE value="Inventory System By shehroz" />
     <MESSAGE value="Inventory System -  Add Asset By shehroz" />
     <MESSAGE value="Inventory System -  Expiry &amp; custodian" />
     <MESSAGE value="budget system- employee" />
-    <option name="LAST_COMMIT_MESSAGE" value="budget system- employee" />
+    <MESSAGE value="budget system" />
+    <option name="LAST_COMMIT_MESSAGE" value="budget system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -393,84 +413,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap-extended.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="3493" column="1" lean-forward="true" selection-start-line="3493" selection-start-column="1" selection-end-line="3493" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/components.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="736" column="67" selection-start-line="736" selection-start-column="67" selection-end-line="736" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/colors.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="1595" column="18" selection-start-line="1595" selection-start-column="12" selection-end-line="1595" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187450">
-          <caret line="11170" column="18" selection-start-line="11170" selection-start-column="18" selection-end-line="11170" selection-end-column="18" />
-          <folding>
-            <element signature="e#31540#31774#2" expanded="true" />
-            <element signature="e#32689#32842#1" expanded="true" />
-            <element signature="e#32883#33117#1" expanded="true" />
-            <element signature="e#36548#36824#2" expanded="true" />
-            <element signature="e#37766#37919#1" expanded="true" />
-            <element signature="e#37960#38236#1" expanded="true" />
-            <element signature="e#72664#72851#2" expanded="true" />
-            <element signature="e#73112#73248#2" expanded="true" />
-            <element signature="e#73713#73846#2" expanded="true" />
-            <element signature="e#75217#75370#1" expanded="true" />
-            <element signature="e#89321#89554#2" expanded="true" />
-            <element signature="e#90599#90835#2" expanded="true" />
-            <element signature="e#126047#126224#2" expanded="true" />
-            <element signature="e#126281#126458#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/inventory_models.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/settings/groupSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1632" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="20" lean-forward="true" selection-end-line="41" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="14" lean-forward="true" selection-end-line="145" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/include/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="25" column="92" selection-start-line="25" selection-start-column="92" selection-end-line="25" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/employee_entry.php" />
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_20201002.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -744,27 +686,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="79" column="65" lean-forward="true" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="156" column="42" selection-end-line="186" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -777,8 +702,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+        <state relative-caret-position="629">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="53" column="50" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="81" column="30" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="81" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="81" column="112" selection-start-line="81" selection-start-column="112" selection-end-line="81" selection-end-column="112" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="81" column="106" selection-start-line="81" selection-start-column="106" selection-end-line="81" selection-end-column="106" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
