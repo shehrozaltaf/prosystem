@@ -74,6 +74,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="md-fab-wrapper">
+                            <a class="md-fab md-fab-accent md-fab-wave-light waves-effect waves-button waves-light"
+                               href="<?php echo  base_url()?>index.php/budget_controllers/Project/addProject_view">
+                                <i class="feather icon-plus"></i>
+                            </a>
+                        </div>
 
                     </div>
                 </div>
