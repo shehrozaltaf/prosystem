@@ -40,7 +40,6 @@
                                                 <th>SNo</th>
                                                 <th>Employee Code</th>
                                                 <th>Employee Name</th>
-                                                <th>Designation</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -51,9 +50,8 @@
                                                     $SNo++; ?>
                                                     <tr>
                                                         <td><?php echo $SNo ?></td>
-                                                        <td><?php echo $v->empl_code ?></td>
-                                                        <td><?php echo $v->empl_name ?></td>
-                                                        <td><?php echo $v->empl_desg ?></td>
+                                                        <td><?php echo $v->empno ?></td>
+                                                        <td><?php echo $v->empname ?></td>
                                                     </tr>
                                                 <?php }
                                             } ?>
@@ -63,7 +61,6 @@
                                                 <th>SNo</th>
                                                 <th>Employee Code</th>
                                                 <th>Employee Name</th>
-                                                <th>Designation</th>
                                             </tr>
                                             </tfoot>
                                         </table>

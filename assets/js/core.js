@@ -140,3 +140,38 @@ function toastMsg(heading, info, msgclass) {
     $('.mybtn').removeAttr('disabled', 'disabled');
     hideloader();
 }
+
+
+function validateData(submitedData) {
+    var flag = 0;
+    var data = {};
+    $.each(submitedData, function (i, v) {
+        var inp = $('#' + i);
+        var id = inp.attr('id');
+        var inpVal = inp.val();
+
+        var inpLabel = inp.parent('.form-group').find('.label-control').text();
+        if (inp.attr('errorText') == '' || inp.attr('errorText') == undefined) {
+            inpLabel = 'Invalid ' + inp.parent('.form-group').find('.label-control').text();
+        }
+        inp.removeClass('error').removeClass('is-invalid');
+        if (inp.attr('required')) {
+            if (inpVal == '' || inpVal == undefined || inpVal == 'undefined' || inpVal == null || inpVal == 'null'|| inpVal ==0) {
+                var error = '<div class="invalid-feedback">This is invalid</div>';
+                inp.addClass('error').addClass('is-invalid').parent('div').append(error);
+                flag = 1;
+                toastMsg('Error', inpLabel, 'error');
+                return true;
+            } else {
+                data[id] = inpVal;
+            }
+        } else {
+            data[id] = inpVal;
+        }
+    });
+    if (flag == 0) {
+        return data;
+    } else {
+        return false;
+    }
+}
