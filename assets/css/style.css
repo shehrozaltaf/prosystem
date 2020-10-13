@@ -115,3 +115,7 @@ tr.details td.details-control {
     background: url(https://datatables.net/examples/resources/details_close.png) no-repeat center center;
 }
 
+.customlabel {
+    line-height: 1.25;
+    padding: 0.7rem 0;
+}

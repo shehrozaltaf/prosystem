@@ -27,6 +27,7 @@ class Inventory extends CI_controller
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['status'] = $Custom->selectAllQuery('i_status', 'id', 'status');
         $M = new MInventory();
         $data['employees'] = $M->getEmployees();
 

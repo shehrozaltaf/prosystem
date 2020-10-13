@@ -88,13 +88,12 @@
                                             <div class="form-group">
                                                 <label for="status">Status</label>
                                                 <select class="select2 form-control" id="status" name="status">
-                                                    <option value="0">All Status</option>
-                                                    <option value="OK">OK</option>
-                                                    <option value="RETURNED TO AGENCY">RETURNED TO AGENCY</option>
-                                                    <option value="RETIRED">RETIRED</option>
-                                                    <option value="STOLEN">STOLEN</option>
-                                                    <option value="NOT WORKING">NOT WORKING</option>
-                                                    <option value="NA">NA</option>
+                                                    <option value="0" selected>All Status</option>
+                                                    <?php if (isset($status) && $status != '') {
+                                                        foreach ($status as $k => $s) {
+                                                            echo '<option value="' . $s->status_value . '" >' . $s->status_name . '</option>';
+                                                        }
+                                                    } ?>
                                                 </select>
                                             </div>
                                         </div>

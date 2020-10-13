@@ -12,8 +12,11 @@ class Custom extends CI_Model
     }
 
 
-    function selectAllQuery($table, $orderBy)
+    function selectAllQuery($table, $orderBy, $whereClause = '')
     {
+        if (isset($whereClause) && $whereClause != '' && $whereClause != 0) {
+            $this->db->where($whereClause, 1);
+        }
         $this->db->select('*');
         $this->db->from($table);
         $this->db->order_By($orderBy, 'ASC');

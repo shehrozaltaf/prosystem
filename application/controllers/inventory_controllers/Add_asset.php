@@ -24,8 +24,8 @@ class Add_asset extends CI_controller
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Add_asset');
-        $data['inventory_type'] = array('MM', 'UP', 'SP', 'SC', 'TB', 'MT', 'GS', 'PR', 'SW', 'RT', 'NS', 'LT', 'DT', 'PD', 'AP', 'DS');
-        $data['status'] = array('OK', 'RETURNED TO AGENCY', 'RETIRED', 'STOLEN', 'NOT WORKING', 'NA');
+        $data['inventory_type'] = $Custom->selectAllQuery('i_inventory_type', 'id', 'status');
+        $data['status'] = $Custom->selectAllQuery('i_status', 'id', 'status');
 
 
         $this->load->view('include/header');

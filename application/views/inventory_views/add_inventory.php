@@ -30,7 +30,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-12 col-12">
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="inventory_type" class="label-control">Type</label>
                                                 <select class="select2 form-control"
@@ -39,27 +39,22 @@
                                                     <option value="0" readonly disabled selected>Type</option>
                                                     <?php if (isset($inventory_type) && $inventory_type != '') {
                                                         foreach ($inventory_type as $k => $t) {
-                                                            echo '<option value="' . $t . '" >' . $t . '</option>';
+                                                            echo '<option value="' . $t->type_value . '" >' . $t->type_name . '</option>';
                                                         }
                                                     } ?>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-12">
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="model" class="label-control">Model</label>
                                                 <input type="text" class="form-control" id="model" name="model"
                                                        autocomplete="model" required>
+
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-12">
-                                            <div class="form-group">
-                                                <label for="ftag" class="label-control">FTag</label>
-                                                <input type="text" class="form-control" id="ftag" name="ftag"
-                                                       autocomplete="ftag" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-12">
+
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="product_no" class="label-control">Product No.</label>
                                                 <input type="text" class="form-control" id="product_no"
@@ -67,21 +62,22 @@
                                                        autocomplete="product_no" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-12">
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="serial_no" class="label-control">Serial No.</label>
                                                 <input type="text" class="form-control" id="serial_no" name="serial_no"
                                                        autocomplete="serial_no" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-12">
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="dop" class="label-control">DoP</label>
                                                 <input type="text" class="form-control mypickadat" id="dop" name="dop"
                                                        autocomplete="dop" value="<?php echo date('d-m-Y') ?>" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-12">
+
+                                        <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="status" class="label-control">Status</label>
                                                 <select class="select2 form-control status"
@@ -90,10 +86,36 @@
                                                     <option value="0" readonly disabled>Status</option>
                                                     <?php if (isset($status) && $status != '') {
                                                         foreach ($status as $k => $s) {
-                                                            echo '<option value="' . $s . '" ' . ($s == 'OK' ? 'selected' : '') . '>' . $s . '</option>';
+                                                            echo '<option value="' . $s->status_value . '" ' . ($s->status_value == 'OK' ? 'selected' : '') . '>' . $s->status_name . '</option>';
                                                         }
                                                     } ?>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-6">
+                                            <div class="form-group">
+                                                <label for="tagable" class="label-control">Tagable</label>
+                                                <select class="select2 form-control tagable"
+                                                        autocomplete="tagable"
+                                                        onchange="tagableToggle()"
+                                                        id="tagable" required>
+                                                    <option value="1">Yes</option>
+                                                    <option value="2">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-6 ftagDiv">
+                                            <div class="form-group">
+                                                <label for="ftag" class="label-control">FTag</label>
+                                                <input type="text" class="form-control" id="ftag" name="ftag"
+                                                       autocomplete="ftag" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-6 aaftagDiv hide">
+                                            <div class="form-group">
+                                                <label for="aaftag" class="label-control">AAFTag</label>
+                                                <input type="text" class="form-control" id="aaftag" name="aaftag"
+                                                       autocomplete="aaftag" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-12">
@@ -134,6 +156,17 @@
     $(document).ready(function () {
         mydate();
     });
+
+    function tagableToggle() {
+        var tagable = $('#tagable').val();
+        if (tagable == 2) {
+            $('.aaftagDiv').addClass('show').removeClass('hide');
+            $('.ftagDiv').addClass('hide').removeClass('show');
+        } else {
+            $('.aaftagDiv').addClass('hide').removeClass('show');
+            $('.ftagDiv').addClass('show').removeClass('hide');
+        }
+    }
 
     function mydate() {
         $('.mypickadat').pickadate({
