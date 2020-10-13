@@ -134,11 +134,17 @@ class Employee_entry extends CI_controller
 
                 if (!isset($v) && $k === "cellno2" || $v == '' && $k === "cellno2" ||
                     !isset($v) && $k === "remarks" || $v == '' && $k === "remarks" ||
+                    !isset($v) && $k === "offemail" || $v == '' && $k === "offemail" ||
+                    !isset($v) && $k === "peremail" || $v == '' && $k === "peremail" ||
+
                     !isset($v) && $k === "landlineccode" || $v == '' && $k === "landlineccode" || $v == 'NULL' && $k === "landlineccode" || $v == 'undefined' && $k === "landlineccode" ||
                     !isset($v) && $k === "cellno1ccode" || $v == '' && $k === "cellno1ccode" || $v == 'NULL' && $k === "cellno1ccode" || $v == 'undefined' && $k === "cellno1ccode" ||
                     !isset($v) && $k === "cellno2ccode" || $v == '' && $k === "cellno2ccode" || $v == 'NULL' && $k === "cellno2ccode" || $v == 'undefined' && $k === "cellno2ccode" ||
                     !isset($v) && $k === "emcellnoccode" || $v == '' && $k === "emcellnoccode" || $v == 'NULL' && $k === "emcellnoccode" || $v == 'undefined' && $k === "emcellnoccode" ||
-                    !isset($v) && $k === "emlandnoccode" || $v == '' && $k === "emlandnoccode" || $v == 'NULL' && $k === "emlandnoccode" || $v == 'undefined' && $k === "emlandnoccode"
+                    !isset($v) && $k === "emlandnoccode" || $v == '' && $k === "emlandnoccode" || $v == 'NULL' && $k === "emlandnoccode" || $v == 'undefined' && $k === "emlandnoccode" ||
+
+                    !isset($v) && $k === "degree" || $v == '' && $k === "degree" || $v == 'NULL' && $k === "degree" || $v == 'undefined' && $k === "degree" ||
+                    !isset($v) && $k === "field" || $v == '' && $k === "field" || $v == 'NULL' && $k === "field" || $v == 'undefined' && $k === "field"
                 ) {
                     $formArray[$k] = null;
                 } else {
@@ -250,7 +256,7 @@ class Employee_entry extends CI_controller
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
 
 
-            $InsertData = $Custom->Insert($formArray, 'id', 'employee', 'N');
+            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
 
 
             if (isset($_FILES["imgfile"]["name"])) {
@@ -310,14 +316,18 @@ class Employee_entry extends CI_controller
 
                 if (!isset($v) && $k === "cellno2" || $v == '' && $k === "cellno2" ||
                     !isset($v) && $k === "remarks" || $v == '' && $k === "remarks" ||
+                    !isset($v) && $k === "offemail" || $v == '' && $k === "offemail" ||
+                    !isset($v) && $k === "peremail" || $v == '' && $k === "peremail" ||
+
                     !isset($v) && $k === "landlineccode" || $v == '' && $k === "landlineccode" || $v == 'NULL' && $k === "landlineccode" || $v == 'undefined' && $k === "landlineccode" ||
                     !isset($v) && $k === "cellno1ccode" || $v == '' && $k === "cellno1ccode" || $v == 'NULL' && $k === "cellno1ccode" || $v == 'undefined' && $k === "cellno1ccode" ||
                     !isset($v) && $k === "cellno2ccode" || $v == '' && $k === "cellno2ccode" || $v == 'NULL' && $k === "cellno2ccode" || $v == 'undefined' && $k === "cellno2ccode" ||
                     !isset($v) && $k === "emcellnoccode" || $v == '' && $k === "emcellnoccode" || $v == 'NULL' && $k === "emcellnoccode" || $v == 'undefined' && $k === "emcellnoccode" ||
                     !isset($v) && $k === "emlandnoccode" || $v == '' && $k === "emlandnoccode" || $v == 'NULL' && $k === "emlandnoccode" || $v == 'undefined' && $k === "emlandnoccode" ||
 
-                    !isset($v) && $k === "dt_ddlemptype" || $v == '' && $k === "dt_ddlemptype" || $v == 'NULL' && $k === "dt_ddlemptype" || $v == 'undefined' && $k === "dt_ddlemptype" ||
-                    !isset($v) && $k === "dt_dob" || $v == '' && $k === "dt_dob" || $v == 'NULL' && $k === "dt_dob" || $v == 'undefined' && $k === "dt_dob"
+                    !isset($v) && $k === "degree" || $v == '' && $k === "degree" || $v == 'NULL' && $k === "degree" || $v == 'undefined' && $k === "degree" ||
+                    !isset($v) && $k === "field" || $v == '' && $k === "field" || $v == 'NULL' && $k === "field" || $v == 'undefined' && $k === "field"
+
                 ) {
                     $formArray[$k] = null;
                 } else {
@@ -335,6 +345,11 @@ class Employee_entry extends CI_controller
                 }
             }
         }
+
+
+        //print_r($formArray);
+        ///print_r($_FILES);
+        //die();
 
 
         if ($flag == 0) {
@@ -401,8 +416,8 @@ class Employee_entry extends CI_controller
             //die();
 
 
-            if (isset($_FILES["imgfile"]["name"])) {
-                $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
+            if (isset($_FILES["pic"]["name"])) {
+                $formArray["pic"] = "assets/emppic/" . $_FILES["pic"]["name"];
             } else {
 
                 if (!isset($formArray["pic"])) {
@@ -411,8 +426,8 @@ class Employee_entry extends CI_controller
             }
 
 
-            if (isset($_FILES["docfile"]["name"])) {
-                $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
+            if (isset($_FILES["doc"]["name"])) {
+                $formArray["doc"] = "assets/docs/" . $_FILES["doc"]["name"];
             } else {
 
                 if (!isset($formArray["doc"])) {
@@ -437,37 +452,38 @@ class Employee_entry extends CI_controller
 
             $id = $_SESSION['id'];
 
-            $Mempmdel = new Mempmodel();
+            //$Mempmdel = new Mempmodel();
+            //$old_data = $Mempmdel->getEmployeeData($id);
 
-            $old_data = $Mempmdel->getEmployeeData($id);
 
             $this->AuditTrials();
 
 
             if (isset($_POST['results'])) {
-                foreach ($_POST['results'] as $v) {
+                foreach (json_decode($_POST['results']) as $v) {
 
-                    if ($v['summaryFldid'] == "qual" ||
-                        $v['summaryFldid'] == "ddlemptype" ||
-                        $v['summaryFldid'] == "ddlcategory" ||
-                        $v['summaryFldid'] == "ddlband" ||
-                        $v['summaryFldid'] == "titdesi" ||
-                        $v['summaryFldid'] == "ddlloc" ||
-                        $v['summaryFldid'] == "ddlhardship" ||
-                        $v['summaryFldid'] == "benefits" ||
-                        $v['summaryFldid'] == "peme" ||
-                        $v['summaryFldid'] == "gop" ||
-                        $v['summaryFldid'] == "entity" ||
-                        $v['summaryFldid'] == "dept" ||
-                        $v['summaryFldid'] == "cardissue" ||
-                        $v['summaryFldid'] == "letterapp" ||
-                        $v['summaryFldid'] == "confirmation" ||
-                        $v['summaryFldid'] == "status"
+                    if ($v->summaryFldid == "ddlemptype" ||
+                        $v->summaryFldid == "ddlcategory" ||
+                        $v->summaryFldid == "ddlband" ||
+                        $v->summaryFldid == "titdesi" ||
+                        $v->summaryFldid == "ddlloc" ||
+                        $v->summaryFldid == "ddlhardship" ||
+                        $v->summaryFldid == "benefits" ||
+                        $v->summaryFldid == "peme" ||
+                        $v->summaryFldid == "gop" ||
+                        $v->summaryFldid == "entity" ||
+                        $v->summaryFldid == "dept" ||
+                        $v->summaryFldid == "cardissue" ||
+                        $v->summaryFldid == "letterapp" ||
+                        $v->summaryFldid == "confirmation" ||
+                        $v->summaryFldid == "status" ||
+                        $v->summaryFldid == "degree" ||
+                        $v->summaryFldid == "field"
                     ) {
 
-                        $formArray[$v['summaryFldid']] = $v['summaryFldNewVal'];
+                        $formArray[$v->summaryFldid] = $v->summaryFldNewVal;
                     } else {
-                        $formArray[$v['summaryFldid']] = $v['summaryNewVal'];
+                        $formArray[$v->summaryFldid] = $v->summaryNewVal;
                     }
 
 
@@ -479,22 +495,23 @@ class Employee_entry extends CI_controller
 
                     unset($formArray['results']);
 
-                    $EditData = $Custom->Edit($formArray, 'id', $id, 'employee');
+
+                    $EditData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
 
                     $_SESSION['id'] = '';
                 }
             }
 
 
-            if (isset($_FILES["imgfile"]["name"])) {
+            if (isset($_FILES["pic"]["name"])) {
                 $config['upload_path'] = 'assets/emppic';
                 $config['allowed_types'] = 'jpg|jpeg|gif|png';
 
                 $this->load->library('upload', $config);
 
-                unlink('assets/emppic/' . $_FILES["imgfile"]["name"]);
+                //unlink('assets/emppic/' . $_FILES["pic"]["name"]);
 
-                if (!$this->upload->do_upload('imgfile')) {
+                if (!$this->upload->do_upload('pic')) {
                     $file = null;
                 } else {
                     $data = array('upload_data' => $this->upload->data());
@@ -504,7 +521,7 @@ class Employee_entry extends CI_controller
             }
 
 
-            if (isset($_FILES["docfile"]["name"])) {
+            if (isset($_FILES["doc"]["name"])) {
                 $config2['upload_path'] = 'assets/docs';
                 $config2['allowed_types'] = 'pdf';
 
@@ -512,10 +529,10 @@ class Employee_entry extends CI_controller
                 $this->upload->initialize($config2);
                 $this->load->library('upload', $config2);
 
-                unlink('assets/docs/' . $_FILES["docfile"]["name"]);
+                //unlink('assets/docs/' . $_FILES["doc"]["name"]);
 
 
-                if (!$this->upload->do_upload('docfile')) {
+                if (!$this->upload->do_upload('doc')) {
                     /*$error = array('error' => $this->upload->display_errors());
                     echo "<pre>";
                     print_r($error);*/
@@ -549,7 +566,7 @@ class Employee_entry extends CI_controller
 
 
         if (isset($_POST['results']) && $_POST['results'] != '') {
-            foreach ($_POST['results'] as $k => $v) {
+            foreach (json_decode($_POST['results']) as $k => $v) {
 
                 $ins_data = array();
                 $ins_data["FormID"] = $_SESSION['id'];
@@ -561,34 +578,35 @@ class Employee_entry extends CI_controller
                 $ins_data["EntryTime"] = date('H:i:s');
                 $ins_data["ComputerName"] = gethostname();
                 $ins_data["LoginUserName"] = $_SESSION['login']['idUser'];
-                $ins_data["Fieldid"] = $v['summaryFldid'];
-                $ins_data["FieldName"] = $v['summaryFldName'];
+                $ins_data["Fieldid"] = $v->summaryFldid;
+                $ins_data["FieldName"] = $v->summaryFldName;
 
-                if ($v['summaryFldid'] == "qual" ||
-                    $v['summaryFldid'] == "ddlemptype" ||
-                    $v['summaryFldid'] == "ddlcategory" ||
-                    $v['summaryFldid'] == "ddlband" ||
-                    $v['summaryFldid'] == "titdesi" ||
-                    $v['summaryFldid'] == "ddlloc" ||
-                    $v['summaryFldid'] == "ddlhardship" ||
-                    $v['summaryFldid'] == "benefits" ||
-                    $v['summaryFldid'] == "peme" ||
-                    $v['summaryFldid'] == "gop" ||
-                    $v['summaryFldid'] == "entity" ||
-                    $v['summaryFldid'] == "dept" ||
-                    $v['summaryFldid'] == "cardissue" ||
-                    $v['summaryFldid'] == "letterapp" ||
-                    $v['summaryFldid'] == "confirmation" ||
-                    $v['summaryFldid'] == "status"
+                if ($v->summaryFldid == "ddlemptype" ||
+                    $v->summaryFldid == "ddlcategory" ||
+                    $v->summaryFldid == "ddlband" ||
+                    $v->summaryFldid == "titdesi" ||
+                    $v->summaryFldid == "ddlloc" ||
+                    $v->summaryFldid == "ddlhardship" ||
+                    $v->summaryFldid == "benefits" ||
+                    $v->summaryFldid == "peme" ||
+                    $v->summaryFldid == "gop" ||
+                    $v->summaryFldid == "entity" ||
+                    $v->summaryFldid == "dept" ||
+                    $v->summaryFldid == "cardissue" ||
+                    $v->summaryFldid == "letterapp" ||
+                    $v->summaryFldid == "confirmation" ||
+                    $v->summaryFldid == "status" ||
+                    $v->summaryFldid == "degree" ||
+                    $v->summaryFldid == "field"
                 ) {
-                    $ins_data["OldValue"] = $v['summaryFldOldVal'];
-                    $ins_data["NewValue"] = $v['summaryFldNewVal'];
+                    $ins_data["OldValue"] = $v->summaryFldOldVal;
+                    $ins_data["NewValue"] = $v->summaryFldNewVal;
                 } else {
-                    $ins_data["OldValue"] = $v['summaryOldVal'];
-                    $ins_data["NewValue"] = $v['summaryNewVal'];
+                    $ins_data["OldValue"] = $v->summaryOldVal;
+                    $ins_data["NewValue"] = $v->summaryNewVal;
                 }
 
-                $ins_data["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
+                $ins_data["effdt"] = date('Y-m-d', strtotime($v->SummaryEftDate));
 
                 $InsertData = $Custom->Insert($ins_data, 'ID', 'hr_AuditTrials', 'N');
             }
@@ -725,16 +743,14 @@ class Employee_entry extends CI_controller
         $formArray["doc"] = $_FILES["doc"]["name"];
 
 
-        $id = $_SESSION['id'];
-        $Mempmdel = new Mempmodel();
-        $data_old = $Mempmdel->getEmployeeData($id);
+        //$id = $_SESSION['id'];
 
-        print_r($data_old);
-        die();
+        //$Mempmdel = new Mempmodel();
+        //$data_old = $Mempmdel->getEmployeeData($id);
 
 
         $Custom = new Custom();
-        $InsertData = $Custom->Insert($formArray, 'id', 'employee', 'N');
+        $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
 
 
         if (isset($_FILES["imgfile"]["name"])) {

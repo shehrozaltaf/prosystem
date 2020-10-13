@@ -353,7 +353,7 @@
                 }
             });*/
         } else {
-            toastMsg('Cluster', 'Please select Cluster', 'error');
+            toastMsg('Employeee', 'Please select Employee', 'error');
         }
     }
 
@@ -370,6 +370,7 @@
         if (employees.length >= 1) {
             $('.updBtn').removeClass('hide').addClass('show');
         } else {
+            console.log('1 - ');
             $('.updBtn').removeClass('show').addClass('hide');
         }
     }
@@ -380,12 +381,14 @@
             for (var i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].type == 'checkbox') {
                     checkboxes[i].checked = true;
+                    $('.updBtn').removeClass('hide').addClass('show');
                 }
             }
         } else {
             for (var i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].type == 'checkbox') {
                     checkboxes[i].checked = false;
+                    $('.updBtn').removeClass('show').addClass('hide');
                 }
             }
         }

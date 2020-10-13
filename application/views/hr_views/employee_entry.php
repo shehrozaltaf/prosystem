@@ -3,12 +3,33 @@
         position: absolute;
     }
 
+    #divslash {
+        margin-top: 10px;
+    }
+
+    .chkcontainer {
+        /* display: inline-block; */
+        position: relative;
+        cursor: pointer;
+        margin-top: -30px;
+        margin-right: -100px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #lblna {
+        font-size: 16px;
+        color: #626262;
+    }
+
     .container {
         /* display: inline-block; */
         position: relative;
         cursor: pointer;
         margin-top: -52px;
-        margin-right: -555px;
+        margin-right: -750px;
         /* font-size: 14px; */
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -23,24 +44,22 @@
         cursor: pointer;
         /* height: 0; */
         /* width: 0; */
-        margin-right: 700px;
+        margin-left: -450px;
     }
 
     /* Create a custom checkbox */
     .checkmark {
-        position: absolute;
-        top: 0;
-        left: -15px;
+        position: relative;
+        top: -5px;
+        left: 12px;
         height: 25px;
         width: 25px;
-        background-color: #eee;
         /* margin: 0px -10px; */
         /* padding: 0px 13px; */
     }
 
     /* On mouse-over, add a grey background color */
     .container:hover input ~ .checkmark {
-        background-color: #ccc;
     }
 
     /* When the checkbox is checked, add a blue background */
@@ -75,19 +94,62 @@
 
 </style>
 
+<!-- BEGIN: Page JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/vendors/js/vendors.min.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url() ?>assets/js/scripts/modal/components-modal.js"></script>
+<!-- END: Page JS-->
+
+<!-- BEGIN: Theme JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app-menu.js"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app.js"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/components.js"></script>-->
+<!-- END: Theme JS-->
+
+
 <script src="<?php echo base_url() ?>assets/build/js/intlTelInput.js"></script>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/build/css/intlTelInput.css">
-<link rel="stylesheet" href="<?php echo base_url() ?>assets/build/css/demo.css">
+
+
+<!-- BEGIN: Vendor JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/vendors/js/vendors.min.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url() ?>assets/vendors/js/forms/toggle/switchery.min.js"
+        type="text/javascript"></script>
+<!-- BEGIN Vendor JS-->
 
 <script src="<?php echo base_url() ?>assets/js/scripts/jquery.maskedinput.js"></script>
-<script src="<?php echo base_url() ?>assets/js/scripts/jquery.min.js"></script>
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/jquery.min.js"></script>-->
 <script src="<?php echo base_url() ?>assets/js/scripts/jquery.inputmask.bundle.js"></script>
+
+<!-- BEGIN: Page Vendor JS-->
+<!--<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/inputmask/jquery.inputmask.bundle.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/maxlength/bootstrap-maxlength.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/card/jquery.card.js"
+        type="text/javascript"></script>-->
+<!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app-menu.min.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app.min.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/customizer.min.js" type="text/javascript"></script>-->
+<!-- END: Theme JS-->
+
+<!-- BEGIN: Page JS-->
+<!--<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-inputmask.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-maxlength.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-card.min.js"
+        type="text/javascript"></script>-->
+<!-- END: Page JS-->
+
 
 <script>
     $(document).on('click', '#chk_landline', function () {
         if ($('#chk_landline').prop('checked') == true) {
             $('#landline').val('999999999999999');
-            $('#landline').prop('disabled', 'disabled');
+            //$('#landline').prop('disabled', 'disabled');
         } else {
             $('#landline').val('');
             $('#landline').removeAttr('disabled');
@@ -97,7 +159,7 @@
     $(document).on('click', '#chk_emrlandline', function () {
         if ($('#chk_emrlandline').prop('checked') == true) {
             $('#emlandno').val('99999999');
-            $('#emlandno').prop('disabled', 'disabled');
+            //$('#emlandno').prop('disabled', 'disabled');
         } else {
             $('#emlandno').val('');
             $('#emlandno').removeAttr('disabled');
@@ -118,9 +180,9 @@
                         <h2 class="content-header-title float-left mb-0">Employee Information</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="employee_entry">Employee Information</a>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Employee Information</a>
                                 </li>
                             </ol>
                         </div>
@@ -245,7 +307,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
-                                                                <span id="lbl_qual">Highest Qualification</span>
+                                                                <span id="lbl_degree">Highest Qualification <br/>Degree / Field</span>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <?php
@@ -271,6 +333,7 @@
                                                                 $htmlQ .= $html_options_Q;
                                                                 $htmlQ .= '</select>';
                                                                 echo $htmlQ;
+
 
                                                                 /******* qualification code below *********/
 
@@ -298,6 +361,10 @@
 
                                                             </div>
 
+                                                            <div id="divslash">
+                                                                /
+                                                            </div>
+
                                                             <div class="col-md-2">
                                                                 <?php
 
@@ -308,7 +375,7 @@
 
                                                                 if (isset($field) && $field != '') {
                                                                     foreach ($field as $v) {
-                                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ffield) {
+                                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->field) {
                                                                             $oldValQ = $v->id;
                                                                             $oldLabelQ = $v->field;
                                                                             $html_options_Q .= '<option selected="selected" data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
@@ -398,6 +465,20 @@
                                                                    class="form-control" name="landline" maxlength="15"
                                                                    value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
 
+                                                            <div class="chkcontainer">
+                                                                <input class="container" id="chk_landline"
+                                                                       name="chk_landline"
+                                                                       type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                                <label id="lblna">Not Available</label>
+                                                            </div>
+
+
+                                                            <!--<label class="container">Not Available
+                                                                <input id="chk_landline" name="chk_landline"
+                                                                       type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>-->
 
                                                             <!--<div class="form-group">
                                                                 <label for="checklist"
@@ -412,11 +493,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <label class="container">Not Available
-                                                        <input id="chk_landline" name="chk_landline"
-                                                               type="checkbox">
-                                                        <span class="checkmark"></span>
-                                                    </label>
+
                                                 </div>
 
                                                 <div class="col-12">
@@ -519,10 +596,11 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <label class="container">Not Available
+                                                    <label class="container">Not Available11
+                                                        <input id="chk_emlandno" name="chk_emlandno"
+                                                               type="checkbox">
+                                                        <span class="checkmark"></span>
                                                     </label>
-                                                    <input id="chk_emrlandline" class="checkmark" name="chk_emrlandline"
-                                                           type="checkbox">
                                                 </div>
                                             </div>
                                         </div>
@@ -581,7 +659,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
-                                                            <span id="lbl_ddlcategory">Job</span>
+                                                            <span id="lbl_ddlcategory">Job Title</span>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
@@ -1120,7 +1198,7 @@
                                                             } else {
                                                                 echo '<select id="cardissue" name="cardissue" data-oldval="" data-oldlabel="" required class="form-control">';
                                                                 echo '<option selected="selected" value="0" data-text="">&nbsp;</option>';
-                                                                echo '<option value="1" data-text="Yes>Yes</option>';
+                                                                echo '<option value="1" data-text="Yes">Yes</option>';
                                                                 echo '<option value="2" data-text="No">No</option>';
                                                                 echo '</select>';
                                                             }
@@ -1132,7 +1210,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
-                                                            <span id="lbl_letterapp">Letter Of Appointment Received</span>
+                                                            <span id="lbl_letterapp">Letter of Appointment Received</span>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php if (isset($editemp) && $editemp != '' && $editemp != null && $editemp[0]->letterapp === 1) {
@@ -1241,9 +1319,9 @@
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
                                                             <?php if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                                echo '<span>Replace Pic</span>';
+                                                                echo '<span>Replace Picture</span>';
                                                             } else {
-                                                                echo '<span>Upload Pic</span>';
+                                                                echo '<span>Upload Picture</span>';
                                                             }
                                                             ?>
                                                         </div>
@@ -1256,7 +1334,7 @@
                                                                    for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
                                                             } else {
                                                                 echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Pic</label>';
+                                                                   for="inputGroupFile01">Choose Picture</label>';
                                                             }
                                                             ?>
 
@@ -1269,9 +1347,9 @@
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
                                                             <?php if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                                echo '<span>Add Docs</span>';
+                                                                echo '<span>Add Documents</span>';
                                                             } else {
-                                                                echo '<span>Upload Docs</span>';
+                                                                echo '<span>Upload Documents</span>';
                                                             }
                                                             ?>
                                                         </div>
@@ -1285,7 +1363,7 @@
 
                                                             } else {
                                                                 echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose PDF</label>';
+                                                                   for="inputGroupFile01">Choose Documents</label>';
                                                             }
 
                                                             ?>
@@ -1519,9 +1597,11 @@
 
 
     $(document).on("blur", "#peremail", function () {
-        if ($("#peremail").val().indexOf('.') == -1 || $("#peremail").val().indexOf('@') == -1) {
-            alert('Please enter valid email address');
-            return false;
+        if ($("#peremail").val() != "" || $("#peremail").val() != 'undefined') {
+            if ($("#peremail").val().indexOf('.') == -1 || $("#peremail").val().indexOf('@') == -1) {
+                alert('Please enter valid email address');
+                return false;
+            }
         }
     });
 
@@ -1578,7 +1658,6 @@
         $('#ddlcategory').css('border', '1px solid #babfc7');
         $('#empno').css('border', '1px solid #babfc7');
         $('#empname').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
 
@@ -1743,12 +1822,12 @@
                 // formData.append('data', $("#frm")[0]);
 
                 if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+                    formData.append('pic', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
                 }
 
 
                 if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+                    formData.append('doc', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
                 }
 
 
@@ -1771,7 +1850,6 @@
                         //$('#addModal').modal('hide');
                         setTimeout(function () {
                             window.location.reload();
-                            $("#ddlemptype").focus();
                         }, 500);
                     } else if (result == 4) {
                         toastMsg('Page', 'Duplicate Page URL', 'error');
@@ -1801,7 +1879,6 @@
 
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
         $('#landline').css('border', '1px solid #babfc7');
         $('#cellno1').css('border', '1px solid #babfc7');
         $('#cellno2').css('border', '1px solid #babfc7');
@@ -1971,27 +2048,57 @@
                 // formData.append('data', $("#frm")[0]);
 
                 if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+                    formData.append('pic', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
                 } else {
-                    formData.append('imgfile', $("#lbl_pic").html());
+                    formData.append('pic', $("#lbl_pic").html());
                 }
 
 
                 if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+                    formData.append('doc', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
                 } else {
-                    formData.append('docfile', $("#lbl_doc").html());
+                    formData.append('doc', $("#lbl_doc").html());
                 }
 
 
-                var arr = $('.iti__selected-dial-code').text().split('+');
-                //console.log("+" + arr[0] + "+" arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+                if ($('.iti__selected-dial-code').text() != '' && $('.iti__selected-dial-code').text() != undefined
+                    && $('.iti__selected-dial-code').text() != 'undefined' && $('.iti__selected-dial-code').text() != null
+                ) {
 
-                formData.append('landlineccode', "+" + arr[1]);
-                formData.append('cellno1ccode', "+" + arr[2]);
-                formData.append('cellno2ccode', "+" + arr[3]);
-                formData.append('emcellnoccode', "+" + arr[4]);
-                formData.append('emlandnoccode', "+" + arr[5]);
+                    var arr = $('.iti__selected-dial-code').text().split('+');
+                    //console.log($('.iti__selected-dial-code').text());
+                    //console.log(arr);
+                    //console.log("+" + arr[0] + "+" + arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+                    //console.log($('.iti__selected-dial-code').text() + " - " + arr + " - " + arr.length);
+
+                    if (arr == "") {
+                        formData.append('landlineccode', "+92");
+                        formData.append('cellno1ccode', "+92");
+                        formData.append('cellno2ccode', "+92");
+                        formData.append('emcellnoccode', "+92");
+                        formData.append('emlandnoccode', "+92");
+                    } else {
+                        formData.append('landlineccode', "+" + arr[1]);
+                        formData.append('cellno1ccode', "+" + arr[2]);
+                        formData.append('cellno2ccode', "+" + arr[3]);
+                        formData.append('emcellnoccode', "+" + arr[4]);
+                        formData.append('emlandnoccode', "+" + arr[5]);
+                    }
+
+                } else {
+                    formData.append('landlineccode', "+92");
+                    formData.append('cellno1ccode', "+92");
+                    formData.append('cellno2ccode', "+92");
+                    formData.append('emcellnoccode', "+92");
+                    formData.append('emlandnoccode', "+92");
+                }
+
+
+                /*console.log(formData.get('landlineccode'));
+                console.log(formData.get('cellno1ccode'));
+                console.log(formData.get('cellno2ccode'));
+                console.log(formData.get('emcellnoccode'));
+                console.log(formData.get('emlandnoccode'));*/
 
 
                 var str = "<table width='100%'><tr><th width='25%'>Field Name</th><th width='30%'>Previous Value</th><th width='30%'>Current Value</th><th width='15%'>Eff Date</th></tr>";
@@ -1999,7 +2106,9 @@
                 if (old_array != "") {
 
                     $.each(old_array[0], function (key, value) {
-                        //console.log(key + " - " + value + "   ***   " + formData.get(key));
+
+                        //console.log(key + " - " + value + "   ***   " + formData.get(key) + " --- " + $('#' + key).prop("type"));
+
 
                         if (key != "userid" && key != "entrydate" && key != "id" && key != "empno") {
 
@@ -2017,7 +2126,6 @@
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
                                         "</tr>";
-
 
                                     isaudit = true;
                                 }
@@ -2052,6 +2160,10 @@
                                         //str += "<tr><td>field name</td><td>" + value + "</td><td>" + formData.get(key) + "</td><td><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td></tr>";
                                         str += "<tr class='summaryRow' data-key='" + key + "'>" +
                                             "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+
+
+                                        //console.log(formData.get(key) + " - " + $('#' + key).prop("type"));
+
 
                                         if ($('#' + key).prop("type") == "select-one") {
 
@@ -2166,13 +2278,14 @@
 
                     //$('#addModal').modal('hide');
                     setTimeout(function () {
-                        window.location.href = '<?php echo base_url('index.php/employee_entry') ?>';
+                        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
                         $("#ddlemptype").focus();
                     }, 500);
                 } else if (result == 4) {
                     toastMsg('Page', 'Duplicate Page URL', 'error');
                 } else if (result.indexOf('Invalid', 1) != -1) {
                     toastMsg('Invalid Field', 'Field not found', 'error');
+                    console.log(result);
                 } else if (result == 3) {
                     toastMsg('Page', 'Invalid Page Name', 'error');
                 } else {
@@ -2192,10 +2305,11 @@
         $('#ddlcategory').css('border', '1px solid #babfc7');
         $('#empno').css('border', '1px solid #babfc7');
         $('#empname').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
+
+        //$('#qual').css('border', '1px solid #babfc7');
+
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
         $('#landline').css('border', '1px solid #babfc7');
         $('#cellno1').css('border', '1px solid #babfc7');
         $('#cellno2').css('border', '1px solid #babfc7');
@@ -2374,7 +2488,7 @@
 
                         //$('#addModal').modal('hide');
                         setTimeout(function () {
-                            window.location.href = '<?php echo base_url('index.php/employee_entry') ?>';
+                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
                             $("#ddlemptype").focus();
                         }, 500);
                     } else if (result == 4) {
@@ -2399,10 +2513,87 @@
         var flag = 0;
         var error = '';
 
-        $("#lblerr_landline").remove();
-        $("#lblerr_cellno1").remove();
-        $("#lblerr_emcellno").remove();
-        $("#lblerr_emlandno").remove();
+
+        $('#empno').css('border', '1px solid #babfc7');
+        $('#offemail').css('border', '1px solid #babfc7');
+        $('#empname').css('border', '1px solid #babfc7');
+        $('#cnicno').css('border', '1px solid #babfc7');
+        $('#dob').css('border', '1px solid #babfc7');
+        //$('#qual').css('border', '1px solid #babfc7');
+        $('#landline').css('border', '1px solid #babfc7');
+        $('#cellno1').css('border', '1px solid #babfc7');
+        $('#cellno2').css('border', '1px solid #babfc7');
+        $('#personnme').css('border', '1px solid #babfc7');
+        $('#emcellno').css('border', '1px solid #babfc7');
+        $('#emlandno').css('border', '1px solid #babfc7');
+        $('#resaddr').css('border', '1px solid #babfc7');
+        $('#peremail').css('border', '1px solid #babfc7');
+        $('#gncno').css('border', '1px solid #babfc7');
+        $('#ddlband').css('border', '1px solid #babfc7');
+        $('#titdesi').css('border', '1px solid #babfc7');
+        $('#rehiredt').css('border', '1px solid #babfc7');
+        $('#conexpiry').css('border', '1px solid #babfc7');
+        $('#workproj').css('border', '1px solid #babfc7');
+        $('#chargproj').css('border', '1px solid #babfc7');
+        $('#ddlloc').css('border', '1px solid #babfc7');
+        $('#supernme').css('border', '1px solid #babfc7');
+        $('#hiresalary').css('border', '1px solid #babfc7');
+        $('#ddlhardship').css('border', '1px solid #babfc7');
+        $('#amount').css('border', '1px solid #babfc7');
+        $('#benefits').css('border', '1px solid #babfc7');
+        $('#peme').css('border', '1px solid #babfc7');
+        $('#gop').css('border', '1px solid #babfc7');
+        $('#gopdt').css('border', '1px solid #babfc7');
+        $('#entity').css('border', '1px solid #babfc7');
+        $('#dept').css('border', '1px solid #babfc7');
+        $('#cardissue').css('border', '1px solid #babfc7');
+        $('#letterapp').css('border', '1px solid #babfc7');
+        $('#confirmation').css('border', '1px solid #babfc7');
+        $('#status').css('border', '1px solid #babfc7');
+        $('#remarks').css('border', '1px solid #babfc7');
+        $('#pic').css('border', '1px solid #babfc7');
+        $('#doc').css('border', '1px solid #babfc7');
+
+
+        $("#lblerr_" + $("#empno").attr("id")).remove();
+        $("#lblerr_" + $("#offemail").attr("id")).remove();
+        $("#lblerr_" + $("#empname").attr("id")).remove();
+        $("#lblerr_" + $("#cnicno").attr("id")).remove();
+        $("#lblerr_" + $("#dob").attr("id")).remove();
+        //$("#lblerr_" + $("#qual").attr("id")).remove();
+        $("#lblerr_" + $("#landline").attr("id")).remove();
+        $("#lblerr_" + $("#cellno1").attr("id")).remove();
+        $("#lblerr_" + $("#cellno2").attr("id")).remove();
+        $("#lblerr_" + $("#personnme").attr("id")).remove();
+        $("#lblerr_" + $("#emcellno").attr("id")).remove();
+        $("#lblerr_" + $("#emlandno").attr("id")).remove();
+        $("#lblerr_" + $("#resaddr").attr("id")).remove();
+        $("#lblerr_" + $("#peremail").attr("id")).remove();
+        $("#lblerr_" + $("#gncno").attr("id")).remove();
+        $("#lblerr_" + $("#ddlband").attr("id")).remove();
+        $("#lblerr_" + $("#titdesi").attr("id")).remove();
+        $("#lblerr_" + $("#rehiredt").attr("id")).remove();
+        $("#lblerr_" + $("#conexpiry").attr("id")).remove();
+        $("#lblerr_" + $("#workproj").attr("id")).remove();
+        $("#lblerr_" + $("#chargproj").attr("id")).remove();
+        $("#lblerr_" + $("#ddlloc").attr("id")).remove();
+        $("#lblerr_" + $("#supernme").attr("id")).remove();
+        $("#lblerr_" + $("#hiresalary").attr("id")).remove();
+        $("#lblerr_" + $("#ddlhardship").attr("id")).remove();
+        $("#lblerr_" + $("#amount").attr("id")).remove();
+        $("#lblerr_" + $("#benefits").attr("id")).remove();
+        $("#lblerr_" + $("#peme").attr("id")).remove();
+        $("#lblerr_" + $("#gop").attr("id")).remove();
+        $("#lblerr_" + $("#gopdt").attr("id")).remove();
+        $("#lblerr_" + $("#entity").attr("id")).remove();
+        $("#lblerr_" + $("#dept").attr("id")).remove();
+        $("#lblerr_" + $("#cardissue").attr("id")).remove();
+        $("#lblerr_" + $("#letterapp").attr("id")).remove();
+        $("#lblerr_" + $("#confirmation").attr("id")).remove();
+        $("#lblerr_" + $("#status").attr("id")).remove();
+        $("#lblerr_" + $("#remarks").attr("id")).remove();
+        $("#lblerr_" + $("#pic").attr("id")).remove();
+        $("#lblerr_" + $("#doc").attr("id")).remove();
 
 
         for (var i of submitedData.entries()) {
@@ -2419,14 +2610,14 @@
                         if (inp.val() == "" || inp.val() == "undefined" || inp.val() == "0" || inp.val() == "undefined" || inp.val() == "NULL" || inp.val() == "null" || inp.val() == null) {
 
                             $("#lblerr_landline").remove();
-                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field1</span>');
+                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field</span>');
                             flag = 1;
                         }
 
                         if ($('.iti__selected-dial-code').text() == "") {
 
                             $("#lblerr_landline").remove();
-                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field2</span>');
+                            inp.after('<span id="lblerr_landline" style="width: 100%; margin-top: 0.25rem; font-size: smaller; color: #ea5455; position: absolute;">Required field</span>');
                             flag = 1;
                         }
 
@@ -2576,62 +2767,6 @@
 
 
     function checkValues() {
-
-        $('#empno').css('border', '1px solid #babfc7');
-        $('#empname').css('border', '1px solid #babfc7');
-        $('#cnicno').css('border', '1px solid #babfc7');
-        $('#dob').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
-        $('#landline').css('border', '1px solid #babfc7');
-        $('#cellno1').css('border', '1px solid #babfc7');
-        $('#cellno2').css('border', '1px solid #babfc7');
-        $('#personnme').css('border', '1px solid #babfc7');
-        $('#emcellno').css('border', '1px solid #babfc7');
-        $('#emlandno').css('border', '1px solid #babfc7');
-        $('#resaddr').css('border', '1px solid #babfc7');
-        $('#gncno').css('border', '1px solid #babfc7');
-        $('#ddlband').css('border', '1px solid #babfc7');
-        $('#titdesi').css('border', '1px solid #babfc7');
-        $('#rehiredt').css('border', '1px solid #babfc7');
-        $('#conexpiry').css('border', '1px solid #babfc7');
-        $('#workproj').css('border', '1px solid #babfc7');
-        $('#chargproj').css('border', '1px solid #babfc7');
-        $('#ddlloc').css('border', '1px solid #babfc7');
-        $('#supernme').css('border', '1px solid #babfc7');
-        $('#hiresalary').css('border', '1px solid #babfc7');
-        $('#ddlhardship').css('border', '1px solid #babfc7');
-        $('#amount').css('border', '1px solid #babfc7');
-        $('#benefits').css('border', '1px solid #babfc7');
-        $('#peme').css('border', '1px solid #babfc7');
-        $('#gop').css('border', '1px solid #babfc7');
-        $('#gopdt').css('border', '1px solid #babfc7');
-        $('#entity').css('border', '1px solid #babfc7');
-        $('#dept').css('border', '1px solid #babfc7');
-        $('#cardissue').css('border', '1px solid #babfc7');
-        $('#letterapp').css('border', '1px solid #babfc7');
-        $('#confirmation').css('border', '1px solid #babfc7');
-        $('#status').css('border', '1px solid #babfc7');
-        $('#remarks').css('border', '1px solid #babfc7');
-        $('#pic').css('border', '1px solid #babfc7');
-        $('#doc').css('border', '1px solid #babfc7');
-
-
-        $("#lblerr_" + $("#empno").attr("id")).remove();
-        $("#lblerr_" + $("#empname").attr("id")).remove();
-        $("#lblerr_" + $("#cnicno").attr("id")).remove();
-        $("#lblerr_" + $("#dob").attr("id")).remove();
-        $("#lblerr_" + $("#cellno1").attr("id")).remove();
-        $("#lblerr_" + $("#cellno2").attr("id")).remove();
-        $("#lblerr_" + $("#personnme").attr("id")).remove();
-        $("#lblerr_" + $("#emcellno").attr("id")).remove();
-        $("#lblerr_" + $("#emlandno").attr("id")).remove();
-        $("#lblerr_" + $("#gncno").attr("id")).remove();
-        $("#lblerr_" + $("#rehiredt").attr("id")).remove();
-        $("#lblerr_" + $("#conexpiry").attr("id")).remove();
-        $("#lblerr_" + $("#chargproj").attr("id")).remove();
-        $("#lblerr_" + $("#supernme").attr("id")).remove();
-        $("#lblerr_" + $("#gopdt").attr("id")).remove();
-        $("#lblerr_" + $("#remarks").attr("id")).remove();
 
 
         var iserror = false;
@@ -2866,10 +3001,9 @@
         $('#ddlcategory').css('border', '1px solid #babfc7');
         $('#empno').css('border', '1px solid #babfc7');
         $('#empname').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
+        //$('#qual').css('border', '1px solid #babfc7');
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
-        $('#qual').css('border', '1px solid #babfc7');
         $('#landline').css('border', '1px solid #babfc7');
         $('#cellno1').css('border', '1px solid #babfc7');
         $('#cellno2').css('border', '1px solid #babfc7');
