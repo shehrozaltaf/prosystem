@@ -38,15 +38,15 @@ class Budget extends CI_controller
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
-        $trackarray = array("action" => "View Project",
-            "result" => "View Project page. Fucntion: Project/index()");
+        $trackarray = array("action" => "View Budget",
+            "result" => "View Budget page. Fucntion: Budget/index()");
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
 
-        $Mproject = new Mproject();
-        $data['data'] = $Mproject->getAll();
+        $Mbudget = new Mbudget();
+        $data['data'] = $Mbudget->getAll();
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');

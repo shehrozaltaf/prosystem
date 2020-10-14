@@ -39,7 +39,7 @@ class Projected extends CI_controller
         /*==========Log=============*/
         $Custom = new Custom();
         $trackarray = array("action" => "View Project",
-            "result" => "View Project page. Fucntion: Project/index()");
+            "result" => "View Project page. Fucntion: Projected/index()");
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();

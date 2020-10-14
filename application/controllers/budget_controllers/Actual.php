@@ -41,14 +41,14 @@ class Actual extends CI_controller
         /*==========Log=============*/
         $Custom = new Custom();
         $trackarray = array("action" => "View Project",
-            "result" => "View Project page. Fucntion: Project/index()");
+            "result" => "View Project page. Fucntion: Actual/index()");
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
 
-        $Mproject = new Mproject();
-        $data['data'] = $Mproject->getAll();
+        $MActual= new Mactual();
+        $data['data'] = $MActual->getAll();
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
