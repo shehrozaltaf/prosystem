@@ -150,8 +150,6 @@
     </div>
 </div>
 <!-- END: Content-->
-
-
 <script>
     $(document).ready(function () {
         mydate();

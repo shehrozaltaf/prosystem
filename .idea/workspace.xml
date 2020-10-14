@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/actual.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/actual.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,55 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="81" column="30" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="81" selection-end-column="30" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="81" column="112" selection-start-line="81" selection-start-column="112" selection-end-line="81" selection-end-column="112" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
+        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="81" column="106" selection-start-line="81" selection-start-column="106" selection-end-line="81" selection-end-column="106" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="145">
+              <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -77,12 +31,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.main-menu.menu-dark .navigation &gt; li.active &gt; a</find>
-      <find>primary</find>
-      <find>.primary</find>
-      <find>table.dataTable thead tr</find>
-      <find>5d55c7</find>
-      <find>.main-menu.menu-dark .navigation &gt; li ul .active</find>
       <find>.btn-group button</find>
       <find>7367f0</find>
       <find>CheckAll</find>
@@ -107,6 +55,12 @@
       <find>expiryDateTime</find>
       <find>getCustodianData</find>
       <find>assignCustodian_id</find>
+      <find>cluster_code</find>
+      <find>$inventory_type</find>
+      <find>inventory_type</find>
+      <find>col-md-21</find>
+      <find>label-control</find>
+      <find>kpk</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -119,6 +73,8 @@
       <replace>$insertArray</replace>
       <replace>Invalid</replace>
       <replace>echo</replace>
+      <replace>col-md-10</replace>
+      <replace>label-control customlabel</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -139,8 +95,6 @@
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/assets/css/colors.css" />
         <option value="$PROJECT_DIR$/assets/css/bootstrap-extended.css" />
         <option value="$PROJECT_DIR$/assets/css/components.css" />
@@ -151,27 +105,29 @@
         <option value="$USER_HOME$/Desktop/portals/myactivity.xml" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
-        <option value="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Memployee.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/config.php" />
-        <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/budget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/actual.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
+        <option value="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" />
       </list>
     </option>
   </component>
@@ -188,6 +144,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,20 +168,19 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_views" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dictionary_portal2.0" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -272,6 +228,8 @@
       <workItem from="1602478708872" duration="296000" />
       <workItem from="1602479236859" duration="12821000" />
       <workItem from="1602498581960" duration="1285000" />
+      <workItem from="1602651701674" duration="613000" />
+      <workItem from="1602675653570" duration="1193000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -336,17 +294,31 @@
       <option name="project" value="LOCAL" />
       <updated>1602581586041</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="budget system">
+      <created>1602581723907</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602581723907</updated>
+    </task>
+    <task id="LOCAL-00011" summary="budget system - chnages">
+      <created>1602590585640</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602590585640</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43240000" />
+    <option name="totallyTimeSpent" value="51966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27139366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25366747" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -366,27 +338,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.51511335" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -399,107 +350,21 @@
     <MESSAGE value="Inventory System -  Expiry &amp; custodian" />
     <MESSAGE value="budget system- employee" />
     <MESSAGE value="budget system" />
-    <option name="LAST_COMMIT_MESSAGE" value="budget system" />
+    <MESSAGE value="budget system - chnages" />
+    <option name="LAST_COMMIT_MESSAGE" value="budget system - chnages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php</url>
-          <line>278</line>
+          <line>277</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/employee_entry.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_20201002.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="2109" column="31" lean-forward="true" selection-start-line="2107" selection-start-column="19" selection-end-line="2109" selection-end-column="31" />
-          <folding>
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#31#37#1" expanded="true" />
-            <element signature="e#51#57#1" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/portals/myactivity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -514,22 +379,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="73" column="55" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="55" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -581,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/settings/group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -609,13 +453,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -665,48 +502,8 @@
         <state relative-caret-position="-663" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="445" column="103" selection-start-line="445" selection-start-column="91" selection-end-line="445" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="57" column="48" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="156" column="42" selection-end-line="186" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -788,6 +585,93 @@
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10-2020-10-13.json" />
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="78" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="147" column="58" selection-start-line="147" selection-start-column="58" selection-end-line="147" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="119" column="21" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fetch_files_live/form_fetch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fetch_files_live/form_fetch_sindh_new.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all_html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="57" column="986" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="986" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="51" column="112" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="190" column="36" lean-forward="true" selection-start-line="190" selection-start-column="36" selection-end-line="190" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
         </state>
       </provider>
     </entry>
