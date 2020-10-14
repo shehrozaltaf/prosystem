@@ -45,8 +45,8 @@ class Projected extends CI_controller
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
 
-        $Mproject = new Mproject();
-        $data['data'] = $Mproject->getAll();
+        $Mprojected = new Mprojected();
+        $data['data'] = $Mprojected->getAll();
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -54,6 +54,66 @@ class Projected extends CI_controller
         $this->load->view('budget_views/projected_add', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
+    }
+
+
+    function insertData()
+    {
+        $flag = 0;
+        if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '' || $_POST['proj_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['prjn_pctg']) || $_POST['prjn_pctg'] == '' || $_POST['prjn_pctg'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Percentage');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['prjn_month']) || $_POST['prjn_month'] == '' || $_POST['prjn_month'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Month');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        } 
+        if (!isset($_POST['prjn_year']) || $_POST['prjn_year'] == '' || $_POST['prjn_year'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Year');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        } 
+
+       
+       
+
+        if ($flag == 0) {
+            $Custom = new Custom();
+            $insertArray = array();
+            $insertArray['proj_code'] = $_POST['proj_code'];
+            $insertArray['empl_code'] = $_POST['empl_code'];
+            $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
+            $insertArray['prjn_month'] = $_POST['prjn_month']; 
+            $insertArray['prjn_year'] = $_POST['prjn_year']; 
+            
+            // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+            // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
+            if ($InsertData) {
+                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+            } else {
+                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+            }
+            echo json_encode($result);
+        }
+
     }
 
 }

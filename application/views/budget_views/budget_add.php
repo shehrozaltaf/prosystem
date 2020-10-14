@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
-                                                <label for="bdgt_band" class="label-control">band</label>
+                                                <label for="bdgt_band" class="label-control">Budget Band</label>
                                                 <input type="text" class="form-control" id="bdgt_band" name="bdgt_band"
                                                        autocomplete="bdgt_band" required>
 
@@ -121,31 +121,7 @@
 <!-- END: Content-->
 
 
-<script>
-    $(document).ready(function () {
-        mydate();
-    });
-
-    function tagableToggle() {
-        var tagable = $('#tagable').val();
-        if (tagable == 2) {
-            $('.aaftagDiv').addClass('show').removeClass('hide');
-            $('.ftagDiv').addClass('hide').removeClass('show');
-        } else {
-            $('.aaftagDiv').addClass('hide').removeClass('show');
-            $('.ftagDiv').addClass('show').removeClass('hide');
-        }
-    }
-
-    function mydate() {
-        $('.mypickadat').pickadate({
-            selectYears: true,
-            selectMonths: true,
-            min: new Date(2019, 12, 1),
-            max: true,
-            format: 'dd-mm-yyyy'
-        });
-    }
+<script> 
 
     function insertData() {
         var data = {};
@@ -159,28 +135,28 @@
         data['bdgt_year'] = $('#bdgt_year').val();
         var vd = validateData(data);
         if (vd) {
-            // showloader();
-            // $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            // CallAjax('< ?php echo base_url('index.php/inventory_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
-            //     hideloader();
-            //     $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-            //     try {
-            //         var response = JSON.parse(result);
-            //         if (response[0] == 'Success') {
-            //             toastMsg(response[0], response[1], 'success');
-            //             $('.res_heading').html(response[0]).css('color', 'green');
-            //             $('.res_msg').html(response[1]).css('color', 'green');
-            //             setTimeout(function () {
-            //                 window.location.reload();
-            //             }, 1500)
-            //         } else {
-            //             toastMsg(response[0], response[1], 'error');
-            //             $('.res_heading').html(response[0]).css('color', 'red');
-            //             $('.res_msg').html(response[1]).css('color', 'red');
-            //         }
-            //     } catch (e) {
-            //     }
-            // });
+            showloader();
+            $('.mybtn').addClass('hide').attr('disabled', 'disabled');
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/insertData'); ?>', data, 'POST', function (result) {
+                hideloader();
+                $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        toastMsg(response[0], response[1], 'success');
+                        $('.res_heading').html(response[0]).css('color', 'green');
+                        $('.res_msg').html(response[1]).css('color', 'green');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1500)
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                        $('.res_heading').html(response[0]).css('color', 'red');
+                        $('.res_msg').html(response[1]).css('color', 'red');
+                    }
+                } catch (e) {
+                }
+            });
         } else {
             toastMsg('Error', 'Invalid Data', 'error');
         }

@@ -33,7 +33,7 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
-                                                <input type="text" class="form-control" id="proj_code" name="proj_code"
+                                                <input type="number" class="form-control" id="proj_code" name="proj_code"
                                                        autocomplete="proj_code" required>
                                             </div>
                                         </div>
@@ -95,28 +95,24 @@
         data['proj_sn'] = $('#proj_sn').val(); 
         var vd = validateData(data);
         if (vd) {
-            // showloader();
-            // $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            // CallAjax('< ?php echo base_url('index.php/inventory_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
-            //     hideloader();
-            //     $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-            //     try {
-            //         var response = JSON.parse(result);
-            //         if (response[0] == 'Success') {
-            //             toastMsg(response[0], response[1], 'success');
-            //             $('.res_heading').html(response[0]).css('color', 'green');
-            //             $('.res_msg').html(response[1]).css('color', 'green');
-            //             setTimeout(function () {
-            //                 window.location.reload();
-            //             }, 1500)
-            //         } else {
-            //             toastMsg(response[0], response[1], 'error');
-            //             $('.res_heading').html(response[0]).css('color', 'red');
-            //             $('.res_msg').html(response[1]).css('color', 'red');
-            //         }
-            //     } catch (e) {
-            //     }
-            // });
+            showloader();
+            $('.mybtn').addClass('hide').attr('disabled', 'disabled');
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/insertData'); ?>', data, 'POST', function (result) {
+                hideloader();
+                $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        toastMsg(response[0], response[1], 'success');
+                        setTimeout(function () {
+                            // window.location.reload();
+                        }, 1500)
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
         } else {
             toastMsg('Error', 'Invalid Data', 'error');
         }
