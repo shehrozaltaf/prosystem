@@ -40,6 +40,11 @@ class Employee_entry extends CI_controller
         $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
 
+        $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
+        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
+        $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
+        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
+
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -347,11 +352,6 @@ class Employee_entry extends CI_controller
         }
 
 
-        //print_r($formArray);
-        ///print_r($_FILES);
-        //die();
-
-
         if ($flag == 0) {
 
             $Custom = new Custom();
@@ -416,20 +416,38 @@ class Employee_entry extends CI_controller
             //die();
 
 
-            if (isset($_FILES["pic"]["name"])) {
-                $formArray["pic"] = "assets/emppic/" . $_FILES["pic"]["name"];
+            /*if (isset($_FILES["imgfile"]["name"])) {
+                $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
             } else {
 
+                if (!isset($formArray["pic"])) {
+                    $formArray["pic"] = null;
+                }
+            }*/
+
+
+            /*if (isset($_FILES["docfile"]["name"])) {
+                $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
+            } else {
+
+                if (!isset($formArray["doc"])) {
+                    $formArray["doc"] = null;
+                }
+            }*/
+
+
+            if (isset($_FILES["imgfile"]["name"])) {
+                $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
+            } else {
                 if (!isset($formArray["pic"])) {
                     $formArray["pic"] = null;
                 }
             }
 
 
-            if (isset($_FILES["doc"]["name"])) {
-                $formArray["doc"] = "assets/docs/" . $_FILES["doc"]["name"];
+            if (isset($_FILES["docfile"]["name"])) {
+                $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
             } else {
-
                 if (!isset($formArray["doc"])) {
                     $formArray["doc"] = null;
                 }
@@ -454,6 +472,11 @@ class Employee_entry extends CI_controller
 
             //$Mempmdel = new Mempmodel();
             //$old_data = $Mempmdel->getEmployeeData($id);
+
+
+            /*print_r($formArray);
+            print_r($_FILES['pic']['name']);
+            die();*/
 
 
             $this->AuditTrials();
@@ -861,6 +884,10 @@ class Employee_entry extends CI_controller
         $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
 
+        $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
+        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
+        $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
+        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
 
         $Mempmdel = new Mempmodel();
 
