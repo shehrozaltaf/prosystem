@@ -21,7 +21,7 @@ class Searchemployee extends CI_Controller
             redirect(base_url());
         }
     }
-    
+
 
     function index()
     {
@@ -39,6 +39,8 @@ class Searchemployee extends CI_Controller
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['emp'] = $Custom->selectAllQuery('hr_employee', 'id');
+        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');

@@ -580,6 +580,116 @@ class Employee_entry extends CI_controller
     }
 
 
+    function bulkupdate()
+    {
+        ob_end_clean();
+        $flag = 0;
+        $formArray = array();
+
+
+        foreach ($_POST as $k => $v) {
+            if (!isset($v) || $v == '') {
+
+                if (!isset($v) && $k === "workproj" || $v == '' && $k === "workproj" || $v == 'NULL' && $k === "workproj" || $v == 'undefined' && $k === "workproj" ||
+                    !isset($v) && $k === "ddlloc" || $v == '' && $k === "ddlloc" || $v == 'NULL' && $k === "ddlloc" || $v == 'undefined' && $k === "ddlloc" ||
+                    !isset($v) && $k === "supernme" || $v == '' && $k === "supernme" || $v == 'NULL' && $k === "supernme" || $v == 'undefined' && $k === "supernme" ||
+                    !isset($v) && $k === "status" || $v == '' && $k === "status" || $v == 'NULL' && $k === "status" || $v == 'undefined' && $k === "status"
+                ) {
+                    $formArray[$k] = null;
+                } else {
+                    $flag = 1;
+                    echo json_encode('Invalid ' . $k);
+                    return false;
+                }
+
+            } else {
+
+                if ($k === 'conexpiry' || $k === 'SummaryEftDate') {
+                    $formArray[$k] = date('Y-m-d', strtotime($v));
+                } else {
+                    $formArray[$k] = $v;
+                }
+            }
+        }
+
+
+        if ($flag == 0) {
+
+            $Custom = new Custom();
+
+            date_default_timezone_set('Asia/Karachi');
+
+            /*print_r($formArray);
+            print_r($_FILES['pic']['name']);
+            die();*/
+
+
+            //$this->AuditTrials();
+
+
+            if (isset($_POST['data'])) {
+                foreach (json_decode($_POST['data']) as $v) {
+
+                    /*echo "<pre>";
+                    echo print_r($v);
+                    echo "</pre>";*/
+                    //echo $v[0]->summaryFldid;
+
+
+                    /*echo $v[0]->empno;
+                    echo $v[1]->empno;*/
+
+
+                    $formArray['workproj'] = $v[0]->summaryVal;
+                    $formArray['ddlloc'] = $v[1]->summaryVal;
+                    $formArray['supernme'] = $v[2]->summaryVal;
+                    $formArray['conexpiry'] = $v[3]->summaryVal;
+                    $formArray['status'] = $v[4]->summaryVal;
+
+
+                    unset($formArray['data']);
+
+                    /*echo "<pre>";
+                    echo print_r($formArray);
+                    echo "</pre>";*/
+
+
+
+                    //echo $v[$v->empno]->empno;
+
+
+                    //$formArray[$v->summaryFldid] = $v->summaryFldNewVal;
+
+                    //$formArray[$v['summaryFldNewVal']] = $v['summaryFldNewVal'];
+                    //$formArray["FieldName"] = $v['summaryFldName'];
+                    //$formArray["OldValue"] = $v['summaryOldVal'];
+                    //$formArray["NewValue"] = $v['summaryNewVal'];
+                    //$formArray["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
+
+
+                    $EditData = $Custom->Edit($formArray, 'empno', $v[0]->empno, 'hr_employee');
+
+                }
+            }
+
+            /*echo "<pre>";
+            echo print_r(json_decode($formArray['data']));
+            echo "</pre>";*/
+
+
+            /*$trackarray = array("action" => "Add Employee -> Function: addRecord() ",
+                "result" => $InsertData, "PostData" => $formArray);
+            $Custom->trackLogs($trackarray, "user_logs");*/
+
+        } else {
+            $EditData = 3;
+        }
+
+
+        echo $EditData;
+    }
+
+
     function AuditTrials()
     {
         $Custom = new Custom();

@@ -20,7 +20,9 @@
     }
 
     #lblna {
-        font-size: 16px;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: "Montserrat", Helvetica, Arial, serif;
         color: #626262;
     }
 
@@ -240,8 +242,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
-                                                                <span id="lbl_offemail">Official Email<br/><span
-                                                                            style="font-weight: bold">(without aku.edu)<span></span>
+                                                                <span id="lbl_offemail">Official Email<br/>(without aku.edu)</span>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <input type="text" id="offemail"
@@ -258,8 +259,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-2">
-                                                                <span id="lbl_empname">Full Name <br><span
-                                                                            style="font-weight: bold">(Use Capital Letters)</span></span>
+                                                                <span id="lbl_empname">Full Name <br>(Use Capital Letters)</span>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <input type="text" id="empname"

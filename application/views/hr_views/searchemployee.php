@@ -118,7 +118,8 @@
                                             <div class="col-sm-12">
                                                 <button type="button"
                                                         onclick="updBtnModal()"
-                                                        id="btn-Upd" class="btn bg-secondary white addbtn">Update All
+                                                        id="btn-Upd" class="btn bg-secondary white addbtn">Update
+                                                    Selected Employees
                                                 </button>
                                             </div>
                                         </div>
@@ -175,45 +176,94 @@
                             <th width='30%'>Value</th>
                             <th width='30%'>Eff Date</th>
                         </tr>
-
-                        <tr>
-                            <td class='project'>Project</td>
+                        <tr class="summaryRow">
+                            <td class='summaryFldid' data-key="workproj">Working Project</td>
                             <td class='summaryNewVal'>
                                 <select id="upd_bulkProject" name="upd_bulkProject" class=" select2">
                                     <option>Select Project</option>
                                     <?php
                                     if (isset($project) && $project != '') {
                                         foreach ($project as $k => $v) {
-                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                            echo '<option data-val="' . $v->proj_code . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_' name='dt_' type='text' class='form-control pickadate-short-string'/>
+                                <input id='dt_eff_project' name='dt_eff_project' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
-                        <tr>
-                            <td class='project'>Location</td>
+                        <tr class="summaryRow">
+                            <td class='summaryFldid' data-key="ddlloc">Location</td>
                             <td class='summaryNewVal'>
                                 <select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2">
                                     <option>Select Location</option>
                                     <?php
                                     if (isset($location) && $location != '') {
                                         foreach ($location as $k => $v) {
-                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                            echo '<option data-val="' . $v->id . ' " value="' . $v->id . '">' . $v->location . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_' name='dt_' type='text' class='form-control pickadate-short-string'/>
+                                <input id='dt_eff_location' name='dt_eff_location' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow">
+                            <td class='summaryFldid' data-key="supernme">Supervisor</td>
+                            <td class='summaryNewVal'>
+                                <select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2">
+                                    <option>Select Supervisor</option>
+                                    <?php
+                                    if (isset($emp) && $emp != '') {
+                                        foreach ($emp as $k => $v) {
+                                            echo '<option data-val="' . $v->empno . '" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td class='SummaryEftDate'>
+                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow">
+                            <td class='summaryFldid' data-key="conexpiry">Contract Expiry</td>
+                            <td class='summaryNewVal'>
+                                <input id='dt_conexpiry' name='dt_conexpiry' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
+                            </td>
+                            <td class='SummaryEftDate'>
+                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow">
+                            <td class='summaryFldid' data-key="status">Status</td>
+                            <td class='summaryNewVal'>
+                                <select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2">
+                                    <option>Select Status</option>
+                                    <?php
+                                    if (isset($status) && $status != '') {
+                                        foreach ($status as $k => $v) {
+                                            echo '<option data-val="' . $v->id . '" value="' . $v->id . '">' . $v->status . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td class='SummaryEftDate'>
+                                <input id='dt_eff_status' name='dt_eff_status' type='text' value="05-10-2020"
+                                       class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
                     </table>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
@@ -310,7 +360,7 @@
         if (employees.length >= 1) {
             $.each(employees, function (i, v) {
                 if (i == 0) {
-                    empHtml += v.employees_no ;
+                    empHtml += v.employees_no;
                 } else {
                     empHtml += ', ' + v.employees_no;
                 }
@@ -329,31 +379,85 @@
         var data = {};
         var employees = [];
         var employees_no = '';
+        var results = [];
+        var flag = 0;
         var count = $('.fgtr').find('.checkboxes');
+
         for (var i = 0; i < count.length; i++) {
             employees_no = $(count[i]).attr('data-emp');
             if ($(count[i]).is(':checked')) {
+
                 employees.push({'employees_no': employees_no});
+
+                $(".summaryRow").each(function () {
+
+                    var summaryFldid = $(this).find('.summaryFldid').attr('data-key');
+                    var summaryFldName = $(this).find('.summaryFldid').text();
+
+                    var summaryVal;
+
+                    if (summaryFldid == "conexpiry") {
+                        summaryVal = $(this).find('.summaryNewVal').find('input').val();
+                    } else {
+                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-val");
+                        alert(summaryFldid + " - " + summaryVal);
+                    }
+
+                    if (summaryFldName == null || summaryFldName == undefined) {
+                        $(this).find('.summaryFldName').addClass('error');
+                        flag = 1;
+                        return false;
+                    }
+
+                    var SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
+
+                    results.push({
+                        'empno': employees_no,
+                        'summaryFldid': summaryFldid,
+                        'summaryFldName': summaryFldName,
+                        'summaryVal': summaryVal,
+                        'SummaryEftDate': SummaryEftDate
+                    });
+                });
+
             }
         }
+
         if (employees.length >= 1) {
             $('#btn-Edit').css('display', 'none');
-            data['clusters'] = employees;
-            /*CallAjax("< ?php echo base_url() . 'index.php/Cluster_lock/setLock' ?>", data, "POST", function (Result) {
-                if (Result == 1) {
+
+            //results.push({'empno': employees});
+
+            /*$.each(results[1], function (k, v) {
+                console.log("key = " + results[k] + " value = " + v);
+            });*/
+
+
+            let formData = new FormData();
+
+            /*data['empno'] = employees;
+            data['results'] = results;*/
+
+            data['results'] = results;
+            formData.append('data', JSON.stringify(data));
+
+
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/bulkupdate'); ?>', formData, "POST", function (result) {
+                if (result == 1) {
                     toastMsg('Success', 'Successfully Changed', 'success');
                     setTimeout(function () {
                         $('#btn-Edit').css('display', 'block');
                         window.location.reload();
                     }, 2000);
-                } else if (Result == 3) {
+                } else if (result == 3) {
                     toastMsg('Error', 'Invalid Cluster', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
-            });*/
+            }, true);
+
         } else {
-            toastMsg('Employeee', 'Please select Employee', 'error');
+            toastMsg('Employee', 'Please select Employee first', 'error');
         }
     }
 
