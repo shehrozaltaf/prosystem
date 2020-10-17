@@ -107,6 +107,31 @@ class Project extends CI_controller
 
     }
 
+
+    function deleteData()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idProject']) && $_POST['idProject'] != '') {
+            $idProject = $_POST['idProject'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'idProject', $idProject, 'project');
+            $trackarray = array("action" => "Delete Page setting -> Function: deletePageData() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
+
 }
 
 ?>

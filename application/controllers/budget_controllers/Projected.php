@@ -115,6 +115,30 @@ class Projected extends CI_controller
         }
 
     }
+    function deleteData()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idPrjn']) && $_POST['idPrjn'] != '') {
+            $idPrjn = $_POST['idPrjn'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'idPrjn', $idPrjn, 'b_projected');
+            $trackarray = array("action" => "Delete Page setting -> Function: deletePageData() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
+
 
 }
 

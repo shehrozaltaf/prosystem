@@ -117,6 +117,32 @@ class Actual extends CI_controller
 
     }
 
+
+    function deleteData()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idActual']) && $_POST['idActual'] != '') {
+            $idActual = $_POST['idActual'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'idActual', $idActual, 'b_actual');
+            $trackarray = array("action" => "Delete Page setting -> Function: deletePageData() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
+
+
 }
 
 ?>

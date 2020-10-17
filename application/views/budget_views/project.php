@@ -42,6 +42,7 @@
                                                 <th>Name</th>
                                                 <th>Principal Investigator</th>
                                                 <th>Short Name</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -56,6 +57,11 @@
                                                         <td><?php echo $v->proj_name ?></td>
                                                         <td><?php echo $v->proj_priv ?></td>
                                                         <td><?php echo $v->proj_sn ?></td>
+                                                        <td data-id="<?php echo $v->idProject ?>"> 
+                                                                <a href="javascript:void(0)" onclick="getDelete(this)">
+                                                                                <i class="feather icon-trash"></i>
+                                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 <?php }
                                             } ?>
@@ -67,6 +73,7 @@
                                                 <th>Name</th>
                                                 <th>Principal Investigator</th>
                                                 <th>Short Name</th>
+                                                <th>Action</th>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -88,7 +95,26 @@
     </div>
 </div>
 <!-- END: Content-->
-
+<div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel_delete"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Project</h4>
+                    <input type="hidden" id="delete_idProject" name="delete_idProject">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to delete this?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteData()">Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
@@ -146,4 +172,35 @@
             ]
         });
     });
+
+
+    function getDelete(obj) {
+        var id = $(obj).parent('td').attr('data-id');
+        $('#delete_idProject').val(id);
+        $('#deleteModal').modal('show');
+    }
+
+    function deleteData() {
+        var data = {};
+        data['idProject'] = $('#delete_idProject').val();
+        if (data['idProject'] == '' || data['idProject'] == undefined || data['idProject'] == 0) {
+            toastMsg('Group', 'Something went wrong', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/deleteData')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    $('#deleteModal').modal('hide');
+                    toastMsg('Group', 'Successfully Deleted', 'success');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (res == 2) {
+                    toastMsg('Group', 'Something went wrong', 'error');
+                } else if (res == 3) {
+                    toastMsg('Group', 'Invalid Group', 'error');
+                }
+
+            });
+        }
+    }
 </script>
