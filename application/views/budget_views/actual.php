@@ -60,6 +60,9 @@
                                                         <td><?php echo $v->actl_month ?></td>
                                                         <td><?php echo $v->actl_year ?></td>
                                                         <td data-id="<?php echo $v->idActual ?>"> 
+                                                        <a href="<?php echo base_url('index.php/budget_controllers/Actual/editActual_view/' . $v->idActual) ?>">
+                                                                <i class="feather icon-edit"></i>
+                                                            </a>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
                                                                                 <i class="feather icon-trash"></i>
                                                                             </a>
