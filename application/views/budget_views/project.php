@@ -16,7 +16,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active">Project </li>
+                                <li class="breadcrumb-item active">Project</li>
                             </ol>
                         </div>
                     </div>
@@ -57,10 +57,15 @@
                                                         <td><?php echo $v->proj_name ?></td>
                                                         <td><?php echo $v->proj_priv ?></td>
                                                         <td><?php echo $v->proj_sn ?></td>
-                                                        <td data-id="<?php echo $v->idProject ?>"> 
-                                                                <a href="javascript:void(0)" onclick="getDelete(this)">
-                                                                                <i class="feather icon-trash"></i>
-                                                                            </a>
+                                                        <td data-id="<?php echo $v->idProject ?>">
+
+                                                            <a href="<?php echo base_url('index.php/budget_controllers/Project/editProject_view/' . $v->idProject) ?>">
+                                                                <i class="feather icon-edit"></i>
+                                                            </a>
+
+                                                            <a href="javascript:void(0)" onclick="getDelete(this)">
+                                                                <i class="feather icon-trash"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 <?php }
@@ -83,7 +88,7 @@
                         </div>
                         <div class="md-fab-wrapper">
                             <a class="md-fab md-fab-accent md-fab-wave-light waves-effect waves-button waves-light"
-                               href="<?php echo  base_url()?>index.php/budget_controllers/Project/addProject_view">
+                               href="<?php echo base_url() ?>index.php/budget_controllers/Project/addProject_view">
                                 <i class="feather icon-plus"></i>
                             </a>
                         </div>
@@ -96,25 +101,25 @@
 </div>
 <!-- END: Content-->
 <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel_delete"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Project</h4>
-                    <input type="hidden" id="delete_idProject" name="delete_idProject">
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure, you want to delete this?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="deleteData()">Delete
-                    </button>
-                </div>
+     aria-labelledby="myModalLabel_delete"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary white">
+                <h4 class="modal-title white" id="myModalLabel_delete">Delete Project</h4>
+                <input type="hidden" id="delete_idProject" name="delete_idProject">
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to delete this?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="deleteData()">Delete
+                </button>
             </div>
         </div>
     </div>
+</div>
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>

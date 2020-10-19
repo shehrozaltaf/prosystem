@@ -15,4 +15,15 @@ class Mproject extends CI_Model
         return $query->result();
     }
 
+
+    function getProjectById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->where('isActive', 1);
+        $this->db->where('idProject', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

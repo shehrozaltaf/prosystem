@@ -1,15 +1,24 @@
+<<<<<<< Updated upstream
 UserIPAddress: ::1 - October-17-2020 11:03 am
+=======
+UserIPAddress: 10.1.42.84 - October-17-2020 2:32 pm
+>>>>>>> Stashed changes
 idUser: 1, UserName: dmu@aku
 Action: Login Success
 Result: User dmu@aku: Login Success
 PostData: 
 -------------------------------------------------
+<<<<<<< Updated upstream
 UserIPAddress: ::1 - October-17-2020 11:03 am
+=======
+UserIPAddress: 10.1.42.84 - October-17-2020 2:32 pm
+>>>>>>> Stashed changes
 idUser: 1, UserName: dmu@aku
 Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+<<<<<<< Updated upstream
 UserIPAddress: ::1 - October-17-2020 11:04 am
 idUser: 1, UserName: dmu@aku
 Action: View Dashboard Users Page
@@ -304,3 +313,5 @@ deleteBy = 1
 deletedDateTime = 2020-10-17 15:43:08
 
 -------------------------------------------------
+=======
+>>>>>>> Stashed changes
