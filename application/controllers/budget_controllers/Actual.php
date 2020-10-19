@@ -143,6 +143,97 @@ class Actual extends CI_controller
     }
 
 
+    function editActual_view(){
+        $data = array();
+        /*==========Log=============*/
+        $Custom = new Custom();
+        $trackarray = array("action" => "View Project",
+            "result" => "View Project page. Fucntion: Actual/index()");
+//        $Custom->trackLogs($trackarray, "user_logs");
+        /*==========Log=============*/
+        $MSettings = new MSettings();
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+
+        $MActual= new Mactual();
+        $data['data'] = $MActual->getAll();
+
+        $this->load->view('include/header');
+        $this->load->view('include/top_header');
+        $this->load->view('include/sidebar');
+        $this->load->view('budget_views/actual_edit', $data);
+        $this->load->view('include/customizer');
+        $this->load->view('include/footer');
+    }
+
+    function updateData()
+    {
+        $flag = 0;
+        if (!isset($_POST['idActual']) || $_POST['idActual'] == '' || $_POST['idActual'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Actual ID');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '' || $_POST['proj_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['actl_pctg']) || $_POST['actl_pctg'] == '' || $_POST['actl_pctg'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Percentage');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['actl_month']) || $_POST['actl_month'] == '' || $_POST['actl_month'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Month');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        } 
+        if (!isset($_POST['actl_year']) || $_POST['actl_year'] == '' || $_POST['actl_year'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Year');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        } 
+
+       
+       
+
+        if ($flag == 0) {
+            $idActual = $_POST['idActual'];
+            $Custom = new Custom();
+            $editArr = array();
+            $editArr['proj_code'] = $_POST['proj_code'];
+            $editArr['empl_code'] = $_POST['empl_code'];
+            $editArr['actl_pctg'] = $_POST['actl_pctg'];
+            $editArr['actl_month'] = $_POST['actl_month']; 
+            $editArr['actl_year'] = $_POST['actl_year']; 
+            $editArr['updateBy'] = $_SESSION['login']['idUser'];
+            $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
+            
+            // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+            // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'idActual', $idActual, 'b_actual');
+            if ($editData) {
+                $result = array('0' => 'Success', '1' => 'Successfully updated');
+            } else {
+                $result = array('0' => 'Error', '1' => 'Error in updated Data');
+            }
+            echo json_encode($result);
+        }
+
+    }
+
+
 }
 
 ?>
