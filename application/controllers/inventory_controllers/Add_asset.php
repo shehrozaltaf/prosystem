@@ -26,6 +26,7 @@ class Add_asset extends CI_controller
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Add_asset');
         $data['inventory_type'] = $Custom->selectAllQuery('i_inventory_type', 'id', 'status');
         $data['status'] = $Custom->selectAllQuery('i_status', 'id', 'status');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
 
 
         $this->load->view('include/header');
@@ -51,12 +52,7 @@ class Add_asset extends CI_controller
             echo json_encode($result);
             exit();
         }
-        if (!isset($_POST['ftag']) || $_POST['ftag'] == '' || $_POST['ftag'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid FTAG');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
+
         if (!isset($_POST['product_no']) || $_POST['product_no'] == '' || $_POST['product_no'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Product');
             $flag = 1;
@@ -65,6 +61,30 @@ class Add_asset extends CI_controller
         }
         if (!isset($_POST['serial_no']) || $_POST['serial_no'] == '' || $_POST['serial_no'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Serial No');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '' || $_POST['proj_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Project/Budget Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['po_num']) || $_POST['po_num'] == '' || $_POST['po_num'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid PO Number');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['pr_num']) || $_POST['pr_num'] == '' || $_POST['pr_num'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid PR Number');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['dor']) || $_POST['dor'] == '' || $_POST['dor'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid DoR');
             $flag = 1;
             echo json_encode($result);
             exit();
@@ -82,16 +102,41 @@ class Add_asset extends CI_controller
             exit();
         }
 
+        if (!isset($_POST['tagable']) || $_POST['tagable'] == '' || $_POST['tagable'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Tagable');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if ((!isset($_POST['ftag']) || $_POST['ftag'] == '' || $_POST['ftag'] == '0') && $_POST['tagable'] == 1) {
+            $result = array('0' => 'Error', '1' => 'Invalid FTAG');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if ((!isset($_POST['aaftag']) || $_POST['aaftag'] == '' || $_POST['aaftag'] == '0') && $_POST['tagable'] == 2) {
+            $result = array('0' => 'Error', '1' => 'Invalid AAFTAG');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+
         if ($flag == 0) {
             $Custom = new Custom();
             $insertArray = array();
             $insertArray['inventory_type'] = $_POST['inventory_type'];
             $insertArray['model'] = $_POST['model'];
-            $insertArray['ftag'] = $_POST['ftag'];
             $insertArray['product'] = $_POST['product_no'];
             $insertArray['serial'] = $_POST['serial_no'];
+            $insertArray['proj_code'] = $_POST['proj_code'];
+            $insertArray['po_num'] = $_POST['po_num'];
+            $insertArray['pr_num'] = $_POST['pr_num'];
+            $insertArray['dor'] = $_POST['dor'];
             $insertArray['dop'] = date('Y-m-d', strtotime($_POST['dop']));
             $insertArray['status'] = $_POST['status'];
+            $insertArray['tagable'] = $_POST['tagable'];
+            $insertArray['ftag'] = $_POST['ftag'];
+            $insertArray['aaftag'] = $_POST['aaftag'];
             $insertArray['remarks'] = $_POST['remarks'];
             $insertArray['loc'] = 'PRO';
             $insertArray['username'] = 'STOREPRO';
