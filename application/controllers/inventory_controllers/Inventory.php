@@ -39,7 +39,6 @@ class Inventory extends CI_controller
         $this->load->view('include/footer');
     }
 
-
     function getInventory()
     {
         $M = new MInventory();
@@ -96,6 +95,9 @@ class Inventory extends CI_controller
                 </a> | 
                 <a href="javascript:void(0)" onclick="getCustodianData(this)" data-id="' . $value->id . '">
                        Assign Custodian
+                </a> | 
+                <a href="'.base_url('index.php/inventory_controllers/Inventory/auditTrial/'.$value->id).'">
+                       Audit Trial
                 </a>';
             /*$table_data[$value->crf_name]['action'] = '<div class="btn-group mr-1 mb-1">
 							<button class="btn btn-danger dropdown-toggle btn-sm" type="button"
@@ -216,7 +218,32 @@ class Inventory extends CI_controller
 
     }
 
+    function auditTrial()
+    {
 
+        $slug='';
+        if(isset($slug) && $slug!=''){
+            $data = array();
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View LineListing Dashboard",
+                "result" => "View LineListing Dashboard page. Fucntion: dashboard/index()");
+//        $Custom->trackLogs($trackarray, "user_logs");
+            /*==========Log=============*/
+            $MSettings = new MSettings();
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/auditTrial');
+
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('inventory_views/audit_trial', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        }else{
+            $this->load->view('page-invalid-id');
+        }
+
+    }
 }
 
 ?>

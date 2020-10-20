@@ -37,6 +37,7 @@ class Add_asset extends CI_controller
         $this->load->view('include/footer');
     }
 
+
     function insertData()
     {
         $flag = 0;

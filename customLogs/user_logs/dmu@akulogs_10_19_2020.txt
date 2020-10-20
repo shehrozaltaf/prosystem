@@ -22,3 +22,15 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-19-2020 2:33 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-19-2020 2:33 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
