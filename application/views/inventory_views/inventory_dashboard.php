@@ -131,8 +131,6 @@
                                                 <th>Serial</th>
                                                 <th>DOP</th>
                                                 <th>AAFTAG</th>
-                                                <th>AAProduct</th>
-                                                <th>AASerial</th>
                                                 <th>Username</th>
                                                 <th>Location</th>
                                                 <th>Remarks</th>
@@ -151,8 +149,6 @@
                                                 <th>Serial</th>
                                                 <th>DOP</th>
                                                 <th>AAFTAG</th>
-                                                <th>AAProduct</th>
-                                                <th>AASerial</th>
                                                 <th>Username</th>
                                                 <th>Location</th>
                                                 <th>Remarks</th>
@@ -284,6 +280,7 @@
 
     $(document).ready(function () {
         mydate();
+        getData();
     });
 
     function mydate() {
@@ -299,7 +296,7 @@
     function getExpiry(obj) {
         var id = $(obj).attr('data-id');
         var va = $(obj).attr('data-expiry');
-        if (id != '' && id != undefined && va != '' && va != undefined) {
+        if (id != '' && id != undefined) {
             $('#expiryDateTime').val(va);
             $('#expiry_id').val(id);
             $('#expiryModal').modal('show');
@@ -460,8 +457,6 @@
                 {"data": "serial"},
                 {"data": "dop"},
                 {"data": "aaftag"},
-                {"data": "aaproduct"},
-                {"data": "aaserial"},
                 {"data": "username"},
                 {"data": "loc"},
                 {"data": "remarks"},

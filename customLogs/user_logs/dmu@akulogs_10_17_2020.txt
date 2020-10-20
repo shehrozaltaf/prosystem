@@ -1,0 +1,317 @@
+<<<<<<< Updated upstream
+UserIPAddress: ::1 - October-17-2020 11:03 am
+=======
+UserIPAddress: 10.1.42.84 - October-17-2020 2:32 pm
+>>>>>>> Stashed changes
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+<<<<<<< Updated upstream
+UserIPAddress: ::1 - October-17-2020 11:03 am
+=======
+UserIPAddress: 10.1.42.84 - October-17-2020 2:32 pm
+>>>>>>> Stashed changes
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+<<<<<<< Updated upstream
+UserIPAddress: ::1 - October-17-2020 11:04 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 11:04 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 11:04 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 11:14 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 11:15 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 1:52 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 1:52 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:01 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:01:07
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:01 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:01:13
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:02 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:02:07
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:21 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:21:41
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:39 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:39:46
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:41 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:41:24
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:03
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:05
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:05
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:05
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:05
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:06
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:45 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:45:50
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 2:59 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 14:59:48
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:10 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:29 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:33 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:33:55
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:39
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:42
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:45
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:46
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:46
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:46
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:46
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:50
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:36 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:36:53
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:38 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:38:25
+
+-------------------------------------------------
+UserIPAddress: ::1 - October-17-2020 3:43 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-10-17 15:43:08
+
+-------------------------------------------------
+=======
+>>>>>>> Stashed changes

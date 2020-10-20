@@ -156,7 +156,7 @@ function validateData(submitedData) {
         }
         inp.removeClass('error').removeClass('is-invalid');
         if (inp.attr('required')) {
-            if (inpVal == '' || inpVal == undefined || inpVal == 'undefined' || inpVal == null || inpVal == 'null'|| inpVal ==0) {
+            if (inpVal == '' || inpVal == undefined || inpVal == 'undefined' || inpVal == null || inpVal == 'null' || inpVal == 0) {
                 var error = '<div class="invalid-feedback">This is invalid</div>';
                 inp.addClass('error').addClass('is-invalid').parent('div').append(error);
                 flag = 1;
@@ -175,3 +175,25 @@ function validateData(submitedData) {
         return false;
     }
 }
+
+// Numeric only control handler
+jQuery.fn.ForceNumericOnly =
+    function () {
+        return this.each(function () {
+            $(this).keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+                // home, end, period, and numpad decimal
+                return (
+                    key == 8 ||
+                    key == 9 ||
+                    key == 13 ||
+                    key == 46 ||
+                    key == 110 ||
+                    key == 190 ||
+                    (key >= 35 && key <= 40) ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+            });
+        });
+    };

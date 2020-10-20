@@ -15,4 +15,15 @@ class Mactual extends CI_Model
         return $query->result();
     }
 
+    function getProjectById()
+    {
+        $this->db->select('*');
+        $this->db->from('b_actual');
+        $this->db->where('isActive', 1);
+        $this->db->order_By('idActual', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
 }

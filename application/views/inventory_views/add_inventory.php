@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -36,7 +36,7 @@
                                                 <select class="select2 form-control"
                                                         autocomplete="inventory_type"
                                                         id="inventory_type" required>
-                                                    <option value="0" readonly disabled selected>Type</option>
+                                                    <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($inventory_type) && $inventory_type != '') {
                                                         foreach ($inventory_type as $k => $t) {
                                                             echo '<option value="' . $t->type_value . '" >' . $t->type_name . '</option>';
@@ -69,9 +69,49 @@
                                                        autocomplete="serial_no" required>
                                             </div>
                                         </div>
+
+
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
-                                                <label for="dop" class="label-control">DoP</label>
+                                                <label for="proj_code" class="label-control">Project/Budget Code</label>
+                                                <select class="select2 form-control proj_code"
+                                                        autocomplete="proj_code"
+                                                        id="proj_code" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php if (isset($project) && $project != '') {
+                                                        foreach ($project as $k => $p) {
+                                                            echo '<option value="' . $p->proj_code . '">' . $p->proj_code . ' (' . $p->proj_name . ')</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-6">
+                                            <div class="form-group">
+                                                <label for="po_num" class="label-control">PO No</label>
+                                                <input type="text" class="form-control" id="po_num" name="po_num"
+                                                       autocomplete="po_num" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-6">
+                                            <div class="form-group">
+                                                <label for="pr_num" class="label-control">PR No</label>
+                                                <input type="text" class="form-control" id="pr_num" name="pr_num"
+                                                       autocomplete="pr_num" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-6">
+                                            <div class="form-group">
+                                                <label for="dor" class="label-control">DOR</label>
+                                                <input type="text" class="form-control" id="dor" name="dor"
+                                                       autocomplete="dor" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-6">
+                                            <div class="form-group">
+                                                <label for="dop" class="label-control">Date of Purchase</label>
                                                 <input type="text" class="form-control mypickadat" id="dop" name="dop"
                                                        autocomplete="dop" value="<?php echo date('d-m-Y') ?>" required>
                                             </div>
@@ -118,9 +158,10 @@
                                                        autocomplete="aaftag" required>
                                             </div>
                                         </div>
+
                                         <div class="col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="remarks" class="label-control">Remarks</label>
+                                                <label for="remarks" class="label-control">Remarks/Comments</label>
                                                 <textarea id="remarks" name="remarks" class="form-control" cols="30"
                                                           rows="7"
                                                           autocomplete="remarks" required></textarea>
@@ -129,7 +170,8 @@
                                     </div>
 
                                     <div class="">
-                                        <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                        <button type="button" class="btn btn-primary mybtn btn-block"
+                                                onclick="insertData()">
                                             Insert Asset
                                         </button>
                                     </div>
@@ -153,16 +195,21 @@
 <script>
     $(document).ready(function () {
         mydate();
+        tagableToggle();
+        $("#product_no").ForceNumericOnly();
+        $("#serial_no").ForceNumericOnly();
+        $("#po_num").ForceNumericOnly();
+        $("#pr_num").ForceNumericOnly();
     });
 
     function tagableToggle() {
         var tagable = $('#tagable').val();
         if (tagable == 2) {
-            $('.aaftagDiv').addClass('show').removeClass('hide');
-            $('.ftagDiv').addClass('hide').removeClass('show');
+            $('.aaftagDiv').addClass('show').removeClass('hide').find('input').attr('required', 'required');
+            $('.ftagDiv').addClass('hide').removeClass('show').find('input').removeAttr('required', 'required');
         } else {
-            $('.aaftagDiv').addClass('hide').removeClass('show');
-            $('.ftagDiv').addClass('show').removeClass('hide');
+            $('.ftagDiv').addClass('show').removeClass('hide').find('input').attr('required', 'required');
+            $('.aaftagDiv').addClass('hide').removeClass('show').find('input').removeAttr('required', 'required');
         }
     }
 
@@ -180,11 +227,17 @@
         var data = {};
         data['inventory_type'] = $('#inventory_type').val();
         data['model'] = $('#model').val();
-        data['ftag'] = $('#ftag').val();
         data['product_no'] = $('#product_no').val();
         data['serial_no'] = $('#serial_no').val();
+        data['proj_code'] = $('#proj_code').val();
+        data['po_num'] = $('#po_num').val();
+        data['pr_num'] = $('#pr_num').val();
+        data['dor'] = $('#dor').val();
         data['dop'] = $('#dop').val();
         data['status'] = $('#status').val();
+        data['tagable'] = $('#tagable').val();
+        data['ftag'] = $('#ftag').val();
+        data['aaftag'] = $('#aaftag').val();
         data['remarks'] = $('#remarks').val();
         var vd = validateData(data);
         if (vd) {
