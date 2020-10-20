@@ -44,6 +44,11 @@ class Employee_entry extends CI_controller
         $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
         $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
+        $data['workproj'] = $Custom->selectAllQuery('project', 'idProject');
+        $data['chargproj'] = $Custom->selectAllQuery('project', 'idProject');
+
+        $Mempmodel = new Mempmodel();
+        $data['supervisor'] = $Mempmodel->getDataSupervisor();
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -586,6 +591,8 @@ class Employee_entry extends CI_controller
         $flag = 0;
         $formArray = array();
 
+        $olddata = array();
+
 
         foreach ($_POST as $k => $v) {
             if (!isset($v) || $v == '') {
@@ -616,15 +623,18 @@ class Employee_entry extends CI_controller
         if ($flag == 0) {
 
             $Custom = new Custom();
+            $Mempmodel = new Mempmodel();
 
             date_default_timezone_set('Asia/Karachi');
 
-            /*print_r($formArray);
-            print_r($_FILES['pic']['name']);
-            die();*/
+
+            //$olddata['results'] =  $Mempmodel->getEmployeeDataByEmpNo('111111');
+
+            //print_r($olddata);
+            //die();
 
 
-            //$this->AuditTrials();
+            //$this->AuditTrials_BulkUpd();
 
 
             if (isset($_POST['data'])) {
@@ -633,6 +643,10 @@ class Employee_entry extends CI_controller
                     /*echo "<pre>";
                     echo print_r($v);
                     echo "</pre>";*/
+
+                    //echo $v[0]->summaryFldid;
+                    //echo $v[0]->empno;
+                    //die();
                     //echo $v[0]->summaryFldid;
 
 
@@ -643,6 +657,7 @@ class Employee_entry extends CI_controller
                     $formArray['workproj'] = $v[0]->summaryVal;
                     $formArray['ddlloc'] = $v[1]->summaryVal;
                     $formArray['supernme'] = $v[2]->summaryVal;
+                    //$formArray['conexpiry'] = date('Y-d-m', $v[3]->summaryVal);
                     $formArray['conexpiry'] = $v[3]->summaryVal;
                     $formArray['status'] = $v[4]->summaryVal;
 
@@ -652,7 +667,6 @@ class Employee_entry extends CI_controller
                     /*echo "<pre>";
                     echo print_r($formArray);
                     echo "</pre>";*/
-
 
 
                     //echo $v[$v->empno]->empno;
@@ -842,6 +856,65 @@ class Employee_entry extends CI_controller
     }
 
 
+    function AuditTrials_BulkUpd()
+    {
+        $Custom = new Custom();
+
+        date_default_timezone_set('Asia/Karachi');
+        $now = new DateTime();
+
+
+        if (isset($_POST['results']) && $_POST['results'] != '') {
+            foreach (json_decode($_POST['results']) as $k => $v) {
+
+                $ins_data = array();
+                $ins_data["FormID"] = $_SESSION['id'];
+                $ins_data["VisitID"] = "0";
+                $ins_data["FormName"] = "empentry";
+                /*$ins_data["EntryDate"] = $now->format('Y-m-d');
+                $ins_data["EntryTime"] = $now->format('H:i:s');*/
+                $ins_data["EntryDate"] = date('Y-m-d');
+                $ins_data["EntryTime"] = date('H:i:s');
+                $ins_data["ComputerName"] = gethostname();
+                $ins_data["LoginUserName"] = $_SESSION['login']['idUser'];
+                $ins_data["Fieldid"] = $v->summaryFldid;
+                $ins_data["FieldName"] = $v->summaryFldName;
+
+                if ($v->summaryFldid == "ddlemptype" ||
+                    $v->summaryFldid == "ddlcategory" ||
+                    $v->summaryFldid == "ddlband" ||
+                    $v->summaryFldid == "titdesi" ||
+                    $v->summaryFldid == "ddlloc" ||
+                    $v->summaryFldid == "ddlhardship" ||
+                    $v->summaryFldid == "benefits" ||
+                    $v->summaryFldid == "peme" ||
+                    $v->summaryFldid == "gop" ||
+                    $v->summaryFldid == "entity" ||
+                    $v->summaryFldid == "dept" ||
+                    $v->summaryFldid == "cardissue" ||
+                    $v->summaryFldid == "letterapp" ||
+                    $v->summaryFldid == "confirmation" ||
+                    $v->summaryFldid == "status" ||
+                    $v->summaryFldid == "degree" ||
+                    $v->summaryFldid == "field"
+                ) {
+                    $ins_data["OldValue"] = $v->summaryFldOldVal;
+                    $ins_data["NewValue"] = $v->summaryFldNewVal;
+                } else {
+                    $ins_data["OldValue"] = $v->summaryOldVal;
+                    $ins_data["NewValue"] = $v->summaryNewVal;
+                }
+
+                $ins_data["effdt"] = date('Y-m-d', strtotime($v->SummaryEftDate));
+
+                $InsertData = $Custom->Insert($ins_data, 'ID', 'hr_AuditTrials', 'N');
+            }
+        } else {
+            echo 2;
+        }
+    }
+
+
     function addRecord_SaveDraft()
     {
         ob_end_clean();
@@ -872,18 +945,46 @@ class Employee_entry extends CI_controller
         //array_push($formArray, $_FILES["imgfile"]["name"], $_FILES["docfile"]["name"]);
 
 
-        $formArray["pic"] = $_FILES["pic"]["name"];
-        $formArray["doc"] = $_FILES["doc"]["name"];
+        if (isset($_FILES["imgfile"]["name"])) {
+            $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
+        } else {
+            if (!isset($formArray["pic"])) {
+                $formArray["pic"] = null;
+            }
+        }
 
 
-        //$id = $_SESSION['id'];
+        if (isset($_FILES["docfile"]["name"])) {
+            $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
+        } else {
+            if (!isset($formArray["doc"])) {
+                $formArray["doc"] = null;
+            }
+        }
 
-        //$Mempmdel = new Mempmodel();
-        //$data_old = $Mempmdel->getEmployeeData($id);
+
+        // old code savedraft  $formArray["pic"] = $_FILES["pic"]["name"];
+        // old code savedraft    $formArray["doc"] = $_FILES["doc"]["name"];
 
 
         $Custom = new Custom();
-        $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
+
+
+        if (isset($_SESSION['id'])) {
+
+            $id = $_SESSION['id'];
+
+            //$this->AuditTrials();
+
+            $InsertData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
+
+        } else {
+            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
+        }
+
+
+        //$Mempmdel = new Mempmodel();
+        //$data_old = $Mempmdel->getEmployeeData($id);
 
 
         if (isset($_FILES["imgfile"]["name"])) {
@@ -999,27 +1100,12 @@ class Employee_entry extends CI_controller
         $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
 
-        $Mempmdel = new Mempmodel();
+        $data['workproj'] = $Custom->selectAllQuery('project', 'idProject');
+        $data['chargproj'] = $Custom->selectAllQuery('project', 'idProject');
 
-        $data['editemp'] = $Mempmdel->getDataFromTableByID($id, 'hr_employee');
-
-
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('hr_views/employee_entry', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
-
-        //echo json_encode($data, true);
-    }
-
-    public function getSupervisorName($supernme)
-    {
-
-        $Mempmdel = new Mempmodel();
-
-        $data['datasuper'] = $Mempmdel->getSupervisorName($supernme, 'hr_employee');
+        $Mempmodel = new Mempmodel();
+        $data['supervisor'] = $Mempmodel->getDataSupervisor();
+        $data['editemp'] = $Mempmodel->getDataFromTableByID($id, 'hr_employee');
 
 
         $this->load->view('include/header');

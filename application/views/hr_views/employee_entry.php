@@ -803,11 +803,28 @@
                                                             <span id="lbl_workproj">Working Project</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <input type="text" id="workproj" MaxLength="70" required
-                                                                   class="form-control" name="workproj"
-                                                                   placeholder="Working Project"
-                                                                   value="<?php echo(isset($editemp[0]->workproj) ? $editemp[0]->workproj : '') ?>"
-                                                            >
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($workproj) && $workproj != '') {
+                                                                foreach ($workproj as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->workproj) {
+                                                                        $oldValQ = $v->proj_code;
+                                                                        $oldLabelQ = $v->proj_name;
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="workproj"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="workproj">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -818,11 +835,28 @@
                                                             <span id="lbl_chargproj">Charging Project</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <input type="text" id="chargproj" required
-                                                                   placeholder="Charging Project"
-                                                                   class="form-control" name="chargproj"
-                                                                   value="<?php echo(isset($editemp[0]->chargproj) ? $editemp[0]->chargproj : '') ?>"
-                                                            >
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($chargproj) && $chargproj != '') {
+                                                                foreach ($chargproj as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->chargproj) {
+                                                                        $oldValQ = $v->proj_code;
+                                                                        $oldLabelQ = $v->proj_name;
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="chargproj"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="chargproj">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -865,13 +899,29 @@
                                                             <span id="lbl_supernme">Supervisor Name</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <input type="text" id="supernme" maxlength="70" required
-                                                                   class="form-control" name="supernme"
-                                                                   style="text-transform: uppercase;"
-                                                                   placeholder="Supervisor Name"
-                                                                   onkeypress="return lettersOnly_WithSpace();"
-                                                                   value="<?php echo(isset($editemp[0]->supernme) ? $editemp[0]->supernme : '') ?>"
-                                                            >
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($supervisor) && $supervisor != '') {
+                                                                foreach ($supervisor as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->empno === $editemp[0]->empno) {
+                                                                        $oldValQ = $v->empno;
+                                                                        $oldLabelQ = $v->empname;
+                                                                        $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->empname . '" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="supernme"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="supernme">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2764,7 +2814,7 @@
                     inp.removeClass('error').removeClass('is-invalid');
 
 
-                    if (inpVal == '' || inpVal == 'Choose Pic' || inpVal == 'Choose PDF' || inpVal == undefined
+                    if (inpVal == '' || inpVal == 'Choose Picture' || inpVal == 'Choose Documents' || inpVal == undefined
                         || inpVal == 'undefined' || inpVal == null
                         || inpVal == 'null') {
 
@@ -2950,18 +3000,18 @@
         }
 
 
-        if ($("#chargproj").val().indexOf("_") != -1) {
+        /*if ($("#chargproj").val().indexOf("_") != -1) {
             ShowError($("#chargproj"), "Charging project must be 10 digits");
             iserror = true;
-        }
+        }*/
 
 
-        var re = /^[A-Za-z ]+$/;
+        /*var re = /^[A-Za-z ]+$/;
 
         if (!re.test($("#supernme").val())) {
             ShowError($("#supernme"), "Supervisor name cannot contains special characters");
             iserror = true;
-        }
+        }*/
 
 
         if ($("#gopdt").val() != "") {
@@ -3909,7 +3959,7 @@
             // formData.append('data', $("#frm")[0]);
 
 
-            if ($("#pic").val() != "") {
+            /*if ($("#pic").val() != "") {
                 formData.append('pic', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
                 // formData['pic']=$('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "." + ext[1];
             }
@@ -3917,6 +3967,20 @@
 
             if ($("#doc").val() != "") {
                 formData.append('doc', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+            }*/
+
+
+            if ($("#pic").val() != "") {
+                formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+            } else {
+                formData.append('pic', $("#lbl_pic").html());
+            }
+
+
+            if ($("#doc").val() != "") {
+                formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+            } else {
+                formData.append('doc', $("#lbl_doc").html());
             }
 
 

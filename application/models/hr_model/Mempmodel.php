@@ -29,13 +29,30 @@ class Mempmodel extends CI_Model
     }
 
 
-    function getSupervisorName($supernme)
+    function getDataSupervisor()
     {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where supernme like '" . $supernme . "%'");
+        $query = $this->db->query("SELECT empno,empname FROM hr_employee");
+        return $query->result();
+    }
 
-        echo $supernme;
 
-        //return $query->result();
+    function getEmployeeDataByEmpNo($empno)
+    {
+        $query = $this->db->query("SELECT convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,status FROM hr_employee where empno='$empno'");
+
+        foreach ($query->result() as $row) {
+            $results['results'] = array(
+                "conexpiry" => $row->conexpiry,
+                "workproj" => $row->workproj,
+                "chargproj" => $row->chargproj,
+                "ddlloc" => $row->ddlloc,
+                "supernme" => $row->supernme,
+                "status" => $row->status
+            );
+        }
+
+        return $results['results'];
+        //return $query->result_array();
     }
 
 
@@ -103,10 +120,32 @@ class Mempmodel extends CI_Model
 
     function getAllEmployee()
     {
-        $query = $this->db->query("select id, case when ddlemptype = 1 then 'Payroll' when ddlemptype = 2 then 'Service Contract' when ddlemptype = 3 then 'Consultancy Contract' end 'EmployeeType',
+        /*$query = $this->db->query("select id, case when ddlemptype = 1 then 'Payroll' when ddlemptype = 2 then 'Service Contract' when ddlemptype = 3 then 'Consultancy Contract' end 'EmployeeType',
       case when ddlcategory = 1 then 'Academic' when ddlcategory = 2 then 'Administration' when ddlcategory = 3 then 'Allied Health' end 'EmployeeCategory',
 empno 'EmployeeNo', empname 'EmployeeName'
-from hr_employee");
+from hr_employee");*/
+
+
+        $query = $this->db->query("select e.id, 
+et.emptype 'EmployeeType', 
+c.category 'EmployeeCategory', 
+e.empno 'EmployeeNo', 
+e.empname 'EmployeeName', 
+e1.empname 'SupervisorName',
+pr.proj_name 'WorkingProject', 
+pr1.proj_name 'ChargingProject',
+loc.location 'Location', 
+e.conexpiry 'ContractExpiry', 
+st.status 'Status',
+e.workproj, e.chargproj, e.ddlloc, e.conexpiry, e.status
+from hr_employee e inner join hr_category c on e.ddlcategory = c.id 
+inner join hr_emptype et on e.ddlemptype = et.id
+inner join hr_location loc on loc.id = e.ddlloc
+inner join hr_status st on st.id = e.status
+inner join project pr on pr.proj_code = e.workproj
+inner join project pr1 on pr1.proj_code = e.chargproj
+inner join hr_employee e1 on e1.empno = e.supernme
+ order by e.id desc");
 
         return $query->result();
     }

@@ -52,7 +52,6 @@
                                         <div class="table-responsive">
 
                                             <table class="table table-striped childTable" id="empTable">
-
                                                 <thead>
                                                 <tr>
                                                     <th>S.No</th>
@@ -60,6 +59,12 @@
                                                     <th>Category</th>
                                                     <th>Employee No</th>
                                                     <th>Employee Name</th>
+                                                    <th>Supervisor Name</th>
+                                                    <th>Working Project</th>
+                                                    <th>Charging Project</th>
+                                                    <th>Location</th>
+                                                    <th>Contract Expiry</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                     <th>Check</th>
                                                 </tr>
@@ -85,8 +90,38 @@
                                                             <td>
                                                                 <?php echo $rows->EmployeeNo ?>
                                                             </td>
-                                                            <td>
+                                                            <td style="text-transform: uppercase;">
                                                                 <?php echo $rows->EmployeeName ?>
+                                                            </td>
+                                                            <td style="text-transform: uppercase;">
+                                                                <?php echo $rows->SupervisorName ?>
+                                                            </td>
+                                                            <td class="auditcol_workproj"
+                                                                style="text-transform: capitalize;"
+                                                                data-key="<?php echo $rows->WorkingProject ?>"
+                                                                data-oldval="<?php echo $rows->workproj ?>">
+                                                                <?php echo $rows->WorkingProject ?>
+                                                            </td>
+                                                            <td class="auditcol_chargproj"
+                                                                style="text-transform: capitalize;"
+                                                                data-key="<?php echo $rows->ChargingProject ?>"
+                                                                data-oldval="<?php echo $rows->chargproj ?>">
+                                                                <?php echo $rows->ChargingProject ?>
+                                                            </td>
+                                                            <td class="auditcol_ddlloc"
+                                                                data-key="<?php echo $rows->Location ?>"
+                                                                data-oldval="<?php echo $rows->ddlloc ?>">
+                                                                <?php echo $rows->Location ?>
+                                                            </td>
+                                                            <td class="auditcol_conexpiry"
+                                                                data-key="<?php echo $rows->ContractExpiry ?>"
+                                                                data-oldval="<?php echo $rows->conexpiry ?>">
+                                                                <?php echo $rows->ContractExpiry ?>
+                                                            </td>
+                                                            <td class="auditcol_status"
+                                                                data-key="<?php echo $rows->Status ?>"
+                                                                data-oldval="<?php echo $rows->status ?>">
+                                                                <?php echo $rows->Status ?>
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
                                                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
@@ -156,7 +191,6 @@
     </div>
 <?php } ?>
 
-
 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
     <div class="modal fade text-left" id="editEmpModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel_editEmpModal"
@@ -177,89 +211,100 @@
                             <th width='30%'>Eff Date</th>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid' data-key="workproj">Working Project</td>
+                            <td class='summaryFldid summaryFldid_workproj'
+                                data-key="workproj" data-fldnme="Working Project">Working Project</td>
                             <td class='summaryNewVal'>
+                                <!--<select id="upd_bulkProject" name="upd_bulkProject" class=" select2"
+                                        onchange="changeModalVal(this)">-->
                                 <select id="upd_bulkProject" name="upd_bulkProject" class=" select2">
                                     <option>Select Project</option>
                                     <?php
                                     if (isset($project) && $project != '') {
                                         foreach ($project as $k => $v) {
-                                            echo '<option data-val="' . $v->proj_code . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                            echo '<option class="auditcol1" data-oldkey="' . $v->proj_name . '" data-newval="' . $v->proj_code . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_project' name='dt_eff_project' type='text' value="05-10-2020"
+                                <input id='dt_eff_project' name='dt_eff_project' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid' data-key="ddlloc">Location</td>
+                            <td class='summaryFldid summaryFldid_ddlloc' data-key="ddlloc" data-fldnme="Location">Location</td>
                             <td class='summaryNewVal'>
+                                <!--<select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2"
+                                        onchange="changeModalVal(this)">-->
                                 <select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2">
                                     <option>Select Location</option>
                                     <?php
                                     if (isset($location) && $location != '') {
                                         foreach ($location as $k => $v) {
-                                            echo '<option data-val="' . $v->id . ' " value="' . $v->id . '">' . $v->location . '</option>';
+                                            echo '<option class="auditcol1" data-oldkey="' . $v->location . '" data-newval="' . $v->id . ' " value="' . $v->id . '">' . $v->location . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_location' name='dt_eff_location' type='text' value="05-10-2020"
+                                <input id='dt_eff_location' name='dt_eff_location' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid' data-key="supernme">Supervisor</td>
+                            <td class='summaryFldid summaryFldid_supernme' data-key="supernme" data-fldnme="Supervisor">Supervisor</td>
                             <td class='summaryNewVal'>
+                                <!--<select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2"
+                                        onchange="changeModalVal(this)">-->
                                 <select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2">
                                     <option>Select Supervisor</option>
                                     <?php
                                     if (isset($emp) && $emp != '') {
                                         foreach ($emp as $k => $v) {
-                                            echo '<option data-val="' . $v->empno . '" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                            echo '<option class="auditcol1" data-oldkey="' . $v->empname . '" data-newval="' . $v->empno . '" value="' . $v->empno . '">' . $v->empname . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value="05-10-2020"
+                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid' data-key="conexpiry">Contract Expiry</td>
+                            <td class='summaryFldid summaryFldid_conexpiry' data-key="conexpiry" data-fldnme="Contract Expiry">Contract Expiry</td>
                             <td class='summaryNewVal'>
-                                <input id='dt_conexpiry' name='dt_conexpiry' type='text' value="05-10-2020"
+                                <!--<input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
+                                       class='form-control pickadate-short-string' onclick="changeModalVal(this)"/>-->
+                                <input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value="05-10-2020"
+                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid' data-key="status">Status</td>
+                            <td class='summaryFldid summaryFldid_status' data-key="status" data-fldnme="Status">Status</td>
                             <td class='summaryNewVal'>
+                                <!--<select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2"
+                                        onchange="changeModalVal(this)">-->
                                 <select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2">
                                     <option>Select Status</option>
                                     <?php
                                     if (isset($status) && $status != '') {
                                         foreach ($status as $k => $v) {
-                                            echo '<option data-val="' . $v->id . '" value="' . $v->id . '">' . $v->status . '</option>';
+                                            echo '<option class="auditcol1" data-oldkey="' . $v->status . '" data-newval="' . $v->id . '" value="' . $v->id . '">' . $v->status . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_status' name='dt_eff_status' type='text' value="05-10-2020"
+                                <input id='dt_eff_status' name='dt_eff_status' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -269,6 +314,26 @@
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="updBtnSave()">Save</button>
                 </div>
+                <br/><br/>
+                <!--<div class="modal-header bg-primary white">
+                    <p>Summary of Changes (Bulk Update)</p>
+                </div>
+                <div class="modal-body">
+                    <table id="tblaudit" width='100%'>
+                        <thead>
+                        <tr>
+                            <th width='25%'>Field Name</th>
+                            <th width='30%'>Previous Value</th>
+                            <th width='30%'>Current Value</th>
+                            <th width='15%'>Eff Date</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tblaudit_body">
+
+                        </tbody>
+
+                    </table>
+                </div>-->
             </div>
         </div>
     </div>
@@ -294,9 +359,15 @@
 
 <script>
 
+    let audit_str = '';
+    let audit_str_pro = '';
+    let audit_str_loc = '';
+    let audit_str_sup = '';
+    let audit_str_conex = '';
+    let audit_str_sta = '';
+
 
     $(document).ready(function () {
-
         $('#empTable').DataTable({
             dom: 'Bfrtip',
             displayLength: 15,
@@ -341,20 +412,25 @@
                 }
             ]
         });
-
     });
+
+    /*$(document).on('blur', '#dt_conexpiry', function () {
+        changeModalVal("#dt_conexpiry");
+    });*/
 
     function updBtnModal() {
         var employees = [];
         var employees_no = '';
         var count = $('.fgtr').find('.checkboxes');
+        let counter = 0;
         var empHtml = '';
         var str = '';
+
         for (var i = 0; i < count.length; i++) {
             employees_no = $(count[i]).attr('data-emp');
             if ($(count[i]).is(':checked')) {
-
                 employees.push({'employees_no': employees_no});
+                counter++;
             }
         }
         if (employees.length >= 1) {
@@ -365,7 +441,7 @@
                     empHtml += ', ' + v.employees_no;
                 }
             });
-            str += '<p>Employee: <span  class="danger">' + empHtml + '</span></p>';
+            str += '<p>Employee: <span  class="danger">' + empHtml + '</span><br/><span>Number of selected employees: ' + counter + '</span></p>';
             $(".model_htmlcontent").html(str);
             $("#editEmpModal").modal('show');
             pickDate();
@@ -381,6 +457,7 @@
         var employees_no = '';
         var results = [];
         var flag = 0;
+
         var count = $('.fgtr').find('.checkboxes');
 
         for (var i = 0; i < count.length; i++) {
@@ -399,8 +476,7 @@
                     if (summaryFldid == "conexpiry") {
                         summaryVal = $(this).find('.summaryNewVal').find('input').val();
                     } else {
-                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-val");
-                        alert(summaryFldid + " - " + summaryVal);
+                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
                     }
 
                     if (summaryFldName == null || summaryFldName == undefined) {
@@ -418,6 +494,7 @@
                         'summaryVal': summaryVal,
                         'SummaryEftDate': SummaryEftDate
                     });
+
                 });
 
             }
@@ -461,6 +538,57 @@
         }
     }
 
+
+    function changeModalVal(obj) {
+        let audit_Fldid = $(obj).parents('.summaryRow').find('.summaryFldid').attr('data-key');
+        //alert(audit_Fldid);
+        let audit_FldNme = $(obj).parents('.summaryRow').find('.summaryFldid').attr('data-fldnme');
+        //alert(audit_FldNme);
+
+        if (audit_Fldid == 'conexpiry') {
+
+            //let audit_OldVal = $(obj).parents('.summaryRow').attr('data-key');
+
+            let audit_OldVal = $('.auditcol_' + audit_Fldid).attr('data-key');
+            let audit_NewVal = $('.auditcol_').find('input').val();
+            let row_key = "audit_row_" + audit_Fldid;
+
+            //alert(audit_OldVal);
+
+
+            /*let td = "<td id='audit_fldid' style='display:none;'>" + audit_Fldid + "</td>" +
+                "<td id='audit_fldnme'>" + audit_FldNme + "</td>" +
+                "<td id='audit_oldval'>" + audit_OldVal + "</td>" +
+                "<td id='audit_newval'>" + audit_NewVal + "</td>" +
+                "<td id='audit_effdt'><input id='dt_" + audit_Fldid + "' name='dt_" + audit_Fldid + "' type='text' class='form-control pickadate-short-string' /></td>";
+            if ($('#' + row_key).html()) {
+                $('#' + row_key).html(td);
+            } else {
+                audit_str_pro = "<tr id='" + row_key + "' class='audit_row_project'>" + td + "</tr>";
+                $('.tblaudit_body').append(audit_str_pro);
+            }*/
+
+        } else {
+
+            let audit_OldVal = $('.auditcol_' + audit_Fldid).attr('data-key');
+            let audit_NewVal = $(obj).find('option:selected').text();
+            let row_key = "audit_row_" + audit_Fldid;
+            let td = "<td id='audit_fldid' style='display:none;'>" + audit_Fldid + "</td>" +
+                "<td id='audit_fldnme'>" + audit_FldNme + "</td>" +
+                "<td id='audit_oldval'>" + audit_OldVal + "</td>" +
+                "<td id='audit_newval'>" + audit_NewVal + "</td>" +
+                "<td id='audit_effdt'><input id='dt_" + audit_Fldid + "' name='dt_" + audit_Fldid + "' type='text' class='form-control pickadate-short-string' /></td>";
+            if ($('#' + row_key).html()) {
+                $('#' + row_key).html(td);
+            } else {
+                audit_str_pro = "<tr id='" + row_key + "' class='audit_row_project'>" + td + "</tr>";
+                $('.tblaudit_body').append(audit_str_pro);
+            }
+
+        }
+    }
+
+
     function updBtnToggle() {
         var employees = [];
         var employees_no = '';
@@ -474,7 +602,6 @@
         if (employees.length >= 1) {
             $('.updBtn').removeClass('hide').addClass('show');
         } else {
-            console.log('1 - ');
             $('.updBtn').removeClass('show').addClass('hide');
         }
     }
