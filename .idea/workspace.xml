@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/my404.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/page-err404.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/page-invalid-id.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/page-not-authorized.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/404.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/lock-screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/maintenance-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/maintenance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/not-authorized.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pages/reset-password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-user.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-users.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-users.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_10_19_2020.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_10_19_2020.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,11 +24,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2414">
-              <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+            <state relative-caret-position="272">
+              <caret line="16" column="88" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
+              <folding>
+                <element signature="n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="e#12498#14697#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="1114" column="19" selection-start-line="1114" selection-start-column="19" selection-end-line="1173" selection-end-column="49" />
+              <folding>
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="222" selection-start-line="222" selection-end-line="222" />
+            <state relative-caret-position="527">
+              <caret line="245" column="31" lean-forward="true" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
               <folding>
                 <element signature="n#index#0;n#Inventory#0;n#!!top" />
                 <element signature="n#getInventory#0;n#Inventory#0;n#!!top" />
@@ -59,35 +72,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/page-invalid-id.php">
+        <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="64" selection-end-column="119" />
+            <state relative-caret-position="549">
+              <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/page-err404.php">
+        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="64" column="119" selection-start-line="64" selection-start-column="119" selection-end-line="64" selection-end-column="119" />
+            <state relative-caret-position="136">
+              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="24" selection-end-column="14" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/page-not-authorized.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="64" column="119" selection-start-line="64" selection-start-column="119" selection-end-line="64" selection-end-column="119" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -148,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
         <option value="$PROJECT_DIR$/assets/css/colors.css" />
@@ -160,7 +158,6 @@
         <option value="$PROJECT_DIR$/application/views/employee_entry.php" />
         <option value="$USER_HOME$/Desktop/portals/myactivity.xml" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Memployee.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/config.php" />
@@ -195,16 +192,18 @@
         <option value="$USER_HOME$/Desktop/portals/newsavedraft (3).java" />
         <option value="$PROJECT_DIR$/application/views/err404.php" />
         <option value="$PROJECT_DIR$/application/controllers/my404.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/views/page-invalid-id.php" />
         <option value="$PROJECT_DIR$/application/views/page-err404.php" />
         <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
+        <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
+        <option value="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="854" />
+    <option name="x" value="609" />
+    <option name="width" value="1078" />
     <option name="height" value="1017" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -257,7 +256,7 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
@@ -268,13 +267,13 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -288,7 +287,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/css/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -302,11 +301,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\prosystem\assets\css\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\images\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\css" />
       <recent name="C:\xampp\htdocs\prosystem\application\models\budget_model" />
       <recent name="C:\xampp\htdocs\prosystem\application\controllers\budget_controllers" />
-      <recent name="C:\xampp\htdocs\prosystem\application\controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -440,17 +439,24 @@
       <option name="project" value="LOCAL" />
       <updated>1603090799447</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="set 404">
+      <created>1603177964019</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603177964019</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81115000" />
+    <option name="totallyTimeSpent" value="85999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24266504" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18031785" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -485,7 +491,8 @@
     <MESSAGE value="budget system - chnages" />
     <MESSAGE value="budget system - project edit" />
     <MESSAGE value="budget system - add Asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="budget system - add Asset" />
+    <MESSAGE value="set 404" />
+    <option name="LAST_COMMIT_MESSAGE" value="set 404" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -499,48 +506,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/database.php" />
-    <entry file="file://$PROJECT_DIR$/application/config/migration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="55" column="50" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="53" column="53" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="53" column="50" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -760,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2414">
-          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/portals/newsavedraft.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -816,27 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/my404.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="n#index#0;n#Inventory#0;n#!!top" />
-            <element signature="n#getInventory#0;n#Inventory#0;n#!!top" />
-            <element signature="n#setExpiry#0;n#Inventory#0;n#!!top" />
-            <element signature="n#getCustodianData#0;n#Inventory#0;n#!!top" />
-            <element signature="n#saveCustodianData#0;n#Inventory#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -858,6 +799,103 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="64" column="119" selection-start-line="64" selection-start-column="119" selection-end-line="64" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/html/error_db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-331" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/html/error_404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-331" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/cli/error_404.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/cli/error_db.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/cli/error_exception.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/cli/error_general.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errors/cli/error_php.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/app-user-view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="827" column="16" lean-forward="true" selection-start-line="827" selection-start-column="16" selection-end-line="827" selection-end-column="76" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="245" column="31" lean-forward="true" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
+          <folding>
+            <element signature="n#index#0;n#Inventory#0;n#!!top" />
+            <element signature="n#getInventory#0;n#Inventory#0;n#!!top" />
+            <element signature="n#setExpiry#0;n#Inventory#0;n#!!top" />
+            <element signature="n#getCustodianData#0;n#Inventory#0;n#!!top" />
+            <element signature="n#saveCustodianData#0;n#Inventory#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="1114" column="19" selection-start-line="1114" selection-start-column="19" selection-end-line="1173" selection-end-column="49" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="88" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
+          <folding>
+            <element signature="n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="e#12498#14697#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -89,6 +89,35 @@ class MInventory extends CI_Model
         return $query->result();
     }
 
+    function getInventoryById($searchdata)
+    {
+        $id = '';
+        if (isset($searchdata['id']) && $searchdata['id'] != '' && $searchdata['id'] != null) {
+            $id = $searchdata['id'];
+        }
+        $this->db->select('*');
+        $this->db->from('i_paedsinventory');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getAuditTrialById($searchdata)
+    {
+        $FormID = '';
+        if (isset($searchdata['id']) && $searchdata['id'] != '' && $searchdata['id'] != null) {
+            $FormID = $searchdata['id'];
+        }
+        $this->db->select('*');
+        $this->db->from('i_AuditTrials');
+        $this->db->where('FormID', $FormID);
+        $this->db->where('isActive', 1);
+        $this->db->order_By('id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
     function getEmployees()
     {
         $this->db->select('empno, empname');
