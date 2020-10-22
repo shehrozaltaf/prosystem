@@ -39,7 +39,6 @@ class Inventory extends CI_controller
         $this->load->view('include/footer');
     }
 
-
     function getInventory()
     {
         $M = new MInventory();
@@ -83,19 +82,25 @@ class Inventory extends CI_controller
             $table_data[$value->id]['aadop'] = $value->aadop;
             $table_data[$value->id]['newEntry'] = $value->newEntry;
             $table_data[$value->id]['Action'] = '
-                <a href="javascript:void(0)" onclick="getEdit(this)">
-                        <i class="feather icon-edit"></i> 
+                <a href="javascript:void(0)" onclick="showExpiry()" >
+                        <i class="feather icon-edit action-edit" ></i> 
                 </a>
                 <a href="javascript:void(0)" onclick="getDelete(this)">
                         <i class="feather icon-trash"></i>
                 </a>';
 
+          /*  <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
+            Set Expiry
+            </a>*/
             $table_data[$value->id]['Settings'] = '
                 <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
                        Set Expiry
                 </a> | 
                 <a href="javascript:void(0)" onclick="getCustodianData(this)" data-id="' . $value->id . '">
                        Assign Custodian
+                </a> | 
+                <a href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '">
+                       Audit Trial
                 </a>';
             /*$table_data[$value->crf_name]['action'] = '<div class="btn-group mr-1 mb-1">
 							<button class="btn btn-danger dropdown-toggle btn-sm" type="button"
@@ -216,7 +221,43 @@ class Inventory extends CI_controller
 
     }
 
+    function auditTrial()
+    {
+        if (isset($_GET['i']) && $_GET['i'] != '') {
+            $data = array();
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View LineListing Dashboard",
+                "result" => "View LineListing Dashboard page. Fucntion: dashboard/index()");
+//        $Custom->trackLogs($trackarray, "user_logs");
+            /*==========Log=============*/
+            $MSettings = new MSettings();
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/auditTrial');
 
+            $searchData = array();
+            $searchData['id'] = $_GET['i'];
+
+            $M = new MInventory();
+            $data['inventory_data']=$M->getInventoryById($searchData);
+            $inventory_audit=$M->getAuditTrialById($searchData);
+            $audit=array();
+            foreach ($inventory_audit as $k=>$a){
+                $audit[$a->FormName][]=$a;
+            }
+
+
+            $data['inventory_audit']=$audit;
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('inventory_views/audit_trial', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-invalid-id');
+        }
+
+    }
 }
 
 ?>

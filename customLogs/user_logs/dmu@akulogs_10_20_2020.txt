@@ -1,34 +1,22 @@
-UserIPAddress: 10.1.42.84 - October-19-2020 10:42 am
+UserIPAddress: 10.1.42.84 - October-20-2020 11:10 am
 idUser: 1, UserName: dmu@aku
 Action: Login Success
 Result: User dmu@aku: Login Success
 PostData: 
 -------------------------------------------------
-UserIPAddress: 10.1.42.84 - October-19-2020 10:42 am
+UserIPAddress: 10.1.42.84 - October-20-2020 11:10 am
 idUser: 1, UserName: dmu@aku
 Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
-UserIPAddress: ::1 - October-19-2020 11:27 am
-idUser: 1, UserName: dmu@aku
-Action: Login Success
-Result: User dmu@aku: Login Success
-PostData: 
--------------------------------------------------
-UserIPAddress: ::1 - October-19-2020 11:27 am
+UserIPAddress: 10.1.42.84 - October-20-2020 12:03 pm
 idUser: 1, UserName: dmu@aku
 Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
-UserIPAddress: 10.1.42.84 - October-19-2020 2:33 pm
-idUser: 1, UserName: dmu@aku
-Action: Login Success
-Result: User dmu@aku: Login Success
-PostData: 
--------------------------------------------------
-UserIPAddress: 10.1.42.84 - October-19-2020 2:33 pm
+UserIPAddress: 10.1.42.84 - October-20-2020 5:27 pm
 idUser: 1, UserName: dmu@aku
 Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()

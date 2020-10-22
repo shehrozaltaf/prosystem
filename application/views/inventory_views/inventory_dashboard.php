@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/pages/data-list-view.css">
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -110,7 +110,7 @@
                 </div>
             </section>
 
-            <section id="column-selectors" class="hide main_content_div">
+            <section id="data-list-view"  class="hide main_content_div data-list-view-header">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -159,8 +159,52 @@
                                             </tr>
                                             </tfoot>
                                         </table>
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-new-data-sidebar">
+                    <div class="overlay-bg"></div>
+                    <div class="add-new-data">
+                        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
+                            <div>
+                                <h4 class="text-uppercase">List View Data</h4>
+                            </div>
+                            <div class="hide-data-sidebar">
+                                <i class="feather icon-x"></i>
+                            </div>
+                        </div>
+                        <div class="data-items pb-3">
+                            <div class="data-fields px-2 mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-12">
+                                        <input type="hidden" id="expiry_id" name="expiry_id">
+                                        <div class="form-group">
+                                            <label for="expiryDateTime" class="label-control">Expire Date</label>
+                                            <input type="text" class="form-control mypickadat" id="expiryDateTime"
+                                                   name="expiryDateTime"
+                                                   autocomplete="expiryDateTime" required>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
+                            <div class="add-data-btn">
+                                <button class="btn btn-primary"  onclick="saveExpiry()">Save</button>
+                            </div>
+                            <div class="cancel-data-btn">
+                                <button class="btn btn-outline-danger">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -169,9 +213,14 @@
         </div>
     </div>
 </div>
+
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+
+
 <!-- END: Content-->
 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-    <div class="modal fade text-left" id="expiryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_expiry"
+    <!--<div class="modal fade text-left" id="expiryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_expiry"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -198,7 +247,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 <?php } ?>
 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
     <div class="modal fade text-left" id="assignCustodianModal" tabindex="-1" role="dialog"
@@ -276,12 +325,16 @@
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 
+
+<script src="<?php echo base_url() ?>assets/js/scripts/ui/data-list-view.js"></script>
 <script>
 
     $(document).ready(function () {
         mydate();
         getData();
     });
+
+
 
     function mydate() {
         $('.mypickadat').pickadate({
@@ -299,12 +352,26 @@
         if (id != '' && id != undefined) {
             $('#expiryDateTime').val(va);
             $('#expiry_id').val(id);
-            $('#expiryModal').modal('show');
+            $(".add-new-data").addClass("show");
+            $(".overlay-bg").addClass("show");
         } else {
             toastMsg('Error', 'Invalid Data', 'error');
             return false;
         }
     }
+
+    /*function getExpiry(obj) {
+        var id = $(obj).attr('data-id');
+        var va = $(obj).attr('data-expiry');
+        if (id != '' && id != undefined) {
+            $('#expiryDateTime').val(va);
+            $('#expiry_id').val(id);
+            $('#expiryModal').modal('show');
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+            return false;
+        }
+    }*/
 
     function saveExpiry() {
         var data = {};
@@ -319,6 +386,8 @@
                 if (res == 1) {
                     toastMsg('Success', 'Successfully set Expiry Date Time', 'success');
                     $('#expiryModal').modal('hide');
+                    $(".add-new-data").removeClass("show");
+                    $(".overlay-bg").removeClass("show");
                     setTimeout(function () {
                         getData()
                     }, 500);
