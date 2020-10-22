@@ -19,8 +19,6 @@
         user-select: none;
     }
 
-    
-
     #lblna {
         font-size: 1rem;
         font-weight: 400;
