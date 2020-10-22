@@ -155,17 +155,18 @@
             //$('#landline').prop('disabled', 'disabled');
         } else {
             $('#landline').val('');
-            $('#landline').removeAttr('disabled');
+            //$('#landline').removeAttr('disabled');
         }
     });
 
-    $(document).on('click', '#chk_emrlandline', function () {
-        if ($('#chk_emrlandline').prop('checked') == true) {
+
+    $(document).on('click', '#chk_emlandno', function () {
+        if ($('#chk_emlandno').prop('checked') == true) {
             $('#emlandno').val('99999999');
             //$('#emlandno').prop('disabled', 'disabled');
         } else {
             $('#emlandno').val('');
-            $('#emlandno').removeAttr('disabled');
+            //$('#emlandno').removeAttr('disabled');
         }
     });
 
@@ -217,7 +218,12 @@
                                                                 <?php
 
 
-                                                                if (isset($editemp[0]->empno)) { ?>
+                                                                if (isset($editemp[0]->empno)) {
+
+                                                                    $_SESSION['id'] = $editemp[0]->id;
+
+                                                                    ?>
+
 
                                                                     <input type="text" id="empno" disabled="disabled"
                                                                            class="form-control" maxlength="6"
@@ -1546,7 +1552,9 @@
 
 
     $(document).on("click", "#cmdCancel", function () {
-        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry'); ?>';
+        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry');
+
+            ?>';
     });
 
 
@@ -1566,6 +1574,38 @@
         setPhone("#cellno2");
         setPhone("#emcellno");
         setPhone("#emlandno");
+
+    });
+
+
+    $(document).on("change", "#ddlband", function () {
+
+        var data = {};
+        data['bandid'] = $('#ddlband').val();
+        $('#titdesi').html('');
+        CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getDesignation'); ?>', data, 'POST', function (result) {
+
+            if (result != '' && JSON.parse(result).length > 0) {
+                var a = JSON.parse(result);
+                try {
+                    if (a[0].error == 2) {
+                        toastMsg('Error', 'Invalid Band Id', 'error');
+                    }else  if (a[0].error == 3) {
+                        toastMsg('Error', 'No Designation for this band', 'warning');
+                    } else {
+                        var htmlQ = '<option value="0" selected readonly disabled>&nbsp</option>';
+                        $.each(a, function (i, v) {
+                            htmlQ += '<option value="' + v.id + '">' + v.desig + '</option>';
+                        });
+                        $('#titdesi').html(htmlQ);
+                    }
+                } catch (e) {
+                }
+            } else {
+                toastMsg('Error', 'Something went wrong', 'error');
+            }
+
+        });
 
     });
 
@@ -3953,6 +3993,83 @@
             }
         }
 
+
+        if ($('#offemail').val() != ""
+            && $('#offemail').val() != null
+            && $('#offemail').val() != 'undefined'
+            && $('#offemail').val() != undefined
+            && $('#offemail').val() != 'NULL') {
+
+
+            let offemail = $('#offemail').val().indexOf('.', '.');
+            $('#offemail').removeClass('error').removeClass('is-invalid');
+            $("#lblerr_offemail").remove();
+
+
+            var error = '';
+            var inp = $("#offemail");
+            var id = $("#offemail").attr('id');
+
+
+            if ($('#offemail').val().indexOf('.') == -1) {
+
+                inp.removeClass('error').removeClass('is-invalid');
+
+                error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address1</div>';
+                $("#lblerr_" + id).remove();
+                inp.addClass('error').addClass('is-invalid').parent('div').append(error);
+                $("#offemail").focus();
+
+                iserror = true;
+            } else {
+
+                let a = 0;
+                let pos = 0;
+                let pos1 = 0;
+                let pos2 = 0;
+
+                while ($('#offemail').val().length > a) {
+
+                    if ($('#offemail').val().charAt(a) == '.' && pos == 0) {
+                        pos = a;
+                    }
+
+                    pos2 = a;
+
+                    console.log(pos + " - " + pos1 + " - " + pos2);
+
+
+                    if ($('#offemail').val().charAt(pos2 + 1) == '.' && pos1 == 0) {
+                        pos1 = a
+                    }
+
+                    a++;
+                    pos2++;
+                }
+
+                console.log(pos + " - " + pos1);
+
+
+                if (pos != 0 && pos1 != 0) {
+
+                    inp.removeClass('error').removeClass('is-invalid');
+                    error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address2</div>';
+                    $("#lblerr_" + id).remove();
+                    inp.addClass('error').addClass('is-invalid').parent('div').append(error);
+                    $("#offemail").focus();
+
+                }
+
+
+                //console.log(isdotexists[0] + " - " + isdotexists[1]);
+
+            }
+
+
+        }
+
+
+        return false;
 
         if (iserror == false) {
 

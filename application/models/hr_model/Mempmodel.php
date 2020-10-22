@@ -36,6 +36,18 @@ class Mempmodel extends CI_Model
     }
 
 
+    function getDesignation($id)
+    {
+        $query = $this->db->query("SELECT id,desig,band FROM hr_desig where band='$id'");
+        $results = array();
+        foreach ($query->result() as $row) {
+            $results[] = $row;
+        }
+
+        return $results;
+    }
+
+
     function getEmployeeDataByEmpNo($empno)
     {
         $query = $this->db->query("SELECT convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,status FROM hr_employee where empno='$empno'");

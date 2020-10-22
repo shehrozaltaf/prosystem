@@ -212,7 +212,8 @@
                         </tr>
                         <tr class="summaryRow">
                             <td class='summaryFldid summaryFldid_workproj'
-                                data-key="workproj" data-fldnme="Working Project">Working Project</td>
+                                data-key="workproj" data-fldnme="Working Project">Working Project
+                            </td>
                             <td class='summaryNewVal'>
                                 <!--<select id="upd_bulkProject" name="upd_bulkProject" class=" select2"
                                         onchange="changeModalVal(this)">-->
@@ -233,7 +234,9 @@
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid summaryFldid_ddlloc' data-key="ddlloc" data-fldnme="Location">Location</td>
+                            <td class='summaryFldid summaryFldid_ddlloc' data-key="ddlloc" data-fldnme="Location">
+                                Location
+                            </td>
                             <td class='summaryNewVal'>
                                 <!--<select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2"
                                         onchange="changeModalVal(this)">-->
@@ -254,7 +257,9 @@
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid summaryFldid_supernme' data-key="supernme" data-fldnme="Supervisor">Supervisor</td>
+                            <td class='summaryFldid summaryFldid_supernme' data-key="supernme" data-fldnme="Supervisor">
+                                Supervisor
+                            </td>
                             <td class='summaryNewVal'>
                                 <!--<select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2"
                                         onchange="changeModalVal(this)">-->
@@ -275,7 +280,9 @@
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid summaryFldid_conexpiry' data-key="conexpiry" data-fldnme="Contract Expiry">Contract Expiry</td>
+                            <td class='summaryFldid summaryFldid_conexpiry' data-key="conexpiry"
+                                data-fldnme="Contract Expiry">Contract Expiry
+                            </td>
                             <td class='summaryNewVal'>
                                 <!--<input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
                                        class='form-control pickadate-short-string' onclick="changeModalVal(this)"/>-->
@@ -288,7 +295,8 @@
                             </td>
                         </tr>
                         <tr class="summaryRow">
-                            <td class='summaryFldid summaryFldid_status' data-key="status" data-fldnme="Status">Status</td>
+                            <td class='summaryFldid summaryFldid_status' data-key="status" data-fldnme="Status">Status
+                            </td>
                             <td class='summaryNewVal'>
                                 <!--<select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2"
                                         onchange="changeModalVal(this)">-->

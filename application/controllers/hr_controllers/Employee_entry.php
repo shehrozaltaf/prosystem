@@ -19,6 +19,10 @@ class Employee_entry extends CI_controller
 
     function index()
     {
+        $msg = 50000;
+        $encrypted_string = $this->encrypt->encode($msg);
+        echo $encrypted_string;
+        exit();
         $data = array();
 
         $MSettings = new MSettings();
@@ -37,7 +41,7 @@ class Employee_entry extends CI_controller
         $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
 
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
-        $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
+        //$data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
         $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
 
         $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
@@ -475,6 +479,7 @@ class Employee_entry extends CI_controller
 
             $id = $_SESSION['id'];
 
+
             //$Mempmdel = new Mempmodel();
             //$old_data = $Mempmdel->getEmployeeData($id);
 
@@ -526,7 +531,7 @@ class Employee_entry extends CI_controller
 
                     $EditData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
 
-                    $_SESSION['id'] = '';
+                    //$_SESSION['id'] = '';
                 }
             }
 
@@ -1118,4 +1123,21 @@ class Employee_entry extends CI_controller
         //echo json_encode($data, true);
     }
 
+    function getDesignation()
+    {
+        if (isset($_POST['bandid']) && $_POST['bandid'] != '') {
+            $Mempmodel = new Mempmodel();
+            $bandid = $_POST['bandid'];
+            $getDesignation = $Mempmodel->getDesignation($bandid);
+            if (isset($getDesignation) && count($getDesignation) >= 1) {
+                $results = $getDesignation;
+            } else {
+                $results = array(['error' => 3]);
+            }
+        } else {
+            $results = array(['error' => 2]);
+        }
+
+        echo json_encode($results);
+    }
 }
