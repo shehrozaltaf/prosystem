@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-user.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-user.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-users.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/app-users.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/data-list-view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/data-list-view.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_10_20_2020.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_10_20_2020.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,66 +28,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="88" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
+            <state relative-caret-position="255">
+              <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
               <folding>
-                <element signature="n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="e#12498#14697#0#HTML" />
+                <element signature="n#insertData#0;n#Add_asset#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="1114" column="19" selection-start-line="1114" selection-start-column="19" selection-end-line="1173" selection-end-column="49" />
-              <folding>
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="245" column="31" lean-forward="true" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
-              <folding>
-                <element signature="n#index#0;n#Inventory#0;n#!!top" />
-                <element signature="n#getInventory#0;n#Inventory#0;n#!!top" />
-                <element signature="n#setExpiry#0;n#Inventory#0;n#!!top" />
-                <element signature="n#getCustodianData#0;n#Inventory#0;n#!!top" />
-                <element signature="n#saveCustodianData#0;n#Inventory#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="24" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -93,9 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update</find>
-      <find>working</find>
-      <find>editrec</find>
       <find>edit</find>
       <find>check</find>
       <find>table</find>
@@ -123,6 +70,9 @@
       <find>data-expiry</find>
       <find>assetsassets</find>
       <find>s8q5</find>
+      <find>add-new-data-sidebar</find>
+      <find>expiryModal</find>
+      <find>action-edit</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -147,17 +97,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/assets/css/colors.css" />
-        <option value="$PROJECT_DIR$/assets/css/bootstrap-extended.css" />
         <option value="$PROJECT_DIR$/assets/css/components.css" />
         <option value="$PROJECT_DIR$/assets/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/employee_entry.php" />
         <option value="$USER_HOME$/Desktop/portals/myactivity.xml" />
-        <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Memployee.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/config.php" />
@@ -184,8 +129,6 @@
         <option value="$PROJECT_DIR$/assets/vendors/css/forms/select/select2.min.css" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" />
-        <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/error-404.php" />
         <option value="$PROJECT_DIR$/application/controllers/My404Ctrl.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
@@ -196,8 +139,15 @@
         <option value="$PROJECT_DIR$/application/views/page-err404.php" />
         <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
         <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
+        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
+        <option value="$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.js" />
+        <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
       </list>
     </option>
   </component>
@@ -249,32 +199,18 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -302,10 +238,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\prosystem\assets\css\pages" />
+      <recent name="C:\xampp\htdocs\prosystem\assets\js\scripts" />
       <recent name="C:\xampp\htdocs\prosystem\assets\images\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\css" />
       <recent name="C:\xampp\htdocs\prosystem\application\models\budget_model" />
-      <recent name="C:\xampp\htdocs\prosystem\application\controllers\budget_controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -340,6 +276,8 @@
       <workItem from="1602675653570" duration="1193000" />
       <workItem from="1602822952955" duration="2258000" />
       <workItem from="1603086262144" duration="5335000" />
+      <workItem from="1603258780619" duration="71000" />
+      <workItem from="1603353221726" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -446,17 +384,24 @@
       <option name="project" value="LOCAL" />
       <updated>1603177964019</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="inventory - audit trail">
+      <created>1603187205079</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603187205079</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85999000" />
+    <option name="totallyTimeSpent" value="90449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18031785" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21026894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -492,61 +437,21 @@
     <MESSAGE value="budget system - project edit" />
     <MESSAGE value="budget system - add Asset" />
     <MESSAGE value="set 404" />
-    <option name="LAST_COMMIT_MESSAGE" value="set 404" />
+    <MESSAGE value="inventory - audit trail" />
+    <option name="LAST_COMMIT_MESSAGE" value="inventory - audit trail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php</url>
-          <line>273</line>
+          <line>322</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="81" column="112" selection-start-line="81" selection-start-column="112" selection-end-line="81" selection-end-column="112" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="81" column="106" selection-start-line="81" selection-start-column="106" selection-end-line="81" selection-end-column="106" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10-2020-10-13.json" />
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="119" column="21" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all.php" />
     <entry file="file://$PROJECT_DIR$/../fetch_files_live/form_fetch.php" />
     <entry file="file://$PROJECT_DIR$/../fetch_files_live/form_fetch_sindh_new.php" />
@@ -739,17 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="n#index#0;n#Add_asset#0;n#!!top" />
-            <element signature="n#insertData#0;n#Add_asset#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/error-404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -844,10 +738,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="24" selection-end-column="14" />
+        <state relative-caret-position="272">
+          <caret line="16" column="88" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
+          <folding>
+            <element signature="n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="e#12498#14697#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData 2.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
+    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="594" column="74" selection-start-line="594" selection-start-column="25" selection-end-line="594" selection-end-column="74" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#table#0;n#div#1;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#2;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="26" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -858,43 +784,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="194" column="72" lean-forward="true" selection-start-line="194" selection-start-column="72" selection-end-line="194" selection-end-column="72" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="e#11703#15460#0#PHP" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#2;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="245" column="31" lean-forward="true" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
+        <state relative-caret-position="128">
+          <caret line="154" column="38" lean-forward="true" selection-start-line="154" selection-start-column="38" selection-end-line="154" selection-end-column="38" />
           <folding>
             <element signature="n#index#0;n#Inventory#0;n#!!top" />
             <element signature="n#getInventory#0;n#Inventory#0;n#!!top" />
-            <element signature="n#setExpiry#0;n#Inventory#0;n#!!top" />
             <element signature="n#getCustodianData#0;n#Inventory#0;n#!!top" />
-            <element signature="n#saveCustodianData#0;n#Inventory#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html">
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1114" column="19" selection-start-line="1114" selection-start-column="19" selection-end-line="1173" selection-end-column="49" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="523">
+          <caret line="333" column="37" selection-start-line="333" selection-start-column="37" selection-end-line="333" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="88" selection-start-line="16" selection-start-column="88" selection-end-line="16" selection-end-column="88" />
+        <state relative-caret-position="459">
+          <caret line="60" column="87" selection-start-line="60" selection-start-column="87" selection-end-line="60" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/Encrypt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding>
-            <element signature="n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="e#12498#14697#0#HTML" />
+            <element signature="n#insertData#0;n#Add_asset#0;n#!!top" />
           </folding>
         </state>
       </provider>

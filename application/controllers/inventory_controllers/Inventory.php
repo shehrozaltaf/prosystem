@@ -82,13 +82,16 @@ class Inventory extends CI_controller
             $table_data[$value->id]['aadop'] = $value->aadop;
             $table_data[$value->id]['newEntry'] = $value->newEntry;
             $table_data[$value->id]['Action'] = '
-                <a href="javascript:void(0)" onclick="getEdit(this)">
-                        <i class="feather icon-edit"></i> 
+                <a href="javascript:void(0)" onclick="showExpiry()" >
+                        <i class="feather icon-edit action-edit" ></i> 
                 </a>
                 <a href="javascript:void(0)" onclick="getDelete(this)">
                         <i class="feather icon-trash"></i>
                 </a>';
 
+          /*  <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
+            Set Expiry
+            </a>*/
             $table_data[$value->id]['Settings'] = '
                 <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
                        Set Expiry
