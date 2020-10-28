@@ -905,7 +905,7 @@
 
                                                             if (isset($supervisor) && $supervisor != '') {
                                                                 foreach ($supervisor as $v) {
-                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->empno === $editemp[0]->empno) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->empno === $editemp[0]->supernme) {
                                                                         $oldValQ = $v->empno;
                                                                         $oldLabelQ = $v->empname;
                                                                         $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
@@ -2266,6 +2266,8 @@
                                     isaudit = true;
                                 }
 
+                                return false;
+
 
                             } else if (key == "hiresalary") {
 
@@ -2276,10 +2278,10 @@
                                 if (test1 != test2) {
 
                                     str += "<tr class='summaryRow' data-key='" + key + "'>" +
-                                        "<td class='summaryFldName'>" + $("#" + key).text() + "</td>";
+                                        "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
 
-                                    str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                        "<td class='summaryNewVal'>" + formData.get(key) + "</td>" +
+                                    str += "<td class='summaryOldVal'>" + test1 + "</td>" +
+                                        "<td class='summaryNewVal'>" + test2 + "</td>" +
                                         "<td class='summaryFldOldVal' style='display:none;'></td>" +
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
@@ -2287,6 +2289,8 @@
 
                                     isaudit = true;
                                 }
+
+                                return false;
 
 
                             } else {
@@ -2391,6 +2395,8 @@
             var SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
             var summaryFldOldVal = $(this).find('.summaryFldOldVal').text();
             var summaryFldNewVal = $(this).find('.summaryFldNewVal').text();
+
+
             results.push({
                 'summaryFldid': summaryFldid,
                 'summaryFldName': summaryFldName,
@@ -2401,6 +2407,11 @@
                 'summaryFldOldVal': summaryFldOldVal
             });
         });
+
+
+        /*$.each(results, function (i, v) {
+            console.log(i + " = " + v.summaryFldNewVal);
+        });*/
 
 
         /*for (var [key, value] of formData.entries()) {

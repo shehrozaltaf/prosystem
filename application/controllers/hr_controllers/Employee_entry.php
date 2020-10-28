@@ -515,7 +515,8 @@ class Employee_entry extends CI_controller
                         $v->summaryFldid == "confirmation" ||
                         $v->summaryFldid == "status" ||
                         $v->summaryFldid == "degree" ||
-                        $v->summaryFldid == "field"
+                        $v->summaryFldid == "field" ||
+                        $v->summaryFldid == "supernme"
                     ) {
 
                         $formArray[$v->summaryFldid] = $v->summaryFldNewVal;
@@ -753,7 +754,8 @@ class Employee_entry extends CI_controller
                     $v->summaryFldid == "confirmation" ||
                     $v->summaryFldid == "status" ||
                     $v->summaryFldid == "degree" ||
-                    $v->summaryFldid == "field"
+                    $v->summaryFldid == "field" ||
+                    $v->summaryFldid == "supernme"
                 ) {
                     $ins_data["OldValue"] = $v->summaryFldOldVal;
                     $ins_data["NewValue"] = $v->summaryFldNewVal;
