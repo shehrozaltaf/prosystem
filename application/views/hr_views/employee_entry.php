@@ -214,15 +214,7 @@
                                                                 <span id="lbl_empno">Employee Number</span>
                                                             </div>
                                                             <div class="col-md-10">
-                                                                <?php
-
-
-                                                                if (isset($editemp[0]->empno)) {
-
-                                                                    $_SESSION['id'] = $editemp[0]->id;
-
-                                                                    ?>
-
+                                                                <?php if (isset($editemp[0]->empno)) { ?>
 
                                                                     <input type="text" id="empno" disabled="disabled"
                                                                            class="form-control" maxlength="6"
@@ -938,11 +930,11 @@
                                                             <span id="lbl_hiresalary">Hiring Salary</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <input type="text" id="hiresalary" maxlength="7" required
+                                                            <input type="text" id="hiresalary" required
                                                                    class="form-control" name="hiresalary"
                                                                    placeholder="Hiring Salary"
-                                                                   onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo(isset($editemp[0]->hiresalary) ? $editemp[0]->hiresalary : '') ?>"
+                                                                   data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                                   value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
                                                             >
                                                         </div>
                                                     </div>
@@ -1525,20 +1517,20 @@
 
     var formData;
 
-    $(document).on("blur", "#amount", function (e) {
+    /*$(document).on("blur", "#amount", function (e) {
         if ($("#amount").val() == "") {
         } else {
             $("#amount").val(parseFloat($("#amount").val(), 6).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
         }
-    });
+    });*/
 
 
-    $(document).on("blur", "#hiresalary", function (e) {
+    /*$(document).on("blur", "#hiresalary", function (e) {
         if ($("#hiresalary").val() == "") {
         } else {
             $("#hiresalary").val(parseFloat($("#hiresalary").val(), 6).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
         }
-    });
+    });*/
 
     $(document).on("change", "#pic", function () {
         $('#lbl_pic').html($('#pic')[0].files[0].name);
@@ -1589,7 +1581,7 @@
                 try {
                     if (a[0].error == 2) {
                         toastMsg('Error', 'Invalid Band Id', 'error');
-                    }else  if (a[0].error == 3) {
+                    } else if (a[0].error == 3) {
                         toastMsg('Error', 'No Designation for this band', 'warning');
                     } else {
                         var htmlQ = '<option value="0" selected readonly disabled>&nbsp</option>';
@@ -2252,6 +2244,51 @@
                                     isaudit = true;
                                 }
 
+                            } else if (key == "supernme") {
+
+                                let test1 = $("#" + key).attr('data-oldval');
+                                let test2 = $("#" + key).find('option:selected').val();
+
+
+                                if (test1 != test2) {
+
+                                    str += "<tr class='summaryRow' data-key='" + "supernme" + "'>" +
+                                        "<td class='summaryFldName'>" + "Supervisor Name" + "</td>";
+
+
+                                    str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                        "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                        "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                        "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                        "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                        "</tr>";
+
+                                    isaudit = true;
+                                }
+
+
+                            } else if (key == "hiresalary") {
+
+                                let test1 = $("#" + key).attr('data-oldval');
+                                let test2 = $("#" + key).val();
+
+
+                                if (test1 != test2) {
+
+                                    str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                        "<td class='summaryFldName'>" + $("#" + key).text() + "</td>";
+
+                                    str += "<td class='summaryOldVal'>" + value + "</td>" +
+                                        "<td class='summaryNewVal'>" + formData.get(key) + "</td>" +
+                                        "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                        "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                        "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                        "</tr>";
+
+                                    isaudit = true;
+                                }
+
+
                             } else {
                                 //console.log(key + " - " + value + "   ***   " + formData.get(key));
 
@@ -2261,6 +2298,7 @@
                                     //console.log(key + " - " + $('#' + key).prop("type"));
 
                                     if (formData.get(key) != value) {
+
                                         //str += "<tr><td>field name</td><td>" + value + "</td><td>" + formData.get(key) + "</td><td><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td></tr>";
                                         str += "<tr class='summaryRow' data-key='" + key + "'>" +
                                             "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
@@ -4000,75 +4038,41 @@
             && $('#offemail').val() != 'NULL') {
 
 
-            let offemail = $('#offemail').val().indexOf('.', '.');
-            $('#offemail').removeClass('error').removeClass('is-invalid');
-            $("#lblerr_offemail").remove();
-
-
             var error = '';
             var inp = $("#offemail");
             var id = $("#offemail").attr('id');
 
 
-            if ($('#offemail').val().indexOf('.') == -1) {
+            let pos1 = 0;
+            let pos2 = 0;
 
+            let offemail = $('#offemail').val().indexOf('.', '.');
+            $('#offemail').removeClass('error').removeClass('is-invalid');
+            $("#lblerr_offemail").remove();
+
+
+            if ($('#offemail').val().indexOf('.') != -1) {
+                pos1 = $('#offemail').val().indexOf('.');
+            }
+
+
+            if ($('#offemail').val().indexOf('.', pos1 + 1) != -1) {
+                pos2 = $('#offemail').val().indexOf('.', pos1 + 1);
+            }
+
+
+            if (pos2 > pos1) {
                 inp.removeClass('error').removeClass('is-invalid');
 
-                error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address1</div>';
+                error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address</div>';
                 $("#lblerr_" + id).remove();
                 inp.addClass('error').addClass('is-invalid').parent('div').append(error);
                 $("#offemail").focus();
 
                 iserror = true;
-            } else {
-
-                let a = 0;
-                let pos = 0;
-                let pos1 = 0;
-                let pos2 = 0;
-
-                while ($('#offemail').val().length > a) {
-
-                    if ($('#offemail').val().charAt(a) == '.' && pos == 0) {
-                        pos = a;
-                    }
-
-                    pos2 = a;
-
-                    console.log(pos + " - " + pos1 + " - " + pos2);
-
-
-                    if ($('#offemail').val().charAt(pos2 + 1) == '.' && pos1 == 0) {
-                        pos1 = a
-                    }
-
-                    a++;
-                    pos2++;
-                }
-
-                console.log(pos + " - " + pos1);
-
-
-                if (pos != 0 && pos1 != 0) {
-
-                    inp.removeClass('error').removeClass('is-invalid');
-                    error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address2</div>';
-                    $("#lblerr_" + id).remove();
-                    inp.addClass('error').addClass('is-invalid').parent('div').append(error);
-                    $("#offemail").focus();
-
-                }
-
-
-                //console.log(isdotexists[0] + " - " + isdotexists[1]);
-
             }
-
-
         }
 
-
-        return false;
 
         if (iserror == false) {
 
@@ -4090,14 +4094,24 @@
             if ($("#pic").val() != "") {
                 formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
             } else {
-                formData.append('pic', $("#lbl_pic").html());
+
+                if ($("#lbl_pic").html() == "Choose Picture") {
+                    formData.append('pic', "");
+                } else {
+                    formData.append('pic', $("#lbl_doc").html());
+                }
             }
 
 
             if ($("#doc").val() != "") {
                 formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
             } else {
-                formData.append('doc', $("#lbl_doc").html());
+
+                if ($("#lbl_doc").html() == "Choose Documents") {
+                    formData.append('doc', "");
+                } else {
+                    formData.append('doc', $("#lbl_doc").html());
+                }
             }
 
 

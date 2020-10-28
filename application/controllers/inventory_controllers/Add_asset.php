@@ -15,10 +15,6 @@ class Add_asset extends CI_controller
 
     function index()
     {
-        $p='t2cKlcEezUXLyfebwIblm//DTmdwu1wiCp+526E5Jj+4A63ME+lPSPjSW8M5ZdwMV2H2nZE+TZrU3vU94j2WkA==';
-        $Password = $this->encrypt->decode($p);
-        echo $Password;
-        exit();
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();

@@ -157,8 +157,231 @@ inner join hr_status st on st.id = e.status
 inner join project pr on pr.proj_code = e.workproj
 inner join project pr1 on pr1.proj_code = e.chargproj
 inner join hr_employee e1 on e1.empno = e.supernme
- order by e.id desc");
+order by e.id desc");
 
+        return $query->result();
+    }
+
+
+    function getAllEmployeeForReport()
+    {
+        $query = $this->db->query("select e.id, 
+et.emptype 'EmployeeType', 
+c.category 'EmployeeCategory', 
+e.empno 'EmployeeNo', 
+e.empname 'EmployeeName', 
+de.desig 'Designation', 
+e1.empname 'SupervisorName',
+pr.proj_name 'WorkingProject', 
+pr1.proj_name 'ChargingProject',
+loc.location 'Location', 
+e.conexpiry 'ContractExpiry', 
+st.status 'Status'
+from hr_employee e 
+inner join hr_category c on e.ddlcategory = c.id 
+inner join hr_emptype et on e.ddlemptype = et.id
+inner join hr_desig de on e.titdesi = de.id
+inner join hr_location loc on loc.id = e.ddlloc
+inner join hr_status st on st.id = e.status
+inner join project pr on pr.proj_code = e.workproj
+inner join project pr1 on pr1.proj_code = e.chargproj
+inner join hr_employee e1 on e1.empno = e.supernme");
+
+        return $query->result();
+    }
+
+
+    function getEmployee($searchdata)
+    {
+        $start = 0;
+        $length = 25;
+        if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
+            $start = $searchdata['start'];
+        }
+        if (isset($searchdata['length']) && $searchdata['length'] != '' && $searchdata['length'] != null) {
+            $length = $searchdata['length'];
+        }
+
+
+        if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
+            $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
+        }
+        if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
+            $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
+        }
+        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        }
+        if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
+            $this->db->where('e.entity', $searchdata['entity']);
+        }
+        if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
+            $this->db->where('e.ddlband', $searchdata['band']);
+        }
+
+        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
+            $this->db->where('e.status', $searchdata['status']);
+        }
+
+        if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
+            $this->db->where("(e1.empname like '%" . $searchdata['empname'] . "%')");
+        }
+
+        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
+            $this->db->where('e1.empno', $searchdata['empno']);
+        }
+
+        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
+            isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
+            $this->db->where("e.rehiredt between '" . $searchdata['hiredatefrom'] . "' and '" . $searchdata['hiredateto'] . "'");
+        }
+
+
+        if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
+            isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
+            $this->db->where("convert(numeric, e1.hiresalary) between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+        }
+
+
+        if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
+            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
+        }
+
+
+        $this->db->select('e1.id id,
+            et.emptype EmployeeType,
+            c.category EmployeeCategory,
+            e1.empno EmployeeNo,
+            e1.empname EmployeeName,
+            de.desig Designation,
+            e.empname SupervisorName,
+            pr.proj_name WorkingProject,
+            pr1.proj_name ChargingProject,
+            loc.location Location,
+            e.conexpiry ContractExpiry,
+            st.status Status');
+
+        $this->db->from('hr_employee e');
+        $this->db->join('hr_category c', 'e.ddlcategory = c.id');
+        $this->db->join('hr_emptype et', 'e.ddlemptype = et.id');
+        $this->db->join('hr_desig de', 'e.titdesi = de.id');
+        $this->db->join('hr_band b', 'e.ddlband = b.id');
+        $this->db->join('hr_band b1', 'b1.id = de.band');
+        $this->db->join('hr_location loc', 'loc.id = e.ddlloc');
+        $this->db->join('hr_status st', 'st.id = e.status');
+        $this->db->join('project pr', 'pr.proj_code = e.workproj');
+        $this->db->join('project pr1', 'pr1.proj_code = e.chargproj');
+        $this->db->join('hr_employee e1', 'e.empno = e1.supernme');
+
+        $this->db->limit($length, $start);
+        $query = $this->db->get();
+        return $query->result();
+
+
+        /*$query = $this->db->query('select e.id id,
+            et.emptype EmployeeType,
+            c.category EmployeeCategory,
+            e1.empno EmployeeNo,
+            e1.empname EmployeeName,
+            de.desig Designation,
+            e.empname SupervisorName,
+            pr.proj_name WorkingProject,
+            pr1.proj_name ChargingProject,
+            loc.location Location,
+            e.conexpiry ContractExpiry,
+            st.status Status from
+            hr_employee e join hr_category c on e.ddlcategory = c.id
+        join hr_emptype et on e.ddlemptype = et.id
+        join hr_desig de on e.titdesi = de.id
+        join hr_band b on e.ddlband = b.id
+        join hr_band b1 on b1.id = de.band
+        join hr_location loc on loc.id = e.ddlloc
+        join hr_status st on st.id = e.status
+        join project pr on pr.proj_code = e.workproj
+        join project pr1 on pr1.proj_code = e.chargproj
+        join hr_employee e1 on e.empno = e1.supernme');
+
+
+        foreach ($query->result() as $row) {
+            $results['data'] = array(
+                "id" => $row->id,
+                "EmployeeType" => $row->EmployeeType,
+                "EmployeeCategory" => $row->EmployeeCategory,
+                "EmployeeNo" => $row->EmployeeNo,
+                "EmployeeName" => ucwords($row->EmployeeName),
+                "Designation" => ucwords($row->Designation),
+                "SupervisorName" => ucwords($row->SupervisorName),
+                "WorkingProject" => ucwords($row->WorkingProject),
+                "ChargingProject" => ucwords($row->ChargingProject),
+                "Location" => ucwords($row->Location),
+                "ContractExpiry" => $row->ContractExpiry,
+                "Status" => ucwords($row->Status)
+            );
+        }*/
+
+        return $results['data'];
+    }
+
+
+    function getCntTotalEmployee($searchdata)
+    {
+
+        if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
+            $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
+        }
+        if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
+            $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
+        }
+        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        }
+        if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
+            $this->db->where('e.entity', $searchdata['entity']);
+        }
+        if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
+            $this->db->where('e.ddlband', $searchdata['band']);
+        }
+        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
+            $this->db->where('e.status', $searchdata['status']);
+        }
+
+
+        if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
+            $this->db->where("(e1.empname like '%" . $searchdata['empname'] . "%')");
+        }
+
+        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
+            $this->db->where('e1.empno', $searchdata['empno']);
+        }
+
+        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
+            isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
+            $this->db->where("e.rehiredt between '" . $searchdata['hiredatefrom'] . "' and '" . $searchdata['hiredateto'] . "'");
+        }
+
+
+        if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
+            isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
+            $this->db->where("e.hiresalary between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+        }
+
+        $this->db->select('count(e.id) as cnttotal');
+        //$this->db->from('hr_employee e');
+
+        $this->db->from('hr_employee e');
+        $this->db->join('hr_category c', 'e.ddlcategory = c.id');
+        $this->db->join('hr_emptype et', 'e.ddlemptype = et.id');
+        $this->db->join('hr_desig de', 'e.titdesi = de.id');
+        $this->db->join('hr_band b', 'e.ddlband = b.id');
+        $this->db->join('hr_band b1', 'b1.id = de.band');
+        $this->db->join('hr_location loc', 'loc.id = e.ddlloc');
+        $this->db->join('hr_status st', 'st.id = e.status');
+        $this->db->join('project pr', 'pr.proj_code = e.workproj');
+        $this->db->join('project pr1', 'pr1.proj_code = e.chargproj');
+        $this->db->join('hr_employee e1', 'e.empno = e1.supernme');
+
+
+        $query = $this->db->get();
         return $query->result();
     }
 

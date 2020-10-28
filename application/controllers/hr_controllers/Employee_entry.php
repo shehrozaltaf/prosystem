@@ -19,10 +19,6 @@ class Employee_entry extends CI_controller
 
     function index()
     {
-        $msg = 50000;
-        $encrypted_string = $this->encrypt->encode($msg);
-        echo $encrypted_string;
-        exit();
         $data = array();
 
         $MSettings = new MSettings();
@@ -171,6 +167,10 @@ class Employee_entry extends CI_controller
 
                 if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
                     $formArray[$k] = date('Y-m-d', strtotime($v));
+                } else if ($k === 'empname') {
+                    $formArray[$k] = ucwords($v);
+                } else if ($k === 'hiresalary') {
+                    $formArray[$k] = $this->encrypt->encode($v);
                 } else {
                     $formArray[$k] = $v;
                 }
@@ -354,6 +354,10 @@ class Employee_entry extends CI_controller
 
                 if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
                     $formArray[$k] = date('Y-m-d', strtotime($v));
+                } else if ($k === 'empname') {
+                    $formArray[$k] = ucwords($v);
+                } else if ($k === 'hiresalary') {
+                    $formArray[$k] = $this->encrypt->encode($v);
                 } else {
                     $formArray[$k] = $v;
                 }
@@ -939,10 +943,12 @@ class Employee_entry extends CI_controller
 
                     $formArray[$k] = date('Y-m-d', strtotime($v));
 
+                } else if ($k === 'empname') {
+                    $formArray[$k] = ucwords($v);
+                } else if ($k === 'hiresalary') {
+                    $formArray[$k] = $this->encrypt->encode($v);
                 } else {
-
                     $formArray[$k] = $v;
-
                 }
             }
         }
