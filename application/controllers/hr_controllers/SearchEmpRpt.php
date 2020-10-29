@@ -60,7 +60,6 @@ class SearchEmpRpt extends CI_Controller
     function getEmployee()
     {
         $M = new Mempmodel();
-        
 
         $orderindex = (isset($_REQUEST['order'][4]['column']) ? $_REQUEST['order'][4]['column'] : '');
         $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
