@@ -244,3 +244,44 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-31-2020 12:02 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-31-2020 12:02 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-31-2020 12:05 pm
+idUser: 1, UserName: dmu@aku
+Action: Add Page setting -> Function: addPageData() 
+Result: 66
+PostData: pageName = HR Settings
+pageUrl = hr_settings
+isParent = 1
+idParent = 3
+menuIcon = icon-list
+menuClass = nav_hr_setting
+isMenu = 1
+sort_no = 5
+createdBy = 1
+createdDateTime = 2020-10-31 12:05:33
+isActive = 1
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-31-2020 12:34 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - October-31-2020 5:03 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

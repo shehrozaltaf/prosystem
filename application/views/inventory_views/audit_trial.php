@@ -138,8 +138,12 @@
                                         </table>
                                     </div>
                                     <div class="col-12">
-                                        <a href="app-user-edit.html" class="btn btn-primary mr-1 waves-effect waves-light"><i class="feather icon-edit-1"></i> Edit</a>
-                                        <button class="btn btn-outline-danger waves-effect waves-light"><i class="feather icon-trash-2"></i> Delete</button>
+                                        <a href="app-user-edit.html"
+                                           class="btn btn-primary mr-1 waves-effect waves-light"><i
+                                                    class="feather icon-edit-1"></i> Edit</a>
+                                        <button class="btn btn-outline-danger waves-effect waves-light"><i
+                                                    class="feather icon-trash-2"></i> Delete
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +151,66 @@
                     </div>
                     <!-- account end -->
 
+                    <div class="col-md-12 col-12 ">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title mb-2">Audit Report</div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped dataex-html5-selectors">
+                                    <thead>
+
+                                    <tr>
+                                        <th>Form Name</th>
+                                        <th>Fieldid</th>
+                                        <th>FieldName</th>
+                                        <th>OldValue</th>
+                                        <th>NewValue</th>
+                                        <th>createdBy</th>
+                                        <th>createdDateTime</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if (isset($all_inventory_audit) && $all_inventory_audit != '') {
+
+                                        foreach ($all_inventory_audit as $k => $a) {
+                                            echo '<tr> 
+                                                <td>' . $a->FormName . '</td> 
+                                                <td>' . $a->Fieldid . '</td>
+                                                <td>' . $a->FieldName . '</td>
+                                                <td>' . $a->OldValue . '</td>
+                                                <td>' . $a->NewValue . '</td> 
+                                                <td>' . $a->username . '</td>
+                                                <td>' . date('d-m-Y',strtotime($a->createdDateTime)) . '</td>
+                                            </tr>';
+                                        }
+                                    }
+                                    ?>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Form Name</th>
+                                        <th>Fieldid</th>
+                                        <th>FieldName</th>
+                                        <th>OldValue</th>
+                                        <th>NewValue</th>
+                                        <th>createdBy</th>
+                                        <th>createdDateTime</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <?php if (isset($inventory_audit) && $inventory_audit != '') {
                         foreach ($inventory_audit as $k => $a) { ?>
 
                             <div class="col-md-6 col-12 ">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div class="card-title mb-2">Audit - <?php echo ucfirst($k); ?></div>
+                                        <div class="card-title mb-2"><?php echo ucfirst($k); ?> - Audit</div>
                                     </div>
                                     <div class="card-body">
                                         <table class="table table-responsive table-bordered ">
@@ -228,3 +285,57 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" type="text/css"
+      href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.dataex-html5-selectors').DataTable({
+            dom: 'Bfrtip',
+            "displayLength": 50,
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: [0, ':visible']
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    text: 'JSON',
+                    action: function (e, dt, button, config) {
+                        var data = dt.buttons.exportData();
+
+                        $.fn.dataTable.fileSave(
+                            new Blob([JSON.stringify(data)]),
+                            'Export.json'
+                        );
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
+        });
+    });
+</script>
