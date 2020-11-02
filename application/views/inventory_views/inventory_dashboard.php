@@ -329,6 +329,28 @@
     </div>
 <?php } ?>
 
+<?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
+    <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Inventory</h4>
+                    <input type="hidden" id="delete_idInventory" name="delete_idInventory">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to delete this?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteData()">Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
@@ -605,6 +627,35 @@
             hideloader();
             $('.main_content_div').removeClass('hide');
         }, 500);
+    }
+
+    function getDelete(obj) {
+        var id = $(obj).attr('data-id');
+        $('#delete_idInventory').val(id);
+        $('#deleteModal').modal('show');
+    }
+
+    function deleteData() {
+        var data = {};
+        data['idInventory'] = $('#delete_idInventory').val();
+        if (data['idInventory'] == '' || data['idInventory'] == undefined || data['idInventory'] == 0) {
+            toastMsg('Inventory', 'Invalid Id', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/deleteInventory')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    toastMsg('Inventory', 'Successfully Deleted', 'success');
+                    $('#deleteModal').modal('hide');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (res == 3) {
+                    toastMsg('Inventory', 'Invalid Inventory Id', 'error');
+                } else {
+                    toastMsg('Inventory', 'Something went wrong', 'error');
+                }
+            });
+        }
     }
 
 </script>

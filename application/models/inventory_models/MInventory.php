@@ -77,6 +77,7 @@ class MInventory extends CI_Model
 	i.dor,
 	i.tagable ');
         $this->db->from('i_paedsinventory i');
+        $this->db->where('i.isActive',1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
         return $query->result();
@@ -114,6 +115,7 @@ class MInventory extends CI_Model
 
         $this->db->select('count(i.id) as cnttotal');
         $this->db->from('i_paedsinventory i');
+        $this->db->where('i.isActive',1);
         $query = $this->db->get();
         return $query->result();
     }

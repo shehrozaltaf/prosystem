@@ -83,10 +83,13 @@ class Inventory extends CI_controller
             $table_data[$value->id]['aadop'] = $value->aadop;
             $table_data[$value->id]['newEntry'] = $value->newEntry;
             $table_data[$value->id]['Action'] = '
-                <a href="javascript:void(0)" onclick="showExpiry()" >
+                <a href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '"  target="_blank" title="Audit Trial" data-id="' . $value->id . '">
+                        <i class="feather icon-eye" ></i> 
+                </a>
+                <a href="javascript:void(0)" onclick="showExpiry()"  data-id="' . $value->id . '">
                         <i class="feather icon-edit action-edit" ></i> 
                 </a>
-                <a href="javascript:void(0)" onclick="getDelete(this)">
+                <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->id . '">
                         <i class="feather icon-trash"></i>
                 </a>';
 
@@ -286,7 +289,7 @@ class Inventory extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
             /*==========Log=============*/
             $MSettings = new MSettings();
-            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/auditTrial');
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Inventory/auditTrial',0);
 
             $searchData = array();
             $searchData['id'] = $_GET['i'];
@@ -312,6 +315,30 @@ class Inventory extends CI_controller
             $this->load->view('page-invalid-id');
         }
 
+    }
+
+    function deleteInventory()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idInventory']) && $_POST['idInventory'] != '') {
+            $id = $_POST['idInventory'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsinventory');
+            $trackarray = array("action" => "Delete Inventory setting -> Function: deleteInventory() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
     }
 }
 

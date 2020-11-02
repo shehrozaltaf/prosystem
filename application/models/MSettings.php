@@ -105,7 +105,7 @@ class MSettings extends CI_Model
         }
     }
 
-    public function getUserRights($idGroup, $CanView = '', $FormName = '')
+    public function getUserRights($idGroup, $CanView = '', $pageURL = '',$isMenu=1)
     {
         $this->db->select('pagegroup.idPages,
 	pagegroup.CanAdd,
@@ -125,13 +125,13 @@ class MSettings extends CI_Model
         $this->db->from('pagegroup');
         $this->db->join('pages', 'pagegroup.idPages = pages.idPages', 'left');
         $this->db->where('pages.isActive', 1);
-        $this->db->where('pages.isMenu', 1);
+        $this->db->where('pages.isMenu', $isMenu);
         $this->db->where('pagegroup.idGroup', $idGroup);
         if ($CanView != '' && $CanView != '0') {
             $this->db->where('pagegroup.CanView', 1);
         }
-        if ($FormName != '' && $FormName != '0') {
-            $this->db->where('pages.pageUrl', $FormName);
+        if ($pageURL != '' && $pageURL != '0') {
+            $this->db->where('pages.pageUrl', $pageURL);
         }
         $this->db->order_by('pages.sort_no', 'ASC');
         $query = $this->db->get();

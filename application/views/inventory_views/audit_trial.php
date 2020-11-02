@@ -138,12 +138,19 @@
                                         </table>
                                     </div>
                                     <div class="col-12">
-                                        <a href="app-user-edit.html"
-                                           class="btn btn-primary mr-1 waves-effect waves-light"><i
-                                                    class="feather icon-edit-1"></i> Edit</a>
-                                        <button class="btn btn-outline-danger waves-effect waves-light"><i
-                                                    class="feather icon-trash-2"></i> Delete
-                                        </button>
+                                        <input type="hidden" id="idInventory" name="idInventory"
+                                               value="<?php echo(isset($inventory_data[0]->id) && $inventory_data[0]->id != '' ? $inventory_data[0]->id : '') ?>">
+                                        <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+                                            <a href="app-user-edit.html"
+                                               class="btn btn-primary mr-1 waves-effect waves-light"><i
+                                                        class="feather icon-edit-1"></i> Edit</a>
+                                        <?php }
+                                        if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
+                                            <button class="btn btn-outline-danger waves-effect waves-light"
+                                                    onclick="getDelete(this)">
+                                                <i class="feather icon-trash-2"></i> Delete
+                                            </button>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +188,7 @@
                                                 <td>' . $a->OldValue . '</td>
                                                 <td>' . $a->NewValue . '</td> 
                                                 <td>' . $a->username . '</td>
-                                                <td>' . date('d-m-Y',strtotime($a->createdDateTime)) . '</td>
+                                                <td>' . date('d-m-Y', strtotime($a->createdDateTime)) . '</td>
                                             </tr>';
                                         }
                                     }
@@ -285,6 +292,31 @@
         </div>
     </div>
 </div>
+
+
+<?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
+    <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Inventory</h4>
+                    <input type="hidden" id="delete_idInventory" name="delete_idInventory">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to delete this?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteData()">Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
@@ -338,4 +370,39 @@
             ]
         });
     });
+
+    function getDelete(obj) {
+        var id = $('#idInventory').val();
+        if (id != '' && id != undefined && id != 0) {
+            $('#deleteModal').modal('show');
+        } else {
+            toastMsg('Inventory', 'Invalid Id', 'error');
+            return false;
+        }
+
+    }
+
+    function deleteData() {
+        var data = {};
+        data['idInventory'] = $('#idInventory').val();
+        if (data['idInventory'] == '' || data['idInventory'] == undefined || data['idInventory'] == 0) {
+            toastMsg('Inventory', 'Invalid Id', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/deleteInventory')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    toastMsg('Inventory', 'Successfully Deleted', 'success');
+                    $('#deleteModal').modal('hide');
+                    setTimeout(function () {
+                        window.location.href = '<?php echo base_url('index.php/inventory_controllers/Inventory') ?>';
+                    }, 500);
+                } else if (res == 3) {
+                    toastMsg('Inventory', 'Invalid Inventory Id', 'error');
+                } else {
+                    toastMsg('Inventory', 'Something went wrong', 'error');
+                }
+            });
+        }
+    }
+
 </script>

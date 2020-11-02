@@ -141,6 +141,7 @@ class Add_asset extends CI_controller
             $insertArray['remarks'] = $_POST['remarks'];
             $insertArray['loc'] = 'PRO';
             $insertArray['username'] = 'STOREPRO';
+            $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'id', 'i_paedsinventory', 'Y');
