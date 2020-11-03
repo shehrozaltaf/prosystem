@@ -120,6 +120,18 @@ tr.details td.details-control {
     padding: 0.7rem 0;
 }
 
-.invalidVal{
+.invalidVal {
     border-bottom: 1px solid red !important;
+}
+
+.myTable th, .myTable td {
+    padding: 2px 5px !important;
+}
+
+.myTable th select  {
+    border: 1px solid black;
+}
+
+.myTable th .select_error {
+    border: 1px solid #e53935;
 }

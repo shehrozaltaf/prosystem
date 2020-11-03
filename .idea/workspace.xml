@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/Upload_data.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/upload_data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Upload_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Upload_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/upload_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/upload_data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,62 +21,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="83" column="61" lean-forward="true" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
-              <folding>
-                <element signature="n#addExcelData#0;n#Upload_data#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="215" column="94" selection-start-line="215" selection-start-column="94" selection-end-line="215" selection-end-column="94" />
+            <state relative-caret-position="425">
+              <caret line="271" column="73" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#9261#10161#0#HTML" />
+                <element signature="e#8020#9136#0#HTML" />
+                <element signature="e#10136#11012#0#HTML" />
+                <element signature="e#11043#12142#0#HTML" />
+                <element signature="e#12167#14235#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="401" column="5" selection-start-line="401" selection-start-column="5" selection-end-line="401" selection-end-column="5" />
+            <state relative-caret-position="1767">
+              <caret line="160" column="17" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
               <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#177#182#0#PHP" />
-                <element signature="e#931#936#0#PHP" />
-                <element signature="e#4230#4235#0#PHP" />
-                <element signature="e#4288#4661#0#PHP" />
-                <element signature="e#4387#4607#0#PHP" />
-                <element signature="e#5355#5360#0#PHP" />
-                <element signature="e#5413#5791#0#PHP" />
-                <element signature="e#5510#5737#0#PHP" />
-                <element signature="e#6488#6493#0#PHP" />
-                <element signature="e#6494#6875#0#PHP" />
-                <element signature="e#6589#6821#0#PHP" />
-                <element signature="e#13322#14890#0#PHP" />
-                <element signature="e#14900#18981#0#PHP" />
-                <element signature="e#15969#15974#0#PHP" />
-                <element signature="e#16011#16320#0#PHP" />
-                <element signature="e#16094#16282#0#PHP" />
-                <element signature="e#16943#16948#0#PHP" />
-                <element signature="e#16985#17322#0#PHP" />
-                <element signature="e#17066#17284#0#PHP" />
-                <element signature="e#17938#17943#0#PHP" />
-                <element signature="e#17980#18313#0#PHP" />
-                <element signature="e#18065#18275#0#PHP" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="333" column="37" selection-start-line="333" selection-start-column="37" selection-end-line="333" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="167" column="10" selection-start-line="167" selection-start-column="10" selection-end-line="168" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -83,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="791">
-              <caret line="123" column="43" selection-start-line="123" selection-start-column="43" selection-end-line="123" selection-end-column="43" />
+            <state relative-caret-position="706">
+              <caret line="130" column="12" lean-forward="true" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -93,14 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>javed</find>
-      <find>editre</find>
-      <find>editr</find>
-      <find>bu</find>
-      <find>status</find>
-      <find>use cap</find>
-      <find>not a</find>
-      <find>Add</find>
       <find>.select2-container--default .select2-selection--single</find>
       <find>border: 1px solid #aaa</find>
       <find>numb</find>
@@ -123,6 +113,14 @@
       <find>,</find>
       <find>upload_area</find>
       <find>set_column_data</find>
+      <find>idTable</find>
+      <find>mybtn</find>
+      <find>import</find>
+      <find>message</find>
+      <find>document_file</find>
+      <find>db_debug</find>
+      <find>$table</find>
+      <find>$tableColumn</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -149,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/models/budget_model/Memployee.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/employee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/config.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
@@ -196,8 +193,9 @@
         <option value="$PROJECT_DIR$/application/models/MSettings.php" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/upload.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/controllers/Upload_data.php" />
         <option value="$PROJECT_DIR$/application/views/upload_data.php" />
       </list>
@@ -216,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -233,6 +230,12 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -240,13 +243,6 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
@@ -259,10 +255,17 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,7 +330,9 @@
       <workItem from="1604136840366" duration="603000" />
       <workItem from="1604138504899" duration="5525000" />
       <workItem from="1604145987843" duration="1602000" />
-      <workItem from="1604292890804" duration="15087000" />
+      <workItem from="1604292890804" duration="15279000" />
+      <workItem from="1604380018045" duration="60000" />
+      <workItem from="1604387494645" duration="11339000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -455,21 +460,28 @@
       <option name="project" value="LOCAL" />
       <updated>1604301984194</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="inventory - upload data">
+      <created>1604322134228</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1604322134228</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119788000" />
+    <option name="totallyTimeSpent" value="131379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19987775" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20476772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -504,7 +516,8 @@
     <MESSAGE value="inventory - audit trail" />
     <MESSAGE value="inventory - audit trails" />
     <MESSAGE value="inventory - delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="inventory - delete" />
+    <MESSAGE value="inventory - upload data" />
+    <option name="LAST_COMMIT_MESSAGE" value="inventory - upload data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -518,23 +531,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="174" column="21" lean-forward="true" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/portals/newsavedraft.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/portals/newsavedraft (3).java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -662,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="333" column="37" selection-start-line="333" selection-start-column="37" selection-end-line="333" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -774,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="227" column="13" lean-forward="true" selection-start-line="227" selection-start-column="13" selection-end-line="227" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1103">
@@ -795,16 +777,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
     <entry file="file://$PROJECT_DIR$/application/models/MSettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -826,30 +800,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/upload_data2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="171" column="39" lean-forward="true" selection-start-line="171" selection-start-column="39" selection-end-line="171" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="123" column="43" selection-start-line="123" selection-start-column="43" selection-end-line="123" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/upload_data2.php" />
     <entry file="file://$PROJECT_DIR$/../tmk_el/api/api/upload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/upload.php" />
     <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -882,24 +837,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/upload_data_.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="167" column="50" lean-forward="true" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="130" column="12" lean-forward="true" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="167" column="10" selection-start-line="167" selection-start-column="10" selection-end-line="168" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="333" column="37" selection-start-line="333" selection-start-column="37" selection-end-line="333" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="83" column="61" lean-forward="true" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+        <state relative-caret-position="1767">
+          <caret line="160" column="17" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
           <folding>
-            <element signature="n#addExcelData#0;n#Upload_data#0;n#!!top" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="215" column="94" selection-start-line="215" selection-start-column="94" selection-end-line="215" selection-end-column="94" />
+        <state relative-caret-position="425">
+          <caret line="271" column="73" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
           <folding>
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#9261#10161#0#HTML" />
+            <element signature="e#8020#9136#0#HTML" />
+            <element signature="e#10136#11012#0#HTML" />
+            <element signature="e#11043#12142#0#HTML" />
+            <element signature="e#12167#14235#0#HTML" />
           </folding>
         </state>
       </provider>

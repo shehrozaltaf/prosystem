@@ -41,43 +41,42 @@ class Upload_data extends CI_controller
     {
         $error = '';
         $html = '';
+        $flag = 0;
         $tableColumn = array();
 
+        if (isset($_POST['idTable']) && $_POST['idTable'] != '') {
+            $table = $_POST['idTable'];
+            if ($table == 'bl_randomised') {
+                $tableColumn = array('id', 'bl', 'hhno');
+            } elseif ($table == 'devices') {
+                $tableColumn = array('id', 'imei', 'deviceid', 'tag', 'appname', 'region', 'appversion', 'updt_date', 'id_org');
+            } else {
+                $flag = 1;
+            }
+        } else {
+            $flag = 1;
+        }
 
-        if ($_FILES['file']['name'] != '') {
-            if (isset($_POST['idTable']) && $_POST['idTable'] != '') {
-                $table = $_POST['idTable'];
-                if ($table == 'bl_randomised') {
-                    $tableColumn = array('id', 'bl', 'hhno');
-                } elseif ($table == 'devices') {
-                    $tableColumn = array('id', 'imei', 'deviceid', 'tag', 'appname', 'region', 'appversion', 'updt_date', 'id_org');
+
+        if ($_FILES['file']['name'] != '' && $flag == 0) {
+            $file_array = explode(".", $_FILES['file']['name']);
+            $extension = end($file_array);
+            if ($extension == 'csv') {
+
+                $config['upload_path'] = 'assets/uploads/excelsUpload';
+                $config['allowed_types'] = 'csv';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('file')) {
+                    $error = $this->upload->display_errors();
                 } else {
-                    $error = 'Invalid Table';
-                }
-
-
-                $file_array = explode(".", $_FILES['file']['name']);
-                $extension = end($file_array);
-                if ($extension == 'csv') {
                     $file_data = fopen($_FILES['file']['tmp_name'], 'r');
                     $file_header = fgetcsv($file_data);
 
-                    $html .= '<table class="table table-bordered"><tr>';
+                    $html .= '<table class="table table-bordered myTable"><thead><tr class="head">';
                     for ($count = 0; $count < count($file_header); $count++) {
-
-                        /* $html .= '
-                            <th>
-                             <select name="set_column_data" class="form-control set_column_data" data-column_number="' . $count . '">
-                              <option value="">Set Count Data</option>
-                              <option value="first_name">First Name</option>
-                              <option value="last_name">Last Name</option>
-                              <option value="email">Email</option>
-                             </select>
-                            </th>
-                            ';*/
-                        $html .= '<th> <select name="set_column_data" class="form-control set_column_data" 
-onchange="chkCol(this)"
-                                data-column_number="' . $count . '">
+                        $html .= '<th class="myClass" data-key="' . $count . '" width="' . (100 / count($file_header)) . '%"> 
+                        <select name="set_column_data" class="form-control set_column_data" 
+                        onchange="chkCol(this)"   data-column_number="' . $count . '">
                          <option value="">Select Column</option>';
                         foreach ($tableColumn as $t) {
                             $colmSelected = '';
@@ -88,41 +87,47 @@ onchange="chkCol(this)"
                         }
                         $html .= '</select></th>';
                     }
-                    $html .= '</tr>';
+                    $html .= '</tr></thead><tbody>';
                     $limit = 0;
                     while (($row = fgetcsv($file_data)) !== FALSE) {
                         $limit++;
                         if ($limit < 5000) {
                             $html .= '<tr>';
                             for ($count = 0; $count < count($row); $count++) {
-                                if(!isset($row[$count]) || $row[$count]==''){
-                                    $err='invalidVal';
-                                }else{
-                                    $err='';
+                                if (!isset($row[$count]) || $row[$count] == '') {
+                                    $err = 'invalidVal';
+                                } else {
+                                    $err = '';
                                 }
-                                $html .= '<td class="'.$err.'" contenteditable >' . $row[$count] . '</td>';
+                                $html .= '<td class="' . $err . ' myClass_' . $count . '" data-key="' . $count . '" contenteditable >' . $row[$count] . '</td>';
                             }
                             $html .= '</tr>';
                         }
                         $temp_data[] = $row;
                     }
                     $_SESSION['file_data'] = $temp_data;
-                    $html .= '
+                    $html .= '</tbody>
                           </table>
                           <br />
                           <div align="right">
-                           <button type="button" name="import" id="import" class="btn btn-success" disabled>Import</button>
+                           <button type="button" onclick="submitData()" name="import" id="import" class="btn btn-success myImpBtn"  >Import</button>
                           </div>
-                          <br />';
-                } else {
-                    $error = 'Only <b>.csv</b> file allowed';
+                          <br />
+                           <div class="row m-1">
+                                        <div class="col-sm-12">
+                                            <h4 class="res_heading" style="color: green;"></h4>
+                                            <p class="res_msg" style="color: green;"></p>
+                                        </div>
+                                    </div>';
+
                 }
 
 
             } else {
-                $error = 'Invalid Table';
+                $error = 'Only <b>.csv</b> file allowed';
             }
-
+        } elseif ($flag == 1) {
+            $error = 'Invalid Table';
         } else {
             $error = 'Please Select CSV File';
         }
@@ -136,53 +141,40 @@ onchange="chkCol(this)"
     }
 
 
-    function fetchCSV()
-    {
-        if (!empty($_FILES['csv_file']['name'])) {
-            $file_data = fopen($_FILES['csv_file']['tmp_name'], 'r');
-            $column = fgetcsv($file_data);
-            while ($row = fgetcsv($file_data)) {
-                $row_data[] = array(
-                    'student_name' => $row[0],
-                    'student_phone' => $row[1]
-                );
-            }
-            $output = array(
-                'column' => $column,
-                'row_data' => $row_data
-            );
-
-            echo json_encode($output);
-
-        }
-
-    }
-
-    function importData()
-    {
-        if (isset($_POST["first_name"])) {
-            $connect = new PDO("mysql:host=localhost; dbname=testing", "root", "");
-            session_start();
-            $file_data = $_SESSION['file_data'];
-            unset($_SESSION['file_data']);
-            foreach ($file_data as $row) {
-                $data[] = '("' . $row[$_POST["first_name"]] . '", "' . $row[$_POST["last_name"]] . '", "' . $row[$_POST["email"]] . '")';
-            }
-            if (isset($data)) {
-                $query = "
-                  INSERT INTO csv_file 
-                  (first_name, last_name, email) 
-                  VALUES " . implode(",", $data) . "
-                  ";
-                $statement = $connect->prepare($query);
-                if ($statement->execute()) {
-                    echo 'Data Imported Successfully';
-                }
-            }
-        }
-    }
-
     public function addExcelData()
+    {
+        $data = array();
+        if (isset($_POST['head']) && $_POST['head'] != '' && isset($_POST['body']) && $_POST['body'] != '') {
+            if (isset($_POST['idTable']) && $_POST['idTable'] != '') {
+                $table = $_POST['idTable'];
+                $head = $_POST['head'];
+                $body = $_POST['body'];
+                foreach ($body as $k => $b) {
+                    $arr = array();
+                    $arr['createdBy'] = $_SESSION['login']['idUser'].',excel';
+                    $arr['createdDateTime'] = date('Y-m-d H:i:s');
+                    foreach ($b as $key => $v) {
+                        $ke = $head[$key];
+                        $arr[$ke] = $v;
+                    }
+                    $data[] = $arr;
+                }
+                if ($this->db->insert_batch($table, $data)) {
+                    $res = array('0' => 'Success', '1' => 'Successfully Uploaded');
+                } else {
+                    $res = array('0' => 'Error', '1' => $this->db->error());
+                }
+            } else {
+                $res = array('0' => 'Error', '1' => 'Invalid Table');
+            }
+        } else {
+            $res = array('0' => 'Error', '1' => 'Invalid Data');
+        }
+        echo json_encode($res);
+    }
+
+
+    public function addExcelData2()
     {
         $config['upload_path'] = 'assets/uploads/excelsUpload';
         $config['allowed_types'] = 'xlsx|xlx|csv';

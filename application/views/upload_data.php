@@ -100,11 +100,11 @@
                                         </div>
                                     </div>
 
-
-                                    <div id="message"></div>
                                     <div class="table-responsive" id="process_area">
 
                                     </div>
+
+
 
                                 </div>
 
@@ -124,7 +124,7 @@
         });*/
 
     });
-    var total_selection = 2;
+    var total_selection = 0;
     var column_data = [];
     $(document).ready(function () {
         $('#document_form').on('submit', function (event) {
@@ -138,15 +138,16 @@
                 cache: false,
                 processData: false,
                 success: function (data) {
+                    $('.res_heading').html('');
+                    $('.res_msg').html('');
 
                     if (data.error != '') {
-                        $('#message').html('<div class="alert alert-danger">' + data.error + '</div>');
+                        $('.res_heading').html('Error').css('color', 'red');
+                        $('.res_msg').html(data.error).css('color', 'red');
                     } else {
-
                         $('#process_area').html(data.output);
                         setTimeout(function () {
                             $('.set_column_data').each(function (i, v) {
-
                                 var cn = $(v).data('column_number');
                                 var cv = $(v).val();
                                 column_data[cn] = cn;
@@ -186,10 +187,10 @@
             }
         });*/
 
-        $(document).on('click', '#import', function (event) {
+        /*$(document).on('click', '#import', function (event) {
             event.preventDefault();
             $.ajax({
-                url: "<?php echo base_url('index.php/Upload_data/importData') ?>",
+                url: "< ?php echo base_url('index.php/Upload_data/importData') ?>",
                 method: "POST",
                 data: {first_name: first_name, last_name: last_name, email: email},
                 beforeSend: function () {
@@ -205,9 +206,83 @@
                     $('#message').html("<div class='alert alert-success'>" + data + "</div>");
                 }
             })
-        });
+        });*/
 
     });
+
+    function submitData() {
+
+        $('#idTable').css('border', '1px solid #babfc7');
+        $('#document_file').css('border', '1px solid #babfc7');
+        var flag = 0;
+        var data = {};
+
+        var head = [];
+        var thead = $('.myTable').find('thead').find('select');
+        $.each(thead, function (i, v) {
+            var mykeysVal = $(v).val();
+            if (mykeysVal != '' && mykeysVal != undefined) {
+                head.push(mykeysVal);
+            } else {
+                $(v).css('border', '1px solid red');
+                toastMsg('Table', 'Invalid Table', 'error');
+                flag = 1;
+                return false;
+            }
+
+        });
+
+        var body_keys = [];
+        var body = $('.myTable').find('tbody').find('tr');
+        $.each(body, function (m, n) {
+            var body_val = [];
+            $.each($(n).find('td'), function (p, q) {
+                var myBodyVal = $(q).text();
+                body_val.push(myBodyVal);
+            });
+            body_keys.push(body_val);
+        });
+        data['head'] = head;
+        data['body'] = body_keys;
+        data['idTable'] = $('#idTable').val();
+
+        if (data['idTable'] == '' || data['idTable'] == undefined) {
+            $('#idTable').css('border', '1px solid red');
+            toastMsg('Table', 'Invalid Table', 'error');
+            flag = 1;
+            return false;
+        }
+
+        if (flag == 0) {
+            $('.res_heading').html('');
+            $('.res_msg').html('');
+            $('.myImpBtn').attr('disabled', 'disabled');
+            CallAjax('<?php echo base_url('index.php/Upload_data/addExcelData')?>', data, 'POST', function (result) {
+                $('.myImpBtn').removeAttr('disabled', 'disabled');
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        toastMsg(response[0], response[1].message, 'success');
+                        $('.res_heading').html(response[0]).css('color', 'green');
+                        $('.res_msg').html(response[1]).css('color', 'green');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1500)
+                    } else {
+                        toastMsg(response[0], response[1].message, 'error');
+                        $('.res_heading').html(response[0]).css('color', 'red');
+                        $('.res_msg').html(response[1].message).css('color', 'red');
+                    }
+                } catch (e) {
+                }
+            });
+
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+
+
+    }
 
     function chkCol(obj) {
         var column_name = $(obj).val();
