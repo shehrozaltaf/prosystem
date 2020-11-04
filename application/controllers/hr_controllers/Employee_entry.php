@@ -516,12 +516,21 @@ class Employee_entry extends CI_controller
                         $v->summaryFldid == "status" ||
                         $v->summaryFldid == "degree" ||
                         $v->summaryFldid == "field" ||
-                        $v->summaryFldid == "supernme"
+                        $v->summaryFldid == "supernme" ||
+                        $v->summaryFldid == "workproj" ||
+                        $v->summaryFldid == "chargproj"
                     ) {
 
                         $formArray[$v->summaryFldid] = $v->summaryFldNewVal;
+
+                    } else if ($v->summaryFldid == "conexpiry") {
+
+                        $formArray[$v->summaryFldid] = date('Y-m-d', strtotime($v->summaryNewVal));
+
                     } else {
+
                         $formArray[$v->summaryFldid] = $v->summaryNewVal;
+
                     }
 
 
@@ -630,6 +639,12 @@ class Employee_entry extends CI_controller
         }
 
 
+        /*echo "<pre>";
+        echo print_r($formArray);
+        echo "</pre>";
+        die();*/
+
+
         if ($flag == 0) {
 
             $Custom = new Custom();
@@ -644,39 +659,39 @@ class Employee_entry extends CI_controller
             //die();
 
 
-            //$this->AuditTrials_BulkUpd();
+            $this->AuditTrials_BulkUpd();
 
 
-            if (isset($_POST['data'])) {
-                foreach (json_decode($_POST['data']) as $v) {
+            if (isset($_POST['data']) && $_POST['data'] != '') {
+
+                $js = json_decode($_POST['data']);
+
+                //foreach (json_decode($_POST['data']) as $k => $v) {
+                foreach ($js->results as $kk => $v) {
+
 
                     /*echo "<pre>";
-                    echo print_r($v);
-                    echo "</pre>";*/
-
-                    //echo $v[0]->summaryFldid;
-                    //echo $v[0]->empno;
-                    //die();
-                    //echo $v[0]->summaryFldid;
+                    echo print_r($v->summaryFldid);
+                    echo "</pre>";
+                    die();*/
 
 
-                    /*echo $v[0]->empno;
-                    echo $v[1]->empno;*/
+                    if ($v->summaryFldid == "conexpiry") {
+                        $formArray[$v->summaryFldid] = date('Y-m-d', strtotime($v->summaryVal));
+                    } else {
+                        $formArray[$v->summaryFldid] = $v->summaryVal;
+                    }
 
 
-                    $formArray['workproj'] = $v[0]->summaryVal;
-                    $formArray['ddlloc'] = $v[1]->summaryVal;
-                    $formArray['supernme'] = $v[2]->summaryVal;
+                    /*$formArray['workproj'] = $v->summaryVal;
+                    $formArray['ddlloc'] = $v->summaryVal;
+                    $formArray['supernme'] = $v->summaryVal;
                     //$formArray['conexpiry'] = date('Y-d-m', $v[3]->summaryVal);
-                    $formArray['conexpiry'] = $v[3]->summaryVal;
-                    $formArray['status'] = $v[4]->summaryVal;
+                    $formArray['conexpiry'] = date('Y-m-d', strtotime($v->summaryVal));
+                    $formArray['status'] = $v->summaryVal;*/
 
 
                     unset($formArray['data']);
-
-                    /*echo "<pre>";
-                    echo print_r($formArray);
-                    echo "</pre>";*/
 
 
                     //echo $v[$v->empno]->empno;
@@ -691,8 +706,9 @@ class Employee_entry extends CI_controller
                     //$formArray["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
 
 
-                    $EditData = $Custom->Edit($formArray, 'empno', $v[0]->empno, 'hr_employee');
+                    $EditData = $Custom->Edit($formArray, 'empno', $v->empno, 'hr_employee');
 
+                    $_SESSION['id'] = '';
                 }
             }
 
@@ -872,14 +888,21 @@ class Employee_entry extends CI_controller
         $Custom = new Custom();
 
         date_default_timezone_set('Asia/Karachi');
-        $now = new DateTime();
 
 
-        if (isset($_POST['results']) && $_POST['results'] != '') {
-            foreach (json_decode($_POST['results']) as $k => $v) {
+        /*echo "<pre>";
+        echo print_r($_POST['data']);
+        echo "</pre>";
+        die();*/
+
+
+        if (isset($_POST['data']) && $_POST['data'] != '') {
+
+            $js = json_decode($_POST['data']);
+            foreach ($js->results as $kk => $v) {
 
                 $ins_data = array();
-                $ins_data["FormID"] = $_SESSION['id'];
+                $ins_data["FormID"] = $v->summaryID;
                 $ins_data["VisitID"] = "0";
                 $ins_data["FormName"] = "empentry";
                 /*$ins_data["EntryDate"] = $now->format('Y-m-d');
@@ -891,34 +914,16 @@ class Employee_entry extends CI_controller
                 $ins_data["Fieldid"] = $v->summaryFldid;
                 $ins_data["FieldName"] = $v->summaryFldName;
 
-                if ($v->summaryFldid == "ddlemptype" ||
-                    $v->summaryFldid == "ddlcategory" ||
-                    $v->summaryFldid == "ddlband" ||
-                    $v->summaryFldid == "titdesi" ||
-                    $v->summaryFldid == "ddlloc" ||
-                    $v->summaryFldid == "ddlhardship" ||
-                    $v->summaryFldid == "benefits" ||
-                    $v->summaryFldid == "peme" ||
-                    $v->summaryFldid == "gop" ||
-                    $v->summaryFldid == "entity" ||
-                    $v->summaryFldid == "dept" ||
-                    $v->summaryFldid == "cardissue" ||
-                    $v->summaryFldid == "letterapp" ||
-                    $v->summaryFldid == "confirmation" ||
-                    $v->summaryFldid == "status" ||
-                    $v->summaryFldid == "degree" ||
-                    $v->summaryFldid == "field"
-                ) {
-                    $ins_data["OldValue"] = $v->summaryFldOldVal;
-                    $ins_data["NewValue"] = $v->summaryFldNewVal;
+                if ($v->summaryFldid == "conexpiry") {
+                    $ins_data["OldValue"] = date('Y-m-d', strtotime($v->summaryOldVal));
+                    $ins_data["NewValue"] = date('Y-m-d', strtotime($v->summaryVal));
                 } else {
                     $ins_data["OldValue"] = $v->summaryOldVal;
-                    $ins_data["NewValue"] = $v->summaryNewVal;
+                    $ins_data["NewValue"] = $v->summaryVal;
                 }
 
                 $ins_data["effdt"] = date('Y-m-d', strtotime($v->SummaryEftDate));
-
-                $InsertData = $Custom->Insert($ins_data, 'ID', 'hr_AuditTrials', 'N');
+                $InsertData = $Custom->Insert($ins_data, 'id', 'hr_AuditTrials', 'N');
             }
         } else {
             echo 2;
@@ -955,6 +960,12 @@ class Employee_entry extends CI_controller
             }
         }
 
+        /*echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
+        die();*/
+
+
         //array_push($formArray, $_FILES["imgfile"]["name"], $_FILES["docfile"]["name"]);
 
 
@@ -983,11 +994,13 @@ class Employee_entry extends CI_controller
         $Custom = new Custom();
 
 
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
 
             $id = $_SESSION['id'];
 
-            //$this->AuditTrials();
+            $this->AuditTrials();
+
+            unset($formArray['results']);
 
             $InsertData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
 

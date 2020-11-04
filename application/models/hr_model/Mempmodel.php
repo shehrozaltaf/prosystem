@@ -138,18 +138,25 @@ empno 'EmployeeNo', empname 'EmployeeName'
 from hr_employee");*/
 
 
-        $query = $this->db->query("select e.id, 
+        /*  Following query to show records in  complete forms    */
+
+        /*$query = $this->db->query("select e.id,
 et.emptype 'EmployeeType', 
 c.category 'EmployeeCategory', 
 e.empno 'EmployeeNo', 
-e.empname 'EmployeeName', 
+e.empname 'EmployeeName',
+e1.supernme 'SupervisorCode', 
 e1.empname 'SupervisorName',
 pr.proj_name 'WorkingProject', 
 pr1.proj_name 'ChargingProject',
 loc.location 'Location', 
 e.conexpiry 'ContractExpiry', 
 st.status 'Status',
-e.workproj, e.chargproj, e.ddlloc, e.conexpiry, e.status
+e.workproj 'WorkProjectCode', 
+e.chargproj 'ChargeProjectCode',
+e.ddlloc 'LocationCode', 
+e.conexpiry 'ConExpiry', 
+e.status 'StatusCode'
 from hr_employee e inner join hr_category c on e.ddlcategory = c.id 
 inner join hr_emptype et on e.ddlemptype = et.id
 inner join hr_location loc on loc.id = e.ddlloc
@@ -157,6 +164,35 @@ inner join hr_status st on st.id = e.status
 inner join project pr on pr.proj_code = e.workproj
 inner join project pr1 on pr1.proj_code = e.chargproj
 inner join hr_employee e1 on e1.empno = e.supernme
+order by e.id desc");*/
+
+        /*  Following query to show records in SaveDraft and in complete forms    */
+
+        $query = $this->db->query("select e.id, 
+et.emptype 'EmployeeType', 
+c.category 'EmployeeCategory', 
+e.empno 'EmployeeNo', 
+e.empname 'EmployeeName',
+e1.supernme 'SupervisorCode', 
+e1.empname 'SupervisorName',
+pr.proj_name 'WorkingProject', 
+pr1.proj_name 'ChargingProject',
+loc.location 'Location', 
+e.conexpiry 'ContractExpiry', 
+st.status 'Status',
+e.workproj 'WorkProjectCode', 
+e.chargproj 'ChargeProjectCode',
+e.ddlloc 'LocationCode', 
+e.conexpiry 'ConExpiry', 
+e.status 'StatusCode'
+from hr_employee e 
+left join hr_category c on e.ddlcategory = c.id 
+left join hr_emptype et on e.ddlemptype = et.id
+left join hr_location loc on loc.id = e.ddlloc
+left join hr_status st on st.id = e.status
+left join project pr on pr.proj_code = e.workproj
+left join project pr1 on pr1.proj_code = e.chargproj
+left join hr_employee e1 on e1.empno = e.supernme
 order by e.id desc");
 
         return $query->result();
@@ -193,6 +229,9 @@ inner join hr_employee e1 on e1.empno = e.supernme");
 
     function getEmployee($searchdata)
     {
+        date_default_timezone_set('Asia/Karachi');
+        $now = new DateTime();
+
         $start = 0;
         $length = 25;
         if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
@@ -233,13 +272,15 @@ inner join hr_employee e1 on e1.empno = e.supernme");
 
         if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
             isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
-            $this->db->where("e.rehiredt between '" . $searchdata['hiredatefrom'] . "' and '" . $searchdata['hiredateto'] . "'");
+            $this->db->where("e.rehiredt between '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "' and '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
         }
 
 
         if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
             isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
-            $this->db->where("convert(numeric, e1.hiresalary) between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+
+            //$this->db->where("convert(numeric, " + $this->encrypt->decode( + " e1.hiresalary ") + ") between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+            $this->db->where("convert(numeric, e1.hiresalary) between '" . $this->encrypt->encode($searchdata['salaryfrom']) . "' and '" . $this->encrypt->encode($searchdata['salaryto']) . "'");
         }
 
 
@@ -356,13 +397,13 @@ inner join hr_employee e1 on e1.empno = e.supernme");
 
         if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
             isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
-            $this->db->where("e.rehiredt between '" . $searchdata['hiredatefrom'] . "' and '" . $searchdata['hiredateto'] . "'");
+            $this->db->where("e.rehiredt between '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "' and '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "'");
         }
 
 
         if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
             isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
-            $this->db->where("e.hiresalary between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+            $this->db->where("convert(numeric, e1.hiresalary) between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
         }
 
         $this->db->select('count(e.id) as cnttotal');

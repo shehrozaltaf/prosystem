@@ -783,7 +783,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-2">
-                                                            <span>Contract Expiry</span>
+                                                            <span id="lbl_conexpiry">Contract Expiry</span>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <input type="text" id="conexpiry" required
@@ -1423,9 +1423,21 @@
 
 
                                                 <div class="col-md-12 offset-md-12">
-                                                    <button type="button" class="btn btn-primary mr-1 mb-1"
-                                                            onclick="addData_SaveDraft();">Save Draft
-                                                    </button>
+
+                                                    <?php if (isset($editemp[0]->id)) {
+                                                        $_SESSION['id'] = $editemp[0]->id;
+                                                        ?>
+                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
+                                                                onclick="showSummary_SaveDraft();">Update Save Draft
+                                                        </button>
+                                                    <?php } else { ?>
+
+                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
+                                                                onclick="addData_SaveDraft();">Save Draft
+                                                        </button>
+
+                                                    <?php } ?>
+
 
                                                     <?php
 
@@ -1515,7 +1527,8 @@
 
 <script>
 
-    var formData;
+    let formData;
+    let iseditsavedraft = 0;
 
     /*$(document).on("blur", "#amount", function (e) {
         if ($("#amount").val() == "") {
@@ -2244,31 +2257,6 @@
                                     isaudit = true;
                                 }
 
-                            } else if (key == "supernme") {
-
-                                let test1 = $("#" + key).attr('data-oldval');
-                                let test2 = $("#" + key).find('option:selected').val();
-
-
-                                if (test1 != test2) {
-
-                                    str += "<tr class='summaryRow' data-key='" + "supernme" + "'>" +
-                                        "<td class='summaryFldName'>" + "Supervisor Name" + "</td>";
-
-
-                                    str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
-                                        "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
-                                        "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
-                                        "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
-                                        "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
-                                        "</tr>";
-
-                                    isaudit = true;
-                                }
-
-                                return false;
-
-
                             } else if (key == "hiresalary") {
 
                                 let test1 = $("#" + key).attr('data-oldval');
@@ -2375,6 +2363,388 @@
     }
 
 
+    function showSummary_SaveDraft() {
+
+        $('#ddlemptype').css('border', '1px solid #babfc7');
+        $('#ddlcategory').css('border', '1px solid #babfc7');
+        $('#empno').css('border', '1px solid #babfc7');
+        $('#empname').css('border', '1px solid #babfc7');
+
+        //$('#qual').css('border', '1px solid #babfc7');
+
+        $('#cnicno').css('border', '1px solid #babfc7');
+        $('#dob').css('border', '1px solid #babfc7');
+        $('#landline').css('border', '1px solid #babfc7');
+        $('#cellno1').css('border', '1px solid #babfc7');
+        $('#cellno2').css('border', '1px solid #babfc7');
+        $('#personnme').css('border', '1px solid #babfc7');
+        $('#emcellno').css('border', '1px solid #babfc7');
+        $('#emlandno').css('border', '1px solid #babfc7');
+        $('#resaddr').css('border', '1px solid #babfc7');
+        $('#gncno').css('border', '1px solid #babfc7');
+        $('#ddlband').css('border', '1px solid #babfc7');
+        $('#titdesi').css('border', '1px solid #babfc7');
+        $('#rehiredt').css('border', '1px solid #babfc7');
+        $('#conexpiry').css('border', '1px solid #babfc7');
+        $('#workproj').css('border', '1px solid #babfc7');
+        $('#chargproj').css('border', '1px solid #babfc7');
+        $('#ddlloc').css('border', '1px solid #babfc7');
+        $('#supernme').css('border', '1px solid #babfc7');
+        $('#hiresalary').css('border', '1px solid #babfc7');
+        $('#ddlhardship').css('border', '1px solid #babfc7');
+        $('#amount').css('border', '1px solid #babfc7');
+        $('#benefits').css('border', '1px solid #babfc7');
+        $('#peme').css('border', '1px solid #babfc7');
+        $('#gop').css('border', '1px solid #babfc7');
+        $('#gopdt').css('border', '1px solid #babfc7');
+        $('#entity').css('border', '1px solid #babfc7');
+        $('#dept').css('border', '1px solid #babfc7');
+        $('#cardissue').css('border', '1px solid #babfc7');
+        $('#letterapp').css('border', '1px solid #babfc7');
+        $('#confirmation').css('border', '1px solid #babfc7');
+        $('#status').css('border', '1px solid #babfc7');
+        $('#remarks').css('border', '1px solid #babfc7');
+        $('#pic').css('border', '1px solid #babfc7');
+        $('#doc').css('border', '1px solid #babfc7');
+        $('#degree').css('border', '1px solid #babfc7');
+        $('#field').css('border', '1px solid #babfc7');
+
+        var iserror = false;
+        var isaudit = false;
+
+
+        // var formData = new FormData();
+        formData = new FormData($("#frm")[0]);
+
+        var arr_pic = "";
+        var arr_doc = "";
+        var size = 0;
+        var fnme = "";
+        var imgext = "";
+        var ext = "";
+
+        var pic_path = "";
+        var doc_path = "";
+        var old_array = "";
+
+        <?php if(isset($editemp)) { ?>
+        old_array = <?php echo json_encode($editemp); ?>;
+        <?php } ?>
+
+        /*for (var [key, value] of formData.entries()) {
+            console.log(key + " - " + value);
+        }*/
+
+        if ($("#pic").val() != "") {
+
+            arr_pic = $("#pic").val().split("\\");
+
+            size = parseInt($("#pic")[0].files[0].size / 1024);
+
+            fnme = $("#lbl_pic").html();
+            imgext = $("#pic")[0].files[0].name.split(".");
+
+
+            pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1];
+
+
+            if (size <= 2000) {
+
+                if (fnme.lastIndexOf(".jpg") != -1) {
+
+                    //var formData = new FormData();
+                    //formData.append('file', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "." + ext[1]);
+
+
+                    //var formData = new FormData($("#frm")[0]);
+                    //formData.append('request', 1);
+
+                    /*$.ajax({
+                        type: 'POST',
+                        url: 'employee_entry/upload',
+                        data: formData,
+                        success: function (status) {
+                            //var my_path = "/assets/emppic/" + status;
+                            //$("#pic").attr("src", my_path);
+                        },
+                        processData: false,
+                        contentType: false,
+                        error: function () {
+                            alert("Pic uploading error");
+                            iserror = true;
+                        }
+                    });*/
+
+                } else {
+                    //$("#pic").css('border', '1px solid red');
+                    //toastMsg('Pic Uploading Error', 'Please select .jpg files', 'error');
+
+                    ShowError($("#pic"), "Please select .jpg files");
+                    iserror = true;
+
+                    //$("#lblerr_pic").html("Please select .jpg files");
+                    //$("#lblerr_pic").css('visibility', 'visible');
+                }
+
+            } else {
+                //$("#pic").css('border', '1px solid red');
+                //toastMsg('Pic Uploading Error', 'Please select 2 MB files only', 'error');
+
+                ShowError($("#pic"), "Please select 2 MB files only");
+                iserror = true;
+
+                //$("#lblerr_pic").html("Please select 2 MB files only");
+                //$("#lblerr_pic").css('visibility', 'visible');
+            }
+        }
+
+
+        if ($("#doc").val() != "") {
+
+            arr_doc = $("#doc").val().split("\\");
+
+            size = parseInt($("#doc")[0].files[0].size / 1024);
+
+            fnme = $("#lbl_doc").html();
+            ext = $("#doc")[0].files[0].name.split(".");
+
+            doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1];
+
+
+            if (size <= 2000) {
+
+                if (fnme.lastIndexOf(".pdf") != -1) {
+
+
+                } else {
+                    //$("#doc").css('border', '1px solid red');
+                    //toastMsg('Docs Uploading Error', 'Please select .pdf files', 'error');
+
+                    ShowError($("#doc"), "Please select .pdf files");
+                    iserror = true;
+                }
+
+            } else {
+                //$("#doc").css('border', '1px solid red');
+                //toastMsg('Docs Uploading Error', 'Please select 2 MB files only', 'error');
+
+                ShowError($("#doc"), "Please select 2 MB files only");
+                iserror = true;
+            }
+        }
+
+
+        // formData.append('data', $("#frm")[0]);
+
+        if ($("#pic").val() != "") {
+            formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+        } else {
+            formData.append('pic', $("#lbl_pic").html());
+        }
+
+
+        if ($("#doc").val() != "") {
+            formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+        } else {
+            formData.append('doc', $("#lbl_doc").html());
+        }
+
+
+        if ($('.iti__selected-dial-code').text() != '' && $('.iti__selected-dial-code').text() != undefined
+            && $('.iti__selected-dial-code').text() != 'undefined' && $('.iti__selected-dial-code').text() != null
+        ) {
+
+            var arr = $('.iti__selected-dial-code').text().split('+');
+            //console.log($('.iti__selected-dial-code').text());
+            //console.log(arr);
+            //console.log("+" + arr[0] + "+" + arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+            //console.log($('.iti__selected-dial-code').text() + " - " + arr + " - " + arr.length);
+
+            //console.log($('.iti__selected-dial-code').text(), arr.length);
+            //console.log("+" + arr[0] + "+" + arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+
+            if (arr == "") {
+                formData.append('landlineccode', "+92");
+                formData.append('cellno1ccode', "+92");
+                formData.append('cellno2ccode', "+92");
+                formData.append('emcellnoccode', "+92");
+                formData.append('emlandnoccode', "+92");
+            } else {
+                formData.append('landlineccode', "+" + arr[1]);
+                formData.append('cellno1ccode', "+" + arr[2]);
+                formData.append('cellno2ccode', "+" + arr[3]);
+                formData.append('emcellnoccode', "+" + arr[4]);
+                formData.append('emlandnoccode', "+" + arr[5]);
+            }
+
+        } else {
+            formData.append('landlineccode', "+92");
+            formData.append('cellno1ccode', "+92");
+            formData.append('cellno2ccode', "+92");
+            formData.append('emcellnoccode', "+92");
+            formData.append('emlandnoccode', "+92");
+        }
+
+
+        /*console.log(formData.get('landlineccode'));
+        console.log(formData.get('cellno1ccode'));
+        console.log(formData.get('cellno2ccode'));
+        console.log(formData.get('emcellnoccode'));
+        console.log(formData.get('emlandnoccode'));*/
+
+        iseditsavedraft = 1;
+
+
+        var str = "<table width='100%'><tr><th width='25%'>Field Name</th><th width='30%'>Previous Value</th><th width='30%'>Current Value</th><th width='15%'>Eff Date</th></tr>";
+
+        if (old_array != "") {
+
+            $.each(old_array[0], function (key, value) {
+
+                //console.log(key + " - " + value + "   ***   " + formData.get(key) + " --- " + $('#' + key).prop("type"));
+
+
+                if (key != "userid" && key != "entrydate" && key != "id" && key != "empno") {
+
+                    if (key == "pic") {
+
+                        if (value != $("#lbl_pic").text()) {
+
+                            str += "<tr class='summaryRow' data-key='" + "pic" + "'>" +
+                                "<td class='summaryFldName'>" + "Pic" + "</td>";
+
+
+                            str += "<td class='summaryOldVal'>" + value + "</td>" +
+                                "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>" +
+                                "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                "</tr>";
+
+                            isaudit = true;
+                        }
+
+                    } else if (key == "doc") {
+
+                        if (value != $("#lbl_doc").text()) {
+
+                            str += "<tr class='summaryRow' data-key='" + "doc" + "'>" +
+                                "<td class='summaryFldName'>" + "Doc" + "</td>";
+
+
+                            str += "<td class='summaryOldVal'>" + value + "</td>" +
+                                "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>" +
+                                "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                "</tr>";
+
+                            isaudit = true;
+                        }
+
+                    } else if (key == "hiresalary") {
+
+                        let test1 = $("#" + key).attr('data-oldval');
+                        let test2 = $("#" + key).val();
+
+
+                        if (test1 != test2) {
+
+                            str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+
+                            str += "<td class='summaryOldVal'>" + test1 + "</td>" +
+                                "<td class='summaryNewVal'>" + test2 + "</td>" +
+                                "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                "</tr>";
+
+                            isaudit = true;
+                        }
+
+                        return false;
+
+
+                    } else {
+                        //console.log(key + " - " + value + "   ***   " + formData.get(key));
+
+                        if (formData.get(key) == "" && value == null) {
+                        } else {
+
+                            //console.log(key + " - " + $('#' + key).prop("type"));
+
+                            if (formData.get(key) != value) {
+
+                                //str += "<tr><td>field name</td><td>" + value + "</td><td>" + formData.get(key) + "</td><td><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td></tr>";
+                                str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                    "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+
+
+                                //console.log(formData.get(key) + " - " + $('#' + key).prop("type"));
+
+
+                                if ($('#' + key).prop("type") == "select-one") {
+
+                                    str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                        "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                        "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                        "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                        "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                        "</tr>";
+
+                                } else {
+                                    str += "<td class='summaryOldVal'>" + value + "</td>" +
+                                        "<td class='summaryNewVal'>" + formData.get(key) + "</td>" +
+                                        "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                        "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                        "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                        "</tr>";
+                                }
+
+                                isaudit = true;
+                            }
+
+
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+        /*for (var [key, value] of formData.entries()) {
+            //console.log(key, value);
+            console.log(key + " - ");
+
+            $.map(old_array[0], function (key, i) {
+
+                console.log(key);
+
+                /!*if (key == val) {
+
+                    console.log("1");
+
+                }*!/
+
+            });
+        }*/
+
+
+        str += "</table>";
+
+
+        if (isaudit == true) {
+            $("#tblaudit").html(str);
+            $("#auditModal").modal('show');
+            pickDate();
+        }
+
+
+    }
+
+
     function editData() {
         var data = [];
         var results = [];
@@ -2435,27 +2805,58 @@
 
         if (flag == 0) {
             // showloader();
-            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
-                //hideloader();
-                if (result == 1) {
-                    toastMsg('Success', 'Record Saved Successfully', 'success');
 
-                    //$('#addModal').modal('hide');
-                    setTimeout(function () {
-                        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
-                        $("#ddlemptype").focus();
-                    }, 500);
-                } else if (result == 4) {
-                    toastMsg('Page', 'Duplicate Page URL', 'error');
-                } else if (result.indexOf('Invalid', 1) != -1) {
-                    toastMsg('Invalid Field', 'Field not found', 'error');
-                    console.log(result);
-                } else if (result == 3) {
-                    toastMsg('Page', 'Invalid Page Name', 'error');
-                } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
-                }
-            }, true);
+            if (iseditsavedraft == 1) {
+
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord_SaveDraft'); ?>', formData, 'POST', function (result) {
+                    //hideloader();
+                    if (result == 1) {
+                        toastMsg('Success', 'Record Saved Successfully', 'success');
+
+                        //$('#addModal').modal('hide');
+                        setTimeout(function () {
+                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
+                            $("#ddlemptype").focus();
+                        }, 500);
+                    } else if (result == 4) {
+                        toastMsg('Page', 'Duplicate Page URL', 'error');
+                    } else if (result.indexOf('Invalid', 1) != -1) {
+                        toastMsg('Invalid Field', 'Field not found', 'error');
+                        console.log(result);
+                    } else if (result == 3) {
+                        toastMsg('Page', 'Invalid Page Name', 'error');
+                    } else {
+                        toastMsg('Error', 'Something went wrong', 'error');
+                    }
+                }, true);
+
+                iseditsavedraft = 0;
+
+            } else {
+
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/editRecord'); ?>', formData, 'POST', function (result) {
+                    //hideloader();
+                    if (result == 1) {
+                        toastMsg('Success', 'Record Saved Successfully', 'success');
+
+                        //$('#addModal').modal('hide');
+                        setTimeout(function () {
+                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
+                            $("#ddlemptype").focus();
+                        }, 500);
+                    } else if (result == 4) {
+                        toastMsg('Page', 'Duplicate Page URL', 'error');
+                    } else if (result.indexOf('Invalid', 1) != -1) {
+                        toastMsg('Invalid Field', 'Field not found', 'error');
+                        console.log(result);
+                    } else if (result == 3) {
+                        toastMsg('Page', 'Invalid Page Name', 'error');
+                    } else {
+                        toastMsg('Error', 'Something went wrong', 'error');
+                    }
+                }, true);
+            }
+
         } else {
             toastMsg('Error', 'Something went wrong', 'error');
         }
@@ -4082,6 +4483,42 @@
 
                 iserror = true;
             }
+        }
+
+
+        if ($('.iti__selected-dial-code').text() != '' && $('.iti__selected-dial-code').text() != undefined
+            && $('.iti__selected-dial-code').text() != 'undefined' && $('.iti__selected-dial-code').text() != null
+        ) {
+
+            var arr = $('.iti__selected-dial-code').text().split('+');
+            //console.log($('.iti__selected-dial-code').text());
+            //console.log(arr);
+            //console.log("+" + arr[0] + "+" + arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+            //console.log($('.iti__selected-dial-code').text() + " - " + arr + " - " + arr.length);
+
+            //console.log($('.iti__selected-dial-code').text(), arr.length);
+            //console.log("+" + arr[0] + "+" + arr[1] + "+" + arr[2] + "+" + arr[3] + "+" + arr[4] + "+" + arr[5]);
+
+            if (arr == "") {
+                formData.append('landlineccode', "+92");
+                formData.append('cellno1ccode', "+92");
+                formData.append('cellno2ccode', "+92");
+                formData.append('emcellnoccode', "+92");
+                formData.append('emlandnoccode', "+92");
+            } else {
+                formData.append('landlineccode', "+" + arr[1]);
+                formData.append('cellno1ccode', "+" + arr[2]);
+                formData.append('cellno2ccode', "+" + arr[3]);
+                formData.append('emcellnoccode', "+" + arr[4]);
+                formData.append('emlandnoccode', "+" + arr[5]);
+            }
+
+        } else {
+            formData.append('landlineccode', "+92");
+            formData.append('cellno1ccode', "+92");
+            formData.append('cellno2ccode', "+92");
+            formData.append('emcellnoccode', "+92");
+            formData.append('emlandnoccode', "+92");
         }
 
 

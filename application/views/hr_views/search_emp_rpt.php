@@ -145,14 +145,16 @@
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="hiredatefrom">Hire / Rehire Date <br/>From</label>
-                                                <input type="text" class="form-control" id="hiredatefrom"
+                                                <input type="text" class="form-control pickadate-short-string"
+                                                       id="hiredatefrom"
                                                        name="hiredatefrom" placeholder="Hire / Rehire Date From">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="hiredateto"><br/>To</label>
-                                                <input type="text" class="form-control" id="hiredateto"
+                                                <input type="text" id="hiredateto"
+                                                       class="form-control pickadate-short-string"
                                                        name="hiredateto" placeholder="Hire / Rehire Date To">
                                             </div>
                                         </div>
@@ -404,6 +406,7 @@
     $(document).ready(function () {
         mydate();
         getData();
+        pickDate();
     });
 
 
@@ -415,6 +418,10 @@
             max: false,
             format: 'dd-mm-yyyy'
         });
+
+
+        let start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
+        $('#hiredatefrom').val(start_dt);
     }
 
     function getExpiry(obj) {

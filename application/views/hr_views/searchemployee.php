@@ -93,34 +93,37 @@
                                                             <td style="text-transform: uppercase;">
                                                                 <?php echo $rows->EmployeeName ?>
                                                             </td>
-                                                            <td style="text-transform: uppercase;">
+                                                            <td class="auditcol_supernme"
+                                                                style="text-transform: uppercase;"
+                                                                data-key="<?php echo $rows->SupervisorName ?>"
+                                                                data-oldval="<?php echo $rows->SupervisorCode ?>">
                                                                 <?php echo $rows->SupervisorName ?>
                                                             </td>
                                                             <td class="auditcol_workproj"
                                                                 style="text-transform: capitalize;"
                                                                 data-key="<?php echo $rows->WorkingProject ?>"
-                                                                data-oldval="<?php echo $rows->workproj ?>">
+                                                                data-oldval="<?php echo $rows->WorkProjectCode ?>">
                                                                 <?php echo $rows->WorkingProject ?>
                                                             </td>
                                                             <td class="auditcol_chargproj"
                                                                 style="text-transform: capitalize;"
                                                                 data-key="<?php echo $rows->ChargingProject ?>"
-                                                                data-oldval="<?php echo $rows->chargproj ?>">
+                                                                data-oldval="<?php echo $rows->ChargeProjectCode ?>">
                                                                 <?php echo $rows->ChargingProject ?>
                                                             </td>
                                                             <td class="auditcol_ddlloc"
                                                                 data-key="<?php echo $rows->Location ?>"
-                                                                data-oldval="<?php echo $rows->ddlloc ?>">
+                                                                data-oldval="<?php echo $rows->LocationCode ?>">
                                                                 <?php echo $rows->Location ?>
                                                             </td>
                                                             <td class="auditcol_conexpiry"
                                                                 data-key="<?php echo $rows->ContractExpiry ?>"
-                                                                data-oldval="<?php echo $rows->conexpiry ?>">
+                                                                data-oldval="<?php echo date('d-m-Y', strtotime($rows->ConExpiry)) ?>">
                                                                 <?php echo $rows->ContractExpiry ?>
                                                             </td>
                                                             <td class="auditcol_status"
                                                                 data-key="<?php echo $rows->Status ?>"
-                                                                data-oldval="<?php echo $rows->status ?>">
+                                                                data-oldval="<?php echo $rows->StatusCode ?>">
                                                                 <?php echo $rows->Status ?>
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
@@ -138,6 +141,7 @@
                                                             </td>
                                                             <td><input type="checkbox" class="checkboxes"
                                                                        data-emp="<?php echo $rows->EmployeeNo ?>"
+                                                                       data-oldval="<?php echo $rows->id ?>"
                                                                        name="locked_clusters" value="1"
                                                                        onclick="updBtnToggle()"
                                                                        id="locked_clusters_<?php echo $key ?>"/></td>
@@ -207,7 +211,7 @@
                     <table width='100%'>
                         <tr>
                             <th width='30%'>Field Name</th>
-                            <th width='30%'>Value</th>
+                            <th width='30%'>Current Value</th>
                             <th width='30%'>Eff Date</th>
                         </tr>
                         <tr class="summaryRow">
@@ -215,9 +219,9 @@
                                 data-key="workproj" data-fldnme="Working Project">Working Project
                             </td>
                             <td class='summaryNewVal'>
-                                <!--<select id="upd_bulkProject" name="upd_bulkProject" class=" select2"
-                                        onchange="changeModalVal(this)">-->
-                                <select id="upd_bulkProject" name="upd_bulkProject" class=" select2">
+                                <select id="upd_bulkProject" name="upd_bulkProject" class=" select2"
+                                        onchange="changeModalVal(this)">
+                                    <!--<select id="upd_bulkProject" name="upd_bulkProject" class=" select2">-->
                                     <option>Select Project</option>
                                     <?php
                                     if (isset($project) && $project != '') {
@@ -229,7 +233,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_project' name='dt_eff_project' type='text' value=""
+                                <input id='dt_eff_project' name='dt_eff_project' type='text' value="03-11-2020"
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -238,9 +242,9 @@
                                 Location
                             </td>
                             <td class='summaryNewVal'>
-                                <!--<select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2"
-                                        onchange="changeModalVal(this)">-->
-                                <select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2">
+                                <select id="upd_bulklocation" name="upd_bulklocation" class=" select2"
+                                        onchange="changeModalVal(this)">
+                                    <!--<select id="upd_bulkLocation" name="upd_bulkLocation" class=" select2">-->
                                     <option>Select Location</option>
                                     <?php
                                     if (isset($location) && $location != '') {
@@ -252,7 +256,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_location' name='dt_eff_location' type='text' value=""
+                                <input id='dt_eff_location' name='dt_eff_location' type='text' value="04-11-2020"
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -261,9 +265,9 @@
                                 Supervisor
                             </td>
                             <td class='summaryNewVal'>
-                                <!--<select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2"
-                                        onchange="changeModalVal(this)">-->
-                                <select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2">
+                                <select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2"
+                                        onchange="changeModalVal(this)">
+                                    <!--<select id="upd_bulksupervisor" name="upd_bulksupervisor" class=" select2">-->
                                     <option>Select Supervisor</option>
                                     <?php
                                     if (isset($emp) && $emp != '') {
@@ -275,7 +279,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value=""
+                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value="05-11-2020"
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -284,13 +288,13 @@
                                 data-fldnme="Contract Expiry">Contract Expiry
                             </td>
                             <td class='summaryNewVal'>
-                                <!--<input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
-                                       class='form-control pickadate-short-string' onclick="changeModalVal(this)"/>-->
                                 <input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
-                                       class='form-control pickadate-short-string'/>
+                                       class='form-control pickadate-short-string' onchange="changeModalVal(this)"/>
+                                <!--<input id='dt_conexpiry' name='dt_conexpiry' type='text' value=""
+                                       class='form-control pickadate-short-string'/>-->
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value=""
+                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value="06-11-2020"
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -298,9 +302,9 @@
                             <td class='summaryFldid summaryFldid_status' data-key="status" data-fldnme="Status">Status
                             </td>
                             <td class='summaryNewVal'>
-                                <!--<select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2"
-                                        onchange="changeModalVal(this)">-->
-                                <select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2">
+                                <select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2"
+                                        onchange="changeModalVal(this)">
+                                    <!--<select id="upd_bulkstatus" name="upd_bulkstatus" class=" select2">-->
                                     <option>Select Status</option>
                                     <?php
                                     if (isset($status) && $status != '') {
@@ -312,7 +316,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_status' name='dt_eff_status' type='text' value=""
+                                <input id='dt_eff_status' name='dt_eff_status' type='text' value="07-11-2020"
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -323,25 +327,25 @@
                     <button type="button" class="btn btn-primary" onclick="updBtnSave()">Save</button>
                 </div>
                 <br/><br/>
-                <!--<div class="modal-header bg-primary white">
+                <div class="modal-header bg-primary white">
                     <p>Summary of Changes (Bulk Update)</p>
                 </div>
                 <div class="modal-body">
                     <table id="tblaudit" width='100%'>
                         <thead>
                         <tr>
-                            <th width='25%'>Field Name</th>
-                            <th width='30%'>Previous Value</th>
-                            <th width='30%'>Current Value</th>
-                            <th width='15%'>Eff Date</th>
+                            <th width='16%'>Emp No</th>
+                            <th width='16%'>Working Project</th>
+                            <th width='16%'>Location</th>
+                            <th width='16%'>Supervisor</th>
+                            <th width='16%'>Contract Expiry</th>
+                            <th width='15%'>Status</th>
                         </tr>
                         </thead>
                         <tbody class="tblaudit_body">
-
                         </tbody>
-
                     </table>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>
@@ -374,8 +378,10 @@
     let audit_str_conex = '';
     let audit_str_sta = '';
 
+    let oldEmpData = '';
 
     $(document).ready(function () {
+
         $('#empTable').DataTable({
             dom: 'Bfrtip',
             displayLength: 15,
@@ -427,20 +433,38 @@
     });*/
 
     function updBtnModal() {
-        var employees = [];
-        var employees_no = '';
-        var count = $('.fgtr').find('.checkboxes');
+        let employees = [];
+        let employees_no = '';
+        let count = $('.fgtr').find('.checkboxes');
         let counter = 0;
-        var empHtml = '';
-        var str = '';
+        let empHtml = '';
 
-        for (var i = 0; i < count.length; i++) {
+        oldEmpData = '';
+
+        let str = '';
+
+        for (let i = 0; i < count.length; i++) {
             employees_no = $(count[i]).attr('data-emp');
             if ($(count[i]).is(':checked')) {
+
+                oldEmpData += "<tr><td>" + employees_no + "</td>"
+                    + "<td>" + $(count[i]).parents('tr').find('.auditcol_workproj').attr('data-key') + "</td>"
+                    + "<td>" + $(count[i]).parents('tr').find('.auditcol_ddlloc').attr('data-key') + "</td>"
+                    + "<td>" + $(count[i]).parents('tr').find('.auditcol_supernme').attr('data-key') + "</td>"
+                    + "<td>" + $(count[i]).parents('tr').find('.auditcol_conexpiry').attr('data-key') + "</td>"
+                    + "<td>" + $(count[i]).parents('tr').find('.auditcol_status').attr('data-key') + "</td>"
+                    + "</tr>";
+
+
                 employees.push({'employees_no': employees_no});
                 counter++;
             }
         }
+
+
+        console.log(oldEmpData);
+
+
         if (employees.length >= 1) {
             $.each(employees, function (i, v) {
                 if (i == 0) {
@@ -451,6 +475,9 @@
             });
             str += '<p>Employee: <span  class="danger">' + empHtml + '</span><br/><span>Number of selected employees: ' + counter + '</span></p>';
             $(".model_htmlcontent").html(str);
+
+            $(".tblaudit_body").html(oldEmpData);
+
             $("#editEmpModal").modal('show');
             pickDate();
         } else {
@@ -460,26 +487,27 @@
 
     function updBtnSave() {
 
-        var data = {};
-        var employees = [];
-        var employees_no = '';
-        var results = [];
-        var flag = 0;
+        let data = {};
+        let employees = [];
+        let employees_no = '';
+        let results = [];
+        let flag = 0;
 
-        var count = $('.fgtr').find('.checkboxes');
+        let count = $('.fgtr').find('.checkboxes');
 
-        for (var i = 0; i < count.length; i++) {
+        for (let i = 0; i < count.length; i++) {
             employees_no = $(count[i]).attr('data-emp');
+            let summaryID = $(count[i]).attr('data-oldval');
+
             if ($(count[i]).is(':checked')) {
 
                 employees.push({'employees_no': employees_no});
 
                 $(".summaryRow").each(function () {
 
-                    var summaryFldid = $(this).find('.summaryFldid').attr('data-key');
-                    var summaryFldName = $(this).find('.summaryFldid').text();
+                    let summaryVal;
+                    let summaryFldid = $(this).find('.summaryFldid').attr('data-key');
 
-                    var summaryVal;
 
                     if (summaryFldid == "conexpiry") {
                         summaryVal = $(this).find('.summaryNewVal').find('input').val();
@@ -487,21 +515,34 @@
                         summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
                     }
 
+                    let summaryOldVal = $(count[i]).parents('tr').find('.auditcol_' + summaryFldid).attr('data-oldval');
+
+                    let summaryFldName = $(this).find('.summaryFldid').attr('data-fldnme');
+
                     if (summaryFldName == null || summaryFldName == undefined) {
                         $(this).find('.summaryFldName').addClass('error');
                         flag = 1;
                         return false;
                     }
 
-                    var SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
+                    let SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
 
-                    results.push({
-                        'empno': employees_no,
-                        'summaryFldid': summaryFldid,
-                        'summaryFldName': summaryFldName,
-                        'summaryVal': summaryVal,
-                        'SummaryEftDate': SummaryEftDate
-                    });
+
+                    if (summaryVal != summaryOldVal) {
+
+                        console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal + " SummaryEftDate - " + SummaryEftDate);
+
+                        results.push({
+                            'empno': employees_no,
+                            'summaryFldid': summaryFldid,
+                            'summaryFldName': summaryFldName,
+                            'summaryVal': summaryVal,
+                            'summaryOldVal': summaryOldVal,
+                            'summaryID': summaryID,
+                            'SummaryEftDate': SummaryEftDate
+                        });
+
+                    }
 
                 });
 
@@ -548,10 +589,15 @@
 
 
     function changeModalVal(obj) {
-        let audit_Fldid = $(obj).parents('.summaryRow').find('.summaryFldid').attr('data-key');
+
+        /*let audit_Fldid = $(obj).parents('.summaryRow').find('.summaryFldid').attr('data-key');
         //alert(audit_Fldid);
         let audit_FldNme = $(obj).parents('.summaryRow').find('.summaryFldid').attr('data-fldnme');
         //alert(audit_FldNme);
+
+        //let audit_OldVal = $(obj).find('.auditcol').attr('data-key');
+
+        //console.log(audit_Fldid + " - " + audit_FldNme + " - " + audit_OldVal);
 
         if (audit_Fldid == 'conexpiry') {
 
@@ -563,29 +609,20 @@
 
             //alert(audit_OldVal);
 
-
-            /*let td = "<td id='audit_fldid' style='display:none;'>" + audit_Fldid + "</td>" +
-                "<td id='audit_fldnme'>" + audit_FldNme + "</td>" +
-                "<td id='audit_oldval'>" + audit_OldVal + "</td>" +
-                "<td id='audit_newval'>" + audit_NewVal + "</td>" +
-                "<td id='audit_effdt'><input id='dt_" + audit_Fldid + "' name='dt_" + audit_Fldid + "' type='text' class='form-control pickadate-short-string' /></td>";
-            if ($('#' + row_key).html()) {
-                $('#' + row_key).html(td);
-            } else {
-                audit_str_pro = "<tr id='" + row_key + "' class='audit_row_project'>" + td + "</tr>";
-                $('.tblaudit_body').append(audit_str_pro);
-            }*/
+            console.log(audit_OldVal);
 
         } else {
 
             let audit_OldVal = $('.auditcol_' + audit_Fldid).attr('data-key');
-            let audit_NewVal = $(obj).find('option:selected').text();
+
+            //let audit_NewVal = $(obj).find('option:selected').text();
+
             let row_key = "audit_row_" + audit_Fldid;
             let td = "<td id='audit_fldid' style='display:none;'>" + audit_Fldid + "</td>" +
                 "<td id='audit_fldnme'>" + audit_FldNme + "</td>" +
-                "<td id='audit_oldval'>" + audit_OldVal + "</td>" +
-                "<td id='audit_newval'>" + audit_NewVal + "</td>" +
-                "<td id='audit_effdt'><input id='dt_" + audit_Fldid + "' name='dt_" + audit_Fldid + "' type='text' class='form-control pickadate-short-string' /></td>";
+                "<td id='audit_oldval'>" + audit_OldVal + "</td>";
+
+
             if ($('#' + row_key).html()) {
                 $('#' + row_key).html(td);
             } else {
@@ -593,7 +630,7 @@
                 $('.tblaudit_body').append(audit_str_pro);
             }
 
-        }
+        }*/
     }
 
 
