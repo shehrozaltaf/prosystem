@@ -27,6 +27,7 @@ class EmpPEME extends CI_Controller
     {
         $data = array();
         $MSettings = new MSettings();
+        
 
         $Custom = new Custom();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
