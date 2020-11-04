@@ -37,7 +37,6 @@ class EmpPEME extends CI_Controller
         $Custom->trackLogs($trackarray, "user_logs");
         
         
-
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
