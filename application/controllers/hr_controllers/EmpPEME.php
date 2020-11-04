@@ -27,7 +27,7 @@ class EmpPEME extends CI_Controller
     {
         $data = array();
         $MSettings = new MSettings();
-        
+
 
         $Custom = new Custom();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
@@ -36,6 +36,7 @@ class EmpPEME extends CI_Controller
             "result" => "View Dashboard Users page. Fucntion: index()");
         $Custom->trackLogs($trackarray, "user_logs");
 
+        
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
