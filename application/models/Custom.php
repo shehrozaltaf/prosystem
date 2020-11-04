@@ -35,23 +35,6 @@ class Custom extends CI_Model
         }
     }
 
-    function Insert($Data, $idReturn, $table, $getLastId = 'N')
-    {
-        $insert = $this->db->insert($table, $Data);
-        if ($insert) {
-            if ($getLastId === 'Y') {
-                $returnValue = $this->db->insert_id();
-            } elseif (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
-                $returnValue = 1;
-            } else {
-                $returnValue = $Data[$idReturn];
-            }
-            return $returnValue;
-        } else {
-            return FALSE;
-        }
-    }
-
     function Edit($Data, $key, $value, $table)
     {
         $this->db->where($key, $value);
@@ -76,7 +59,6 @@ class Custom extends CI_Model
         }
     }
 
-    /*==========Log=============*/
     function trackLogs($array, $log_type)
     {
         date_default_timezone_set("Asia/Karachi");
@@ -108,6 +90,45 @@ class Custom extends CI_Model
         fclose($txt);
     }
 
+    /*==========Log=============*/
+
+    function insrt_inventory_AT($formId, $FormName, $Fieldid, $FieldName, $OldValue, $NewValue)
+    {
+        $at_insertArray = array();
+        $at_insertArray['FormID'] = $formId;
+        $at_insertArray['isActive'] = 1;
+        $at_insertArray['createdBy'] = $_SESSION['login']['idUser'];
+        $at_insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+        $at_insertArray['FormName'] = $FormName;
+        $at_insertArray['Fieldid'] = $Fieldid;
+        $at_insertArray['FieldName'] = $FieldName;
+        $at_insertArray['OldValue'] = $OldValue;
+        $at_insertArray['NewValue'] = $NewValue;
+        $insrt = $this->Insert($at_insertArray, 'id', 'i_AuditTrials', 'N');
+        if ($insrt) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /*======================Custom Functions======================*/
+
+    function Insert($Data, $idReturn, $table, $getLastId = 'N')
+    {
+        $insert = $this->db->insert($table, $Data);
+        if ($insert) {
+            if ($getLastId === 'Y') {
+                $returnValue = $this->db->insert_id();
+            } elseif (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
+                $returnValue = 1;
+            } else {
+                $returnValue = $Data[$idReturn];
+            }
+            return $returnValue;
+        } else {
+            return FALSE;
+        }
+    }
 
 }

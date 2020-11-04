@@ -34,22 +34,30 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-4 col-12">
+                                        <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="username">User</label>
+                                                <label for="username">User/Emp Id</label>
                                                 <input type="text" class="form-control" id="username" name="username">
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-12">
+                                        <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="ftag">FTAG</label>
+                                                <label for="ftag">FTAG/AAFTAG</label>
                                                 <input type="text" class="form-control" id="ftag" name="ftag">
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-12">
+                                        <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="aaftag">AAFTAG</label>
-                                                <input type="text" class="form-control" id="aaftag" name="aaftag">
+                                                <label for="dateTo">Date To (DoP)</label>
+                                                <input type="text" class="form-control mypickadat" id="dateTo"
+                                                       name="dateTo">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="dateFrom">Date From (DoP)</label>
+                                                <input type="text" class="form-control mypickadat" id="dateFrom"
+                                                       name="dateFrom">
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +118,7 @@
                 </div>
             </section>
 
-            <section id="data-list-view"  class="hide main_content_div data-list-view-header">
+            <section id="data-list-view" class="hide main_content_div data-list-view-header">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -133,7 +141,7 @@
                                                 <th>AAFTAG</th>
                                                 <th>Username</th>
                                                 <th>Location</th>
-                                                <th>Remarks</th>
+                                                <!--                                                <th>Remarks</th>-->
                                                 <th>Status</th>
                                                 <th>Expiry</th>
                                                 <th>Settings</th>
@@ -151,7 +159,6 @@
                                                 <th>AAFTAG</th>
                                                 <th>Username</th>
                                                 <th>Location</th>
-                                                <th>Remarks</th>
                                                 <th>Status</th>
                                                 <th>Expiry</th>
                                                 <th>Settings</th>
@@ -162,7 +169,6 @@
 
 
                                     </div>
-
 
 
                                 </div>
@@ -194,14 +200,19 @@
                                             <input type="text" class="form-control mypickadat" id="expiryDateTime"
                                                    name="expiryDateTime"
                                                    autocomplete="expiryDateTime" required>
+
+                                            <input type="hidden" class="form-control" id="oldExpiryDateTime"
+                                                   name="oldExpiryDateTime"
+                                                   autocomplete="oldExpiryDateTime" required>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
                             <div class="add-data-btn">
-                                <button class="btn btn-primary"  onclick="saveExpiry()">Save</button>
+                                <button class="btn btn-primary" onclick="saveExpiry()">Save</button>
                             </div>
                             <div class="cancel-data-btn">
                                 <button class="btn btn-outline-danger">Cancel</button>
@@ -273,6 +284,7 @@
                                     }
                                     ?>
                                 </select>
+                                <input type="hidden" id="custodian_location_old" name="custodian_location_old">
                             </div>
                         </div>
                         <div class="col-sm-12 col-12">
@@ -287,6 +299,7 @@
                                     }
                                     ?>
                                 </select>
+                                <input type="hidden" id="custodian_project_old" name="custodian_project_old">
                             </div>
                         </div>
                         <div class="col-sm-12 col-12">
@@ -301,6 +314,7 @@
                                     }
                                     ?>
                                 </select>
+                                <input type="hidden" id="custodian_emp_old" name="custodian_emp_old">
                             </div>
                         </div>
                     </div>
@@ -308,6 +322,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-danger myCustodianbtn" onclick="saveCustodian()">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
+    <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Inventory</h4>
+                    <input type="hidden" id="delete_idInventory" name="delete_idInventory">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to delete this?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteData()">Delete
                     </button>
                 </div>
             </div>
@@ -335,7 +371,6 @@
     });
 
 
-
     function mydate() {
         $('.mypickadat').pickadate({
             selectYears: true,
@@ -352,6 +387,12 @@
         if (id != '' && id != undefined) {
             $('#expiryDateTime').val(va);
             $('#expiry_id').val(id);
+            if (va == '' || va == undefined) {
+                $('#oldExpiryDateTime').val('0');
+            } else {
+                $('#oldExpiryDateTime').val(va);
+            }
+
             $(".add-new-data").addClass("show");
             $(".overlay-bg").addClass("show");
         } else {
@@ -377,6 +418,7 @@
         var data = {};
         data['expiry_id'] = $('#expiry_id').val();
         data['expiryDateTime'] = $('#expiryDateTime').val();
+        data['oldExpiryDateTime'] = $('#oldExpiryDateTime').val();
         if (data['expiry_id'] == '' || data['expiry_id'] == undefined || data['expiry_id'] == 0 ||
             data['expiryDateTime'] == '' || data['expiryDateTime'] == undefined || data['expiryDateTime'] == 0) {
             toastMsg('Error', 'Invalid Expiry Date Time', 'error');
@@ -393,6 +435,8 @@
                     }, 500);
                 } else if (res == 3) {
                     toastMsg('Error', 'Invalid Asset Id', 'error');
+                } else if (res == 4) {
+                    toastMsg('Error', 'Expiry date updated but audit trial not updated', 'warning');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -410,8 +454,11 @@
                     try {
                         $('#assignCustodian_id').val(data['id']);
                         $('#custodian_location').val(a[0]['loc']).attr('selected', 'selected').trigger('change');
+                        $('#custodian_location_old').val(a[0]['loc']);
                         $('#custodian_project').val(a[0]['proj_code']).attr('selected', 'selected').trigger('change');
+                        $('#custodian_project_old').val(a[0]['proj_code']);
                         $('#custodian_emp').val(a[0]['username']).attr('selected', 'selected').trigger('change');
+                        $('#custodian_emp_old').val(a[0]['username']);
                     } catch (e) {
                     }
                     $('#assignCustodianModal').modal('show');
@@ -428,8 +475,11 @@
         var data = {};
         data['assignCustodian_id'] = $('#assignCustodian_id').val();
         data['custodian_location'] = $('#custodian_location').val();
+        data['custodian_location_old'] = $('#custodian_location_old').val();
         data['custodian_project'] = $('#custodian_project').val();
+        data['custodian_project_old'] = $('#custodian_project_old').val();
         data['custodian_emp'] = $('#custodian_emp').val();
+        data['custodian_emp_old'] = $('#custodian_emp_old').val();
         var vd = validateData(data);
         if (vd) {
             showloader();
@@ -437,8 +487,10 @@
             CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/saveCustodianData')?>', data, 'POST', function (res) {
                 hideloader();
                 $('.myCustodianbtn').removeClass('hide').removeAttr('disabled', 'disabled');
+
                 try {
-                    var response = JSON.parse(result);
+                    var response = JSON.parse(res);
+                    console.log(response);
                     if (response[0] == 'Success') {
                         $('#assignCustodianModal').modal('hide');
                         toastMsg(response[0], response[1], 'success');
@@ -477,7 +529,8 @@
         var data = {};
         data['username'] = $('#username').val();
         data['ftag'] = $('#ftag').val();
-        data['aaftag'] = $('#aaftag').val();
+        data['dateTo'] = $('#dateTo').val();
+        data['dateFrom'] = $('#dateFrom').val();
         data['location'] = $('#location').val();
         data['project'] = $('#project').val();
         data['status'] = $('#status').val();
@@ -528,7 +581,7 @@
                 {"data": "aaftag"},
                 {"data": "username"},
                 {"data": "loc"},
-                {"data": "remarks"},
+                // {"data": "remarks"},
                 {"data": "status"},
                 {"data": "expiryDateTime"},
                 {"data": "Settings"},
@@ -574,6 +627,35 @@
             hideloader();
             $('.main_content_div').removeClass('hide');
         }, 500);
+    }
+
+    function getDelete(obj) {
+        var id = $(obj).attr('data-id');
+        $('#delete_idInventory').val(id);
+        $('#deleteModal').modal('show');
+    }
+
+    function deleteData() {
+        var data = {};
+        data['idInventory'] = $('#delete_idInventory').val();
+        if (data['idInventory'] == '' || data['idInventory'] == undefined || data['idInventory'] == 0) {
+            toastMsg('Inventory', 'Invalid Id', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/inventory_controllers/Inventory/deleteInventory')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    toastMsg('Inventory', 'Successfully Deleted', 'success');
+                    $('#deleteModal').modal('hide');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (res == 3) {
+                    toastMsg('Inventory', 'Invalid Inventory Id', 'error');
+                } else {
+                    toastMsg('Inventory', 'Something went wrong', 'error');
+                }
+            });
+        }
     }
 
 </script>

@@ -25,13 +25,17 @@ class MInventory extends CI_Model
 
 
         if (isset($searchdata['username']) && $searchdata['username'] != '' && $searchdata['username'] != null) {
-            $this->db->where("(i.username like '%" . $searchdata['username'] . "%')");
+            $this->db->where("(i.username like '%" . $searchdata['username'] . "%' or hr.empno like '%" . $searchdata['username'] . "%')");
+            $this->db->join('hr_employee hr', 'i.username = hr.empname','left');
         }
         if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%')");
+            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['aaftag'] . "%')");
         }
-        if (isset($searchdata['aaftag']) && $searchdata['aaftag'] != '' && $searchdata['aaftag'] != null) {
-            $this->db->where("(i.aaftag like '%" . $searchdata['aaftag'] . "%')");
+        if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
+            $this->db->where("(i.dop >= '" . date('Y-m-d',strtotime($searchdata['dateTo'])) . "')");
+        }
+        if (isset($searchdata['dateFrom']) && $searchdata['dateFrom'] != '' && $searchdata['dateFrom'] != null) {
+            $this->db->where("(i.dop <= '" . date('Y-m-d',strtotime($searchdata['dateFrom'])) . "')");
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where('i.loc', $searchdata['location']);
@@ -48,10 +52,32 @@ class MInventory extends CI_Model
             $this->db->where("(i.username like '%" . $search . "%' OR  i.ftag like '%" . $search . "%')");
         }
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
-            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
+            $this->db->order_By( $searchdata['orderby'], $searchdata['ordersort']);
         }
-        $this->db->select('*');
+        $this->db->select('i.id,
+	i.inventory_type,
+	i.model,
+	i.ftag,
+	i.product,
+	i.serial,
+	i.dop,
+	i.aaftag,
+	i.aaproduct,
+	i.aaserial,
+	i.aadop,
+	i.username,
+	i.loc,
+	i.remarks,
+	i.status,
+	i.newEntry,
+	i.expiryDateTime,
+	i.proj_code,
+	i.po_num,
+	i.pr_num,
+	i.dor,
+	i.tagable ');
         $this->db->from('i_paedsinventory i');
+        $this->db->where('i.isActive',1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
         return $query->result();
@@ -61,13 +87,17 @@ class MInventory extends CI_Model
     {
 
         if (isset($searchdata['username']) && $searchdata['username'] != '' && $searchdata['username'] != null) {
-            $this->db->where("(i.username like '%" . $searchdata['username'] . "%')");
+            $this->db->where("(i.username like '%" . $searchdata['username'] . "%' or hr.empno like '%" . $searchdata['username'] . "%')");
+            $this->db->join('hr_employee hr', 'i.username = hr.empname','left');
         }
         if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%')");
+            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['aaftag'] . "%')");
         }
-        if (isset($searchdata['aaftag']) && $searchdata['aaftag'] != '' && $searchdata['aaftag'] != null) {
-            $this->db->where("(i.aaftag like '%" . $searchdata['aaftag'] . "%')");
+        if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
+            $this->db->where("(i.dop >= '" . date('Y-m-d',strtotime($searchdata['dateTo'])) . "')");
+        }
+        if (isset($searchdata['dateFrom']) && $searchdata['dateFrom'] != '' && $searchdata['dateFrom'] != null) {
+            $this->db->where("(i.dop <= '" . date('Y-m-d',strtotime($searchdata['dateFrom'])) . "')");
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where('i.loc', $searchdata['location']);
@@ -83,8 +113,9 @@ class MInventory extends CI_Model
             $this->db->where("(i.username like '%" . $search . "%' OR  i.ftag like '%" . $search . "%')");
         }
 
-        $this->db->select('count(id) as cnttotal');
+        $this->db->select('count(i.id) as cnttotal');
         $this->db->from('i_paedsinventory i');
+        $this->db->where('i.isActive',1);
         $query = $this->db->get();
         return $query->result();
     }
@@ -108,8 +139,19 @@ class MInventory extends CI_Model
         if (isset($searchdata['id']) && $searchdata['id'] != '' && $searchdata['id'] != null) {
             $FormID = $searchdata['id'];
         }
-        $this->db->select('*');
+        $this->db->select('i_AuditTrials.id,
+i_AuditTrials.FormID,
+i_AuditTrials.FormName,
+i_AuditTrials.Fieldid,
+i_AuditTrials.FieldName,
+i_AuditTrials.OldValue,
+i_AuditTrials.NewValue,
+i_AuditTrials.effdt,
+i_AuditTrials.createdBy,
+i_AuditTrials.createdDateTime,
+users_dash.username');
         $this->db->from('i_AuditTrials');
+        $this->db->join('users_dash', 'i_AuditTrials.createdBy = users_dash.id','left');
         $this->db->where('FormID', $FormID);
         $this->db->where('isActive', 1);
         $this->db->order_By('id', 'desc');

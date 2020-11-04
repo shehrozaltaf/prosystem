@@ -48,7 +48,8 @@ class Inventory extends CI_controller
 
         $searchData['username'] = (isset($_REQUEST['username']) && $_REQUEST['username'] != '' ? $_REQUEST['username'] : 0);
         $searchData['ftag'] = (isset($_REQUEST['ftag']) && $_REQUEST['ftag'] != '' ? $_REQUEST['ftag'] : 0);
-        $searchData['aaftag'] = (isset($_REQUEST['aaftag']) && $_REQUEST['aaftag'] != '' ? $_REQUEST['aaftag'] : 0);
+        $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
+        $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
         $searchData['location'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
         $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
@@ -56,7 +57,7 @@ class Inventory extends CI_controller
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 25);
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
-        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'id');
+        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'i.id');
         $searchData['ordersort'] = (isset($_REQUEST['order'][0]['dir']) && $_REQUEST['order'][0]['dir'] != '' ? $_REQUEST['order'][0]['dir'] : 'desc');
         $data = $M->getInventory($searchData);
         $table_data = array();
@@ -82,24 +83,28 @@ class Inventory extends CI_controller
             $table_data[$value->id]['aadop'] = $value->aadop;
             $table_data[$value->id]['newEntry'] = $value->newEntry;
             $table_data[$value->id]['Action'] = '
-                <a href="javascript:void(0)" onclick="showExpiry()" >
+                <a href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '"  target="_blank" title="Audit Trial" data-id="' . $value->id . '">
+                        <i class="feather icon-eye" ></i> 
+                </a>
+                <a href="javascript:void(0)" onclick="showExpiry()"  data-id="' . $value->id . '">
                         <i class="feather icon-edit action-edit" ></i> 
                 </a>
-                <a href="javascript:void(0)" onclick="getDelete(this)">
+                <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->id . '">
                         <i class="feather icon-trash"></i>
                 </a>';
 
-          /*  <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
-            Set Expiry
-            </a>*/
-            $table_data[$value->id]['Settings'] = '
-                <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
+            /*  <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
+              Set Expiry
+              </a>*/
+            $table_data[$value->id]['Settings'] = ' 
+                <a href="javascript:void(0)" class="btn btn-sm bg-gradient-success " onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
                        Set Expiry
-                </a> | 
-                <a href="javascript:void(0)" onclick="getCustodianData(this)" data-id="' . $value->id . '">
+                </a>
+                <a href="javascript:void(0)" class="btn btn-sm bg-gradient-info " onclick="getCustodianData(this)" data-id="' . $value->id . '">
                        Assign Custodian
-                </a> | 
-                <a href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '">
+                </a>
+                <a class="btn btn-sm bg-gradient-danger " href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '"
+                target="_blank">
                        Audit Trial
                 </a>';
             /*$table_data[$value->crf_name]['action'] = '<div class="btn-group mr-1 mb-1">
@@ -134,7 +139,8 @@ class Inventory extends CI_controller
         $totalsearchData['length'] = 10000000;
         $totalsearchData['username'] = $searchData['username'];
         $totalsearchData['ftag'] = $searchData['ftag'];
-        $totalsearchData['aaftag'] = $searchData['aaftag'];
+        $totalsearchData['dateTo'] = $searchData['dateTo'];
+        $totalsearchData['dateFrom'] = $searchData['dateFrom'];
         $totalsearchData['location'] = $searchData['location'];
         $totalsearchData['project'] = $searchData['project'];
         $totalsearchData['status'] = $searchData['status'];
@@ -155,10 +161,29 @@ class Inventory extends CI_controller
             $id = $_POST['expiry_id'];
             $Custom = new Custom();
             $editArr = array();
-            $editArr['expiryDateTime'] = date('Y-m-d', strtotime($_POST['expiryDateTime']));;
+            $editArr['expiryDateTime'] = date('Y-m-d', strtotime($_POST['expiryDateTime']));
             $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsinventory');
             if ($editData) {
-                $result = 1;
+                $insertArray = array();
+                $insertArray['FormID'] = $id;
+                $insertArray['FormName'] = 'expiry';
+                $insertArray['Fieldid'] = 'expiryDt';
+                $insertArray['FieldName'] = 'expiryDt';
+                if (isset($_POST['oldExpiryDateTime']) && $_POST['oldExpiryDateTime'] != '' && $_POST['oldExpiryDateTime'] != '0') {
+                    $insertArray['OldValue'] = date('Y-m-d', strtotime($_POST['oldExpiryDateTime']));
+                } else {
+                    $insertArray['OldValue'] = 'No value';
+                }
+                $insertArray['NewValue'] = $editArr['expiryDateTime'];
+                $insertArray['isActive'] = 1;
+                $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+                $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+                $InsertData = $Custom->Insert($insertArray, 'id', 'i_AuditTrials', 'N');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 4;
+                }
             } else {
                 $result = 2;
             }
@@ -207,12 +232,44 @@ class Inventory extends CI_controller
             $id = $_POST['assignCustodian_id'];
             $Custom = new Custom();
             $editArr = array();
-            $editArr['loc'] = $_POST['custodian_location'];
-            $editArr['proj_code'] = $_POST['custodian_project'];
-            $editArr['username'] = $_POST['custodian_emp'];
+            if ($_POST['custodian_location'] != $_POST['custodian_location_old']) {
+                $editArr['loc'] = $_POST['custodian_location'];
+            }
+            if ($_POST['custodian_project'] != $_POST['custodian_project_old']) {
+                $editArr['proj_code'] = $_POST['custodian_project'];
+            }
+            if ($_POST['custodian_emp'] != $_POST['custodian_emp_old']) {
+                $editArr['username'] = $_POST['custodian_emp'];
+            }
+
             $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsinventory');
             if ($editData) {
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                $insertArray = array();
+                $insertArray['FormID'] = $id;
+                $insertArray['isActive'] = 1;
+                $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+                $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+
+
+                if ($_POST['custodian_location'] != $_POST['custodian_location_old']) {
+                    $InsertData = $Custom->insrt_inventory_AT($id, 'location', 'loc', 'Location', $_POST['custodian_location_old'], $editArr['loc']);
+                }
+                if ($_POST['custodian_project'] != $_POST['custodian_project_old']) {
+                    $InsertData = $Custom->insrt_inventory_AT($id, 'project', 'proj_code', 'Project Code', $_POST['custodian_project_old'], $editArr['proj_code']);
+
+                }
+                if ($_POST['custodian_emp'] != $_POST['custodian_emp_old']) {
+                    $InsertData = $Custom->insrt_inventory_AT($id, 'username', 'username', 'username', $_POST['custodian_emp_old'], $editArr['username']);
+                }
+
+
+                if ($InsertData) {
+                    $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                } else {
+                    $result = array('0' => 'Error', '1' => 'Custodian updated successfully, but audit trial not updated');
+                }
+
+
             } else {
                 $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
             }
@@ -232,21 +289,22 @@ class Inventory extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
             /*==========Log=============*/
             $MSettings = new MSettings();
-            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/auditTrial');
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Inventory/auditTrial',0);
 
             $searchData = array();
             $searchData['id'] = $_GET['i'];
 
             $M = new MInventory();
-            $data['inventory_data']=$M->getInventoryById($searchData);
-            $inventory_audit=$M->getAuditTrialById($searchData);
-            $audit=array();
-            foreach ($inventory_audit as $k=>$a){
-                $audit[$a->FormName][]=$a;
+            $data['inventory_data'] = $M->getInventoryById($searchData);
+            $inventory_audit = $M->getAuditTrialById($searchData);
+            $audit = array();
+            foreach ($inventory_audit as $k => $a) {
+                $audit[$a->FormName][] = $a;
             }
 
 
-            $data['inventory_audit']=$audit;
+            $data['inventory_audit'] = $audit;
+            $data['all_inventory_audit'] = $inventory_audit;
             $this->load->view('include/header');
             $this->load->view('include/top_header');
             $this->load->view('include/sidebar');
@@ -257,6 +315,30 @@ class Inventory extends CI_controller
             $this->load->view('page-invalid-id');
         }
 
+    }
+
+    function deleteInventory()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idInventory']) && $_POST['idInventory'] != '') {
+            $id = $_POST['idInventory'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsinventory');
+            $trackarray = array("action" => "Delete Inventory setting -> Function: deleteInventory() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
     }
 }
 

@@ -141,10 +141,20 @@ class Add_asset extends CI_controller
             $insertArray['remarks'] = $_POST['remarks'];
             $insertArray['loc'] = 'PRO';
             $insertArray['username'] = 'STOREPRO';
+            $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($insertArray, 'id', 'i_paedsinventory', 'N');
+            $InsertData = $Custom->Insert($insertArray, 'id', 'i_paedsinventory', 'Y');
             if ($InsertData) {
+
+                $Custom->insrt_inventory_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
+                $Custom->insrt_inventory_AT($InsertData, 'inventory_model', 'inventory_model', 'Model', 'New Entry', $insertArray['model']);
+                $Custom->insrt_inventory_AT($InsertData, 'product', 'product', 'Product', 'New Entry', $insertArray['product']);
+                $Custom->insrt_inventory_AT($InsertData, 'serial', 'serial', 'Serial', 'New Entry', $insertArray['serial']);
+                $Custom->insrt_inventory_AT($InsertData, 'project', 'proj_code', 'Project Code', 'New Entry', $insertArray['proj_code']);
+                $Custom->insrt_inventory_AT($InsertData, 'location', 'loc', 'Location', 'New Entry', $insertArray['loc']);
+                $Custom->insrt_inventory_AT($InsertData, 'username', 'username', 'username', 'New Entry', $insertArray['username']);
+
                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
             } else {
                 $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
@@ -153,6 +163,7 @@ class Add_asset extends CI_controller
         }
 
     }
+
 
     /*function validateData($arr)
     {
