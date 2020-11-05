@@ -23,7 +23,7 @@ class Projected extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         $Mprojected = new Mprojected();
         $data['data'] = $Mprojected->getAll();
         $this->load->view('include/header');
@@ -34,7 +34,8 @@ class Projected extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function addProjected_view(){
+    function addProjected_view()
+    {
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
@@ -43,10 +44,11 @@ class Projected extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Projected');
 
         $Mprojected = new Mprojected();
         $data['data'] = $Mprojected->getAll();
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -83,16 +85,14 @@ class Projected extends CI_controller
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['prjn_year']) || $_POST['prjn_year'] == '' || $_POST['prjn_year'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Year');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
 
-       
-       
 
         if ($flag == 0) {
             $Custom = new Custom();
@@ -100,9 +100,9 @@ class Projected extends CI_controller
             $insertArray['proj_code'] = $_POST['proj_code'];
             $insertArray['empl_code'] = $_POST['empl_code'];
             $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
-            $insertArray['prjn_month'] = $_POST['prjn_month']; 
-            $insertArray['prjn_year'] = $_POST['prjn_year']; 
-            
+            $insertArray['prjn_month'] = $_POST['prjn_month'];
+            $insertArray['prjn_year'] = $_POST['prjn_year'];
+
             // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
@@ -115,6 +115,7 @@ class Projected extends CI_controller
         }
 
     }
+
     function deleteData()
     {
         $Custom = new Custom();
