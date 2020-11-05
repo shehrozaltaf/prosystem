@@ -23,7 +23,7 @@ class Budget extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
         $this->load->view('include/header');
@@ -34,7 +34,8 @@ class Budget extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function addBudget_view(){
+    function addBudget_view()
+    {
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
@@ -43,10 +44,11 @@ class Budget extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Budget');
 
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -82,47 +84,48 @@ class Budget extends CI_controller
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
 
         if (!isset($_POST['bdgt_amnt']) || $_POST['bdgt_amnt'] == '' || $_POST['bdgt_amnt'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Amount');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['bdgt_pctg']) || $_POST['bdgt_pctg'] == '' || $_POST['bdgt_pctg'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Percentage');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['bdgt_month']) || $_POST['bdgt_month'] == '' || $_POST['bdgt_month'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Prohect Month');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['bdgt_year']) || $_POST['bdgt_year'] == '' || $_POST['bdgt_year'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Prohect Year');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
-
+        }
         if ($flag == 0) {
             $Custom = new Custom();
             $insertArray = array();
             $insertArray['proj_code'] = $_POST['proj_code'];
             $insertArray['bdgt_code'] = $_POST['bdgt_code'];
             $insertArray['bdgt_posi'] = $_POST['bdgt_posi'];
-            $insertArray['bdgt_band'] = $_POST['bdgt_band']; 
+            $insertArray['bdgt_band'] = $_POST['bdgt_band'];
             $insertArray['bdgt_amnt'] = $_POST['bdgt_amnt'];
             $insertArray['bdgt_pctg'] = $_POST['bdgt_pctg'];
             $insertArray['bdgt_month'] = $_POST['bdgt_month'];
             $insertArray['bdgt_year'] = $_POST['bdgt_year'];
-            // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-            // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $insertArray['isActive'] =1;
+            $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+            $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idBugt', 'b_budget', 'N');
+
             if ($InsertData) {
                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
             } else {

@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="">
                                             <button type="button" class="btn btn-primary mybtn" onclick="updateData()">
-                                                Save
+                                                Edit Project
                                             </button>
                                         </div>
                                         <div class="row mt-2">

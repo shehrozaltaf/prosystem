@@ -346,3 +346,30 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-5-2020 3:11 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-11-05 15:11:59
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-5-2020 3:12 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-11-05 15:12:06
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-5-2020 3:12 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-11-05 15:12:11
+
+-------------------------------------------------
