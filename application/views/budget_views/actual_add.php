@@ -33,8 +33,16 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
-                                                <input type="text" class="form-control" id="proj_code" name="proj_code"
-                                                       autocomplete="proj_code" required>
+                                                <select name="proj_code" id="proj_code" class="form-control select2"
+                                                        autocomplete="proj_code" required>
+                                                    <option value="0" readonly disabled selected>Select Project</option>
+                                                    <?php if (isset($project) && $project != '') {
+
+                                                        foreach ($project as $k => $p) {
+                                                            echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-6">
@@ -45,7 +53,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_pctg" class="label-control">Percentage</label>
                                                 <input type="text" class="form-control" id="actl_pctg" name="actl_pctg"
@@ -53,26 +61,52 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_month" class="label-control">Month</label>
-                                                <input type="text" class="form-control" id="actl_month" name="actl_month"
-                                                       autocomplete="actl_month" required>
+                                                <select name="actl_month" id="actl_month" class="form-control select2"
+                                                        autocomplete="actl_month" required>
+                                                    <option value="0" readonly disabled selected>Select Month</option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_year" class="label-control">Year</label>
-                                                <input type="text" class="form-control" id="actl_year" name="actl_year"
-                                                       autocomplete="actl_year" required>
 
+                                                <select name="actl_year" id="actl_year" class="form-control select2"
+                                                        autocomplete="actl_year" required>
+                                                    <option value="0" readonly disabled selected>Select Year</option>
+                                                    <?php
+                                                    for ($year = date('Y'); $year >= 2000; $year--) {
+                                                        echo ' <option value="' . $year . '">' . $year . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
-                                    <div class="">
-                                        <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
-                                            Insert Asset
-                                        </button>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="button" class="btn btn-primary mybtn "
+                                                    onclick="insertData()">
+                                                Insert Asset
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm-12">
@@ -84,7 +118,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
 
         </div>
@@ -100,7 +133,7 @@
         data['proj_code'] = $('#proj_code').val();
         data['empl_code'] = $('#empl_code').val();
         data['actl_pctg'] = $('#actl_pctg').val();
-        data['actl_month'] = $('#actl_month').val(); 
+        data['actl_month'] = $('#actl_month').val();
         data['actl_year'] = $('#actl_year').val();
         var vd = validateData(data);
         if (vd) {
@@ -116,7 +149,7 @@
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
                         setTimeout(function () {
-                            window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Actual') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');

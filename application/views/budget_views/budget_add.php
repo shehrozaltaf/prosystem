@@ -48,7 +48,8 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
-                                                <input type="number" class="form-control" id="bdgt_code" name="bdgt_code"
+                                                <input type="number" class="form-control" id="bdgt_code"
+                                                       name="bdgt_code"
                                                        autocomplete="bdgt_code" required>
 
                                             </div>
@@ -72,7 +73,8 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_amnt" class="label-control">Amount</label>
-                                                <input type="number" class="form-control" id="bdgt_amnt" name="bdgt_amnt"
+                                                <input type="number" class="form-control" id="bdgt_amnt"
+                                                       name="bdgt_amnt"
                                                        autocomplete="bdgt_amnt" required>
 
                                             </div>
@@ -80,7 +82,8 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_pctg" class="label-control">Percentage</label>
-                                                <input type="number" class="form-control" id="bdgt_pctg" name="bdgt_pctg"
+                                                <input type="number" class="form-control" id="bdgt_pctg"
+                                                       name="bdgt_pctg"
                                                        autocomplete="bdgt_pctg" required>
 
                                             </div>
@@ -123,17 +126,18 @@
                                         </div>
 
 
-                                        <div class="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
                                             <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
                                                 Insert Budget
                                             </button>
                                         </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-sm-12">
-                                                <h4 class="res_heading" style="color: green;"></h4>
-                                                <p class="res_msg" style="color: green;"></p>
-                                            </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-12">
+                                            <h4 class="res_heading" style="color: green;"></h4>
+                                            <p class="res_msg" style="color: green;"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +178,7 @@
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
                         setTimeout(function () {
-                            window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Budget') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');

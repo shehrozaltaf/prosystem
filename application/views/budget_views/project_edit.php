@@ -71,16 +71,18 @@
 
                                             </div>
                                         </div>
-                                        <div class="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
                                             <button type="button" class="btn btn-primary mybtn" onclick="updateData()">
                                                 Edit Project
                                             </button>
                                         </div>
-                                        <div class="row mt-2">
-                                            <div class="col-sm-12">
-                                                <h4 class="res_heading" style="color: green;"></h4>
-                                                <p class="res_msg" style="color: green;"></p>
-                                            </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-12">
+                                            <h4 class="res_heading" style="color: green;"></h4>
+                                            <p class="res_msg" style="color: green;"></p>
                                         </div>
                                     </div>
                                 </div>

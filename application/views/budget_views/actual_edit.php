@@ -30,59 +30,96 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                    <?php $mydata = $data[0]; ?>
+                                        <?php $mydata = $data[0]; ?>
                                         <input type="hidden" id="idActual" name="idActual"
                                                autocomplete="idActual" required
                                                value="<?php echo(isset($mydata->idActual) && $mydata->idActual != '' ? $mydata->idActual : '') ?>">
-                                        <div class="col-sm-6 col-6">
+
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
-                                                <input type="text" class="form-control" id="proj_code" name="proj_code"
-                                                       autocomplete="proj_code" required
-                                                       value="<?php echo(isset($mydata->proj_code) && $mydata->proj_code != '' ? $mydata->proj_code : '') ?>">
+                                                <select name="proj_code" id="proj_code" class="form-control select2"
+                                                        autocomplete="proj_code" required>
+                                                    <option value="0" readonly>Select Project</option>
+                                                    <?php if (isset($project) && $project != '') {
+
+                                                        foreach ($project as $k => $p) {
+                                                            echo ' <option value="' . $p->proj_code . '" 
+                                                                ' . (isset($mydata->proj_code) && $mydata->proj_code == $p->proj_code ? 'selected' : '') . '>' . $p->proj_code . '(' . $p->proj_name . ')</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="empl_code" class="label-control">Employee Code</label>
-                                                <input type="text" class="form-control" id="empl_code" name="empl_code"
+                                                <input type="text" class="form-control" id="empl_code"
+                                                       name="empl_code"
                                                        autocomplete="empl_code" required
                                                        value="<?php echo(isset($mydata->empl_code) && $mydata->empl_code != '' ? $mydata->empl_code : '') ?>">
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_pctg" class="label-control">Percentage</label>
-                                                <input type="text" class="form-control" id="actl_pctg" name="actl_pctg"
+                                                <input type="text" class="form-control" id="actl_pctg"
+                                                       name="actl_pctg"
                                                        autocomplete="actl_pctg" required
                                                        value="<?php echo(isset($mydata->actl_pctg) && $mydata->actl_pctg != '' ? $mydata->actl_pctg : '') ?>">
 
+
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_month" class="label-control">Month</label>
-                                                <input type="text" class="form-control" id="actl_month" name="actl_month"
-                                                       autocomplete="actl_month" required
-                                                       value="<?php echo(isset($mydata->actl_month) && $mydata->actl_month != '' ? $mydata->actl_month : '') ?>">
+
+                                                <select name="actl_month" id="actl_month" class="form-control select2"
+                                                        autocomplete="actl_month" required>
+                                                    <option value="0" readonly disabled selected>Select Month</option>
+                                                    <option value="01" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 1 ? 'selected' : '') ?>>
+                                                        January
+                                                    </option>
+                                                    <option value="02" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 2 ? 'selected' : '') ?>>February</option>
+                                                    <option value="03" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 3 ? 'selected' : '') ?>>March</option>
+                                                    <option value="04" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 4 ? 'selected' : '') ?>>April</option>
+                                                    <option value="05" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 5 ? 'selected' : '') ?>>May</option>
+                                                    <option value="06" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 6 ? 'selected' : '') ?>>June</option>
+                                                    <option value="07" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 7 ? 'selected' : '') ?>>July</option>
+                                                    <option value="08" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 8 ? 'selected' : '') ?>>August</option>
+                                                    <option value="09" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 9 ? 'selected' : '') ?>>September</option>
+                                                    <option value="10" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 10 ? 'selected' : '') ?>>October</option>
+                                                    <option value="11" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 11 ? 'selected' : '') ?>>November</option>
+                                                    <option value="12" <?php echo(isset($mydata->actl_month) && $mydata->actl_month == 12 ? 'selected' : '') ?>>December</option>
+                                                </select>
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-4 col-4">
                                             <div class="form-group">
                                                 <label for="actl_year" class="label-control">Year</label>
-                                                <input type="text" class="form-control" id="actl_year" name="actl_year"
-                                                       autocomplete="actl_year" required
-                                                       value="<?php echo(isset($mydata->actl_year) && $mydata->actl_year != '' ? $mydata->actl_year : '') ?>">
+                                                <select name="actl_year" id="actl_year" class="form-control select2"
+                                                        autocomplete="actl_year" required>
+                                                    <option value="0" readonly>Select Year</option>
+                                                    <?php
+                                                    for ($year = date('Y'); $year >= 2000; $year--) {
+                                                        echo ' <option value="' . $year . '" '.(isset($mydata->actl_year) && $mydata->actl_year == $year ? 'selected' : '').'>' . $year . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
 
                                             </div>
                                         </div>
-                                    <div class="">
-                                        <button type="button" class="btn btn-primary mybtn" onclick="updateData()">
-                                            Save
-                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="button" class="btn btn-primary mybtn"
+                                                    onclick="updateData()">
+                                                Save
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm-12">
@@ -93,8 +130,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </section>
 
         </div>
@@ -105,13 +140,13 @@
 
 <script>
 
-  function updateData() {
+    function updateData() {
         var data = {};
         data['idActual'] = $('#idActual').val();
         data['proj_code'] = $('#proj_code').val();
         data['empl_code'] = $('#empl_code').val();
         data['actl_pctg'] = $('#actl_pctg').val();
-        data['actl_month'] = $('#actl_month').val(); 
+        data['actl_month'] = $('#actl_month').val();
         data['actl_year'] = $('#actl_year').val();
         var vd = validateData(data);
         if (vd) {
@@ -127,7 +162,7 @@
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
                         setTimeout(function () {
-                            window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Actual') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');
