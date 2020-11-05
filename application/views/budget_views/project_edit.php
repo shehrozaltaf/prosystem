@@ -116,7 +116,7 @@
                     if (response[0] == 'Success') {
                         toastMsg(response[0], response[1], 'success');
                         setTimeout(function () {
-                            // window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Project') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');
