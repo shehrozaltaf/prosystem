@@ -1,8 +1,9 @@
-<?php error_reporting(0);
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ini_set('memory_limit', '512M'); // This also needs to be increased in some cases. Can be changed to a higher value as per need)
 ini_set('sqlsrv.ClientBufferMaxKBSize', '524288'); // Setting to 512M
 ini_set('pdo_sqlsrv.client_buffer_max_kb_size', '524288');
+ini_set('max_input_vars','1000000' );
 
 class Upload_data extends CI_controller
 {

@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+            <state relative-caret-position="706">
+              <caret line="130" column="12" lean-forward="true" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -91,36 +91,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lettersOnly_WithSpace</find>
-      <find>get</find>
-      <find>&lt;script</find>
-      <find>&lt;form</find>
-      <find>header</find>
-      <find>he</find>
-      <find>date</find>
-      <find>ready</find>
-      <find>hire</find>
-      <find>rehiredt</find>
-      <find>pickadate</find>
-      <find>picka</find>
-      <find>rehire</find>
-      <find>salary</find>
-      <find>#hiresalary</find>
-      <find>addrec</find>
-      <find>supervi</find>
-      <find>supervis</find>
-      <find>saved</find>
-      <find>editre</find>
-      <find>sho</find>
-      <find>hiring</find>
-      <find>showsumm</find>
-      <find>supervisor</find>
-      <find>shosu</find>
-      <find>each</find>
-      <find>$.each</find>
-      <find>edit</find>
-      <find>showsu</find>
-      <find>$.</find>
+      <find>.select2-container--default .select2-selection--single</find>
+      <find>border: 1px solid #aaa</find>
+      <find>numb</find>
+      <find>insertData</find>
+      <find>data-expiry</find>
+      <find>assetsassets</find>
+      <find>s8q5</find>
+      <find>add-new-data-sidebar</find>
+      <find>expiryModal</find>
+      <find>action-edit</find>
+      <find>second level</find>
+      <find>orderby</find>
+      <find>setExpiry</find>
+      <find>oldExpiryDateTime</find>
+      <find>assignCustodian_id</find>
+      <find>dataex-html5-selectors</find>
+      <find>co</find>
+      <find>delete_idInventory</find>
+      <find>deleteBy</find>
+      <find>,</find>
+      <find>upload_area</find>
+      <find>set_column_data</find>
+      <find>idTable</find>
+      <find>mybtn</find>
+      <find>import</find>
+      <find>message</find>
+      <find>document_file</find>
+      <find>db_debug</find>
+      <find>$table</find>
+      <find>$tableColumn</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -137,6 +137,8 @@
       <replace>label-control customlabel</replace>
       <replace>Edit</replace>
       <replace>assets</replace>
+      <replace>'</replace>
+      <replace>',</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -145,8 +147,47 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/application/views/budget_views/employee.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/config.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms10.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/budget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/actual.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mproject.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project_edit.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project.php" />
+        <option value="$PROJECT_DIR$/assets/vendors/css/forms/select/select2.css" />
+        <option value="$PROJECT_DIR$/assets/vendors/css/forms/select/select2.min.css" />
+        <option value="$PROJECT_DIR$/assets/js/core.js" />
+        <option value="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" />
+        <option value="$PROJECT_DIR$/application/views/error-404.php" />
+        <option value="$PROJECT_DIR$/application/controllers/My404Ctrl.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$USER_HOME$/Desktop/portals/newsavedraft (3).java" />
+        <option value="$PROJECT_DIR$/application/views/err404.php" />
+        <option value="$PROJECT_DIR$/application/controllers/my404.php" />
+        <option value="$PROJECT_DIR$/application/views/page-invalid-id.php" />
+        <option value="$PROJECT_DIR$/application/views/page-err404.php" />
+        <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/getData.php" />
+        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/data-list-view.html" />
+        <option value="$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.js" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/app-ecommerce-details.html" />
+        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
-        <option value="$PROJECT_DIR$/system/libraries/Encrypt.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
         <option value="$PROJECT_DIR$/application/models/MSettings.php" />
@@ -231,7 +272,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/css/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -245,11 +286,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\prosystem\application\controllers" />
+      <recent name="C:\xampp\htdocs\prosystem\application\views" />
       <recent name="C:\xampp\htdocs\prosystem\assets\css\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\js\scripts" />
       <recent name="C:\xampp\htdocs\prosystem\assets\images\pages" />
-      <recent name="C:\xampp\htdocs\prosystem\assets\css" />
-      <recent name="C:\xampp\htdocs\prosystem\application\models\budget_model" />
     </key>
   </component>
   <component name="RunDashboard">
