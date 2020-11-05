@@ -12,6 +12,12 @@ class Custom extends CI_Model
     }
 
 
+    function getTableColumn($table)
+    {
+        $fields = $this->db->list_fields($table);
+        return $fields;
+    }
+
     function selectAllQuery($table, $orderBy, $whereClause = '')
     {
         if (isset($whereClause) && $whereClause != '' && $whereClause != 0) {

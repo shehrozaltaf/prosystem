@@ -128,10 +128,15 @@ tr.details td.details-control {
     padding: 2px 5px !important;
 }
 
-.myTable th select  {
+.myTable th select {
     border: 1px solid black;
 }
 
 .myTable th .select_error {
     border: 1px solid #e53935;
+}
+
+.required_ul {
+    columns: 4;
+    -webkit-columns: 4;
 }
