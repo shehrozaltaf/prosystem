@@ -950,7 +950,7 @@ class Employee_entry extends CI_controller
                     $k == 'conexpiry' && !isset($v) || $k == 'conexpiry' && $v == '' ||
                     $k == 'gopdt' && !isset($v) || $k == 'gopdt' && $v == '') {
 
-                    $formArray[$k] = date('m', strtotime($v));
+                    $formArray[$k] = date('Y-m-d', strtotime($v));
 
                 } else if ($k == 'empname') {
                     $formArray[$k] = ucwords($v);
@@ -997,13 +997,13 @@ class Employee_entry extends CI_controller
         $Custom = new Custom();
 
 
-        echo "<pre>";
+        /*echo "<pre>";
         print_r($_POST);
         print_r($formArray);
         echo "i m session - " . $_SESSION['id'];
         echo "</pre>";
 
-        die();
+        die();*/
 
 
         if (isset($_SESSION['id']) && $_SESSION['id'] != '') {

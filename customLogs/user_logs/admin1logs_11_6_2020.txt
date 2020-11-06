@@ -16,3 +16,63 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:08 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:09 am
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:09 am
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:09 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:09 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:09 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:10 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:11 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:11 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 192.168.56.1 - November-6-2020 10:12 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

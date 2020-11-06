@@ -289,7 +289,7 @@ class Inventory extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
             /*==========Log=============*/
             $MSettings = new MSettings();
-            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Inventory/auditTrial',0);
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Inventory/auditTrial', 0);
 
             $searchData = array();
             $searchData['id'] = $_GET['i'];

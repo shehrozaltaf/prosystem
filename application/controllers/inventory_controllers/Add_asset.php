@@ -11,6 +11,7 @@ class Add_asset extends CI_controller
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
+
     }
 
     function index()
