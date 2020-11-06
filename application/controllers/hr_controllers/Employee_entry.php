@@ -25,7 +25,7 @@ class Employee_entry extends CI_controller
         $data = array();
 
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/employee_entry');
         /*==========Log=============*/
         $Custom = new Custom();
         $trackarray = array("action" => "View Dashboard Users Page",
@@ -138,6 +138,7 @@ class Employee_entry extends CI_controller
 
     function addRecord()
     {
+
         ob_end_clean();
         $flag = 0;
         $formArray = array();
@@ -935,20 +936,21 @@ class Employee_entry extends CI_controller
     {
         ob_end_clean();
 
-        //date_default_timezone_set('Asia/Karachi');
-
         $formArray = array();
+
         foreach ($_POST as $k => $v) {
             if (!isset($v) || $v == '') {
 
                 $formArray[$k] = null;
 
             } else {
+                /*if (($k == 'dob' && !isset($v) && $v == '') ||
+                    ($k == 'rehiredt' && !isset($v) || $k == 'rehiredt' && $v == '') ||
+                    ($k == 'conexpiry' && !isset($v) || $k == 'conexpiry' && $v == '') ||
+                    ($k == 'gopdt' && !isset($v) || $k == 'gopdt' && $v == ''))*/
 
-                if ($k == 'dob' && !isset($v) || $k == 'dob' && $v == '' ||
-                    $k == 'rehiredt' && !isset($v) || $k == 'rehiredt' && $v == '' ||
-                    $k == 'conexpiry' && !isset($v) || $k == 'conexpiry' && $v == '' ||
-                    $k == 'gopdt' && !isset($v) || $k == 'gopdt' && $v == '') {
+                if (($k == 'dob' || $k == 'rehiredt' || $k == 'conexpiry' || $k == 'gopdt') &&
+                    isset($v) && $v != '') {
 
                     $formArray[$k] = date('Y-m-d', strtotime($v));
 
@@ -962,12 +964,6 @@ class Employee_entry extends CI_controller
             }
         }
 
-        /*echo "<pre>";
-        print_r($_POST);
-        print_r($formArray);
-        echo "</pre>";
-
-        die();*/
 
         //array_push($formArray, $_FILES["imgfile"]["name"], $_FILES["docfile"]["name"]);
 
@@ -1014,13 +1010,11 @@ class Employee_entry extends CI_controller
 
             unset($formArray['results']);
 
-
             $InsertData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
 
             $_SESSION['id'] = '';
 
         } else {
-
             $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
         }
 
@@ -1122,6 +1116,10 @@ class Employee_entry extends CI_controller
 
     public function getEmployeeEdit($id)
     {
+
+        $MSettings = new MSettings();
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/employee_entry');
+
         $Custom = new Custom();
 
         $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');

@@ -183,7 +183,7 @@
                         <h2 class="content-header-title float-left mb-0">Employee Information</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Employee Information</a>
                                 </li>
@@ -2421,6 +2421,7 @@
 
         iseditsavedraft = 1;
 
+      
         <?php if(isset($editemp)) { ?>
         old_array = <?php echo json_encode($editemp); ?>;
         <?php } ?>
@@ -2547,7 +2548,7 @@
         if ($('.iti__selected-dial-code').text() != '' && $('.iti__selected-dial-code').text() != undefined
             && $('.iti__selected-dial-code').text() != 'undefined' && $('.iti__selected-dial-code').text() != null
         ) {
-
+           
             var arr = $('.iti__selected-dial-code').text().split('+');
             //console.log($('.iti__selected-dial-code').text());
             //console.log(arr);
@@ -2591,14 +2592,13 @@
 
         if (old_array != "") {
 
-            for (let [key, value] of formData.entries()) {
+            /*for (let [key, value] of formData.entries()) {
                 console.log(key + " - " + value);
-            }
+            }*/
 
             $.each(old_array[0], function (key, value) {
-                //for (let [key, value] of formData.entries()) {
 
-                console.log(key + " - " + value + "   ***   " + key + " - " + value + " --- " + $('#' + key).prop("type"));
+                //console.log(key + " - " + value + "   ***   " + key + " - " + value + " --- " + $('#' + key).prop("type"));
 
 
                 if (key != "userid" && key != "entrydate" && key != "id" && key != "empno") {
@@ -2641,7 +2641,7 @@
 
                     } else if (key == "degree") {
 
-                        /*console.log(key);
+                        console.log(key);
 
 
                         let test1 = $('#' + key).attr('data-oldval');
@@ -2664,7 +2664,7 @@
                                 "</tr>";
 
                             isaudit = true;
-                        }*/
+                        }
 
                     } else if (key == "field") {
 
@@ -2707,8 +2707,6 @@
 
                             isaudit = true;
                         }
-
-                        return false;
 
 
                     } else {
@@ -2779,6 +2777,7 @@
 
         str += "</table>";
 
+        return false;
 
         if (isaudit == true) {
             $("#tblaudit").html(str);

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
+    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customLogs/user_logs/admin1logs_11_6_2020.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/admin1logs_11_6_2020.txt" afterDir="false" />
     </list>
     <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml">
@@ -34,11 +35,69 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="535">
+              <caret line="2653" column="45" lean-forward="true" selection-start-line="2653" selection-start-column="45" selection-end-line="2653" selection-end-column="45" />
+              <folding>
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="e#145738#148053#0#HTML" />
+                <element signature="e#148091#149146#0#HTML" />
+                <element signature="e#149235#149378#0#HTML" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,22 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="956" column="48" lean-forward="true" selection-start-line="956" selection-start-column="48" selection-end-line="956" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="237" column="46" lean-forward="true" selection-start-line="237" selection-start-column="46" selection-end-line="237" selection-end-column="46" />
+            <state relative-caret-position="425">
+              <caret line="1014" column="33" lean-forward="true" selection-start-line="1014" selection-start-column="33" selection-end-line="1014" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -79,13 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>date o</find>
-      <find>timez</find>
-      <find>draf</find>
-      <find>addrec</find>
-      <find>Save</find>
-      <find>birth</find>
-      <find>sa</find>
       <find>Savedraf</find>
       <find>editre</find>
       <find>pick</find>
@@ -107,8 +145,15 @@
       <find>i am</find>
       <find>session</find>
       <find>Saved</find>
-      <find>add</find>
       <find>insert</find>
+      <find>infor</find>
+      <find>employee_e</find>
+      <find>add</find>
+      <find>defa</find>
+      <find>Save</find>
+      <find>adds</find>
+      <find>savedr</find>
+      <find>isaudit</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -128,6 +173,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -135,7 +181,6 @@
       <list>
         <option value="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" />
         <option value="$PROJECT_DIR$/system/libraries/Encrypt.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
         <option value="$PROJECT_DIR$/application/models/MSettings.php" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/audit_trial.php" />
@@ -147,10 +192,11 @@
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
       </list>
     </option>
   </component>
@@ -466,11 +512,18 @@
       <option name="project" value="LOCAL" />
       <updated>1604639193357</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1604640900507</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604640900507</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150610000" />
+    <option name="totallyTimeSpent" value="155170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -814,13 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -835,20 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="78" column="23" lean-forward="true" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="956" column="48" lean-forward="true" selection-start-line="956" selection-start-column="48" selection-end-line="956" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -859,15 +895,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="237" column="46" lean-forward="true" selection-start-line="237" selection-start-column="46" selection-end-line="237" selection-end-column="46" />
+        <state relative-caret-position="198">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="255" column="53" lean-forward="true" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="25" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="1014" column="33" lean-forward="true" selection-start-line="1014" selection-start-column="33" selection-end-line="1014" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="2653" column="45" lean-forward="true" selection-start-line="2653" selection-start-column="45" selection-end-line="2653" selection-end-column="45" />
+          <folding>
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="e#145738#148053#0#HTML" />
+            <element signature="e#148091#149146#0#HTML" />
+            <element signature="e#149235#149378#0#HTML" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
