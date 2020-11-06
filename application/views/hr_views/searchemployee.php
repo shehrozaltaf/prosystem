@@ -72,6 +72,8 @@
                                                 <tbody>
                                                 <?php $sno = 0;
 
+                                                $_SESSION['id'] = '';
+
                                                 if (isset($datatbl) && $datatbl != '') {
                                                     foreach ($datatbl as $key => $rows) {
                                                         $sno++;

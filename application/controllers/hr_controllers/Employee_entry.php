@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ob_start();
 
+date_default_timezone_set('Asia/Karachi');
+
+
 class Employee_entry extends CI_controller
 {
     public function __construct()
@@ -264,7 +267,7 @@ class Employee_entry extends CI_controller
             }
 
 
-            date_default_timezone_set('Asia/Karachi');
+            //date_default_timezone_set('Asia/Karachi');
 
             $now = new DateTime();
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
@@ -474,9 +477,6 @@ class Employee_entry extends CI_controller
             }
 
 
-            date_default_timezone_set('Asia/Karachi');
-
-
             $now = new DateTime();
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
 
@@ -650,7 +650,7 @@ class Employee_entry extends CI_controller
             $Custom = new Custom();
             $Mempmodel = new Mempmodel();
 
-            date_default_timezone_set('Asia/Karachi');
+            //date_default_timezone_set('Asia/Karachi');
 
 
             //$olddata['results'] =  $Mempmodel->getEmployeeDataByEmpNo('111111');
@@ -734,7 +734,7 @@ class Employee_entry extends CI_controller
     {
         $Custom = new Custom();
 
-        date_default_timezone_set('Asia/Karachi');
+        //date_default_timezone_set('Asia/Karachi');
         $now = new DateTime();
 
 
@@ -887,7 +887,7 @@ class Employee_entry extends CI_controller
     {
         $Custom = new Custom();
 
-        date_default_timezone_set('Asia/Karachi');
+        //date_default_timezone_set('Asia/Karachi');
 
 
         /*echo "<pre>";
@@ -935,6 +935,8 @@ class Employee_entry extends CI_controller
     {
         ob_end_clean();
 
+        //date_default_timezone_set('Asia/Karachi');
+
         $formArray = array();
         foreach ($_POST as $k => $v) {
             if (!isset($v) || $v == '') {
@@ -943,16 +945,16 @@ class Employee_entry extends CI_controller
 
             } else {
 
-                if ($k === 'dob' && !isset($v) || $k === 'dob' && $v == '' ||
-                    $k === 'rehiredt' && !isset($v) || $k === 'rehiredt' && $v == '' ||
-                    $k === 'conexpiry' && !isset($v) || $k === 'conexpiry' && $v == '' ||
-                    $k === 'gopdt' && !isset($v) || $k === 'gopdt' && $v == '') {
+                if ($k == 'dob' && !isset($v) || $k == 'dob' && $v == '' ||
+                    $k == 'rehiredt' && !isset($v) || $k == 'rehiredt' && $v == '' ||
+                    $k == 'conexpiry' && !isset($v) || $k == 'conexpiry' && $v == '' ||
+                    $k == 'gopdt' && !isset($v) || $k == 'gopdt' && $v == '') {
 
-                    $formArray[$k] = date('Y-m-d', strtotime($v));
+                    $formArray[$k] = date('m', strtotime($v));
 
-                } else if ($k === 'empname') {
+                } else if ($k == 'empname') {
                     $formArray[$k] = ucwords($v);
-                } else if ($k === 'hiresalary') {
+                } else if ($k == 'hiresalary') {
                     $formArray[$k] = $this->encrypt->encode($v);
                 } else {
                     $formArray[$k] = $v;
@@ -962,9 +964,10 @@ class Employee_entry extends CI_controller
 
         /*echo "<pre>";
         print_r($_POST);
+        print_r($formArray);
         echo "</pre>";
-        die();*/
 
+        die();*/
 
         //array_push($formArray, $_FILES["imgfile"]["name"], $_FILES["docfile"]["name"]);
 
@@ -994,6 +997,15 @@ class Employee_entry extends CI_controller
         $Custom = new Custom();
 
 
+        echo "<pre>";
+        print_r($_POST);
+        print_r($formArray);
+        echo "i m session - " . $_SESSION['id'];
+        echo "</pre>";
+
+        die();
+
+
         if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
 
             $id = $_SESSION['id'];
@@ -1002,9 +1014,13 @@ class Employee_entry extends CI_controller
 
             unset($formArray['results']);
 
+
             $InsertData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
 
+            $_SESSION['id'] = '';
+
         } else {
+
             $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
         }
 

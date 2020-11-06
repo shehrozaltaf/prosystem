@@ -295,7 +295,8 @@
                                                             <div class="col-md-10">
                                                                 <input type="text" id="dob" required
                                                                        placeholder="Date of Birth"
-                                                                       class="form-control" name="dob"
+                                                                       class="form-control pickadate-short-string"
+                                                                       name="dob"
                                                                        value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
                                                             </div>
                                                         </div>
@@ -1430,26 +1431,16 @@
                                                         <button type="button" class="btn btn-primary mr-1 mb-1"
                                                                 onclick="showSummary_SaveDraft();">Update Save Draft
                                                         </button>
-                                                    <?php } else { ?>
-
-                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
-                                                                onclick="addData_SaveDraft();">Save Draft
-                                                        </button>
-
-                                                    <?php } ?>
-
-
-                                                    <?php
-
-                                                    if (isset($editemp[0]->id)) {
-                                                        $_SESSION['id'] = $editemp[0]->id;
-                                                        ?>
 
                                                         <button type="button" onclick="showSummary();"
                                                                 class="btn btn-primary mr-1 mb-1">Update
                                                         </button>
 
                                                     <?php } else { ?>
+
+                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
+                                                                onclick="addData_SaveDraft();">Save Draft
+                                                        </button>
 
                                                         <button type="button" onclick="addData();"
                                                                 class="btn btn-primary mr-1 mb-1">Save
@@ -2427,6 +2418,9 @@
         var doc_path = "";
         var old_array = "";
 
+
+        iseditsavedraft = 1;
+
         <?php if(isset($editemp)) { ?>
         old_array = <?php echo json_encode($editemp); ?>;
         <?php } ?>
@@ -2592,16 +2586,19 @@
         console.log(formData.get('emcellnoccode'));
         console.log(formData.get('emlandnoccode'));*/
 
-        iseditsavedraft = 1;
 
-
-        var str = "<table width='100%'><tr><th width='25%'>Field Name</th><th width='30%'>Previous Value</th><th width='30%'>Current Value</th><th width='15%'>Eff Date</th></tr>";
+        let str = "<table width='100%'><tr><th width='25%'>Field Name</th><th width='30%'>Previous Value</th><th width='30%'>Current Value</th><th width='15%'>Eff Date</th></tr>";
 
         if (old_array != "") {
 
-            $.each(old_array[0], function (key, value) {
+            for (let [key, value] of formData.entries()) {
+                console.log(key + " - " + value);
+            }
 
-                //console.log(key + " - " + value + "   ***   " + formData.get(key) + " --- " + $('#' + key).prop("type"));
+            $.each(old_array[0], function (key, value) {
+                //for (let [key, value] of formData.entries()) {
+
+                console.log(key + " - " + value + "   ***   " + key + " - " + value + " --- " + $('#' + key).prop("type"));
 
 
                 if (key != "userid" && key != "entrydate" && key != "id" && key != "empno") {
@@ -2641,6 +2638,54 @@
 
                             isaudit = true;
                         }
+
+                    } else if (key == "degree") {
+
+                        /*console.log(key);
+
+
+                        let test1 = $('#' + key).attr('data-oldval');
+                        let test2 =  $('#' + key).find('option:selected').val();
+
+
+                        console.log(test1 + " - " + test2);
+
+
+                        if (test1 != test2) {
+
+                            str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+
+                            str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                "</tr>";
+
+                            isaudit = true;
+                        }*/
+
+                    } else if (key == "field") {
+
+                        /*let test1 = $('#' + key).attr('data-oldval');
+                        let test2 =  $('#' + key).find('option:selected').val();
+
+
+                        if (test1 != test2) {
+
+                            str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                "<td class='summaryFldName'>" + $("#lbl_" + "field").text() + "</td>";
+
+                            str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                "</tr>";
+
+                            isaudit = true;
+                        }*/
 
                     } else if (key == "hiresalary") {
 
@@ -2805,6 +2850,7 @@
 
         if (flag == 0) {
             // showloader();
+
 
             if (iseditsavedraft == 1) {
 
