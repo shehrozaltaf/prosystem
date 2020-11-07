@@ -52,6 +52,8 @@ class Mempmodel extends CI_Model
     {
         $query = $this->db->query("SELECT convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,status FROM hr_employee where empno='$empno'");
 
+        $results = array();
+
         foreach ($query->result() as $row) {
             $results['results'] = array(
                 "conexpiry" => $row->conexpiry,
@@ -63,7 +65,7 @@ class Mempmodel extends CI_Model
             );
         }
 
-        return $results['results'];
+        return $results;
         //return $query->result_array();
     }
 

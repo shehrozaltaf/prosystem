@@ -183,7 +183,7 @@
                         <h2 class="content-header-title float-left mb-0">Employee Information</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Employee Information</a>
                                 </li>
@@ -1553,6 +1553,32 @@
     });
 
 
+    $(document).on("blur", "#empno", function () {
+
+        var data = {};
+        data['empno'] = $("#empno").val();
+
+        CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
+
+            if (result != '' && result != null) {
+                var a = JSON.parse(result);
+
+                try {
+                    if (a[0] != null) {
+                        toastMsg('Error', 'Employee number already exists', 'error');
+                        $("#empno").focus();
+                    }
+                } catch (e) {
+                }
+            } else {
+                toastMsg('Error', 'Something went wrong', 'error');
+            }
+
+        });
+
+    });
+
+
     $(document).ready(function () {
 
         $("#cnicno").inputmask("99999-9999999-9");
@@ -2214,15 +2240,23 @@
 
                             if (key == "pic") {
 
+
                                 if (value != $("#lbl_pic").text()) {
 
                                     str += "<tr class='summaryRow' data-key='" + "pic" + "'>" +
                                         "<td class='summaryFldName'>" + "Pic" + "</td>";
 
 
-                                    str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                        "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>" +
-                                        "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                    str += "<td class='summaryOldVal'>" + value + "</td>";
+
+                                    if ($("#lbl_pic").text() == "Choose Picture") {
+                                        str += "<td class='summaryNewVal'>" + $("#lbl_pic").text() + "</td>";
+                                    } else {
+                                        str += "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>";
+                                    }
+
+
+                                    str += "<td class='summaryFldOldVal' style='display:none;'></td>" +
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
                                         "</tr>";
@@ -2230,7 +2264,9 @@
                                     isaudit = true;
                                 }
 
+
                             } else if (key == "doc") {
+
 
                                 if (value != $("#lbl_doc").text()) {
 
@@ -2238,14 +2274,70 @@
                                         "<td class='summaryFldName'>" + "Doc" + "</td>";
 
 
-                                    str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                        "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>" +
-                                        "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                    str += "<td class='summaryOldVal'>" + value + "</td>";
+
+                                    if ($("#lbl_pic").text() == "Choose Documents") {
+                                        str += "<td class='summaryNewVal'>" + $("#lbl_doc").text() + "</td>";
+                                    } else {
+                                        str += "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>";
+                                    }
+
+
+                                    str += "<td class='summaryFldOldVal' style='display:none;'></td>" +
                                         "<td class='summaryFldNewVal' style='display:none;'></td>" +
                                         "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
                                         "</tr>";
 
                                     isaudit = true;
+                                }
+
+
+                            } else if (key == "degree") {
+
+                                let test1 = $('#' + key).attr('data-oldval');
+                                let test2 = $('#' + key).find('option:selected').val();
+
+
+                                if (test1 != "" && test1 != "undefined") {
+
+                                    if (test1 != test2) {
+
+                                        str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                            "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+
+                                        str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                            "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                            "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                            "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                            "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                            "</tr>";
+
+                                        isaudit = true;
+                                    }
+                                }
+
+                            } else if (key == "field") {
+
+                                let test1 = $('#' + key).attr('data-oldval');
+                                let test2 = $('#' + key).find('option:selected').val();
+
+
+                                if (test1 != "" && test1 != "undefined") {
+
+                                    if (test1 != test2) {
+
+                                        str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                            "<td class='summaryFldName'>" + $("#lbl_" + "degree").text() + "</td>";
+
+                                        str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                            "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                            "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                            "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                            "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                            "</tr>";
+
+                                        isaudit = true;
+                                    }
                                 }
 
                             } else if (key == "hiresalary") {
@@ -2268,8 +2360,6 @@
 
                                     isaudit = true;
                                 }
-
-                                return false;
 
 
                             } else {
@@ -2421,7 +2511,7 @@
 
         iseditsavedraft = 1;
 
-      
+
         <?php if(isset($editemp)) { ?>
         old_array = <?php echo json_encode($editemp); ?>;
         <?php } ?>
@@ -2534,21 +2624,31 @@
         if ($("#pic").val() != "") {
             formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
         } else {
-            formData.append('pic', $("#lbl_pic").html());
+
+            if ($("#lbl_pic").html() == "Choose Picture") {
+                formData.append('pic', "");
+            } else {
+                formData.append('pic', $("#lbl_pic").html());
+            }
         }
 
 
         if ($("#doc").val() != "") {
             formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
         } else {
-            formData.append('doc', $("#lbl_doc").html());
+
+            if ($("#lbl_doc").html() == "Choose Documents") {
+                formData.append('doc', "");
+            } else {
+                formData.append('doc', $("#lbl_doc").html());
+            }
         }
 
 
         if ($('.iti__selected-dial-code').text() != '' && $('.iti__selected-dial-code').text() != undefined
             && $('.iti__selected-dial-code').text() != 'undefined' && $('.iti__selected-dial-code').text() != null
         ) {
-           
+
             var arr = $('.iti__selected-dial-code').text().split('+');
             //console.log($('.iti__selected-dial-code').text());
             //console.log(arr);
@@ -2605,87 +2705,113 @@
 
                     if (key == "pic") {
 
-                        if (value != $("#lbl_pic").text()) {
 
-                            str += "<tr class='summaryRow' data-key='" + "pic" + "'>" +
-                                "<td class='summaryFldName'>" + "Pic" + "</td>";
+                        if (value != null || $("#lbl_pic").text() != "Choose Picture") {
+
+                            if (value != $("#lbl_pic").text()) {
+
+                                str += "<tr class='summaryRow' data-key='" + "pic" + "'>" +
+                                    "<td class='summaryFldName'>" + "Pic" + "</td>";
 
 
-                            str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>" +
-                                "<td class='summaryFldOldVal' style='display:none;'></td>" +
-                                "<td class='summaryFldNewVal' style='display:none;'></td>" +
-                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
-                                "</tr>";
+                                str += "<td class='summaryOldVal'>" + value + "</td>";
 
-                            isaudit = true;
+                                if ($("#lbl_pic").text() == "Choose Picture") {
+                                    str += "<td class='summaryNewVal'>" + $("#lbl_pic").text() + "</td>";
+                                } else {
+                                    str += "<td class='summaryNewVal'>assets/emppic/" + $("#lbl_pic").text() + "</td>";
+                                }
+
+
+                                str += "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                    "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                    "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                    "</tr>";
+
+                                isaudit = true;
+                            }
+
                         }
+
 
                     } else if (key == "doc") {
 
-                        if (value != $("#lbl_doc").text()) {
 
-                            str += "<tr class='summaryRow' data-key='" + "doc" + "'>" +
-                                "<td class='summaryFldName'>" + "Doc" + "</td>";
+                        if (value != null || $("#lbl_doc").text() != "Choose Documents") {
+
+                            if (value != $("#lbl_doc").text()) {
+
+                                str += "<tr class='summaryRow' data-key='" + "doc" + "'>" +
+                                    "<td class='summaryFldName'>" + "Doc" + "</td>";
 
 
-                            str += "<td class='summaryOldVal'>" + value + "</td>" +
-                                "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>" +
-                                "<td class='summaryFldOldVal' style='display:none;'></td>" +
-                                "<td class='summaryFldNewVal' style='display:none;'></td>" +
-                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
-                                "</tr>";
+                                str += "<td class='summaryOldVal'>" + value + "</td>";
 
-                            isaudit = true;
+                                if ($("#lbl_doc").text() == "Choose Documents") {
+                                    str += "<td class='summaryNewVal'>" + $("#lbl_doc").text() + "</td>";
+                                } else {
+                                    str += "<td class='summaryNewVal'>assets/docs/" + $("#lbl_doc").text() + "</td>";
+                                }
+
+
+                                str += "<td class='summaryFldOldVal' style='display:none;'></td>" +
+                                    "<td class='summaryFldNewVal' style='display:none;'></td>" +
+                                    "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                    "</tr>";
+
+                                isaudit = true;
+                            }
+
                         }
+
 
                     } else if (key == "degree") {
 
-                        console.log(key);
-
-
                         let test1 = $('#' + key).attr('data-oldval');
-                        let test2 =  $('#' + key).find('option:selected').val();
+                        let test2 = $('#' + key).find('option:selected').val();
 
 
-                        console.log(test1 + " - " + test2);
+                        if (test1 != "" && test1 != "undefined") {
 
+                            if (test1 != test2) {
 
-                        if (test1 != test2) {
+                                str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                    "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
 
-                            str += "<tr class='summaryRow' data-key='" + key + "'>" +
-                                "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
+                                str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                    "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                    "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                    "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                    "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                    "</tr>";
 
-                            str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
-                                "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
-                                "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
-                                "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
-                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
-                                "</tr>";
-
-                            isaudit = true;
+                                isaudit = true;
+                            }
                         }
 
                     } else if (key == "field") {
 
-                        /*let test1 = $('#' + key).attr('data-oldval');
-                        let test2 =  $('#' + key).find('option:selected').val();
+                        let test1 = $('#' + key).attr('data-oldval');
+                        let test2 = $('#' + key).find('option:selected').val();
 
 
-                        if (test1 != test2) {
+                        if (test1 != "" && test1 != "undefined") {
 
-                            str += "<tr class='summaryRow' data-key='" + key + "'>" +
-                                "<td class='summaryFldName'>" + $("#lbl_" + "field").text() + "</td>";
+                            if (test1 != test2) {
 
-                            str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
-                                "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
-                                "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
-                                "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
-                                "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
-                                "</tr>";
+                                str += "<tr class='summaryRow' data-key='" + key + "'>" +
+                                    "<td class='summaryFldName'>" + $("#lbl_" + "degree").text() + "</td>";
 
-                            isaudit = true;
-                        }*/
+                                str += "<td class='summaryOldVal'>" + $('#' + key).attr('data-oldlabel') + "</td>" +
+                                    "<td class='summaryNewVal'>" + $('#' + key).find('option:selected').attr('data-text') + "</td>" +
+                                    "<td class='summaryFldOldVal' style='display:none;'>" + $('#' + key).attr('data-oldval') + "</td>" +
+                                    "<td class='summaryFldNewVal' style='display:none;'>" + $('#' + key).find('option:selected').val() + "</td>" +
+                                    "<td class='SummaryEftDate'><input id='dt_" + key + "' name='dt_" + key + "' type='text' class='form-control pickadate-short-string' /></td>" +
+                                    "</tr>";
+
+                                isaudit = true;
+                            }
+                        }
 
                     } else if (key == "hiresalary") {
 
@@ -2777,7 +2903,6 @@
 
         str += "</table>";
 
-        return false;
 
         if (isaudit == true) {
             $("#tblaudit").html(str);
@@ -2860,7 +2985,7 @@
 
                         //$('#addModal').modal('hide');
                         setTimeout(function () {
-                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
+                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry')?>';
                             $("#ddlemptype").focus();
                         }, 500);
                     } else if (result == 4) {
@@ -2886,7 +3011,7 @@
 
                         //$('#addModal').modal('hide');
                         setTimeout(function () {
-                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry') ?>';
+                            window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry')?>';
                             $("#ddlemptype").focus();
                         }, 500);
                     } else if (result == 4) {

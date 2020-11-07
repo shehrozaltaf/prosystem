@@ -995,8 +995,8 @@ class Employee_entry extends CI_controller
 
         /*echo "<pre>";
         print_r($_POST);
+        print_r($_FILES);
         print_r($formArray);
-        echo "i m session - " . $_SESSION['id'];
         echo "</pre>";
 
         die();*/
@@ -1019,10 +1019,6 @@ class Employee_entry extends CI_controller
         }
 
 
-        //$Mempmdel = new Mempmodel();
-        //$data_old = $Mempmdel->getEmployeeData($id);
-
-
         if (isset($_FILES["imgfile"]["name"])) {
             $config['upload_path'] = 'assets/emppic';
             $config['allowed_types'] = 'jpg|jpeg|gif|png';
@@ -1042,8 +1038,15 @@ class Employee_entry extends CI_controller
         if (isset($_FILES["docfile"]["name"])) {
             $config2['upload_path'] = 'assets/docs';
             $config2['allowed_types'] = 'pdf';
-            $this->upload->initialize($config2);
+
+
+            if (isset($_FILES["imgfile"]["name"])) {
+                $this->upload->initialize($config2);
+            }
+
+
             $this->load->library('upload', $config2);
+
             if (!$this->upload->do_upload('docfile')) {
                 /*$error = array('error' => $this->upload->display_errors());
                 echo "<pre>";
@@ -1068,49 +1071,6 @@ class Employee_entry extends CI_controller
         }
 
         echo $result;
-    }
-
-
-    public function upload()
-    {
-        if (isset($_FILES["file"]["name"])) {
-            $config['upload_path'] = 'assets/emppic';
-            $config['allowed_types'] = 'jpg|jpeg|gif|png|pdf|xls|xlsx|csv|doc|docx|txt|rar|zip';
-
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('file')) {
-                $file = '';
-            } else {
-                $data = array('upload_data' => $this->upload->data());
-                $file = 'assets/emppic/' . $data['upload_data']['file_name'];
-            }
-
-
-            /*if ($this->upload->do_upload("pic")) {
-
-                echo "2";
-
-                $data = array('upload_data' => $this->upload->data());
-
-                echo "3";
-
-                //$title = $this->input->post('title');
-                //$image = $error['upload_data']['pic'];
-
-                //$error = $this->upload_model->save_upload($title, $image);
-
-                //echo json_encode($data);
-
-            } else {
-                $error = array('error1' => $this->upload->display_errors());
-
-                echo "4";
-                exit();
-
-                //echo json_encode($error);
-            }*/
-
-        }
     }
 
 
@@ -1169,6 +1129,28 @@ class Employee_entry extends CI_controller
             } else {
                 $results = array(['error' => 3]);
             }
+        } else {
+            $results = array(['error' => 2]);
+        }
+
+        echo json_encode($results);
+    }
+
+
+    function getEmployeeEmpNo()
+    {
+        if (isset($_POST['empno']) && $_POST['empno'] != '') {
+            $Mempmodel = new Mempmodel();
+            $empno = $_POST['empno'];
+
+            $getEmp = $Mempmodel->getEmployeeDataByEmpNo($empno);
+
+            $results = array();
+
+            if (isset($getEmp) && $getEmp != null) {
+                $results = array(['error' => 1]);
+            }
+
         } else {
             $results = array(['error' => 2]);
         }
