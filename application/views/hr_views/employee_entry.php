@@ -1428,21 +1428,24 @@
                                                     <?php if (isset($editemp[0]->id)) {
                                                         $_SESSION['id'] = $editemp[0]->id;
                                                         ?>
-                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
+                                                        <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
+                                                                type="button" class="btn btn-primary mr-1 mb-1"
                                                                 onclick="showSummary_SaveDraft();">Update Save Draft
                                                         </button>
 
-                                                        <button type="button" onclick="showSummary();"
+                                                        <button id="cmdSummary" name="cmdSummary" type="button"
+                                                                onclick="showSummary();"
                                                                 class="btn btn-primary mr-1 mb-1">Update
                                                         </button>
 
                                                     <?php } else { ?>
 
-                                                        <button type="button" class="btn btn-primary mr-1 mb-1"
+                                                        <button id="cmdAddSaveDraft" type="button"
+                                                                class="btn btn-primary mr-1 mb-1"
                                                                 onclick="addData_SaveDraft();">Save Draft
                                                         </button>
 
-                                                        <button type="button" onclick="addData();"
+                                                        <button id="cmdAddData" type="button" onclick="addData();"
                                                                 class="btn btn-primary mr-1 mb-1">Save
                                                         </button>
 
@@ -1566,7 +1569,26 @@
                 try {
                     if (a[0] != null) {
                         toastMsg('Error', 'Employee number already exists', 'error');
+
+                        $('#cmdUpdateSaveDraft').css('display', 'none');
+                        $('#cmdSummary').css('display', 'none');
+                        $('#cmdAddSaveDraft').css('display', 'none');
+                        $('#cmdAddData').css('display', 'none');
+
                         $("#empno").focus();
+                    } else {
+
+                        <?php if (isset($editemp[0]->id)) { ?>
+
+                        $('#cmdUpdateSaveDraft').removeAttr('style');
+                        $('#cmdSummary').removeAttr('style');
+
+                        <?php } else { ?>
+
+                        $('#cmdAddSaveDraft').removeAttr('style');
+                        $('#cmdAddData').removeAttr('style');
+
+                        <?php } ?>
                     }
                 } catch (e) {
                 }
@@ -2298,7 +2320,12 @@
                                 let test2 = $('#' + key).find('option:selected').val();
 
 
-                                if (test1 != "" && test1 != "undefined") {
+                                if (test1 != "" && test2 != undefined ||
+                                    test1 != "" && test2 != 'undefined' ||
+                                    test1 != null && test2 != null ||
+                                    test1 != "" && test2 != "" ||
+                                    test1 != "" && test2 != 0
+                                ) {
 
                                     if (test1 != test2) {
 
@@ -2322,7 +2349,12 @@
                                 let test2 = $('#' + key).find('option:selected').val();
 
 
-                                if (test1 != "" && test1 != "undefined") {
+                                if (test1 != "" && test2 != undefined ||
+                                    test1 != "" && test2 != 'undefined' ||
+                                    test1 != null && test2 != null ||
+                                    test1 != "" && test2 != "" ||
+                                    test1 != "" && test2 != 0
+                                ) {
 
                                     if (test1 != test2) {
 
@@ -2771,7 +2803,7 @@
                         let test2 = $('#' + key).find('option:selected').val();
 
 
-                        if (test1 != "" && test1 != "undefined") {
+                        if (test1 != "" && test2 != "0") {
 
                             if (test1 != test2) {
 
@@ -2795,7 +2827,7 @@
                         let test2 = $('#' + key).find('option:selected').val();
 
 
-                        if (test1 != "" && test1 != "undefined") {
+                        if (test1 != "" && test2 != 0) {
 
                             if (test1 != test2) {
 
@@ -3503,7 +3535,6 @@
 
     function checkValues() {
 
-
         var iserror = false;
 
         var re = /^[A-Za-z]+$/;
@@ -3702,7 +3733,8 @@
             }
         }
 
-        if ($("#remarks").val() == "" && $("#remarks").val() == null && $("#remarks").val() == 'null' && $("#remarks").val() == undefined && $("#remarks").val() == 'undefined') {
+        if ($("#remarks").val() == "" && $("#remarks").val() == null
+            && $("#remarks").val() == 'null' && $("#remarks").val() == undefined && $("#remarks").val() == 'undefined') {
 
             var re = /[^\w\s]/gi;
 

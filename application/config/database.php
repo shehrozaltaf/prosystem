@@ -75,10 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'f38158',
-    'username' => 'app',
-    'password' => 'abcd1234',
-    'database' => 'hrsystem',*/
+    'hostname' => 'F46916',
+    'username' => 'sa',
+    'password' => 'data.123',
+    'database' => 'hrsystem',
+
     'dbdriver' => 'sqlsrv',
     'dbprefix' => '',
     'pconnect' => FALSE,

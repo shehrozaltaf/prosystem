@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Mhr_settings extends CI_Model
+class Mhr_Location extends CI_Model
 {
     public function __construct()
     {
