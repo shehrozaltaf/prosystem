@@ -32,15 +32,24 @@
                                     <div class="row">
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
-                                                <label for="proj_code" class="label-control">Project Code</label>
-                                                <input type="text" class="form-control" id="proj_code" name="proj_code"
-                                                       autocomplete="proj_code" required>
+                                                <label for="proj_code" class="label-control">Select Project</label>
+                                                <select name="proj_code" id="proj_code" class="form-control select2"
+                                                        autocomplete="proj_code" required>
+                                                    <option value="0" readonly disabled selected>Select Project</option>
+                                                    <?php if (isset($project) && $project != '') {
+
+                                                        foreach ($project as $k => $p) {
+                                                            echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
-                                                <input type="text" class="form-control" id="bdgt_code" name="bdgt_code"
+                                                <input type="number" class="form-control" id="bdgt_code"
+                                                       name="bdgt_code"
                                                        autocomplete="bdgt_code" required>
 
                                             </div>
@@ -64,7 +73,8 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_amnt" class="label-control">Amount</label>
-                                                <input type="text" class="form-control" id="bdgt_amnt" name="bdgt_amnt"
+                                                <input type="number" class="form-control" id="bdgt_amnt"
+                                                       name="bdgt_amnt"
                                                        autocomplete="bdgt_amnt" required>
 
                                             </div>
@@ -72,7 +82,8 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_pctg" class="label-control">Percentage</label>
-                                                <input type="text" class="form-control" id="bdgt_pctg" name="bdgt_pctg"
+                                                <input type="number" class="form-control" id="bdgt_pctg"
+                                                       name="bdgt_pctg"
                                                        autocomplete="bdgt_pctg" required>
 
                                             </div>
@@ -80,27 +91,48 @@
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_month" class="label-control">Month</label>
-                                                <input type="text" class="form-control" id="bdgt_month" name="bdgt_month"
-                                                       autocomplete="bdgt_month" required>
-
+                                                <select name="bdgt_month" id="bdgt_month" class="form-control select2"
+                                                        autocomplete="bdgt_month" required>
+                                                    <option value="0" readonly disabled selected>Select Month</option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
                                                 <label for="bdgt_year" class="label-control">Year</label>
-                                                <input type="text" class="form-control" id="bdgt_year" name="bdgt_year"
-                                                       autocomplete="bdgt_year" required>
+                                                <select name="bdgt_year" id="bdgt_year" class="form-control select2"
+                                                        autocomplete="bdgt_year" required>
+                                                    <option value="0" readonly disabled selected>Select Year</option>
+                                                    <?php
+                                                    for ($year = date('Y'); $year >= 2000; $year--) {
+                                                        echo ' <option value="' . $year . '">' . $year . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
 
                                             </div>
                                         </div>
 
-                                        
-                                      
 
-                                    <div class="">
-                                        <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
-                                            Insert Asset
-                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                                Insert Budget
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm-12">
@@ -112,7 +144,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
 
         </div>
@@ -121,7 +152,7 @@
 <!-- END: Content-->
 
 
-<script> 
+<script>
 
     function insertData() {
         var data = {};
@@ -147,7 +178,7 @@
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
                         setTimeout(function () {
-                            window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Budget') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');

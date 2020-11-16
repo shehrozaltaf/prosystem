@@ -21,6 +21,7 @@ class Dashboard extends CI_controller
 
     function index()
     {
+
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();

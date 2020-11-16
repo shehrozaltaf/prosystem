@@ -36,7 +36,8 @@ class Actual extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function addActual_view(){
+    function addActual_view()
+    {
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
@@ -45,11 +46,11 @@ class Actual extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Actual');
 
-        $MActual= new Mactual();
+        $MActual = new Mactual();
         $data['data'] = $MActual->getAll();
-
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -84,16 +85,14 @@ class Actual extends CI_controller
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['actl_year']) || $_POST['actl_year'] == '' || $_POST['actl_year'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Year');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
 
-       
-       
 
         if ($flag == 0) {
             $Custom = new Custom();
@@ -101,11 +100,11 @@ class Actual extends CI_controller
             $insertArray['proj_code'] = $_POST['proj_code'];
             $insertArray['empl_code'] = $_POST['empl_code'];
             $insertArray['actl_pctg'] = $_POST['actl_pctg'];
-            $insertArray['actl_month'] = $_POST['actl_month']; 
-            $insertArray['actl_year'] = $_POST['actl_year']; 
-            
-            // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-            // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $insertArray['actl_month'] = $_POST['actl_month'];
+            $insertArray['actl_year'] = $_POST['actl_year'];
+            $insertArray['isActive'] = 1;
+            $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+            $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idActual', 'b_actual', 'N');
             if ($InsertData) {
                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
@@ -143,7 +142,8 @@ class Actual extends CI_controller
     }
 
 
-    function editActual_view(){
+    function editActual_view()
+    {
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
@@ -152,11 +152,11 @@ class Actual extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '',  uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Actual');
 
-        $MActual= new Mactual();
+        $MActual = new Mactual();
         $data['data'] = $MActual->getAll();
-
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -197,16 +197,14 @@ class Actual extends CI_controller
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
         if (!isset($_POST['actl_year']) || $_POST['actl_year'] == '' || $_POST['actl_year'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Year');
             $flag = 1;
             echo json_encode($result);
             exit();
-        } 
+        }
 
-       
-       
 
         if ($flag == 0) {
             $idActual = $_POST['idActual'];
@@ -215,11 +213,11 @@ class Actual extends CI_controller
             $editArr['proj_code'] = $_POST['proj_code'];
             $editArr['empl_code'] = $_POST['empl_code'];
             $editArr['actl_pctg'] = $_POST['actl_pctg'];
-            $editArr['actl_month'] = $_POST['actl_month']; 
-            $editArr['actl_year'] = $_POST['actl_year']; 
+            $editArr['actl_month'] = $_POST['actl_month'];
+            $editArr['actl_year'] = $_POST['actl_year'];
             $editArr['updateBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            
+
             // $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             // $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $editData = $Custom->Edit($editArr, 'idActual', $idActual, 'b_actual');

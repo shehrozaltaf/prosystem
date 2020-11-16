@@ -46,7 +46,7 @@ class Project extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Project');
 
         $Mproject = new Mproject();
         $data['data'] = $Mproject->getAll();
@@ -144,7 +144,7 @@ class Project extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '','budget_controllers/Project');
 
         $Mproject = new Mproject();
         $data['data'] = $Mproject->getProjectById($id);

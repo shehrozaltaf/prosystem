@@ -47,7 +47,8 @@
                                         </div>
                                         <div class="col-sm-6 col-6">
                                             <div class="form-group">
-                                                <label for="proj_priv" class="label-control">Principal Investigator</label>
+                                                <label for="proj_priv" class="label-control">Principal
+                                                    Investigator</label>
                                                 <input type="text" class="form-control" id="proj_priv" name="proj_priv"
                                                        autocomplete="proj_priv" required>
 
@@ -61,10 +62,13 @@
 
                                             </div>
                                         </div>
-                                    <div class="">
-                                        <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
-                                            Insert Asset
-                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                                Insert Project
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm-12">
@@ -76,7 +80,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
 
         </div>
@@ -92,7 +95,7 @@
         data['proj_code'] = $('#proj_code').val();
         data['proj_name'] = $('#proj_name').val();
         data['proj_priv'] = $('#proj_priv').val();
-        data['proj_sn'] = $('#proj_sn').val(); 
+        data['proj_sn'] = $('#proj_sn').val();
         var vd = validateData(data);
         if (vd) {
             showloader();
@@ -105,7 +108,7 @@
                     if (response[0] == 'Success') {
                         toastMsg(response[0], response[1], 'success');
                         setTimeout(function () {
-                            // window.location.reload();
+                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Project') ?>';
                         }, 1500)
                     } else {
                         toastMsg(response[0], response[1], 'error');
