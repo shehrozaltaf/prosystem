@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -30,14 +30,14 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
                                                 <input type="number" class="form-control" id="proj_code" name="proj_code"
                                                        autocomplete="proj_code" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_name" class="label-control">Project Name</label>
                                                 <input type="text" class="form-control" id="proj_name" name="proj_name"
@@ -45,7 +45,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_priv" class="label-control">Principal
                                                     Investigator</label>
@@ -54,7 +54,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_sn" class="label-control">Short Name</label>
                                                 <input type="text" class="form-control" id="proj_sn" name="proj_sn"
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                            <button type="button" class="btn btn-primary btn-block mybtn" onclick="insertData()">
                                                 Insert Project
                                             </button>
                                         </div>

@@ -147,13 +147,13 @@ class Add_asset extends CI_controller
             $InsertData = $Custom->Insert($insertArray, 'id', 'i_paedsinventory', 'Y');
             if ($InsertData) {
 
-                $Custom->insrt_inventory_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
-                $Custom->insrt_inventory_AT($InsertData, 'inventory_model', 'inventory_model', 'Model', 'New Entry', $insertArray['model']);
-                $Custom->insrt_inventory_AT($InsertData, 'product', 'product', 'Product', 'New Entry', $insertArray['product']);
-                $Custom->insrt_inventory_AT($InsertData, 'serial', 'serial', 'Serial', 'New Entry', $insertArray['serial']);
-                $Custom->insrt_inventory_AT($InsertData, 'project', 'proj_code', 'Project Code', 'New Entry', $insertArray['proj_code']);
-                $Custom->insrt_inventory_AT($InsertData, 'location', 'loc', 'Location', 'New Entry', $insertArray['loc']);
-                $Custom->insrt_inventory_AT($InsertData, 'username', 'username', 'username', 'New Entry', $insertArray['username']);
+                $Custom->insrt_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
+                $Custom->insrt_AT($InsertData, 'inventory_model', 'inventory_model', 'Model', 'New Entry', $insertArray['model']);
+                $Custom->insrt_AT($InsertData, 'product', 'product', 'Product', 'New Entry', $insertArray['product']);
+                $Custom->insrt_AT($InsertData, 'serial', 'serial', 'Serial', 'New Entry', $insertArray['serial']);
+                $Custom->insrt_AT($InsertData, 'project', 'proj_code', 'Project Code', 'New Entry', $insertArray['proj_code']);
+                $Custom->insrt_AT($InsertData, 'location', 'loc', 'Location', 'New Entry', $insertArray['loc']);
+                $Custom->insrt_AT($InsertData, 'username', 'username', 'username', 'New Entry', $insertArray['username']);
 
                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
             } else {

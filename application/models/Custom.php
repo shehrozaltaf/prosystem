@@ -92,7 +92,7 @@ class Custom extends CI_Model
 
     /*==========Log=============*/
 
-    function insrt_inventory_AT($formId, $FormName, $Fieldid, $FieldName, $OldValue, $NewValue)
+    function insrt_AT($formId, $FormName, $Fieldid, $FieldName, $OldValue, $NewValue)
     {
         $at_insertArray = array();
         $at_insertArray['FormID'] = $formId;

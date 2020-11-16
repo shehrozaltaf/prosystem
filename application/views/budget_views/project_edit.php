@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -34,16 +34,16 @@
                                         <input type="hidden" id="idProject" name="idProject"
                                                autocomplete="idProject" required
                                                value="<?php echo(isset($mydata->idProject) && $mydata->idProject != '' ? $mydata->idProject : '') ?>">
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
                                                 <input type="number" class="form-control" id="proj_code"
-                                                       name="proj_code"
+                                                       name="proj_code" readonly disabled
                                                        autocomplete="proj_code" required
                                                        value="<?php echo(isset($mydata->proj_code) && $mydata->proj_code != '' ? $mydata->proj_code : '') ?>">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_name" class="label-control">Project Name</label>
                                                 <input type="text" class="form-control" id="proj_name" name="proj_name"
@@ -52,7 +52,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_priv" class="label-control">Principal
                                                     Investigator</label>
@@ -62,7 +62,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_sn" class="label-control">Short Name</label>
                                                 <input type="text" class="form-control" id="proj_sn" name="proj_sn"
@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <button type="button" class="btn btn-primary mybtn" onclick="updateData()">
+                                            <button type="button" class="btn btn-primary btn-block mybtn" onclick="updateData()">
                                                 Edit Project
                                             </button>
                                         </div>

@@ -210,7 +210,7 @@
 
                 if (res == 1) {
                     setTimeout(function () {
-                        window.location.href = "<?php echo base_url() . 'index.php/hr_controllers/employee_entry' ?>";
+                        window.location.href = "<?php echo base_url() . 'index.php/Dashboard' ?>";
                     }, 500);
                     returnMsg('msg', 'Success', 'alert-success');
                 } else if (res == 2 || res == 5) {

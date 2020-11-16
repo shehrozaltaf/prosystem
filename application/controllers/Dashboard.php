@@ -21,21 +21,20 @@ class Dashboard extends CI_controller
 
     function index()
     {
-
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
-        $trackarray = array("action" => "View LineListing Dashboard",
-            "result" => "View LineListing Dashboard page. Fucntion: dashboard/index()");
-//        $Custom->trackLogs($trackarray, "user_logs");
+        $trackarray = array("action" => "View Dashboard",
+            "result" => "View Dashboard Main page. Fucntion: dashboard/index()");
+        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'Dashboard');
 
-        $this->load->view('include/header');
+        $this->load->view('include/header',$data);
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
-        $this->load->view('dashboard', $data);
+        $this->load->view('welcome');
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }

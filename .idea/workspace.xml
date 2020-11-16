@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/welcome.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Upload_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Upload_data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/actual_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/actual_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/actual_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/actual_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/budget_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/budget_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Custom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mproject.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mproject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/budget_views/project_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/project_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/budget_views/project_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/project_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/upload_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/upload_data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_11_5_2020.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_11_5_2020.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_11_16_2020.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_11_16_2020.txt" afterDir="false" />
     </list>
     <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" />
     <ignored path="D:\xampp\htdocs\prosystem\.idea\shelf/" />
@@ -33,12 +29,38 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="31" column="75" lean-forward="true" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/welcome.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="212" column="92" selection-start-line="212" selection-start-column="92" selection-end-line="212" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showmo</find>
-      <find>auditModal</find>
       <find>onkey</find>
       <find>saved</find>
       <find>save</find>
@@ -67,6 +89,8 @@
       <find>adddata</find>
       <find>isadd</find>
       <find>blur</find>
+      <find>col-sm-6 col-6</find>
+      <find>insrt_inventory_AT</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -83,6 +107,8 @@
       <replace>label-control customlabel</replace>
       <replace>Edit</replace>
       <replace>assets</replace>
+      <replace>col-sm-12 col-12</replace>
+      <replace>insrt_AT</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -105,7 +131,6 @@
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
@@ -113,6 +138,16 @@
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mproject.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project_edit.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
+        <option value="$PROJECT_DIR$/application/views/auth/login.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/views/welcome.php" />
       </list>
     </option>
   </component>
@@ -146,6 +181,39 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="budget_controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory_controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="budget_model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -153,14 +221,7 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -172,7 +233,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/css/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,11 +247,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\prosystem\application\views" />
       <recent name="C:\xampp\htdocs\prosystem\assets\css\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\js\scripts" />
       <recent name="C:\xampp\htdocs\prosystem\assets\images\pages" />
       <recent name="C:\xampp\htdocs\prosystem\assets\css" />
-      <recent name="C:\xampp\htdocs\prosystem\application\models\budget_model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -238,6 +299,7 @@
       <workItem from="1604725182224" duration="15274000" />
       <workItem from="1604896941886" duration="16386000" />
       <workItem from="1604982783396" duration="9444000" />
+      <workItem from="1605521551704" duration="3518000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -414,16 +476,24 @@
       <option name="project" value="LOCAL" />
       <updated>1604742963736</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="shehroz changes">
+      <created>1605506412285</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1605506412285</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205060000" />
+    <option name="totallyTimeSpent" value="209557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2292176" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23227383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -485,7 +555,8 @@
     <MESSAGE value="inventory - delete" />
     <MESSAGE value="inventory - upload data" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="shehroz changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="shehroz changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -499,84 +570,12 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/scripts/ui/data-list-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="26" selection-end-column="41" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/Encrypt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/app-ecommerce-details.html" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rapple/web_header.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="92" />
-          <folding>
-            <element signature="e#8265#9471#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/settings/pages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="310" column="5" lean-forward="true" selection-start-line="281" selection-start-column="2" selection-end-line="310" selection-end-column="5" />
-          <folding>
-            <element signature="e#12337#14387#0#HTML" />
-            <element signature="e#14417#14556#0#HTML" />
-            <element signature="e#14584#15516#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1674">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1862">
-          <caret line="197" column="35" selection-start-line="197" selection-start-column="35" selection-end-line="197" selection-end-column="35" />
-          <folding>
-            <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
     <entry file="file://$PROJECT_DIR$/application/models/MSettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="131" column="9" lean-forward="true" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="396" column="110" selection-start-line="396" selection-start-column="110" selection-end-line="396" selection-end-column="110" />
         </state>
       </provider>
     </entry>
@@ -700,27 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="255" column="53" lean-forward="true" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="25" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -748,13 +726,6 @@
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php">
@@ -820,33 +791,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/devices-2020-10-23.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/kish_mwra-2020-10-02.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/mwra-2020-10-07.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/mwra_preg-2020-10-01.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/devices-2020-10-07.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-246">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/devices-2020-10-23.json" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/kish_mwra-2020-10-02.json" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/mwra-2020-10-07.json" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/mwra_preg-2020-10-01.json" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/devices-2020-10-07.json" />
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/audit_trial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="396" column="110" selection-start-line="396" selection-start-column="110" selection-end-line="396" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" column="83" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="76" column="46" lean-forward="true" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mproject.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="40" column="89" selection-start-line="40" selection-start-column="89" selection-end-line="40" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="94" column="21" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="859">
+          <caret line="215" column="81" selection-start-line="215" selection-start-column="81" selection-end-line="215" selection-end-column="81" />
+          <folding>
+            <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
+            <element signature="n#insertData#0;n#Project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tpvics_s/application/views/welcome.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="212" column="92" selection-start-line="212" selection-start-column="92" selection-end-line="212" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="44" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="34" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="31" column="75" lean-forward="true" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
         </state>
       </provider>
     </entry>

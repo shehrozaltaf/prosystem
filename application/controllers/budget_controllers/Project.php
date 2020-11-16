@@ -89,20 +89,29 @@ class Project extends CI_controller
         }
 
         if ($flag == 0) {
-            $Custom = new Custom();
-            $insertArray = array();
-            $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['proj_name'] = $_POST['proj_name'];
-            $insertArray['proj_priv'] = $_POST['proj_priv'];
-            $insertArray['proj_sn'] = $_POST['proj_sn'];
-            $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-            $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($insertArray, 'idProject', 'project', 'N');
-            if ($InsertData) {
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+            $proj_code = $_POST['proj_code'];
+            $M = new Mproject();
+            $getProjectByProCode = $M->getProjectByProCode($proj_code);
+            if (count($getProjectByProCode) >= 1) {
+                $result = array('0' => 'Error', '1' => 'Duplicate Project Code');
             } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                $Custom = new Custom();
+                $insertArray = array();
+                $insertArray['proj_code'] = $proj_code;
+                $insertArray['proj_name'] = $_POST['proj_name'];
+                $insertArray['proj_priv'] = $_POST['proj_priv'];
+                $insertArray['proj_sn'] = $_POST['proj_sn'];
+                $insertArray['isActive'] = 1;
+                $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+                $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+                $InsertData = $Custom->Insert($insertArray, 'idProject', 'project', 'N');
+                if ($InsertData) {
+                    $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                } else {
+                    $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                }
             }
+
             echo json_encode($result);
         }
 
@@ -144,11 +153,10 @@ class Project extends CI_controller
 //        $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '','budget_controllers/Project');
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'budget_controllers/Project');
 
         $Mproject = new Mproject();
         $data['data'] = $Mproject->getProjectById($id);
-
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -197,7 +205,7 @@ class Project extends CI_controller
             $idProject = $_POST['idProject'];
             $Custom = new Custom();
             $editArr = array();
-            $editArr['proj_code'] = $_POST['proj_code'];
+//            $editArr['proj_code'] = $_POST['proj_code'];
             $editArr['proj_name'] = $_POST['proj_name'];
             $editArr['proj_priv'] = $_POST['proj_priv'];
             $editArr['proj_sn'] = $_POST['proj_sn'];
