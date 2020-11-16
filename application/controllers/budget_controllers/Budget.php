@@ -26,6 +26,7 @@ class Budget extends CI_controller
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
+
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -49,13 +50,25 @@ class Budget extends CI_controller
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
         $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
-
+        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
         $this->load->view('budget_views/budget_add', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
+    }
+
+    function getDesignation()
+    {
+        if (isset($_POST['bdgt_band']) && $_POST['bdgt_band'] != '') {
+            $M = new Mbudget();
+            $getDesignation = $M->getDesignation($_POST['bdgt_band']);
+            $result = array('0' => 'Success', '1' => $getDesignation);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Band');
+        }
+        echo json_encode($result);
     }
 
     function insertData()
@@ -98,14 +111,26 @@ class Budget extends CI_controller
             echo json_encode($result);
             exit();
         }
-        if (!isset($_POST['bdgt_month']) || $_POST['bdgt_month'] == '' || $_POST['bdgt_month'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Prohect Month');
+        if (!isset($_POST['bdgt_start_month']) || $_POST['bdgt_start_month'] == '' || $_POST['bdgt_start_month'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Start Month');
             $flag = 1;
             echo json_encode($result);
             exit();
         }
-        if (!isset($_POST['bdgt_year']) || $_POST['bdgt_year'] == '' || $_POST['bdgt_year'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Prohect Year');
+        if (!isset($_POST['bdgt_start_year']) || $_POST['bdgt_start_year'] == '' || $_POST['bdgt_start_year'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Start Year');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['bdgt_end_month']) || $_POST['bdgt_end_month'] == '' || $_POST['bdgt_end_month'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget End Month');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['bdgt_end_year']) || $_POST['bdgt_end_year'] == '' || $_POST['bdgt_end_year'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget End Year');
             $flag = 1;
             echo json_encode($result);
             exit();
@@ -119,9 +144,11 @@ class Budget extends CI_controller
             $insertArray['bdgt_band'] = $_POST['bdgt_band'];
             $insertArray['bdgt_amnt'] = $_POST['bdgt_amnt'];
             $insertArray['bdgt_pctg'] = $_POST['bdgt_pctg'];
-            $insertArray['bdgt_month'] = $_POST['bdgt_month'];
-            $insertArray['bdgt_year'] = $_POST['bdgt_year'];
-            $insertArray['isActive'] =1;
+            $insertArray['bdgt_start_month'] = $_POST['bdgt_start_month'];
+            $insertArray['bdgt_start_year'] = $_POST['bdgt_start_year'];
+            $insertArray['bdgt_end_month'] = $_POST['bdgt_end_month'];
+            $insertArray['bdgt_end_year'] = $_POST['bdgt_end_year'];
+            $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idBugt', 'b_budget', 'N');
@@ -135,7 +162,6 @@ class Budget extends CI_controller
         }
 
     }
-
 
     function deleteData()
     {

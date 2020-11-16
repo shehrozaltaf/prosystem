@@ -15,4 +15,14 @@ class Mbudget extends CI_Model
         return $query->result();
     }
 
+    function getDesignation($band)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_desig');
+        $this->db->where('band', $band);
+        $this->db->order_By('desig', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
