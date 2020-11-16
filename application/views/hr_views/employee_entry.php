@@ -2802,10 +2802,17 @@
                         let test1 = $('#' + key).attr('data-oldval');
                         let test2 = $('#' + key).find('option:selected').val();
 
+                        console.log(test1 + " - " + test2);
 
-                        if (test1 != "" && test2 != "0") {
+                        if (test1 != "" && test2 != "0" ||
+                            test1 != null && test2 != "0"
+                        ) {
+
+                            console.log(test1 + " - " + test2);
 
                             if (test1 != test2) {
+
+                                console.log(test1 + " - " + test2);
 
                                 str += "<tr class='summaryRow' data-key='" + key + "'>" +
                                     "<td class='summaryFldName'>" + $("#lbl_" + key).text() + "</td>";
@@ -2827,7 +2834,9 @@
                         let test2 = $('#' + key).find('option:selected').val();
 
 
-                        if (test1 != "" && test2 != 0) {
+                        if (test1 != "" && test2 != "0" ||
+                            test1 != null && test2 != "0"
+                        ){
 
                             if (test1 != test2) {
 
