@@ -7,10 +7,24 @@ class Mbudget extends CI_Model
 
     function getAll()
     {
-        $this->db->select('*');
+        $this->db->select('b_budget.idBugt,
+	b_budget.proj_code,
+	b_budget.bdgt_code,
+	b_budget.bdgt_posi,
+	b_budget.bdgt_band,
+	b_budget.bdgt_amnt,
+	b_budget.bdgt_pctg,
+	b_budget.bdgt_start_month,
+	b_budget.bdgt_start_year,
+	b_budget.bdgt_end_month,
+	b_budget.bdgt_end_year,
+	hr_band.band,
+	hr_desig.desig');
         $this->db->from('b_budget');
-        $this->db->where('isActive', 1);
-        $this->db->order_By('idBugt', 'DESC');
+        $this->db->join('hr_band','b_budget.bdgt_band = hr_band.id','left');
+        $this->db->join('hr_desig','b_budget.bdgt_posi = hr_desig.id','left');
+        $this->db->where('b_budget.isActive', 1);
+        $this->db->order_By('b_budget.idBugt', 'DESC');
         $query = $this->db->get();
         return $query->result();
     }

@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -30,7 +30,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project</label>
                                                 <select name="proj_code" id="proj_code" class="form-control select2"
@@ -45,7 +45,23 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
                                                 <input type="text" class="form-control" id="bdgt_code"
@@ -54,23 +70,7 @@
 
                                             </div>
                                         </div>
-                                        <!-- <div class="col-sm-6 col-6">
-                                             <div class="form-group">
-                                                 <label for="bdgt_posi" class="label-control">Position</label>
-                                                 <input type="text" class="form-control" id="bdgt_posi" name="bdgt_posi"
-                                                        autocomplete="bdgt_posi" required>
-
-                                             </div>
-                                         </div>-->
-                                        <!-- <div class="col-sm-6 col-6">
-                                             <div class="form-group">
-                                                 <label for="bdgt_band" class="label-control">Budget Band</label>
-                                                 <input type="text" class="form-control" id="bdgt_band" name="bdgt_band"
-                                                        autocomplete="bdgt_band" required>
-
-                                             </div>
-                                         </div>-->
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_band" class="label-control">Band</label>
                                                 <select name="bdgt_band" id="bdgt_band" class="form-control select2"
@@ -84,7 +84,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_posi" class="label-control">Position</label>
                                                 <select name="bdgt_posi" id="bdgt_posi" class="form-control select2"
@@ -97,7 +97,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_amnt" class="label-control">Amount</label>
                                                 <input type="text" class="form-control" id="bdgt_amnt"
@@ -106,7 +106,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_pctg" class="label-control">Percentage (%)</label>
                                                 <input type="text" class="form-control" id="bdgt_pctg"
@@ -115,10 +115,15 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_start_month" class="label-control">Start Month</label>
-                                                <select name="bdgt_start_month" id="bdgt_start_month"
+                                                <input type="text" class="form-control mypickadat" id="bdgt_start_month" name="bdgt_start_month"
+                                                       autocomplete="bdgt_start_month" value="<?php echo date('01-m-Y') ?>" required>
+                                                <!--<select name="bdgt_start_month" id="bdgt_start_month"
                                                         class="form-control select2"
                                                         autocomplete="bdgt_start_month" required>
                                                     <option value="0" readonly disabled selected>Start Month</option>
@@ -134,10 +139,10 @@
                                                     <option value="10">October</option>
                                                     <option value="11">November</option>
                                                     <option value="12">December</option>
-                                                </select>
+                                                </select>-->
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_start_year" class="label-control">Start Year</label>
                                                 <select name="bdgt_start_year" id="bdgt_start_year"
@@ -153,7 +158,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
                                                 <label for="bdgt_end_month" class="label-control">End Month</label>
                                                 <select name="bdgt_end_month" id="bdgt_end_month"
@@ -175,14 +180,15 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-2 col-2">
                                             <div class="form-group">
-                                                <label for="bdgt_year" class="label-control">End Year</label>
-                                                <select name="bdgt_year" id="bdgt_year" class="form-control select2"
+                                                <label for="bdgt_end_year" class="label-control">End Year</label>
+                                                <select name="bdgt_end_year" id="bdgt_end_year"
+                                                        class="form-control select2"
                                                         autocomplete="bdgt_end_year" required>
                                                     <option value="0" readonly disabled selected>End Year</option>
                                                     <?php
-                                                    for ($year = date('Y'); $year >= 2000; $year--) {
+                                                    for ($year = date('Y'); $year <= date('Y', strtotime('+5 years')); $year++) {
                                                         echo ' <option value="' . $year . '">' . $year . '</option>';
                                                     }
                                                     ?>
@@ -191,9 +197,23 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                            <button type="button" class="btn btn-primary btn-block mybtn" onclick="insertData()">
                                                 Insert Budget
                                             </button>
                                         </div>
@@ -204,18 +224,35 @@
                                             <p class="res_msg" style="color: green;"></p>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
 
         </div>
     </div>
 </div>
 <!-- END: Content-->
-
+<!--<link rel="stylesheet" href="<?php /*echo base_url()*/?>assets/vendors/jquery-date-range-picker-master/daterangepicker.min.css">
+<script type="text/javascript" src="<?php /*echo base_url()*/?>assets/vendors/jquery-date-range-picker-master/src/moment.min.js"></script>
+<script type="text/javascript" src="<?php /*echo base_url()*/?>assets/vendors/jquery-date-range-picker-master/jquery.daterangepicker.min.js"></script>-->
 <script>
+
+
+    function mydate() {
+        $('.mypickadat').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2020, 12, 1),
+            max: true,
+            format: 'dd-mm-yyyy'
+        });
+    }
+
+
     function chngeBand() {
         var data = {};
         data['bdgt_band'] = $('#bdgt_band').val();
@@ -244,6 +281,7 @@
     $(document).ready(function () {
         validateNum('bdgt_amnt');
         validateNum('bdgt_pctg');
+        mydate();
     });
 
     function insertData() {

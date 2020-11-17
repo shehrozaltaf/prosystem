@@ -40,12 +40,12 @@
                                                 <th>SNo</th>
                                                 <th>Project Code</th>
                                                 <th>Budget Code</th>
+                                                <th>Band</th>
                                                 <th>Position</th>
-                                                <th>band</th>
                                                 <th>Amount</th>
                                                 <th>Percentage</th>
-                                                <th>Month</th>
-                                                <th>Year</th>
+                                                <th>Start Month-Year</th>
+                                                <th>End Month-Year</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -59,19 +59,50 @@
                                                         <td><?php echo $SNo ?></td>
                                                         <td><?php echo $v->proj_code ?></td>
                                                         <td><?php echo $v->bdgt_code ?></td>
-                                                        <td><?php echo $v->bdgt_posi ?></td>
-                                                        <td><?php echo $v->bdgt_band ?></td>
+                                                        <td><?php echo $v->band ?></td>
+                                                        <td><?php echo $v->desig ?></td>
                                                         <td><?php echo $v->bdgt_amnt ?></td>
-                                                        <td><?php echo $v->bdgt_pctg ?></td>
-                                                        <td><?php echo $v->bdgt_month ?></td>
-                                                        <td><?php echo $v->bdgt_year ?></td>
-                                                            <td data-id="<?php echo $v->idBugt ?>"> 
-                                                                <a href="javascript:void(0)" onclick="getDelete(this)">
-                                                                                <i class="feather icon-trash"></i>
-                                                                            </a>
+                                                        <td><?php echo (isset($v->bdgt_pctg) && $v->bdgt_pctg!=''?$v->bdgt_pctg:'0').'%' ?></td>
+                                                        <td><?php echo returnM($v->bdgt_start_month) . '-' . $v->bdgt_start_year ?></td>
+                                                        <td><?php echo returnM($v->bdgt_end_month) . '-' . $v->bdgt_end_year ?></td>
+                                                        <td data-id="<?php echo $v->idBugt ?>">
+                                                            <a href="javascript:void(0)" onclick="getDelete(this)">
+                                                                <i class="feather icon-trash"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 <?php }
+                                            }
+                                            function returnM($month)
+                                            {
+                                                if ($month == 1) {
+                                                    $res = 'Jan';
+                                                } elseif ($month == 2) {
+                                                    $res = 'Feb';
+                                                } elseif ($month == 3) {
+                                                    $res = 'Mar';
+                                                } elseif ($month == 4) {
+                                                    $res = 'Apr';
+                                                } elseif ($month == 5) {
+                                                    $res = 'May';
+                                                } elseif ($month == 6) {
+                                                    $res = 'June';
+                                                } elseif ($month == 7) {
+                                                    $res = 'July';
+                                                } elseif ($month == 8) {
+                                                    $res = 'Aug';
+                                                } elseif ($month == 9) {
+                                                    $res = 'Sep';
+                                                } elseif ($month == 10) {
+                                                    $res = 'Oct';
+                                                } elseif ($month == 11) {
+                                                    $res = 'Nov';
+                                                } elseif ($month == 12) {
+                                                    $res = 'Dec';
+                                                } else {
+                                                    $res = '';
+                                                }
+                                                return $res;
                                             } ?>
                                             </tbody>
                                             <tfoot>
@@ -79,12 +110,12 @@
                                                 <th>SNo</th>
                                                 <th>Project Code</th>
                                                 <th>Budget Code</th>
+                                                <th>Band</th>
                                                 <th>Position</th>
-                                                <th>band</th>
                                                 <th>Amount</th>
                                                 <th>Percentage</th>
-                                                <th>Month</th>
-                                                <th>Year</th>
+                                                <th>Start Month-Year</th>
+                                                <th>End Month-Year</th>
                                                 <th>Action</th>
                                             </tr>
                                             </tfoot>
@@ -95,7 +126,7 @@
                         </div>
                         <div class="md-fab-wrapper">
                             <a class="md-fab md-fab-accent md-fab-wave-light waves-effect waves-button waves-light"
-                               href="<?php echo  base_url()?>index.php/budget_controllers/Budget/addBudget_view">
+                               href="<?php echo base_url() ?>index.php/budget_controllers/Budget/addBudget_view">
                                 <i class="feather icon-plus"></i>
                             </a>
                         </div>
@@ -107,25 +138,25 @@
 </div>
 <!-- END: Content-->
 <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel_delete"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Budget</h4>
-                    <input type="hidden" id="delete_idBugt" name="delete_idBugt">
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure, you want to delete this?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="deleteData()">Delete
-                    </button>
-                </div>
+     aria-labelledby="myModalLabel_delete"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary white">
+                <h4 class="modal-title white" id="myModalLabel_delete">Delete Budget</h4>
+                <input type="hidden" id="delete_idBugt" name="delete_idBugt">
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to delete this?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="deleteData()">Delete
+                </button>
             </div>
         </div>
     </div>
+</div>
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
@@ -186,7 +217,6 @@
     });
 
 
-    
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
         $('#delete_idBugt').val(id);
