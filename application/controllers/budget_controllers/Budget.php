@@ -80,87 +80,94 @@ class Budget extends CI_controller
             echo json_encode($result);
             exit();
         }
-        if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '' || $_POST['bdgt_code'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_posi']) || $_POST['bdgt_posi'] == '' || $_POST['bdgt_posi'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Position');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_band']) || $_POST['bdgt_band'] == '' || $_POST['bdgt_band'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Band');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
+        if (!isset($_POST['budgData']) || $_POST['budgData'] == '' || $_POST['budgData'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Data');
+        }else{
+            $proj_code=$_POST['proj_code'];
+            foreach ($_POST['budgData'] as $kv=>$bv){
+                if (!isset($bv['bdgt_code']) || $bv['bdgt_code'] == '' || $bv['bdgt_code'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_posi']) || $bv['bdgt_posi'] == '' || $bv['bdgt_posi'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Position');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_band']) || $bv['bdgt_band'] == '' || $bv['bdgt_band'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget Band');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
 
-        if (!isset($_POST['bdgt_amnt']) || $_POST['bdgt_amnt'] == '' || $_POST['bdgt_amnt'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Amount');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_pctg']) || $_POST['bdgt_pctg'] == '' || $_POST['bdgt_pctg'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Percentage');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_start_month']) || $_POST['bdgt_start_month'] == '' || $_POST['bdgt_start_month'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Start Month');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_start_year']) || $_POST['bdgt_start_year'] == '' || $_POST['bdgt_start_year'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Start Year');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_end_month']) || $_POST['bdgt_end_month'] == '' || $_POST['bdgt_end_month'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget End Month');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['bdgt_end_year']) || $_POST['bdgt_end_year'] == '' || $_POST['bdgt_end_year'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget End Year');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if ($flag == 0) {
-            $Custom = new Custom();
-            $insertArray = array();
-            $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['bdgt_code'] = $_POST['bdgt_code'];
-            $insertArray['bdgt_posi'] = $_POST['bdgt_posi'];
-            $insertArray['bdgt_band'] = $_POST['bdgt_band'];
-            $insertArray['bdgt_amnt'] = $_POST['bdgt_amnt'];
-            $insertArray['bdgt_pctg'] = $_POST['bdgt_pctg'];
-            $insertArray['bdgt_start_month'] = $_POST['bdgt_start_month'];
-            $insertArray['bdgt_start_year'] = $_POST['bdgt_start_year'];
-            $insertArray['bdgt_end_month'] = $_POST['bdgt_end_month'];
-            $insertArray['bdgt_end_year'] = $_POST['bdgt_end_year'];
-            $insertArray['isActive'] = 1;
-            $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-            $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($insertArray, 'idBugt', 'b_budget', 'N');
-
-            if ($InsertData) {
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
-            } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                if (!isset($bv['bdgt_amnt']) || $bv['bdgt_amnt'] == '' || $bv['bdgt_amnt'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Amount');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_pctg']) || $bv['bdgt_pctg'] == '' || $bv['bdgt_pctg'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Percentage');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_start_month']) || $bv['bdgt_start_month'] == '' || $bv['bdgt_start_month'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget Start Month');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_start_year']) || $bv['bdgt_start_year'] == '' || $bv['bdgt_start_year'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget Start Year');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_end_month']) || $bv['bdgt_end_month'] == '' || $bv['bdgt_end_month'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget End Month');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if (!isset($bv['bdgt_end_year']) || $bv['bdgt_end_year'] == '' || $bv['bdgt_end_year'] == '0') {
+                    $result = array('0' => 'Error', '1' => 'Invalid Budget End Year');
+                    $flag = 1;
+                    echo json_encode($result);
+                    exit();
+                }
+                if ($flag == 0) {
+                    $Custom = new Custom();
+                    $insertArray = array();
+                    $insertArray['proj_code'] = $proj_code;
+                    $insertArray['bdgt_code'] = $bv['bdgt_code'];
+                    $insertArray['bdgt_posi'] = $bv['bdgt_posi'];
+                    $insertArray['bdgt_band'] = $bv['bdgt_band'];
+                    $insertArray['bdgt_amnt'] = $bv['bdgt_amnt'];
+                    $insertArray['bdgt_pctg'] = $bv['bdgt_pctg'];
+                    $insertArray['bdgt_start_month'] = $bv['bdgt_start_month'];
+                    $insertArray['bdgt_start_year'] = $bv['bdgt_start_year'];
+                    $insertArray['bdgt_end_month'] = $bv['bdgt_end_month'];
+                    $insertArray['bdgt_end_year'] = $bv['bdgt_end_year'];
+                    $insertArray['isActive'] = 1;
+                    $insertArray['assigned'] = 0;
+                    $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+                    $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+                    $InsertData = $Custom->Insert($insertArray, 'idBugt', 'b_budget', 'N');
+                    if ($InsertData) {
+                        $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                    } else {
+                        $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                    }
+                }
             }
-            echo json_encode($result);
-        }
 
+        }
+        echo json_encode($result);
     }
 
     function deleteData()

@@ -1,0 +1,30 @@
+UserIPAddress: 10.1.42.84 - November-18-2020 10:28 am
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-18-2020 10:28 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-18-2020 3:11 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-11-18 15:11:30
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - November-18-2020 3:11 pm
+idUser: 1, UserName: dmu@aku
+Action: Delete Page setting -> Function: deletePageData() 
+Result: 1
+PostData: isActive = 0
+deleteBy = 1
+deletedDateTime = 2020-11-18 15:11:34
+
+-------------------------------------------------
