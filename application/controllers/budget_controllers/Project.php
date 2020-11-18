@@ -222,6 +222,18 @@ class Project extends CI_controller
 
     }
 
+    function getBands()
+    {
+        if (isset($_POST['proj_code']) && $_POST['proj_code'] != '') {
+            $M = new Mproject();
+            $getProjectBands = $M->getProjectBands($_POST['proj_code']);
+            $result = array('0' => 'Success', '1' => $getProjectBands);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+        }
+        echo json_encode($result);
+    }
+
 }
 
 ?>

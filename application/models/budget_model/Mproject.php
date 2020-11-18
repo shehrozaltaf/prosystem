@@ -36,5 +36,15 @@ class Mproject extends CI_Model
         return $query->result();
     }
 
+    function getProjectBands($code)
+    {
+        $this->db->select('*');
+        $this->db->from('b_budget');
+        $this->db->where('isActive', 1);
+        $this->db->where('proj_code', $code);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
 }

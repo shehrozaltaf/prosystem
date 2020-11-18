@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -30,14 +30,14 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
                                                 <select name="proj_code" id="proj_code" class="form-control select2"
-                                                        autocomplete="proj_code" required>
-                                                    <option value="0" readonly disabled selected>Select Project</option>
+                                                        autocomplete="proj_code" required
+                                                        onchange="chngeProject_Band(this)">
+                                                    <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($project) && $project != '') {
-
                                                         foreach ($project as $k => $p) {
                                                             echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
                                                         }
@@ -45,63 +45,35 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="empl_code" class="label-control">Employee Code</label>
-                                                <input type="text" class="form-control" id="empl_code" name="empl_code"
-                                                       autocomplete="empl_code" required>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-4">
-                                            <div class="form-group">
-                                                <label for="prjn_pctg" class="label-control">Percentage</label>
-                                                <input type="text" class="form-control" id="prjn_pctg" name="prjn_pctg"
-                                                       autocomplete="prjn_pctg" required>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-4">
-                                            <div class="form-group">
-                                                <label for="prjn_month" class="label-control">Month</label>
-                                                <select name="prjn_month" id="prjn_month" class="form-control select2"
-                                                        autocomplete="prjn_month" required>
-                                                    <option value="0" readonly disabled selected>Select Month</option>
-                                                    <option value="01">January</option>
-                                                    <option value="02">February</option>
-                                                    <option value="03">March</option>
-                                                    <option value="04">April</option>
-                                                    <option value="05">May</option>
-                                                    <option value="06">June</option>
-                                                    <option value="07">July</option>
-                                                    <option value="08">August</option>
-                                                    <option value="09">September</option>
-                                                    <option value="10">October</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">December</option>
+                                                <select name="empl_code" id="empl_code" class="form-control select2"
+                                                        autocomplete="empl_code" required>
+                                                    <option value="0" readonly disabled selected>
+                                                    </option>
+                                                    <?php if (isset($hr_employee) && $hr_employee != '') {
+                                                        foreach ($hr_employee as $e) {
+                                                            echo ' <option value="' . $e->empno . '">' . $e->empname . '(' . $e->empno . ')</option>';
+                                                        }
+                                                    } ?>
                                                 </select>
-
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-4">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="prjn_year" class="label-control">Year</label>
-                                                <select name="prjn_year" id="prjn_year" class="form-control select2"
-                                                        autocomplete="prjn_year" required>
-                                                    <option value="0" readonly disabled selected>Select Year</option>
-                                                    <?php
-                                                    for ($year = date('Y'); $year >= 2000; $year--) {
-                                                        echo ' <option value="' . $year . '">' . $year . '</option>';
-                                                    }
-                                                    ?>
+                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <select name="bdgt_code" id="bdgt_code" class="form-control select2"
+                                                        autocomplete="bdgt_code" required>
+                                                    <option value="0" readonly disabled selected></option>
                                                 </select>
-
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <button type="button" class="btn btn-primary mybtn" onclick="insertData()">
+                                            <button type="button" class="btn btn-primary btn-block mybtn"
+                                                    onclick="insertData()">
                                                 Insert Asset
                                             </button>
                                         </div>
@@ -125,14 +97,39 @@
 
 
 <script>
+    function chngeProject_Band(obj) {
+        var data = {};
+        data['proj_code'] = $('#proj_code').val();
+        if (data['proj_code'] != '' && data['proj_code'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getBands'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" readonly disabled selected>Select Position</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.bdgt_code + '">' + v.bdgt_code + '</option>';
+                        });
+                        $('#bdgt_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Band Id', 'error');
+        }
+
+    }
 
     function insertData() {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
         data['empl_code'] = $('#empl_code').val();
-        data['prjn_pctg'] = $('#prjn_pctg').val();
+        data['bdgt_code'] = $('#bdgt_code').val();
+       /* data['prjn_pctg'] = $('#prjn_pctg').val();
         data['prjn_month'] = $('#prjn_month').val();
-        data['prjn_year'] = $('#prjn_year').val();
+        data['prjn_year'] = $('#prjn_year').val();*/
         var vd = validateData(data);
         if (vd) {
             showloader();
