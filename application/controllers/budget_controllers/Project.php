@@ -224,12 +224,29 @@ class Project extends CI_controller
 
     function getBands()
     {
+
         if (isset($_POST['proj_code']) && $_POST['proj_code'] != '') {
-            $M = new Mproject();
-            $getProjectBands = $M->getProjectBands($_POST['proj_code']);
+
+            /* $M = new Mproject();
+             $getProjectBands = $M->getProjectBands($_POST['proj_code']);*/
+            $this->load->model('budget_model/mbudget');
+            $M = new Mbudget();
+            $getProjectBands = $M->getAll($_POST['proj_code']);
             $result = array('0' => 'Success', '1' => $getProjectBands);
         } else {
             $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+        }
+        echo json_encode($result);
+    }
+
+    function getEmployees()
+    {
+        if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '') {
+            $M = new Mproject();
+            $getBandEmp = $M->getBandEmp($_POST['bdgt_code']);
+            $result = array('0' => 'Success', '1' => $getBandEmp);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
         }
         echo json_encode($result);
     }

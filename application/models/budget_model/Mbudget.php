@@ -5,8 +5,12 @@
 class Mbudget extends CI_Model
 {
 
-    function getAll()
+    function getAll($proj = '')
     {
+        if (isset($proj) && $proj != '' && $proj != '0') {
+            $this->db->where('b_budget.proj_code', $proj);
+        }
+
         $this->db->select('b_budget.idBugt,
 	b_budget.proj_code,
 	b_budget.bdgt_code,
@@ -21,8 +25,8 @@ class Mbudget extends CI_Model
 	hr_band.band,
 	hr_desig.desig');
         $this->db->from('b_budget');
-        $this->db->join('hr_band','b_budget.bdgt_band = hr_band.id','left');
-        $this->db->join('hr_desig','b_budget.bdgt_posi = hr_desig.id','left');
+        $this->db->join('hr_band', 'b_budget.bdgt_band = hr_band.id', 'left');
+        $this->db->join('hr_desig', 'b_budget.bdgt_posi = hr_desig.id', 'left');
         $this->db->where('b_budget.isActive', 1);
         $this->db->order_By('b_budget.idBugt', 'DESC');
         $query = $this->db->get();

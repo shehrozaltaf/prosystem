@@ -67,7 +67,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <label for="bdgt_code" class="label-control">Position No.</label>
                                                 <input type="text" class="form-control bdgt_code" id="bdgt_code"
                                                        name="bdgt_code" maxlength="9" rowNo="0"
                                                        autocomplete="bdgt_code" required>
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="bdgt_pctg" class="label-control">Percentage (%)</label>
+                                                <label for="bdgt_pctg" class="label-control">Percentage(%)</label>
                                                 <input type="text" class="form-control bdgt_pctg" id="bdgt_pctg"
                                                        name="bdgt_pctg" maxlength="3" max="3" rowNo="0"
                                                        autocomplete="bdgt_pctg" required>
@@ -251,7 +251,12 @@
             a += $(obj).parents('.card').html();
             a += '</div>';
             $('.childrows').append(a);
-            $('.' + card).find('.bdgt_code').val(data['bdgt_code']).attr('rowNo',c);
+            var pos_no=2;
+            if(data['bdgt_code']!=''  && data['bdgt_code'] !=undefined){
+                pos_no= parseInt(data['bdgt_code'])+1;
+            }
+            console.log(pos_no);
+            $('.' + card).find('.bdgt_code').val(pos_no).attr('rowNo',c);
             $('.' + card).find('.bdgt_band').val(data['bdgt_band']).attr('rowNo',c);
             $('.' + card).find('.bdgt_posi').val(data['bdgt_posi']).attr('rowNo',c);
             $('.' + card).find('.bdgt_amnt').val(data['bdgt_amnt']).attr('rowNo',c);
@@ -303,7 +308,7 @@
     $(document).ready(function () {
         validateNum('bdgt_amnt');
         validateNum('bdgt_pctg');
-        mydate();
+        // mydate();
     });
 
     function insertData() {
