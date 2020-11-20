@@ -47,6 +47,7 @@ class SearchEmpRpt extends CI_Controller
         $data['category'] = $Custom->selectAllQuery('hr_category', 'category');
         /*$Mempmodel = new Mempmodel();
         $data['employees'] = $Mempmodel->getAllEmployeeForReport();*/
+        
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
