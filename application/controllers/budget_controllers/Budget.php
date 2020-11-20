@@ -15,6 +15,7 @@ class Budget extends CI_controller
 
     function index()
     {
+
         $data = array();
         /*==========Log=============*/
         $Custom = new Custom();
@@ -34,6 +35,7 @@ class Budget extends CI_controller
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }
+
 
     function addBudget_view()
     {
@@ -82,9 +84,9 @@ class Budget extends CI_controller
         }
         if (!isset($_POST['budgData']) || $_POST['budgData'] == '' || $_POST['budgData'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Data');
-        }else{
-            $proj_code=$_POST['proj_code'];
-            foreach ($_POST['budgData'] as $kv=>$bv){
+        } else {
+            $proj_code = $_POST['proj_code'];
+            foreach ($_POST['budgData'] as $kv => $bv) {
                 if (!isset($bv['bdgt_code']) || $bv['bdgt_code'] == '' || $bv['bdgt_code'] == '0') {
                     $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
                     $flag = 1;
@@ -193,6 +195,69 @@ class Budget extends CI_controller
         }
         echo $result;
     }
+
+
+    function getEmployees()
+    {
+        if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '') {
+            $M = new Mbudget();
+            $getBandEmp = $M->getBandEmp($_POST['bdgt_code']);
+            $result = array('0' => 'Success', '1' => $getBandEmp);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+        }
+        echo json_encode($result);
+    }
+
+    function getBand_Month_Year()
+    {
+        if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '' && isset($_POST['proj_code']) && $_POST['proj_code'] != '') {
+            $M = new Mbudget();
+
+            $getBandEmp = $M->getBands_Month_Year($_POST['bdgt_code'], $_POST['proj_code']);
+            if (isset($getBandEmp[0]->bdgt_start_month) && $getBandEmp[0]->bdgt_start_month != '') {
+                $sm = $getBandEmp[0]->bdgt_start_month;
+            } else {
+                $sm = date('m');
+            }
+            if (isset($getBandEmp[0]->bdgt_start_year) && $getBandEmp[0]->bdgt_start_year != '') {
+                $sy = $getBandEmp[0]->bdgt_start_year;
+            } else {
+                $sy = date('Y');
+            }
+            if (isset($getBandEmp[0]->bdgt_end_month) && $getBandEmp[0]->bdgt_end_month != '') {
+                $em = $getBandEmp[0]->bdgt_end_month;
+            } else {
+                $em = date('m');
+            }
+            if (isset($getBandEmp[0]->bdgt_end_year) && $getBandEmp[0]->bdgt_end_year != '') {
+                $ey = $getBandEmp[0]->bdgt_end_year;
+            } else {
+                $ey = date('Y');
+            }
+            $sd = $sy . '-' . $sm . '-01';
+            $ed = $ey . '-' . $em . '-01';
+            $data = $this->getDatesFromRange($sd, $ed);
+            $result = array('0' => 'Success', '1' => $data);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+        }
+        echo json_encode($result);
+    }
+
+    function getDatesFromRange($start, $end, $format = 'M-Y')
+    {
+        $array = array();
+        $interval = new DateInterval('P1D');
+        $realEnd = new DateTime($end);
+        $realEnd->add($interval);
+        $period = new DatePeriod(new DateTime($start), $interval, $realEnd);
+        foreach ($period as $date) {
+            $array[$date->format($format)] = $date->format($format);
+        }
+        return $array;
+    }
+
 
 }
 

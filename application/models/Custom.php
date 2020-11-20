@@ -62,7 +62,7 @@ class Custom extends CI_Model
     function trackLogs($array, $log_type)
     {
         date_default_timezone_set("Asia/Karachi");
-        $UserName = (isset($array['UserName ']) ? $array['UserName '] : $_SESSION['login']['username']);
+        $UserName = (isset($array['UserName']) && $array['UserName']!='' ? $array['UserName'] : $_SESSION['login']['username']);
         if (isset($log_type) && $log_type == 'user_logs') {
             $logFilePath = 'customLogs/user_logs/' . $UserName . 'logs_' . date("n_j_Y") . '.txt';
         } else {

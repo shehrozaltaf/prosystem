@@ -187,7 +187,6 @@
                                                     }
                                                     ?>
                                                 </select>
-
                                             </div>
                                         </div>
                                     </div>
@@ -242,8 +241,8 @@
         data['bdgt_start_year'] = $(obj).parents('.card ').find('.bdgt_start_year').val();
         data['bdgt_end_month'] = $(obj).parents('.card ').find('.bdgt_end_month').val();
         data['bdgt_end_year'] = $(obj).parents('.card ').find('.bdgt_end_year').val();
-        var vd = 1;
-        // var vd = validateData(data);
+        // var vd = 1;
+        var vd = validateData(data);
         if (vd) {
             var c = $('.childrows .card').length;
             var card = 'card-' + c;
@@ -255,7 +254,6 @@
             if(data['bdgt_code']!=''  && data['bdgt_code'] !=undefined){
                 pos_no= parseInt(data['bdgt_code'])+1;
             }
-            console.log(pos_no);
             $('.' + card).find('.bdgt_code').val(pos_no).attr('rowNo',c);
             $('.' + card).find('.bdgt_band').val(data['bdgt_band']).attr('rowNo',c);
             $('.' + card).find('.bdgt_posi').val(data['bdgt_posi']).attr('rowNo',c);
@@ -266,7 +264,7 @@
             $('.' + card).find('.bdgt_end_month').val(data['bdgt_end_month']).attr('rowNo',c);
             $('.' + card).find('.bdgt_end_year').val(data['bdgt_end_year']).attr('rowNo',c);
         } else {
-            toastMsg('Warning', 'One row is required', 'warning');
+            toastMsg('Warning', 'Invalid Data', 'warning');
         }
 
     }

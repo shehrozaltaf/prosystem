@@ -43,4 +43,33 @@ class Mbudget extends CI_Model
         return $query->result();
     }
 
+    function getBandEmp($code)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_employee');
+        $this->db->where('hr_employee.status', 1);
+        $this->db->where('hr_employee.ddlband', $code);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getBands_Month_Year($bcode, $procode)
+    {
+        $this->db->select('bdgt_start_month,
+	bdgt_start_year,
+	bdgt_end_month,
+	bdgt_end_year');
+        $this->db->from('b_budget');
+        $this->db->where('b_budget.isActive', 1);
+        $this->db->where('b_budget.bdgt_code', $bcode);
+        $this->db->where('b_budget.proj_code', $procode);
+        $this->db->group_by('b_budget.bdgt_start_month');
+        $this->db->group_by('b_budget.bdgt_start_year');
+        $this->db->group_by('b_budget.bdgt_end_month');
+        $this->db->group_by('b_budget.bdgt_end_year');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
 }

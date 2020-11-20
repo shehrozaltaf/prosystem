@@ -278,12 +278,19 @@ inner join hr_employee e1 on e1.empno = e.supernme");
         }
 
 
-        if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
-            isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
+        if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null  ) {
 
             //$this->db->where("convert(numeric, " + $this->encrypt->decode( + " e1.hiresalary ") + ") between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
             $this->db->where("convert(numeric, e1.hiresalary) between '" . $this->encrypt->encode($searchdata['salaryfrom']) . "' and '" . $this->encrypt->encode($searchdata['salaryto']) . "'");
         }
+
+     /*   if (isset($searchdata['salaryfrom']) && $searchdata['salaryfrom'] != '' && $searchdata['salaryfrom'] != null &&
+            isset($searchdata['salaryto']) && $searchdata['salaryto'] != '' && $searchdata['salaryto'] != null) {
+
+            //$this->db->where("convert(numeric, " + $this->encrypt->decode( + " e1.hiresalary ") + ") between '" . $searchdata['salaryfrom'] . "' and '" . $searchdata['salaryto'] . "'");
+            $this->db->where("convert(numeric, e1.hiresalary) between '" . $this->encrypt->encode($searchdata['salaryfrom']) . "' and '" . $this->encrypt->encode($searchdata['salaryto']) . "'");
+        }*/
+
 
 
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
@@ -317,7 +324,11 @@ inner join hr_employee e1 on e1.empno = e.supernme");
         $this->db->join('hr_employee e1', 'e.empno = e1.supernme');
 
         $this->db->limit($length, $start);
+
         $query = $this->db->get();
+        $this->db->last_query();
+        print_r($this->db->last_query());
+        exit();
         return $query->result();
 
 

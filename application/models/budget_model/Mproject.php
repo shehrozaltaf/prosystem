@@ -36,15 +36,7 @@ class Mproject extends CI_Model
         return $query->result();
     }
 
-    function getBandEmp($code)
-    {
-        $this->db->select('*');
-        $this->db->from('hr_employee');
-        $this->db->where('hr_employee.status', 1);
-        $this->db->where('hr_employee.ddlband', $code);
-        $query = $this->db->get();
-        return $query->result();
-    }
+
 
     function getProjectBands($code)
     {

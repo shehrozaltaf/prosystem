@@ -49,7 +49,8 @@
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
-                                                        autocomplete="bdgt_code" required onchange="chngeBand_Emp(this)">
+                                                        autocomplete="bdgt_code" required
+                                                        onchange="chngeBand_Emp(this)">
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
@@ -69,6 +70,34 @@
                                             </div>
                                         </div>
 
+
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="prjn_pctg" class="label-control">Percentage <span
+                                                            class="danger myPercentage"></span></label>
+                                                <input type="text" id="prjn_pctg" name="prjn_pctg" class="form-control"
+                                                       autocomplete="prjn_pctg" maxlength="3" max="3" rowNo="0"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="prjn_month" class="label-control">Month-Year</label>
+                                                <select name="prjn_month" id="prjn_month" class="form-control select2"
+                                                        autocomplete="prjn_month" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="prjn_year" class="label-control">Year</label>
+                                                <select name="empl_code" id="prjn_year" class="form-control select2"
+                                                        autocomplete="prjn_year" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                </select>
+                                            </div>
+                                        </div>-->
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -97,6 +126,10 @@
 
 
 <script>
+    $(document).ready(function () {
+        validateNum('prjn_pctg');
+    });
+
     function chngeProject_Band(obj) {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
@@ -107,7 +140,7 @@
                     if (response[0] == 'Success') {
                         var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
                         $.each(response[1], function (i, v) {
-                            post += '<option value="' + v.bdgt_code + '" data-band="'+v.bdgt_band+'">' + v.bdgt_code +
+                            post += '<option value="' + v.bdgt_code + '" data-per="' + v.bdgt_pctg + '" data-band="' + v.bdgt_band + '">' + v.bdgt_code +
                                 ' (position: ' + v.bdgt_code + ' - Amount: ' + v.bdgt_amnt +
                                 ' percentage: ' + v.bdgt_pctg + '% - Band: ' + v.band + ')</option>';
                         });
@@ -127,7 +160,9 @@
         var data = {};
         data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
         if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getEmployees'); ?>', data, 'POST', function (result) {
+            $('.myPercentage').html('Max: ' + $("#bdgt_code option:selected").attr("data-per")+'%');
+            chngeBand_Month_Year();
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getEmployees'); ?>', data, 'POST', function (result) {
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
@@ -147,14 +182,39 @@
         }
     }
 
+    function chngeBand_Month_Year() {
+        var data = {};
+        data['proj_code'] = $('#proj_code').val();
+        data['bdgt_code'] = $('#bdgt_code').val();
+        if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined && data['proj_code'] != '' && data['proj_code'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getBand_Month_Year'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" readonly disabled selected>Select Month-Year</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v + '" >' + v + '</option>';
+                        });
+                        $('#prjn_month').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Band Id', 'error');
+        }
+    }
+
     function insertData() {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
         data['empl_code'] = $('#empl_code').val();
         data['bdgt_code'] = $('#bdgt_code').val();
-        /* data['prjn_pctg'] = $('#prjn_pctg').val();
-         data['prjn_month'] = $('#prjn_month').val();
-         data['prjn_year'] = $('#prjn_year').val();*/
+        data['prjn_pctg'] = $('#prjn_pctg').val();
+        data['prjn_month'] = $('#prjn_month').val();
+        data['prjn_year'] = $('#prjn_year').val();
         var vd = validateData(data);
         if (vd) {
             showloader();

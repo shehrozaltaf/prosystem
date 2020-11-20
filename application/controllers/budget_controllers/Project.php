@@ -239,17 +239,6 @@ class Project extends CI_controller
         echo json_encode($result);
     }
 
-    function getEmployees()
-    {
-        if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '') {
-            $M = new Mproject();
-            $getBandEmp = $M->getBandEmp($_POST['bdgt_code']);
-            $result = array('0' => 'Success', '1' => $getBandEmp);
-        } else {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
-        }
-        echo json_encode($result);
-    }
 
 }
 

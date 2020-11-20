@@ -88,9 +88,9 @@ class Projected extends CI_controller
             $insertArray['proj_code'] = $_POST['proj_code'];
             $insertArray['empl_code'] = $_POST['empl_code'];
             $insertArray['bdgt_code'] = $_POST['bdgt_code'];
-            /*$insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
+            $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
             $insertArray['prjn_month'] = $_POST['prjn_month'];
-            $insertArray['prjn_year'] = $_POST['prjn_year'];*/
+            $insertArray['prjn_year'] = $_POST['prjn_year'];
 
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
