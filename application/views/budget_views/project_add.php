@@ -120,5 +120,4 @@
             toastMsg('Error', 'Invalid Data', 'error');
         }
     }
-
 </script>
