@@ -45,8 +45,13 @@ class Mbudget extends CI_Model
 
     function getBandEmp($code)
     {
-        $this->db->select('*');
+        $this->db->select('hr_employee.id,
+	hr_employee.pic,
+	hr_employee.empno,
+	hr_employee.empname,
+	hr_desig.desig');
         $this->db->from('hr_employee');
+        $this->db->join('hr_desig', 'hr_employee.titdesi = hr_desig.id', 'left');
         $this->db->where('hr_employee.status', 1);
         $this->db->where('hr_employee.ddlband', $code);
         $query = $this->db->get();

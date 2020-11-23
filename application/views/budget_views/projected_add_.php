@@ -25,7 +25,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -33,7 +33,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
                                                 <select name="proj_code" id="proj_code" class="form-control select2"
@@ -48,7 +48,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
@@ -58,7 +58,32 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="empl_code" class="label-control">Employee Code</label>
+                                                <select name="empl_code" id="empl_code" class="form-control select2"
+                                                        autocomplete="empl_code" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php /* if (isset($hr_employee) && $hr_employee != '') {
+                                                        foreach ($hr_employee as $e) {
+                                                            echo ' <option value="' . $e->empno . '">' . $e->empname . '(' . $e->empno . ')</option>';
+                                                        }
+                                                    } */ ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="prjn_pctg" class="label-control">Percentage <span
+                                                        class="danger myPercentage"></span></label>
+                                                <input type="text" id="prjn_pctg" name="prjn_pctg" class="form-control"
+                                                       autocomplete="prjn_pctg" maxlength="3" max="3" rowNo="0"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="prjn_month" class="label-control">Month-Year</label>
                                                 <select name="prjn_month" id="prjn_month" class="form-control select2"
@@ -67,69 +92,16 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <!--<div class="col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <label for="prjn_year" class="label-control">Year</label>
+                                                <select name="empl_code" id="prjn_year" class="form-control select2"
+                                                        autocomplete="prjn_year" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                </select>
+                                            </div>
+                                        </div>-->
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">
-                                    Select Employees
-                                </h4>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <p>Drag and drop employees from right side to left side to select in the budget.</p>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <h4 class="my-1">Selected</h4>
-                                            <ul class="list-group list-group-flush selectedEmpList"
-                                                id="multiple-list-group-a">
-                                                <!-- <li class="list-group-item">
-                                                     <div class="media">
-                                                         <div class="media-body">
-                                                             <h5 class="mt-0">Mary S. Navarre</h5>
-                                                             Chupa chups tiramisu apple pie biscuit sweet roll bonbon
-                                                             macaroon.
-                                                         </div>
-                                                     </div>
-                                                 </li> -->
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <h4 class="my-1">Employees</h4>
-                                            <ul class="list-group list-group-flush empList" id="multiple-list-group-b">
-                                                <!--<li class="list-group-item empList">
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <h5 class="mt-0">Mary S. Navarre</h5>
-                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
-                                                            macaroon.
-                                                        </div>
-                                                    </div>
-                                                </li>-->
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title"></h4>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <button type="button" class="btn btn-primary btn-block mybtn"
@@ -148,8 +120,126 @@
                             </div>
                         </div>
                     </div>
+            </section>
+
+            <!-- Sortable lists section start -->
+            <section id="sortable-lists">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">
+                                    Multiple Lists
+                                </h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <p>Drag and drop items of more than one list. Add same group to group prop
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <h4 class="my-1">People Group 1</h4>
+                                            <ul class="list-group list-group-flush" id="multiple-list-group-a">
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Mary S. Navarre</h5>
+                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
+                                                            macaroon.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Samuel M. Ellis</h5>
+                                                            Toffee powder marzipan tiramisu. Cake cake dessert danish.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Sandra C. Toney</h5>
+                                                            Sugar plum fruitcake gummies marzipan liquorice tiramisu.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Cleveland C. Goins</h5>
+                                                            Toffee powder marzipan tiramisu. Cake cake dessert danish.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Linda M. English</h5>
+                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
+                                                            macaroon.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <h4 class="my-1">People Group 2</h4>
+                                            <ul class="list-group list-group-flush" id="multiple-list-group-b">
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Mary S. Navarre</h5>
+                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
+                                                            macaroon.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Samuel M. Ellis</h5>
+                                                            Toffee powder marzipan tiramisu. Cake cake dessert danish.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Sandra C. Toney</h5>
+                                                            Sugar plum fruitcake gummies marzipan liquorice tiramisu
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Cleveland C. Goins</h5>
+                                                            Toffee powder marzipan tiramisu. Cake cake dessert danish.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h5 class="mt-0">Linda M. English</h5>
+                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
+                                                            macaroon.
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+            <!-- // Sortable lists section end -->
+
         </div>
     </div>
 </div>
@@ -160,15 +250,7 @@
 <script>
     $(document).ready(function () {
         validateNum('prjn_pctg');
-        // dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')]);
-        dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')])
-            .on('drop', function (el) {
-                if ($(el).parents('ul').hasClass('selectedEmpList')) {
-                    $(el).find('.perc').addClass('show').removeClass('hide');
-                } else {
-                    $(el).find('.perc').addClass('hide').removeClass('show');
-                }
-            });
+        dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')]);
     });
 
     function chngeProject_Band(obj) {
@@ -207,23 +289,11 @@
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
-                        var post = ' ';
+                        var post = ' <option value="0" readonly disabled selected>Select Position</option>';
                         $.each(response[1], function (i, v) {
-                            post += '<li class="list-group-item">' +
-                                '<div class="media">' +
-                                ' <img src="<?php echo base_url()?>' + v.pic + '" ' +
-                                'class="rounded-circle mr-2"  height="50" width="50">' +
-                                '<div class="media-body mt-0"">' +
-                                '<h5 class="mt-0">' + v.empname + '</h5>' +
-                                ' <p class="mt-0 ml-2"><small>Employee No:</small> ' + v.empno + '<br>' +
-                                ' <small>Designation:</small> ' + v.desig + '' +
-                                '<input type="text" name="perc" class="form-control perc hide" placeholder="Percentage">' +
-                                '</p>' +
-                                ' </div>' +
-                                '</div>' +
-                                '</li>';
+                            post += '<option value="' + v.empno + '" >' + v.empname + ' (position: ' + v.empno + ')</option>';
                         });
-                        $('.empList').html(post);
+                        $('#empl_code').html(post);
                     } else {
                         toastMsg(response[0], response[1], 'error');
                     }
