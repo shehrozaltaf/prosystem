@@ -160,6 +160,7 @@
 <script>
     $(document).ready(function () {
         validateNum('prjn_pctg');
+        validateNumByClass('perc');
         // dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')]);
         dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')])
             .on('drop', function (el) {
@@ -168,6 +169,7 @@
                 } else {
                     $(el).find('.perc').addClass('hide').removeClass('show');
                 }
+                validateNumByClass('perc');
             });
     });
 
@@ -209,21 +211,22 @@
                     if (response[0] == 'Success') {
                         var post = ' ';
                         $.each(response[1], function (i, v) {
-                            post += '<li class="list-group-item">' +
+                            post += '<li class="list-group-item" data-empNo="' + v.empno + '">' +
                                 '<div class="media">' +
                                 ' <img src="<?php echo base_url()?>' + v.pic + '" ' +
                                 'class="rounded-circle mr-2"  height="50" width="50">' +
                                 '<div class="media-body mt-0"">' +
                                 '<h5 class="mt-0">' + v.empname + '</h5>' +
                                 ' <p class="mt-0 ml-2"><small>Employee No:</small> ' + v.empno + '<br>' +
-                                ' <small>Designation:</small> ' + v.desig + '' +
-                                '<input type="text" name="perc" class="form-control perc hide" placeholder="Percentage">' +
+                                ' <small>Designation:</small> ' + v.desig   +
+                                '<input type="text" name="perc" maxlength="3" class="form-control perc hide" placeholder="Percentage">' +
                                 '</p>' +
                                 ' </div>' +
                                 '</div>' +
                                 '</li>';
                         });
                         $('.empList').html(post);
+                        validateNumByClass('perc');
                     } else {
                         toastMsg(response[0], response[1], 'error');
                     }
@@ -263,11 +266,15 @@
     function insertData() {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
-        data['empl_code'] = $('#empl_code').val();
         data['bdgt_code'] = $('#bdgt_code').val();
-        data['prjn_pctg'] = $('#prjn_pctg').val();
         data['prjn_month'] = $('#prjn_month').val();
-        data['prjn_year'] = $('#prjn_year').val();
+        var empList=[];
+        $.each($('.selectedEmpList li'), function(i,v){
+            var empNo=$(v).attr('data-empNo');
+            var perc=$(v).find('.perc').val();
+            empList.push({"emp":empNo,"perc":perc});
+        });
+        data['empList'] = empList;
         var vd = validateData(data);
         if (vd) {
             showloader();

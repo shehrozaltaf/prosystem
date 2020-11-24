@@ -69,37 +69,52 @@ class Projected extends CI_controller
             echo json_encode($result);
             exit();
         }
-        if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
+        /*if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
             $flag = 1;
             echo json_encode($result);
             exit();
-        }
+        }*/
         if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '' || $_POST['bdgt_code'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget');
             $flag = 1;
             echo json_encode($result);
             exit();
         }
-
+        if (!isset($_POST['prjn_month']) || $_POST['prjn_month'] == '' || $_POST['prjn_month'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Month Year');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['empList']) || $_POST['empList'] == '' || $_POST['empList'] == '0' || count($_POST['empList']) == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Month Year');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
         if ($flag == 0) {
             $Custom = new Custom();
+            $expMY = explode('-', $_POST['prjn_month']);
             $insertArray = array();
-            $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['empl_code'] = $_POST['empl_code'];
-            $insertArray['bdgt_code'] = $_POST['bdgt_code'];
-            $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
-            $insertArray['prjn_month'] = $_POST['prjn_month'];
-            $insertArray['prjn_year'] = $_POST['prjn_year'];
 
+            $insertArray['proj_code'] = $_POST['proj_code'];
+            $insertArray['bdgt_code'] = $_POST['bdgt_code'];
+            $insertArray['prjn_month'] = $expMY[0];
+            $insertArray['prjn_year'] = $expMY[1];
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
-            if ($InsertData) {
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
-            } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+
+            foreach ($_POST['empList'] as $emp) {
+                $insertArray['empl_code'] = $emp['emp'];
+                $insertArray['prjn_pctg'] = $emp['perc'];
+                $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
+                if ($InsertData) {
+                    $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                } else {
+                    $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                }
             }
             echo json_encode($result);
         }
