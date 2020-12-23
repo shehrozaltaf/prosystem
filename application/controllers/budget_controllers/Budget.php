@@ -51,7 +51,7 @@ class Budget extends CI_controller
 
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
-        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive','DESC');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $this->load->view('include/header');
         $this->load->view('include/top_header');

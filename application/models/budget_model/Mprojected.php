@@ -15,4 +15,65 @@ class Mprojected extends CI_Model
         return $query->result();
     }
 
+    function getProjected($searchdata)
+    {
+        $start = 0;
+        $length = 25;
+        if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
+            $start = $searchdata['start'];
+        }
+        if (isset($searchdata['length']) && $searchdata['length'] != '' && $searchdata['length'] != null) {
+            $length = $searchdata['length'];
+        }
+
+
+        if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
+            $this->db->where('p.proj_code', $searchdata['proj_code']);
+        }
+        if (isset($searchdata['bdgt_code']) && $searchdata['bdgt_code'] != '' && $searchdata['bdgt_code'] != null) {
+            $this->db->where('p.bdgt_code', $searchdata['bdgt_code']);
+        }
+        if (isset($searchdata['emp_code']) && $searchdata['emp_code'] != '' && $searchdata['emp_code'] != null) {
+            $this->db->where('p.empl_code', $searchdata['emp_code']);
+        }
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+            $search = $searchdata['search'];
+            $this->db->where("(p.proj_code like '%" . $search . "%' OR  p.bdgt_code like '%" . $search . "%')");
+        }
+        if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
+            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
+        }
+        $this->db->select('*');
+        $this->db->from('b_projected p');
+        $this->db->where('p.isActive', 1);
+        $this->db->limit($length, $start);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getCntTotalProjected($searchdata)
+    {
+
+        if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
+            $this->db->where('p.proj_code', $searchdata['proj_code']);
+        }
+        if (isset($searchdata['bdgt_code']) && $searchdata['bdgt_code'] != '' && $searchdata['bdgt_code'] != null) {
+            $this->db->where('p.bdgt_code', $searchdata['bdgt_code']);
+        }
+        if (isset($searchdata['emp_code']) && $searchdata['emp_code'] != '' && $searchdata['emp_code'] != null) {
+            $this->db->where('p.empl_code', $searchdata['emp_code']);
+        }
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+            $search = $searchdata['search'];
+            $this->db->where("(p.proj_code like '%" . $search . "%' OR  p.bdgt_code like '%" . $search . "%')");
+        }
+        $this->db->select('count(p.idPrjn) as cnttotal');
+        $this->db->from('b_projected p');
+        $this->db->where('p.isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
