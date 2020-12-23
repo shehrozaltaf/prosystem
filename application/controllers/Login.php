@@ -27,7 +27,6 @@ class Login extends CI_Controller
         $data = array();
         $Login = new MLogin();
         $SeesionInfo = $this->session->all_userdata();
-
         if (isset($_SESSION['login']['idUser'])) {
             redirect(base_url('index.php/hr_controllers/employee_entry'), refresh);
         } else {
@@ -39,8 +38,6 @@ class Login extends CI_Controller
     {
         $username = $this->input->post('login_username');
         $Password = $this->input->post('login_password');
-
-
         if (!isset($username) || $username == '' || $username == 'undefined') {
             echo 4;
             exit();
@@ -52,8 +49,6 @@ class Login extends CI_Controller
         $Login = new MLogin();
         $this->form_validation->set_rules('login_username', 'UserName', 'required');
         $this->form_validation->set_rules('login_password', 'Password', 'required');
-
-
         if ($this->form_validation->run() == FALSE) {
             echo 3;
             exit();
