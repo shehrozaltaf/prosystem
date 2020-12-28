@@ -35,16 +35,55 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
+                                                <label for="prjn_month" class="label-control">Month-Year</label>
+                                                <select name="prjn_month" id="prjn_month" class="form-control select2"
+                                                        autocomplete="prjn_month" required onchange="changeMY()">
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="prjn_year" class="label-control">Start Year</label>
+                                                <select name="prjn_year" id="prjn_year"
+                                                        class="form-control prjn_year " rowNo="0"
+                                                        autocomplete="prjn_year" required  onchange="changeMY()">
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php
+                                                    for ($year = date('Y', strtotime(" + 1 year")); $year >= 2015; $year--) {
+                                                        echo ' <option value="' . $year . '">' . $year . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
                                                 <label for="proj_code" class="label-control">Project Code</label>
                                                 <select name="proj_code" id="proj_code" class="form-control select2"
                                                         autocomplete="proj_code" required
                                                         onchange="chngeProject_Band(this)">
                                                     <option value="0" readonly disabled selected></option>
-                                                    <?php if (isset($project) && $project != '') {
+                                                    <?php /* if (isset($project) && $project != '') {
                                                         foreach ($project as $k => $p) {
                                                             echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
                                                         }
-                                                    } ?>
+                                                    }*/ ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -58,15 +97,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="prjn_month" class="label-control">Month-Year</label>
-                                                <select name="prjn_month" id="prjn_month" class="form-control select2"
-                                                        autocomplete="prjn_month" required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                     </div>
 
                                 </div>
@@ -74,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row hide hiddenrow">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
@@ -90,30 +121,11 @@
                                             <h4 class="my-1">Selected</h4>
                                             <ul class="list-group list-group-flush selectedEmpList"
                                                 id="multiple-list-group-a">
-                                                <!-- <li class="list-group-item">
-                                                     <div class="media">
-                                                         <div class="media-body">
-                                                             <h5 class="mt-0">Mary S. Navarre</h5>
-                                                             Chupa chups tiramisu apple pie biscuit sweet roll bonbon
-                                                             macaroon.
-                                                         </div>
-                                                     </div>
-                                                 </li> -->
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <h4 class="my-1">Employees</h4>
                                             <ul class="list-group list-group-flush empList" id="multiple-list-group-b">
-                                                <!--<li class="list-group-item empList">
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <h5 class="mt-0">Mary S. Navarre</h5>
-                                                            Chupa chups tiramisu apple pie biscuit sweet roll bonbon
-                                                            macaroon.
-                                                        </div>
-                                                    </div>
-                                                </li>-->
-
                                             </ul>
                                         </div>
                                     </div>
@@ -122,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row hide hiddenrow">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -161,7 +173,6 @@
     $(document).ready(function () {
         validateNum('prjn_pctg');
         validateNumByClass('perc');
-        // dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')]);
         dragula([document.getElementById('multiple-list-group-a'), document.getElementById('multiple-list-group-b')])
             .on('drop', function (el) {
                 if ($(el).parents('ul').hasClass('selectedEmpList')) {
@@ -172,6 +183,29 @@
                 validateNumByClass('perc');
             });
     });
+
+    function changeMY() {
+        var data = {};
+        data['prjn_month'] = $('#prjn_month').val();
+        data['prjn_year'] = $('#prjn_year').val();
+        if (data['prjn_month'] != '' && data['prjn_month'] != undefined && data['prjn_year'] != '' && data['prjn_year'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/getprojectByMY'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                          var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
+                        $.each(response[1], function (i, v) {
+                           post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
+                        });
+                        $('#proj_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        }
+    }
 
     function chngeProject_Band(obj) {
         var data = {};
@@ -204,7 +238,6 @@
         data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
         if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
             $('.myPercentage').html('Max: ' + $("#bdgt_code option:selected").attr("data-per") + '%');
-            chngeBand_Month_Year();
             CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getEmployees'); ?>', data, 'POST', function (result) {
                 try {
                     var response = JSON.parse(result);
@@ -218,7 +251,7 @@
                                 '<div class="media-body mt-0"">' +
                                 '<h5 class="mt-0">' + v.empname + '</h5>' +
                                 ' <p class="mt-0 ml-2"><small>Employee No:</small> ' + v.empno + '<br>' +
-                                ' <small>Designation:</small> ' + v.desig   +
+                                ' <small>Designation:</small> ' + v.desig +
                                 '<input type="text" name="perc" maxlength="3" class="form-control perc hide" placeholder="Percentage">' +
                                 '</p>' +
                                 ' </div>' +
@@ -268,11 +301,11 @@
         data['proj_code'] = $('#proj_code').val();
         data['bdgt_code'] = $('#bdgt_code').val();
         data['prjn_month'] = $('#prjn_month').val();
-        var empList=[];
-        $.each($('.selectedEmpList li'), function(i,v){
-            var empNo=$(v).attr('data-empNo');
-            var perc=$(v).find('.perc').val();
-            empList.push({"emp":empNo,"perc":perc});
+        var empList = [];
+        $.each($('.selectedEmpList li'), function (i, v) {
+            var empNo = $(v).attr('data-empNo');
+            var perc = $(v).find('.perc').val();
+            empList.push({"emp": empNo, "perc": perc});
         });
         data['empList'] = empList;
         var vd = validateData(data);

@@ -37,7 +37,6 @@ class Mproject extends CI_Model
     }
 
 
-
     function getProjectBands($code)
     {
         /*not in use*/
@@ -49,7 +48,24 @@ class Mproject extends CI_Model
         return $query->result();
     }
 
+    function getProjectByMY($prjn_month, $prjn_year)
+    {
 
+        $this->db->select('	project.proj_name,
+	project.proj_sn,
+	project.proj_code');
+        $this->db->from('b_budget');
+        $this->db->join('project', 'b_budget.proj_code = project.proj_code', 'left');
+        $this->db->where('b_budget.isActive', 1);
+        $this->db->where('project.isActive', 1);
+        $this->db->where("(b_budget.start_m_y BETWEEN '$prjn_month' AND '$prjn_year') OR
+(b_budget.end_m_y BETWEEN '$prjn_month' AND '$prjn_year')");
+        $this->db->group_by('project.proj_name');
+        $this->db->group_by('project.proj_sn');
+        $this->db->group_by('project.proj_code');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 
 }

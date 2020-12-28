@@ -26,7 +26,7 @@ class Projected extends CI_controller
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         $Mprojected = new Mprojected();
         $data['data'] = $Mprojected->getAll();
-        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive','DESC');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive', 'DESC');
         $data['hr_employee'] = $Custom->selectAllQuery('hr_employee', 'id', 'status');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -36,7 +36,8 @@ class Projected extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function getProjected(){
+    function getProjected()
+    {
         $M = new Mprojected();
         $orderindex = (isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : '');
         $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
@@ -55,7 +56,6 @@ class Projected extends CI_controller
         $table_data = array();
         $result_table_data = array();
         foreach ($data as $key => $value) {
-
 
 
             $table_data[$value->idPrjn]['proj_code'] = $value->proj_code;
@@ -110,7 +110,7 @@ class Projected extends CI_controller
 
         $Mprojected = new Mprojected();
         $data['data'] = $Mprojected->getAll();
-        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive','DESC');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive', 'DESC');
         $data['hr_employee'] = $Custom->selectAllQuery('hr_employee', 'id', 'status');
 
         $this->load->view('include/header');
@@ -121,6 +121,23 @@ class Projected extends CI_controller
         $this->load->view('include/footer');
     }
 
+    function getprojectByMY()
+    {
+        if (isset($_POST['prjn_month']) && $_POST['prjn_month'] != '' && isset($_POST['prjn_year']) && $_POST['prjn_year'] != '') {
+            $prjn_month = $_POST['prjn_month'];
+            $prjn_year = $_POST['prjn_year'];
+            $this->load->model('budget_model/mproject');
+            $M = new Mproject();
+            $s=$prjn_year.'-'.$prjn_month.'-01';
+            $e='2030-12-30';
+
+            $getData = $M->getProjectByMY($s,$e);
+            $result = array('0' => 'Success', '1' => $getData);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+        }
+        echo json_encode($result);
+    }
 
     function insertData()
     {
@@ -182,7 +199,6 @@ class Projected extends CI_controller
         }
 
     }
-
 
 
     function deleteData()

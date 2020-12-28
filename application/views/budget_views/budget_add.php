@@ -144,7 +144,7 @@
                                                         autocomplete="bdgt_start_year" required>
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
-                                                    for ($year = date('Y'); $year >= 2015; $year--) {
+                                                    for ($year = date('Y', strtotime(" + 1 year")); $year >= 2015; $year--) {
                                                         echo ' <option value="' . $year . '">' . $year . '</option>';
                                                     }
                                                     ?>

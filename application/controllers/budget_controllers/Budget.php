@@ -155,6 +155,8 @@ class Budget extends CI_controller
                     $insertArray['bdgt_start_year'] = $bv['bdgt_start_year'];
                     $insertArray['bdgt_end_month'] = $bv['bdgt_end_month'];
                     $insertArray['bdgt_end_year'] = $bv['bdgt_end_year'];
+                    $insertArray['start_m_y'] = $bv['bdgt_start_year'].'-'.$bv['bdgt_start_month'].'-'.'01';
+                    $insertArray['end_m_y'] = $bv['bdgt_end_year'].'-'.$bv['bdgt_end_month'].'-'.'30';
                     $insertArray['isActive'] = 1;
                     $insertArray['assigned'] = 0;
                     $insertArray['createdBy'] = $_SESSION['login']['idUser'];
