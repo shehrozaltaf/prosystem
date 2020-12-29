@@ -76,7 +76,8 @@
                                             <div class="form-group">
                                                 <label for="bdgt_band" class="label-control">Band</label>
                                                 <select name="bdgt_band" id="bdgt_band" class="form-control  bdgt_band "
-                                                        autocomplete="bdgt_band" required onchange="chngeBand(this)" rowNo="0">
+                                                        autocomplete="bdgt_band" required onchange="chngeBand(this)"
+                                                        rowNo="0">
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($band) && $band != '') {
                                                         foreach ($band as $b) {
@@ -108,7 +109,9 @@
                                             <div class="form-group">
                                                 <label for="bdgt_pctg" class="label-control">Percentage(%)</label>
                                                 <input type="text" class="form-control bdgt_pctg" id="bdgt_pctg"
-                                                       name="bdgt_pctg" maxlength="3" max="3" rowNo="0"
+                                                       name="bdgt_pctg" maxlength="3" max="3"
+                                                       onfocusout="validatePercentage(this)"
+                                                       value="100"
                                                        autocomplete="bdgt_pctg" required>
 
                                             </div>
@@ -249,19 +252,19 @@
             a += $(obj).parents('.card').html();
             a += '</div>';
             $('.childrows').append(a);
-            var pos_no=2;
-            if(data['bdgt_code']!=''  && data['bdgt_code'] !=undefined){
-                pos_no= parseInt(data['bdgt_code'])+1;
+            var pos_no = 2;
+            if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
+                pos_no = parseInt(data['bdgt_code']) + 1;
             }
-            $('.' + card).find('.bdgt_code').val(pos_no).attr('rowNo',c);
-            $('.' + card).find('.bdgt_band').val(data['bdgt_band']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_posi').val(data['bdgt_posi']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_amnt').val(data['bdgt_amnt']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_pctg').val(data['bdgt_pctg']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_start_month').val(data['bdgt_start_month']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_start_year').val(data['bdgt_start_year']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_end_month').val(data['bdgt_end_month']).attr('rowNo',c);
-            $('.' + card).find('.bdgt_end_year').val(data['bdgt_end_year']).attr('rowNo',c);
+            $('.' + card).find('.bdgt_code').val(pos_no).attr('rowNo', c);
+            $('.' + card).find('.bdgt_band').val(data['bdgt_band']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_posi').val(data['bdgt_posi']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_amnt').val(data['bdgt_amnt']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_pctg').val(data['bdgt_pctg']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_start_month').val(data['bdgt_start_month']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_start_year').val(data['bdgt_start_year']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_end_month').val(data['bdgt_end_month']).attr('rowNo', c);
+            $('.' + card).find('.bdgt_end_year').val(data['bdgt_end_year']).attr('rowNo', c);
         } else {
             toastMsg('Warning', 'Invalid Data', 'warning');
         }
@@ -289,7 +292,7 @@
                         $.each(response[1], function (i, v) {
                             post += '<option value="' + v.id + '">' + v.desig + '</option>';
                         });
-                        $(obj).parents('.card-'+attribu).find('.bdgt_posi').html(post);
+                        $(obj).parents('.card-' + attribu).find('.bdgt_posi').html(post);
                     } else {
                         toastMsg(response[0], response[1], 'error');
                     }
@@ -305,15 +308,15 @@
     $(document).ready(function () {
         validateNum('bdgt_amnt');
         validateNum('bdgt_pctg');
-        // mydate();
     });
 
     function insertData() {
+        var flag = 0;
         var data = {};
         data['proj_code'] = $('#proj_code').val();
-        var budgData=[];
-        $('.childrows .card').each(function (i,v) {
-            var arr={};
+        var budgData = [];
+        $('.childrows .card').each(function (i, v) {
+            var arr = {};
             arr['bdgt_code'] = $(v).find('.bdgt_code').val();
             arr['bdgt_posi'] = $(v).find('.bdgt_posi').val();
             arr['bdgt_band'] = $(v).find('.bdgt_band').val();
@@ -323,13 +326,15 @@
             arr['bdgt_start_year'] = $(v).find('.bdgt_start_year').val();
             arr['bdgt_end_month'] = $(v).find('.bdgt_end_month').val();
             arr['bdgt_end_year'] = $(v).find('.bdgt_end_year').val();
+            if (arr['bdgt_pctg'] == '' || arr['bdgt_pctg'] == undefined || arr['bdgt_pctg'] < 1 || arr['bdgt_pctg'] > 100) {
+                $(v).find('.bdgt_pctg').addClass('error');
+                flag = 1;
+            }
             budgData.push(arr);
         });
-        data['budgData']=budgData;
-        console.log(data);
-        var vd = 1;
-        // var vd = validateData(data);
-        if (vd) {
+        data['budgData'] = budgData;
+        var vd = validateData(data);
+        if (vd && flag == 0) {
             showloader();
             $('.mybtn').addClass('hide').attr('disabled', 'disabled');
             CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/insertData'); ?>', data, 'POST', function (result) {

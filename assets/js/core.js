@@ -53,6 +53,15 @@ function hideModal(id) {
     modal.hide();
 }
 
+function validatePercentage(obj) {
+    var v=$(obj).val();
+    if(v>=1 && v<=100){
+        $(obj).removeClass('error');
+    }else{
+        $(obj).addClass('error');
+    }
+    return true;
+}
 
 /*Not in use*/
 
