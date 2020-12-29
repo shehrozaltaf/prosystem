@@ -24,7 +24,46 @@
             </div>
         </div>
         <div class="content-body">
-            <section id="column-selectors">
+            <section class="basic-select2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-12">
+                                            <div class="form-group">
+                                                <label for="proj_code">Project</label>
+                                                <select class="select2 form-control" id="proj_code" name="proj_code">
+                                                    <option value="0">All Projects</option>
+                                                    <?php
+                                                    if (isset($project) && $project != '') {
+                                                        foreach ($project as $k => $v) {
+                                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" ">
+                                        <button type="button" class="btn btn-primary" onclick="getData()">Get
+                                            Data
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="column-selectors" class="hide main_content_div">
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -34,7 +73,7 @@
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
-                                        <table class="table table-striped dataex-html5-selectors">
+                                        <table  id="my_table_inventory" style="width:100%" class="table table-striped dataex-html5-selectors">
                                             <thead>
                                             <tr>
                                                 <th>SNo</th>
@@ -49,62 +88,6 @@
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <?php
-                                            $SNo = 0;
-                                            if (isset($data) && $data != '') {
-                                                foreach ($data as $v) {
-                                                    $SNo++; ?>
-                                                    <tr>
-                                                        <td><?php echo $SNo ?></td>
-                                                        <td><?php echo $v->proj_code ?></td>
-                                                        <td><?php echo $v->bdgt_code ?></td>
-                                                        <td><?php echo $v->band ?></td>
-                                                        <td><?php echo $v->desig ?></td>
-                                                        <td><?php echo $v->bdgt_amnt ?></td>
-                                                        <td><?php echo (isset($v->bdgt_pctg) && $v->bdgt_pctg!=''?$v->bdgt_pctg:'0').'%' ?></td>
-                                                        <td><?php echo returnM($v->bdgt_start_month) . '-' . $v->bdgt_start_year ?></td>
-                                                        <td><?php echo returnM($v->bdgt_end_month) . '-' . $v->bdgt_end_year ?></td>
-                                                        <td data-id="<?php echo $v->idBugt ?>">
-                                                            <a href="javascript:void(0)" onclick="getDelete(this)">
-                                                                <i class="feather icon-trash"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php }
-                                            }
-                                            function returnM($month)
-                                            {
-                                                if ($month == 1) {
-                                                    $res = 'Jan';
-                                                } elseif ($month == 2) {
-                                                    $res = 'Feb';
-                                                } elseif ($month == 3) {
-                                                    $res = 'Mar';
-                                                } elseif ($month == 4) {
-                                                    $res = 'Apr';
-                                                } elseif ($month == 5) {
-                                                    $res = 'May';
-                                                } elseif ($month == 6) {
-                                                    $res = 'June';
-                                                } elseif ($month == 7) {
-                                                    $res = 'July';
-                                                } elseif ($month == 8) {
-                                                    $res = 'Aug';
-                                                } elseif ($month == 9) {
-                                                    $res = 'Sep';
-                                                } elseif ($month == 10) {
-                                                    $res = 'Oct';
-                                                } elseif ($month == 11) {
-                                                    $res = 'Nov';
-                                                } elseif ($month == 12) {
-                                                    $res = 'Dec';
-                                                } else {
-                                                    $res = '';
-                                                }
-                                                return $res;
-                                            } ?>
-                                            </tbody>
                                             <tfoot>
                                             <tr>
                                                 <th>SNo</th>
@@ -174,51 +157,66 @@
 
 <script>
     $(document).ready(function () {
-        $('.dataex-html5-selectors').DataTable({
-            dom: 'Bfrtip',
-            "displayLength": 50,
-            buttons: [
-                {
-                    extend: 'copyHtml5',
-                    exportOptions: {
-                        columns: [0, ':visible']
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'csv',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    text: 'JSON',
-                    action: function (e, dt, button, config) {
-                        var data = dt.buttons.exportData();
-
-                        $.fn.dataTable.fileSave(
-                            new Blob([JSON.stringify(data)]),
-                            'Export.json'
-                        );
-                    }
-                },
-                {
-                    extend: 'print',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }
-            ]
-        });
+        mydate();
+        getData();
     });
-
-
+    function mydate() {
+        $('.mypickadat').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2019, 12, 1),
+            max: false,
+            format: 'dd-mm-yyyy'
+        });
+    }
+    function getData() {
+        var data = {};
+        data['proj_code'] = $('#proj_code').val();
+        showloader();
+        $('.main_content_div').addClass('hide');
+        var dt = $('#my_table_inventory').DataTable({
+            destroy: true,
+            processing: true,
+            serverSide: true,
+            responsive: {
+                details: false
+            },
+            lengthMenu: [25, 50, 75, 100],
+            pageLength: 25,
+            iDisplayLength: 25,
+            dom: 'Bfrtip',
+            ajax: {
+                "url": "<?php echo base_url('index.php/budget_controllers/Budget/getData')?>",
+                "method": "POST",
+                "data": data
+            },
+            columns: [
+                {"data": "SNo"},
+                {"data": "proj_code"},
+                {"data": "bdgt_code"},
+                {"data": "Band"},
+                {"data": "Position"},
+                {"data": "Amount"},
+                {"data": "Percentage"},
+                {"data": "Start Month-Year"},
+                {"data": "End Month-Year"},
+                {"data": "Action"}
+            ],
+            order: [
+                [1, 'desc']
+            ],
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+        });
+        $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-outline-primary mr-1');
+        setTimeout(function () {
+            hideloader();
+            $('.main_content_div').removeClass('hide');
+        }, 500);
+    }
     function getDelete(obj) {
-        var id = $(obj).parent('td').attr('data-id');
+        var id = $(obj).attr('data-id');
         $('#delete_idBugt').val(id);
         $('#deleteModal').modal('show');
     }

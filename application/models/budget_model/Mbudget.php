@@ -4,6 +4,80 @@
 
 class Mbudget extends CI_Model
 {
+    function getBdgt($searchdata)
+    {
+        $start = 0;
+        $length = 25;
+        if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
+            $start = $searchdata['start'];
+        }
+        if (isset($searchdata['length']) && $searchdata['length'] != '' && $searchdata['length'] != null) {
+            $length = $searchdata['length'];
+        }
+
+
+        if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null && $searchdata['proj_code'] != 0) {
+            $this->db->where('b_budget.proj_code', $searchdata['proj_code']);
+        }
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+            $search = $searchdata['search'];
+            $this->db->where("(b_budget.proj_code like '%" . $search . "%' 
+            OR  b_budget.bdgt_code like '%" . $search . "%'
+            OR  b_budget.emp_code like '%" . $search . "%'
+            )");
+        }
+
+        if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
+            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
+        }
+        $this->db->select('b_budget.idBugt,
+	b_budget.proj_code,
+	b_budget.bdgt_code,
+	b_budget.bdgt_posi,
+	b_budget.bdgt_band,
+	b_budget.bdgt_amnt,
+	b_budget.bdgt_pctg,
+	b_budget.bdgt_start_month,
+	b_budget.bdgt_start_year,
+	b_budget.bdgt_end_month,
+	b_budget.bdgt_end_year,
+	b_budget.start_m_y,
+    b_budget.end_m_y,
+	hr_band.band,
+	hr_desig.desig');
+        $this->db->from('b_budget');
+        $this->db->join('hr_band', 'b_budget.bdgt_band = hr_band.id', 'left');
+        $this->db->join('hr_desig', 'b_budget.bdgt_posi = hr_desig.id', 'left');
+        $this->db->where('b_budget.isActive', 1);
+        $this->db->limit($length, $start);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getCntTotalBdgt($searchdata)
+    {
+
+        if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null && $searchdata['proj_code'] != 0) {
+            $this->db->where('b_budget.proj_code', $searchdata['proj_code']);
+        }
+
+
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+            $search = $searchdata['search'];
+            $this->db->where("(b_budget.proj_code like '%" . $search . "%' 
+            OR  b_budget.bdgt_code like '%" . $search . "%'
+            OR  b_budget.emp_code like '%" . $search . "%'
+            )");
+        }
+        $this->db->select('count(idBugt) as cnttotal');
+        $this->db->from('b_budget');
+        $this->db->where('isActive', 1);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     function getAll($proj = '', $searchData = '')
     {
@@ -33,9 +107,6 @@ class Mbudget extends CI_Model
         $this->db->join('hr_band', 'b_budget.bdgt_band = hr_band.id', 'left');
         $this->db->join('hr_desig', 'b_budget.bdgt_posi = hr_desig.id', 'left');
         $this->db->where('b_budget.isActive', 1);
-
-
-
         $this->db->order_By('b_budget.idBugt', 'DESC');
         $query = $this->db->get();
         return $query->result();

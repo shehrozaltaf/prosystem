@@ -26,8 +26,8 @@ class Budget extends CI_controller
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         $Mbudget = new Mbudget();
-        $data['data'] = $Mbudget->getAll();
-
+//        $data['data'] = $Mbudget->getAll();
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive', 'DESC');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -36,6 +36,91 @@ class Budget extends CI_controller
         $this->load->view('include/footer');
     }
 
+    function getData()
+    {
+        $M = new Mbudget();
+        $orderindex = (isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : '');
+        $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
+        $searchData = array();
+
+        $searchData['proj_code'] = (isset($_REQUEST['proj_code']) && $_REQUEST['proj_code'] != '' ? $_REQUEST['proj_code'] : 0);
+        $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
+        $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 25);
+        $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
+        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'b_budget.idBugt');
+        $searchData['ordersort'] = (isset($_REQUEST['order'][0]['dir']) && $_REQUEST['order'][0]['dir'] != '' ? $_REQUEST['order'][0]['dir'] : 'desc');
+        $data = $M->getBdgt($searchData);
+        $table_data = array();
+        $result_table_data = array();
+        $SNo = 0;
+        foreach ($data as $key => $value) {
+
+            $table_data[$value->idBugt]['SNo'] = $SNo++;
+            $table_data[$value->idBugt]['proj_code'] = $value->proj_code;
+            $table_data[$value->idBugt]['bdgt_code'] = $value->bdgt_code;
+            $table_data[$value->idBugt]['Band'] = $value->band;
+            $table_data[$value->idBugt]['Position'] = $value->desig;
+            $table_data[$value->idBugt]['Amount'] = $value->bdgt_amnt;
+            $table_data[$value->idBugt]['Percentage'] = (isset($value->bdgt_pctg) && $value->bdgt_pctg != '' ? $value->bdgt_pctg : '0') . '%';
+            $table_data[$value->idBugt]['Start Month-Year'] = $this->returnM($value->bdgt_start_month) . '-' . $value->bdgt_start_year;
+            $table_data[$value->idBugt]['End Month-Year'] = $this->returnM($value->bdgt_end_month) . '-' . $value->bdgt_end_year;
+            $table_data[$value->idBugt]['Action'] = '
+                          <a href="javascript:void(0)" onclick="getDelete(this)" data-id="'.$value->idBugt.'">
+                                <i class="feather icon-trash"></i>
+                            </a> ';
+
+        }
+        foreach ($table_data as $k => $v) {
+            $result_table_data[] = $v;
+        }
+
+        $result["draw"] = (isset($_REQUEST['draw']) && $_REQUEST['draw'] != '' ? $_REQUEST['draw'] : 0);
+        $totalsearchData = array();
+        $totalsearchData['start'] = 0;
+        $totalsearchData['length'] = 10000000;
+        $totalsearchData['proj_code'] = $searchData['proj_code'];
+
+        $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
+        $totalrecords = $M->getCntTotalBdgt($totalsearchData);
+
+        $result["recordsTotal"] = $totalrecords[0]->cnttotal;
+        $result["recordsFiltered"] = $totalrecords[0]->cnttotal;
+        $result["data"] = $result_table_data;
+
+        echo json_encode($result, true);
+    }
+
+    function returnM($month)
+    {
+        if ($month == 1) {
+            $res = 'Jan';
+        } elseif ($month == 2) {
+            $res = 'Feb';
+        } elseif ($month == 3) {
+            $res = 'Mar';
+        } elseif ($month == 4) {
+            $res = 'Apr';
+        } elseif ($month == 5) {
+            $res = 'May';
+        } elseif ($month == 6) {
+            $res = 'June';
+        } elseif ($month == 7) {
+            $res = 'July';
+        } elseif ($month == 8) {
+            $res = 'Aug';
+        } elseif ($month == 9) {
+            $res = 'Sep';
+        } elseif ($month == 10) {
+            $res = 'Oct';
+        } elseif ($month == 11) {
+            $res = 'Nov';
+        } elseif ($month == 12) {
+            $res = 'Dec';
+        } else {
+            $res = '';
+        }
+        return $res;
+    }
 
     function addBudget_view()
     {

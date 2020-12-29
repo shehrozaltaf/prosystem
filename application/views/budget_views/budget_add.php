@@ -37,7 +37,6 @@
                                                         autocomplete="proj_code" required>
                                                     <option value="0" readonly disabled selected>Select Project</option>
                                                     <?php if (isset($project) && $project != '') {
-
                                                         foreach ($project as $k => $p) {
                                                             echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . ' (' . $p->proj_name . ')</option>';
                                                         }
