@@ -128,13 +128,45 @@ class Projected extends CI_controller
             $prjn_year = $_POST['prjn_year'];
             $this->load->model('budget_model/mproject');
             $M = new Mproject();
-            $s=$prjn_year.'-'.$prjn_month.'-01';
-            $e='2030-12-30';
-
-            $getData = $M->getProjectByMY($s,$e);
+            $s = $prjn_year . '-' . $prjn_month . '-01';
+            $e = '2030-12-30';
+            $getData = $M->getProjectByMY($s, $e);
             $result = array('0' => 'Success', '1' => $getData);
         } else {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+        }
+        echo json_encode($result);
+    }
+
+    function checkProjectedData()
+    {
+        $flag = 0;
+        $result = array('0' => 'Error', '1' => 'Invalid Data');
+        if (!isset($_POST['prjn_month']) || $_POST['prjn_month'] == '') {
+            $result = array('0' => 'Error', '1' => 'Invalid Month');
+            $flag = 1;
+        }
+        if (!isset($_POST['prjn_year']) || $_POST['prjn_year'] == '') {
+            $result = array('0' => 'Error', '1' => 'Invalid Year');
+            $flag = 1;
+        }
+        if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '') {
+            $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+            $flag = 1;
+        }
+        if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+            $flag = 1;
+        }
+        if ($flag == 0) {
+            $searchData = array();
+            $searchData['prjn_month'] = $_POST['prjn_month'];
+            $searchData['prjn_year'] = $_POST['prjn_year'];
+            $searchData['proj_code'] = $_POST['proj_code'];
+            $searchData['bdgt_code'] = $_POST['bdgt_code'];
+            $M = new Mprojected();
+            $getData = $M->checkBdgtProjected($searchData);
+            $result = array('0' => 'Success', '1' => $getData);
         }
         echo json_encode($result);
     }
@@ -148,12 +180,6 @@ class Projected extends CI_controller
             echo json_encode($result);
             exit();
         }
-        /*if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }*/
         if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '' || $_POST['bdgt_code'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget');
             $flag = 1;
@@ -161,7 +187,13 @@ class Projected extends CI_controller
             exit();
         }
         if (!isset($_POST['prjn_month']) || $_POST['prjn_month'] == '' || $_POST['prjn_month'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Month Year');
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Month');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if (!isset($_POST['prjn_year']) || $_POST['prjn_year'] == '' || $_POST['prjn_year'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Year');
             $flag = 1;
             echo json_encode($result);
             exit();
@@ -174,13 +206,13 @@ class Projected extends CI_controller
         }
         if ($flag == 0) {
             $Custom = new Custom();
-            $expMY = explode('-', $_POST['prjn_month']);
+//            $expMY = explode('-', $_POST['prjn_month']);
             $insertArray = array();
 
             $insertArray['proj_code'] = $_POST['proj_code'];
             $insertArray['bdgt_code'] = $_POST['bdgt_code'];
-            $insertArray['prjn_month'] = $expMY[0];
-            $insertArray['prjn_year'] = $expMY[1];
+            $insertArray['prjn_month'] = $_POST['prjn_month'];
+            $insertArray['prjn_year'] = $_POST['prjn_year'];
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');

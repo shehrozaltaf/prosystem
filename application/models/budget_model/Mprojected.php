@@ -76,4 +76,26 @@ class Mprojected extends CI_Model
         return $query->result();
     }
 
+    function checkBdgtProjected($searchdata)
+    {
+
+        if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
+            $this->db->where('p.proj_code', $searchdata['proj_code']);
+        }
+        if (isset($searchdata['bdgt_code']) && $searchdata['bdgt_code'] != '' && $searchdata['bdgt_code'] != null) {
+            $this->db->where('p.bdgt_code', $searchdata['bdgt_code']);
+        }
+        if (isset($searchdata['prjn_month']) && $searchdata['prjn_month'] != '' && $searchdata['prjn_month'] != null) {
+            $this->db->where('p.prjn_month', $searchdata['prjn_month']);
+        }
+        if (isset($searchdata['prjn_year']) && $searchdata['prjn_year'] != '' && $searchdata['prjn_year'] != null) {
+            $this->db->where('p.prjn_year', $searchdata['prjn_year']);
+        }
+        $this->db->select('*');
+        $this->db->from('b_projected p');
+        $this->db->where('p.isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

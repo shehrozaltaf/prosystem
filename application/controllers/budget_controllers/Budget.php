@@ -51,7 +51,7 @@ class Budget extends CI_controller
 
         $Mbudget = new Mbudget();
         $data['data'] = $Mbudget->getAll();
-        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive','DESC');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive', 'DESC');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -155,8 +155,8 @@ class Budget extends CI_controller
                     $insertArray['bdgt_start_year'] = $bv['bdgt_start_year'];
                     $insertArray['bdgt_end_month'] = $bv['bdgt_end_month'];
                     $insertArray['bdgt_end_year'] = $bv['bdgt_end_year'];
-                    $insertArray['start_m_y'] = $bv['bdgt_start_year'].'-'.$bv['bdgt_start_month'].'-'.'01';
-                    $insertArray['end_m_y'] = $bv['bdgt_end_year'].'-'.$bv['bdgt_end_month'].'-'.'30';
+                    $insertArray['start_m_y'] = $bv['bdgt_start_year'] . '-' . $bv['bdgt_start_month'] . '-' . '01';
+                    $insertArray['end_m_y'] = $bv['bdgt_end_year'] . '-' . $bv['bdgt_end_month'] . '-' . '30';
                     $insertArray['isActive'] = 1;
                     $insertArray['assigned'] = 0;
                     $insertArray['createdBy'] = $_SESSION['login']['idUser'];
@@ -203,6 +203,8 @@ class Budget extends CI_controller
     {
         if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '') {
             $M = new Mbudget();
+
+
             $getBandEmp = $M->getBandEmp($_POST['bdgt_code']);
             $result = array('0' => 'Success', '1' => $getBandEmp);
         } else {

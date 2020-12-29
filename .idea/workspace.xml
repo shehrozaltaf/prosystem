@@ -4,11 +4,11 @@
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mproject.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mproject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/budget_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/budget_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected_add_.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected_add_.php" afterDir="false" />
     </list>
     <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" />
     <ignored path="D:\xampp\htdocs\prosystem\.idea\shelf/" />
@@ -24,14 +24,76 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="219" column="50" selection-start-line="219" selection-start-column="50" selection-end-line="219" selection-end-column="50" />
+              <folding>
+                <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="e#10488#11053#0#HTML" />
+                <element signature="e#11081#12185#0#HTML" />
+                <element signature="e#15572#16753#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="236" selection-start-line="236" selection-end-line="236" />
+              <folding>
+                <element signature="e#256#343#0#PHP" />
+                <element signature="n#index#0;n#Project#0;n#!!top" />
+                <element signature="e#496#601#0#PHP" />
+                <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
+                <element signature="e#1379#1484#0#PHP" />
+                <element signature="n#insertData#0;n#Project#0;n#!!top" />
+                <element signature="e#2187#2448#0#PHP" />
+                <element signature="e#4222#4457#0#PHP" />
+                <element signature="e#4346#4457#0#PHP" />
+                <element signature="n#deleteData#0;n#Project#0;n#!!top" />
+                <element signature="e#4631#5384#0#PHP" />
+                <element signature="e#5017#5151#0#PHP" />
+                <element signature="e#5223#5332#0#PHP" />
+                <element signature="e#5283#5332#0#PHP" />
+                <element signature="e#5343#5384#0#PHP" />
+                <element signature="n#editProject_view#0;n#Project#0;n#!!top" />
+                <element signature="e#5574#5679#0#PHP" />
+                <element signature="n#updateData#0;n#Project#0;n#!!top" />
+                <element signature="e#6394#6653#0#PHP" />
+                <element signature="e#6662#6923#0#PHP" />
+                <element signature="e#6932#7193#0#PHP" />
+                <element signature="e#7202#7469#0#PHP" />
+                <element signature="e#7478#7739#0#PHP" />
+                <element signature="e#7749#8595#0#PHP" />
+                <element signature="e#8332#8546#0#PHP" />
+                <element signature="e#8445#8546#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="131" column="20" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
+            <state relative-caret-position="298">
+              <caret line="126" column="44" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="44" />
               <folding>
-                <element signature="n#insertData#0;n#Projected#0;n#!!top" />
+                <element signature="n#addProjected_view#0;n#Projected#0;n#!!top" />
                 <element signature="n#deleteData#0;n#Projected#0;n#!!top" />
                 <element signature="n#cloneData#0;n#Projected#0;n#!!top" />
               </folding>
@@ -40,72 +102,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="199" column="51" lean-forward="true" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
-              <folding>
-                <element signature="e#5461#5868#0#PHP" expanded="true" />
-                <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="e#12545#13843#0#HTML" />
-                <element signature="e#13877#15888#0#HTML" />
-                <element signature="e#15926#17070#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="182" selection-start-line="182" selection-end-line="182" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="184" column="73" selection-start-line="184" selection-start-column="73" selection-end-line="184" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mproject.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+            <state relative-caret-position="593">
+              <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="61" selection-end-column="60" />
               <folding>
                 <element signature="n#getProjectBands#0;n#Mproject#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="210" selection-end-column="34" />
-              <folding>
-                <element signature="n#__construct#0;n#Budget#0;n#!!top" />
-                <element signature="e#254#341#0#PHP" />
-                <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
-                <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add_.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="93" column="89" selection-start-line="93" selection-start-column="89" selection-end-line="94" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -114,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s2q19</find>
       <find>pci</find>
       <find>mypickadat</find>
       <find>childrows</find>
@@ -137,13 +139,14 @@
       <find>prjn_month</find>
       <find>bdgt_code</find>
       <find>proj_code</find>
-      <find>getData</find>
       <find>$value-&gt;id</find>
       <find>my_table_inventory</find>
       <find>i.</find>
-      <find>chngeBand_Emp</find>
-      <find>chngeBand_Month_Year</find>
       <find>dbo.</find>
+      <find>chngeBand_Month_Year</find>
+      <find>getData</find>
+      <find>mybtn</find>
+      <find>chngeBand_Emp</find>
     </findStrings>
     <replaceStrings>
       <replace>84c3bb</replace>
@@ -172,6 +175,7 @@
       <replace>$value-&gt;idPrjn</replace>
       <replace>copy_prjn_month</replace>
       <replace>p.</replace>
+      <replace>chkData</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -209,26 +213,26 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms-2020-11-17.json" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/ext-component-drag-drop.html" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
         <option value="$PROJECT_DIR$/../blf/api/getData.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
         <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/projected_add_.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/budget_add.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/projected_add.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mproject.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/projected_add.php" />
       </list>
     </option>
   </component>
@@ -245,6 +249,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -274,26 +279,6 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -305,20 +290,12 @@
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +385,8 @@
       <workItem from="1608528275053" duration="4289000" />
       <workItem from="1608616575397" duration="1836000" />
       <workItem from="1608699268609" duration="7993000" />
-      <workItem from="1609152819267" duration="5821000" />
+      <workItem from="1609152819267" duration="6136000" />
+      <workItem from="1609220141593" duration="5187000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -676,17 +654,24 @@
       <option name="project" value="LOCAL" />
       <updated>1608722418516</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="budget filters">
+      <created>1609161473265</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1609161473265</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285436000" />
+    <option name="totallyTimeSpent" value="290938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20537898" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20782396" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -897,41 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="233" column="38" selection-start-line="233" selection-start-column="38" selection-end-line="233" selection-end-column="38" />
-          <folding>
-            <element signature="e#256#343#0#PHP" />
-            <element signature="n#index#0;n#Project#0;n#!!top" />
-            <element signature="e#496#601#0#PHP" />
-            <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
-            <element signature="e#1379#1484#0#PHP" />
-            <element signature="n#insertData#0;n#Project#0;n#!!top" />
-            <element signature="e#2187#2448#0#PHP" />
-            <element signature="e#4222#4457#0#PHP" />
-            <element signature="e#4346#4457#0#PHP" />
-            <element signature="n#deleteData#0;n#Project#0;n#!!top" />
-            <element signature="e#4631#5384#0#PHP" />
-            <element signature="e#5017#5151#0#PHP" />
-            <element signature="e#5223#5332#0#PHP" />
-            <element signature="e#5283#5332#0#PHP" />
-            <element signature="e#5343#5384#0#PHP" />
-            <element signature="n#editProject_view#0;n#Project#0;n#!!top" />
-            <element signature="e#5574#5679#0#PHP" />
-            <element signature="n#updateData#0;n#Project#0;n#!!top" />
-            <element signature="e#6394#6653#0#PHP" />
-            <element signature="e#6662#6923#0#PHP" />
-            <element signature="e#6932#7193#0#PHP" />
-            <element signature="e#7202#7469#0#PHP" />
-            <element signature="e#7478#7739#0#PHP" />
-            <element signature="e#7749#8595#0#PHP" />
-            <element signature="e#8332#8546#0#PHP" />
-            <element signature="e#8445#8546#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../blf/api/getData.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -963,13 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -998,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1021,19 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="93" column="89" selection-start-line="93" selection-start-column="89" selection-end-line="94" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="210" selection-end-column="34" />
-          <folding>
-            <element signature="n#__construct#0;n#Budget#0;n#!!top" />
-            <element signature="e#254#341#0#PHP" />
-            <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
-            <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,51 +981,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="131" column="20" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
-          <folding>
-            <element signature="n#insertData#0;n#Projected#0;n#!!top" />
-            <element signature="n#deleteData#0;n#Projected#0;n#!!top" />
-            <element signature="n#cloneData#0;n#Projected#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="199" column="51" lean-forward="true" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
-          <folding>
-            <element signature="e#5461#5868#0#PHP" expanded="true" />
-            <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="e#12545#13843#0#HTML" />
-            <element signature="e#13877#15888#0#HTML" />
-            <element signature="e#15926#17070#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/budget_model/Memployee.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1120,12 +1002,117 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="312" column="20" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <folding>
+            <element signature="n#getCntTotalProjected#0;n#Mprojected#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mproject.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+        <state relative-caret-position="593">
+          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="61" selection-end-column="60" />
           <folding>
             <element signature="n#getProjectBands#0;n#Mproject#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="207" column="39" selection-start-line="207" selection-start-column="39" selection-end-line="207" selection-end-column="39" />
+          <folding>
+            <element signature="n#__construct#0;n#Budget#0;n#!!top" />
+            <element signature="e#254#341#0#PHP" />
+            <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
+            <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
+          <folding>
+            <element signature="e#256#343#0#PHP" />
+            <element signature="n#index#0;n#Project#0;n#!!top" />
+            <element signature="e#496#601#0#PHP" />
+            <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
+            <element signature="e#1379#1484#0#PHP" />
+            <element signature="n#insertData#0;n#Project#0;n#!!top" />
+            <element signature="e#2187#2448#0#PHP" />
+            <element signature="e#4222#4457#0#PHP" />
+            <element signature="e#4346#4457#0#PHP" />
+            <element signature="n#deleteData#0;n#Project#0;n#!!top" />
+            <element signature="e#4631#5384#0#PHP" />
+            <element signature="e#5017#5151#0#PHP" />
+            <element signature="e#5223#5332#0#PHP" />
+            <element signature="e#5283#5332#0#PHP" />
+            <element signature="e#5343#5384#0#PHP" />
+            <element signature="n#editProject_view#0;n#Project#0;n#!!top" />
+            <element signature="e#5574#5679#0#PHP" />
+            <element signature="n#updateData#0;n#Project#0;n#!!top" />
+            <element signature="e#6394#6653#0#PHP" />
+            <element signature="e#6662#6923#0#PHP" />
+            <element signature="e#6932#7193#0#PHP" />
+            <element signature="e#7202#7469#0#PHP" />
+            <element signature="e#7478#7739#0#PHP" />
+            <element signature="e#7749#8595#0#PHP" />
+            <element signature="e#8332#8546#0#PHP" />
+            <element signature="e#8445#8546#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="126" column="44" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="44" />
+          <folding>
+            <element signature="n#addProjected_view#0;n#Projected#0;n#!!top" />
+            <element signature="n#deleteData#0;n#Projected#0;n#!!top" />
+            <element signature="n#cloneData#0;n#Projected#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="219" column="50" selection-start-line="219" selection-start-column="50" selection-end-line="219" selection-end-column="50" />
+          <folding>
+            <element signature="n#div#1;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="e#10488#11053#0#HTML" />
+            <element signature="e#11081#12185#0#HTML" />
+            <element signature="e#15572#16753#0#HTML" />
           </folding>
         </state>
       </provider>

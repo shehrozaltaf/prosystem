@@ -5,10 +5,15 @@
 class Mbudget extends CI_Model
 {
 
-    function getAll($proj = '')
+    function getAll($proj = '', $searchData = '')
     {
         if (isset($proj) && $proj != '' && $proj != '0') {
             $this->db->where('b_budget.proj_code', $proj);
+        }
+
+        if (isset($searchData['s']) && $searchData['s'] != '' && $searchData['s'] != '0') {
+            $this->db->where("(b_budget.start_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."') OR
+(b_budget.end_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."')");
         }
 
         $this->db->select('b_budget.idBugt,
@@ -28,6 +33,9 @@ class Mbudget extends CI_Model
         $this->db->join('hr_band', 'b_budget.bdgt_band = hr_band.id', 'left');
         $this->db->join('hr_desig', 'b_budget.bdgt_posi = hr_desig.id', 'left');
         $this->db->where('b_budget.isActive', 1);
+
+
+
         $this->db->order_By('b_budget.idBugt', 'DESC');
         $query = $this->db->get();
         return $query->result();

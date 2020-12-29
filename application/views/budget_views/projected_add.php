@@ -59,7 +59,7 @@
                                                 <label for="prjn_year" class="label-control">Start Year</label>
                                                 <select name="prjn_year" id="prjn_year"
                                                         class="form-control prjn_year " rowNo="0"
-                                                        autocomplete="prjn_year" required  onchange="changeMY()">
+                                                        autocomplete="prjn_year" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
                                                     for ($year = date('Y', strtotime(" + 1 year")); $year >= 2015; $year--) {
@@ -91,13 +91,20 @@
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
-                                                        autocomplete="bdgt_code" required
-                                                        onchange="chngeBand_Emp(this)">
+                                                        autocomplete="bdgt_code" required >
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
                                         </div>
 
+                                    </div>
+                                    <div class=" ">
+                                        <button type="button" class="btn btn-primary mybtn" onclick="chkData()">Check
+                                            Data
+                                        </button>
+                                        <button type="button" class="btn btn-success hide copyData"  >Copy
+                                            Data
+                                        </button>
                                     </div>
 
                                 </div>
@@ -105,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row hide hiddenrow">
+                <div class="row hide hiddenrow EmpDiv">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
@@ -134,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row hide hiddenrow">
+                <div class="row hide hiddenrow insertBtnDiv">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -193,9 +200,9 @@
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
-                          var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
                         $.each(response[1], function (i, v) {
-                           post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
+                            post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
                         });
                         $('#proj_code').html(post);
                     } else {
@@ -209,6 +216,8 @@
 
     function chngeProject_Band(obj) {
         var data = {};
+        data['prjn_month'] = $("#prjn_month").val();
+        data['prjn_year'] = $("#prjn_year").val();
         data['proj_code'] = $('#proj_code').val();
         if (data['proj_code'] != '' && data['proj_code'] != undefined) {
             CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getBands'); ?>', data, 'POST', function (result) {
@@ -233,8 +242,9 @@
         }
     }
 
-    function chngeBand_Emp(obj) {
+    function chngeBand_Emp() {
         var data = {};
+
         data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
         if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
             $('.myPercentage').html('Max: ' + $("#bdgt_code option:selected").attr("data-per") + '%');
@@ -258,6 +268,7 @@
                                 '</div>' +
                                 '</li>';
                         });
+                        $('.selectedEmpList').html('');
                         $('.empList').html(post);
                         validateNumByClass('perc');
                     } else {
@@ -271,12 +282,47 @@
         }
     }
 
-    function chngeBand_Month_Year() {
+    function chkData() {
+        var data = {};
+        data['prjn_month'] = $("#prjn_month").val();
+        data['prjn_year'] = $("#prjn_year").val();
+        data['proj_code'] = $('#proj_code').val();
+        data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
+        var vd = validateData(data);
+        if (vd) {
+            $('.copyData').addClass('hide');
+            $('.mybtn').addClass('hide').attr('disabled', 'disabled');
+            showloader();
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/checkProjectedData'); ?>', data, 'POST', function (result) {
+                hideloader();
+                chngeBand_Emp();
+                $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        if(response[1].length>=1){
+                            $('.copyData').removeClass('hide');
+                        }else{
+                            $('.hiddenrow').removeClass('hide');
+                        }
+
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Project', 'error');
+        }
+    }
+
+    /*function chngeBand_Month_Year() {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
         data['bdgt_code'] = $('#bdgt_code').val();
         if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined && data['proj_code'] != '' && data['proj_code'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getBand_Month_Year'); ?>', data, 'POST', function (result) {
+            CallAjax('< ?php echo base_url('index.php/budget_controllers/Budget/getBand_Month_Year'); ?>', data, 'POST', function (result) {
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
@@ -294,13 +340,14 @@
         } else {
             toastMsg('Error', 'Invalid Band Id', 'error');
         }
-    }
+    }*/
 
     function insertData() {
         var data = {};
+        data['prjn_month'] = $("#prjn_month").val();
+        data['prjn_year'] = $("#prjn_year").val();
         data['proj_code'] = $('#proj_code').val();
         data['bdgt_code'] = $('#bdgt_code').val();
-        data['prjn_month'] = $('#prjn_month').val();
         var empList = [];
         $.each($('.selectedEmpList li'), function (i, v) {
             var empNo = $(v).attr('data-empNo');
