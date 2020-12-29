@@ -24,10 +24,9 @@ class Projected extends CI_controller
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $Mprojected = new Mprojected();
-        $data['data'] = $Mprojected->getAll();
         $data['project'] = $Custom->selectAllQuery('project', 'idProject', 'isActive', 'DESC');
         $data['hr_employee'] = $Custom->selectAllQuery('hr_employee', 'id', 'status');
+        $data['hr_desig'] = $Custom->selectAllQuery('hr_desig', 'id', '');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -46,6 +45,7 @@ class Projected extends CI_controller
         $searchData['proj_code'] = (isset($_REQUEST['proj_code']) && $_REQUEST['proj_code'] != '' ? $_REQUEST['proj_code'] : 0);
         $searchData['bdgt_code'] = (isset($_REQUEST['bdgt_code']) && $_REQUEST['bdgt_code'] != '' ? $_REQUEST['bdgt_code'] : 0);
         $searchData['emp_code'] = (isset($_REQUEST['emp_code']) && $_REQUEST['emp_code'] != '' ? $_REQUEST['emp_code'] : 0);
+        $searchData['desig'] = (isset($_REQUEST['desig']) && $_REQUEST['desig'] != '' ? $_REQUEST['desig'] : 0);
 
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 25);
@@ -60,7 +60,7 @@ class Projected extends CI_controller
 
             $table_data[$value->idPrjn]['proj_code'] = $value->proj_code;
             $table_data[$value->idPrjn]['bdgt_code'] = $value->bdgt_code;
-            $table_data[$value->idPrjn]['empl_code'] = $value->empl_code;
+            $table_data[$value->idPrjn]['empl_code'] = $value->empname .' ('.$value->empl_code.')';
             $table_data[$value->idPrjn]['prjn_pctg'] = $value->prjn_pctg;
             $table_data[$value->idPrjn]['prjn_month'] = $value->prjn_month;
             $table_data[$value->idPrjn]['prjn_year'] = $value->prjn_year;
@@ -85,6 +85,7 @@ class Projected extends CI_controller
         $totalsearchData['proj_code'] = $searchData['proj_code'];
         $totalsearchData['bdgt_code'] = $searchData['bdgt_code'];
         $totalsearchData['emp_code'] = $searchData['emp_code'];
+        $totalsearchData['desig'] = $searchData['desig'];
 
         $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
         $totalrecords = $M->getCntTotalProjected($totalsearchData);

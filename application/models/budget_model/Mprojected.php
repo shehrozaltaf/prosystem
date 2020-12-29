@@ -44,8 +44,16 @@ class Mprojected extends CI_Model
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
         }
-        $this->db->select('*');
+        $this->db->select('p.idPrjn,
+	p.proj_code,
+	p.empl_code,
+	p.prjn_pctg,
+	p.prjn_month,
+	p.prjn_year,
+	p.bdgt_code,
+	hr_employee.empname');
         $this->db->from('b_projected p');
+        $this->db->join('hr_employee','p.empl_code = hr_employee.empno','left');
         $this->db->where('p.isActive', 1);
         $this->db->limit($length, $start);
         $query = $this->db->get();

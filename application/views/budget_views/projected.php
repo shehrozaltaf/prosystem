@@ -61,6 +61,25 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="search_desig" class="label-control">Designation</label>
+                                                <select name="search_desig" id="search_desig"
+                                                        class="form-control select2"
+                                                        autocomplete="search_desig" required>
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php if (isset($hr_desig) && $hr_desig != '') {
+                                                        foreach ($hr_desig as   $d) {
+                                                            echo ' <option value="' . $d->id . '">' . $d->desig . '</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col">
                                             <div class="form-group">
                                                 <label for="search_emp_code" class="label-control">Employee</label>
@@ -76,6 +95,7 @@
                                                 </select>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class=" ">
                                         <button type="button" class="btn btn-primary" onclick="getData()">Get
@@ -104,49 +124,19 @@
                                             <tr>
                                                 <th>SNo</th>
                                                 <th>Project Code</th>
-                                                <th>Employee Code</th>
+                                                <th>Employee</th>
                                                 <th>Percentage</th>
                                                 <th>Month</th>
                                                 <th>Year</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <?php
-                                            $SNo = 0;
-                                            if (isset($data) && $data != '') {
-                                                foreach ($data as $v) {
-                                                    $SNo++; ?>
-                                                    <tr>
-                                                        <td><?php echo $SNo ?></td>
-                                                        <td><?php echo $v->proj_code ?></td>
-                                                        <td><?php echo $v->empl_code ?></td>
-                                                        <td><?php echo $v->prjn_pctg ?></td>
-                                                        <td><?php echo $v->prjn_month ?></td>
-                                                        <td><?php echo $v->prjn_year ?></td>
-                                                        <td data-id="<?php echo $v->idPrjn ?>"
-                                                            data-projcode="<?php echo $v->proj_code ?>"
-                                                            data-empcode="<?php echo $v->empl_code ?>"
-                                                            data-bdgtcode="<?php echo $v->bdgt_code ?>"
-                                                            data-prjn_pctg="<?php echo $v->prjn_pctg ?>"
-                                                            data-my="<?php echo $v->prjn_month . '-' . $v->prjn_year ?>"
-                                                        >
-                                                            <a href="javascript:void(0)" onclick="getCopy(this)">
-                                                                <i class="feather icon-copy"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" onclick="getDelete(this)">
-                                                                <i class="feather icon-trash"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php }
-                                            } ?>
-                                            </tbody>
+
                                             <tfoot>
                                             <tr>
                                                 <th>SNo</th>
                                                 <th>Project Code</th>
-                                                <th>Employee Code</th>
+                                                <th>Employee</th>
                                                 <th>Percentage</th>
                                                 <th>Month</th>
                                                 <th>Year</th>
@@ -314,6 +304,7 @@
         var data = {};
         data['proj_code'] = $('#search_proj_code').val();
         data['bdgt_code'] = $('#search_bdgt_code').val();
+        data['desig'] = $('#search_desig').val();
         data['emp_code'] = $('#search_emp_code').val();
         showloader();
         $('.main_content_div').addClass('hide');
@@ -410,7 +401,7 @@
                         var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
                         $.each(response[1], function (i, v) {
                             post += '<option value="' + v.bdgt_code + '" data-per="' + v.bdgt_pctg + '" data-band="' + v.bdgt_band + '">' + v.bdgt_code +
-                                ' (position: ' + v.bdgt_code + ' - Amount: ' + v.bdgt_amnt +
+                                ' (' + v.desig + ' - Amount: ' + v.bdgt_amnt +
                                 ' percentage: ' + v.bdgt_pctg + '% - Band: ' + v.band + ')</option>';
                         });
                         $('#search_bdgt_code').html(post);

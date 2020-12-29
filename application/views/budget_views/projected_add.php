@@ -91,7 +91,7 @@
                                             <div class="form-group">
                                                 <label for="bdgt_code" class="label-control">Budget Code</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
-                                                        autocomplete="bdgt_code" required >
+                                                        autocomplete="bdgt_code" required>
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
@@ -102,7 +102,7 @@
                                         <button type="button" class="btn btn-primary mybtn" onclick="chkData()">Check
                                             Data
                                         </button>
-                                        <button type="button" class="btn btn-success hide copyData"  >Copy
+                                        <button type="button" class="btn btn-success hide copyData">Copy
                                             Data
                                         </button>
                                     </div>
@@ -227,7 +227,7 @@
                         var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
                         $.each(response[1], function (i, v) {
                             post += '<option value="' + v.bdgt_code + '" data-per="' + v.bdgt_pctg + '" data-band="' + v.bdgt_band + '">' + v.bdgt_code +
-                                ' (position: ' + v.bdgt_code + ' - Amount: ' + v.bdgt_amnt +
+                                ' (' + v.desig + ' - Amount: ' + v.bdgt_amnt +
                                 ' percentage: ' + v.bdgt_pctg + '% - Band: ' + v.band + ')</option>';
                         });
                         $('#bdgt_code').html(post);
@@ -262,7 +262,7 @@
                                 '<h5 class="mt-0">' + v.empname + '</h5>' +
                                 ' <p class="mt-0 ml-2"><small>Employee No:</small> ' + v.empno + '<br>' +
                                 ' <small>Designation:</small> ' + v.desig +
-                                '<input type="text" name="perc" maxlength="3" class="form-control perc hide" placeholder="Percentage">' +
+                                '<input type="text" name="perc" maxlength="3" value="100"   onfocusout="validatePercentage(this)" class="form-control perc hide" placeholder="Percentage">' +
                                 '</p>' +
                                 ' </div>' +
                                 '</div>' +
@@ -300,9 +300,9 @@
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
-                        if(response[1].length>=1){
+                        if (response[1].length >= 1) {
                             $('.copyData').removeClass('hide');
-                        }else{
+                        } else {
                             $('.hiddenrow').removeClass('hide');
                         }
 
@@ -343,6 +343,8 @@
     }*/
 
     function insertData() {
+        var flag = 0;
+        var p = 0;
         var data = {};
         data['prjn_month'] = $("#prjn_month").val();
         data['prjn_year'] = $("#prjn_year").val();
@@ -352,11 +354,19 @@
         $.each($('.selectedEmpList li'), function (i, v) {
             var empNo = $(v).attr('data-empNo');
             var perc = $(v).find('.perc').val();
+            p += parseInt(perc);
             empList.push({"emp": empNo, "perc": perc});
         });
         data['empList'] = empList;
+        if (p < 1 || p > 100) {
+            flag = 1;
+            toastMsg('Error', 'Invalid Total Percentage', 'error');
+            $('.res_heading').html('Error').css('color', 'red');
+            $('.res_msg').html('Invalid Total Percentage').css('color', 'red');
+        }
+
         var vd = validateData(data);
-        if (vd) {
+        if (vd && flag == 0) {
             showloader();
             $('.mybtn').addClass('hide').attr('disabled', 'disabled');
             CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/insertData'); ?>', data, 'POST', function (result) {

@@ -49,3 +49,9 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:08 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
