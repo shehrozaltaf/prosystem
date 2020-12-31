@@ -86,7 +86,6 @@ class Mprojected extends CI_Model
 
     function checkBdgtProjected($searchdata)
     {
-
         if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
             $this->db->where('p.proj_code', $searchdata['proj_code']);
         }
@@ -98,6 +97,10 @@ class Mprojected extends CI_Model
         }
         if (isset($searchdata['prjn_year']) && $searchdata['prjn_year'] != '' && $searchdata['prjn_year'] != null) {
             $this->db->where('p.prjn_year', $searchdata['prjn_year']);
+        }
+        if (isset($searchdata['hr_active']) && $searchdata['hr_active'] != '' && $searchdata['hr_active'] != null) {
+            $this->db->where('hr_employee.status', 1);
+            $this->db->join('hr_employee','p.empl_code = hr_employee.empno','left');
         }
         $this->db->select('*');
         $this->db->from('b_projected p');

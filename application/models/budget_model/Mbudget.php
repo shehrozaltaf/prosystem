@@ -86,8 +86,8 @@ class Mbudget extends CI_Model
         }
 
         if (isset($searchData['s']) && $searchData['s'] != '' && $searchData['s'] != '0') {
-            $this->db->where("(b_budget.start_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."') OR
-(b_budget.end_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."')");
+            $this->db->where("((b_budget.start_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."') OR
+(b_budget.end_m_y BETWEEN '".$searchData['s']."' AND '".$searchData['e']."'))");
         }
 
         $this->db->select('b_budget.idBugt,

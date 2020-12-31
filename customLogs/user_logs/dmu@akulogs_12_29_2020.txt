@@ -55,3 +55,39 @@ Action: View Dashboard Users Page
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:09 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:13 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:13 pm
+idUser: 1, UserName: dmu@aku
+Action: Logout
+Result: User dmu@aku: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:16 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - December-29-2020 6:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

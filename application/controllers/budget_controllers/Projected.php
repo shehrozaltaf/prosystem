@@ -60,7 +60,7 @@ class Projected extends CI_controller
 
             $table_data[$value->idPrjn]['proj_code'] = $value->proj_code;
             $table_data[$value->idPrjn]['bdgt_code'] = $value->bdgt_code;
-            $table_data[$value->idPrjn]['empl_code'] = $value->empname .' ('.$value->empl_code.')';
+            $table_data[$value->idPrjn]['empl_code'] = $value->empname . ' (' . $value->empl_code . ')';
             $table_data[$value->idPrjn]['prjn_pctg'] = $value->prjn_pctg;
             $table_data[$value->idPrjn]['prjn_month'] = $value->prjn_month;
             $table_data[$value->idPrjn]['prjn_year'] = $value->prjn_year;
@@ -233,7 +233,6 @@ class Projected extends CI_controller
 
     }
 
-
     function deleteData()
     {
         $Custom = new Custom();
@@ -258,6 +257,53 @@ class Projected extends CI_controller
         echo $result;
     }
 
+    /* function cloneData()
+     {
+         $flag = 0;
+         if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '' || $_POST['proj_code'] == '0') {
+             $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+             $flag = 1;
+             echo json_encode($result);
+             exit();
+         }
+
+         if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '' || $_POST['bdgt_code'] == '0') {
+             $result = array('0' => 'Error', '1' => 'Invalid Budget');
+             $flag = 1;
+             echo json_encode($result);
+             exit();
+         }
+         if (!isset($_POST['prjn_month']) || $_POST['prjn_month'] == '' || $_POST['prjn_month'] == '0') {
+             $result = array('0' => 'Error', '1' => 'Invalid Budget Month Year');
+             $flag = 1;
+             echo json_encode($result);
+             exit();
+         }
+         if ($flag == 0) {
+             $Custom = new Custom();
+             $expMY = explode('-', $_POST['prjn_month']);
+             $insertArray = array();
+
+             $insertArray['proj_code'] = $_POST['proj_code'];
+             $insertArray['bdgt_code'] = $_POST['bdgt_code'];
+             $insertArray['prjn_month'] = $expMY[0];
+             $insertArray['prjn_year'] = $expMY[1];
+             $insertArray['isActive'] = 1;
+             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+             $insertArray['empl_code'] = $_POST['empl_code'];
+             $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
+             $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
+             if ($InsertData) {
+                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+             } else {
+                 $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+             }
+             echo json_encode($result);
+         }
+
+     }*/
+
     function cloneData()
     {
         $flag = 0;
@@ -281,24 +327,64 @@ class Projected extends CI_controller
             exit();
         }
         if ($flag == 0) {
-            $Custom = new Custom();
-            $expMY = explode('-', $_POST['prjn_month']);
-            $insertArray = array();
-
-            $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['bdgt_code'] = $_POST['bdgt_code'];
-            $insertArray['prjn_month'] = $expMY[0];
-            $insertArray['prjn_year'] = $expMY[1];
-            $insertArray['isActive'] = 1;
-            $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-            $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $insertArray['empl_code'] = $_POST['empl_code'];
-            $insertArray['prjn_pctg'] = $_POST['prjn_pctg'];
-            $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
-            if ($InsertData) {
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+            $searchData = array();
+            $searchData['prjn_month'] = $_POST['prjn_month'];
+            $searchData['prjn_year'] = $_POST['prjn_year'];
+            $searchData['proj_code'] = $_POST['proj_code'];
+            $searchData['bdgt_code'] = $_POST['bdgt_code'];
+            $searchData['hr_active'] = 1;
+            $M = new Mprojected();
+            $getData = $M->checkBdgtProjected($searchData);
+            if (isset($getData) && $getData != '') {
+                $Custom = new Custom();
+                $expMY = explode('-', $_POST['cloned_prjn_month_year']);
+                if ($expMY[0] == 'Jan') {
+                    $m = '03';
+                } elseif ($expMY[0] == 'Feb') {
+                    $m = '02';
+                } elseif ($expMY[0] == 'Mar') {
+                    $m = '03';
+                } elseif ($expMY[0] == 'Apr') {
+                    $m = '04';
+                } elseif ($expMY[0] == 'May') {
+                    $m = '05';
+                } elseif ($expMY[0] == 'Jun') {
+                    $m = '06';
+                } elseif ($expMY[0] == 'Jul') {
+                    $m = '07';
+                } elseif ($expMY[0] == 'Aug') {
+                    $m = '08';
+                } elseif ($expMY[0] == 'Sep') {
+                    $m = '09';
+                } elseif ($expMY[0] == 'Oct') {
+                    $m = '10';
+                } elseif ($expMY[0] == 'Nov') {
+                    $m = '11';
+                } elseif ($expMY[0] == 'Dec') {
+                    $m = '12';
+                } else {
+                    $m = $expMY[0];
+                }
+                foreach ($getData as $k => $v) {
+                    $insertArray = array();
+                    $insertArray['proj_code'] = $v->proj_code;
+                    $insertArray['bdgt_code'] = $v->bdgt_code;
+                    $insertArray['prjn_month'] = $m;
+                    $insertArray['prjn_year'] = $expMY[1];
+                    $insertArray['isActive'] = 1;
+                    $insertArray['createdBy'] = $_SESSION['login']['idUser'];
+                    $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+                    $insertArray['empl_code'] = $v->empl_code;
+                    $insertArray['prjn_pctg'] = $v->prjn_pctg;
+                    $InsertData = $Custom->Insert($insertArray, 'idPrjn', 'b_projected', 'N');
+                    if ($InsertData) {
+                        $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                    } else {
+                        $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                    }
+                }
             } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                $result = array('0' => 'Error', '1' => 'No Data Found');
             }
             echo json_encode($result);
         }

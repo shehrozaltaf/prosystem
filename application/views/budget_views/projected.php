@@ -181,7 +181,7 @@
     </div>
 </div>
 
-<div class="modal fade text-left" id="copyModal" tabindex="-1" role="dialog"
+<!--<div class="modal fade text-left" id="copyModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel_copy"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -237,7 +237,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
+
 <!-- BEGIN: Page Vendor JS-->
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
@@ -446,7 +447,7 @@
         }
     }
 
-    function getCopy(obj) {
+   /* function getCopy(obj) {
         var id = $(obj).parent('td').attr('data-id');
         var proj_code = $(obj).parent('td').attr('data-projcode');
         var emp_code = $(obj).parent('td').attr('data-empcode');
@@ -475,7 +476,7 @@
             toastMsg('Group', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/cloneData')?>', data, 'POST', function (res) {
+            CallAjax('< ?php echo base_url('index.php/budget_controllers/Projected/cloneData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#copyModal').modal('hide');
                     toastMsg('Success', 'Successfully Cloned', 'success');
@@ -490,7 +491,7 @@
 
             });
         }
-    }
+    }*/
 
     function chngeBand_Month_Year(proj_code, bdgt_code, monthyear) {
         var data = {};

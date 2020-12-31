@@ -224,11 +224,7 @@ class Project extends CI_controller
 
     function getBands()
     {
-
         if (isset($_POST['proj_code']) && $_POST['proj_code'] != '') {
-
-            /* $M = new Mproject();
-             $getProjectBands = $M->getProjectBands($_POST['proj_code']);*/
             $this->load->model('budget_model/mbudget');
             $M = new Mbudget();
             $searchData = array();
@@ -236,8 +232,6 @@ class Project extends CI_controller
                 $searchData['s'] = $_POST['prjn_year'] . '-' . $_POST['prjn_month'] . '-01';
                 $searchData['e'] = '2030-12-30';
             }
-
-
             $getProjectBands = $M->getAll($_POST['proj_code'], $searchData);
             $result = array('0' => 'Success', '1' => $getProjectBands);
         } else {

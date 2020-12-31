@@ -58,7 +58,7 @@
                                             <div class="form-group">
                                                 <label for="prjn_year" class="label-control">Start Year</label>
                                                 <select name="prjn_year" id="prjn_year"
-                                                        class="form-control prjn_year " rowNo="0"
+                                                        class="form-control prjn_year select2" rowNo="0"
                                                         autocomplete="prjn_year" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
@@ -102,7 +102,8 @@
                                         <button type="button" class="btn btn-primary mybtn" onclick="chkData()">Check
                                             Data
                                         </button>
-                                        <button type="button" class="btn btn-success hide copyData">Copy
+                                        <button type="button" class="btn btn-success hide copyData" onclick="getCopy()">
+                                            Copy
                                             Data
                                         </button>
                                     </div>
@@ -174,6 +175,49 @@
 </div>
 <!-- END: Content-->
 
+<div class="modal fade text-left" id="copyModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel_copy"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary white">
+                <h4 class="modal-title white" id="myModalLabel_copy">Clone Projected</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to clone this?</p>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="copy_proj_code" class="label-control">Project Code</label>
+                        <input type="text" id="copy_proj_code" class="form-control" name="copy_proj_code" readonly
+                               disabled>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="copy_bdgt_code" class="label-control">Budget Code</label>
+                        <input type="text" id="copy_bdgt_code" class="form-control" name="copy_bdgt_code" readonly
+                               disabled>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="copy_prjn_month" class="label-control"> Clone Month-Year</label>
+                        <select name="copy_prjn_month" id="copy_prjn_month" class="form-control select2"
+                                autocomplete="copy_prjn_month" required>
+                            <option value="0" readonly disabled selected></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="cloneData()">Clone
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="<?php echo base_url() ?>assets/vendors/js/extensions/dragula.min.js"></script>
 <!--<script src=".--><?php //echo base_url() ?><!--assets/js/scripts/extensions/drag-drop.js"></script>-->
 <script>
@@ -190,6 +234,74 @@
                 validateNumByClass('perc');
             });
     });
+
+    function chngeBand_Month_Year(proj_code, bdgt_code, monthyear) {
+        var data = {};
+        data['proj_code'] = proj_code;
+        data['bdgt_code'] = bdgt_code;
+        if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined && data['proj_code'] != '' && data['proj_code'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getBand_Month_Year'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" readonly disabled selected>Select Month-Year</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v + '" ' + (v == monthyear ? ' readonly="" disabled="" ' : '') + '>' + v + '</option>';
+                        });
+                        $('#copy_prjn_month').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Band Id', 'error');
+        }
+    }
+
+    function getCopy() {
+        var data = {};
+        data['prjn_month'] = $("#prjn_month").val();
+        data['prjn_year'] = $("#prjn_year").val();
+        data['proj_code'] = $('#proj_code').val();
+        data['bdgt_code'] = $("#bdgt_code").val();
+
+        chngeBand_Month_Year(data['proj_code'], data['bdgt_code'], data['prjn_month']);
+        $('#copy_proj_code').val(data['proj_code']);
+        $('#copy_bdgt_code').val(data['bdgt_code']);
+        $('#copy_prjn_month').val(data['bdgt_code']);
+        $('#copyModal').modal('show');
+    }
+
+    function cloneData() {
+        var data = {};
+        data['prjn_month'] = $("#prjn_month").val();
+        data['prjn_year'] = $("#prjn_year").val();
+        data['proj_code'] = $('#proj_code').val();
+        data['bdgt_code'] = $("#bdgt_code").val();
+        data['cloned_prjn_month_year'] = $('#copy_prjn_month').val();
+        var vd = validateData(data);
+        if (vd) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/cloneData')?>', data, 'POST', function (res) {
+                try {
+                    var response = JSON.parse(res);
+                    if (response[0] == 'Success') {
+                        $('#copyModal').modal('hide');
+                        toastMsg('Success', 'Successfully Cloned', 'success');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+    }
 
     function changeMY() {
         var data = {};
@@ -220,6 +332,7 @@
         data['prjn_year'] = $("#prjn_year").val();
         data['proj_code'] = $('#proj_code').val();
         if (data['proj_code'] != '' && data['proj_code'] != undefined) {
+            $('#bdgt_code').html('');
             CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getBands'); ?>', data, 'POST', function (result) {
                 try {
                     var response = JSON.parse(result);
@@ -244,7 +357,6 @@
 
     function chngeBand_Emp() {
         var data = {};
-
         data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
         if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
             $('.myPercentage').html('Max: ' + $("#bdgt_code option:selected").attr("data-per") + '%');
@@ -287,7 +399,7 @@
         data['prjn_month'] = $("#prjn_month").val();
         data['prjn_year'] = $("#prjn_year").val();
         data['proj_code'] = $('#proj_code').val();
-        data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
+        data['bdgt_code'] = $("#bdgt_code").val();
         var vd = validateData(data);
         if (vd) {
             $('.copyData').addClass('hide');
