@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="search_bdgt_code" class="label-control">Budget Code</label>
+                                                <label for="search_bdgt_code" class="label-control">Position No</label>
                                                 <select name="search_bdgt_code" id="search_bdgt_code"
                                                         class="form-control select2"
                                                         autocomplete="search_bdgt_code" required >
@@ -122,24 +122,27 @@
                                         <table id="my_table_inventory"  style="width:100%" class="table table-striped dataex-html5-selectors">
                                             <thead>
                                             <tr>
-                                                <th>SNo</th>
-                                                <th>Project Code</th>
                                                 <th>Employee</th>
-                                                <th>Percentage</th>
+                                                <th>Designation</th>
                                                 <th>Month</th>
                                                 <th>Year</th>
+                                                <th>Project Code</th>
+                                                <th>Position No</th>
+                                                <th>Percentage</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
 
                                             <tfoot>
                                             <tr>
-                                                <th>SNo</th>
-                                                <th>Project Code</th>
                                                 <th>Employee</th>
-                                                <th>Percentage</th>
+                                                <th>Designation</th>
                                                 <th>Month</th>
                                                 <th>Year</th>
+                                                <th>Project Code</th>
+                                                <th>Position No</th>
+                                                <th>Percentage</th>
+                                                <th>Action</th>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -208,7 +211,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="copy_bdgt_code" class="label-control">Budget Code</label>
+                        <label for="copy_bdgt_code" class="label-control">Position No</label>
                         <input type="text" id="copy_bdgt_code" class="form-control" name="copy_bdgt_code" readonly
                                disabled>
                     </div>
@@ -339,12 +342,13 @@
                 "data": data
             },
             columns: [
-                {"data": "proj_code"},
-                {"data": "bdgt_code"},
                 {"data": "empl_code"},
-                {"data": "prjn_pctg"},
+                {"data": "desig"},
                 {"data": "prjn_month"},
                 {"data": "prjn_year"},
+                {"data": "proj_code"},
+                {"data": "bdgt_code"},
+                {"data": "prjn_pctg"},
                 {"data": "Action"}
             ],
             order: [

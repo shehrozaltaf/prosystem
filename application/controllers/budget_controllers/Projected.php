@@ -56,22 +56,19 @@ class Projected extends CI_controller
         $table_data = array();
         $result_table_data = array();
         foreach ($data as $key => $value) {
-
-
-            $table_data[$value->idPrjn]['proj_code'] = $value->proj_code;
-            $table_data[$value->idPrjn]['bdgt_code'] = $value->bdgt_code;
             $table_data[$value->idPrjn]['empl_code'] = $value->empname . ' (' . $value->empl_code . ')';
-            $table_data[$value->idPrjn]['prjn_pctg'] = $value->prjn_pctg;
+            $table_data[$value->idPrjn]['desig'] = $value->desig;
             $table_data[$value->idPrjn]['prjn_month'] = $value->prjn_month;
             $table_data[$value->idPrjn]['prjn_year'] = $value->prjn_year;
-            $table_data[$value->idPrjn]['Action'] = '
-              <a href="javascript:void(0)" onclick="getCopy(this)">
+            $table_data[$value->idPrjn]['proj_code'] = $value->proj_code;
+            $table_data[$value->idPrjn]['bdgt_code'] = $value->bdgt_code;
+            $table_data[$value->idPrjn]['prjn_pctg'] = $value->prjn_pctg;
+            $table_data[$value->idPrjn]['Action'] = '<a href="javascript:void(0)" onclick="getCopy(this)">
                                                                 <i class="feather icon-copy"></i>
                                                             </a>
                                                             <a href="javascript:void(0)" onclick="getDelete(this)">
                                                                 <i class="feather icon-trash"></i>
-                                                            </a>
-                                                             ';
+                                                            </a> ';
 
         }
         foreach ($table_data as $k => $v) {

@@ -90,7 +90,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <label for="bdgt_code" class="label-control">Position No</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
                                                         autocomplete="bdgt_code" required onchange=" chngeBand_Emp()">
                                                     <option value="0" readonly disabled selected></option>

@@ -39,7 +39,15 @@ class Mprojected extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(p.proj_code like '%" . $search . "%' OR  p.bdgt_code like '%" . $search . "%')");
+            $this->db->where("(p.proj_code like '%" . $search . "%' 
+            OR  p.bdgt_code like '%" . $search . "%'
+            OR  p.empl_code like '%" . $search . "%'
+            OR  p.prjn_pctg like '%" . $search . "%'
+            OR  p.prjn_month like '%" . $search . "%'
+            OR  p.prjn_year like '%" . $search . "%'
+            OR  hr_desig.desig like '%" . $search . "%'
+            OR  hr_employee.empname like '%" . $search . "%'
+            )");
         }
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
@@ -51,9 +59,11 @@ class Mprojected extends CI_Model
 	p.prjn_month,
 	p.prjn_year,
 	p.bdgt_code,
+	hr_desig.desig,
 	hr_employee.empname');
         $this->db->from('b_projected p');
-        $this->db->join('hr_employee','p.empl_code = hr_employee.empno','left');
+        $this->db->join('hr_employee', 'p.empl_code = hr_employee.empno', 'left');
+        $this->db->join('hr_desig', 'hr_desig ON hr_employee.titdesi = hr_desig.id', 'left');
         $this->db->where('p.isActive', 1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
@@ -75,10 +85,20 @@ class Mprojected extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(p.proj_code like '%" . $search . "%' OR  p.bdgt_code like '%" . $search . "%')");
+            $this->db->where("(p.proj_code like '%" . $search . "%' 
+            OR  p.bdgt_code like '%" . $search . "%'
+            OR  p.empl_code like '%" . $search . "%'
+            OR  p.prjn_pctg like '%" . $search . "%'
+            OR  p.prjn_month like '%" . $search . "%'
+            OR  p.prjn_year like '%" . $search . "%'
+            OR  hr_desig.desig like '%" . $search . "%'
+            OR  hr_employee.empname like '%" . $search . "%'
+            )");
         }
         $this->db->select('count(p.idPrjn) as cnttotal');
         $this->db->from('b_projected p');
+        $this->db->join('hr_employee', 'p.empl_code = hr_employee.empno', 'left');
+        $this->db->join('hr_desig', 'hr_desig ON hr_employee.titdesi = hr_desig.id', 'left');
         $this->db->where('p.isActive', 1);
         $query = $this->db->get();
         return $query->result();
@@ -100,7 +120,7 @@ class Mprojected extends CI_Model
         }
         if (isset($searchdata['hr_active']) && $searchdata['hr_active'] != '' && $searchdata['hr_active'] != null) {
             $this->db->where('hr_employee.status', 1);
-            $this->db->join('hr_employee','p.empl_code = hr_employee.empno','left');
+            $this->db->join('hr_employee', 'p.empl_code = hr_employee.empno', 'left');
         }
         $this->db->select('*');
         $this->db->from('b_projected p');

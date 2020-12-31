@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="prjn_month" class="label-control">Month-Year</label>
+                                                <label for="prjn_month" class="label-control">Month</label>
                                                 <select name="prjn_month" id="prjn_month" class="form-control select2"
                                                         autocomplete="prjn_month" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected></option>
@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="prjn_year" class="label-control">Start Year</label>
+                                                <label for="prjn_year" class="label-control">Year</label>
                                                 <select name="prjn_year" id="prjn_year"
                                                         class="form-control prjn_year select2" rowNo="0"
                                                         autocomplete="prjn_year" required onchange="changeMY()">
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <label for="bdgt_code" class="label-control">Position No</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
                                                         autocomplete="bdgt_code" required>
                                                     <option value="0" readonly disabled selected></option>
@@ -194,7 +194,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="copy_bdgt_code" class="label-control">Budget Code</label>
+                        <label for="copy_bdgt_code" class="label-control">Position No</label>
                         <input type="text" id="copy_bdgt_code" class="form-control" name="copy_bdgt_code" readonly
                                disabled>
                     </div>
@@ -289,9 +289,9 @@
                     if (response[0] == 'Success') {
                         $('#copyModal').modal('hide');
                         toastMsg('Success', 'Successfully Cloned', 'success');
-                        setTimeout(function () {
+                        /*setTimeout(function () {
                             window.location.reload();
-                        }, 500);
+                        }, 500);*/
                     } else {
                         toastMsg(response[0], response[1], 'error');
                     }
@@ -373,7 +373,8 @@
                                 '<div class="media-body mt-0"">' +
                                 '<h5 class="mt-0">' + v.empname + '</h5>' +
                                 ' <p class="mt-0 ml-2"><small>Employee No:</small> ' + v.empno + '<br>' +
-                                ' <small>Designation:</small> ' + v.desig +
+                                ' <small>Designation:</small> ' + v.desig +'<br>' +
+                                ' <small>Working Project:</small> ' + v.workproj +
                                 '<input type="text" name="perc" maxlength="3" value="100"   onfocusout="validatePercentage(this)" class="form-control perc hide" placeholder="Percentage">' +
                                 '</p>' +
                                 ' </div>' +
@@ -395,6 +396,8 @@
     }
 
     function chkData() {
+        $('.res_heading').html('').css('color', 'red');
+        $('.res_msg').html('').css('color', 'red');
         var data = {};
         data['prjn_month'] = $("#prjn_month").val();
         data['prjn_year'] = $("#prjn_year").val();
@@ -414,10 +417,12 @@
                     if (response[0] == 'Success') {
                         if (response[1].length >= 1) {
                             $('.copyData').removeClass('hide');
+                            toastMsg('Error', 'Data already exist', 'error');
+                            $('.res_heading').html('Error').css('color', 'red');
+                            $('.res_msg').html('Data already exist').css('color', 'red');
                         } else {
                             $('.hiddenrow').removeClass('hide');
                         }
-
                     } else {
                         toastMsg(response[0], response[1], 'error');
                     }
@@ -455,6 +460,8 @@
     }*/
 
     function insertData() {
+        $('.res_heading').html('').css('color', 'red');
+        $('.res_msg').html('').css('color', 'red');
         var flag = 0;
         var p = 0;
         var data = {};
@@ -490,9 +497,9 @@
                         toastMsg(response[0], response[1], 'success');
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
-                        setTimeout(function () {
-                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Projected') ?>';
-                        }, 1500)
+                       /* setTimeout(function () {
+                            window.location.href = '< ?php echo base_url('index.php/budget_controllers/Projected') ?>';
+                        }, 1500)*/
                     } else {
                         toastMsg(response[0], response[1], 'error');
                         $('.res_heading').html(response[0]).css('color', 'red');

@@ -136,6 +136,7 @@ class Mbudget extends CI_Model
 	hr_employee.pic,
 	hr_employee.empno,
 	hr_employee.empname,
+	hr_employee.workproj,
 	hr_desig.desig');
         $this->db->from('hr_employee');
         $this->db->join('hr_desig', 'hr_employee.titdesi = hr_desig.id', 'left');

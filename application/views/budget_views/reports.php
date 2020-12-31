@@ -32,7 +32,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="prjn_month" class="label-control">Month-Year</label>
+                                                <label for="prjn_month" class="label-control">Month</label>
                                                 <select name="prjn_month" id="prjn_month" class="form-control select2"
                                                         autocomplete="prjn_month" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected></option>
@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="prjn_year" class="label-control">Start Year</label>
+                                                <label for="prjn_year" class="label-control">Year</label>
                                                 <select name="prjn_year" id="prjn_year"
                                                         class="form-control prjn_year select2" rowNo="0"
                                                         autocomplete="prjn_year" required onchange="changeMY()">
@@ -90,7 +90,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <label for="bdgt_code" class="label-control">Position No</label>
                                                 <select name="bdgt_code" id="bdgt_code" class="form-control select2"
                                                         autocomplete="bdgt_code" required>
                                                     <option value="0" readonly disabled selected></option>
