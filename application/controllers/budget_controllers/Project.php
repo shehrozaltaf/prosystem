@@ -228,7 +228,7 @@ class Project extends CI_controller
             $this->load->model('budget_model/mbudget');
             $M = new Mbudget();
             $searchData = array();
-            if(isset($_POST['prjn_year']) && $_POST['prjn_year']!='' && isset($_POST['prjn_month']) && $_POST['prjn_month']!=''){
+            if (isset($_POST['prjn_year']) && $_POST['prjn_year'] != '' && isset($_POST['prjn_month']) && $_POST['prjn_month'] != '') {
                 $searchData['s'] = $_POST['prjn_year'] . '-' . $_POST['prjn_month'] . '-01';
                 $searchData['e'] = '2030-12-30';
             }
@@ -236,6 +236,22 @@ class Project extends CI_controller
             $result = array('0' => 'Success', '1' => $getProjectBands);
         } else {
             $result = array('0' => 'Error', '1' => 'Invalid Project Code');
+        }
+        echo json_encode($result);
+    }
+
+    function getProjectByMY()
+    {
+        if (isset($_POST['month']) && $_POST['month'] != '' && isset($_POST['year']) && $_POST['year'] != '') {
+            $month = $_POST['month'];
+            $year = $_POST['year'];
+            $M = new Mproject();
+            $s = $year . '-' . $month . '-01';
+            $e = '2030-12-30';
+            $getData = $M->getProjectByMY($s, $e);
+            $result = array('0' => 'Success', '1' => $getData);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
         }
         echo json_encode($result);
     }

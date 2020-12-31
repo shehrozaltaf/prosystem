@@ -305,14 +305,14 @@
 
     function changeMY() {
         var data = {};
-        data['prjn_month'] = $('#prjn_month').val();
-        data['prjn_year'] = $('#prjn_year').val();
-        if (data['prjn_month'] != '' && data['prjn_month'] != undefined && data['prjn_year'] != '' && data['prjn_year'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/budget_controllers/Projected/getprojectByMY'); ?>', data, 'POST', function (result) {
+        data['month'] = $('#prjn_month').val();
+        data['year'] = $('#prjn_year').val();
+        if (data['month'] != '' && data['month'] != undefined && data['year'] != '' && data['year'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getProjectByMY'); ?>', data, 'POST', function (result) {
                 try {
                     var response = JSON.parse(result);
                     if (response[0] == 'Success') {
-                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Project</option>';
                         $.each(response[1], function (i, v) {
                             post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
                         });

@@ -68,6 +68,12 @@ class Actual extends CI_controller
             echo json_encode($result);
             exit();
         }
+        if (!isset($_POST['bdgt_code']) || $_POST['bdgt_code'] == '' || $_POST['bdgt_code'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
         if (!isset($_POST['empl_code']) || $_POST['empl_code'] == '' || $_POST['empl_code'] == '0') {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
             $flag = 1;
@@ -97,11 +103,12 @@ class Actual extends CI_controller
         if ($flag == 0) {
             $Custom = new Custom();
             $insertArray = array();
-            $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['empl_code'] = $_POST['empl_code'];
-            $insertArray['actl_pctg'] = $_POST['actl_pctg'];
             $insertArray['actl_month'] = $_POST['actl_month'];
             $insertArray['actl_year'] = $_POST['actl_year'];
+            $insertArray['proj_code'] = $_POST['proj_code'];
+            $insertArray['bdgt_code'] = $_POST['bdgt_code'];
+            $insertArray['empl_code'] = $_POST['empl_code'];
+            $insertArray['actl_pctg'] = $_POST['actl_pctg'];
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');

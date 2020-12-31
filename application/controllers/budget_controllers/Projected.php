@@ -122,23 +122,6 @@ class Projected extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function getprojectByMY()
-    {
-        if (isset($_POST['prjn_month']) && $_POST['prjn_month'] != '' && isset($_POST['prjn_year']) && $_POST['prjn_year'] != '') {
-            $prjn_month = $_POST['prjn_month'];
-            $prjn_year = $_POST['prjn_year'];
-            $this->load->model('budget_model/mproject');
-            $M = new Mproject();
-            $s = $prjn_year . '-' . $prjn_month . '-01';
-            $e = '2030-12-30';
-            $getData = $M->getProjectByMY($s, $e);
-            $result = array('0' => 'Success', '1' => $getData);
-        } else {
-            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
-        }
-        echo json_encode($result);
-    }
-
     function checkProjectedData()
     {
         $flag = 0;

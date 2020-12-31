@@ -22,7 +22,7 @@
         <div class="content-body">
             <section class="basic-select2">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"></h4>
@@ -30,42 +30,11 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="proj_code" class="label-control">Project Code</label>
-                                                <select name="proj_code" id="proj_code" class="form-control select2"
-                                                        autocomplete="proj_code" required>
-                                                    <option value="0" readonly disabled selected>Select Project</option>
-                                                    <?php if (isset($project) && $project != '') {
-
-                                                        foreach ($project as $k => $p) {
-                                                            echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
-                                                        }
-                                                    } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="empl_code" class="label-control">Employee Code</label>
-                                                <input type="text" class="form-control" id="empl_code" name="empl_code"
-                                                       autocomplete="empl_code" required>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-4">
-                                            <div class="form-group">
-                                                <label for="actl_pctg" class="label-control">Percentage</label>
-                                                <input type="text" class="form-control" id="actl_pctg" name="actl_pctg"
-                                                       autocomplete="actl_pctg" required>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-4">
+                                        <div class="col">
                                             <div class="form-group">
                                                 <label for="actl_month" class="label-control">Month</label>
                                                 <select name="actl_month" id="actl_month" class="form-control select2"
-                                                        autocomplete="actl_month" required>
+                                                        autocomplete="actl_month" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected>Select Month</option>
                                                     <option value="01">January</option>
                                                     <option value="02">February</option>
@@ -83,22 +52,74 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-4">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
                                             <div class="form-group">
                                                 <label for="actl_year" class="label-control">Year</label>
 
                                                 <select name="actl_year" id="actl_year" class="form-control select2"
-                                                        autocomplete="actl_year" required>
+                                                        autocomplete="actl_year" required onchange="changeMY()">
                                                     <option value="0" readonly disabled selected>Select Year</option>
                                                     <?php
-                                                    for ($year = date('Y'); $year >= 2000; $year--) {
+                                                    for ($year = date('Y', strtotime(" + 1 year")); $year >= 2015; $year--) {
                                                         echo ' <option value="' . $year . '">' . $year . '</option>';
                                                     }
                                                     ?>
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="proj_code" class="label-control">Project Code</label>
+                                                <select name="proj_code" id="proj_code" class="form-control select2"
+                                                        autocomplete="proj_code" required
+                                                        onchange="chngeProject_Band(this)">
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php /* if (isset($project) && $project != '') {
+                                                        foreach ($project as $k => $p) {
+                                                            echo ' <option value="' . $p->proj_code . '">' . $p->proj_code . '(' . $p->proj_name . ')</option>';
+                                                        }
+                                                    }*/ ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="bdgt_code" class="label-control">Budget Code</label>
+                                                <select name="bdgt_code" id="bdgt_code" class="form-control select2"
+                                                        autocomplete="bdgt_code" required onchange=" chngeBand_Emp()">
+                                                    <option value="0" readonly disabled selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="empl_code" class="label-control">Employee Code</label>
+                                                <select name="empl_code" id="empl_code" class="form-control empl_code select2"
+                                                        autocomplete="empl_code" required  >
+                                                    <option value="0" readonly disabled selected></option>
+                                                </select>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="actl_pctg" class="label-control">Percentage</label>
+                                                <input type="text" class="form-control" id="actl_pctg"
+                                                       name="actl_pctg"
+                                                       autocomplete="actl_pctg" required>
+
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -128,13 +149,94 @@
 
 <script>
 
+    function changeMY() {
+        var data = {};
+        data['month'] = $('#actl_month').val();
+        data['year'] = $('#actl_year').val();
+        if (data['month'] != '' && data['month'] != undefined && data['year'] != '' && data['year'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getProjectByMY'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Project</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
+                        });
+                        $('#proj_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        }
+    }
+
+    function chngeProject_Band(obj) {
+        var data = {};
+        data['month'] = $("#actl_month").val();
+        data['year'] = $("#actl_year").val();
+        data['proj_code'] = $('#proj_code').val();
+        if (data['proj_code'] != '' && data['proj_code'] != undefined) {
+            $('#bdgt_code').html('');
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getBands'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.bdgt_code + '" data-per="' + v.bdgt_pctg + '" data-band="' + v.bdgt_band + '">' + v.bdgt_code +
+                                ' (' + v.desig + ' - Amount: ' + v.bdgt_amnt +
+                                ' percentage: ' + v.bdgt_pctg + '% - Band: ' + v.band + ')</option>';
+                        });
+                        $('#bdgt_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Project', 'error');
+        }
+    }
+
+    function chngeBand_Emp() {
+        var data = {};
+        data['bdgt_code'] = $("#bdgt_code option:selected").attr("data-band");
+        if (data['bdgt_code'] != '' && data['bdgt_code'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getEmployees'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' ';
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Position</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.empno + '" >' + v.empname +
+                                ' (' + v.empno + ')</option>';
+                        });
+                        $('#empl_code').html(post);
+                        validateNumByClass('perc');
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Band Id', 'error');
+        }
+    }
+
+
     function insertData() {
         var data = {};
-        data['proj_code'] = $('#proj_code').val();
-        data['empl_code'] = $('#empl_code').val();
-        data['actl_pctg'] = $('#actl_pctg').val();
         data['actl_month'] = $('#actl_month').val();
         data['actl_year'] = $('#actl_year').val();
+        data['proj_code'] = $('#proj_code').val();
+        data['bdgt_code'] = $('#bdgt_code').val();
+        data['empl_code'] = $('#empl_code').val();
+        data['actl_pctg'] = $('#actl_pctg').val();
         var vd = validateData(data);
         if (vd) {
             showloader();

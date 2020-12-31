@@ -11,6 +11,11 @@ class Custom extends CI_Model
         $this->load->library('session');
     }
 
+    function getTableColumn($table)
+    {
+        $fields = $this->db->list_fields($table);
+        return $fields;
+    }
 
     function selectAllQuery($table, $orderBy, $whereClause = '', $orderBySort = 'ASC')
     {
