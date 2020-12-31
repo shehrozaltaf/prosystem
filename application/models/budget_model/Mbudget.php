@@ -23,8 +23,13 @@ class Mbudget extends CI_Model
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
             $this->db->where("(b_budget.proj_code like '%" . $search . "%' 
-            OR  b_budget.bdgt_code like '%" . $search . "%'
-            OR  b_budget.emp_code like '%" . $search . "%'
+            OR  b_budget.bdgt_code like '%" . $search . "%' 
+            OR  hr_desig.desig like '%" . $search . "%'
+            OR  hr_band.band like '%" . $search . "%'
+            OR b_budget.bdgt_amnt like '%" . $search . "%'
+            OR b_budget.bdgt_pctg like '%" . $search . "%'
+            OR b_budget.start_m_y like '%" . $search . "%'
+            OR b_budget.end_m_y like '%" . $search . "%'
             )");
         }
 
@@ -62,17 +67,20 @@ class Mbudget extends CI_Model
             $this->db->where('b_budget.proj_code', $searchdata['proj_code']);
         }
 
-
-
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
             $this->db->where("(b_budget.proj_code like '%" . $search . "%' 
-            OR  b_budget.bdgt_code like '%" . $search . "%'
-            OR  b_budget.emp_code like '%" . $search . "%'
+            OR  b_budget.bdgt_code like '%" . $search . "%' 
+            OR  hr_desig.desig like '%" . $search . "%'
+            OR  hr_band.band like '%" . $search . "%'
+            OR b_budget.bdgt_amnt like '%" . $search . "%'
+            OR b_budget.bdgt_pctg like '%" . $search . "%'
             )");
         }
         $this->db->select('count(idBugt) as cnttotal');
         $this->db->from('b_budget');
+        $this->db->join('hr_band', 'b_budget.bdgt_band = hr_band.id', 'left');
+        $this->db->join('hr_desig', 'b_budget.bdgt_posi = hr_desig.id', 'left');
         $this->db->where('isActive', 1);
 
         $query = $this->db->get();

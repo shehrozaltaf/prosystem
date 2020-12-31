@@ -346,9 +346,9 @@
                         toastMsg(response[0], response[1], 'success');
                         $('.res_heading').html(response[0]).css('color', 'green');
                         $('.res_msg').html(response[1]).css('color', 'green');
-                        setTimeout(function () {
-                            window.location.href = '<?php echo base_url('index.php/budget_controllers/Budget') ?>';
-                        }, 1500)
+                       /* setTimeout(function () {
+                            window.location.href = '< ?php echo base_url('index.php/budget_controllers/Budget') ?>';
+                        }, 1500)*/
                     } else {
                         toastMsg(response[0], response[1], 'error');
                         $('.res_heading').html(response[0]).css('color', 'red');

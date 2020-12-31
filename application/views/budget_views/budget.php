@@ -73,12 +73,12 @@
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
-                                        <table  id="my_table_inventory" style="width:100%" class="table table-striped dataex-html5-selectors">
+                                        <table id="my_table_inventory" style="width:100%"
+                                               class="table table-striped dataex-html5-selectors">
                                             <thead>
                                             <tr>
-                                                <th>SNo</th>
                                                 <th>Project Code</th>
-                                                <th>Budget Code</th>
+                                                <th>Position No</th>
                                                 <th>Band</th>
                                                 <th>Position</th>
                                                 <th>Amount</th>
@@ -90,9 +90,8 @@
                                             </thead>
                                             <tfoot>
                                             <tr>
-                                                <th>SNo</th>
                                                 <th>Project Code</th>
-                                                <th>Budget Code</th>
+                                                <th>Position No</th>
                                                 <th>Band</th>
                                                 <th>Position</th>
                                                 <th>Amount</th>
@@ -160,6 +159,7 @@
         mydate();
         getData();
     });
+
     function mydate() {
         $('.mypickadat').pickadate({
             selectYears: true,
@@ -169,6 +169,7 @@
             format: 'dd-mm-yyyy'
         });
     }
+
     function getData() {
         var data = {};
         data['proj_code'] = $('#proj_code').val();
@@ -191,7 +192,6 @@
                 "data": data
             },
             columns: [
-                {"data": "SNo"},
                 {"data": "proj_code"},
                 {"data": "bdgt_code"},
                 {"data": "Band"},
@@ -215,6 +215,7 @@
             $('.main_content_div').removeClass('hide');
         }, 500);
     }
+
     function getDelete(obj) {
         var id = $(obj).attr('data-id');
         $('#delete_idBugt').val(id);

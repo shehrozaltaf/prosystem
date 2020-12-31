@@ -55,7 +55,6 @@ class Budget extends CI_controller
         $SNo = 0;
         foreach ($data as $key => $value) {
 
-            $table_data[$value->idBugt]['SNo'] = $SNo++;
             $table_data[$value->idBugt]['proj_code'] = $value->proj_code;
             $table_data[$value->idBugt]['bdgt_code'] = $value->bdgt_code;
             $table_data[$value->idBugt]['Band'] = $value->band;
