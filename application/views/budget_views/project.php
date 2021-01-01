@@ -37,7 +37,6 @@
                                         <table class="table table-striped dataex-html5-selectors">
                                             <thead>
                                             <tr>
-                                                <th>SNo</th>
                                                 <th>Code</th>
                                                 <th>Name</th>
                                                 <th>Principal Investigator</th>
@@ -47,12 +46,9 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $SNo = 0;
                                             if (isset($data) && $data != '') {
-                                                foreach ($data as $v) {
-                                                    $SNo++; ?>
+                                                foreach ($data as $v) {  ?>
                                                     <tr>
-                                                        <td><?php echo $SNo ?></td>
                                                         <td><?php echo $v->proj_code ?></td>
                                                         <td><?php echo $v->proj_name ?></td>
                                                         <td><?php echo $v->proj_priv ?></td>
@@ -73,7 +69,6 @@
                                             </tbody>
                                             <tfoot>
                                             <tr>
-                                                <th>SNo</th>
                                                 <th>Code</th>
                                                 <th>Name</th>
                                                 <th>Principal Investigator</th>

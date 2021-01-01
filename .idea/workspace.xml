@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/actual_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/actual_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/projected_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/reports.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/reports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/budget_views/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/project.php" afterDir="false" />
     </list>
     <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" />
     <ignored path="D:\xampp\htdocs\prosystem\.idea\shelf/" />
@@ -25,18 +19,27 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+        <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="449" column="52" lean-forward="true" selection-start-line="449" selection-start-column="52" selection-end-line="449" selection-end-column="52" />
-              <folding>
-                <element signature="e#45#50#0#PHP" />
-                <element signature="e#162#167#0#PHP" />
-                <element signature="e#889#894#0#PHP" />
-              </folding>
+            <state relative-caret-position="544">
+              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-765" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-994" />
           </provider>
         </entry>
       </file>
@@ -114,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/upload_data.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpPEME.php" />
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
@@ -165,6 +167,7 @@
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/projected_add.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/project.php" />
       </list>
     </option>
   </component>
@@ -181,6 +184,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +196,12 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
@@ -227,7 +237,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,7 +330,8 @@
       <workItem from="1609220141593" duration="12968000" />
       <workItem from="1609307429034" duration="5262000" />
       <workItem from="1609394172215" duration="6365000" />
-      <workItem from="1609413021227" duration="4491000" />
+      <workItem from="1609413021227" duration="4527000" />
+      <workItem from="1609480911807" duration="2061000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -645,17 +655,24 @@
       <option name="project" value="LOCAL" />
       <updated>1609417447726</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="changes">
+      <created>1609423499291</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1609423499291</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314837000" />
+    <option name="totallyTimeSpent" value="316934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21515892" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2176039" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -697,7 +714,6 @@
     <MESSAGE value="budget - project" />
     <MESSAGE value="budget - projected" />
     <MESSAGE value="drag n drop" />
-    <MESSAGE value="changes" />
     <MESSAGE value="budget filters" />
     <MESSAGE value="projected add" />
     <MESSAGE value="bdget list" />
@@ -705,7 +721,8 @@
     <MESSAGE value="reports" />
     <MESSAGE value="upload data &amp; budget" />
     <MESSAGE value="budget" />
-    <option name="LAST_COMMIT_MESSAGE" value="budget" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -724,20 +741,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/css/components.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44881">
-          <caret line="102" column="60" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/oldcss/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="35" lean-forward="true" selection-end-line="136" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
@@ -1406,9 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -1461,6 +1461,23 @@
             <element signature="e#162#167#0#PHP" />
             <element signature="e#889#894#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-994" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
         </state>
       </provider>
     </entry>
