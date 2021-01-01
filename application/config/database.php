@@ -74,16 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'dsn' => '',
-   /* 'hostname' => 'F46916',
-    'username' => 'sa',
-    'password' => 'data.123',
-    'database' => 'hrsystem',*/
+    'dsn' => '', 
 
-    'hostname' => 'f38158',
+    'hostname' => 'VCOE1',
     'username' => 'app',
     'password' => 'abcd1234',
-    'database' => 'hrsystem',
+    'database' => 'prosystem',
 
     'dbdriver' => 'sqlsrv',
     'dbprefix' => '',

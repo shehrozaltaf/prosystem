@@ -27,6 +27,12 @@ class Mprojected extends CI_Model
         }
 
 
+        if (isset($searchdata['prjn_month']) && $searchdata['prjn_month'] != '' && $searchdata['prjn_month'] != null) {
+            $this->db->where('p.prjn_month', $searchdata['prjn_month']);
+        }
+        if (isset($searchdata['prjn_year']) && $searchdata['prjn_year'] != '' && $searchdata['prjn_year'] != null) {
+            $this->db->where('p.prjn_year', $searchdata['prjn_year']);
+        }
         if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
             $this->db->where('p.proj_code', $searchdata['proj_code']);
         }
@@ -72,7 +78,12 @@ class Mprojected extends CI_Model
 
     function getCntTotalProjected($searchdata)
     {
-
+        if (isset($searchdata['prjn_month']) && $searchdata['prjn_month'] != '' && $searchdata['prjn_month'] != null) {
+            $this->db->where('p.prjn_month', $searchdata['prjn_month']);
+        }
+        if (isset($searchdata['prjn_year']) && $searchdata['prjn_year'] != '' && $searchdata['prjn_year'] != null) {
+            $this->db->where('p.prjn_year', $searchdata['prjn_year']);
+        }
         if (isset($searchdata['proj_code']) && $searchdata['proj_code'] != '' && $searchdata['proj_code'] != null) {
             $this->db->where('p.proj_code', $searchdata['proj_code']);
         }

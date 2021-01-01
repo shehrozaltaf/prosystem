@@ -42,6 +42,8 @@ class Projected extends CI_controller
         $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
         $searchData = array();
 
+        $searchData['prjn_month'] = (isset($_REQUEST['prjn_month']) && $_REQUEST['prjn_month'] != '' ? $_REQUEST['prjn_month'] : 0);
+        $searchData['prjn_year'] = (isset($_REQUEST['prjn_year']) && $_REQUEST['prjn_year'] != '' ? $_REQUEST['prjn_year'] : 0);
         $searchData['proj_code'] = (isset($_REQUEST['proj_code']) && $_REQUEST['proj_code'] != '' ? $_REQUEST['proj_code'] : 0);
         $searchData['bdgt_code'] = (isset($_REQUEST['bdgt_code']) && $_REQUEST['bdgt_code'] != '' ? $_REQUEST['bdgt_code'] : 0);
         $searchData['emp_code'] = (isset($_REQUEST['emp_code']) && $_REQUEST['emp_code'] != '' ? $_REQUEST['emp_code'] : 0);
@@ -79,6 +81,8 @@ class Projected extends CI_controller
         $totalsearchData = array();
         $totalsearchData['start'] = 0;
         $totalsearchData['length'] = 10000000;
+        $totalsearchData['prjn_month'] = $searchData['prjn_month'];
+        $totalsearchData['prjn_year'] = $searchData['prjn_year'];
         $totalsearchData['proj_code'] = $searchData['proj_code'];
         $totalsearchData['bdgt_code'] = $searchData['bdgt_code'];
         $totalsearchData['emp_code'] = $searchData['emp_code'];

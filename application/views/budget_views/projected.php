@@ -34,6 +34,45 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="prjn_month" class="label-control">Month</label>
+                                                <select name="prjn_month" id="prjn_month" class="form-control select2"
+                                                        autocomplete="prjn_month" required onchange="changeMY()">
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="prjn_year" class="label-control">Year</label>
+                                                <select name="prjn_year" id="prjn_year"
+                                                        class="form-control prjn_year select2" rowNo="0"
+                                                        autocomplete="prjn_year" required onchange="changeMY()">
+                                                    <option value="0" readonly disabled selected></option>
+                                                    <?php
+                                                    for ($year = date('Y', strtotime(" + 1 year")); $year >= 2015; $year--) {
+                                                        echo ' <option value="' . $year . '">' . $year . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
 
                                         <div class="col">
                                             <div class="form-group">
@@ -56,7 +95,7 @@
                                                 <label for="search_bdgt_code" class="label-control">Position No</label>
                                                 <select name="search_bdgt_code" id="search_bdgt_code"
                                                         class="form-control select2"
-                                                        autocomplete="search_bdgt_code" required >
+                                                        autocomplete="search_bdgt_code" required>
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
@@ -68,11 +107,11 @@
                                             <div class="form-group">
                                                 <label for="search_desig" class="label-control">Designation</label>
                                                 <select name="search_desig" id="search_desig"
-                                                        class="form-control select2"
+                                                        class="form-control select2" onchange="chngeBand_Emp()"
                                                         autocomplete="search_desig" required>
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($hr_desig) && $hr_desig != '') {
-                                                        foreach ($hr_desig as   $d) {
+                                                        foreach ($hr_desig as $d) {
                                                             echo ' <option value="' . $d->id . '">' . $d->desig . '</option>';
                                                         }
                                                     } ?>
@@ -119,7 +158,8 @@
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
-                                        <table id="my_table_inventory"  style="width:100%" class="table table-striped dataex-html5-selectors">
+                                        <table id="my_table_inventory" style="width:100%"
+                                               class="table table-striped dataex-html5-selectors">
                                             <thead>
                                             <tr>
                                                 <th>Employee</th>
@@ -257,6 +297,7 @@
 <!-- END: Page JS-->
 
 <script>
+
     $(document).ready(function () {
         validateNum('prjn_pctg');
         validateNumByClass('perc');
@@ -303,9 +344,33 @@
          });*/
     });
 
+    function changeMY() {
+        var data = {};
+        data['month'] = $('#prjn_month').val();
+        data['year'] = $('#prjn_year').val();
+        if (data['month'] != '' && data['month'] != undefined && data['year'] != '' && data['year'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Project/getProjectByMY'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Project</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.proj_code + '"  >' + v.proj_name + '</option>';
+                        });
+                        $('#search_proj_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        }
+    }
 
     function getData() {
         var data = {};
+        data['prjn_month'] = $('#prjn_month').val();
+        data['prjn_year'] = $('#prjn_year').val();
         data['proj_code'] = $('#search_proj_code').val();
         data['bdgt_code'] = $('#search_bdgt_code').val();
         data['desig'] = $('#search_desig').val();
@@ -421,6 +486,29 @@
         }
     }
 
+    function chngeBand_Emp() {
+        var data = {};
+        data['desi'] = $("#search_desig").val();
+        if (data['desi'] != '' && data['desi'] != undefined) {
+            $('#search_emp_code').html('');
+            CallAjax('<?php echo base_url('index.php/budget_controllers/Budget/getEmployeesByDesi'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" data-band="0" readonly disabled selected>Select Employee</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.empno + '"  >' + v.empname + ' (' + v.empno + ')</option>';
+                        });
+                        $('#search_emp_code').html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        }
+    }
+
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
         $('#delete_idPrjn').val(id);
@@ -451,51 +539,51 @@
         }
     }
 
-   /* function getCopy(obj) {
-        var id = $(obj).parent('td').attr('data-id');
-        var proj_code = $(obj).parent('td').attr('data-projcode');
-        var emp_code = $(obj).parent('td').attr('data-empcode');
-        var bdgtcode = $(obj).parent('td').attr('data-bdgtcode');
-        var monthyear = $(obj).parent('td').attr('data-my');
-        var prjn_pctg = $(obj).parent('td').attr('data-prjn_pctg');
-        chngeBand_Month_Year(proj_code, bdgtcode, monthyear);
-        $('#copy_idPrjn').val(id);
-        $('#copy_proj_code').val(proj_code);
-        $('#copy_emp_code').val(emp_code);
-        $('#copy_bdgt_code').val(bdgtcode);
-        $('#copy_prjn_pctg').val(prjn_pctg);
+    /* function getCopy(obj) {
+         var id = $(obj).parent('td').attr('data-id');
+         var proj_code = $(obj).parent('td').attr('data-projcode');
+         var emp_code = $(obj).parent('td').attr('data-empcode');
+         var bdgtcode = $(obj).parent('td').attr('data-bdgtcode');
+         var monthyear = $(obj).parent('td').attr('data-my');
+         var prjn_pctg = $(obj).parent('td').attr('data-prjn_pctg');
+         chngeBand_Month_Year(proj_code, bdgtcode, monthyear);
+         $('#copy_idPrjn').val(id);
+         $('#copy_proj_code').val(proj_code);
+         $('#copy_emp_code').val(emp_code);
+         $('#copy_bdgt_code').val(bdgtcode);
+         $('#copy_prjn_pctg').val(prjn_pctg);
 
-        $('#copyModal').modal('show');
-    }
+         $('#copyModal').modal('show');
+     }
 
-    function cloneData() {
-        var data = {};
-        data['idPrjn'] = $('#copy_idPrjn').val();
-        data['proj_code'] = $('#copy_proj_code').val();
-        data['bdgt_code'] = $('#copy_bdgt_code').val();
-        data['empl_code'] = $('#copy_emp_code').val();
-        data['prjn_month'] = $('#copy_prjn_month').val();
-        data['prjn_pctg'] = $('#copy_prjn_pctg').val();
-        if (data['idPrjn'] == '' || data['idPrjn'] == undefined || data['idPrjn'] == 0) {
-            toastMsg('Group', 'Something went wrong', 'error');
-            return false;
-        } else {
-            CallAjax('< ?php echo base_url('index.php/budget_controllers/Projected/cloneData')?>', data, 'POST', function (res) {
-                if (res == 1) {
-                    $('#copyModal').modal('hide');
-                    toastMsg('Success', 'Successfully Cloned', 'success');
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
-                } else if (res == 2) {
-                    toastMsg('Error', 'Something went wrong', 'error');
-                } else if (res == 3) {
-                    toastMsg('Error', 'Invalid Group', 'error');
-                }
+     function cloneData() {
+         var data = {};
+         data['idPrjn'] = $('#copy_idPrjn').val();
+         data['proj_code'] = $('#copy_proj_code').val();
+         data['bdgt_code'] = $('#copy_bdgt_code').val();
+         data['empl_code'] = $('#copy_emp_code').val();
+         data['prjn_month'] = $('#copy_prjn_month').val();
+         data['prjn_pctg'] = $('#copy_prjn_pctg').val();
+         if (data['idPrjn'] == '' || data['idPrjn'] == undefined || data['idPrjn'] == 0) {
+             toastMsg('Group', 'Something went wrong', 'error');
+             return false;
+         } else {
+             CallAjax('< ?php echo base_url('index.php/budget_controllers/Projected/cloneData')?>', data, 'POST', function (res) {
+                 if (res == 1) {
+                     $('#copyModal').modal('hide');
+                     toastMsg('Success', 'Successfully Cloned', 'success');
+                     setTimeout(function () {
+                         window.location.reload();
+                     }, 500);
+                 } else if (res == 2) {
+                     toastMsg('Error', 'Something went wrong', 'error');
+                 } else if (res == 3) {
+                     toastMsg('Error', 'Invalid Group', 'error');
+                 }
 
-            });
-        }
-    }*/
+             });
+         }
+     }*/
 
     function chngeBand_Month_Year(proj_code, bdgt_code, monthyear) {
         var data = {};

@@ -146,6 +146,22 @@ class Mbudget extends CI_Model
         return $query->result();
     }
 
+    function getDesigEmp($code)
+    {
+        $this->db->select('hr_employee.id,
+	hr_employee.pic,
+	hr_employee.empno,
+	hr_employee.empname,
+	hr_employee.workproj,
+	hr_desig.desig');
+        $this->db->from('hr_employee');
+        $this->db->join('hr_desig', 'hr_employee.titdesi = hr_desig.id', 'left');
+        $this->db->where('hr_employee.status', 1);
+        $this->db->where('hr_employee.titdesi', $code);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function getBands_Month_Year($bcode, $procode)
     {
         $this->db->select('bdgt_start_month,

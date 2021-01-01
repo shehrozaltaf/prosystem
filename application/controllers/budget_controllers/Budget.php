@@ -287,9 +287,19 @@ class Budget extends CI_controller
     {
         if (isset($_POST['bdgt_code']) && $_POST['bdgt_code'] != '') {
             $M = new Mbudget();
-
-
             $getBandEmp = $M->getBandEmp($_POST['bdgt_code']);
+            $result = array('0' => 'Success', '1' => $getBandEmp);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
+        }
+        echo json_encode($result);
+    }
+
+    function getEmployeesByDesi()
+    {
+        if (isset($_POST['desi']) && $_POST['desi'] != '') {
+            $M = new Mbudget();
+            $getBandEmp = $M->getDesigEmp($_POST['desi']);
             $result = array('0' => 'Success', '1' => $getBandEmp);
         } else {
             $result = array('0' => 'Error', '1' => 'Invalid Budget Code');
