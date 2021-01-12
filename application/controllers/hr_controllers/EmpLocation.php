@@ -104,6 +104,37 @@ class EmpLocation extends CI_Controller
     }
 
 
+    function getLocationAlreadyExists()
+    {
+        if (isset($_POST['location']) && $_POST['location'] != '') {
+            $Mhr_Location = new Mhr_Location();
+
+            $id = $_POST['id'];
+            $loc = $_POST['location'];
+
+            if ($id == "0") {
+                $getEmp = $Mhr_Location->getLocationAlreadyExistsWithOutID($loc);
+            } else {
+                $getEmp = $Mhr_Location->getLocationAlreadyExists($id, $loc);
+            }
+
+
+            $results = array();
+
+            if (isset($getEmp) && $getEmp != null) {
+                $results = array(['error' => 1]);
+            }
+
+        } else {
+            $results = array(['error' => 2]);
+        }
+
+        echo json_encode($results);
+    }
+
+
+
+
 //     function addLocation_view(){
 //         $data = array();
 //         /*==========Log=============*/

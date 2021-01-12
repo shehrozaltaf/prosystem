@@ -982,12 +982,25 @@
                                                             <span id="lbl_amount">Amount</span>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <input type="text" id="amount" MaxLength="6" required
-                                                                   class="form-control" name="amount"
-                                                                   placeholder="Amount"
-                                                                   onkeypress="return numeralsOnly();"
-                                                                   value="<?php echo(isset($editemp[0]->amount) ? $editemp[0]->amount : '') ?>"
-                                                            >
+
+                                                            <?php
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null && $editemp[0]->ddlhardship) {
+
+                                                                    if ($editemp[0]->ddlhardship == 1) {
+                                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
+                                                                    } else {
+                                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="" >');
+                                                                    }
+
+                                                                } else {
+                                                                    echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
+                                                                }
+
+                                                            }
+
+                                                            ?>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -999,6 +1012,7 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <?php
+
 
                                                             $html_options_Q = '<option value="0">&nbsp;</option>';
                                                             $htmlQ = '';
@@ -1621,6 +1635,18 @@
     });
 
 
+    $(document).on("change", "#ddlhardship", function () {
+
+        if ($("#ddlhardship").val() == "2") {
+            $("#amount").prop("disabled", "disabled");
+            $("#amount").val("");
+        } else {
+            $("#amount").removeAttr("disabled");
+        }
+
+    });
+
+
     $(document).on("change", "#ddlband", function () {
 
         var data = {};
@@ -1876,7 +1902,7 @@
                     imgext = $("#pic")[0].files[0].name.split(".");
 
 
-                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1];
+                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
 
 
                     if (size <= 2000) {
@@ -1939,7 +1965,7 @@
                     fnme = $("#lbl_doc").html();
                     ext = $("#doc")[0].files[0].name.split(".");
 
-                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1];
+                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
 
 
                     if (size <= 2000) {
@@ -1968,12 +1994,12 @@
                 // formData.append('data', $("#frm")[0]);
 
                 if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
                 }
 
 
                 if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
                 }
 
 
@@ -1985,6 +2011,20 @@
                 formData.append('cellno2ccode', "+" + arr[3]);
                 formData.append('emcellnoccode', "+" + arr[4]);
                 formData.append('emlandnoccode', "+" + arr[5]);
+
+
+                if ($('#landline').val('999999999999999')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#emlandno').val('99999999')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
 
 
                 CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
@@ -2101,7 +2141,7 @@
                     imgext = $("#pic")[0].files[0].name.split(".");
 
 
-                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1];
+                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
 
 
                     if (size <= 2000) {
@@ -2164,7 +2204,7 @@
                     fnme = $("#lbl_doc").html();
                     ext = $("#doc")[0].files[0].name.split(".");
 
-                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1];
+                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
 
 
                     if (size <= 2000) {
@@ -2192,17 +2232,30 @@
 
                 // formData.append('data', $("#frm")[0]);
 
+
                 if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
                 } else {
-                    formData.append('pic', $("#lbl_pic").html());
+
+                    if ($("#lbl_pic").html() == "Choose Picture") {
+                        formData.append('pic', "");
+                    } else {
+                        console.log($("#lbl_pic").html());
+                        formData.append('pic', $("#lbl_pic").html());
+                    }
                 }
 
 
                 if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
                 } else {
-                    formData.append('doc', $("#lbl_doc").html());
+
+                    if ($("#lbl_doc").html() == "Choose Documents") {
+                        formData.append('doc', "");
+                    } else {
+                        console.log($("#lbl_doc").html());
+                        formData.append('doc', $("#lbl_doc").html());
+                    }
                 }
 
 
@@ -2225,12 +2278,42 @@
                         formData.append('cellno2ccode', "+92");
                         formData.append('emcellnoccode', "+92");
                         formData.append('emlandnoccode', "+92");
+
+
+                        if ($('#landline').val('999999999999999')) {
+                            formData.append('chk_landline', "1");
+                        } else {
+                            formData.append('chk_landline', "0");
+                        }
+
+
+                        if ($('#emlandno').val('99999999')) {
+                            formData.append('chk_emlandno', "1");
+                        } else {
+                            formData.append('chk_emlandno', "0");
+                        }
+
                     } else {
                         formData.append('landlineccode', "+" + arr[1]);
                         formData.append('cellno1ccode', "+" + arr[2]);
                         formData.append('cellno2ccode', "+" + arr[3]);
                         formData.append('emcellnoccode', "+" + arr[4]);
                         formData.append('emlandnoccode', "+" + arr[5]);
+
+
+                        if ($('#landline').val('999999999999999')) {
+                            formData.append('chk_landline', "1");
+                        } else {
+                            formData.append('chk_landline', "0");
+                        }
+
+
+                        if ($('#emlandno').val('99999999')) {
+                            formData.append('chk_emlandno', "1");
+                        } else {
+                            formData.append('chk_emlandno', "0");
+                        }
+
                     }
 
                 } else {
@@ -2239,6 +2322,21 @@
                     formData.append('cellno2ccode', "+92");
                     formData.append('emcellnoccode', "+92");
                     formData.append('emlandnoccode', "+92");
+
+
+                    if ($('#landline').val('999999999999999')) {
+                        formData.append('chk_landline', "1");
+                    } else {
+                        formData.append('chk_landline', "0");
+                    }
+
+
+                    if ($('#emlandno').val('99999999')) {
+                        formData.append('chk_emlandno', "1");
+                    } else {
+                        formData.append('chk_emlandno', "0");
+                    }
+
                 }
 
 
@@ -2562,7 +2660,7 @@
             imgext = $("#pic")[0].files[0].name.split(".");
 
 
-            pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1];
+            pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
 
 
             if (size <= 2000) {
@@ -2625,7 +2723,7 @@
             fnme = $("#lbl_doc").html();
             ext = $("#doc")[0].files[0].name.split(".");
 
-            doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1];
+            doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
 
 
             if (size <= 2000) {
@@ -2654,7 +2752,7 @@
         // formData.append('data', $("#frm")[0]);
 
         if ($("#pic").val() != "") {
-            formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_img." + imgext[1]);
+            formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
         } else {
 
             if ($("#lbl_pic").html() == "Choose Picture") {
@@ -2666,7 +2764,7 @@
 
 
         if ($("#doc").val() != "") {
-            formData.append('docfile', $('#doc')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "_doc." + ext[1]);
+            formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
         } else {
 
             if ($("#lbl_doc").html() == "Choose Documents") {
@@ -2696,12 +2794,42 @@
                 formData.append('cellno2ccode', "+92");
                 formData.append('emcellnoccode', "+92");
                 formData.append('emlandnoccode', "+92");
+
+
+                if ($('#landline').val('999999999999999')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#emlandno').val('99999999')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
+
+
             } else {
                 formData.append('landlineccode', "+" + arr[1]);
                 formData.append('cellno1ccode', "+" + arr[2]);
                 formData.append('cellno2ccode', "+" + arr[3]);
                 formData.append('emcellnoccode', "+" + arr[4]);
                 formData.append('emlandnoccode', "+" + arr[5]);
+
+
+                if ($('#landline').val('999999999999999')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#emlandno').val('99999999')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
             }
 
         } else {
@@ -2710,6 +2838,20 @@
             formData.append('cellno2ccode', "+92");
             formData.append('emcellnoccode', "+92");
             formData.append('emlandnoccode', "+92");
+
+
+            if ($('#landline').val('999999999999999')) {
+                formData.append('chk_landline', "1");
+            } else {
+                formData.append('chk_landline', "0");
+            }
+
+
+            if ($('#emlandno').val('99999999')) {
+                formData.append('chk_emlandno', "1");
+            } else {
+                formData.append('chk_emlandno', "0");
+            }
         }
 
 
@@ -2836,7 +2978,7 @@
 
                         if (test1 != "" && test2 != "0" ||
                             test1 != null && test2 != "0"
-                        ){
+                        ) {
 
                             if (test1 != test2) {
 
@@ -4716,12 +4858,41 @@
                 formData.append('cellno2ccode', "+92");
                 formData.append('emcellnoccode', "+92");
                 formData.append('emlandnoccode', "+92");
+
+
+                if ($('#landline').val('999999999999999')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#emlandno').val('99999999')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
+
+
             } else {
                 formData.append('landlineccode', "+" + arr[1]);
                 formData.append('cellno1ccode', "+" + arr[2]);
                 formData.append('cellno2ccode', "+" + arr[3]);
                 formData.append('emcellnoccode', "+" + arr[4]);
                 formData.append('emlandnoccode', "+" + arr[5]);
+
+                if ($('#landline').val('999999999999999')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#emlandno').val('99999999')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
             }
 
         } else {
@@ -4730,6 +4901,20 @@
             formData.append('cellno2ccode', "+92");
             formData.append('emcellnoccode', "+92");
             formData.append('emlandnoccode', "+92");
+
+
+            if ($('#landline').val('999999999999999')) {
+                formData.append('chk_landline', "1");
+            } else {
+                formData.append('chk_landline', "0");
+            }
+
+
+            if ($('#emlandno').val('99999999')) {
+                formData.append('chk_emlandno', "1");
+            } else {
+                formData.append('chk_emlandno', "0");
+            }
         }
 
 

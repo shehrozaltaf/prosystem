@@ -47,7 +47,7 @@ class SearchEmpRpt extends CI_Controller
         $data['category'] = $Custom->selectAllQuery('hr_category', 'category');
         /*$Mempmodel = new Mempmodel();
         $data['employees'] = $Mempmodel->getAllEmployeeForReport();*/
-        
+
 
         $this->load->view('include/header');
         $this->load->view('include/top_header');
@@ -76,8 +76,9 @@ class SearchEmpRpt extends CI_Controller
         $searchData['empno'] = (isset($_REQUEST['empno']) && $_REQUEST['empno'] != '' ? $_REQUEST['empno'] : 0);
         $searchData['hiredatefrom'] = (isset($_REQUEST['hiredatefrom']) && $_REQUEST['hiredatefrom'] != '' ? $_REQUEST['hiredatefrom'] : 0);
         $searchData['hiredateto'] = (isset($_REQUEST['hiredateto']) && $_REQUEST['hiredateto'] != '' ? $_REQUEST['hiredateto'] : 0);
-        $searchData['salaryfrom'] = (isset($_REQUEST['salaryfrom']) && $_REQUEST['salaryfrom'] != '' ? $_REQUEST['salaryfrom'] : 0);
-        $searchData['salaryto'] = (isset($_REQUEST['salaryto']) && $_REQUEST['salaryto'] != '' ? $_REQUEST['salaryto'] : 0);
+
+        //$searchData['salaryfrom'] = (isset($_REQUEST['salaryfrom']) && $_REQUEST['salaryfrom'] != '' ? $_REQUEST['salaryfrom'] : 0);
+        //$searchData['salaryto'] = (isset($_REQUEST['salaryto']) && $_REQUEST['salaryto'] != '' ? $_REQUEST['salaryto'] : 0);
 
 
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
@@ -89,10 +90,10 @@ class SearchEmpRpt extends CI_Controller
 
         $data = $M->getEmployee($searchData);
 
-        /*echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-        die();*/
+        //echo "<pre>";
+        ///print_r($data);
+        //echo "</pre>";
+        //die();
 
 
         $table_data = array();
@@ -115,7 +116,7 @@ class SearchEmpRpt extends CI_Controller
 
             $table_data[$value->id]['Action'] = '
                 <a href="javascript:void(0)" onclick="showExpiry()" >
-                        <i class="feather icon-edit action-edit" ></i> 
+                        <i class="feather icon-edit action-edit" ></i>
                 </a>
                 <a href="javascript:void(0)" onclick="getDelete(this)">
                         <i class="feather icon-trash"></i>
@@ -124,10 +125,10 @@ class SearchEmpRpt extends CI_Controller
             $table_data[$value->id]['Settings'] = '
                 <a href="javascript:void(0)" onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="">
                        Set Expiry
-                </a> | 
+                </a> |
                 <a href="javascript:void(0)" onclick="getCustodianData(this)" data-id="' . $value->id . '">
                        Assign Custodian
-                </a> | 
+                </a> |
                 <a href="' . base_url('index.php/inventory_controllers/Inventory/auditTrial?i=' . $value->id) . '">
                        Audit Trial
                 </a>';
@@ -151,8 +152,9 @@ class SearchEmpRpt extends CI_Controller
         $totalsearchData['empno'] = $searchData['empno'];
         $totalsearchData['hiredatefrom'] = $searchData['hiredatefrom'];
         $totalsearchData['hiredateto'] = $searchData['hiredateto'];
-        $totalsearchData['salaryfrom'] = $searchData['salaryfrom'];
-        $totalsearchData['salaryto'] = $searchData['salaryto'];
+
+        //$totalsearchData['salaryfrom'] = $searchData['salaryfrom'];
+        //$totalsearchData['salaryto'] = $searchData['salaryto'];
 
         $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
         $totalrecords = $M->getCntTotalEmployee($totalsearchData);

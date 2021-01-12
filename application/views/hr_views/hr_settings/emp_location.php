@@ -186,6 +186,7 @@
         $("#location").val("");
         $("#cmdconfirm").text("Save");
         $("#addLocationModal").modal('show');
+        $("#addLocationModalLabel").text("Add Location");
     });
 
     let data = [];
@@ -234,52 +235,6 @@
     });
 
 
-    $(document).on("blur", "#location", function () {
-
-        data = {};
-        data['location'] = $("#location").val();
-
-        CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
-
-            if (result != '' && result != null) {
-                let a = JSON.parse(result);
-
-                try {
-                    if (a[0] != null) {
-                        toastMsg('Error', 'Employee number already exists', 'error');
-
-                        $('#cmdUpdateSaveDraft').css('display', 'none');
-                        $('#cmdSummary').css('display', 'none');
-                        $('#cmdAddSaveDraft').css('display', 'none');
-                        $('#cmdAddData').css('display', 'none');
-
-                        $("#empno").focus();
-                    } else {
-
-                        <?php if (isset($editemp[0]->id)) { ?>
-
-                        $('#cmdUpdateSaveDraft').removeAttr('style');
-                        $('#cmdSummary').removeAttr('style');
-
-                        <?php } else { ?>
-
-                        $('#cmdAddSaveDraft').removeAttr('style');
-                        $('#cmdAddData').removeAttr('style');
-
-                        <?php } ?>
-                    }
-                } catch (e) {
-                }
-            } else {
-                toastMsg('Error', 'Something went wrong', 'error');
-            }
-
-        });
-
-    });
-
-
-
     function getEdit(obj) {
 
         $('#cmdconfirm').css('display', 'none');
@@ -292,6 +247,7 @@
 
         $("#location").val(loc);
         $("#addLocationModal").modal('show');
+        $("#addLocationModalLabel").text("Update Location");
 
         /*if (data['id'] != '' && data['id'] != undefined) {
             window.location.href =  "EmpLocation/getLocationEdit/" + data['id'];
@@ -330,40 +286,61 @@
 
 
     function addLocation() {
+
         let addData = {};
+        addData["id"] = "0";
         addData["location"] = $('#location').val();
 
-        if (addData == '' || addData == undefined || addData == 0 ||
-            addData == null ||
-            addData == 'NULL'
+        if ($('#location').val() == '' || $('#location').val() == undefined || $('#location').val() == 0 ||
+            $('#location').val() == null ||
+            $('#location').val() == 'NULL'
         ) {
             toastMsg('Group', 'Please enter location', 'error');
             $('#location').focus();
             return false;
         } else {
 
-            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/addLocation')?>', addData, 'POST', function (res) {
-                if (res == 1) {
-                    //$('#deleteModal').modal('hide');
-                    toastMsg('Group', 'Record Successfully', 'success');
-                    setTimeout(function () {
-                        //window.location.reload();
-                        window.location.href = '<?php echo base_url('index.php/hr_controllers/EmpLocation')?>';
-                    }, 500);
-                } else if (res == 2) {
-                    toastMsg('Group', 'Something went wrong', 'error');
-                } else if (res == 3) {
-                    toastMsg('Group', 'Invalid Location', 'error');
+            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/getLocationAlreadyExists'); ?>', addData, 'POST', function (result) {
+
+                if (result != '' && result != null) {
+                    let a = JSON.parse(result);
+
+                    try {
+                        if (a[0] != null) {
+                            toastMsg('Error', 'Location already exists', 'error');
+                            $("#location").focus();
+                        } else {
+
+                            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/addLocation')?>', addData, 'POST', function (res) {
+                                if (res == 1) {
+                                    //$('#deleteModal').modal('hide');
+                                    toastMsg('Group', 'Record Successfully', 'success');
+                                    setTimeout(function () {
+                                        //window.location.reload();
+                                        window.location.href = '<?php echo base_url('index.php/hr_controllers/EmpLocation')?>';
+                                    }, 500);
+                                } else if (res == 2) {
+                                    toastMsg('Group', 'Something went wrong', 'error');
+                                } else if (res == 3) {
+                                    toastMsg('Group', 'Invalid Location', 'error');
+                                }
+
+                            });
+
+                        }
+                    } catch (e) {
+                    }
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
                 }
 
             });
+
         }
     }
 
 
     function editLocation() {
-        /*data.push({"location": $('#location').val()});
-        console.log(data);*/
         let editData = {};
         editData["id"] = data[0].id;
         editData["location"] = $('#location').val();
@@ -378,20 +355,40 @@
             return false;
         } else {
 
-            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/editLocation')?>', editData, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/getLocationAlreadyExists'); ?>', editData, 'POST', function (result) {
 
-                if (res == 1) {
-                    //$('#deleteModal').modal('hide');
-                    toastMsg('Group', 'Record Successfully', 'success');
-                    setTimeout(function () {
-                        data = {};
-                        //window.location.reload();
-                        window.location.href = '<?php echo base_url('index.php/hr_controllers/EmpLocation')?>';
-                    }, 500);
-                } else if (res == 2) {
-                    toastMsg('Group', 'Something went wrong', 'error');
-                } else if (res == 3) {
-                    toastMsg('Group', 'Invalid Location', 'error');
+                if (result != '' && result != null) {
+                    let a = JSON.parse(result);
+
+                    try {
+                        if (a[0] != null) {
+                            toastMsg('Error', 'Location already exists', 'error');
+                            $("#location").focus();
+                        } else {
+
+                            CallAjax('<?php echo base_url('index.php/hr_controllers/EmpLocation/editLocation')?>', editData, 'POST', function (res) {
+
+                                if (res == 1) {
+                                    //$('#deleteModal').modal('hide');
+                                    toastMsg('Group', 'Record Successfully', 'success');
+                                    setTimeout(function () {
+                                        data = {};
+                                        //window.location.reload();
+                                        window.location.href = '<?php echo base_url('index.php/hr_controllers/EmpLocation')?>';
+                                    }, 500);
+                                } else if (res == 2) {
+                                    toastMsg('Group', 'Something went wrong', 'error');
+                                } else if (res == 3) {
+                                    toastMsg('Group', 'Invalid Location', 'error');
+                                }
+
+                            });
+
+                        }
+                    } catch (e) {
+                    }
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
                 }
 
             });

@@ -22,4 +22,46 @@ class Mhr_Location extends CI_Model
         return $query->result();
     }
 
+
+    function getLocationAlreadyExists($id, $loc)
+    {
+        $query = $this->db->query("SELECT * FROM hr_location where location='$loc'");
+
+        $results = array();
+
+        foreach ($query->result() as $row) {
+
+            if ($id != $row->id) {
+
+                $results['results'] = array(
+                    "id" => $row->id,
+                    "location" => $row->location
+                );
+            }
+        }
+
+        return $results;
+        //return $query->result_array();
+    }
+
+
+    function getLocationAlreadyExistsWithOutID($loc)
+    {
+        $query = $this->db->query("SELECT * FROM hr_location where location='$loc'");
+
+        $results = array();
+
+        foreach ($query->result() as $row) {
+
+            $results['results'] = array(
+                "id" => $row->id,
+                "location" => $row->location
+            );
+
+        }
+
+        return $results;
+        //return $query->result_array();
+    }
+
 }

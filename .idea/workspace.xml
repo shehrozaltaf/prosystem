@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="">
+    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="live">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/budget_views/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/budget_views/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpBand.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpBand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDept.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDept.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDesig.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDesig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpField.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpType.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_band.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_band.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_dept.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_dept.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_desig.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_desig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_field.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" afterDir="false" />
     </list>
     <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" />
     <ignored path="D:\xampp\htdocs\prosystem\.idea\shelf/" />
@@ -20,26 +41,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+            <state relative-caret-position="468">
+              <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="472" column="37" lean-forward="true" selection-start-line="472" selection-start-column="37" selection-end-line="472" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765" />
+            <state relative-caret-position="178">
+              <caret line="2374" column="74" lean-forward="true" selection-start-line="2374" selection-start-column="74" selection-end-line="2374" selection-end-column="88" />
+              <folding>
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+        <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-994" />
+            <state relative-caret-position="339">
+              <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -47,12 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>columnDefs</find>
-      <find>returnM</find>
-      <find>my_table_inventory</find>
-      <find>getProjected</find>
-      <find>project</find>
-      <find>idPrjn</find>
       <find>search_bdgt_code</find>
       <find>84c3bb</find>
       <find>vuexy-login-bg</find>
@@ -70,13 +159,19 @@
       <find>col-sm-6 col-6</find>
       <find>getprojectByMY</find>
       <find>insertData</find>
-      <find>chngeBand_Emp</find>
       <find>getTableColumn</find>
       <find>emp_code</find>
       <find>bdgt_code</find>
       <find>Budget Code</find>
       <find>location</find>
+      <find>chngeBand_Month_Year</find>
+      <find>chngeBand_Emp</find>
       <find>getEmployees</find>
+      <find>aaftag</find>
+      <find>editdata</find>
+      <find>showsu</find>
+      <find>Edit</find>
+      <find>editRecord</find>
     </findStrings>
     <replaceStrings>
       <replace>$insertArray</replace>
@@ -117,14 +212,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpPEME.php" />
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mhr_settings.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project_edit.php" />
@@ -136,7 +229,6 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms-2020-11-17.json" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/ext-component-drag-drop.html" />
@@ -152,22 +244,25 @@
         <option value="$PROJECT_DIR$/assets/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/assets/css/components.css" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mreports.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php" />
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
-        <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/budget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/budget_add.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/actual_add.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/reports.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/projected_add.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/project.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
+        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
+        <option value="$PROJECT_DIR$/application/views/budget_views/actual_add.php" />
+        <option value="$PROJECT_DIR$/application/models/budget_model/Mreports.php" />
+        <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
       </list>
     </option>
   </component>
@@ -184,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,12 +295,6 @@
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -214,7 +302,7 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
@@ -227,7 +315,30 @@
               <item name="prosystem" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_views" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="emppic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
@@ -237,6 +348,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,7 +443,12 @@
       <workItem from="1609307429034" duration="5262000" />
       <workItem from="1609394172215" duration="6365000" />
       <workItem from="1609413021227" duration="4527000" />
-      <workItem from="1609480911807" duration="2061000" />
+      <workItem from="1609480911807" duration="10147000" />
+      <workItem from="1609570210146" duration="106000" />
+      <workItem from="1610088385740" duration="606000" />
+      <workItem from="1610344541540" duration="3405000" />
+      <workItem from="1610365880693" duration="22000" />
+      <workItem from="1610431967966" duration="2683000" />
     </task>
     <task id="LOCAL-00001" summary="budget system">
       <created>1602066474172</created>
@@ -662,17 +779,31 @@
       <option name="project" value="LOCAL" />
       <updated>1609423499291</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="changes">
+      <created>1609484866959</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1609484866960</updated>
+    </task>
+    <task id="LOCAL-00049" summary="live">
+      <created>1609512619328</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1609512619345</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316934000" />
+    <option name="totallyTimeSpent" value="331842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2176039" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2304401" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -697,7 +828,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="budget system - chnages" />
     <MESSAGE value="budget system - project edit" />
     <MESSAGE value="budget system - add Asset" />
     <MESSAGE value="set 404" />
@@ -722,7 +852,8 @@
     <MESSAGE value="upload data &amp; budget" />
     <MESSAGE value="budget" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="live" />
+    <option name="LAST_COMMIT_MESSAGE" value="live" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -741,408 +872,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/oldcss/style-rtl.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/controllers/Reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="1658" column="3" lean-forward="true" selection-start-line="1658" selection-start-column="3" selection-end-line="1734" selection-end-column="5" />
-          <folding>
-            <element signature="n#__construct#0;n#Reports#0;n#!!top" />
-            <element signature="e#621#708#0#PHP" />
-            <element signature="n#index#0;n#Reports#0;n#!!top" />
-            <element signature="e#1132#1234#0#PHP" />
-            <element signature="n#getStings#0;n#Reports#0;n#!!top" />
-            <element signature="e#2244#2455#0#PHP" />
-            <element signature="e#2407#2455#0#PHP" />
-            <element signature="e#2493#6798#0#PHP" />
-            <element signature="e#4635#6748#0#PHP" />
-            <element signature="e#6749#6798#0#PHP" />
-            <element signature="e#6889#7695#0#PHP" />
-            <element signature="e#6969#7539#0#PHP" />
-            <element signature="e#7734#9102#0#PHP" />
-            <element signature="e#7780#9092#0#PHP" />
-            <element signature="e#8057#8315#0#PHP" />
-            <element signature="e#8316#8574#0#PHP" />
-            <element signature="e#8575#8833#0#PHP" />
-            <element signature="e#8834#9092#0#PHP" />
-            <element signature="e#9165#9877#0#PHP" />
-            <element signature="e#9797#9877#0#PHP" />
-            <element signature="n#clean#0;n#Reports#0;n#!!top" />
-            <element signature="n#getDCF#0;n#Reports#0;n#!!top" />
-            <element signature="e#10919#11122#0#PHP" />
-            <element signature="e#11082#11122#0#PHP" />
-            <element signature="e#12225#12633#0#PHP" />
-            <element signature="e#12642#13346#0#PHP" />
-            <element signature="e#13266#13346#0#PHP" />
-            <element signature="n#getXmlSajid#0;n#Reports#0;n#!!top" />
-            <element signature="e#13419#36147#0#PHP" />
-            <element signature="e#14387#14630#0#PHP" />
-            <element signature="e#14561#14630#0#PHP" />
-            <element signature="n#layout#0;n#!!top" />
-            <element signature="n#data#0;n#layout#0;n#!!top" />
-            <element signature="e#293#433#0" />
-            <element signature="n#variable#0;n#data#0;n#layout#0;n#!!top" />
-            <element signature="n#ScrollView#0;n#layout#0;n#!!top" />
-            <element signature="n#LinearLayout#0;n#ScrollView#0;n#layout#0;n#!!top" />
-            <element signature="e#15748#34050#0#PHP" />
-            <element signature="e#16358#17955#0#PHP" />
-            <element signature="e#16662#17955#0#PHP" />
-            <element signature="n#RelativeLayout#0;n#!!top" />
-            <element signature="n#TextView#0;n#RelativeLayout#0;n#!!top" />
-            <element signature="n#TextView#1;n#RelativeLayout#0;n#!!top" />
-            <element signature="e#18003#33943#0#PHP" />
-            <element signature="e#18090#18397#0#PHP" />
-            <element signature="e#18418#18870#0#PHP" />
-            <element signature="e#18919#31682#0#PHP" />
-            <element signature="e#19019#31660#0#PHP" />
-            <element signature="e#20526#22916#0#PHP" />
-            <element signature="e#20765#21041#0#PHP" />
-            <element signature="e#21070#21243#0#PHP" />
-            <element signature="e#22917#24576#0#PHP" />
-            <element signature="e#24577#27117#0#PHP" />
-            <element signature="e#24819#25095#0#PHP" />
-            <element signature="e#25124#25297#0#PHP" />
-            <element signature="e#27118#29047#0#PHP" />
-            <element signature="e#27193#27250#0#PHP" />
-            <element signature="e#27410#27684#0#PHP" />
-            <element signature="e#27713#27884#0#PHP" />
-            <element signature="e#29048#29935#0#PHP" />
-            <element signature="e#29936#30387#0#PHP" />
-            <element signature="e#30388#31038#0#PHP" />
-            <element signature="e#31039#31660#0#PHP" />
-            <element signature="e#31703#31806#0#PHP" />
-            <element signature="e#31827#31935#0#PHP" />
-            <element signature="e#31954#33943#0#PHP" />
-            <element signature="e#31981#33925#0#PHP" />
-            <element signature="e#32046#32099#0#PHP" />
-            <element signature="e#32247#32503#0#PHP" />
-            <element signature="e#32528#32687#0#PHP" />
-            <element signature="e#33415#33865#0#PHP" />
-            <element signature="e#33866#33925#0#PHP" />
-            <element signature="n#LinearLayout#0;n#!!top" />
-            <element signature="n#Button#0;n#LinearLayout#0;n#!!top" />
-            <element signature="n#Button#1;n#LinearLayout#0;n#!!top" />
-            <element signature="e#36072#36147#0#PHP" />
-            <element signature="n#questionArr#0;n#Reports#0;n#!!top" />
-            <element signature="e#36233#36722#0#PHP" />
-            <element signature="e#36284#36712#0#PHP" />
-            <element signature="e#36576#36712#0#PHP" />
-            <element signature="e#36756#36823#0#PHP" />
-            <element signature="n#getXml#0;n#Reports#0;n#!!top" />
-            <element signature="e#36913#51373#0#PHP" />
-            <element signature="n#layout#0;n#!!top" />
-            <element signature="n#data#0;n#layout#0;n#!!top" />
-            <element signature="n#ScrollView#0;n#layout#0;n#!!top" />
-            <element signature="e#38562#49317#0#PHP" />
-            <element signature="e#39489#49210#0#PHP" />
-            <element signature="e#39576#39885#0#PHP" />
-            <element signature="e#39906#40360#0#PHP" />
-            <element signature="e#40381#47066#0#PHP" />
-            <element signature="e#40451#47044#0#PHP" />
-            <element signature="e#41808#43211#0#PHP" />
-            <element signature="e#43212#44795#0#PHP" />
-            <element signature="e#43394#43540#0#PHP" />
-            <element signature="e#43569#43715#0#PHP" />
-            <element signature="e#44796#45669#0#PHP" />
-            <element signature="e#45670#46077#0#PHP" />
-            <element signature="e#46078#46584#0#PHP" />
-            <element signature="e#46585#47044#0#PHP" />
-            <element signature="e#47087#47190#0#PHP" />
-            <element signature="e#47212#47320#0#PHP" />
-            <element signature="e#47339#49210#0#PHP" />
-            <element signature="e#47366#49192#0#PHP" />
-            <element signature="e#47505#47637#0#PHP" />
-            <element signature="e#47662#47794#0#PHP" />
-            <element signature="e#48606#49133#0#PHP" />
-            <element signature="e#49134#49192#0#PHP" />
-            <element signature="n#LinearLayout#0;n#!!top" />
-            <element signature="n#Button#0;n#LinearLayout#0;n#!!top" />
-            <element signature="n#Button#1;n#LinearLayout#0;n#!!top" />
-            <element signature="e#51298#51373#0#PHP" />
-            <element signature="n#getXmlQuestions#0;n#Reports#0;n#!!top" />
-            <element signature="e#51426#53275#0#PHP" />
-            <element signature="e#52418#52596#0#PHP" />
-            <element signature="e#53200#53275#0#PHP" />
-            <element signature="n#getContractsData#0;n#Reports#0;n#!!top" />
-            <element signature="e#54123#55470#0#PHP" />
-            <element signature="e#54173#54319#0#PHP" />
-            <element signature="e#54332#55459#0#PHP" />
-            <element signature="e#54384#55445#0#PHP" />
-            <element signature="e#54450#55426#0#PHP" />
-            <element signature="e#54688#55042#0#PHP" />
-            <element signature="e#55043#55216#0#PHP" />
-            <element signature="e#55217#55426#0#PHP" />
-            <element signature="n#getSaveDraftData#0;n#Reports#0;n#!!top" />
-            <element signature="e#56099#64338#0#PHP" />
-            <element signature="e#57017#63656#0#PHP" />
-            <element signature="e#57155#63642#0#PHP" />
-            <element signature="e#57383#58366#0#PHP" />
-            <element signature="e#57474#58344#0#PHP" />
-            <element signature="e#57548#58318#0#PHP" />
-            <element signature="e#57807#58061#0#PHP" />
-            <element signature="e#58062#58318#0#PHP" />
-            <element signature="e#58434#59708#0#PHP" />
-            <element signature="e#58658#59641#0#PHP" />
-            <element signature="e#58749#59619#0#PHP" />
-            <element signature="e#58823#59593#0#PHP" />
-            <element signature="e#59082#59336#0#PHP" />
-            <element signature="e#59337#59593#0#PHP" />
-            <element signature="e#59709#60987#0#PHP" />
-            <element signature="e#59933#60920#0#PHP" />
-            <element signature="e#60024#60898#0#PHP" />
-            <element signature="e#60098#60872#0#PHP" />
-            <element signature="e#60359#60615#0#PHP" />
-            <element signature="e#60616#60872#0#PHP" />
-            <element signature="e#60988#62324#0#PHP" />
-            <element signature="e#61136#62203#0#PHP" />
-            <element signature="e#61227#62181#0#PHP" />
-            <element signature="e#61301#61609#0#PHP" />
-            <element signature="e#61415#61609#0#PHP" />
-            <element signature="e#61638#62155#0#PHP" />
-            <element signature="e#61899#62155#0#PHP" />
-            <element signature="e#62325#63642#0#PHP" />
-            <element signature="e#62385#63575#0#PHP" />
-            <element signature="e#62476#63553#0#PHP" />
-            <element signature="e#62765#63527#0#PHP" />
-            <element signature="e#63026#63282#0#PHP" />
-            <element signature="e#63283#63527#0#PHP" />
-            <element signature="e#64263#64338#0#PHP" />
-            <element signature="n#getNewSaveDraft#0;n#Reports#0;n#!!top" />
-            <element signature="e#64415#69774#0#PHP" />
-            <element signature="e#65298#69089#0#PHP" />
-            <element signature="e#65436#69075#0#PHP" />
-            <element signature="e#65698#66205#0#PHP" />
-            <element signature="e#65789#66183#0#PHP" />
-            <element signature="e#65863#66157#0#PHP" />
-            <element signature="e#66273#66904#0#PHP" />
-            <element signature="e#66330#66837#0#PHP" />
-            <element signature="e#66421#66815#0#PHP" />
-            <element signature="e#66495#66789#0#PHP" />
-            <element signature="e#66905#68026#0#PHP" />
-            <element signature="e#67059#67905#0#PHP" />
-            <element signature="e#67150#67883#0#PHP" />
-            <element signature="e#67224#67532#0#PHP" />
-            <element signature="e#67338#67532#0#PHP" />
-            <element signature="e#67561#67857#0#PHP" />
-            <element signature="e#68027#69075#0#PHP" />
-            <element signature="e#68087#69008#0#PHP" />
-            <element signature="e#68178#68986#0#PHP" />
-            <element signature="e#68252#68633#0#PHP" />
-            <element signature="e#68371#68633#0#PHP" />
-            <element signature="e#68664#68960#0#PHP" />
-            <element signature="e#69699#69774#0#PHP" />
-            <element signature="n#toString_#0;n#Reports#0;n#!!top" />
-            <element signature="e#69845#75283#0#PHP" />
-            <element signature="e#70728#74603#0#PHP" />
-            <element signature="e#71038#74589#0#PHP" />
-            <element signature="e#71238#71818#0#PHP" />
-            <element signature="e#71329#71796#0#PHP" />
-            <element signature="e#71403#71770#0#PHP" />
-            <element signature="e#71886#72590#0#PHP" />
-            <element signature="e#71943#72523#0#PHP" />
-            <element signature="e#72034#72501#0#PHP" />
-            <element signature="e#72108#72475#0#PHP" />
-            <element signature="e#72591#73416#0#PHP" />
-            <element signature="e#72756#73349#0#PHP" />
-            <element signature="e#72847#73327#0#PHP" />
-            <element signature="e#72921#73301#0#PHP" />
-            <element signature="e#73417#74589#0#PHP" />
-            <element signature="e#73477#74522#0#PHP" />
-            <element signature="e#73568#74500#0#PHP" />
-            <element signature="e#73642#74063#0#PHP" />
-            <element signature="e#73761#74063#0#PHP" />
-            <element signature="e#74094#74474#0#PHP" />
-            <element signature="e#75208#75283#0#PHP" />
-            <element signature="n#toString#0;n#Reports#0;n#!!top" />
-            <element signature="e#75353#80175#0#PHP" />
-            <element signature="e#76236#79495#0#PHP" />
-            <element signature="e#76431#79481#0#PHP" />
-            <element signature="e#76659#77132#0#PHP" />
-            <element signature="e#76750#77110#0#PHP" />
-            <element signature="e#76824#77084#0#PHP" />
-            <element signature="e#77200#77797#0#PHP" />
-            <element signature="e#77257#77730#0#PHP" />
-            <element signature="e#77348#77708#0#PHP" />
-            <element signature="e#77422#77682#0#PHP" />
-            <element signature="e#77798#78533#0#PHP" />
-            <element signature="e#77991#78466#0#PHP" />
-            <element signature="e#78082#78444#0#PHP" />
-            <element signature="e#78156#78418#0#PHP" />
-            <element signature="e#78534#79481#0#PHP" />
-            <element signature="e#78594#79414#0#PHP" />
-            <element signature="e#78685#79392#0#PHP" />
-            <element signature="e#78759#79073#0#PHP" />
-            <element signature="e#78878#79073#0#PHP" />
-            <element signature="e#79104#79366#0#PHP" />
-            <element signature="e#80100#80175#0#PHP" />
-            <element signature="n#hydrate2_old#0;n#Reports#0;n#!!top" />
-            <element signature="e#80250#85351#0#PHP" />
-            <element signature="e#81133#84671#0#PHP" />
-            <element signature="e#81271#84657#0#PHP" />
-            <element signature="e#81517#82008#0#PHP" />
-            <element signature="e#81608#81986#0#PHP" />
-            <element signature="e#81682#81960#0#PHP" />
-            <element signature="e#82076#82691#0#PHP" />
-            <element signature="e#82133#82624#0#PHP" />
-            <element signature="e#82224#82602#0#PHP" />
-            <element signature="e#82298#82576#0#PHP" />
-            <element signature="e#82692#83863#0#PHP" />
-            <element signature="e#82903#83796#0#PHP" />
-            <element signature="e#82994#83774#0#PHP" />
-            <element signature="e#83068#83439#0#PHP" />
-            <element signature="e#83182#83439#0#PHP" />
-            <element signature="e#83468#83748#0#PHP" />
-            <element signature="e#83864#84657#0#PHP" />
-            <element signature="e#83924#84590#0#PHP" />
-            <element signature="e#84015#84568#0#PHP" />
-            <element signature="e#84262#84542#0#PHP" />
-            <element signature="e#85276#85351#0#PHP" />
-            <element signature="n#hydrateJson#0;n#Reports#0;n#!!top" />
-            <element signature="e#85425#91481#0#PHP" />
-            <element signature="e#85615#86263#0#PHP" />
-            <element signature="e#87062#90801#0#PHP" />
-            <element signature="e#87200#90787#0#PHP" />
-            <element signature="e#87446#87939#0#PHP" />
-            <element signature="e#87537#87917#0#PHP" />
-            <element signature="e#87611#87891#0#PHP" />
-            <element signature="e#88007#88624#0#PHP" />
-            <element signature="e#88064#88557#0#PHP" />
-            <element signature="e#88155#88535#0#PHP" />
-            <element signature="e#88229#88509#0#PHP" />
-            <element signature="e#88625#89802#0#PHP" />
-            <element signature="e#88838#89735#0#PHP" />
-            <element signature="e#88929#89713#0#PHP" />
-            <element signature="e#89003#89376#0#PHP" />
-            <element signature="e#89117#89376#0#PHP" />
-            <element signature="e#89405#89687#0#PHP" />
-            <element signature="e#89803#90787#0#PHP" />
-            <element signature="e#89863#90720#0#PHP" />
-            <element signature="e#89954#90698#0#PHP" />
-            <element signature="e#90028#90360#0#PHP" />
-            <element signature="e#90147#90360#0#PHP" />
-            <element signature="e#90390#90672#0#PHP" />
-            <element signature="e#91406#91481#0#PHP" />
-            <element signature="n#hydrateModel#0;n#Reports#0;n#!!top" />
-            <element signature="e#92325#94247#0#PHP" />
-            <element signature="e#92375#92615#0#PHP" />
-            <element signature="e#92628#94237#0#PHP" />
-            <element signature="e#92680#94223#0#PHP" />
-            <element signature="e#92746#94204#0#PHP" />
-            <element signature="e#93081#93628#0#PHP" />
-            <element signature="e#93629#93898#0#PHP" />
-            <element signature="e#93899#94204#0#PHP" />
-            <element signature="n#getCodeBook#0;n#Reports#0;n#!!top" />
-            <element signature="e#94850#100250#0#PHP" />
-            <element signature="e#96769#99709#0#PHP" />
-            <element signature="e#96841#97127#0#PHP" />
-            <element signature="e#97043#97127#0#PHP" />
-            <element signature="e#97809#99695#0#PHP" />
-            <element signature="e#97894#99677#0#PHP" />
-            <element signature="e#98706#99655#0#PHP" />
-            <element signature="e#100175#100250#0#PHP" />
-            <element signature="n#getExcel#0;n#Reports#0;n#!!top" />
-            <element signature="e#100470#105730#0#PHP" />
-            <element signature="e#102453#105212#0#PHP" />
-            <element signature="e#103692#105198#0#PHP" />
-            <element signature="e#103777#105180#0#PHP" />
-            <element signature="e#105678#105730#0#PHP" />
-            <element signature="n#getPDF#0;n#Reports#0;n#!!top" />
-            <element signature="e#105796#124182#0#PHP" />
-            <element signature="e#106815#108431#0#PHP" />
-            <element signature="e#107088#107364#0#PHP" />
-            <element signature="e#107365#107641#0#PHP" />
-            <element signature="e#107642#107918#0#PHP" />
-            <element signature="e#107919#108195#0#PHP" />
-            <element signature="e#108196#108431#0#PHP" />
-            <element signature="e#109380#109529#0#PHP" />
-            <element signature="n#style#0;n#!!top" />
-            <element signature="e#109937#123773#0#PHP" />
-            <element signature="n#div#0;n#!!top" />
-            <element signature="e#110725#123759#0#PHP" />
-            <element signature="e#110885#111194#0#PHP" />
-            <element signature="e#111215#111620#0#PHP" />
-            <element signature="e#111641#111927#0#PHP" />
-            <element signature="e#111948#112237#0#PHP" />
-            <element signature="e#112258#112545#0#PHP" />
-            <element signature="e#112893#123741#0#PHP" />
-            <element signature="e#113004#113279#0#PHP" />
-            <element signature="e#113304#113608#0#PHP" />
-            <element signature="e#113489#113608#0#PHP" />
-            <element signature="n#style#0;n#!!top" />
-            <element signature="e#17#51#0" />
-            <element signature="e#65#118#0" />
-            <element signature="e#170#200#0" />
-            <element signature="e#114106#114202#0#PHP" />
-            <element signature="n#table#0;n#!!top" />
-            <element signature="n#tr#0;n#table#0;n#!!top" />
-            <element signature="n#tr#1;n#table#0;n#!!top" />
-            <element signature="e#114952#123536#0#PHP" />
-            <element signature="e#115046#123510#0#PHP" />
-            <element signature="e#115626#115787#0#PHP" />
-            <element signature="e#115820#116107#0#PHP" />
-            <element signature="e#116140#116427#0#PHP" />
-            <element signature="e#116460#116747#0#PHP" />
-            <element signature="e#116780#117067#0#PHP" />
-            <element signature="n#tr#0;n#!!top" />
-            <element signature="n#td#0;n#tr#0;n#!!top" />
-            <element signature="n#td#1;n#tr#0;n#!!top" />
-            <element signature="e#117852#122343#0#PHP" />
-            <element signature="e#118080#122245#0#PHP" />
-            <element signature="e#118185#118349#0#PHP" />
-            <element signature="e#118390#118659#0#PHP" />
-            <element signature="e#118700#118969#0#PHP" />
-            <element signature="e#119010#119279#0#PHP" />
-            <element signature="e#119320#119589#0#PHP" />
-            <element signature="n#td#0;n#!!top" />
-            <element signature="n#span#0;n#td#0;n#!!top" />
-            <element signature="n#span#0;n#span#0;n#td#0;n#!!top" />
-            <element signature="e#120432#120655#0#PHP" />
-            <element signature="e#120696#120919#0#PHP" />
-            <element signature="e#121611#122207#0#PHP" />
-            <element signature="e#121807#122086#0#PHP" />
-            <element signature="e#122582#122865#0#PHP" />
-            <element signature="e#122898#123121#0#PHP" />
-            <element signature="e#123154#123378#0#PHP" />
-            <element signature="e#124107#124182#0#PHP" />
-            <element signature="n#getTableQuery#0;n#Reports#0;n#!!top" />
-            <element signature="e#124544#125927#0#PHP" />
-            <element signature="n#%name#0" />
-            <element signature="e#124873#125796#0#PHP" />
-            <element signature="e#125158#125782#0#PHP" />
-            <element signature="e#125243#125764#0#PHP" />
-            <element signature="e#125312#125742#0#PHP" />
-            <element signature="e#125872#125927#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/views/reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="243" column="9" selection-start-line="232" selection-start-column="8" selection-end-line="243" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Mlogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/MSettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1572">
@@ -1154,16 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="38" selection-end-column="9" />
-          <folding>
-            <element signature="n#getCntTotalInventory#0;n#MInventory#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1208,27 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mreports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
-          <folding>
-            <element signature="e#6#80#0#PHP" />
-            <element signature="n#getReportData#0;n#Mreports#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="129" column="88" selection-start-line="129" selection-start-column="88" selection-end-line="129" selection-end-column="88" />
-          <folding>
-            <element signature="e#500#611#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
@@ -1264,13 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="110" column="60" selection-start-line="110" selection-start-column="60" selection-end-line="110" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../prosystem_bk/application/models/Custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1137">
@@ -1292,25 +983,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1535" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/application/controllers/Upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="50" column="48" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/application/models/Custom.php" />
+    <entry file="file://$USER_HOME$/Desktop/application/controllers/Upload_data.php" />
+    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/models/Custom.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1629">
@@ -1318,31 +993,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/controllers/Upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="50" column="40" selection-start-line="50" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/controllers/Upload_data.php" />
     <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="586">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="92" column="104" selection-start-line="92" selection-start-column="104" selection-end-line="92" selection-end-column="104" />
         </state>
       </provider>
     </entry>
@@ -1373,26 +1028,12 @@
         <state relative-caret-position="-27" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add_.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="138" column="24" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add_.php" />
     <entry file="file://$PROJECT_DIR$/application/views/budget_views/reports.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_edit.php">
@@ -1409,30 +1050,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="291" column="34" lean-forward="true" selection-start-line="291" selection-start-column="34" selection-end-line="291" selection-end-column="34" />
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="357" column="2" lean-forward="true" selection-start-line="357" selection-start-column="2" selection-end-line="395" selection-end-column="5" />
           <folding>
-            <element signature="n#__construct#0;n#Budget#0;n#!!top" />
-            <element signature="e#254#341#0#PHP" />
-            <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
-            <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
+            <element signature="e#45#50#0#PHP" />
+            <element signature="e#162#167#0#PHP" />
+            <element signature="e#889#894#0#PHP" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#!!top" />
+            <element signature="e#13738#14922#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="342" column="14" selection-start-line="342" selection-start-column="14" selection-end-line="342" selection-end-column="14" />
+        <state relative-caret-position="-35">
+          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        <state relative-caret-position="561">
+          <caret line="83" column="64" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="64" />
           <folding>
             <element signature="n#__construct#0;n#Projected#0;n#!!top" />
             <element signature="e#260#347#0#PHP" />
@@ -1445,39 +1100,217 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="102" column="34" lean-forward="true" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
+        <state relative-caret-position="238">
+          <caret line="148" column="24" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="24" />
+          <folding>
+            <element signature="e#6#80#0#PHP" />
+            <element signature="n#getBdgt#0;n#Mbudget#0;n#!!top" />
+            <element signature="e#205#354#0#PHP" />
+            <element signature="e#363#517#0#PHP" />
+            <element signature="e#528#757#0#PHP" />
+            <element signature="e#767#1419#0#PHP" />
+            <element signature="e#924#1408#0#PHP" />
+            <element signature="e#1429#1624#0#PHP" />
+            <element signature="e#1633#1976#0#PHP" />
+            <element signature="n#getCntTotalBdgt#0;n#Mbudget#0;n#!!top" />
+            <element signature="e#2400#2629#0#PHP" />
+            <element signature="e#2639#3175#0#PHP" />
+            <element signature="e#2796#3164#0#PHP" />
+            <element signature="n#getAll#0;n#Mbudget#0;n#!!top" />
+            <element signature="e#3610#3729#0#PHP" />
+            <element signature="e#3739#4026#0#PHP" />
+            <element signature="e#3835#4015#0#PHP" />
+            <element signature="e#4036#4336#0#PHP" />
+            <element signature="n#getDesignation#0;n#Mbudget#0;n#!!top" />
+            <element signature="n#getBandEmp#0;n#Mbudget#0;n#!!top" />
+            <element signature="e#5032#5167#0#PHP" />
+            <element signature="n#getBands_Month_Year#0;n#Mbudget#0;n#!!top" />
+            <element signature="e#5538#5626#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="449" column="52" lean-forward="true" selection-start-line="449" selection-start-column="52" selection-end-line="449" selection-end-column="52" />
+        <state relative-caret-position="306">
+          <caret line="297" column="31" selection-start-line="297" selection-start-column="13" selection-end-line="297" selection-end-column="31" />
           <folding>
-            <element signature="e#45#50#0#PHP" />
-            <element signature="e#162#167#0#PHP" />
-            <element signature="e#889#894#0#PHP" />
+            <element signature="n#__construct#0;n#Budget#0;n#!!top" />
+            <element signature="e#254#341#0#PHP" />
+            <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
+            <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
+            <element signature="n#getEmployees#0;n#Budget#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="493" column="97" selection-start-line="493" selection-start-column="97" selection-end-line="493" selection-end-column="97" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#!!top" />
+            <element signature="e#10648#13588#1#HTML" />
+            <element signature="e#19186#20256#0#HTML" />
+            <element signature="e#19171#20514#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="86" column="50" lean-forward="true" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
+          <folding>
+            <element signature="e#5303#5710#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mreports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <element signature="e#6#80#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="33" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-994" />
+        <state relative-caret-position="468">
+          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
+        <state relative-caret-position="339">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        <state relative-caret-position="178">
+          <caret line="2374" column="74" lean-forward="true" selection-start-line="2374" selection-start-column="74" selection-end-line="2374" selection-end-column="88" />
+          <folding>
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="472" column="37" lean-forward="true" selection-start-line="472" selection-start-column="37" selection-end-line="472" selection-end-column="49" />
         </state>
       </provider>
     </entry>

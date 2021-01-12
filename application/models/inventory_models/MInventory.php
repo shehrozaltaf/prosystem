@@ -29,7 +29,7 @@ class MInventory extends CI_Model
             $this->db->join('hr_employee hr', 'i.username = hr.empname','left');
         }
         if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['aaftag'] . "%')");
+            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['ftag'] . "%')");
         }
         if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
             $this->db->where("(i.dop >= '" . date('Y-m-d',strtotime($searchdata['dateTo'])) . "')");
@@ -91,7 +91,7 @@ class MInventory extends CI_Model
             $this->db->join('hr_employee hr', 'i.username = hr.empname','left');
         }
         if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['aaftag'] . "%')");
+            $this->db->where("(i.ftag like '%" . $searchdata['ftag'] . "%' or i.aaftag like '%" . $searchdata['ftag'] . "%')");
         }
         if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
             $this->db->where("(i.dop >= '" . date('Y-m-d',strtotime($searchdata['dateTo'])) . "')");

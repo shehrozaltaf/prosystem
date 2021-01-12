@@ -158,22 +158,22 @@
                                                        name="hiredateto" placeholder="Hire / Rehire Date To">
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 col-12">
+                                        <!--<div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="salaryfrom">Salary<br/>From</label>
                                                 <input type="text" class="form-control" placeholder="Salary From"
                                                        onkeypress="return numeralsOnly();" id="salaryfrom"
                                                        name="salaryfrom">
                                             </div>
-                                        </div>
-                                        <div class="col-sm-3 col-12">
+                                        </div>-->
+                                        <!--<div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="salaryto"><br/>To</label>
                                                 <input type="text" class="form-control" placeholder="Salary To"
                                                        onkeypress="return numeralsOnly();" id="salaryto"
                                                        name="salaryto">
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class=" ">
                                         <button type="button" class="btn btn-primary" onclick="getData()">Get Data
@@ -421,7 +421,7 @@
 
 
         let start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
-        $('#hiredatefrom').val(start_dt);
+        $('#hiredateto').val(start_dt);
     }
 
     function getExpiry(obj) {
@@ -569,8 +569,8 @@
         data['empno'] = $('#empno').val();
         data['hiredatefrom'] = $('#hiredatefrom').val();
         data['hiredateto'] = $('#hiredateto').val();
-        data['salaryfrom'] = $('#salaryfrom').val();
-        data['salaryto'] = $('#salaryto').val();
+        //data['salaryfrom'] = $('#salaryfrom').val();
+        //data['salaryto'] = $('#salaryto').val();
 
         showloader();
 
