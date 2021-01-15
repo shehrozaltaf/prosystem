@@ -1,0 +1,12 @@
+UserIPAddress: 10.1.42.84 - January-15-2021 12:28 pm
+idUser: 1, UserName: 
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 12:28 pm
+idUser: 1, UserName: 
+Action: Logout
+Result: User : Logout
+PostData: 
+-------------------------------------------------

@@ -76,12 +76,10 @@ $query_builder = TRUE;
 $db['default'] = array(
     'dsn' => '', 
 
-//    'hostname' => 'VCOE1',
-    'hostname' => 'F38158',
+    'hostname' => 'VCOE1',
     'username' => 'app',
     'password' => 'abcd1234',
-    'database' => 'hrsystem',
-//    'database' => 'pro_system',
+    'database' => 'pro_system',
 
     'dbdriver' => 'sqlsrv',
     'dbprefix' => '',

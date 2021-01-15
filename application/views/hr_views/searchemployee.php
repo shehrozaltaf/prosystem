@@ -235,7 +235,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_project' name='dt_eff_project' type='text' value="03-11-2020"
+                                <input id='dt_eff_project' name='dt_eff_project' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -258,7 +258,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_location' name='dt_eff_location' type='text' value="04-11-2020"
+                                <input id='dt_eff_location' name='dt_eff_location' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -281,7 +281,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value="05-11-2020"
+                                <input id='dt_eff_supervisor' name='dt_eff_supervisor' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -296,7 +296,7 @@
                                        class='form-control pickadate-short-string'/>-->
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value="06-11-2020"
+                                <input id='dt_eff_conexpiry' name='dt_eff_conexpiry' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -318,7 +318,7 @@
                                 </select>
                             </td>
                             <td class='SummaryEftDate'>
-                                <input id='dt_eff_status' name='dt_eff_status' type='text' value="07-11-2020"
+                                <input id='dt_eff_status' name='dt_eff_status' type='text' value=""
                                        class='form-control pickadate-short-string'/>
                             </td>
                         </tr>
@@ -495,6 +495,8 @@
         let results = [];
         let flag = 0;
 
+        let isinputgiven = false;
+
         let count = $('.fgtr').find('.checkboxes');
 
         for (let i = 0; i < count.length; i++) {
@@ -514,7 +516,17 @@
                     if (summaryFldid == "conexpiry") {
                         summaryVal = $(this).find('.summaryNewVal').find('input').val();
                     } else {
-                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
+
+                        if ($(this).find('.summaryNewVal').find('option:selected').attr("data-newval") == "undefined"
+                            || $(this).find('.summaryNewVal').find('option:selected').attr("data-newval") == undefined
+                            || $(this).find('.summaryNewVal').find('option:selected').attr("data-newval") == ""
+                            || $(this).find('.summaryNewVal').find('option:selected').attr("data-newval") == "null"
+                            || $(this).find('.summaryNewVal').find('option:selected').attr("data-newval") == "NULL"
+                        ) {
+                            summaryVal = "";
+                        } else {
+                            summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
+                        }
                     }
 
                     let summaryOldVal = $(count[i]).parents('tr').find('.auditcol_' + summaryFldid).attr('data-oldval');
@@ -530,19 +542,52 @@
                     let SummaryEftDate = $(this).find('.SummaryEftDate').find('input').val();
 
 
-                    if (summaryVal != summaryOldVal) {
+                    if (summaryFldid == "conexpiry") {
 
-                        console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal + " SummaryEftDate - " + SummaryEftDate);
 
-                        results.push({
-                            'empno': employees_no,
-                            'summaryFldid': summaryFldid,
-                            'summaryFldName': summaryFldName,
-                            'summaryVal': summaryVal,
-                            'summaryOldVal': summaryOldVal,
-                            'summaryID': summaryID,
-                            'SummaryEftDate': SummaryEftDate
-                        });
+                        if (Date.parse(summaryVal) != Date.parse(summaryOldVal)) {
+
+                            if (summaryVal != "") {
+
+                                //console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal + " SummaryEftDate - " + SummaryEftDate);
+
+                                isinputgiven = true;
+
+                                results.push({
+                                    'empno': employees_no,
+                                    'summaryFldid': summaryFldid,
+                                    'summaryFldName': summaryFldName,
+                                    'summaryVal': summaryVal,
+                                    'summaryOldVal': summaryOldVal,
+                                    'summaryID': summaryID,
+                                    'SummaryEftDate': SummaryEftDate
+                                });
+
+                            }
+                        }
+
+                    } else {
+
+                        if (parseInt(summaryVal) != parseInt(summaryOldVal)) {
+
+                            if (summaryVal != "") {
+
+                                //console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal + " SummaryEftDate - " + SummaryEftDate);
+
+                                isinputgiven = true;
+
+                                results.push({
+                                    'empno': employees_no,
+                                    'summaryFldid': summaryFldid,
+                                    'summaryFldName': summaryFldName,
+                                    'summaryVal': summaryVal,
+                                    'summaryOldVal': summaryOldVal,
+                                    'summaryID': summaryID,
+                                    'SummaryEftDate': SummaryEftDate
+                                });
+
+                            }
+                        }
 
                     }
 
@@ -551,41 +596,49 @@
             }
         }
 
-        if (employees.length >= 1) {
-            $('#btn-Edit').css('display', 'none');
-
-            //results.push({'empno': employees});
-
-            /*$.each(results[1], function (k, v) {
-                console.log("key = " + results[k] + " value = " + v);
-            });*/
 
 
-            let formData = new FormData();
+        if (isinputgiven == true) {
 
-            /*data['empno'] = employees;
-            data['results'] = results;*/
+            if (employees.length >= 1) {
+                $('#btn-Edit').css('display', 'none');
 
-            data['results'] = results;
-            formData.append('data', JSON.stringify(data));
+                //results.push({'empno': employees});
+
+                /*$.each(results[1], function (k, v) {
+                    console.log("key = " + results[k] + " value = " + v);
+                });*/
 
 
-            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/bulkupdate'); ?>', formData, "POST", function (result) {
-                if (result == 1) {
-                    toastMsg('Success', 'Successfully Changed', 'success');
-                    setTimeout(function () {
-                        $('#btn-Edit').css('display', 'block');
-                        window.location.reload();
-                    }, 2000);
-                } else if (result == 3) {
-                    toastMsg('Error', 'Invalid Cluster', 'error');
-                } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
-                }
-            }, true);
+                let formData = new FormData();
+
+                /*data['empno'] = employees;
+                data['results'] = results;*/
+
+                data['results'] = results;
+                formData.append('data', JSON.stringify(data));
+
+
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/bulkupdate'); ?>', formData, "POST", function (result) {
+                    if (result == 1) {
+                        toastMsg('Success', 'Successfully Changed', 'success');
+                        setTimeout(function () {
+                            $('#btn-Edit').css('display', 'block');
+                            window.location.reload();
+                        }, 2000);
+                    } else if (result == 3) {
+                        toastMsg('Error', 'Invalid Employee', 'error');
+                    } else {
+                        toastMsg('Error', 'Something went wrong', 'error');
+                    }
+                }, true);
+
+            } else {
+                toastMsg('Employee', 'Please select Employee first', 'error');
+            }
 
         } else {
-            toastMsg('Employee', 'Please select Employee first', 'error');
+            toastMsg('Error', 'Please select at least one field', 'error');
         }
     }
 

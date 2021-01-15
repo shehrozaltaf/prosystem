@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="live">
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prosystem.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpBand.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpBand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDept.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDept.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDesig.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDesig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpField.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpField.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpType.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Custom.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_band.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_band.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_dept.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_dept.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_desig.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_desig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_entity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_field.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_field.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prosystem.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prosystem.zip" beforeDir="false" />
     </list>
-    <list id="9fd35caa-7c8c-4193-b1e4-8992807b836b" name="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" comment="Merge remote-tracking branch 'origin/master'  # Conflicts: #&#9;.idea/workspace.xml" />
-    <ignored path="D:\xampp\htdocs\prosystem\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,171 +29,7 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="472" column="37" lean-forward="true" selection-start-line="472" selection-start-column="37" selection-end-line="472" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="2374" column="74" lean-forward="true" selection-start-line="2374" selection-start-column="74" selection-end-line="2374" selection-end-column="88" />
-              <folding>
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="e#18#24#1" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>search_bdgt_code</find>
-      <find>84c3bb</find>
-      <find>vuexy-login-bg</find>
-      <find>login</find>
-      <find>checkProjectedData</find>
-      <find>copyModal</find>
-      <find>copyData</find>
-      <find>cloneData</find>
-      <find>getBand_Month_Year</find>
-      <find>data-my</find>
-      <find>getBands</find>
-      <find>chkData</find>
-      <find>MSection</find>
-      <find>actl_month</find>
-      <find>col-sm-6 col-6</find>
-      <find>getprojectByMY</find>
-      <find>insertData</find>
-      <find>getTableColumn</find>
-      <find>emp_code</find>
-      <find>bdgt_code</find>
-      <find>Budget Code</find>
-      <find>location</find>
-      <find>chngeBand_Month_Year</find>
-      <find>chngeBand_Emp</find>
-      <find>getEmployees</find>
-      <find>aaftag</find>
-      <find>editdata</find>
-      <find>showsu</find>
-      <find>Edit</find>
-      <find>editRecord</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>$insertArray</replace>
-      <replace>Invalid</replace>
-      <replace>echo</replace>
-      <replace>col-md-10</replace>
-      <replace>label-control customlabel</replace>
-      <replace>Edit</replace>
-      <replace>assets</replace>
-      <replace>insrt_AT</replace>
-      <replace>Position</replace>
-      <replace>col-sm-2 col-2</replace>
-      <replace>$(v)find('.</replace>
-      <replace />
-      <replace>$(v).find('.</replace>
-      <replace>$bv</replace>
-      <replace>col-sm-12 col-12</replace>
-      <replace>$value-&gt;idPrjn</replace>
-      <replace>copy_prjn_month</replace>
-      <replace>p.</replace>
-      <replace>b_budget</replace>
-      <replace>b_budget.</replace>
-      <replace>chkData</replace>
-      <replace>Mbudget</replace>
-      <replace>idBugt</replace>
-      <replace>proj_code</replace>
-      <replace>5d55c7</replace>
-      <replace>getReport</replace>
-      <replace>Mreports</replace>
-      <replace>col</replace>
-      <replace>Position Code</replace>
-      <replace>Position No</replace>
-    </replaceStrings>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -212,57 +37,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/include/footer.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
-        <option value="$PROJECT_DIR$/application/config/autoload.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
-        <option value="$PROJECT_DIR$/application/models/hr_model/Mhr_settings.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/project_edit.php" />
-        <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php" />
-        <option value="$PROJECT_DIR$/application/views/auth/login.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/application/views/welcome.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/web_header.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/forms-2020-11-17.json" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" />
-        <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
-        <option value="$PROJECT_DIR$/application/views/include/header.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/project_add.php" />
-        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/ext-component-drag-drop.html" />
-        <option value="$PROJECT_DIR$/../blf/api/getData.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/projected_add_.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mproject.php" />
-        <option value="$PROJECT_DIR$/assets/js/core.js" />
-        <option value="$PROJECT_DIR$/assets/css/colors.css" />
-        <option value="$PROJECT_DIR$/assets/css/bootstrap-extended.css" />
-        <option value="$PROJECT_DIR$/assets/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/assets/css/components.css" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Project.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/budget.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/budget_add.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/reports.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/projected_add.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/project.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mbudget.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/projected.php" />
-        <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php" />
-        <option value="$PROJECT_DIR$/application/views/budget_views/actual_add.php" />
-        <option value="$PROJECT_DIR$/application/models/budget_model/Mreports.php" />
-        <option value="$PROJECT_DIR$/application/models/inventory_models/MInventory.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
       </list>
     </option>
   </component>
@@ -271,91 +53,30 @@
     <option name="width" value="854" />
     <option name="height" value="1017" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="emppic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../smk_pwd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -364,17 +85,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\prosystem\assets\vendors\css\extensions" />
-      <recent name="C:\xampp\htdocs\prosystem\assets\css\plugins\extensions" />
-      <recent name="C:\xampp\htdocs\prosystem\assets\js\scripts\extensions" />
-      <recent name="C:\xampp\htdocs\prosystem\assets\vendors\js\extensions" />
-      <recent name="C:\xampp\htdocs\prosystem\assets\vendors\jquery-date-range-picker-master" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -393,421 +103,27 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5979ae56-ee89-4e1b-a26d-e117c1da2fab" name="Default Changelist" comment="" />
-      <created>1602050007689</created>
+      <changelist id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="" />
+      <created>1610695858537</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602050007689</updated>
-      <workItem from="1602050009209" duration="9052000" />
-      <workItem from="1602133425570" duration="531000" />
-      <workItem from="1602218408376" duration="264000" />
-      <workItem from="1602478708872" duration="296000" />
-      <workItem from="1602479236859" duration="12821000" />
-      <workItem from="1602498581960" duration="1285000" />
-      <workItem from="1602651701674" duration="613000" />
-      <workItem from="1602675653570" duration="1193000" />
-      <workItem from="1602822952955" duration="2258000" />
-      <workItem from="1603086262144" duration="5335000" />
-      <workItem from="1603258780619" duration="71000" />
-      <workItem from="1603353221726" duration="326000" />
-      <workItem from="1604136840366" duration="603000" />
-      <workItem from="1604138504899" duration="5525000" />
-      <workItem from="1604145987843" duration="1602000" />
-      <workItem from="1604292890804" duration="15279000" />
-      <workItem from="1604380018045" duration="60000" />
-      <workItem from="1604387494645" duration="11339000" />
-      <workItem from="1604551204287" duration="13028000" />
-      <workItem from="1604637362054" duration="201000" />
-      <workItem from="1604725182224" duration="15274000" />
-      <workItem from="1604896941886" duration="16386000" />
-      <workItem from="1604982783396" duration="9444000" />
-      <workItem from="1605521551704" duration="7045000" />
-      <workItem from="1605591372325" duration="8117000" />
-      <workItem from="1605676502982" duration="10008000" />
-      <workItem from="1605761791439" duration="2628000" />
-      <workItem from="1605785433738" duration="4206000" />
-      <workItem from="1605851546304" duration="2241000" />
-      <workItem from="1605854072852" duration="188000" />
-      <workItem from="1605854901507" duration="6102000" />
-      <workItem from="1605939602045" duration="77000" />
-      <workItem from="1605940331729" duration="2902000" />
-      <workItem from="1606109372231" duration="1207000" />
-      <workItem from="1606113162338" duration="6737000" />
-      <workItem from="1606195581606" duration="7897000" />
-      <workItem from="1606281801903" duration="103000" />
-      <workItem from="1608528275053" duration="4289000" />
-      <workItem from="1608616575397" duration="1836000" />
-      <workItem from="1608699268609" duration="7993000" />
-      <workItem from="1609152819267" duration="6136000" />
-      <workItem from="1609220141593" duration="12968000" />
-      <workItem from="1609307429034" duration="5262000" />
-      <workItem from="1609394172215" duration="6365000" />
-      <workItem from="1609413021227" duration="4527000" />
-      <workItem from="1609480911807" duration="10147000" />
-      <workItem from="1609570210146" duration="106000" />
-      <workItem from="1610088385740" duration="606000" />
-      <workItem from="1610344541540" duration="3405000" />
-      <workItem from="1610365880693" duration="22000" />
-      <workItem from="1610431967966" duration="2683000" />
+      <updated>1610695858537</updated>
+      <workItem from="1610695859884" duration="1682000" />
+      <workItem from="1610706180789" duration="621000" />
     </task>
-    <task id="LOCAL-00001" summary="budget system">
-      <created>1602066474172</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1602066474172</updated>
-    </task>
-    <task id="LOCAL-00002" summary="HR System EmpEntry">
-      <created>1602133909079</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1602133909080</updated>
-    </task>
-    <task id="LOCAL-00003" summary="HR system Search Employee By shehroz">
-      <created>1602321757139</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1602321757139</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Inventory System By shehroz">
-      <created>1602334310938</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1602334310938</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Inventory System -  Add Asset By shehroz">
-      <created>1602484748245</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1602484748245</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Inventory System -  Expiry &amp; custodian">
-      <created>1602494126468</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1602494126468</updated>
-    </task>
-    <task id="LOCAL-00007" summary="budget system- employee">
-      <created>1602494784092</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1602494784092</updated>
-    </task>
-    <task id="LOCAL-00008" summary="budget system">
-      <created>1602581339841</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1602581339841</updated>
-    </task>
-    <task id="LOCAL-00009" summary="budget system">
-      <created>1602581586041</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1602581586041</updated>
-    </task>
-    <task id="LOCAL-00010" summary="budget system">
-      <created>1602581723907</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1602581723907</updated>
-    </task>
-    <task id="LOCAL-00011" summary="budget system - chnages">
-      <created>1602590585640</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1602590585640</updated>
-    </task>
-    <task id="LOCAL-00012" summary="budget system - chnages">
-      <created>1602737133521</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1602737133521</updated>
-    </task>
-    <task id="LOCAL-00013" summary="budget system - project edit">
-      <created>1603087199416</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1603087199416</updated>
-    </task>
-    <task id="LOCAL-00014" summary="budget system - add Asset">
-      <created>1603090799447</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1603090799447</updated>
-    </task>
-    <task id="LOCAL-00015" summary="set 404">
-      <created>1603177964019</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1603177964019</updated>
-    </task>
-    <task id="LOCAL-00016" summary="inventory - audit trail">
-      <created>1603187205079</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1603187205079</updated>
-    </task>
-    <task id="LOCAL-00017" summary="inventory - audit trails">
-      <created>1604147158610</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1604147158611</updated>
-    </task>
-    <task id="LOCAL-00018" summary="inventory - delete">
-      <created>1604301984194</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1604301984194</updated>
-    </task>
-    <task id="LOCAL-00019" summary="inventory - upload data">
-      <created>1604322134228</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1604322134228</updated>
-    </task>
-    <task id="LOCAL-00020" summary="inventory - upload data">
-      <created>1604484136898</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1604484136898</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1604638969875</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1604638969875</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1604639193356</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1604639193357</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1604640900507</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1604640900507</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1604645517534</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1604645517534</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1604742963736</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1604742963736</updated>
-    </task>
-    <task id="LOCAL-00026" summary="shehroz changes">
-      <created>1605506412285</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1605506412285</updated>
-    </task>
-    <task id="LOCAL-00027" summary="welcome page">
-      <created>1605525660311</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1605525660311</updated>
-    </task>
-    <task id="LOCAL-00028" summary="budget add">
-      <created>1605529783147</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1605529783147</updated>
-    </task>
-    <task id="LOCAL-00029" summary="budget">
-      <created>1605614903069</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1605614903069</updated>
-    </task>
-    <task id="LOCAL-00030" summary="budget - add budget">
-      <created>1605694519310</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1605694519311</updated>
-    </task>
-    <task id="LOCAL-00031" summary="budget - add projected">
-      <created>1605700342542</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1605700342542</updated>
-    </task>
-    <task id="LOCAL-00032" summary="budget - project">
-      <created>1605791914154</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1605791914155</updated>
-    </task>
-    <task id="LOCAL-00033" summary="budget - projected">
-      <created>1605873337972</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1605873337973</updated>
-    </task>
-    <task id="LOCAL-00034" summary="budget">
-      <created>1605960056236</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1605960056236</updated>
-    </task>
-    <task id="LOCAL-00035" summary="drag n drop">
-      <created>1606130062548</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1606130062548</updated>
-    </task>
-    <task id="LOCAL-00036" summary="projected">
-      <created>1606222482387</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1606222482388</updated>
-    </task>
-    <task id="LOCAL-00037" summary="changes">
-      <created>1608703093196</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1608703093196</updated>
-    </task>
-    <task id="LOCAL-00038" summary="budget filters">
-      <created>1608722418516</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1608722418516</updated>
-    </task>
-    <task id="LOCAL-00039" summary="budget filters">
-      <created>1609161473265</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1609161473265</updated>
-    </task>
-    <task id="LOCAL-00040" summary="projected add">
-      <created>1609240410292</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1609240410292</updated>
-    </task>
-    <task id="LOCAL-00041" summary="bdget list">
-      <created>1609243918113</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1609243918113</updated>
-    </task>
-    <task id="LOCAL-00042" summary="bdget list">
-      <created>1609245695390</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1609245695390</updated>
-    </task>
-    <task id="LOCAL-00043" summary="projected">
-      <created>1609247328492</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1609247328492</updated>
-    </task>
-    <task id="LOCAL-00044" summary="reports">
-      <created>1609399987362</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1609399987362</updated>
-    </task>
-    <task id="LOCAL-00045" summary="upload data &amp; budget">
-      <created>1609416598442</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1609416598442</updated>
-    </task>
-    <task id="LOCAL-00046" summary="budget">
-      <created>1609417447726</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1609417447726</updated>
-    </task>
-    <task id="LOCAL-00047" summary="changes">
-      <created>1609423499291</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1609423499291</updated>
-    </task>
-    <task id="LOCAL-00048" summary="changes">
-      <created>1609484866959</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1609484866960</updated>
-    </task>
-    <task id="LOCAL-00049" summary="live">
-      <created>1609512619328</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1609512619345</updated>
-    </task>
-    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331842000" />
+    <option name="totallyTimeSpent" value="2303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2304401" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25305623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3281075" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -815,9 +131,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" weight="0.3290461" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" type="SLIDING" weight="0.103023514" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -827,447 +143,14 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="budget system - project edit" />
-    <MESSAGE value="budget system - add Asset" />
-    <MESSAGE value="set 404" />
-    <MESSAGE value="inventory - audit trail" />
-    <MESSAGE value="inventory - audit trails" />
-    <MESSAGE value="inventory - delete" />
-    <MESSAGE value="inventory - upload data" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <MESSAGE value="shehroz changes" />
-    <MESSAGE value="welcome page" />
-    <MESSAGE value="budget add" />
-    <MESSAGE value="budget - add budget" />
-    <MESSAGE value="budget - add projected" />
-    <MESSAGE value="budget - project" />
-    <MESSAGE value="budget - projected" />
-    <MESSAGE value="drag n drop" />
-    <MESSAGE value="budget filters" />
-    <MESSAGE value="projected add" />
-    <MESSAGE value="bdget list" />
-    <MESSAGE value="projected" />
-    <MESSAGE value="reports" />
-    <MESSAGE value="upload data &amp; budget" />
-    <MESSAGE value="budget" />
-    <MESSAGE value="changes" />
-    <MESSAGE value="live" />
-    <option name="LAST_COMMIT_MESSAGE" value="live" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php</url>
-          <line>358</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/models/budget_model/Mreports.php</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/MSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1572">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/MUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MCrf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2269" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MProjects.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1198" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MSection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6757" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MDocuments.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1062" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/MUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/Mformdata.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-804" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="246" column="35" selection-start-line="246" selection-start-column="35" selection-end-line="246" selection-end-column="35" />
-          <folding>
-            <element signature="e#256#343#0#PHP" />
-            <element signature="n#index#0;n#Project#0;n#!!top" />
-            <element signature="e#496#601#0#PHP" />
-            <element signature="n#addProject_view#0;n#Project#0;n#!!top" />
-            <element signature="e#1379#1484#0#PHP" />
-            <element signature="n#insertData#0;n#Project#0;n#!!top" />
-            <element signature="e#2187#2448#0#PHP" />
-            <element signature="e#4222#4457#0#PHP" />
-            <element signature="e#4346#4457#0#PHP" />
-            <element signature="n#deleteData#0;n#Project#0;n#!!top" />
-            <element signature="e#4631#5384#0#PHP" />
-            <element signature="e#5017#5151#0#PHP" />
-            <element signature="e#5223#5332#0#PHP" />
-            <element signature="e#5283#5332#0#PHP" />
-            <element signature="e#5343#5384#0#PHP" />
-            <element signature="n#editProject_view#0;n#Project#0;n#!!top" />
-            <element signature="e#5574#5679#0#PHP" />
-            <element signature="n#updateData#0;n#Project#0;n#!!top" />
-            <element signature="e#6394#6653#0#PHP" />
-            <element signature="e#6662#6923#0#PHP" />
-            <element signature="e#6932#7193#0#PHP" />
-            <element signature="e#7202#7469#0#PHP" />
-            <element signature="e#7478#7739#0#PHP" />
-            <element signature="e#7749#8595#0#PHP" />
-            <element signature="e#8332#8546#0#PHP" />
-            <element signature="e#8445#8546#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../prosystem_bk/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/prosystem/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1021">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/prosystem/application/controllers/Upload_data2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/application/models/Custom.php" />
-    <entry file="file://$USER_HOME$/Desktop/application/controllers/Upload_data.php" />
-    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/models/Custom.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1629">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../prosystem_bk/bk2/application/controllers/Upload_data.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
-          <caret line="349" column="54" selection-start-line="349" selection-start-column="54" selection-end-line="349" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/employee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="18" column="80" lean-forward="true" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add_.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="357" column="2" lean-forward="true" selection-start-line="357" selection-start-column="2" selection-end-line="395" selection-end-column="5" />
-          <folding>
-            <element signature="e#45#50#0#PHP" />
-            <element signature="e#162#167#0#PHP" />
-            <element signature="e#889#894#0#PHP" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#!!top" />
-            <element signature="e#13738#14922#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
-          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="83" column="64" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="64" />
-          <folding>
-            <element signature="n#__construct#0;n#Projected#0;n#!!top" />
-            <element signature="e#260#347#0#PHP" />
-            <element signature="n#index#0;n#Projected#0;n#!!top" />
-            <element signature="e#500#611#0#PHP" />
-            <element signature="n#addProjected_view#0;n#Projected#0;n#!!top" />
-            <element signature="n#insertData#0;n#Projected#0;n#!!top" />
-            <element signature="n#deleteData#0;n#Projected#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="24" />
-          <folding>
-            <element signature="e#6#80#0#PHP" />
-            <element signature="n#getBdgt#0;n#Mbudget#0;n#!!top" />
-            <element signature="e#205#354#0#PHP" />
-            <element signature="e#363#517#0#PHP" />
-            <element signature="e#528#757#0#PHP" />
-            <element signature="e#767#1419#0#PHP" />
-            <element signature="e#924#1408#0#PHP" />
-            <element signature="e#1429#1624#0#PHP" />
-            <element signature="e#1633#1976#0#PHP" />
-            <element signature="n#getCntTotalBdgt#0;n#Mbudget#0;n#!!top" />
-            <element signature="e#2400#2629#0#PHP" />
-            <element signature="e#2639#3175#0#PHP" />
-            <element signature="e#2796#3164#0#PHP" />
-            <element signature="n#getAll#0;n#Mbudget#0;n#!!top" />
-            <element signature="e#3610#3729#0#PHP" />
-            <element signature="e#3739#4026#0#PHP" />
-            <element signature="e#3835#4015#0#PHP" />
-            <element signature="e#4036#4336#0#PHP" />
-            <element signature="n#getDesignation#0;n#Mbudget#0;n#!!top" />
-            <element signature="n#getBandEmp#0;n#Mbudget#0;n#!!top" />
-            <element signature="e#5032#5167#0#PHP" />
-            <element signature="n#getBands_Month_Year#0;n#Mbudget#0;n#!!top" />
-            <element signature="e#5538#5626#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="297" column="31" selection-start-line="297" selection-start-column="13" selection-end-line="297" selection-end-column="31" />
-          <folding>
-            <element signature="n#__construct#0;n#Budget#0;n#!!top" />
-            <element signature="e#254#341#0#PHP" />
-            <element signature="n#getDesignation#0;n#Budget#0;n#!!top" />
-            <element signature="n#deleteData#0;n#Budget#0;n#!!top" />
-            <element signature="n#getEmployees#0;n#Budget#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/projected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="493" column="97" selection-start-line="493" selection-start-column="97" selection-end-line="493" selection-end-column="97" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#!!top" />
-            <element signature="e#10648#13588#1#HTML" />
-            <element signature="e#19186#20256#0#HTML" />
-            <element signature="e#19171#20514#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="86" column="50" lean-forward="true" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
-          <folding>
-            <element signature="e#5303#5710#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mreports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-          <folding>
-            <element signature="e#6#80#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/add_inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="33" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="2374" column="74" lean-forward="true" selection-start-line="2374" selection-start-column="74" selection-end-line="2374" selection-end-column="88" />
+        <state relative-caret-position="391">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding>
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#form#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
@@ -1276,24 +159,6 @@
             <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -1304,13 +169,6 @@
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="472" column="37" lean-forward="true" selection-start-line="472" selection-start-column="37" selection-end-line="472" selection-end-column="49" />
         </state>
       </provider>
     </entry>

@@ -44,6 +44,11 @@ class Custom extends CI_Model
     {
         $this->db->where($key, $value);
         $update = $this->db->update($table, $Data);
+
+        $trackarray = array("action" => "Edit -> Function: Custom->Edit() ",
+            "result" => $update, "Query" => $this->db->last_query());
+        $this->trackLogs($trackarray, "user_logs");
+
         if ($update) {
             return 1;
         } else {
@@ -51,29 +56,23 @@ class Custom extends CI_Model
         }
     }
 
-    function getGUID()
-    {
-        if (function_exists('com_create_guid')) {
-            return com_create_guid();
-        } else {
-            mt_srand((double)microtime() * 10000);//optional for php 4.2.0 and up.
-            $charid = strtoupper(md5(uniqid(rand(), true)));
-            $hyphen = chr(45);// "-"
-            $uuid = substr($charid, 0, 8) . $hyphen . substr($charid, 8, 4) . $hyphen . substr($charid, 12, 4) . $hyphen . substr($charid, 16, 4) . $hyphen . substr($charid, 20, 12);
-            return $uuid;
-        }
-    }
-
     function trackLogs($array, $log_type)
     {
         date_default_timezone_set("Asia/Karachi");
-        $UserName = (isset($array['UserName']) && $array['UserName']!='' ? $array['UserName'] : $_SESSION['login']['username']);
+        $UserName = (isset($array['UserName']) && $array['UserName'] != '' ? $array['UserName'] : $_SESSION['login']['username']);
         if (isset($log_type) && $log_type == 'user_logs') {
             $logFilePath = 'customLogs/user_logs/' . $UserName . 'logs_' . date("n_j_Y") . '.txt';
         } else {
             $logFilePath = 'customLogs/daily_logs/logs_' . date("n_j_Y") . '.txt';
         }
         $action = (isset($array['action']) ? $array['action'] : 'Invalid Action');
+
+        $Query = '';
+        if (isset($array['Query']) && $array['Query'] != '') {
+            $Query .= $array['Query'];
+
+        }
+
         $postData = '';
         if (isset($array['PostData']) && $array['PostData'] != '') {
             foreach ($array['PostData'] as $key => $post) {
@@ -87,12 +86,26 @@ class Custom extends CI_Model
             "idUser: " . $idUser .
             ", UserName: " . $UserName . PHP_EOL .
             "Action: " . $action . PHP_EOL .
+            "Query: " . $Query . PHP_EOL .
             "Result: " . $result . PHP_EOL .
             "PostData: " . $postData . PHP_EOL .
             "-------------------------------------------------" . PHP_EOL;
         $txt = fopen($logFilePath, "a") or die("Unable to open file!");
         fwrite($txt, $log);
         fclose($txt);
+    }
+
+    function getGUID()
+    {
+        if (function_exists('com_create_guid')) {
+            return com_create_guid();
+        } else {
+            mt_srand((double)microtime() * 10000);//optional for php 4.2.0 and up.
+            $charid = strtoupper(md5(uniqid(rand(), true)));
+            $hyphen = chr(45);// "-"
+            $uuid = substr($charid, 0, 8) . $hyphen . substr($charid, 8, 4) . $hyphen . substr($charid, 12, 4) . $hyphen . substr($charid, 16, 4) . $hyphen . substr($charid, 20, 12);
+            return $uuid;
+        }
     }
 
     /*==========Log=============*/

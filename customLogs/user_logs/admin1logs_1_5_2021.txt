@@ -1,0 +1,228 @@
+UserIPAddress: 10.1.42.152 - January-5-2021 10:15 am
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:15 am
+idUser: 45, UserName: admin1
+Action: View Dashboard
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:15 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:15 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:19 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:19 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:20 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:20 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:21 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:38 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:40 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:40 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:50 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:50 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 10:51 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 11:37 am
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 12:19 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 12:20 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:37 pm
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:37 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:37 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:37 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:38 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:38 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:39 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:44 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:46 pm
+idUser: 45, UserName: admin1
+Action: Login Success
+Result: User admin1: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:46 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:46 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:47 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:47 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:47 pm
+idUser: 45, UserName: admin1
+Action: View Dashboard Users Page
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.152 - January-5-2021 5:47 pm
+idUser: 45, UserName: admin1
+Action: Logout
+Result: User admin1: Logout
+PostData: 
+-------------------------------------------------

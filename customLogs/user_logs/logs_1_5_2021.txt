@@ -1,0 +1,6 @@
+UserIPAddress: 10.1.42.152 - January-5-2021 5:34 pm
+idUser: , UserName: 
+Action: Logout
+Result: User : Logout
+PostData: 
+-------------------------------------------------
