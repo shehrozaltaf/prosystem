@@ -120,8 +120,8 @@
                                                 </div>
                                                 <a href="javascript:void(0)" onClick="login()"
                                                    class="btn btn-outline-primary float-left btn-inline">Login</a>
-                                                <a href="javascript:void(0)" onClick="cancel()"
-                                                   class="btn btn-outline-primary float-left btn-inline">Cancel</a>
+                                               <!-- <a href="javascript:void(0)" onClick="cancel()"
+                                                   class="btn btn-outline-primary float-left btn-inline">Cancel</a>-->
 
                                             </div>
                                         </div>
@@ -179,11 +179,11 @@
     });
 
 
-    function cancel() {
+   /* function cancel() {
         $('#login_username').val('');
         $('#login_password').val('');
         $('#login_username').focus();
-    }
+    }*/
 
     function login() {
         var errorFlag = 0;

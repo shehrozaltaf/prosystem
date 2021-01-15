@@ -100,7 +100,8 @@ html {
     html body p {
       line-height: 1.5rem; }
     html body.bg-full-screen-image {
-      background: url(../../assets/images/pages/login-bg.jpg) no-repeat center center;
+      background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7));
+      /*background: url(../../assets/images/pages/login-bg.jpg) no-repeat center center;*/
       background-size: cover; }
     html body.blank-page .content {
       margin-left: 0; }
