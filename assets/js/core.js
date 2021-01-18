@@ -220,3 +220,12 @@ jQuery.fn.ForceNumericOnly =
             });
         });
     };
+
+
+$(document).ready(function () {
+    var e = document.querySelectorAll('option');
+    e.forEach(x => {
+        if (x.textContent.length > 40)
+            x.textContent = x.textContent.substring(0, 40) + '...';
+    })
+});

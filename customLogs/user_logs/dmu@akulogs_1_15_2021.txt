@@ -290,3 +290,115 @@ Query:
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 4:22 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 4:47 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:12 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:13 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:13 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:14 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:14 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:15 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:15 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:15 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:15 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:16 pm
+idUser: 1, UserName: dmu@aku
+Action: View Upload Data
+Query: 
+Result: View Upload Data page. Fucntion: Upload_data/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:19 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-15-2021 5:19 pm
+idUser: 1, UserName: dmu@aku
+Action: Logout
+Query: 
+Result: User dmu@aku: Logout
+PostData: 
+-------------------------------------------------
