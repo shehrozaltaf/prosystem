@@ -110,3 +110,178 @@ Query:
 Result: View Asset Dashboard page. Fucntion: Assets/index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:07 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:30 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:30 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:31 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:31 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:32 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:39 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:43 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:44 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:58 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 2:58 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:00 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:00 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:00 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:23 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:25 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:27 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:27 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:28 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:28 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:29 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 3:30 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------

@@ -16,7 +16,7 @@ class Mhr_Location extends CI_Model
     function getAllLocation()
     {
         $this->db->select('*');
-        $this->db->from('hr_location');
+        $this->db->from('location');
         $this->db->order_By('location', 'DESC');
         $query = $this->db->get();
         return $query->result();
@@ -25,7 +25,7 @@ class Mhr_Location extends CI_Model
 
     function getLocationAlreadyExists($id, $loc)
     {
-        $query = $this->db->query("SELECT * FROM hr_location where location='$loc'");
+        $query = $this->db->query("SELECT * FROM location where location='$loc'");
 
         $results = array();
 
@@ -47,7 +47,7 @@ class Mhr_Location extends CI_Model
 
     function getLocationAlreadyExistsWithOutID($loc)
     {
-        $query = $this->db->query("SELECT * FROM hr_location where location='$loc'");
+        $query = $this->db->query("SELECT * FROM location where location='$loc'");
 
         $results = array();
 

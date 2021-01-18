@@ -56,8 +56,12 @@ class EmpLocation extends CI_Controller
         if (isset($_POST['location']) && $_POST['location'] != '' && $flag == 0) {
             $formArray = array();
             $formArray['location'] = ucwords($_POST['location']);
+            $formArray['isActive'] = 1;
+            $formArray['createdBy'] = $_SESSION['login']['idUser'];
+            $formArray['createdDateTime'] = date('Y-m-d H:i:s');
+
             $Custom = new Custom();
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_location', 'N');
+            $InsertData = $Custom->Insert($formArray, 'id', 'location', 'N');
 
             if ($InsertData) {
                 $InsertData = 1;
@@ -87,8 +91,10 @@ class EmpLocation extends CI_Controller
         if (isset($_POST['location']) && $_POST['location'] != '' && $flag == 0) {
             $formArray = array();
             $formArray['location'] = ucwords($_POST['location']);
+            $formArray['updatedBy'] = $_SESSION['login']['idUser'];
+            $formArray['updatedDateTime'] = date('Y-m-d H:i:s');
             $Custom = new Custom();
-            $EditData = $Custom->Edit($formArray, 'id', $id, 'hr_location');
+            $EditData = $Custom->Edit($formArray, 'id', $id, 'location');
 
             if ($EditData) {
                 $EditData = 1;

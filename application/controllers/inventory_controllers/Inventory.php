@@ -26,7 +26,8 @@ class Inventory extends CI_controller
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['location_sub'] = $Custom->selectAllQuery('location_sub', 'id');
         $data['status'] = $Custom->selectAllQuery('i_status', 'id', 'status');
         $M = new MInventory();
         $data['employees'] = $M->getEmployees();

@@ -66,13 +66,13 @@
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="emp">Category</label>
-                                                <select class="select2 form-control" id="emp" name="emp">
+                                                <label for="category">Category</label>
+                                                <select class="select2 form-control" id="category" name="category">
                                                     <option value="0">All Categories</option>
                                                     <?php
-                                                    if (isset($employee) && $employee != '') {
-                                                        foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                                    if (isset($category) && $category != '') {
+                                                        foreach ($category as $k => $c) {
+                                                            echo '<option value="' . $c->id . '">' . $c->category . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -81,56 +81,65 @@
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="location">Location</label>
-                                                <select class="select2 form-control" id="location" name="location">
-                                                    <option value="0">All Locations</option>
-                                                    <?php
-                                                    if (isset($location) && $location != '') {
-                                                        foreach ($location as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 col-12">
-                                            <div class="form-group">
-                                                <label for="location">Location</label>
-                                                <select class="select2 form-control" id="location" name="location">
-                                                    <option value="0">All Locations</option>
-                                                    <?php
-                                                    if (isset($location) && $location != '') {
-                                                        foreach ($location as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 col-12">
-                                            <div class="form-group">
-                                                <label for="location">Status</label>
-                                                <select class="select2 form-control" id="location" name="location">
-                                                    <option value="0">All Status</option>
-                                                    <option value="WORKING">WORKING</option>
-                                                    <option value="WORKING">Not WORKING</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 col-12">
-                                            <div class="form-group">
-                                                <label for="location">Source of Purchase</label>
-                                                <select class="select2 form-control" id="location" name="location">
+                                                <label for="sop">Source of Purchase</label>
+                                                <select class="select2 form-control" id="sop" name="sop">
                                                     <option value="0">All Source of Purchase</option>
-                                                    <option value="AKU Purchase Department">AKU Purchase Department</option>
-                                                    <option value="Direct Purchase System">Direct Purchase System</option>
-                                                    <option value="Donation">Donation</option>
+                                                    <?php
+                                                    if (isset($sop) && $sop != '') {
+                                                        foreach ($sop as $k => $sp) {
+                                                            echo '<option value="' . $sp->sop_value . '">' . $sp->sop_name . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <select class="select2 form-control" id="location" name="location">
+                                                    <option value="0">All Locations</option>
+                                                    <?php
+                                                    if (isset($location) && $location != '') {
+                                                        foreach ($location as $k => $v) {
+                                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="sublocation">Sub Location</label>
+                                                <select class="select2 form-control" id="sublocation" name="sublocation">
+                                                    <option value="0">All Sub Locations</option>
+                                                    <?php
+                                                    if (isset($location_sub) && $location_sub != '') {
+                                                        foreach ($location_sub as $k => $sub) {
+                                                            echo '<option value="' . $sub->id . '">' . $sub->location_sub . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="status">Status</label>
+                                                <select class="select2 form-control" id="status" name="status">
+                                                    <option value="0">All Status</option>
+                                                    <?php
+                                                    if (isset($status) && $status != '') {
+                                                        foreach ($status as $k => $s) {
+                                                            echo '<option value="' . $s->status_value . '">' . $s->status_name . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="ftag">FTAG</label>
@@ -139,20 +148,20 @@
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="ftag">PR No</label>
-                                                <input type="text" class="form-control" id="ftag" name="ftag">
+                                                <label for="prno">PR No</label>
+                                                <input type="text" class="form-control" id="prno" name="prno">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="ftag">Paeds ID</label>
-                                                <input type="text" class="form-control" id="ftag" name="ftag">
+                                                <label for="paedsid">Paeds ID</label>
+                                                <input type="text" class="form-control" id="paedsid" name="paedsid">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="username">Write Off Nod</label>
-                                                <input type="text" class="form-control" id="username" name="username">
+                                                <label for="writeOffNod">Write Off Nod</label>
+                                                <input type="text" class="form-control" id="writeOffNod" name="writeOffNod">
                                             </div>
                                         </div>
 
@@ -418,120 +427,6 @@
         });
     }
 
-    function getExpiry(obj) {
-        var id = $(obj).attr('data-id');
-        var va = $(obj).attr('data-expiry');
-        if (id != '' && id != undefined) {
-            $('#expiryDateTime').val(va);
-            $('#expiry_id').val(id);
-            if (va == '' || va == undefined) {
-                $('#oldExpiryDateTime').val('0');
-            } else {
-                $('#oldExpiryDateTime').val(va);
-            }
-
-            $(".add-new-data").addClass("show");
-            $(".overlay-bg").addClass("show");
-        } else {
-            toastMsg('Error', 'Invalid Data', 'error');
-            return false;
-        }
-    }
-
-    function saveExpiry() {
-        var data = {};
-        data['expiry_id'] = $('#expiry_id').val();
-        data['expiryDateTime'] = $('#expiryDateTime').val();
-        data['oldExpiryDateTime'] = $('#oldExpiryDateTime').val();
-        if (data['expiry_id'] == '' || data['expiry_id'] == undefined || data['expiry_id'] == 0 ||
-            data['expiryDateTime'] == '' || data['expiryDateTime'] == undefined || data['expiryDateTime'] == 0) {
-            toastMsg('Error', 'Invalid Expiry Date Time', 'error');
-            return false;
-        } else {
-            CallAjax('<?php echo base_url('index.php/asset_controllers/asset/setExpiry')?>', data, 'POST', function (res) {
-                if (res == 1) {
-                    toastMsg('Success', 'Successfully set Expiry Date Time', 'success');
-                    $('#expiryModal').modal('hide');
-                    $(".add-new-data").removeClass("show");
-                    $(".overlay-bg").removeClass("show");
-                    setTimeout(function () {
-                        getData()
-                    }, 500);
-                } else if (res == 3) {
-                    toastMsg('Error', 'Invalid Asset Id', 'error');
-                } else if (res == 4) {
-                    toastMsg('Error', 'Expiry date updated but audit trial not updated', 'warning');
-                } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
-                }
-            });
-        }
-    }
-
-    function getCustodianData(obj) {
-        var data = {};
-        data['id'] = $(obj).attr('data-id');
-        if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/asset_controllers/asset/getCustodianData')?>', data, 'POST', function (result) {
-                if (result != '' && JSON.parse(result).length > 0) {
-                    var a = JSON.parse(result);
-                    try {
-                        $('#assignCustodian_id').val(data['id']);
-                        $('#custodian_location').val(a[0]['loc']).attr('selected', 'selected').trigger('change');
-                        $('#custodian_location_old').val(a[0]['loc']);
-                        $('#custodian_project').val(a[0]['proj_code']).attr('selected', 'selected').trigger('change');
-                        $('#custodian_project_old').val(a[0]['proj_code']);
-                        $('#custodian_emp').val(a[0]['username']).attr('selected', 'selected').trigger('change');
-                        $('#custodian_emp_old').val(a[0]['username']);
-                    } catch (e) {
-                    }
-                    $('#assignCustodianModal').modal('show');
-                } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
-                }
-            });
-        } else {
-            toastMsg('Error', 'Invalid Data', 'error');
-        }
-    }
-
-    function saveCustodian() {
-        var data = {};
-        data['assignCustodian_id'] = $('#assignCustodian_id').val();
-        data['custodian_location'] = $('#custodian_location').val();
-        data['custodian_location_old'] = $('#custodian_location_old').val();
-        data['custodian_project'] = $('#custodian_project').val();
-        data['custodian_project_old'] = $('#custodian_project_old').val();
-        data['custodian_emp'] = $('#custodian_emp').val();
-        data['custodian_emp_old'] = $('#custodian_emp_old').val();
-        var vd = validateData(data);
-        if (vd) {
-            showloader();
-            $('.myCustodianbtn').addClass('hide').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/asset_controllers/asset/saveCustodianData')?>', data, 'POST', function (res) {
-                hideloader();
-                $('.myCustodianbtn').removeClass('hide').removeAttr('disabled', 'disabled');
-
-                try {
-                    var response = JSON.parse(res);
-                    console.log(response);
-                    if (response[0] == 'Success') {
-                        $('#assignCustodianModal').modal('hide');
-                        toastMsg(response[0], response[1], 'success');
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 1500)
-                    } else {
-                        toastMsg(response[0], response[1], 'error');
-                    }
-                } catch (e) {
-                }
-            });
-        } else {
-            toastMsg('Error', 'Invalid Data', 'error');
-        }
-    }
-
     function format(d) {
         var html = '';
         html += '<p>FTAG: ' + (d.ftag != '' && d.ftag != undefined && d.aadop != null ? d.ftag : '') + '</p>';
@@ -585,7 +480,7 @@
             iDisplayLength: 25,
             dom: 'Bfrtip',
             ajax: {
-                "url": "<?php echo base_url() . 'index.php/asset_controllers/asset/getasset' ?>",
+                "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",
                 "data": data
             },

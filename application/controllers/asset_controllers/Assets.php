@@ -27,8 +27,11 @@ class Assets extends CI_controller
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['employee'] = $Custom->selectAllQuery('hr_employee', 'id');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
-        $data['status'] = $Custom->selectAllQuery('i_status', 'id', 'status');
+        $data['category'] = $Custom->selectAllQuery('category', 'id', 'isActive');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['location_sub'] = $Custom->selectAllQuery('location_sub', 'id');
+        $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
+        $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'id', 'status');
         $M = new MAsset();
 
         $this->load->view('include/header');
