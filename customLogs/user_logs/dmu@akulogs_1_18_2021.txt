@@ -285,3 +285,171 @@ Query:
 Result: View Asset Dashboard page. Fucntion: Assets/index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:06 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:07 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:07 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:09 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:21 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:21 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:21 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:36 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:36 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:37 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:44 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:44 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:51 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:52 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:52 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:52 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:52 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:53 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 4:56 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 5:46 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 5:46 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 5:48 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 5:53 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-18-2021 5:53 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------

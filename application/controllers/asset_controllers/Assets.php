@@ -27,13 +27,11 @@ class Assets extends CI_controller
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['employee'] = $Custom->selectAllQuery('hr_employee', 'id');
-        $data['category'] = $Custom->selectAllQuery('category', 'id', 'isActive');
+        $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
         $data['location'] = $Custom->selectAllQuery('location', 'id');
         $data['location_sub'] = $Custom->selectAllQuery('location_sub', 'id');
         $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
-        $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'id', 'status');
-        $M = new MAsset();
-
+        $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'idSop', 'status');
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -49,62 +47,48 @@ class Assets extends CI_controller
         $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
         $searchData = array();
 
-        $searchData['username'] = (isset($_REQUEST['username']) && $_REQUEST['username'] != '' ? $_REQUEST['username'] : 0);
-        $searchData['ftag'] = (isset($_REQUEST['ftag']) && $_REQUEST['ftag'] != '' ? $_REQUEST['ftag'] : 0);
+
+        $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
+        $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
+        $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
+        $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
+        $searchData['location'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
+        $searchData['sublocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+        $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
+        $searchData['ftag'] = (isset($_REQUEST['ftag']) && $_REQUEST['ftag'] != '' && $_REQUEST['ftag'] != '0' ? $_REQUEST['ftag'] : 0);
+        $searchData['prno'] = (isset($_REQUEST['prno']) && $_REQUEST['prno'] != '' && $_REQUEST['prno'] != '0' ? $_REQUEST['prno'] : 0);
+        $searchData['paedsid'] = (isset($_REQUEST['paedsid']) && $_REQUEST['paedsid'] != '' && $_REQUEST['paedsid'] != '0' ? $_REQUEST['paedsid'] : 0);
+        $searchData['writeOffNod'] = (isset($_REQUEST['writeOffNod']) && $_REQUEST['writeOffNod'] != '' && $_REQUEST['writeOffNod'] != '0' ? $_REQUEST['writeOffNod'] : 0);
         $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
         $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
-        $searchData['location'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
-        $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
-        $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
 
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 25);
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
-        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'i.id');
+        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'a.idAsset');
         $searchData['ordersort'] = (isset($_REQUEST['order'][0]['dir']) && $_REQUEST['order'][0]['dir'] != '' ? $_REQUEST['order'][0]['dir'] : 'desc');
+
         $data = $M->getAsset($searchData);
         $table_data = array();
         $result_table_data = array();
         foreach ($data as $key => $value) {
-            $table_data[$value->id]['asset_type'] = $value->asset_type;
-            $table_data[$value->id]['model'] = $value->model;
-            $table_data[$value->id]['product'] = $value->product;
-            $table_data[$value->id]['serial'] = $value->serial;
-            $table_data[$value->id]['dop'] = date('d-M-Y', strtotime($value->dop));
 
-            $table_data[$value->id]['aaftag'] = $value->aaftag;
-            $table_data[$value->id]['aaproduct'] = $value->aaproduct;
-            $table_data[$value->id]['aaserial'] = $value->aaserial;
-            $table_data[$value->id]['username'] = $value->username;
-            $table_data[$value->id]['loc'] = $value->loc;
-            $table_data[$value->id]['remarks'] = $value->remarks;
-            $table_data[$value->id]['status'] = $value->status;
-            $table_data[$value->id]['expiryDateTime'] = (isset($value->expiryDateTime) && $value->expiryDateTime != '' && $value->expiryDateTime != '01-Jan-1970' ?
-                date('d-M-Y', strtotime($value->expiryDateTime)) : '');
+            $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
+            $table_data[$value->idAsset]['category'] = $value->idCategory;
+            $table_data[$value->idAsset]['desc'] = $value->desc;
+            $table_data[$value->idAsset]['tag'] = $value->tag_no;
+            $table_data[$value->idAsset]['emp'] = $value->emp_no;
+            $table_data[$value->idAsset]['proj'] = $value->proj_code;
+            $table_data[$value->idAsset]['loc'] = $value->idLocation;
+            $table_data[$value->idAsset]['sub_loc'] = $value->idSubLocation;
+            $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
 
-            $table_data[$value->id]['ftag'] = $value->ftag;
-            $table_data[$value->id]['aadop'] = $value->aadop;
-            $table_data[$value->id]['newEntry'] = $value->newEntry;
-            $table_data[$value->id]['Action'] = '
-                <a href="' . base_url('index.php/asset_controllers/asset/auditTrial?i=' . $value->id) . '"  target="_blank" title="Audit Trial" data-id="' . $value->id . '">
+            $table_data[$value->idAsset]['Action'] = '
+                <a href="' . base_url('index.php/asset_controllers/asset/auditTrial?i=' . $value->idAsset) . '"  target="_blank" title="Audit Trial" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
-                </a>
-                <a href="javascript:void(0)" onclick="showExpiry()"  data-id="' . $value->id . '">
-                        <i class="feather icon-edit action-edit" ></i> 
-                </a>
-                <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->id . '">
+                </a> 
+                <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
                         <i class="feather icon-trash"></i>
-                </a>';
-            $table_data[$value->id]['Settings'] = ' 
-                <a href="javascript:void(0)" class="btn btn-sm bg-gradient-success " onclick="getExpiry(this)" data-id="' . $value->id . '" data-expiry="' . $table_data[$value->id]['expiryDateTime'] . '">
-                       Set Expiry
-                </a>
-                <a href="javascript:void(0)" class="btn btn-sm bg-gradient-info " onclick="getCustodianData(this)" data-id="' . $value->id . '">
-                       Assign Custodian
-                </a>
-                <a class="btn btn-sm bg-gradient-danger " href="' . base_url('index.php/asset_controllers/asset/auditTrial?i=' . $value->id) . '"
-                target="_blank">
-                       Audit Trial
                 </a>';
 
         }
@@ -116,16 +100,22 @@ class Assets extends CI_controller
         $totalsearchData = array();
         $totalsearchData['start'] = 0;
         $totalsearchData['length'] = 10000000;
-        $totalsearchData['username'] = $searchData['username'];
+
+        $totalsearchData['project'] = $searchData['project'];
+        $totalsearchData['emp'] = $searchData['emp'];
+        $totalsearchData['category'] = $searchData['category'];
+        $totalsearchData['sop'] = $searchData['sop'];
+        $totalsearchData['location'] = $searchData['location'];
+        $totalsearchData['sublocation'] = $searchData['sublocation'];
+        $totalsearchData['status'] = $searchData['status'];
         $totalsearchData['ftag'] = $searchData['ftag'];
+        $totalsearchData['prno'] = $searchData['prno'];
+        $totalsearchData['paedsid'] = $searchData['paedsid'];
+        $totalsearchData['writeOffNod'] = $searchData['writeOffNod'];
         $totalsearchData['dateTo'] = $searchData['dateTo'];
         $totalsearchData['dateFrom'] = $searchData['dateFrom'];
-        $totalsearchData['location'] = $searchData['location'];
-        $totalsearchData['project'] = $searchData['project'];
-        $totalsearchData['status'] = $searchData['status'];
         $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
         $totalrecords = $M->getCntTotalAsset($totalsearchData);
-
         $result["recordsTotal"] = $totalrecords[0]->cnttotal;
         $result["recordsFiltered"] = $totalrecords[0]->cnttotal;
         $result["data"] = $result_table_data;

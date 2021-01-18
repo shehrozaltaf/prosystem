@@ -207,37 +207,31 @@
                                             <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Type</th>
-                                                <th>Model</th>
-                                                <th>Product</th>
-                                                <th>Serial</th>
-                                                <th>DOP</th>
-                                                <th>AAFTAG</th>
-                                                <th>Username</th>
+                                                <th>PAEDS Id</th>
+                                                <th>Category</th>
+                                                <th>Description</th>
+                                                <th>Tag NO</th>
+                                                <th>Employee</th>
+                                                <th>Project</th>
                                                 <th>Location</th>
-                                                <!--                                                <th>Remarks</th>-->
-                                                <th>Status</th>
-                                                <th>Expiry</th>
-                                                <th>Settings</th>
+                                                <th>Sub Location</th>
+                                                <th>PRPath</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
                                                 <th></th>
-                                                <th>Type</th>
-                                                <th>Model</th>
-                                                <th>Product</th>
-                                                <th>Serial</th>
-                                                <th>DOP</th>
-                                                <th>AAFTAG</th>
-                                                <th>Username</th>
+                                                <th>PAEDS Id</th>
+                                                <th>Category</th>
+                                                <th>Description</th>
+                                                <th>Tag NO</th>
+                                                <th>Employee</th>
+                                                <th>Project</th>
                                                 <th>Location</th>
-                                                <th>Status</th>
-                                                <th>Expiry</th>
-                                                <th>Settings</th>
+                                                <th>Sub Location</th>
+                                                <th>PRPath</th>
                                                 <th>Action</th>
-                                            </tr>
                                             </tfoot>
                                         </table>
 
@@ -253,47 +247,6 @@
                     </div>
                 </div>
 
-                <div class="add-new-data-sidebar">
-                    <div class="overlay-bg"></div>
-                    <div class="add-new-data">
-                        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
-                            <div>
-                                <h4 class="text-uppercase">List View Data</h4>
-                            </div>
-                            <div class="hide-data-sidebar">
-                                <i class="feather icon-x"></i>
-                            </div>
-                        </div>
-                        <div class="data-items pb-3">
-                            <div class="data-fields px-2 mt-3">
-                                <div class="row">
-                                    <div class="col-sm-12 col-12">
-                                        <input type="hidden" id="expiry_id" name="expiry_id">
-                                        <div class="form-group">
-                                            <label for="expiryDateTime" class="label-control">Expire Date</label>
-                                            <input type="text" class="form-control mypickadat" id="expiryDateTime"
-                                                   name="expiryDateTime"
-                                                   autocomplete="expiryDateTime" required>
-
-                                            <input type="hidden" class="form-control" id="oldExpiryDateTime"
-                                                   name="oldExpiryDateTime"
-                                                   autocomplete="oldExpiryDateTime" required>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
-                            <div class="add-data-btn">
-                                <button class="btn btn-primary" onclick="saveExpiry()">Save</button>
-                            </div>
-                            <div class="cancel-data-btn">
-                                <button class="btn btn-outline-danger">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
     </div>
@@ -446,13 +399,20 @@
 
     function getData() {
         var data = {};
-        data['username'] = $('#username').val();
+        data['project'] = $('#project').val();
+        data['emp'] = $('#emp').val();
+        data['category'] = $('#category').val();
+        data['sop'] = $('#sop').val();
+        data['location'] = $('#location').val();
+        data['sublocation'] = $('#sublocation').val();
+        data['status'] = $('#status').val();
         data['ftag'] = $('#ftag').val();
+        data['prno'] = $('#prno').val();
+        data['paedsid'] = $('#paedsid').val();
+        data['writeOffNod'] = $('#writeOffNod').val();
         data['dateTo'] = $('#dateTo').val();
         data['dateFrom'] = $('#dateFrom').val();
-        data['location'] = $('#location').val();
-        data['project'] = $('#project').val();
-        data['status'] = $('#status').val();
+
         showloader();
         $('.main_content_div').addClass('hide');
         var columnDefs = [
@@ -492,18 +452,15 @@
                     "data": null,
                     "defaultContent": ""
                 },
-                {"data": "asset_type"},
-                {"data": "model"},
-                {"data": "product"},
-                {"data": "serial"},
-                {"data": "dop"},
-                {"data": "aaftag"},
-                {"data": "username"},
+                {"data": "paeds_id"},
+                {"data": "category"},
+                {"data": "desc"},
+                {"data": "tag"},
+                {"data": "emp"},
+                {"data": "proj"},
                 {"data": "loc"},
-                // {"data": "remarks"},
-                {"data": "status"},
-                {"data": "expiryDateTime"},
-                {"data": "Settings"},
+                {"data": "sub_loc"},
+                {"data": "pr_path"},
                 {"data": "Action"}
             ],
             order: [
@@ -513,7 +470,6 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ],
         });
-
         // Array to track the ids of the details displayed rows
         var detailRows = [];
         $('#my_table_asset tbody').on('click', 'tr td.details-control', function () {

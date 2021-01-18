@@ -7,12 +7,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Add Inventory</h2>
+                        <h2 class="content-header-title float-left mb-0">Add Asset</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active">Add Inventory</li>
+                                <li class="breadcrumb-item active">Add Asset</li>
                             </ol>
                         </div>
                     </div>
@@ -30,141 +30,472 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="inventory_type" class="label-control">Type</label>
-                                                <select class="select2 form-control"
-                                                        autocomplete="inventory_type"
-                                                        id="inventory_type" required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                    <?php if (isset($inventory_type) && $inventory_type != '') {
-                                                        foreach ($inventory_type as $k => $t) {
-                                                            echo '<option value="' . $t->type_value . '" >' . $t->type_name . '</option>';
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="model" class="label-control">Purchase Request Id</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="model" name="model"
+                                                           autocomplete="model" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="idCategory" class="label-control">Equipment
+                                                        Category</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" autocomplete="idCategory"
+                                                            id="idCategory" required>
+                                                        <option value="0" readonly disabled selected></option>
+                                                        <?php if (isset($category) && $category != '') {
+                                                            foreach ($category as $k => $c) {
+                                                                echo '<option value="' . $c->idCategory . '" >' . $c->category . '</option>';
+                                                            }
+                                                        } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="desc" class="label-control">Description</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <textarea id="desc" name="desc" class="form-control" cols="30"
+                                                              rows="7" autocomplete="desc" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="model_no" class="label-control">Model</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="model_no"
+                                                           name="model_no"
+                                                           autocomplete="model_no" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="product_no"
+                                                           class="label-control">Product
+                                                        No.</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control"
+                                                           id="product_no"
+                                                           name="product_no"
+                                                           autocomplete="product_no" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="tag_no"
+                                                           class="label-control">Tag
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control"
+                                                           id="tag_no"
+                                                           name="tag_no"
+                                                           autocomplete="product_no" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="po_no"
+                                                           class="label-control">PO
+                                                        No.</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="po_no"
+                                                           name="po_no"
+                                                           autocomplete="po_no" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="po_no"
+                                                           class="label-control">Cost</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="po_no"
+                                                           name="po_no"
+                                                           autocomplete="po_no" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="idCurrency"
+                                                           class="label-control">Currency</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control"
+                                                            autocomplete="idCurrency"
+                                                            id="idCurrency" required>
+                                                        <option value="0" readonly disabled selected></option>
+                                                        <?php if (isset($currency) && $currency != '') {
+                                                            foreach ($currency as $k => $cr) {
+                                                                echo '<option value="' . $cr->idCurrency . '" >' . $cr->currency . '</option>';
+                                                            }
+                                                        } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="sop">Source of
+                                                        Purchase</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="sop"
+                                                            name="sop">
+                                                        <option value="0">All Source of Purchase</option>
+                                                        <?php
+                                                        if (isset($sop) && $sop != '') {
+                                                            foreach ($sop as $k => $sp) {
+                                                                echo '<option value="' . $sp->sop_value . '">' . $sp->sop_name . '</option>';
+                                                            }
                                                         }
-                                                    } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="model" class="label-control">Model</label>
-                                                <input type="text" class="form-control" id="model" name="model"
-                                                       autocomplete="model" required>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="product_no" class="label-control">Product No.</label>
-                                                <input type="text" class="form-control" id="product_no"
-                                                       name="product_no"
-                                                       autocomplete="product_no" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="serial_no" class="label-control">Serial No.</label>
-                                                <input type="text" class="form-control" id="serial_no" name="serial_no"
-                                                       autocomplete="serial_no" required>
+                                                        ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
 
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="proj_code" class="label-control">Project/Budget Code</label>
-                                                <select class="select2 form-control proj_code"
-                                                        autocomplete="proj_code"
-                                                        id="proj_code" required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                    <?php if (isset($project) && $project != '') {
-                                                        foreach ($project as $k => $p) {
-                                                            echo '<option value="' . $p->proj_code . '">' . $p->proj_code . ' (' . $p->proj_name . ')</option>';
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="emp">Employee</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="emp"
+                                                            name="emp">
+                                                        <option value="0"></option>
+                                                        <?php
+                                                        if (isset($employee) && $employee != '') {
+                                                            foreach ($employee as $k => $e) {
+                                                                echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                                            }
                                                         }
-                                                    } ?>
-                                                </select>
+                                                        ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="po_num" class="label-control">PO No</label>
-                                                <input type="text" class="form-control" id="po_num" name="po_num"
-                                                       autocomplete="po_num" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="pr_num" class="label-control">PR No</label>
-                                                <input type="text" class="form-control" id="pr_num" name="pr_num"
-                                                       autocomplete="pr_num" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="dor" class="label-control">DOR</label>
-                                                <input type="text" class="form-control" id="dor" name="dor"
-                                                       autocomplete="dor" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="dop" class="label-control">Date of Purchase</label>
-                                                <input type="text" class="form-control mypickadat" id="dop" name="dop"
-                                                       autocomplete="dop" value="<?php echo date('d-m-Y') ?>" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="status" class="label-control">Status</label>
-                                                <select class="select2 form-control status"
-                                                        autocomplete="status"
-                                                        id="status" required>
-                                                    <option value="0" readonly disabled>Status</option>
-                                                    <?php if (isset($status) && $status != '') {
-                                                        foreach ($status as $k => $s) {
-                                                            echo '<option value="' . $s->status_value . '" ' . ($s->status_value == 'OK' ? 'selected' : '') . '>' . $s->status_name . '</option>';
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="emp">Responsbile Person
+                                                        Name</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="emp"
+                                                            name="emp">
+                                                        <option value="0"></option>
+                                                        <?php
+                                                        if (isset($employee) && $employee != '') {
+                                                            foreach ($employee as $k => $e) {
+                                                                echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                                            }
                                                         }
-                                                    } ?>
-                                                </select>
+                                                        ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-6">
-                                            <div class="form-group">
-                                                <label for="tagable" class="label-control">Tagable</label>
-                                                <select class="select2 form-control tagable"
-                                                        autocomplete="tagable"
-                                                        onchange="tagableToggle()"
-                                                        id="tagable" required>
-                                                    <option value="1">Yes</option>
-                                                    <option value="2">No</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6 ftagDiv">
-                                            <div class="form-group">
-                                                <label for="ftag" class="label-control">FTag</label>
-                                                <input type="text" class="form-control" id="ftag" name="ftag"
-                                                       autocomplete="ftag" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-6 aaftagDiv hide">
-                                            <div class="form-group">
-                                                <label for="aaftag" class="label-control">AAFTag</label>
-                                                <input type="text" class="form-control" id="aaftag" name="aaftag"
-                                                       autocomplete="aaftag" required>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label
+                                                            for="project">Project</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="project"
+                                                            name="project">
+                                                        <option value="0">All Projects</option>
+                                                        <?php
+                                                        if (isset($project) && $project != '') {
+                                                            foreach ($project as $k => $v) {
+                                                                echo '<option value="' . $v->proj_code . '">(' . $v->proj_code . ') ' . $v->proj_sn . '</option>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-12">
-                                            <div class="form-group">
-                                                <label for="remarks" class="label-control">Remarks/Comments</label>
-                                                <textarea id="remarks" name="remarks" class="form-control" cols="30"
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor"
+                                                           class="label-control">OU</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor"
+                                                           class="label-control">Account</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor"
+                                                           class="label-control">Dept
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor"
+                                                           class="label-control">Fund
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label
+                                                            for="project">Project</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="project"
+                                                            name="project">
+                                                        <option value="0">All Projects</option>
+                                                        <?php
+                                                        if (isset($project) && $project != '') {
+                                                            foreach ($project as $k => $v) {
+                                                                echo '<option value="' . $v->proj_code . '">(' . $v->proj_code . ') ' . $v->proj_sn . '</option>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor"
+                                                           class="label-control">Prog </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="location">Location</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control" id="location"
+                                                            name="location">
+                                                        <option value="0"></option>
+                                                        <?php
+                                                        if (isset($location) && $location != '') {
+                                                            foreach ($location as $k => $v) {
+                                                                echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="sublocation">Sub
+                                                        Location</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control"
+                                                            id="sublocation"
+                                                            name="sublocation">
+                                                        <option value="0"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="sublocation">Verification
+                                                        Status</label></div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control"
+                                                            id="sublocation"
+                                                            name="sublocation">
+                                                        <option value="0"></option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dop"
+                                                           class="label-control">Last
+                                                        Verification Date</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control mypickadat"
+                                                           id="dop" name="dop"
+                                                           autocomplete="dop"
+                                                           value="<?php echo date('d-m-Y') ?>"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dop"
+                                                           class="label-control">Due
+                                                        Date</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control mypickadat"
+                                                           id="dop" name="dop"
+                                                           autocomplete="dop"
+                                                           value="<?php echo date('d-m-Y') ?>"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dop"
+                                                           class="label-control">Purchase
+                                                        Date</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control mypickadat"
+                                                           id="dop" name="dop"
+                                                           autocomplete="dop"
+                                                           value="<?php echo date('d-m-Y') ?>"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="status"
+                                                           class="label-control">Status</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select class="select2 form-control status"
+                                                            autocomplete="status"
+                                                            id="status" required>
+                                                        <option value="0" readonly disabled>Status</option>
+                                                        <?php if (isset($status) && $status != '') {
+                                                            foreach ($status as $k => $s) {
+                                                                echo '<option value="' . $s->status_value . '" ' . ($s->status_value == 'OK' ? 'selected' : '') . '>' . $s->status_name . '</option>';
+                                                            }
+                                                        } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor" class="label-control">Writ
+                                                        Off
+                                                        Form </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label">
+                                                    <label for="dor" class="label-control">Writ
+                                                        Off
+                                                        Date </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="dor"
+                                                           name="dor"
+                                                           autocomplete="dor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-12 col-12">
+                                            <div class="form-group row">
+                                                <div class="col-sm-3 col-form-label"><label for="remarks"
+                                                                                            class="label-control">Remarks/Comments</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                <textarea id="remarks" name="remarks"
+                                                          class="form-control"
+                                                          cols="30"
                                                           rows="7"
-                                                          autocomplete="remarks" required></textarea>
+                                                          autocomplete="remarks" required>
+
+                                                </textarea>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +556,7 @@
 
     function insertData() {
         var data = {};
-        data['inventory_type'] = $('#inventory_type').val();
+        data['Asset_type'] = $('#Asset_type').val();
         data['model'] = $('#model').val();
         data['product_no'] = $('#product_no').val();
         data['serial_no'] = $('#serial_no').val();
@@ -243,7 +574,7 @@
         if (vd) {
             showloader();
             $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/inventory_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/Asset_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
                 try {
