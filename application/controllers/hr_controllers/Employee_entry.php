@@ -41,7 +41,7 @@ class Employee_entry extends CI_controller
 
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         //$data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
 
         $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
         $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
@@ -1007,7 +1007,7 @@ class Employee_entry extends CI_controller
 
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
         $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
 
         $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
         $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');

@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="asset management system">
-      <change afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/asset_views/add_asset2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/form-file-uploader.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/form-number-input.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/form-quill-editor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/form-validation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/form-wizard.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/pickers/form-flat-pickr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/plugins/forms/pickers/form-pickadate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/scripts/forms/form-select2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/scripts/forms/form-validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/vendors/css/forms/wizard/bs-stepper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/vendors/js/forms/validation/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/vendors/js/forms/wizard/bs-stepper.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Category.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_1_18_2021.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customLogs/user_logs/dmu@akulogs_1_18_2021.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbo.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,63 +41,40 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1895">
-              <caret line="369" column="68" selection-start-line="369" selection-start-column="68" selection-end-line="369" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="473" column="11" selection-start-line="473" selection-start-column="11" selection-end-line="473" selection-end-column="11" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="33" column="88" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>html body.bg-full-screen-image</find>
-      <find>CallAjax</find>
-      <find>requiredField</find>
-      <find>Masset</find>
-      <find>idProject</find>
-      <find>col-sm-4 col-12</find>
-      <find>inventory</find>
-      <find>emp</find>
       <find>hr_location</find>
-      <find>Inventory</find>
-      <find>i.</find>
-      <find>col-sm-6 col-6</find>
-      <find>&lt;select</find>
+      <find>option</find>
+      <find>form-control</find>
+      <find>select</find>
+      <find>sop</find>
+      <find>account-details-vertical</find>
+      <find>Account Details</find>
+      <find>costs</find>
+      <find>idSourceOfPurchase</find>
+      <find>&lt;option value=&quot;0&quot;&gt;&lt;/option&gt;</find>
+      <find>model</find>
+      <find>div class=&quot;form&quot;</find>
+      <find>form&gt;</find>
+      <find>modern</find>
+      <find>form</find>
+      <find>col-sm-9</find>
+      <find>&quot;form&quot;</find>
+      <find>error</find>
+      <find>Country</find>
+      <find>custom</find>
+      <find>horizontal</find>
+      <find>vertical</find>
+      <find>ForceNumericOnly</find>
+      <find>country</find>
+      <find>datatables</find>
+      <find>select2</find>
+      <find>icons-container</find>
+      <find>feather</find>
+      <find>fea</find>
+      <find>toastr</find>
     </findStrings>
     <replaceStrings>
       <replace>MAsset</replace>
@@ -91,11 +87,17 @@
       <replace>ftag</replace>
       <replace>prno</replace>
       <replace>writeOffNod</replace>
-      <replace>location</replace>
       <replace>Asset</replace>
       <replace>a.</replace>
-      <replace>&lt;div class=&quot;col-sm-9&quot;&gt;&lt;select</replace>
       <replace>col-sm-12 col-12</replace>
+      <replace>&lt;div class=&quot;col-sm-9&quot;&gt;&lt;select</replace>
+      <replace>vertical</replace>
+      <replace>&lt;option value=&quot;0&quot; readonly disabled selected&gt;&lt;/option&gt;</replace>
+      <replace>.form</replace>
+      <replace>&quot;.form&quot;</replace>
+      <replace>location</replace>
+      <replace>forms&gt;</replace>
+      <replace>&lt;?php echo base_url() ?&gt;assets</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -110,16 +112,35 @@
         <option value="$PROJECT_DIR$/application/controllers/budget_controllers/Upload_budget.php" />
         <option value="$PROJECT_DIR$/application/views/budget_views/upload_budget.php" />
         <option value="$PROJECT_DIR$/application/views/inventory_views/upload_it.php" />
-        <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" />
         <option value="$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php" />
         <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
-        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
+        <option value="$PROJECT_DIR$/application/views/asset_views/add_asset2.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
+        <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
+        <option value="$PROJECT_DIR$/assets/css/plugins/forms/form-wizard.min.css" />
+        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-wizard.html" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/views/include/header2.php" />
+        <option value="$PROJECT_DIR$/application/views/include/footer2.php" />
+        <option value="$PROJECT_DIR$/assets/vendors/js/forms/validation/jquery.validate.min.js" />
+        <option value="$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js" />
+        <option value="$PROJECT_DIR$/assets/js/core.js" />
+        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/views/include/sidebar2.php" />
+        <option value="$PROJECT_DIR$/application/views/include/sidebar.php" />
+        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/ui-feather.html" />
+        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/assets/js/scripts/ui/ui-feather.min.js" />
         <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
+        <option value="$PROJECT_DIR$/application/views/include/footer.php" />
+        <option value="$PROJECT_DIR$/application/views/include/header.php" />
       </list>
     </option>
   </component>
@@ -158,13 +179,6 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -172,7 +186,12 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_views" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -184,7 +203,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/controllers/asset_controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -196,11 +215,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\pro_system\application\controllers\asset_controllers" />
-      <recent name="C:\xampp\htdocs\pro_system\application\controllers\hr_controllers" />
-      <recent name="C:\xampp\htdocs\pro_system\application\controllers\inventory_controllers" />
-      <recent name="C:\xampp\htdocs\pro_system\application\controllers\budget_controllers" />
-      <recent name="C:\xampp\htdocs\pro_system\application\views\budget_views" />
+      <recent name="C:\xampp\htdocs\pro_system\assets\js" />
+      <recent name="C:\xampp\htdocs\pro_system\assets\js\scripts\forms" />
+      <recent name="C:\xampp\htdocs\pro_system\assets\vendors\js\forms" />
+      <recent name="C:\xampp\htdocs\pro_system\assets\css\plugins" />
+      <recent name="C:\xampp\htdocs\pro_system\assets\vendors\css\forms" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -228,7 +247,11 @@
       <workItem from="1610695859884" duration="1682000" />
       <workItem from="1610706180789" duration="4966000" />
       <workItem from="1610778107897" duration="1056000" />
-      <workItem from="1610949450545" duration="13981000" />
+      <workItem from="1610949450545" duration="14178000" />
+      <workItem from="1611033807593" duration="4368000" />
+      <workItem from="1611045315261" duration="10202000" />
+      <workItem from="1611125553155" duration="3622000" />
+      <workItem from="1611141648524" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -258,17 +281,23 @@
       <option name="project" value="LOCAL" />
       <updated>1610965987723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add- asset management system">
+      <created>1610978665625</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610978665625</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21685000" />
+    <option name="totallyTimeSpent" value="40667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19070904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3135697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -296,153 +325,26 @@
     <MESSAGE value="live" />
     <MESSAGE value="login page" />
     <MESSAGE value="asset management system" />
-    <option name="LAST_COMMIT_MESSAGE" value="asset management system" />
+    <MESSAGE value="add- asset management system" />
+    <option name="LAST_COMMIT_MESSAGE" value="add- asset management system" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-wizard.html</url>
+          <line>62</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-wizard.html</url>
+          <line>1044</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#!!top" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#form#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/components.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="104" column="31" lean-forward="true" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="185" column="7" lean-forward="true" selection-start-line="185" selection-start-column="7" selection-end-line="185" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2065">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/upload_data.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventory_views/upload_it.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1529">
-          <caret line="250" column="20" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Upload_budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/upload_budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="110" column="64" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dictionary_portal/application/views/reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="58" column="87" selection-start-line="58" selection-start-column="87" selection-end-line="58" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_location.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -457,34 +359,345 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/Users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-444" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/login.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/InsertUser.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/getUsers.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/connection.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dressdizer/dbconn.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/updatedAPIs/dbconfig.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="271" selection-start-line="271" selection-end-line="271" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/updatedAPIs/api/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="115" column="44" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/EmpEntity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="465" column="39" lean-forward="true" selection-start-line="465" selection-start-column="39" selection-end-line="465" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="1009" column="61" selection-start-line="1009" selection-start-column="61" selection-end-line="1009" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../catsense/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-467" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../catsense/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../laravel_apis/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../laravel_apis/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/plugins/forms/form-wizard.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tpvics_s/application/views/include/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-178">
+          <caret selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tpvics_s/application/views/include/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" selection-end-line="71" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../naunehal/assets/js/scripts/customizer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/vendors/js/forms/wizard/bs-stepper.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/vendors/js/forms/validation/jquery.validate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/scripts/forms/form-validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-wizard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="2255" selection-start-line="2255" selection-end-line="2274" selection-end-column="79" />
+          <folding>
+            <element signature="n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#span#1;n#button#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#span#1;n#button#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#span#1;n#button#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#span#1;n#button#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#1;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#select#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#1;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#1;n#div#1;n#div#1;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#0;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#form#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#1;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#1;n#div#1;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#0;n#div#0;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#0;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#0;n#div#1;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#input#0;n#div#1;n#div#1;n#form#0;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#button#0;n#div#1;n#div#3;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#a#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets_/js/core.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="230" column="3" selection-start-line="230" selection-start-column="3" selection-end-line="230" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets_/js_/core.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="33" column="88" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="88" />
+        <state relative-caret-position="459">
+          <caret line="27" column="75" lean-forward="true" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
+        <state relative-caret-position="425">
+          <caret line="25" column="109" selection-start-line="25" selection-start-column="92" selection-end-line="25" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/sidebar2.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/include/top_header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="473" column="11" selection-start-line="473" selection-start-column="11" selection-end-line="473" selection-end-column="11" />
+        <state relative-caret-position="569">
+          <caret line="80" column="46" lean-forward="true" selection-start-line="66" selection-start-column="40" selection-end-line="80" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/scripts/ui/ui-feather.min.js" />
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/header2.php" />
+    <entry file="file://$PROJECT_DIR$/assets_/vendors/js/vendors.min.js" />
+    <entry file="file://$PROJECT_DIR$/assets/vendors/js/vendors.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="9" column="73092" lean-forward="true" selection-start-line="9" selection-start-column="73092" selection-end-line="9" selection-end-column="73092" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1895">
-          <caret line="369" column="68" selection-start-line="369" selection-start-column="68" selection-end-line="369" selection-end-column="68" />
+        <state relative-caret-position="510">
+          <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/footer2.php" />
+    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/ui-feather.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="108" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="72" column="22" lean-forward="true" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>

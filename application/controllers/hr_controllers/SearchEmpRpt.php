@@ -39,7 +39,7 @@ class SearchEmpRpt extends CI_Controller
 
 
         $data['project'] = $Custom->selectAllQuery('project', 'proj_name');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'location');
+        $data['location'] = $Custom->selectAllQuery('location', 'location');
         $data['entity'] = $Custom->selectAllQuery('hr_entity', 'entity');
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
         $data['desig'] = $Custom->selectAllQuery('hr_desig', 'desig');

@@ -38,7 +38,7 @@ class Searchemployee extends CI_Controller
 
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
-        $data['location'] = $Custom->selectAllQuery('hr_location', 'id');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
         $data['emp'] = $Custom->selectAllQuery('hr_employee', 'id');
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
 

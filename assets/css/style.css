@@ -61,7 +61,7 @@
 }
 
 .error {
-    border-color: #e53935;
+    border-color: #e53935 !important;
 }
 
 .toggle-password {

@@ -23,7 +23,7 @@ class Add_asset extends CI_controller
         $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'inventory_controllers/Add_asset');
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/Add_asset');
         $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
         $data['currency'] = $Custom->selectAllQuery('currency', 'idCurrency', 'isActive');
         $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'idSop', 'status');
