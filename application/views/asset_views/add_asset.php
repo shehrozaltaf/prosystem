@@ -4,8 +4,6 @@
 <!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/forms/wizard/bs-stepper.min.css">-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-validation.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-wizard.min.css">
-
-
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>

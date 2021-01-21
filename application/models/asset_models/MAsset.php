@@ -23,10 +23,10 @@ class MAsset extends CI_Model
             $length = $searchdata['length'];
         }
         if (isset($searchdata['project']) && $searchdata['project'] != '' && $searchdata['project'] != null) {
-            $this->db->where("a.project", $searchdata['project']);
+            $this->db->where("a.proj_code", $searchdata['project']);
         }
         if (isset($searchdata['emp']) && $searchdata['emp'] != '' && $searchdata['emp'] != null) {
-            $this->db->where("a.emp", $searchdata['emp']);
+            $this->db->where("a.emp_no", $searchdata['emp']);
         }
         if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
             $this->db->where("a.idCategory", $searchdata['category']);
@@ -81,10 +81,10 @@ class MAsset extends CI_Model
     {
 
         if (isset($searchdata['project']) && $searchdata['project'] != '' && $searchdata['project'] != null) {
-            $this->db->where("a.project", $searchdata['project']);
+            $this->db->where("a.proj_code", $searchdata['project']);
         }
         if (isset($searchdata['emp']) && $searchdata['emp'] != '' && $searchdata['emp'] != null) {
-            $this->db->where("a.emp", $searchdata['emp']);
+            $this->db->where("a.emp_no", $searchdata['emp']);
         }
         if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
             $this->db->where("a.idCategory", $searchdata['category']);
