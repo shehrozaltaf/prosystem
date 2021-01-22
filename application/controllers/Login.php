@@ -8,12 +8,6 @@ ini_set('sqlsrv.ClientBufferMaxKBSize', '524288'); // Setting to 512M
 ini_set('pdo_sqlsrv.client_buffer_max_kb_size', '524288');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Created by PhpStorm.
- * User: javed.khan
- * Date: 05/06/2020
- * Time: 10:11 AM
- */
 class Login extends CI_Controller
 {
     public function __construct()

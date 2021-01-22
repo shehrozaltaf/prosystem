@@ -145,3 +145,38 @@ Query:
 Result: View Add_asset page. Fucntion: Add_asset/index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.118 - January-21-2021 7:01 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Query: 
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.118 - January-21-2021 7:01 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.118 - January-21-2021 7:02 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.198.96.157 - January-21-2021 7:13 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Query: 
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.198.96.157 - January-21-2021 7:13 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
