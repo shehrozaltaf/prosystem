@@ -69,7 +69,7 @@ class Mprojected extends CI_Model
 	hr_employee.empname');
         $this->db->from('b_projected p');
         $this->db->join('hr_employee', 'p.empl_code = hr_employee.empno', 'left');
-        $this->db->join('hr_desig', 'hr_desig ON hr_employee.titdesi = hr_desig.id', 'left');
+        $this->db->join('hr_desig', 'hr_employee.titdesi = hr_desig.id', 'left');
         $this->db->where('p.isActive', 1);
         $this->db->limit($length, $start);
         $query = $this->db->get();

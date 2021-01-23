@@ -305,4 +305,16 @@ class Settings extends CI_controller
         echo $last;
     }
 
+    /*change Sub Location*/
+    public function changeLocation()
+    {
+        if (isset($_POST['loc']) && $_POST['loc'] != '') {
+            $M = new Custom();
+            $getSubLocations = $M->getSubLocations($_POST['loc']);
+            $result = array('0' => 'Success', '1' => $getSubLocations);
+        } else {
+            $result = array('0' => 'Error', '1' => 'Invalid Location');
+        }
+        echo json_encode($result);
+    }
 } ?>

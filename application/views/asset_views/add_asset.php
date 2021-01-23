@@ -5,6 +5,16 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-validation.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-wizard.min.css">
 <!-- BEGIN: Content-->
+
+<link rel="stylesheet" type="text/css"
+      href="<?php echo base_url() ?>assets/vendors/css/file-uploaders/dropzone.min.css">
+
+<link rel="stylesheet" type="text/css"
+      href="<?php echo base_url() ?>assets/css/plugins/forms/form-file-uploader.min.css">
+
+<script src="<?php echo base_url() ?>assets/vendors/js/extensions/dropzone.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/scripts/forms/form-file-uploader.min.js"></script>
+
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -34,8 +44,8 @@
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">1</span>
                                 <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Inventory Details</span>
-                                    <span class="bs-stepper-subtitle">Setup Inventory Details</span>
+                                    <span class="bs-stepper-title">Asset Details</span>
+                                    <span class="bs-stepper-subtitle">Setup Asset Details</span>
                                 </span>
                             </button>
                         </div>
@@ -79,19 +89,44 @@
                     <div class="bs-stepper-content">
                         <div id="account-details-vertical" class="content">
                             <div class="content-header">
-                                <h5 class="mb-0">Inventory Details</h5>
-                                <small class="text-muted">Enter Your Inventory Details.</small>
+                                <h5 class="mb-0">Asset Details</h5>
+                                <small class="text-muted">Enter Your Asset Details.</small>
                             </div>
-                            <form>
+                            <!-- remove thumbnail file upload starts -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Images</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--<form action="#" class="dropzone dropzone-area" id="dpz-remove-thumb">
+                                                <div class="dz-message">Drop files here or click to upload images.</div>
+                                            </form>-->
+
+                                             <div action="#" class="dropzone" id="dpz-remove-thumb"
+                                                   >
+                                                <div class="fallback">
+                                                    <input type="file" id="files" name="files[]" multiple/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- remove thumbnail file upload ends -->
+                            <form id="myForm">
                                 <div class="row">
+<!--                                    <input type="file" id='files' name="files[]" multiple><br>-->
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="pr_reqId" class="label-control">Purchase Request Id</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="pr_reqId" name="pr_reqId"
-                                                       autocomplete="pr_reqId" required>
+                                                <input type="text" class="form-control numericOnly" id="pr_reqId"
+                                                       name="pr_reqId"
+                                                       autocomplete="pr_reqId" value="PR123">
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +134,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="idCategory" class="label-control">Equipment
-                                                    Category</label>
+                                                    Category <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" autocomplete="idCategory"
@@ -117,7 +152,8 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="desc" class="label-control">Description</label>
+                                                <label for="desc" class="label-control">Description <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                     <textarea id="desc" name="desc" class="form-control" cols="30"
@@ -132,8 +168,8 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="model"
-                                                       name="model"
-                                                       autocomplete="model" required>
+                                                       name="model" value="M123"
+                                                       autocomplete="model">
                                             </div>
                                         </div>
                                     </div>
@@ -146,9 +182,24 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="product_no"
+                                                       id="product_no" value="P123"
                                                        name="product_no"
-                                                       autocomplete="product_no" required>
+                                                       autocomplete="product_no">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label for="serial_no"
+                                                       class="label-control">Serial
+                                                    No.</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       id="serial_no" value="S123"
+                                                       name="serial_no"
+                                                       autocomplete="serial_no">
                                             </div>
                                         </div>
                                     </div>
@@ -156,12 +207,12 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="tag_no"
-                                                       class="label-control">Tag
+                                                       class="label-control">Tag <span class="requried_label">*</span>
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="tag_no"
+                                                       id="tag_no" value="Tag123"
                                                        name="tag_no"
                                                        autocomplete="tag_no" required>
                                             </div>
@@ -172,11 +223,11 @@
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="po_no"
                                                        class="label-control">PO
-                                                    No.</label>
+                                                    No. <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="po_no"
-                                                       name="po_no"
+                                                <input type="text" class="form-control numericOnly" id="po_no"
+                                                       name="po_no" value="PO123"
                                                        autocomplete="po_no" required>
                                             </div>
                                         </div>
@@ -185,11 +236,11 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="cost"
-                                                       class="label-control">Cost</label>
+                                                       class="label-control">Cost <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="cost"
-                                                       name="cost"
+                                                <input type="text" class="form-control numericOnly" id="cost"
+                                                       name="cost" value="123"
                                                        autocomplete="cost" required>
                                             </div>
                                         </div>
@@ -198,7 +249,8 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="idCurrency"
-                                                       class="label-control">Currency</label>
+                                                       class="label-control">Currency <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" name="idCurrency"
@@ -218,7 +270,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="idSourceOfPurchase">Source of
-                                                    Purchase</label>
+                                                    Purchase <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="idSourceOfPurchase"
@@ -228,7 +280,7 @@
                                                     <?php
                                                     if (isset($sop) && $sop != '') {
                                                         foreach ($sop as $k => $sp) {
-                                                            echo '<option value="' . $sp->sopValue . '">' . $sp->sopName . '</option>';
+                                                            echo '<option value="' . $sp->idSop . '">' . $sp->sopName . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -239,9 +291,9 @@
                                 </div>
                             </form>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev" disabled>
+                                <button class="btn btn-primary btn-prev " id="sss" disableds onclick="mySubmitData()">
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
                                 </button>
                                 <button class="btn btn-primary btn-next">
                                     <span class="align-middle d-sm-inline-block d-none">Next</span>
@@ -260,7 +312,8 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="emp_no">Employee</label>
+                                                <label for="emp_no">Employee <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="emp_no"
@@ -269,7 +322,7 @@
                                                     <?php
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -281,7 +334,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="resp_person_name">Responsbile Person
-                                                    Name</label>
+                                                    Name <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="resp_person_name"
@@ -291,7 +344,7 @@
                                                     <?php
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -326,7 +379,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="proj"
-                                                        name="proj" autocomplete="proj" required>
+                                                        name="proj" autocomplete="proj">
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
                                                     if (isset($project) && $project != '') {
@@ -343,10 +396,11 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="ou"
-                                                       class="label-control">OU</label>
+                                                       class="label-control">OU <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="ou"
+                                                <input type="text" class="form-control numericOnly" id="ou"
                                                        name="ou"
                                                        autocomplete="ou" required>
                                             </div>
@@ -356,23 +410,24 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="account"
-                                                       class="label-control">Account</label>
+                                                       class="label-control">Account <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="account"
+                                                <input type="text" class="form-control numericOnly" id="account"
                                                        name="account"
-                                                       autocomplete="account" required></div>
+                                                       autocomplete="accounts" required></div>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="dept"
-                                                       class="label-control">Dept
+                                                       class="label-control">Dept <span class="requried_label">*</span>
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="dept"
+                                                <input type="text" class="form-control numericOnly" id="dept"
                                                        name="dept"
                                                        autocomplete="dept" required>
                                             </div>
@@ -381,11 +436,12 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="fund" class="label-control">Fund
+                                                <label for="fund" class="label-control">Fund <span
+                                                            class="requried_label">*</span>
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="fund"
+                                                <input type="text" class="form-control numericOnly" id="fund"
                                                        name="fund"
                                                        autocomplete="fund" required>
                                             </div>
@@ -394,7 +450,8 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="proj_code">Project</label>
+                                                <label for="proj_code">Project <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="proj_code"
@@ -415,10 +472,10 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="prog"
-                                                       class="label-control">Prog </label>
+                                                       class="label-control">Prog <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="prog"
+                                                <input type="text" class="form-control  numericOnly" id="prog"
                                                        name="prog"
                                                        autocomplete="prog" required></div>
                                         </div>
@@ -426,11 +483,14 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="idLocation">Location</label>
+                                                <label for="idLocation">Location <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="idLocation"
-                                                        name="idLocation" required>
+                                                        name="idLocation"
+                                                        onchange="changeLocation('idLocation','idSubLocation')"
+                                                        required>
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
                                                     if (isset($location) && $location != '') {
@@ -447,7 +507,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="idSubLocation">Sub
-                                                    Location</label>
+                                                    Location <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control"
@@ -488,9 +548,10 @@
                                                         id="verification_status"
                                                         name="verification_status" autocomplete="verification_status"
                                                         required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                    <option value="Yes">Yes</option>
+                                                    <option value="0" readonly disabled></option>
+                                                    <option value="Yes" selected>Yes</option>
                                                     <option value="No">No</option>
+                                                    <option value="Pending">Pending</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -519,10 +580,10 @@
                                                     Date</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control mypickadat"
+                                                <input type="text" class="form-control mypickadat2"
                                                        id="due_date" name="due_date"
                                                        autocomplete="due_date"
-                                                       value="<?php echo date('d-m-Y') ?>"
+                                                       value="<?php echo date('d-m-Y', strtotime('+1 years')) ?>"
                                                        required>
                                             </div>
                                         </div>
@@ -548,7 +609,8 @@
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
                                                 <label for="status"
-                                                       class="label-control">Status</label>
+                                                       class="label-control">Status <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control status" name="status"
@@ -581,12 +643,10 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="wo_date" class="label-control">Writ
-                                                    Off
-                                                    Date </label>
+                                                <label for="wo_date" class="label-control">Writ Off Date </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="wo_date"
+                                                <input type="text" class="form-control mypickadat" id="wo_date"
                                                        name="wo_date"
                                                        autocomplete="wo_date" required>
                                             </div>
@@ -604,9 +664,7 @@
                                                           class="form-control"
                                                           cols="30"
                                                           rows="7"
-                                                          autocomplete="remarks" required>
-
-                                                </textarea>
+                                                          autocomplete="remarks" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -623,50 +681,24 @@
                                 </button>
                             </div>
                         </div>
-
-
-
-
                         <div id="documents" class="content">
                             <div class="content-header">
                                 <h5 class="mb-0">Documents</h5>
                                 <small>Upload Documents.</small>
                             </div>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-12 col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label for="verification_status">Verification
-                                                    Status</label></div>
-                                            <div class="col-sm-9">
-                                                <select class="select2 form-control"
-                                                        id="verification_status"
-                                                        name="verification_status" autocomplete="verification_status"
-                                                        required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                    <option value="Yes">Yes</option>
-                                                    <option value="No">No</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                 </button>
-                                <button class="btn btn-success btn-submit">Submit</button>
+                                <button class="btn btn-success btn-submit" onclick="insertData()">Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- /Vertical Wizard -->
-
-
         </div>
     </div>
 </div>
@@ -679,56 +711,116 @@
 <script>
     $(document).ready(function () {
         mydate();
-        tagableToggle();
+        mydate2();
         $(".numericOnly").ForceNumericOnly();
-        /*  $("#product_no").ForceNumericOnly();
-          $("#serial_no").ForceNumericOnly();
-          $("#po_num").ForceNumericOnly();
-          $("#pr_num").ForceNumericOnly();*/
     });
 
-    function tagableToggle() {
-        var tagable = $('#tagable').val();
-        if (tagable == 2) {
-            $('.aaftagDiv').addClass('show').removeClass('hide').find('input').attr('required', 'required');
-            $('.ftagDiv').addClass('hide').removeClass('show').find('input').removeAttr('required', 'required');
-        } else {
-            $('.ftagDiv').addClass('show').removeClass('hide').find('input').attr('required', 'required');
-            $('.aaftagDiv').addClass('hide').removeClass('show').find('input').removeAttr('required', 'required');
+
+    function mySubmitData() {
+        var form_data = new FormData();
+
+        var totalfiles = document.getElementById('files').files.length;
+        for (var index = 0; index < totalfiles; index++) {
+            form_data.append("files[]", document.getElementById('files').files[index]);
         }
+        form_data.append('pr_reqId',$('#pr_reqId').val());
+        form_data.append('idCategory',$('#idCategory').val());
+        form_data.append('desc',$('#desc').val());
+        form_data.append('model',$('#model').val());
+        form_data.append('product_no',$('#product_no').val());
+        form_data.append('serial_no',$('#serial_no').val());
+        form_data.append('tag_no',$('#tag_no').val());
+        form_data.append('po_no',$('#po_no').val());
+        form_data.append('cost',$('#cost').val());
+        form_data.append('idCurrency',$('#idCurrency').val());
+        form_data.append('idSourceOfPurchase',$('#idSourceOfPurchase').val());
+        CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/testUpload'); ?>', form_data, 'POST', function (result) {
+            console.log(result);
+        }, true);
+
+
+        /*
+        var fileList = $('#files').prop("files");
+
+        var form_data = "";
+
+        form_data = new FormData();
+        form_data.append("upload_image", fileList);
+        console.log(form_data);
+
+
+        var data = {};
+        data['pr_reqId'] = $('#pr_reqId').val();
+        data['idCategory'] = $('#idCategory').val();
+        data['desc'] = $('#desc').val();
+        data['model'] = $('#model').val();
+        data['product_no'] = $('#product_no').val();
+        data['serial_no'] = $('#serial_no').val();
+        data['tag_no'] = $('#tag_no').val();
+        data['po_no'] = $('#po_no').val();
+        data['cost'] = $('#cost').val();
+        data['idCurrency'] = $('#idCurrency').val();
+        data['idSourceOfPurchase'] = $('#idSourceOfPurchase').val();*/
     }
 
     function mydate() {
         $('.mypickadat').pickadate({
             selectYears: true,
             selectMonths: true,
-            min: new Date(2019, 12, 1),
+            min: new Date(2010, 12, 1),
             max: true,
+            clear: ' ',
+            format: 'dd-mm-yyyy'
+        });
+    }
+
+    function mydate2() {
+        $('.mypickadat2').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2010, 12, 1),
+            clear: ' ',
             format: 'dd-mm-yyyy'
         });
     }
 
     function insertData() {
         var data = {};
-        data['Asset_type'] = $('#Asset_type').val();
+        data['pr_reqId'] = $('#pr_reqId').val();
+        data['idCategory'] = $('#idCategory').val();
+        data['desc'] = $('#desc').val();
         data['model'] = $('#model').val();
         data['product_no'] = $('#product_no').val();
         data['serial_no'] = $('#serial_no').val();
+        data['tag_no'] = $('#tag_no').val();
+        data['po_no'] = $('#po_no').val();
+        data['cost'] = $('#cost').val();
+        data['idCurrency'] = $('#idCurrency').val();
+        data['idSourceOfPurchase'] = $('#idSourceOfPurchase').val();
+        data['emp_no'] = $('#emp_no').val();
+        data['resp_person_name'] = $('#resp_person_name').val();
+        data['proj'] = $('#proj').val();
+        data['ou'] = $('#ou').val();
+        data['account'] = $('#account').val();
+        data['dept'] = $('#dept').val();
+        data['fund'] = $('#fund').val();
         data['proj_code'] = $('#proj_code').val();
-        data['po_num'] = $('#po_num').val();
-        data['pr_num'] = $('#pr_num').val();
-        data['dor'] = $('#dor').val();
-        data['dop'] = $('#dop').val();
+        data['prog'] = $('#prog').val();
+        data['idLocation'] = $('#idLocation').val();
+        data['idSubLocation'] = $('#idSubLocation').val();
+        data['verification_status'] = $('#verification_status').val();
+        data['last_verify_date'] = $('#last_verify_date').val();
+        data['due_date'] = $('#due_date').val();
+        data['pur_date'] = $('#pur_date').val();
         data['status'] = $('#status').val();
-        data['tagable'] = $('#tagable').val();
-        data['ftag'] = $('#ftag').val();
-        data['aaftag'] = $('#aaftag').val();
+        data['writOff_formNo'] = $('#writOff_formNo').val();
+        data['wo_date'] = $('#wo_date').val();
         data['remarks'] = $('#remarks').val();
         var vd = validateData(data);
         if (vd) {
             showloader();
             $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/Asset_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
                 try {

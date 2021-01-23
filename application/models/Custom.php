@@ -17,6 +17,7 @@ class Custom extends CI_Model
         return $fields;
     }
 
+
     function selectAllQuery($table, $orderBy, $whereClause = '', $orderBySort = 'ASC')
     {
         if (isset($whereClause) && $whereClause != '' && $whereClause != 0) {
@@ -147,6 +148,39 @@ class Custom extends CI_Model
         } else {
             return FALSE;
         }
+    }
+
+    function getEmpAllDetails($empNo = '')
+    {
+        if (isset($empNo) && $empNo != '' && $empNo != null) {
+            $this->db->where('hr_employee.empno', $empNo);
+        }
+        $this->db->select('hr_employee.id, 
+                hr_employee.empno, 
+                hr_employee.offemail, 
+                hr_employee.empname, 
+                hr_employee.cnicno, 
+                hr_desig.desig, 
+                hr_employee.pic');
+        $this->db->from('hr_employee');
+        $this->db->join('hr_desig', 'hr_employee.titdesi = hr_desig.id', 'left');
+        $this->db->where('hr_employee.status', 1);
+        $this->db->order_By('id', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getSubLocations($idLocation)
+    {
+        $this->db->select('location_sub.id, 
+	location_sub.location_sub, 
+	location_sub.idLocation');
+        $this->db->from('location_sub');
+        $this->db->where('location_sub.isActive', 1);
+        $this->db->where('location_sub.idLocation', $idLocation);
+        $this->db->order_By('id', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }

@@ -47,6 +47,31 @@
         });
     }
 
+
+
+    function changeLocation(locId,SubLocId) {
+        var data={};
+        data['loc']=$('#'+locId).val();
+        if(data['loc']!='' && data['loc']!=undefined){
+            CallAjax('<?php echo base_url('index.php/Settings/changeLocation'); ?>', data, 'POST', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        var post = ' <option value="0" readonly disabled selected>Select Sub Location</option>';
+                        $.each(response[1], function (i, v) {
+                            post += '<option value="' + v.id + '">' + v.location_sub + '</option>';
+                        });
+                        $('#'+SubLocId).html(post);
+                    } else {
+                        toastMsg(response[0], response[1], 'error');
+                    }
+                } catch (e) {
+                }
+            });
+        } else {
+            toastMsg('Error', 'Invalid Location Id', 'error');
+        }
+    }
 </script>
 
 

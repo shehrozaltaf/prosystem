@@ -27,7 +27,7 @@ class Add_asset extends CI_controller
         $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
         $data['currency'] = $Custom->selectAllQuery('currency', 'idCurrency', 'isActive');
         $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'idSop', 'status');
-        $data['employee'] = $Custom->selectAllQuery('hr_employee', 'id');
+        $data['employee'] = $Custom->getEmpAllDetails('');
         $data['location'] = $Custom->selectAllQuery('location', 'id');
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
@@ -40,123 +40,107 @@ class Add_asset extends CI_controller
         $this->load->view('include/footer');
     }
 
+    function testUpload()
+    {
+        /*  $config['upload_path'] = 'assets/uploads/excelsUpload';
+          $config['allowed_types'] = 'csv';
+          $this->load->library('upload', $config);
+          if (!$this->upload->do_upload('file')) {
+              $error = $this->upload->display_errors();
+          }*/
+        echo '<pre>';
+        print_r($_FILES);
+        echo '</pre>';
+
+        // Count total files
+        $countfiles = count($_FILES['files']['name']);
+
+// Upload directory
+        $upload_location = "assets/uploads/assetUploads/";
+
+// To store uploaded files path
+        $files_arr = array();
+
+// Loop all files
+        for ($index = 0; $index < $countfiles; $index++) {
+
+            if (isset($_FILES['files']['name'][$index]) && $_FILES['files']['name'][$index] != '') {
+                // File name
+                $filename = $_FILES['files']['name'][$index];
+
+                // Get extension
+                $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+                // Valid image extension
+                $valid_ext = array("png", "jpeg", "jpg");
+
+                // Check extension
+                if (in_array($ext, $valid_ext)) {
+
+                    // File path
+                    $path = $upload_location . $filename;
+
+                    // Upload file
+                    if (move_uploaded_file($_FILES['files']['tmp_name'][$index], $path)) {
+                        $files_arr[] = $path;
+                    }
+                }
+            }
+        }
+
+        echo json_encode($files_arr);
+    }
 
     function insertData()
     {
         $flag = 0;
-        if (!isset($_POST['inventory_type']) || $_POST['inventory_type'] == '' || $_POST['inventory_type'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Inventory Type');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['model']) || $_POST['model'] == '' || $_POST['model'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Model');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-
-        if (!isset($_POST['product_no']) || $_POST['product_no'] == '' || $_POST['product_no'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Product');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['serial_no']) || $_POST['serial_no'] == '' || $_POST['serial_no'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Serial No');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['proj_code']) || $_POST['proj_code'] == '' || $_POST['proj_code'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Project/Budget Code');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['po_num']) || $_POST['po_num'] == '' || $_POST['po_num'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid PO Number');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['pr_num']) || $_POST['pr_num'] == '' || $_POST['pr_num'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid PR Number');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['dor']) || $_POST['dor'] == '' || $_POST['dor'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid DoR');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['dop']) || $_POST['dop'] == '' || $_POST['dop'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid DoP');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['status']) || $_POST['status'] == '' || $_POST['status'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Status');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-
-        if (!isset($_POST['tagable']) || $_POST['tagable'] == '' || $_POST['tagable'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Tagable');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if ((!isset($_POST['ftag']) || $_POST['ftag'] == '' || $_POST['ftag'] == '0') && $_POST['tagable'] == 1) {
-            $result = array('0' => 'Error', '1' => 'Invalid FTAG');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if ((!isset($_POST['aaftag']) || $_POST['aaftag'] == '' || $_POST['aaftag'] == '0') && $_POST['tagable'] == 2) {
-            $result = array('0' => 'Error', '1' => 'Invalid AAFTAG');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
+        /* if (!isset($_POST['inventory_type']) || $_POST['inventory_type'] == '' || $_POST['inventory_type'] == '0') {
+             $result = array('0' => 'Error', '1' => 'Invalid Inventory Type');
+             $flag = 1;
+             echo json_encode($result);
+             exit();
+         } */
 
         if ($flag == 0) {
             $Custom = new Custom();
             $insertArray = array();
-            $insertArray['inventory_type'] = $_POST['inventory_type'];
+            $insertArray['pr_no'] = $_POST['pr_reqId'];
+            $insertArray['idCategory'] = $_POST['idCategory'];
+            $insertArray['desc'] = $_POST['desc'];
             $insertArray['model'] = $_POST['model'];
-            $insertArray['product'] = $_POST['product_no'];
-            $insertArray['serial'] = $_POST['serial_no'];
+            $insertArray['product_no'] = $_POST['product_no'];
+            $insertArray['serial_no'] = $_POST['serial_no'];
+            $insertArray['tag_no'] = $_POST['tag_no'];
+            $insertArray['po_no'] = $_POST['po_no'];
+            $insertArray['cost'] = $_POST['cost'];
+            $insertArray['idCurrency'] = $_POST['idCurrency'];
+            $insertArray['idSourceOfPurchase'] = $_POST['idSourceOfPurchase'];
+            $insertArray['emp_no'] = $_POST['emp_no'];
+            $insertArray['resp_person_name'] = $_POST['resp_person_name'];
+            $insertArray['proj'] = $_POST['proj'];
+            $insertArray['ou'] = $_POST['ou'];
+            $insertArray['account'] = $_POST['account'];
+            $insertArray['dept'] = $_POST['dept'];
+            $insertArray['fund'] = $_POST['fund'];
             $insertArray['proj_code'] = $_POST['proj_code'];
-            $insertArray['po_num'] = $_POST['po_num'];
-            $insertArray['pr_num'] = $_POST['pr_num'];
-            $insertArray['dor'] = $_POST['dor'];
-            $insertArray['dop'] = date('Y-m-d', strtotime($_POST['dop']));
+            $insertArray['prog'] = $_POST['prog'];
+            $insertArray['idLocation'] = $_POST['idLocation'];
+            $insertArray['idSubLocation'] = $_POST['idSubLocation'];
+            $insertArray['verification_status'] = $_POST['verification_status'];
+            $insertArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+            $insertArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+            $insertArray['pur_date'] = date('Y-m-d', strtotime($_POST['pur_date']));
             $insertArray['status'] = $_POST['status'];
-            $insertArray['tagable'] = $_POST['tagable'];
-            $insertArray['ftag'] = $_POST['ftag'];
-            $insertArray['aaftag'] = $_POST['aaftag'];
+            $insertArray['writOff_formNo'] = $_POST['writOff_formNo'];
+            $insertArray['wo_date'] = date('Y-m-d', strtotime($_POST['wo_date']));
             $insertArray['remarks'] = $_POST['remarks'];
-            $insertArray['loc'] = 'PRO';
-            $insertArray['username'] = 'STOREPRO';
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($insertArray, 'id', 'i_paedsinventory', 'Y');
+            $InsertData = $Custom->Insert($insertArray, 'idAsset', 'a_asset', 'Y');
             if ($InsertData) {
 
-                $Custom->insrt_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
-                $Custom->insrt_AT($InsertData, 'inventory_model', 'inventory_model', 'Model', 'New Entry', $insertArray['model']);
-                $Custom->insrt_AT($InsertData, 'product', 'product', 'Product', 'New Entry', $insertArray['product']);
-                $Custom->insrt_AT($InsertData, 'serial', 'serial', 'Serial', 'New Entry', $insertArray['serial']);
-                $Custom->insrt_AT($InsertData, 'project', 'proj_code', 'Project Code', 'New Entry', $insertArray['proj_code']);
-                $Custom->insrt_AT($InsertData, 'location', 'loc', 'Location', 'New Entry', $insertArray['loc']);
-                $Custom->insrt_AT($InsertData, 'username', 'username', 'username', 'New Entry', $insertArray['username']);
+//                $Custom->insrt_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
 
                 $result = array('0' => 'Success', '1' => 'Successfully Inserted');
             } else {
