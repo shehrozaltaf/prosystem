@@ -135,3 +135,7 @@ tr.details td.details-control {
 .myTable th .select_error {
     border: 1px solid #e53935;
 }
+
+.requried_label{
+    color: red;
+}

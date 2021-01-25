@@ -142,7 +142,7 @@ class MAsset extends CI_Model
 
     function getAssetLastId()
     {
-        $this->db->select('Max(idAsset) as maxAssetId');
+        $this->db->select('Max(idAsset)+1 as maxAssetId');
         $this->db->from('a_asset');
         $query = $this->db->get();
         return $query->result();

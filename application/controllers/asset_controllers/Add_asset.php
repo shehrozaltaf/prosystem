@@ -7,7 +7,7 @@ class Add_asset extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        $this->load->model('inventory_models/minventory');
+        $this->load->model('asset_models/masset');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -31,7 +31,8 @@ class Add_asset extends CI_controller
         $data['location'] = $Custom->selectAllQuery('location', 'id');
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
-
+        $MAsset = new MAsset();
+        $data['maxAssetId'] = $MAsset->getAssetLastId();
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');

@@ -91,6 +91,10 @@
                             <div class="content-header">
                                 <h5 class="mb-0">Asset Details</h5>
                                 <small class="text-muted">Enter Your Asset Details.</small>
+                                <br>
+                                <small class="text-danger">PAEDSID
+                                    <span class="paeds_id">0<?php echo(isset($maxAssetId[0]->maxAssetId) && $maxAssetId[0]->maxAssetId != '' ? $maxAssetId[0]->maxAssetId : '') ?></span>
+                                </small>
                             </div>
 
                             <form id="myForm">
@@ -193,9 +197,19 @@
                                                        id="tag_no" value="Tag123"
                                                        name="tag_no"
                                                        autocomplete="tag_no" required>
+                                                <small><input type="checkbox" value="1" id="paeds_tagID"
+                                                              name="paeds_tagID" class="" onclick="changeTagPaedID()">
+                                                    Paeds ID
+                                                </small>
                                             </div>
+
+
                                         </div>
+
+
                                     </div>
+
+
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
@@ -693,7 +707,7 @@
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                 </button>
-                                <button class="btn btn-success btn-submit" id="btn-submit">Submit</button>
+                                <button class="btn btn-success btn-submit mybtn" id="btn-submit">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -771,8 +785,31 @@
                     form_data.append('remarks', $('#remarks').val());
                 });
 
-                dzClosure.on('complete', function () {
+                dzClosure.on('complete', function (result) {
+                    toastMsg(response[0], response[1], 'success');
+                    $('.res_heading').html(response[0]).css('color', 'green');
+                    $('.res_msg').html(response[1]).css('color', 'green');
+
+                    console.log(result);
                     console.log('completed');
+                    hideloader();
+                    $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                    try {
+                        var response = JSON.parse(result);
+                        if (response[0] == 'Success') {
+                            toastMsg(response[0], response[1], 'success');
+                            $('.res_heading').html(response[0]).css('color', 'green');
+                            $('.res_msg').html(response[1]).css('color', 'green');
+                            setTimeout(function () {
+                                // window.location.reload();
+                            }, 1500)
+                        } else {
+                            toastMsg(response[0], response[1], 'error');
+                            $('.res_heading').html(response[0]).css('color', 'red');
+                            $('.res_msg').html(response[1]).css('color', 'red');
+                        }
+                    } catch (e) {
+                    }
                     // window.location.href = base_url+'admin/saveProject';
                 })
             },
@@ -781,7 +818,7 @@
 
 
     function mySubmitData() {
-        alert('mySubmitData');
+        console.log('mySubmitData');
         dzClosure.processQueue();
 
         var form_data = new FormData();
@@ -821,34 +858,39 @@
         form_data.append('writOff_formNo', $('#writOff_formNo').val());
         form_data.append('wo_date', $('#wo_date').val());
         form_data.append('remarks', $('#remarks').val());
-
+        showloader();
+        $('.mybtn').addClass('hide').attr('disabled', 'disabled');
         CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', form_data, 'POST', function (result) {
             console.log(result);
+            hideloader();
+            $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+            try {
+                var response = JSON.parse(result);
+                if (response[0] == 'Success') {
+                    toastMsg(response[0], response[1], 'success');
+                    $('.res_heading').html(response[0]).css('color', 'green');
+                    $('.res_msg').html(response[1]).css('color', 'green');
+                    setTimeout(function () {
+                        // window.location.reload();
+                    }, 1500)
+                } else {
+                    toastMsg(response[0], response[1], 'error');
+                    $('.res_heading').html(response[0]).css('color', 'red');
+                    $('.res_msg').html(response[1]).css('color', 'red');
+                }
+            } catch (e) {
+            }
         }, true);
 
+    }
 
-        /*
-        var fileList = $('#files').prop("files");
-
-        var form_data = "";
-
-        form_data = new FormData();
-        form_data.append("upload_image", fileList);
-        console.log(form_data);
-
-
-        var data = {};
-        data['pr_reqId'] = $('#pr_reqId').val();
-        data['idCategory'] = $('#idCategory').val();
-        data['desc'] = $('#desc').val();
-        data['model'] = $('#model').val();
-        data['product_no'] = $('#product_no').val();
-        data['serial_no'] = $('#serial_no').val();
-        data['tag_no'] = $('#tag_no').val();
-        data['po_no'] = $('#po_no').val();
-        data['cost'] = $('#cost').val();
-        data['idCurrency'] = $('#idCurrency').val();
-        data['idSourceOfPurchase'] = $('#idSourceOfPurchase').val();*/
+    function changeTagPaedID() {
+        if ($('#paeds_tagID').prop("checked") == true) {
+            var paeds_id = $('.paeds_id').text().trim();
+            $('#tag_no').val('PAEDSID ' + paeds_id).attr('disabled', 'disabled');
+        } else if ($('#paeds_tagID').prop("checked") == false) {
+            $('#tag_no').val('').removeAttr('disabled', 'disabled');
+        }
     }
 
     function mydate() {
@@ -872,7 +914,7 @@
         });
     }
 
-    function insertData() {
+    /*function insertData() {
         var data = {};
         data['pr_reqId'] = $('#pr_reqId').val();
         data['idCategory'] = $('#idCategory').val();
@@ -908,7 +950,7 @@
         if (vd) {
             showloader();
             $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
+            CallAjax('< ?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
                 try {
@@ -931,6 +973,6 @@
         } else {
             toastMsg('Error', 'Invalid Data', 'error');
         }
-    }
+    }*/
 
 </script>
