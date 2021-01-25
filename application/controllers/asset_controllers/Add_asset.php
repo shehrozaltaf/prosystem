@@ -40,54 +40,65 @@ class Add_asset extends CI_controller
         $this->load->view('include/footer');
     }
 
+    function testUpload3()
+    {
+
+        $config = array(
+            'upload_path' => 'assets/uploads/excelsUpload',
+            'allowed_types' => 'jpg|gif|png',
+            'overwrite' => 1,
+        );
+
+        $this->load->library('upload', $config);
+
+        $images = array();
+        $files = $_FILES;
+        $title = 't';
+        foreach ($files['file'] as $key => $image) {
+            $_FILES['images[]']['name'] = $files['file'] ['name'][$key];
+            $_FILES['images[]']['type'] = $files['file'] ['type'][$key];
+            $_FILES['images[]']['tmp_name'] = $files['file'] ['tmp_name'][$key];
+            $_FILES['images[]']['error'] = $files['file'] ['error'][$key];
+            $_FILES['images[]']['size'] = $files['file'] ['size'][$key];
+
+            $fileName = $title . '_' . $image;
+
+            $images[] = $fileName;
+
+            $config['file_name'] = $fileName;
+
+            $this->upload->initialize($config);
+
+            if ($this->upload->do_upload('images[]')) {
+                $this->upload->data();
+            } else {
+                return false;
+            }
+        }
+
+        return $images;
+
+
+    }
+
     function testUpload()
     {
-        /*  $config['upload_path'] = 'assets/uploads/excelsUpload';
-          $config['allowed_types'] = 'csv';
-          $this->load->library('upload', $config);
-          if (!$this->upload->do_upload('file')) {
-              $error = $this->upload->display_errors();
-          }*/
-        echo '<pre>';
-        print_r($_FILES);
-        echo '</pre>';
-
-        // Count total files
-        $countfiles = count($_FILES['files']['name']);
-
-// Upload directory
+        $countfiles = count($_FILES['file']['name']);
         $upload_location = "assets/uploads/assetUploads/";
-
-// To store uploaded files path
         $files_arr = array();
-
-// Loop all files
         for ($index = 0; $index < $countfiles; $index++) {
-
-            if (isset($_FILES['files']['name'][$index]) && $_FILES['files']['name'][$index] != '') {
-                // File name
-                $filename = $_FILES['files']['name'][$index];
-
-                // Get extension
+            if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
+                $filename = $_FILES['file']['name'][$index];
                 $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-                // Valid image extension
                 $valid_ext = array("png", "jpeg", "jpg");
-
-                // Check extension
                 if (in_array($ext, $valid_ext)) {
-
-                    // File path
                     $path = $upload_location . $filename;
-
-                    // Upload file
-                    if (move_uploaded_file($_FILES['files']['tmp_name'][$index], $path)) {
+                    if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
                         $files_arr[] = $path;
                     }
                 }
             }
         }
-
         echo json_encode($files_arr);
     }
 
@@ -139,6 +150,38 @@ class Add_asset extends CI_controller
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idAsset', 'a_asset', 'Y');
             if ($InsertData) {
+
+                if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
+                    $upload_location = "assets/uploads/assetUploads/" . $InsertData . '/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+
+                    $countfiles = count($_FILES['file']['name']);
+                    $files_arr = array();
+                    for ($index = 0; $index < $countfiles; $index++) {
+                        if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
+                            $filename = $_FILES['file']['name'][$index];
+                            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                            $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                            if (in_array($ext, $valid_ext)) {
+                                $path = $upload_location . $filename;
+                                if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
+                                    $files_arr[] = $path;
+                                    $fileUpload = array();
+                                    $fileUpload['idAsset'] = $InsertData;
+                                    $fileUpload['docPath'] = $upload_location . $filename;
+                                    $fileUpload['docName'] = $filename;
+                                    $fileUpload['isActive'] = 1;
+                                    $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                                    $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                                    $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'Y');
+                                }
+                            }
+                        }
+                    }
+                }
+
 
 //                $Custom->insrt_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
 

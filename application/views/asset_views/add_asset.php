@@ -92,32 +92,10 @@
                                 <h5 class="mb-0">Asset Details</h5>
                                 <small class="text-muted">Enter Your Asset Details.</small>
                             </div>
-                            <!-- remove thumbnail file upload starts -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Images</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <!--<form action="#" class="dropzone dropzone-area" id="dpz-remove-thumb">
-                                                <div class="dz-message">Drop files here or click to upload images.</div>
-                                            </form>-->
 
-                                             <div action="#" class="dropzone" id="dpz-remove-thumb"
-                                                   >
-                                                <div class="fallback">
-                                                    <input type="file" id="files" name="files[]" multiple/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- remove thumbnail file upload ends -->
                             <form id="myForm">
                                 <div class="row">
-<!--                                    <input type="file" id='files' name="files[]" multiple><br>-->
+                                    <!--                                    <input type="file" id='files' name="files[]" multiple><br>-->
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
@@ -291,7 +269,7 @@
                                 </div>
                             </form>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev " id="sss" disableds onclick="mySubmitData()">
+                                <button class="btn btn-primary btn-prev " disabled>
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
                                 </button>
@@ -686,13 +664,36 @@
                                 <h5 class="mb-0">Documents</h5>
                                 <small>Upload Documents.</small>
                             </div>
+                            <!-- remove thumbnail file upload starts -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Images</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--<form action="#" class="dropzone dropzone-area" id="dpz-remove-thumb">
+                                                <div class="dz-message">Drop files here or click to upload images.</div>
+                                            </form>-->
+
+                                            <form action="#" class="dropzone dropzone-area" id="dpz-remove-thumbs"
+                                            >
+                                                <div class="fallback">
+                                                    <input type="file" id="files" name="files[]" multiple/>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- remove thumbnail file upload ends -->
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                 </button>
-                                <button class="btn btn-success btn-submit" onclick="insertData()">Submit</button>
+                                <button class="btn btn-success btn-submit" id="btn-submit">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -713,28 +714,115 @@
         mydate();
         mydate2();
         $(".numericOnly").ForceNumericOnly();
+        // Dropzone.autoDiscover = false;
+        $('#dpz-remove-thumbs').dropzone({
+            url: "<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>",
+            uploadMultiple: true,
+            parallelUploads: 25,
+            maxFiles: 25,
+            autoProcessQueue: false,
+            addRemoveLinks: true,
+            // acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
+            init: function () {
+                dzClosure = this;
+
+                $('#btn-submit').on('click', function (e) {
+                    console.log('processQueue');
+                    if (dzClosure.getQueuedFiles().length > 0) {
+                        dzClosure.processQueue();
+                    } else {
+                        mySubmitData();
+                    }
+                });
+
+
+                // My project only has 1 file hence not sendingmultiple
+                dzClosure.on('sending', function (data, xhr, form_data) {
+                    console.log('sending');
+                    form_data.append('pr_reqId', $('#pr_reqId').val());
+                    form_data.append('idCategory', $('#idCategory').val());
+                    form_data.append('desc', $('#desc').val());
+                    form_data.append('model', $('#model').val());
+                    form_data.append('product_no', $('#product_no').val());
+                    form_data.append('serial_no', $('#serial_no').val());
+                    form_data.append('tag_no', $('#tag_no').val());
+                    form_data.append('po_no', $('#po_no').val());
+                    form_data.append('cost', $('#cost').val());
+                    form_data.append('idCurrency', $('#idCurrency').val());
+                    form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
+                    form_data.append('emp_no', $('#emp_no').val());
+                    form_data.append('resp_person_name', $('#resp_person_name').val());
+                    form_data.append('proj', $('#proj').val());
+                    form_data.append('ou', $('#ou').val());
+                    form_data.append('account', $('#account').val());
+                    form_data.append('dept', $('#dept').val());
+                    form_data.append('fund', $('#fund').val());
+                    form_data.append('proj_code', $('#proj_code').val());
+                    form_data.append('prog', $('#prog').val());
+                    form_data.append('idLocation', $('#idLocation').val());
+                    form_data.append('idSubLocation', $('#idSubLocation').val());
+                    form_data.append('verification_status', $('#verification_status').val());
+                    form_data.append('last_verify_date', $('#last_verify_date').val());
+                    form_data.append('due_date', $('#due_date').val());
+                    form_data.append('pur_date', $('#pur_date').val());
+                    form_data.append('status', $('#status').val());
+                    form_data.append('writOff_formNo', $('#writOff_formNo').val());
+                    form_data.append('wo_date', $('#wo_date').val());
+                    form_data.append('remarks', $('#remarks').val());
+                });
+
+                dzClosure.on('complete', function () {
+                    console.log('completed');
+                    // window.location.href = base_url+'admin/saveProject';
+                })
+            },
+        });
     });
 
 
     function mySubmitData() {
+        alert('mySubmitData');
+        dzClosure.processQueue();
+
         var form_data = new FormData();
 
-        var totalfiles = document.getElementById('files').files.length;
-        for (var index = 0; index < totalfiles; index++) {
-            form_data.append("files[]", document.getElementById('files').files[index]);
-        }
-        form_data.append('pr_reqId',$('#pr_reqId').val());
-        form_data.append('idCategory',$('#idCategory').val());
-        form_data.append('desc',$('#desc').val());
-        form_data.append('model',$('#model').val());
-        form_data.append('product_no',$('#product_no').val());
-        form_data.append('serial_no',$('#serial_no').val());
-        form_data.append('tag_no',$('#tag_no').val());
-        form_data.append('po_no',$('#po_no').val());
-        form_data.append('cost',$('#cost').val());
-        form_data.append('idCurrency',$('#idCurrency').val());
-        form_data.append('idSourceOfPurchase',$('#idSourceOfPurchase').val());
-        CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/testUpload'); ?>', form_data, 'POST', function (result) {
+        /*  var totalfiles = document.getElementById('file').files.length;
+          for (var index = 0; index < totalfiles; index++) {
+              form_data.append("file[]", document.getElementById('file').files[index]);
+          }*/
+
+        form_data.append('pr_reqId', $('#pr_reqId').val());
+        form_data.append('idCategory', $('#idCategory').val());
+        form_data.append('desc', $('#desc').val());
+        form_data.append('model', $('#model').val());
+        form_data.append('product_no', $('#product_no').val());
+        form_data.append('serial_no', $('#serial_no').val());
+        form_data.append('tag_no', $('#tag_no').val());
+        form_data.append('po_no', $('#po_no').val());
+        form_data.append('cost', $('#cost').val());
+        form_data.append('idCurrency', $('#idCurrency').val());
+        form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
+        form_data.append('emp_no', $('#emp_no').val());
+        form_data.append('resp_person_name', $('#resp_person_name').val());
+        form_data.append('proj', $('#proj').val());
+        form_data.append('ou', $('#ou').val());
+        form_data.append('account', $('#account').val());
+        form_data.append('dept', $('#dept').val());
+        form_data.append('fund', $('#fund').val());
+        form_data.append('proj_code', $('#proj_code').val());
+        form_data.append('prog', $('#prog').val());
+        form_data.append('idLocation', $('#idLocation').val());
+        form_data.append('idSubLocation', $('#idSubLocation').val());
+        form_data.append('verification_status', $('#verification_status').val());
+        form_data.append('last_verify_date', $('#last_verify_date').val());
+        form_data.append('due_date', $('#due_date').val());
+        form_data.append('pur_date', $('#pur_date').val());
+        form_data.append('status', $('#status').val());
+        form_data.append('writOff_formNo', $('#writOff_formNo').val());
+        form_data.append('wo_date', $('#wo_date').val());
+        form_data.append('remarks', $('#remarks').val());
+
+        CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', form_data, 'POST', function (result) {
             console.log(result);
         }, true);
 
