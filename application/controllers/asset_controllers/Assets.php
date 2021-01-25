@@ -52,8 +52,8 @@ class Assets extends CI_controller
         $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
         $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
         $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
-        $searchData['location'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
-        $searchData['sublocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+        $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
+        $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
         $searchData['ftag'] = (isset($_REQUEST['ftag']) && $_REQUEST['ftag'] != '' && $_REQUEST['ftag'] != '0' ? $_REQUEST['ftag'] : 0);
         $searchData['prno'] = (isset($_REQUEST['prno']) && $_REQUEST['prno'] != '' && $_REQUEST['prno'] != '0' ? $_REQUEST['prno'] : 0);
@@ -71,7 +71,31 @@ class Assets extends CI_controller
         $data = $M->getAsset($searchData);
         $table_data = array();
         $result_table_data = array();
+        $colors = array('primary', 'warning', 'danger', 'success', 'info', 'mycolor1', 'mycolor2', 'mycolor3');
+
         foreach ($data as $key => $value) {
+
+            if ($value->status_name == 'WORKING') {
+                $statusClass = 'primary';
+            } elseif ($value->status_name = 'NOT WORKING') {
+                $statusClass = 'warning';
+            } elseif ($value->status_name = 'RETIRED') {
+                $statusClass = 'accent-2';
+            } elseif ($value->status_name = 'NOT AVAILABLE') {
+                $statusClass = 'success';
+            } elseif ($value->status_name = 'STOLEN') {
+                $statusClass = 'info';
+            } elseif ($value->status_name = 'SNATCHED') {
+                $statusClass = 'mycolor1';
+            } elseif ($value->status_name = 'MISPLACED') {
+                $statusClass = 'mycolor2';
+            } elseif ($value->status_name = 'DAMAGED') {
+                $statusClass = 'mycolor3';
+            } elseif ($value->status_name = 'DISPOSED') {
+                $statusClass = 'danger';
+            } else {
+                $statusClass = '';
+            }
 
             $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
             $table_data[$value->idAsset]['category'] = $value->idCategory;
@@ -81,6 +105,8 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['proj'] = $value->proj_code;
             $table_data[$value->idAsset]['loc'] = $value->idLocation;
             $table_data[$value->idAsset]['sub_loc'] = $value->idSubLocation;
+            $table_data[$value->idAsset]['status'] = '<span class="label btn btn-sm btn-' . $statusClass . ' waves-effect waves-light" 
+             onclick="changeStatus(this)" data-id="' . $value->idAsset . '" data-status="' . $value->status . '">' . $value->status_name . '</span>';
             $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
 
             $table_data[$value->idAsset]['Action'] = '
@@ -105,8 +131,8 @@ class Assets extends CI_controller
         $totalsearchData['emp'] = $searchData['emp'];
         $totalsearchData['category'] = $searchData['category'];
         $totalsearchData['sop'] = $searchData['sop'];
-        $totalsearchData['location'] = $searchData['location'];
-        $totalsearchData['sublocation'] = $searchData['sublocation'];
+        $totalsearchData['idLocation'] = $searchData['idLocation'];
+        $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
         $totalsearchData['status'] = $searchData['status'];
         $totalsearchData['ftag'] = $searchData['ftag'];
         $totalsearchData['prno'] = $searchData['prno'];
@@ -121,130 +147,6 @@ class Assets extends CI_controller
         $result["data"] = $result_table_data;
 
         echo json_encode($result, true);
-    }
-
-    function setExpiry()
-    {
-        if (isset($_POST['expiry_id']) && $_POST['expiry_id'] != '' && $_POST['expiry_id'] != '0'
-            && isset($_POST['expiryDateTime']) && $_POST['expiryDateTime'] != '' && $_POST['expiryDateTime'] != '0') {
-            $id = $_POST['expiry_id'];
-            $Custom = new Custom();
-            $editArr = array();
-            $editArr['expiryDateTime'] = date('Y-m-d', strtotime($_POST['expiryDateTime']));
-            $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsasset');
-            if ($editData) {
-                $insertArray = array();
-                $insertArray['FormID'] = $id;
-                $insertArray['FormName'] = 'expiry';
-                $insertArray['Fieldid'] = 'expiryDt';
-                $insertArray['FieldName'] = 'expiryDt';
-                if (isset($_POST['oldExpiryDateTime']) && $_POST['oldExpiryDateTime'] != '' && $_POST['oldExpiryDateTime'] != '0') {
-                    $insertArray['OldValue'] = date('Y-m-d', strtotime($_POST['oldExpiryDateTime']));
-                } else {
-                    $insertArray['OldValue'] = 'No value';
-                }
-                $insertArray['NewValue'] = $editArr['expiryDateTime'];
-                $insertArray['isActive'] = 1;
-                $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-                $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-                $InsertData = $Custom->Insert($insertArray, 'id', 'i_AuditTrials', 'N');
-                if ($InsertData) {
-                    $result = 1;
-                } else {
-                    $result = 4;
-                }
-            } else {
-                $result = 2;
-            }
-        } else {
-            $result = 3;
-        }
-        echo $result;
-    }
-
-    public function getCustodianData()
-    {
-        $M = new MAsset();
-        $id = $_POST['id'];
-        $result = $M->getCustodian($id);
-        echo json_encode($result, true);
-    }
-
-    function saveCustodianData()
-    {
-        $flag = 0;
-        if (!isset($_POST['assignCustodian_id']) || $_POST['assignCustodian_id'] == '' || $_POST['assignCustodian_id'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid asset Id');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['custodian_location']) || $_POST['custodian_location'] == '' || $_POST['custodian_location'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Location');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['custodian_project']) || $_POST['custodian_project'] == '' || $_POST['custodian_project'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Project');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if (!isset($_POST['custodian_emp']) || $_POST['custodian_emp'] == '' || $_POST['custodian_emp'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Owner/Employee');
-            $flag = 1;
-            echo json_encode($result);
-            exit();
-        }
-        if ($flag == 0) {
-            $id = $_POST['assignCustodian_id'];
-            $Custom = new Custom();
-            $editArr = array();
-            if ($_POST['custodian_location'] != $_POST['custodian_location_old']) {
-                $editArr['loc'] = $_POST['custodian_location'];
-            }
-            if ($_POST['custodian_project'] != $_POST['custodian_project_old']) {
-                $editArr['proj_code'] = $_POST['custodian_project'];
-            }
-            if ($_POST['custodian_emp'] != $_POST['custodian_emp_old']) {
-                $editArr['username'] = $_POST['custodian_emp'];
-            }
-
-            $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsasset');
-            if ($editData) {
-                $insertArray = array();
-                $insertArray['FormID'] = $id;
-                $insertArray['isActive'] = 1;
-                $insertArray['createdBy'] = $_SESSION['login']['idUser'];
-                $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-
-
-                if ($_POST['custodian_location'] != $_POST['custodian_location_old']) {
-                    $InsertData = $Custom->insrt_asset_AT($id, 'location', 'loc', 'Location', $_POST['custodian_location_old'], $editArr['loc']);
-                }
-                if ($_POST['custodian_project'] != $_POST['custodian_project_old']) {
-                    $InsertData = $Custom->insrt_asset_AT($id, 'project', 'proj_code', 'Project Code', $_POST['custodian_project_old'], $editArr['proj_code']);
-
-                }
-                if ($_POST['custodian_emp'] != $_POST['custodian_emp_old']) {
-                    $InsertData = $Custom->insrt_asset_AT($id, 'username', 'username', 'username', $_POST['custodian_emp_old'], $editArr['username']);
-                }
-
-
-                if ($InsertData) {
-                    $result = array('0' => 'Success', '1' => 'Successfully Inserted');
-                } else {
-                    $result = array('0' => 'Error', '1' => 'Custodian updated successfully, but audit trial not updated');
-                }
-
-
-            } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
-            }
-            echo json_encode($result);
-        }
-
     }
 
     function auditTrial()
@@ -286,17 +188,17 @@ class Assets extends CI_controller
 
     }
 
-    function deleteasset()
+    function deleteAsset()
     {
         $Custom = new Custom();
         $editArr = array();
-        if (isset($_POST['idasset']) && $_POST['idasset'] != '') {
-            $id = $_POST['idasset'];
+        if (isset($_POST['idAsset']) && $_POST['idAsset'] != '') {
+            $id = $_POST['idAsset'];
             $editArr['isActive'] = 0;
             $editArr['deleteBy'] = $_SESSION['login']['idUser'];
             $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $id, 'i_paedsasset');
-            $trackarray = array("action" => "Delete asset setting -> Function: deleteasset() ",
+            $editData = $Custom->Edit($editArr, 'idAsset', $id, 'a_asset');
+            $trackarray = array("action" => "Delete asset -> Function: deleteAsset() ",
                 "result" => $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
             if ($editData) {

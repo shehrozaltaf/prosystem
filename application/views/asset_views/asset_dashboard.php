@@ -87,7 +87,7 @@
                                                     <?php
                                                     if (isset($sop) && $sop != '') {
                                                         foreach ($sop as $k => $sp) {
-                                                            echo '<option value="' . $sp->sop_value . '">' . $sp->sop_name . '</option>';
+                                                            echo '<option value="' . $sp->idSop . '">' . $sp->sopName . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -97,7 +97,8 @@
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="location">Location</label>
-                                                <select class="select2 form-control" id="location" name="location">
+                                                <select class="select2 form-control" id="location" name="location"
+                                                        onchange="changeLocation('location','sublocation')">
                                                     <option value="0">All Locations</option>
                                                     <?php
                                                     if (isset($location) && $location != '') {
@@ -132,7 +133,7 @@
                                                     <?php
                                                     if (isset($status) && $status != '') {
                                                         foreach ($status as $k => $s) {
-                                                            echo '<option value="' . $s->status_value . '">' . $s->status_name . '</option>';
+                                                            echo '<option value="' . $s->id . '">' . $s->status_name . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -215,6 +216,7 @@
                                                 <th>Project</th>
                                                 <th>Location</th>
                                                 <th>Sub Location</th>
+                                                <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Action</th>
                                             </tr>
@@ -230,6 +232,7 @@
                                                 <th>Project</th>
                                                 <th>Location</th>
                                                 <th>Sub Location</th>
+                                                <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Action</th>
                                             </tfoot>
@@ -328,6 +331,44 @@
     </div>
 <?php } ?>
 
+<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+    <div class="modal fade text-left" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_status"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_status">Status asset</h4>
+                    <input type="hidden" id="status_idAsset" name="status_idAsset">
+                </div>
+                <div class="modal-body">
+                   <div class="row">
+                       <div class="col-sm-12 col-12">
+                           <div class="form-group">
+                               <label for="change_status" class="label-control">Select Status</label>
+                               <select class="select2 form-control"
+                                       autocomplete="change_status"
+                                       id="change_status" required>
+                                   <option value="0" readonly disabled selected></option>
+                                   <?php if (isset($status) && $status != '') {
+                                       foreach ($status as $k => $s) {
+                                           echo '<option value="' . $s->id . '">' . $s->status_name . '</option>';
+                                       }
+                                   } ?>
+                               </select>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="saveStatusChange()">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
 <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
     <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
          aria-hidden="true">
@@ -335,7 +376,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
                     <h4 class="modal-title white" id="myModalLabel_delete">Delete asset</h4>
-                    <input type="hidden" id="delete_idasset" name="delete_idasset">
+                    <input type="hidden" id="delete_idAsset" name="delete_idAsset">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -366,7 +407,7 @@
 
     $(document).ready(function () {
         mydate();
-        // getData();
+        getData();
     });
 
 
@@ -382,18 +423,9 @@
 
     function format(d) {
         var html = '';
-        html += '<p>FTAG: ' + (d.ftag != '' && d.ftag != undefined && d.aadop != null ? d.ftag : '') + '</p>';
-        html += '<p>AADop: ' + (d.aadop != '' && d.aadop != undefined && d.aadop != null ? d.aadop : '') + '</p>';
-        html += '<p>New Entry: ' + (d.newEntry != '' && d.newEntry != undefined && d.newEntry != null ? d.newEntry : '') + '</p>';
-        html += '<p>Remarks: ' + (d.remarks != '' && d.remarks != undefined && d.remarks != null ? d.remarks : '') + '</p>';
-        html += '<p>Status: ' + (d.status != '' && d.status != undefined && d.status != null ? d.status : '') + '</p>';
-        /* $.each(d.subChild, function (i, v) {
-            html += '<p>FTAG: ' + (v.ftag != '' && v.ftag != undefined && v.aadop != null ? v.ftag : '') + '</p>';
-            html += '<p>AADop: ' + (v.aadop != '' && v.aadop != undefined && v.aadop != null ? v.aadop : '') + '</p>';
-             html += '<p>New Entry: ' + (v.newEntry != '' && v.newEntry != undefined && v.newEntry != null ? v.newEntry : '') + '</p>';
-             html += '<p>Remarks: ' + (v.remarks != '' && v.remarks != undefined && v.remarks != null ? v.remarks : '') + '</p>';
-             html += '<p>Status: ' + (v.status != '' && v.status != undefined && v.status != null ? v.status : '') + '</p>';
-         });*/
+        html += '<p>FTAG: 1111</p>';
+        html += '<p>AADop: 2</p>';
+        // html += '<p>New Entry: ' + (d.newEntry != '' && d.newEntry != undefined && d.newEntry != null ? d.newEntry : '') + '</p>';
         return html;
     }
 
@@ -460,6 +492,7 @@
                 {"data": "proj"},
                 {"data": "loc"},
                 {"data": "sub_loc"},
+                {"data": "status"},
                 {"data": "pr_path"},
                 {"data": "Action"}
             ],
@@ -504,20 +537,29 @@
         }, 500);
     }
 
+    function changeStatus(obj) {
+        var id = $(obj).attr('data-id');
+        var status = $(obj).attr('data-status');
+        $('#status_idAsset').val(id);
+        $("#change_status").val(status).select2("val", status);
+        $('#statusModal').modal('show');
+    }
+
+
     function getDelete(obj) {
         var id = $(obj).attr('data-id');
-        $('#delete_idasset').val(id);
+        $('#delete_idAsset').val(id);
         $('#deleteModal').modal('show');
     }
 
     function deleteData() {
         var data = {};
-        data['idasset'] = $('#delete_idasset').val();
-        if (data['idasset'] == '' || data['idasset'] == undefined || data['idasset'] == 0) {
-            toastMsg('asset', 'Invalid Id', 'error');
+        data['idAsset'] = $('#delete_idAsset').val();
+        if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
+            toastMsg('Asset', 'Invalid Id Asset', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/asset_controllers/asset/deleteasset')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/deleteAsset')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     toastMsg('asset', 'Successfully Deleted', 'success');
                     $('#deleteModal').modal('hide');
@@ -525,7 +567,7 @@
                         window.location.reload();
                     }, 500);
                 } else if (res == 3) {
-                    toastMsg('asset', 'Invalid asset Id', 'error');
+                    toastMsg('asset', 'Invalid Asset Id', 'error');
                 } else {
                     toastMsg('asset', 'Something went wrong', 'error');
                 }

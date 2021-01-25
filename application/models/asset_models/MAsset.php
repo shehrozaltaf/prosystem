@@ -32,7 +32,7 @@ class MAsset extends CI_Model
             $this->db->where("a.idCategory", $searchdata['category']);
         }
         if (isset($searchdata['sop']) && $searchdata['sop'] != '' && $searchdata['sop'] != null) {
-            $this->db->where("a.sop", $searchdata['sop']);
+            $this->db->where("a.idSourceOfPurchase", $searchdata['sop']);
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("a.location", $searchdata['location']);
@@ -43,34 +43,65 @@ class MAsset extends CI_Model
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
         }
-        if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(a.ftag like '%" . $searchdata['ftag'] . "%')");
-        }
         if (isset($searchdata['prno']) && $searchdata['prno'] != '' && $searchdata['prno'] != null) {
-            $this->db->where("(a.prno like '%" . $searchdata['prno'] . "%')");
+            $this->db->where("(a.pr_no like '%" . $searchdata['prno'] . "%')");
         }
         if (isset($searchdata['paedsid']) && $searchdata['paedsid'] != '' && $searchdata['paedsid'] != null) {
-            $this->db->where("(a.ftag like '%" . $searchdata['paedsid'] . "%')");
+            $this->db->where("(a.tag_no like '%" . $searchdata['paedsid'] . "%')");
         }
         if (isset($searchdata['writeOffNod']) && $searchdata['writeOffNod'] != '' && $searchdata['writeOffNod'] != null) {
             $this->db->where("(a.writeOffNod like '%" . $searchdata['writeOffNod'] . "%')");
         }
         if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
-            $this->db->where("(a.dop >= '" . date('Y-m-d', strtotime($searchdata['dateTo'])) . "')");
+            $this->db->where("(a.pur_date >= '" . date('Y-m-d', strtotime($searchdata['dateTo'])) . "')");
         }
         if (isset($searchdata['dateFrom']) && $searchdata['dateFrom'] != '' && $searchdata['dateFrom'] != null) {
-            $this->db->where("(a.dop <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
+            $this->db->where("(a.pur_date <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
         }
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(a.username like '%" . $search . "%' OR  a.ftag like '%" . $search . "%')");
+            $this->db->where("(a.username like '%" . $search . "%' OR  a_status.status_name like '%" . $search . "%')");
         }
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
         }
-        $this->db->select('*');
+        $this->db->select('a.idAsset,
+	a.idCategory,
+	a.desc,
+	a.model,
+	a.product_no,
+	a.serial_no,
+	a.tag_no,
+	a.po_no,
+	a.cost,
+	a.idCurrency,
+	a.idSourceOfPurchase,
+	a.pr_no,
+	a.emp_no,
+	a.resp_person_name,
+	a.proj,
+	a.ou,
+	a.account,
+	a.dept,
+	a.fund,
+	a.proj_name,
+	a.prog,
+	a.proj_code,
+	a.idSubLocation,
+	a.idLocation,
+	a.verification_status,
+	a.last_verify_date,
+	a.due_date,
+	a.pur_date,
+	a.status,
+	a.writOff_formNo,
+	a.wo_date,
+	a.remarks,
+	a.pr_path,
+	a_status.status_name ');
         $this->db->from('a_asset a');
+        $this->db->join('a_status', 'a.status = a_status.id', 'left');
         $this->db->where('a.isActive', 1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
@@ -90,7 +121,7 @@ class MAsset extends CI_Model
             $this->db->where("a.idCategory", $searchdata['category']);
         }
         if (isset($searchdata['sop']) && $searchdata['sop'] != '' && $searchdata['sop'] != null) {
-            $this->db->where("a.sop", $searchdata['sop']);
+            $this->db->where("a.idSourceOfPurchase", $searchdata['sop']);
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("a.location", $searchdata['location']);
@@ -101,27 +132,30 @@ class MAsset extends CI_Model
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
         }
-        if (isset($searchdata['ftag']) && $searchdata['ftag'] != '' && $searchdata['ftag'] != null) {
-            $this->db->where("(a.ftag like '%" . $searchdata['ftag'] . "%')");
-        }
         if (isset($searchdata['prno']) && $searchdata['prno'] != '' && $searchdata['prno'] != null) {
-            $this->db->where("(a.prno like '%" . $searchdata['prno'] . "%')");
+            $this->db->where("(a.pr_no like '%" . $searchdata['prno'] . "%')");
         }
         if (isset($searchdata['paedsid']) && $searchdata['paedsid'] != '' && $searchdata['paedsid'] != null) {
-            $this->db->where("(a.ftag like '%" . $searchdata['paedsid'] . "%')");
+            $this->db->where("(a.tag_no like '%" . $searchdata['paedsid'] . "%')");
         }
         if (isset($searchdata['writeOffNod']) && $searchdata['writeOffNod'] != '' && $searchdata['writeOffNod'] != null) {
             $this->db->where("(a.writeOffNod like '%" . $searchdata['writeOffNod'] . "%')");
         }
         if (isset($searchdata['dateTo']) && $searchdata['dateTo'] != '' && $searchdata['dateTo'] != null) {
-            $this->db->where("(a.dop >= '" . date('Y-m-d', strtotime($searchdata['dateTo'])) . "')");
+            $this->db->where("(a.pur_date >= '" . date('Y-m-d', strtotime($searchdata['dateTo'])) . "')");
         }
         if (isset($searchdata['dateFrom']) && $searchdata['dateFrom'] != '' && $searchdata['dateFrom'] != null) {
-            $this->db->where("(a.dop <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
+            $this->db->where("(a.pur_date <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
+        }
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+            $search = $searchdata['search'];
+            $this->db->where("(a.username like '%" . $search . "%' OR  a_status.status_name like '%" . $search . "%')");
         }
 
         $this->db->select('count(a.idAsset) as cnttotal');
         $this->db->from('a_asset a');
+        $this->db->join('a_status', 'a.status = a_status.id', 'left');
         $this->db->where('a.isActive', 1);
         $query = $this->db->get();
         return $query->result();
