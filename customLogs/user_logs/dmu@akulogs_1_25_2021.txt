@@ -1314,3 +1314,56 @@ Query:
 Result: View Asset Dashboard page. Fucntion: Assets/index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:29 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:30 pm
+idUser: 1, UserName: dmu@aku
+Action: Edit -> Function: Custom->Edit() 
+Query: UPDATE "a_asset" SET "status" = '9', "statusChangedBy" = 1, "statusDateTime" = '2021-01-25 17:30:24'
+WHERE "idAsset" = '4188'
+Result: 1
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:30 pm
+idUser: 1, UserName: dmu@aku
+Action: Status asset -> Function: changeStatus() 
+Query: 
+Result: 1
+PostData: status = 9
+statusChangedBy = 1
+statusDateTime = 2021-01-25 17:30:24
+
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:30 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:30 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:51 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-25-2021 5:54 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------

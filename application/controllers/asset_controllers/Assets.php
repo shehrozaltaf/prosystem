@@ -75,23 +75,23 @@ class Assets extends CI_controller
 
         foreach ($data as $key => $value) {
 
-            if ($value->status_name == 'WORKING') {
+            if ($value->status == 1) {
                 $statusClass = 'primary';
-            } elseif ($value->status_name = 'NOT WORKING') {
+            } elseif ($value->status = 2) {
                 $statusClass = 'warning';
-            } elseif ($value->status_name = 'RETIRED') {
+            } elseif ($value->status = 3) {
                 $statusClass = 'accent-2';
-            } elseif ($value->status_name = 'NOT AVAILABLE') {
+            } elseif ($value->status = 4) {
                 $statusClass = 'success';
-            } elseif ($value->status_name = 'STOLEN') {
+            } elseif ($value->status = 5) {
                 $statusClass = 'info';
-            } elseif ($value->status_name = 'SNATCHED') {
+            } elseif ($value->status = 6) {
                 $statusClass = 'mycolor1';
-            } elseif ($value->status_name = 'MISPLACED') {
+            } elseif ($value->status = 7) {
                 $statusClass = 'mycolor2';
-            } elseif ($value->status_name = 'DAMAGED') {
+            } elseif ($value->status = 8) {
                 $statusClass = 'mycolor3';
-            } elseif ($value->status_name = 'DISPOSED') {
+            } elseif ($value->status = 9) {
                 $statusClass = 'danger';
             } else {
                 $statusClass = '';
@@ -186,6 +186,30 @@ class Assets extends CI_controller
             $this->load->view('page-invalid-id');
         }
 
+    }
+
+    function changeStatus()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idAsset']) && $_POST['idAsset'] != '' && isset($_POST['status']) && $_POST['status'] != '') {
+            $id = $_POST['idAsset'];
+            $editArr['status'] = $_POST['status'];
+            $editArr['statusChangedBy'] = $_SESSION['login']['idUser'];
+            $editArr['statusDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'idAsset', $id, 'a_asset');
+            $trackarray = array("action" => "Status asset -> Function: changeStatus() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
     }
 
     function deleteAsset()

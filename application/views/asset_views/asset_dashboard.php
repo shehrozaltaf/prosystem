@@ -113,7 +113,8 @@
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="sublocation">Sub Location</label>
-                                                <select class="select2 form-control" id="sublocation" name="sublocation">
+                                                <select class="select2 form-control" id="sublocation"
+                                                        name="sublocation">
                                                     <option value="0">All Sub Locations</option>
                                                     <?php
                                                     if (isset($location_sub) && $location_sub != '') {
@@ -162,7 +163,8 @@
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="writeOffNod">Write Off Nod</label>
-                                                <input type="text" class="form-control" id="writeOffNod" name="writeOffNod">
+                                                <input type="text" class="form-control" id="writeOffNod"
+                                                       name="writeOffNod">
                                             </div>
                                         </div>
 
@@ -341,23 +343,23 @@
                     <input type="hidden" id="status_idAsset" name="status_idAsset">
                 </div>
                 <div class="modal-body">
-                   <div class="row">
-                       <div class="col-sm-12 col-12">
-                           <div class="form-group">
-                               <label for="change_status" class="label-control">Select Status</label>
-                               <select class="select2 form-control"
-                                       autocomplete="change_status"
-                                       id="change_status" required>
-                                   <option value="0" readonly disabled selected></option>
-                                   <?php if (isset($status) && $status != '') {
-                                       foreach ($status as $k => $s) {
-                                           echo '<option value="' . $s->id . '">' . $s->status_name . '</option>';
-                                       }
-                                   } ?>
-                               </select>
-                           </div>
-                       </div>
-                   </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="change_status" class="label-control">Select Status</label>
+                                <select class="select2 form-control"
+                                        autocomplete="change_status"
+                                        id="change_status" required>
+                                    <option value="0" readonly disabled selected></option>
+                                    <?php if (isset($status) && $status != '') {
+                                        foreach ($status as $k => $s) {
+                                            echo '<option value="' . $s->id . '">' . $s->status_name . '</option>';
+                                        }
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
@@ -545,6 +547,32 @@
         $('#statusModal').modal('show');
     }
 
+    function saveStatusChange() {
+        var data = {};
+        data['idAsset'] = $('#status_idAsset').val();
+        data['status'] = $('#change_status').val();
+        if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
+            toastMsg('Asset', 'Invalid Id Asset', 'error');
+            return false;
+        } else if (data['status'] == '' || data['status'] == undefined || data['status'] == 0) {
+            toastMsg('Status', 'Invalid Status', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', data, 'POST', function (res) {
+                if (res == 1) {
+                    toastMsg('asset', 'Successfully Changes', 'success');
+                    $('#deleteModal').modal('hide');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (res == 3) {
+                    toastMsg('asset', 'Invalid Asset Id', 'error');
+                } else {
+                    toastMsg('asset', 'Something went wrong', 'error');
+                }
+            });
+        }
+    }
 
     function getDelete(obj) {
         var id = $(obj).attr('data-id');
