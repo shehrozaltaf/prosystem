@@ -77,22 +77,22 @@ class Assets extends CI_controller
 
             if ($value->status == 1) {
                 $statusClass = 'primary';
-            } elseif ($value->status = 2) {
-                $statusClass = 'warning';
-            } elseif ($value->status = 3) {
-                $statusClass = 'accent-2';
-            } elseif ($value->status = 4) {
-                $statusClass = 'success';
-            } elseif ($value->status = 5) {
-                $statusClass = 'info';
-            } elseif ($value->status = 6) {
-                $statusClass = 'mycolor1';
-            } elseif ($value->status = 7) {
-                $statusClass = 'mycolor2';
-            } elseif ($value->status = 8) {
-                $statusClass = 'mycolor3';
-            } elseif ($value->status = 9) {
+            } elseif ($value->status == 2) {
                 $statusClass = 'danger';
+            } elseif ($value->status == 3) {
+                $statusClass = 'accent-2';
+            } elseif ($value->status == 4) {
+                $statusClass = 'success';
+            } elseif ($value->status == 5) {
+                $statusClass = 'info';
+            } elseif ($value->status == 6) {
+                $statusClass = 'mycolor1';
+            } elseif ($value->status == 7) {
+                $statusClass = 'mycolor2';
+            } elseif ($value->status == 8) {
+                $statusClass = 'mycolor3';
+            } elseif ($value->status == 9) {
+                $statusClass = 'warning';
             } else {
                 $statusClass = '';
             }
