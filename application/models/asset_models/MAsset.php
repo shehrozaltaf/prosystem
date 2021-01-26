@@ -163,13 +163,26 @@ class MAsset extends CI_Model
 
     function getAssetById($searchdata)
     {
-        $id = '';
-        if (isset($searchdata['id']) && $searchdata['id'] != '' && $searchdata['id'] != null) {
-            $id = $searchdata['id'];
+        $idAsset = '';
+        if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
+            $idAsset = $searchdata['idAsset'];
         }
         $this->db->select('*');
-        $this->db->from('i_paedsasset');
-        $this->db->where('id', $id);
+        $this->db->from('a_asset');
+        $this->db->where('idAsset', $idAsset);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getAssetDocsByIdAsset($searchdata)
+    {
+        $idAsset = '';
+        if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
+            $idAsset = $searchdata['idAsset'];
+        }
+        $this->db->select('*');
+        $this->db->from('a_asset_docs');
+        $this->db->where('idAsset', $idAsset);
         $query = $this->db->get();
         return $query->result();
     }
@@ -207,7 +220,6 @@ users_dash.username');
         $query = $this->db->get();
         return $query->result();
     }
-
 
 
 }

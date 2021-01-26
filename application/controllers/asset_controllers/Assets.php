@@ -110,7 +110,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
 
             $table_data[$value->idAsset]['Action'] = '
-                <a href="' . base_url('index.php/asset_controllers/asset/auditTrial?i=' . $value->idAsset) . '"  target="_blank" title="Audit Trial" data-id="' . $value->idAsset . '">
+                <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
                 </a> 
                 <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
@@ -147,45 +147,6 @@ class Assets extends CI_controller
         $result["data"] = $result_table_data;
 
         echo json_encode($result, true);
-    }
-
-    function auditTrial()
-    {
-        if (isset($_GET['i']) && $_GET['i'] != '') {
-            $data = array();
-            /*==========Log=============*/
-            $Custom = new Custom();
-            $trackarray = array("action" => "View LineListing Dashboard",
-                "result" => "View LineListing Dashboard page. Fucntion: dashboard/index()");
-//        $Custom->trackLogs($trackarray, "user_logs");
-            /*==========Log=============*/
-            $MSettings = new MSettings();
-            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/asset/auditTrial', 0);
-
-            $searchData = array();
-            $searchData['id'] = $_GET['i'];
-
-            $M = new MAsset();
-            $data['asset_data'] = $M->getassetById($searchData);
-            $asset_audit = $M->getAuditTrialById($searchData);
-            $audit = array();
-            foreach ($asset_audit as $k => $a) {
-                $audit[$a->FormName][] = $a;
-            }
-
-
-            $data['asset_audit'] = $audit;
-            $data['all_asset_audit'] = $asset_audit;
-            $this->load->view('include/header');
-            $this->load->view('include/top_header');
-            $this->load->view('include/sidebar');
-            $this->load->view('asset_views/audit_trial', $data);
-            $this->load->view('include/customizer');
-            $this->load->view('include/footer');
-        } else {
-            $this->load->view('page-invalid-id');
-        }
-
     }
 
     function changeStatus()
@@ -234,6 +195,44 @@ class Assets extends CI_controller
             $result = 3;
         }
         echo $result;
+    }
+
+    function assetDetail()
+    {
+        if (isset($_GET['a']) && $_GET['a'] != '') {
+            $data = array();
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View Asset Detail",
+                "result" => "View Asset Detail page. Fucntion: Assets/assetDetail()");
+//        $Custom->trackLogs($trackarray, "user_logs");
+            /*==========Log=============*/
+            $MSettings = new MSettings();
+            $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/Assets/assetDetail', 0);
+
+            $searchData = array();
+            $searchData['idAsset'] = $_GET['a'];
+
+            $M = new MAsset();
+            $data['asset_data'] = $M->getAssetById($searchData);
+            $data['asset_data_docs'] = $M->getAssetDocsByIdAsset($searchData);
+            /*$audit = array();
+            $asset_audit = $M->getAuditTrialById($searchData);
+            foreach ($asset_audit as $k => $a) {
+                $audit[$a->FormName][] = $a;
+            }
+            $data['asset_audit'] = $audit;
+            $data['all_asset_audit'] = $asset_audit;*/
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('asset_views/asset_detail', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-invalid-id');
+        }
+
     }
 }
 
