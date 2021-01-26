@@ -9,7 +9,7 @@
     <meta name="author" content="Javed Ahmed Khan & Shahroz Khan">
     <title><?php echo PROJECT_NAME ?></title>
     <link rel="apple-touch-icon" href="<?php echo base_url() ?>assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>assets/images/ico/favicon.ico">
+<!--    <link rel="shortcut icon" type="image/x-icon" href="--><?php //echo base_url() ?><!--assets/images/ico/favicon.ico">-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
 
