@@ -259,69 +259,6 @@
                 </div>
             </section>
 
-            <section class="page-users-view asset-docs">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title mb-2">Asset Documents</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <?php
-                            if (isset($asset_data_docs) && $asset_data_docs != '') {
-                                foreach ($asset_data_docs as $docs) {
-                                    $fileName = $docs->docName;
-                                    $file = base_url() . $docs->docPath;
-                                    $ext = pathinfo($file, PATHINFO_EXTENSION);
-                                    if ($ext == 'doc') {
-                                        $type = 'application/msword';
-                                    } elseif ($ext == 'docx') {
-                                        $type = 'application/msword';
-//                                               $type='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-                                    } elseif ($ext == 'csv') {
-                                        $type = 'text/csv';
-                                    } elseif ($ext == 'xls') {
-                                        $type = 'application/vnd.ms-excel';
-                                    } elseif ($ext == 'xlsx') {
-                                        $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-                                    } elseif ($ext == 'gif') {
-                                        $type = 'image/gif';
-                                    } elseif ($ext == 'html' || $ext == 'htm') {
-                                        $type = 'text/html';
-                                    } elseif ($ext == 'jpeg' || $ext == 'jpg') {
-                                        $type = 'image/jpeg';
-                                    } elseif ($ext == 'png') {
-                                        $type = 'image/png';
-                                    } elseif ($ext == 'pdf') {
-                                        $type = 'application/pdf';
-                                    } elseif ($ext == 'mp3') {
-                                        $type = 'audio/mpeg';
-                                    } elseif ($ext == 'mpeg') {
-                                        $type = 'video/mpeg';
-                                    } elseif ($ext == 'zip') {
-                                        $type = 'application/zip';
-                                    } else {
-                                        $type = 'text/plain';
-                                    }
-                                    echo '<div class="col-4 col-sm-4 mb-3">
-                                                <a class=" "
-                                                   href="' . $file . '"
-                                                   target="_blank">
-                                                    <embed width="100%" height="100%" name="plugin"
-                                                           src="' . $file . '"
-                                                            type="' . $type . '" > 
-                                                           <p class="  text-danger text-center">' . $fileName . '</p> 
-                                                </a>
-                                                 
-                                            </div>';
-                                }
-                            }
-                            ?>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
 
             <!-- invoice functionality start -->
             <section class="invoice-print mb-1">
@@ -521,7 +458,8 @@
                                                 <td width="5%"><font face="verdana" size="1.5pt">Last Verif
                                                         Dt:</font></td>
                                                 <td colspan="3"><font face="verdana"
-                                                                      size="1.5pt"><?php echo(isset($asset->last_verify_date) && $asset->last_verify_date != '' ? date('d/m/Y',strtotime($asset->last_verify_date)) : '') ?></font></td>
+                                                                      size="1.5pt"><?php echo(isset($asset->last_verify_date) && $asset->last_verify_date != '' ? date('d/m/Y', strtotime($asset->last_verify_date)) : '') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Verif
@@ -535,19 +473,22 @@
                                                                      size="1.5pt">Status:</font>
                                                 </td>
                                                 <td colspan="3"><font face="verdana"
-                                                                      size="1.5pt"><?php echo(isset($asset->status_name) && $asset->status_name != '' ? $asset->status_name : '') ?></font></td>
+                                                                      size="1.5pt"><?php echo(isset($asset->status_name) && $asset->status_name != '' ? $asset->status_name : '') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Writ Off
                                                         Frm
                                                         #:</font></td>
-                                                <td colspan="3"><font face="verdana" size="1.5pt"><?php echo(isset($asset->writOff_formNo) && $asset->writOff_formNo != '' ? $asset->writOff_formNo : '') ?></font>
+                                                <td colspan="3"><font face="verdana"
+                                                                      size="1.5pt"><?php echo(isset($asset->writOff_formNo) && $asset->writOff_formNo != '' ? $asset->writOff_formNo : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Writ Off
                                                         Dt:</font></td>
-                                                <td colspan="3"><font face="verdana" size="1.5pt"><?php echo(isset($asset->wo_date) && $asset->wo_date != '' ? date('d/m/Y',strtotime($asset->wo_date)) : '') ?></font>
+                                                <td colspan="3"><font face="verdana"
+                                                                      size="1.5pt"><?php echo(isset($asset->wo_date) && $asset->wo_date != '' ? date('d/m/Y', strtotime($asset->wo_date)) : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -574,8 +515,12 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt"><?php echo(isset($_SESSION['login']['full_name']) && $_SESSION['login']['full_name']!= '' ? $_SESSION['login']['full_name'] : '') ?></font></td>
-                                                            <td><font face="verdana" size="1.5pt"><?php echo date('d/m/Y') ?></font></td>
+                                                            <td><font face="verdana"
+                                                                      size="1.5pt"><?php echo(isset($_SESSION['login']['full_name']) && $_SESSION['login']['full_name'] != '' ? $_SESSION['login']['full_name'] : '') ?></font>
+                                                            </td>
+                                                            <td><font face="verdana"
+                                                                      size="1.5pt"><?php echo date('d/m/Y') ?></font>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2">&nbsp;</td>
@@ -608,7 +553,9 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt">&nbsp;&nbsp;<?php echo(isset($asset->empname) && $asset->empname != '' ? $asset->empname : '') ?></font></td>
+                                                            <td><font face="verdana"
+                                                                      size="1.5pt">&nbsp;&nbsp;<?php echo(isset($asset->empname) && $asset->empname != '' ? $asset->empname : '') ?></font>
+                                                            </td>
                                                             <td><font face="verdana"
                                                                       size="1.5pt">&nbsp;&nbsp;<?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no : '') ?></font>
                                                             </td>
@@ -645,6 +592,73 @@
                 </div>
             </section>
             <!-- invoice page end -->
+
+
+            <section class="page-users-view asset-docs">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title mb-2">Asset Documents</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <?php
+                            if (isset($asset_data_docs) && $asset_data_docs != '') {
+                                foreach ($asset_data_docs as $docs) {
+                                    $fileName = $docs->docName;
+                                    $file = base_url() . $docs->docPath;
+                                    $ext = pathinfo($file, PATHINFO_EXTENSION);
+                                    if ($ext == 'doc') {
+                                        $type = 'application/msword';
+                                    } elseif ($ext == 'docx') {
+                                        $type = 'application/msword';
+//                                               $type='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                                    } elseif ($ext == 'csv') {
+                                        $type = 'text/csv';
+                                    } elseif ($ext == 'xls') {
+                                        $type = 'application/vnd.ms-excel';
+                                    } elseif ($ext == 'xlsx') {
+                                        $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                                    } elseif ($ext == 'gif') {
+                                        $type = 'image/gif';
+                                    } elseif ($ext == 'html' || $ext == 'htm') {
+                                        $type = 'text/html';
+                                    } elseif ($ext == 'jpeg' || $ext == 'jpg') {
+                                        $type = 'image/jpeg';
+                                    } elseif ($ext == 'png') {
+                                        $type = 'image/png';
+                                    } elseif ($ext == 'pdf') {
+                                        $type = 'application/pdf';
+                                    } elseif ($ext == 'mp3') {
+                                        $type = 'audio/mpeg';
+                                    } elseif ($ext == 'mpeg') {
+                                        $type = 'video/mpeg';
+                                    } elseif ($ext == 'zip') {
+                                        $type = 'application/zip';
+                                    } else {
+                                        $type = 'text/plain';
+                                    }
+                                    echo '<div class="col-4 col-sm-4 mb-3">
+                                                <a class=" "
+                                                   href="' . $file . '"
+                                                   target="_blank">
+                                                    <embed width="100%" height="100%" name="plugin"
+                                                           src="' . $file . '"
+                                                            type="' . $type . '" > 
+                                                           <p class="  text-danger text-center">' . $fileName . '</p> 
+                                                </a>
+                                                 
+                                            </div>';
+                                }
+                            } else {
+                                echo '<p>No record found</p>';
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             <section class="page-users-view-auditTrail">
                 <div class="col-md-12 col-12 ">

@@ -779,9 +779,9 @@
                 });
 
                 dzClosure.on('complete', function (result) {
-                    toastMsg(response[0], response[1], 'success');
-                    $('.res_heading').html(response[0]).css('color', 'green');
-                    $('.res_msg').html(response[1]).css('color', 'green');
+                    toastMsg('success', 'Successfully Inserted', 'success');
+                    $('.res_heading').html('success').css('color', 'green');
+                    $('.res_msg').html('Image Successfully Inserted').css('color', 'green');
 
                     console.log(result);
                     console.log('completed');

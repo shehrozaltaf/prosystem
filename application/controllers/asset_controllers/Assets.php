@@ -70,7 +70,6 @@ class Assets extends CI_controller
         $data = $M->getAsset($searchData);
         $table_data = array();
         $result_table_data = array();
-        $colors = array('primary', 'warning', 'danger', 'success', 'info', 'mycolor1', 'mycolor2', 'mycolor3');
 
         foreach ($data as $key => $value) {
 
@@ -79,7 +78,7 @@ class Assets extends CI_controller
             } elseif ($value->status == 2) {
                 $statusClass = 'danger';
             } elseif ($value->status == 3) {
-                $statusClass = 'accent-2';
+                $statusClass = 'warning';
             } elseif ($value->status == 4) {
                 $statusClass = 'success';
             } elseif ($value->status == 5) {
