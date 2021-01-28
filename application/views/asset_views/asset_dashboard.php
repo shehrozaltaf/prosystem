@@ -72,7 +72,7 @@
                                                     <?php
                                                     if (isset($category) && $category != '') {
                                                         foreach ($category as $k => $c) {
-                                                            echo '<option value="' . $c->id . '">' . $c->category . '</option>';
+                                                            echo '<option value="' . $c->idCategory . '">' . $c->category . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -144,27 +144,21 @@
 
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="ftag">FTAG</label>
-                                                <input type="text" class="form-control" id="ftag" name="ftag">
+                                                <label for="tag_pr">TAG / PR No</label>
+                                                <input type="text" class="form-control" id="tag_pr" name="tag_pr">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="prno">PR No</label>
-                                                <input type="text" class="form-control" id="prno" name="prno">
+                                                <label for="idAsset">Paeds ID Asset</label>
+                                                <input type="text" class="form-control" id="idAsset" name="idAsset">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="paedsid">Paeds ID</label>
-                                                <input type="text" class="form-control" id="paedsid" name="paedsid">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 col-12">
-                                            <div class="form-group">
-                                                <label for="writeOffNod">Write Off Nod</label>
-                                                <input type="text" class="form-control" id="writeOffNod"
-                                                       name="writeOffNod">
+                                                <label for="writeOffNo">Write Off No</label>
+                                                <input type="text" class="form-control" id="writeOffNo"
+                                                       name="writeOffNo">
                                             </div>
                                         </div>
 
@@ -440,10 +434,9 @@
         data['location'] = $('#location').val();
         data['sublocation'] = $('#sublocation').val();
         data['status'] = $('#status').val();
-        data['ftag'] = $('#ftag').val();
-        data['prno'] = $('#prno').val();
-        data['paedsid'] = $('#paedsid').val();
-        data['writeOffNod'] = $('#writeOffNod').val();
+        data['tag_pr'] = $('#tag_pr').val();
+        data['idAsset'] = $('#idAsset').val();
+        data['writeOffNo'] = $('#writeOffNo').val();
         data['dateTo'] = $('#dateTo').val();
         data['dateFrom'] = $('#dateFrom').val();
 

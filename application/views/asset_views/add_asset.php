@@ -108,7 +108,7 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="pr_reqId"
                                                        name="pr_reqId"
-                                                       autocomplete="pr_reqId" value="PR123">
+                                                       autocomplete="pr_reqId">
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="model"
-                                                       name="model" value="M123"
+                                                       name="model"
                                                        autocomplete="model">
                                             </div>
                                         </div>
@@ -164,7 +164,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="product_no" value="P123"
+                                                       id="product_no"
                                                        name="product_no"
                                                        autocomplete="product_no">
                                             </div>
@@ -179,7 +179,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="serial_no" value="S123"
+                                                       id="serial_no"
                                                        name="serial_no"
                                                        autocomplete="serial_no">
                                             </div>
@@ -194,7 +194,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="tag_no" value="Tag123"
+                                                       id="tag_no"
                                                        name="tag_no"
                                                        autocomplete="tag_no" required>
                                                 <small><input type="checkbox" value="1" id="paeds_tagID"
@@ -219,7 +219,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="po_no"
-                                                       name="po_no" value="PO123"
+                                                       name="po_no"
                                                        autocomplete="po_no" required>
                                             </div>
                                         </div>
@@ -232,7 +232,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="cost"
-                                                       name="cost" value="123"
+                                                       name="cost"
                                                        autocomplete="cost" required>
                                             </div>
                                         </div>
@@ -604,7 +604,7 @@
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($status) && $status != '') {
                                                         foreach ($status as $k => $s) {
-                                                            echo '<option value="' . $s->status_value . '" ' . ($s->status_value == 'OK' ? 'selected' : '') . '>' . $s->status_name . '</option>';
+                                                            echo '<option value="' . $s->id . '" ' . ($s->status_value == 'OK' ? 'selected' : '') . '>' . $s->status_name . '</option>';
                                                         }
                                                     } ?>
                                                 </select>

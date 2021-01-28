@@ -55,10 +55,9 @@ class Assets extends CI_controller
         $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
         $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
-        $searchData['ftag'] = (isset($_REQUEST['ftag']) && $_REQUEST['ftag'] != '' && $_REQUEST['ftag'] != '0' ? $_REQUEST['ftag'] : 0);
-        $searchData['prno'] = (isset($_REQUEST['prno']) && $_REQUEST['prno'] != '' && $_REQUEST['prno'] != '0' ? $_REQUEST['prno'] : 0);
-        $searchData['paedsid'] = (isset($_REQUEST['paedsid']) && $_REQUEST['paedsid'] != '' && $_REQUEST['paedsid'] != '0' ? $_REQUEST['paedsid'] : 0);
-        $searchData['writeOffNod'] = (isset($_REQUEST['writeOffNod']) && $_REQUEST['writeOffNod'] != '' && $_REQUEST['writeOffNod'] != '0' ? $_REQUEST['writeOffNod'] : 0);
+        $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);
+        $searchData['idAsset'] = (isset($_REQUEST['idAsset']) && $_REQUEST['idAsset'] != '' && $_REQUEST['idAsset'] != '0' ? $_REQUEST['idAsset'] : 0);
+        $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
         $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
         $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
 
@@ -98,13 +97,13 @@ class Assets extends CI_controller
             }
 
             $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
-            $table_data[$value->idAsset]['category'] = $value->idCategory;
-            $table_data[$value->idAsset]['desc'] = $value->desc;
+            $table_data[$value->idAsset]['category'] = $value->category;
+            $table_data[$value->idAsset]['desc'] = $value->description;
             $table_data[$value->idAsset]['tag'] = $value->tag_no;
-            $table_data[$value->idAsset]['emp'] = $value->emp_no;
-            $table_data[$value->idAsset]['proj'] = $value->proj_code;
-            $table_data[$value->idAsset]['loc'] = $value->idLocation;
-            $table_data[$value->idAsset]['sub_loc'] = $value->idSubLocation;
+            $table_data[$value->idAsset]['emp'] = $value->emp_no .' - '.$value->empname;
+            $table_data[$value->idAsset]['proj'] = $value->proj_code. ' - '.$value->proj_name;
+            $table_data[$value->idAsset]['loc'] = $value->location;
+            $table_data[$value->idAsset]['sub_loc'] = $value->location_sub;
             $table_data[$value->idAsset]['status'] = '<span class="label btn btn-sm btn-' . $statusClass . ' waves-effect waves-light" 
              onclick="changeStatus(this)" data-id="' . $value->idAsset . '" data-status="' . $value->status . '">' . $value->status_name . '</span>';
             $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
@@ -134,10 +133,9 @@ class Assets extends CI_controller
         $totalsearchData['idLocation'] = $searchData['idLocation'];
         $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
         $totalsearchData['status'] = $searchData['status'];
-        $totalsearchData['ftag'] = $searchData['ftag'];
-        $totalsearchData['prno'] = $searchData['prno'];
-        $totalsearchData['paedsid'] = $searchData['paedsid'];
-        $totalsearchData['writeOffNod'] = $searchData['writeOffNod'];
+        $totalsearchData['tag_pr'] = $searchData['tag_pr'];
+        $totalsearchData['idAsset'] = $searchData['idAsset'];
+        $totalsearchData['writeOffNo'] = $searchData['writeOffNo'];
         $totalsearchData['dateTo'] = $searchData['dateTo'];
         $totalsearchData['dateFrom'] = $searchData['dateFrom'];
         $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');

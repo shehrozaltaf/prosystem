@@ -49,13 +49,13 @@
                                     <tr>
                                         <td class="font-weight-bold">Category</td>
                                         <td>
-                                            <?php echo(isset($asset->idCategory) && $asset->idCategory != '' ? $asset->idCategory : '') ?>
+                                            <?php echo(isset($asset->category) && $asset->category != '' ? $asset->category : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Desc</td>
                                         <td>
-                                            <?php echo(isset($asset->desc) && $asset->desc != '' ? $asset->desc : '') ?>
+                                            <?php echo(isset($asset->description) && $asset->description != '' ? $asset->description : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -97,21 +97,21 @@
                                     <tr>
                                         <td class="font-weight-bold">Currency</td>
                                         <td>
-                                            <?php echo(isset($asset->idCurrency) && $asset->idCurrency != '' ? $asset->idCurrency : '') ?>
+                                            <?php echo(isset($asset->currency) && $asset->currency != '' ? $asset->currency : '') ?>
                                         </td>
                                     </tr>
-
+                                    <tr>
+                                        <td class="font-weight-bold">Source Of Purchase</td>
+                                        <td>
+                                            <?php echo(isset($asset->sopName) && $asset->sopName != '' ? $asset->sopName : '') ?>
+                                        </td>
+                                    </tr>
 
                                 </table>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                 <table class="table table-borderless table-hover table-responsive">
-                                    <tr>
-                                        <td class="font-weight-bold">Source Of Purchase</td>
-                                        <td>
-                                            <?php echo(isset($asset->idSourceOfPurchase) && $asset->idSourceOfPurchase != '' ? $asset->idSourceOfPurchase : '') ?>
-                                        </td>
-                                    </tr>
+
                                     <tr>
                                         <td class="font-weight-bold">PR No</td>
                                         <td>
@@ -121,7 +121,7 @@
                                     <tr>
                                         <td class="font-weight-bold">Employee</td>
                                         <td>
-                                            <?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no : '') ?>
+                                            <?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no . ' - ' . $asset->empname : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -133,7 +133,7 @@
                                     <tr>
                                         <td class="font-weight-bold">Proj Code</td>
                                         <td>
-                                            <?php echo(isset($asset->proj_code) && $asset->proj_code != '' ? $asset->proj_code : '') ?>
+                                            <?php echo(isset($asset->proj_code) && $asset->proj_code != '' ? $asset->proj_code . ' - ' . $asset->proj_name : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,19 +163,26 @@
                                     <tr>
                                         <td class="font-weight-bold">Location</td>
                                         <td>
-                                            <?php echo(isset($asset->idLocation) && $asset->idLocation != '' ? $asset->idLocation : '') ?>
+                                            <?php echo(isset($asset->location) && $asset->location != '' ? $asset->location : '') ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Sub Location</td>
+                                        <td>
+                                            <?php echo(isset($asset->location_sub) && $asset->location_sub != '' ? $asset->location_sub : '') ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Area</td>
+                                        <td>
+                                            <?php echo(isset($asset->area) && $asset->area != '' ? $asset->area : '') ?>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                 <table class="table table-borderless table-hover table-responsive">
-                                    <tr>
-                                        <td class="font-weight-bold">Sub Location</td>
-                                        <td>
-                                            <?php echo(isset($asset->idSubLocation) && $asset->idSubLocation != '' ? $asset->idSubLocation : '') ?>
-                                        </td>
-                                    </tr>
+
                                     <tr>
                                         <td class="font-weight-bold">Verification Status</td>
                                         <td>
@@ -203,7 +210,7 @@
                                     <tr>
                                         <td class="font-weight-bold">Status</td>
                                         <td>
-                                            <?php echo(isset($asset->status) && $asset->status != '' ? $asset->status : '') ?>
+                                            <?php echo(isset($asset->status_name) && $asset->status_name != '' ? $asset->status_name : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -320,13 +327,13 @@
             <section class="invoice-print mb-1">
                 <div class="row">
                     <fieldset class="col-12 col-md-5 mb-1 mb-md-0">
-                        <div class="input-group">
+                        <!--<div class="input-group">
                             <input type="text" class="form-control" placeholder="Email"
                                    aria-describedby="button-addon2">
                             <div class="input-group-append" id="button-addon2">
                                 <button class="btn btn-outline-primary" type="button">Send Invoice</button>
                             </div>
-                        </div>
+                        </div>-->
                     </fieldset>
                     <div class="col-12 col-md-7 d-flex flex-column flex-md-row justify-content-end">
                         <button class="btn btn-primary btn-print mb-1 mb-md-0 myprintBtn"><i
@@ -375,7 +382,7 @@
                                                 <td colspan="3"><font face="verdana" size="2pt"><b>&nbsp;Asset Receiving
                                                             Document</b></font></td>
                                                 <td align="right"><font face="verdana" size="2pt"><b>Date:
-                                                            26/01/2021</b></font></td>
+                                                            <?php echo date('d/m/Y') ?></b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="center" colspan="4">
@@ -389,23 +396,26 @@
                                                 <td width="5%"><font face="verdana" size="2pt">PAEDS
                                                         ID:</font>
                                                 </td>
-                                                <td width="5%"><font face="verdana" size="2pt">00646</font>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="2pt"><?php echo(isset($asset->idAsset) && $asset->idAsset != '' ? $asset->idAsset : '') ?></font>
                                                 </td>
                                                 <td><font face="verdana" size="1.5pt">PO Number:</font>
                                                 </td>
-                                                <td><font face="verdana" size="1.5pt">94443</font></td>
+                                                <td><font face="verdana"
+                                                          size="1.5pt"><?php echo(isset($asset->po_no) && $asset->po_no != '' ? $asset->po_no : '') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana"
                                                                      size="1.5pt">Category:</font></td>
                                                 <td width="5%"><font face="verdana"
-                                                                     size="1.5pt">FREEZER</font>
+                                                                     size="1.5pt"><?php echo(isset($asset->category) && $asset->category != '' ? $asset->category : '') ?></font>
                                                 </td>
                                                 <td width="5%"><font face="verdana" size="1.5pt">PR
                                                         No:</font>
                                                 </td>
                                                 <td width="5%"><font face="verdana"
-                                                                     size="1.5pt">130810</font>
+                                                                     size="1.5pt"><?php echo(isset($asset->pr_no) && $asset->pr_no != '' ? $asset->pr_no : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -415,9 +425,9 @@
                                                     <table cellspacing="0" cellpadding="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt">ULTRA LOW FREEZER
-                                                                    88700V
-                                                                    FORMA 7000</font></td>
+                                                            <td><font face="verdana"
+                                                                      size="1.5pt"><?php echo(isset($asset->description) && $asset->description != '' ? $asset->description : '') ?></font>
+                                                            </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -426,7 +436,8 @@
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Model
                                                         No:</font></td>
-                                                <td width="5%"><font face="verdana" size="1.5pt">NA</font>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt"><?php echo(isset($asset->model) && $asset->model != '' ? $asset->model : 'NA') ?></font>
                                                 </td>
                                                 <td><font face="verdana" size="1.5pt">Entry Date:</font>
                                                 </td>
@@ -435,56 +446,63 @@
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Serial
                                                         No:</font></td>
-                                                <td width="5%"><font face="verdana" size="1.5pt">NA</font>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt"><?php echo(isset($asset->serial_no) && $asset->serial_no != '' ? $asset->serial_no : 'NA') ?></font>
                                                 </td>
                                                 <td><font face="verdana" size="1.5pt">Employee #:</font>
                                                 </td>
-                                                <td><font face="verdana" size="1.5pt">215499</font></td>
+                                                <td><font face="verdana"
+                                                          size="1.5pt"><?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no : 'NA') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Product
                                                         No:</font></td>
-                                                <td width="5%"><font face="verdana" size="1.5pt">NA</font>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt"><?php echo(isset($asset->product_no) && $asset->product_no != '' ? $asset->product_no : 'NA') ?></font>
                                                 </td>
                                                 <td><font face="verdana" size="1.5pt">Employee Name:</font>
                                                 </td>
-                                                <td><font face="verdana" size="1.5pt">KEHKASHAN BEGUM
-                                                        HUSSAIN</font></td>
+                                                <td><font face="verdana"
+                                                          size="1.5pt"><?php echo(isset($asset->empname) && $asset->empname != '' ? $asset->empname : 'NA') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Tag
                                                         No:</font>
                                                 </td>
                                                 <td width="5%"><font face="verdana"
-                                                                     size="1.5pt">C28416</font>
+                                                                     size="1.5pt"><?php echo(isset($asset->tag_no) && $asset->tag_no != '' ? $asset->tag_no : 'NA') ?></font>
                                                 </td>
                                                 <td><font face="verdana" size="1.5pt">Responsible Per
                                                         Name:</font></td>
-                                                <td><font face="verdana" size="1.5pt">KEHKASHAN BEGUM
-                                                        HUSSAIN</font></td>
+                                                <td><font face="verdana"
+                                                          size="1.5pt"><?php echo(isset($asset->empname) && $asset->empname != '' ? $asset->empname : 'NA') ?></font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><font face="verdana" size="1.5pt">Area:</font></td>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt"><?php echo(isset($asset->area) && $asset->area != '' ? $asset->area : '') ?></font>
+                                                </td>
+                                                <td><font face="verdana" size="1.5pt">Project:</font></td>
+                                                <td><font face="verdana"
+                                                          size="1.5pt"><?php echo(isset($asset->proj_name) && $asset->proj_name != '' ? $asset->proj_name : '') ?></font>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Sub
                                                         Location:</font></td>
-                                                <td width="5%"><font face="verdana" size="1.5pt">RESEARCH
-                                                        LAB</font></td>
-                                                <td><font face="verdana" size="1.5pt">Project:</font></td>
-                                                <td><font face="verdana" size="1.5pt">51323</font></td>
-                                            </tr>
-                                            <tr>
                                                 <td width="5%"><font face="verdana"
-                                                                     size="1.5pt">Location:</font></td>
-                                                <td width="5%"><font face="verdana" size="1.5pt">RESEARCH
-                                                        LAB</font></td>
+                                                                     size="1.5pt"><?php echo(isset($asset->location_sub) && $asset->location_sub != '' ? $asset->location_sub : '') ?></font>
+                                                </td>
                                                 <td><font face="verdana" size="1.5pt">Remarks:</font></td>
                                                 <td>
                                                     <table cellspacing="0" cellpadding="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt">GET SIGN AND FILE IN
-                                                                    SCAN
-                                                                    DATA.
-                                                                    GET VERIFICATION SINGED AND FILE IN FILE 2</font>
+                                                            <td><font face="verdana"
+                                                                      size="1.5pt"><?php echo(isset($asset->remarks) && $asset->remarks != '' ? $asset->remarks : '') ?></font>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -492,16 +510,24 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt">Location:</font></td>
+                                                <td width="5%"><font face="verdana"
+                                                                     size="1.5pt"><?php echo(isset($asset->location) && $asset->location != '' ? $asset->location : '') ?></font>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Last Verif
                                                         Dt:</font></td>
                                                 <td colspan="3"><font face="verdana"
-                                                                      size="1.5pt">24/07/2019</font></td>
+                                                                      size="1.5pt"><?php echo(isset($asset->last_verify_date) && $asset->last_verify_date != '' ? date('d/m/Y',strtotime($asset->last_verify_date)) : '') ?></font></td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Verif
                                                         Status:</font></td>
                                                 <td colspan="3"><font face="verdana"
-                                                                      size="1.5pt">YES</font>
+                                                                      size="1.5pt"><?php echo(isset($asset->verification_status) && $asset->verification_status != '' ? $asset->verification_status : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -509,19 +535,19 @@
                                                                      size="1.5pt">Status:</font>
                                                 </td>
                                                 <td colspan="3"><font face="verdana"
-                                                                      size="1.5pt">WORKING</font></td>
+                                                                      size="1.5pt"><?php echo(isset($asset->status_name) && $asset->status_name != '' ? $asset->status_name : '') ?></font></td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Writ Off
                                                         Frm
                                                         #:</font></td>
-                                                <td colspan="3"><font face="verdana" size="1.5pt"></font>
+                                                <td colspan="3"><font face="verdana" size="1.5pt"><?php echo(isset($asset->writOff_formNo) && $asset->writOff_formNo != '' ? $asset->writOff_formNo : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="5%"><font face="verdana" size="1.5pt">Writ Off
                                                         Dt:</font></td>
-                                                <td colspan="3"><font face="verdana" size="1.5pt"></font>
+                                                <td colspan="3"><font face="verdana" size="1.5pt"><?php echo(isset($asset->wo_date) && $asset->wo_date != '' ? date('d/m/Y',strtotime($asset->wo_date)) : '') ?></font>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -548,8 +574,8 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt">guest</font></td>
-                                                            <td><font face="verdana" size="1.5pt">26/01/2021</font></td>
+                                                            <td><font face="verdana" size="1.5pt"><?php echo(isset($_SESSION['login']['full_name']) && $_SESSION['login']['full_name']!= '' ? $_SESSION['login']['full_name'] : '') ?></font></td>
+                                                            <td><font face="verdana" size="1.5pt"><?php echo date('d/m/Y') ?></font></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2">&nbsp;</td>
@@ -582,10 +608,9 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><font face="verdana" size="1.5pt">&nbsp;&nbsp;KEHKASHAN
-                                                                    BEGUM HUSSAIN</font></td>
+                                                            <td><font face="verdana" size="1.5pt">&nbsp;&nbsp;<?php echo(isset($asset->empname) && $asset->empname != '' ? $asset->empname : '') ?></font></td>
                                                             <td><font face="verdana"
-                                                                      size="1.5pt">&nbsp;&nbsp;215499</font>
+                                                                      size="1.5pt">&nbsp;&nbsp;<?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no : '') ?></font>
                                                             </td>
                                                         </tr>
                                                         <tr>
