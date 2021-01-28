@@ -367,11 +367,12 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="proj">Project</label>
+                                                <label for="proj_code">Project <span
+                                                            class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="proj"
-                                                        name="proj" autocomplete="proj">
+                                                <select class="select2 form-control" id="proj_code"
+                                                        name="proj_code" autocomplete="proj_code" required>
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php
                                                     if (isset($project) && $project != '') {
@@ -439,27 +440,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label for="proj_code">Project <span
-                                                            class="requried_label">*</span></label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <select class="select2 form-control" id="proj_code"
-                                                        name="proj_code" autocomplete="proj_code" required>
-                                                    <option value="0" readonly disabled selected></option>
-                                                    <?php
-                                                    if (isset($project) && $project != '') {
-                                                        foreach ($project as $k => $v) {
-                                                            echo '<option value="' . $v->proj_code . '">(' . $v->proj_code . ') ' . $v->proj_sn . '</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
@@ -508,6 +489,18 @@
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label for="prog"
+                                                       class="label-control">Area <span class="requried_label">*</span></label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="area"
+                                                       name="area"
+                                                       autocomplete="area" required></div>
                                         </div>
                                     </div>
                                 </div>
@@ -766,7 +759,6 @@
                     form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
                     form_data.append('emp_no', $('#emp_no').val());
                     form_data.append('resp_person_name', $('#resp_person_name').val());
-                    form_data.append('proj', $('#proj').val());
                     form_data.append('ou', $('#ou').val());
                     form_data.append('account', $('#account').val());
                     form_data.append('dept', $('#dept').val());
@@ -775,6 +767,7 @@
                     form_data.append('prog', $('#prog').val());
                     form_data.append('idLocation', $('#idLocation').val());
                     form_data.append('idSubLocation', $('#idSubLocation').val());
+                    form_data.append('area', $('#area').val());
                     form_data.append('verification_status', $('#verification_status').val());
                     form_data.append('last_verify_date', $('#last_verify_date').val());
                     form_data.append('due_date', $('#due_date').val());
@@ -841,7 +834,6 @@
         form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
         form_data.append('emp_no', $('#emp_no').val());
         form_data.append('resp_person_name', $('#resp_person_name').val());
-        form_data.append('proj', $('#proj').val());
         form_data.append('ou', $('#ou').val());
         form_data.append('account', $('#account').val());
         form_data.append('dept', $('#dept').val());
@@ -850,6 +842,7 @@
         form_data.append('prog', $('#prog').val());
         form_data.append('idLocation', $('#idLocation').val());
         form_data.append('idSubLocation', $('#idSubLocation').val());
+        form_data.append('area', $('#area').val());
         form_data.append('verification_status', $('#verification_status').val());
         form_data.append('last_verify_date', $('#last_verify_date').val());
         form_data.append('due_date', $('#due_date').val());

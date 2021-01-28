@@ -1,0 +1,63 @@
+UserIPAddress: 10.1.42.84 - January-27-2021 11:23 am
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Query: 
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-27-2021 11:23 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-27-2021 11:36 am
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:58 pm
+idUser: 1, UserName: dmu@aku
+Action: Login Success
+Query: 
+Result: User dmu@aku: Login Success
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:58 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard
+Query: 
+Result: View Dashboard Main page. Fucntion: dashboard/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:59 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:59 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:59 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.81 - January-27-2021 4:59 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

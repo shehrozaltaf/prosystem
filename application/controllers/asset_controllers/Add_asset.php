@@ -129,7 +129,6 @@ class Add_asset extends CI_controller
             $insertArray['idSourceOfPurchase'] = $_POST['idSourceOfPurchase'];
             $insertArray['emp_no'] = $_POST['emp_no'];
             $insertArray['resp_person_name'] = $_POST['resp_person_name'];
-            $insertArray['proj'] = $_POST['proj'];
             $insertArray['ou'] = $_POST['ou'];
             $insertArray['account'] = $_POST['account'];
             $insertArray['dept'] = $_POST['dept'];
@@ -138,6 +137,7 @@ class Add_asset extends CI_controller
             $insertArray['prog'] = $_POST['prog'];
             $insertArray['idLocation'] = $_POST['idLocation'];
             $insertArray['idSubLocation'] = $_POST['idSubLocation'];
+            $insertArray['area'] = $_POST['area'];
             $insertArray['verification_status'] = $_POST['verification_status'];
             $insertArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
             $insertArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
@@ -149,6 +149,7 @@ class Add_asset extends CI_controller
             $insertArray['isActive'] = 1;
             $insertArray['createdBy'] = $_SESSION['login']['idUser'];
             $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
+            $insertArray['entry_date'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($insertArray, 'idAsset', 'a_asset', 'Y');
             if ($InsertData) {
 
