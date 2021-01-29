@@ -376,3 +376,31 @@ Query:
 Result: View Dashboard Users page. Fucntion: index()
 PostData: 
 -------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-28-2021 4:51 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-28-2021 4:54 pm
+idUser: 1, UserName: dmu@aku
+Action: View Add_asset
+Query: 
+Result: View Add_asset page. Fucntion: Add_asset/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-28-2021 4:56 pm
+idUser: 1, UserName: dmu@aku
+Action: View Asset Dashboard
+Query: 
+Result: View Asset Dashboard page. Fucntion: Assets/index()
+PostData: 
+-------------------------------------------------
+UserIPAddress: 10.1.42.84 - January-28-2021 5:38 pm
+idUser: 1, UserName: dmu@aku
+Action: View Dashboard Users Page
+Query: 
+Result: View Dashboard Users page. Fucntion: index()
+PostData: 
+-------------------------------------------------

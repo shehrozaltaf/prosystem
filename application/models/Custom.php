@@ -91,9 +91,9 @@ class Custom extends CI_Model
             "Result: " . $result . PHP_EOL .
             "PostData: " . $postData . PHP_EOL .
             "-------------------------------------------------" . PHP_EOL;
-        $txt = fopen($logFilePath, "a") or die("Unable to open file!");
+       /* $txt = fopen($logFilePath, "a") or die("Unable to open file!");
         fwrite($txt, $log);
-        fclose($txt);
+        fclose($txt);*/
     }
 
     function getGUID()

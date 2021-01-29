@@ -1,22 +1,3 @@
-<?php error_reporting(0) ?>
-<link rel="stylesheet" type="text/css"
-      href="<?php echo base_url() ?>assets/vendors/css/forms/wizard/bs-stepper.min.css">
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/forms/select/select2.min.css">-->
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/forms/wizard/bs-stepper.min.css">-->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-validation.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-wizard.min.css">
-<!-- BEGIN: Content-->
-
-<link rel="stylesheet" type="text/css"
-      href="<?php echo base_url() ?>assets/vendors/css/file-uploaders/dropzone.min.css">
-
-<link rel="stylesheet" type="text/css"
-      href="<?php echo base_url() ?>assets/css/plugins/forms/form-file-uploader.min.css">
-
-<script src="<?php echo base_url() ?>assets/vendors/js/extensions/dropzone.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/scripts/forms/form-file-uploader.min.js"></script>
-
-
 <style>
     .invalid-feedback {
         position: absolute;
@@ -29,2020 +10,54 @@
 </style>
 
 <!-- BEGIN: Page JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/vendors/js/vendors.min.js" type="text/javascript"></script>-->
 <script src="<?php echo base_url() ?>assets/js/scripts/modal/components-modal.js"></script>
+<!-- END: Page JS-->
+
+<!-- BEGIN: Theme JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app-menu.js"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app.js"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/components.js"></script>-->
+<!-- END: Theme JS-->
+
+
 <script src="<?php echo base_url() ?>assets/build/js/intlTelInput.js"></script>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/build/css/intlTelInput.css">
+
+
+<!-- BEGIN: Vendor JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/vendors/js/vendors.min.js" type="text/javascript"></script>-->
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/toggle/switchery.min.js"
         type="text/javascript"></script>
+<!-- BEGIN Vendor JS-->
+
 <script src="<?php echo base_url() ?>assets/js/scripts/jquery.maskedinput.js"></script>
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/jquery.min.js"></script>-->
 <script src="<?php echo base_url() ?>assets/js/scripts/jquery.inputmask.bundle.js"></script>
 
-
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="header-navbar-shadow"></div>
-    <div class="content-wrapper">
-        <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
-                <div class="row breadcrumbs-top">
-                    <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Employee Information</h2>
-                        <div class="breadcrumb-wrapper col-12">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a>
-                                </li>
-                                <li class="breadcrumb-item active"><a href="<?php echo base_url() ?>">Employee
-                                        Information</a>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content-body">
-            <section class="vertical-wizard">
-                <div class="bs-stepper vertical vertical-wizard-example">
-                    <div class="bs-stepper-header">
-                        <div class="step" data-target="#account-details-vertical">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">1</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Personal Information</span>
-                                    <span class="bs-stepper-subtitle">Add Personal Information</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="step" data-target="#personal-info-vertical">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">2</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Contact Details</span>
-                                    <span class="bs-stepper-subtitle">Add Contact Details</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="step" data-target="#address-step-vertical">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">3</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Emergency Contact</span>
-                                    <span class="bs-stepper-subtitle">Add Emergency Contact</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="step" data-target="#social-links-vertical">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">4</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Employment Details</span>
-                                    <span class="bs-stepper-subtitle">Add Employment Details</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="step" data-target="#hiring_status">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">5</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Status of Hiring Formalities</span>
-                                    <span class="bs-stepper-subtitle">Add Status of Hiring Formalities</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="step" data-target="#documents">
-                            <button type="button" class="step-trigger">
-                                <span class="bs-stepper-box">6</span>
-                                <span class="bs-stepper-label">
-                                    <span class="bs-stepper-title">Documents</span>
-                                    <span class="bs-stepper-subtitle">Add Documents</span>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="bs-stepper-content">
-                        <div id="account-details-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Personal Information</h5>
-                                <small class="text-muted">Enter Personal Information</small>
-                            </div>
-                            <form id="myForm">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_empno">Employee Number</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                    if (isset($editemp[0]->empno)) { ?>
-
-                                                        <input type="text" id="empno"
-                                                               disabled="disabled"
-                                                               class="form-control" maxlength="6"
-                                                               placeholder="Employee Number"
-                                                               name="empno"
-                                                               onkeypress="return numeralsOnly();"
-                                                               required
-                                                               value="<?php echo(isset($editemp[0]->empno) ? $editemp[0]->empno : '') ?>">
-
-                                                    <?php } else { ?>
-
-                                                        <input type="text" id="empno"
-                                                               class="form-control" maxlength="6"
-                                                               placeholder="Employee Number"
-                                                               name="empno"
-                                                               onkeypress="return numeralsOnly();"
-                                                               required value="">
-
-                                                    <?php }
-                                                } else { ?>
-
-                                                    <input type="text" id="empno"
-                                                           class="form-control" maxlength="6"
-                                                           placeholder="Employee Number"
-                                                           name="empno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           required value="">
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_offemail">Official Email<br/>(without aku.edu)</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="offemail"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Official Email" name="offemail"
-                                                           onkeypress="return ValidateEmail();"
-                                                           required
-                                                           value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="offemail"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Official Email" name="offemail"
-                                                           onkeypress="return ValidateEmail();"
-                                                           required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_empname">Full Name <br>(Use Capital Letters)</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="empname"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Full Name" name="empname"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           style="text-transform: uppercase;" required
-                                                           value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="empname"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Full Name" name="empname"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           style="text-transform: uppercase;" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_cnicno">CNIC Number</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="cnicno"
-                                                           class="form-control" placeholder="CNIC NO"
-                                                           name="cnicno" required
-                                                           value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="cnicno"
-                                                           class="form-control" placeholder="CNIC NO"
-                                                           name="cnicno" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_dob">Date of Birth</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="dob" required
-                                                           placeholder="Date of Birth"
-                                                           class="form-control pickadate-short-string"
-                                                           name="dob"
-                                                           value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="dob" required
-                                                           placeholder="Date of Birth"
-                                                           class="form-control pickadate-short-string"
-                                                           name="dob"
-                                                           value="">
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_degree">Highest Qualification <br/>Degree / Field</label>
-                                            </div>
-                                            <div class="col-sm-3 col-form-label">
-                                                <?php
-
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($degree) && $degree != '') {
-                                                    foreach ($degree as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->degree) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->degree;
-                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
-                                                        }
-                                                    }
-                                                }
-
-                                                $htmlQ .= '<select class="select2 form-control" id="degree"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="degree">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-
-
-                                                /******* qualification code below *********/
-
-                                                /*$html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($qualification) && $qualification != '') {
-                                                    foreach ($qualification as $v) {
-                                                        if (isset($editemp) && $v->id === $editemp[0]->qual) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->qualification;
-                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="qual"
-                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="qual">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;*/
-                                                ?>
-
-                                            </div>
-
-                                            <div id="divslash">
-                                                /
-                                            </div>
-
-                                            <div class="col-sm-3 col-form-label">
-                                                <?php
-
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-
-                                                if (isset($field) && $field != '') {
-                                                    foreach ($field as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->field) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->field;
-                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
-                                                        }
-                                                    }
-                                                }
-
-                                                $htmlQ .= '<select class="select2 form-control" id="field"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="field">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-
-                                                ?>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev " disabled>
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-
-                        </div>
-                        <div id="personal-info-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Contact Details</h5>
-                                <small>Enter Contact Details.</small>
-                            </div>
-                            <form>
-                                <div class="row">
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_resaddr">Residential Address</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="resaddr" class="form-control"
-                                                           placeholder="Residential Address"
-                                                           required
-                                                           name="resaddr" maxlength="200"
-                                                           value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="resaddr" class="form-control"
-                                                           placeholder="Residential Address"
-                                                           required
-                                                           name="resaddr" maxlength="200"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_peremail">Personal Email</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="peremail" class="form-control"
-                                                           placeholder="Personal Email"
-                                                           required
-                                                           name="peremail" maxlength="100"
-                                                           value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="peremail" class="form-control"
-                                                           placeholder="Personal Email"
-                                                           required
-                                                           name="peremail" maxlength="100"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_landline">Landline Number</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="">
-
-                                                <?php } ?>
-
-                                                <div>
-
-                                                    <?php if (isset($editemp)) {
-
-                                                        if ($editemp[0]->chk_landline == 1) { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           checked="checked"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php } else { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php }
-
-                                                    } else { ?>
-
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="chk_landline"
-                                                                       name="chk_landline"
-                                                                       type="checkbox"
-                                                                       class="custom-control-input"
-                                                                       data-oldval="0">
-                                                                <label class="custom-control-label"
-                                                                       for="chk_landline">Not
-                                                                    Available</label>
-                                                            </div>
-                                                        </fieldset>
-
-                                                    <?php } ?>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row" style="margin-top: -15px;">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_cellno1">Mobile Number (Primary)</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="">
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_cellno2">Mobile Number (Alternate)</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="address-step-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Emergency Contact</h5>
-                                <small>Enter Emergency Contact.</small>
-                            </div>
-                            <form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_personnme">Person Name</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_emcellno">Mobile Number</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="">
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_emlandno">Landline No.</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                                <div>
-
-                                                    <?php if (isset($editemp)) {
-
-                                                        if ($editemp[0]->chk_emlandno == 1) { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_emlandno"
-                                                                           name="chk_emlandno"
-                                                                           type="checkbox"
-                                                                           checked="checked"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_emlandno">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php } else { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_emlandno"
-                                                                           name="chk_emlandno"
-                                                                           type="checkbox"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_emlandno">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php }
-                                                    } else { ?>
-
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="chk_emlandno"
-                                                                       name="chk_emlandno"
-                                                                       type="checkbox"
-                                                                       class="custom-control-input"
-                                                                       data-oldval="0">
-                                                                <label class="custom-control-label"
-                                                                       for="chk_emlandno">Not
-                                                                    Available</label>
-                                                            </div>
-                                                        </fieldset>
-
-                                                    <?php } ?>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="social-links-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Employment Details</h5>
-                                <small>Enter Employment Details.</small>
-                            </div>
-                            <form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_ddlemptype">Employment Type</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($employeeType) && $employeeType != '') {
-                                                    foreach ($employeeType as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlemptype) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->emptype;
-                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" value="' . $v->id . '">' . $v->emptype . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="ddlemptype"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlemptype">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_ddlcategory">Job Title</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($category) && $category != '') {
-                                                    foreach ($category as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlcategory) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->category;
-                                                            $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->category . '" value="' . $v->id . '">' . $v->category . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="ddlcategory"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlcategory">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_gncno">GNC Number</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_ddlband">Band</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($band) && $band != '') {
-                                                    foreach ($band as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlband) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->band;
-                                                            $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->band . '" value="' . $v->id . '">' . $v->band . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="ddlband"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlband">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_titdesi">Title / Designation</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($designation) && $designation != '') {
-                                                    foreach ($designation as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->titdesi) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->desig;
-                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" value="' . $v->id . '">' . $v->desig . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="titdesi"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="titdesi">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_rehiredt">Hire / Rehire Date</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_conexpiry">Contract Expiry</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_workproj">Working Project</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($workproj) && $workproj != '') {
-                                                    foreach ($workproj as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->workproj) {
-                                                            $oldValQ = $v->proj_code;
-                                                            $oldLabelQ = $v->proj_name;
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="workproj"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="workproj">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_chargproj">Charging Project</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($chargproj) && $chargproj != '') {
-                                                    foreach ($chargproj as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->chargproj) {
-                                                            $oldValQ = $v->proj_code;
-                                                            $oldLabelQ = $v->proj_name;
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="chargproj"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="chargproj">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_ddlloc">Location</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($location) && $location != '') {
-                                                    foreach ($location as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlloc) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->location;
-                                                            $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->location . '" value="' . $v->id . '">' . $v->location . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="ddlloc"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlloc">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_supernme">Supervisor Name</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-
-                                                if (isset($supervisor) && $supervisor != '') {
-                                                    foreach ($supervisor as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->empno === $editemp[0]->supernme) {
-                                                            $oldValQ = $v->empno;
-                                                            $oldLabelQ = $v->empname;
-                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" value="' . $v->empno . '">' . $v->empname . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="supernme"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="supernme">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_hiresalary">Hiring Salary</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_ddlhardship">Hardship Allowance</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-
-                                                if (isset($yesno) && $yesno != '') {
-                                                    foreach ($yesno as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlhardship) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->yesno;
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="form-control" id="ddlhardship"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlhardship">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_amount">Amount</label>
-                                            </div>
-                                            <div class="col-sm-9">
-
-                                                <?php
-                                                if (isset($yesno) && $yesno != '') {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $editemp[0]->ddlhardship) {
-
-                                                        if ($editemp[0]->ddlhardship == 1) {
-                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
-                                                        } else {
-                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="" >');
-                                                        }
-
-                                                    } else {
-                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
-                                                    }
-
-                                                }
-
-                                                ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 col-form-label">
-                                                <label id="lbl_benefits">Benefits</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <?php
-
-
-                                                $html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-
-                                                if (isset($yesno) && $yesno != '') {
-                                                    foreach ($yesno as $v) {
-                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->benefits) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->yesno;
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="form-control" id="benefits"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="benefits">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;
-
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="hiring_status" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Status of Hiring Formalities</h5>
-                                <small>Status of Hiring Formalities.</small>
-                            </div>
-                            <div class="row">
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_peme">PEME</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->peme) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="peme"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="peme">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_gop">General Orientation Program</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->gop) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="gop"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="gop">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_gopdt">GOP Date</label>
-                                        </div>
-                                        <div class="col-sm-9">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                <input type="text" id="gopdt" required
-                                                       class="form-control" name="gopdt"
-                                                       placeholder="GOP Date"
-                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
-                                                >
-
-                                            <?php } else { ?>
-
-                                                <input type="text" id="gopdt" required
-                                                       class="form-control" name="gopdt"
-                                                       placeholder="GOP Date"
-                                                       value=""
-                                                >
-
-                                            <?php } ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_entity">Entity</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($entity) && $entity != '') {
-                                                foreach ($entity as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->entity) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->entity;
-                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" value="' . $v->id . '">' . $v->entity . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="select2 form-control" id="entity"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="entity">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_dept">Department</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($dept) && $dept != '') {
-                                                foreach ($dept as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->dept) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->dept;
-                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" value="' . $v->id . '">' . $v->dept . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="select2 form-control" id="dept"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="dept">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_cardissue">ID Card Issued</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->cardissue) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="cardissue"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="cardissue">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_letterapp">Letter of Appointment Received</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->letterapp) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="letterapp"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="letterapp">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_confirmation">Confirmation</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->confirmation) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="confirmation"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="confirmation">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_status">Status</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
-
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-
-                                            if (isset($status) && $status != '') {
-                                                foreach ($status as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->status) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->status;
-                                                        $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->status . '" value="' . $v->id . '">' . $v->status . '</option>';
-                                                    }
-                                                }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="status"
-                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="status">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
-
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_remarks">Remarks</label>
-                                        </div>
-                                        <div class="col-sm-9">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"
-                                                ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
-
-                                            <?php } else { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"></textarea>
-
-                                            <?php } ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<span>Replace Picture</span>';
-                                                } else {
-                                                    echo '<span>Upload Picture</span>';
-                                                }
-
-                                            } else {
-                                                echo '<span>Upload Picture</span>';
-                                            }
-
-                                            ?>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="custom-file-input" required
-                                                   id="pic" name="pic" accept="image/jpeg">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
-                                                } else {
-                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Picture</label>';
-                                                }
-
-                                            } else {
-                                                echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Picture</label>';
-                                            }
-
-                                            ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<span>Add Documents</span>';
-                                                } else {
-                                                    echo '<span>Upload Documents</span>';
-                                                }
-
-                                            } else {
-                                                echo '<span>Upload Documents</span>';
-                                            }
-
-                                            ?>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="custom-file-input" required
-                                                   id="doc" name="doc" accept="application/pdf">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->doc)) {
-                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
-
-                                                } else {
-                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose Documents</label>';
-                                                }
-
-                                            } else {
-                                                echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose Documents</label>';
-                                            }
-
-                                            ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-12 offset-md-12">
-
-                                    <?php
-
-                                    if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                        if (isset($editemp[0]->id)) {
-                                            $_SESSION['id'] = $editemp[0]->id;
-                                            ?>
-                                            <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
-                                                    type="button" class="btn btn-primary mr-1 mb-1"
-                                                    onclick="showSummary_SaveDraft();">Update Save Draft
-                                            </button>
-
-                                            <button id="cmdSummary" name="cmdSummary" type="button"
-                                                    onclick="showSummary();"
-                                                    class="btn btn-primary mr-1 mb-1">Update
-                                            </button>
-
-                                        <?php } else { ?>
-
-                                            <button id="cmdAddSaveDraft" type="button"
-                                                    class="btn btn-primary mr-1 mb-1"
-                                                    onclick="addData_SaveDraft();">Save Draft
-                                            </button>
-
-                                            <button id="cmdAddData" type="button" onclick="addData();"
-                                                    class="btn btn-primary mr-1 mb-1">Save
-                                            </button>
-
-                                        <?php }
-
-                                    } else { ?>
-
-                                        <button id="cmdAddSaveDraft" type="button"
-                                                class="btn btn-primary mr-1 mb-1"
-                                                onclick="addData_SaveDraft();">Save Draft
-                                        </button>
-
-                                        <button id="cmdAddData" type="button" onclick="addData();"
-                                                class="btn btn-primary mr-1 mb-1">Save
-                                        </button>
-
-                                    <?php } ?>
-
-                                    <button id="cmdCancel" name="cmdCancel" type="button"
-                                            class="btn btn-outline-warning mr-1 mb-1">Cancel
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="documents" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Documents</h5>
-                                <small>Upload Documents.</small>
-                            </div>
-                            <!-- remove thumbnail file upload starts -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Images</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <form action="#" class="dropzone dropzone-area" id="dpz-remove-thumbs">
-                                                <div class="fallback">
-                                                    <input type="file" id="files" name="files[]" multiple/>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- remove thumbnail file upload ends -->
-
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-success btn-submit mybtn" id="btn-submit">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /Vertical Wizard -->
-        </div>
-    </div>
-</div>
-<!-- END: Content-->
-<script src="<?php echo base_url() ?>assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
-<script src="<?php echo base_url() ?>assets/vendors/js/forms/select/select2.full.min.js"></script>
-<script src="<?php echo base_url() ?>assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-
-<script src="<?php echo base_url() ?>assets/js/scripts/forms/form-wizard.min.js"></script>
-<script>
-
-
-    $(document).ready(function () {
-        mydate();
-        mydate2();
-        $(".numericOnly").ForceNumericOnly();
-        // Dropzone.autoDiscover = false;
-        $('#dpz-remove-thumbs').dropzone({
-            url: "<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>",
-            uploadMultiple: true,
-            parallelUploads: 25,
-            maxFiles: 25,
-            autoProcessQueue: false,
-            addRemoveLinks: true,
-            // acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
-            init: function () {
-                dzClosure = this;
-
-                $('#btn-submit').on('click', function (e) {
-                    console.log('processQueue');
-                    if (dzClosure.getQueuedFiles().length > 0) {
-                        dzClosure.processQueue();
-                    } else {
-                        mySubmitData();
-                    }
-                });
-
-
-                // My project only has 1 file hence not sendingmultiple
-                dzClosure.on('sending', function (data, xhr, form_data) {
-                    console.log('sending');
-                    form_data.append('pr_reqId', $('#pr_reqId').val());
-                    form_data.append('idCategory', $('#idCategory').val());
-                    form_data.append('desc', $('#desc').val());
-                    form_data.append('model', $('#model').val());
-                    form_data.append('product_no', $('#product_no').val());
-                    form_data.append('serial_no', $('#serial_no').val());
-                    form_data.append('tag_no', $('#tag_no').val());
-                    form_data.append('po_no', $('#po_no').val());
-                    form_data.append('cost', $('#cost').val());
-                    form_data.append('idCurrency', $('#idCurrency').val());
-                    form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
-                    form_data.append('emp_no', $('#emp_no').val());
-                    form_data.append('resp_person_name', $('#resp_person_name').val());
-                    form_data.append('ou', $('#ou').val());
-                    form_data.append('account', $('#account').val());
-                    form_data.append('dept', $('#dept').val());
-                    form_data.append('fund', $('#fund').val());
-                    form_data.append('proj_code', $('#proj_code').val());
-                    form_data.append('prog', $('#prog').val());
-                    form_data.append('idLocation', $('#idLocation').val());
-                    form_data.append('idSubLocation', $('#idSubLocation').val());
-                    form_data.append('area', $('#area').val());
-                    form_data.append('verification_status', $('#verification_status').val());
-                    form_data.append('last_verify_date', $('#last_verify_date').val());
-                    form_data.append('due_date', $('#due_date').val());
-                    form_data.append('pur_date', $('#pur_date').val());
-                    form_data.append('status', $('#status').val());
-                    form_data.append('writOff_formNo', $('#writOff_formNo').val());
-                    form_data.append('wo_date', $('#wo_date').val());
-                    form_data.append('remarks', $('#remarks').val());
-                });
-
-                dzClosure.on('complete', function (result) {
-                    toastMsg('success', 'Successfully Inserted', 'success');
-
-                    console.log(result);
-                    console.log('completed');
-                    hideloader();
-                    $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-                    try {
-                        var response = JSON.parse(result);
-                        if (response[0] == 'Success') {
-                            toastMsg(response[0], response[1], 'success');
-                        } else {
-                            toastMsg(response[0], response[1], 'error');
-                        }
-                    } catch (e) {
-                    }
-                })
-            },
-        });
-    });
-
-    function chkStatus(obj) {
-        var status = $('#status').val();
-        if (status == 1) {
-            $('#writOff_formNo').val('').attr('disabled', 'disabled');
-            $('#wo_date').val('').attr('disabled', 'disabled');
-        } else {
-            $('#writOff_formNo').removeAttr('disabled', 'disabled');
-            $('#wo_date').removeAttr('disabled', 'disabled');
-        }
-    }
-
-
-    function mySubmitData() {
-        console.log('mySubmitData');
-        dzClosure.processQueue();
-
-        var form_data = new FormData();
-        form_data.append('pr_reqId', $('#pr_reqId').val());
-        form_data.append('idCategory', $('#idCategory').val());
-        form_data.append('desc', $('#desc').val());
-        form_data.append('model', $('#model').val());
-        form_data.append('product_no', $('#product_no').val());
-        form_data.append('serial_no', $('#serial_no').val());
-        form_data.append('tag_no', $('#tag_no').val());
-        form_data.append('po_no', $('#po_no').val());
-        form_data.append('cost', $('#cost').val());
-        form_data.append('idCurrency', $('#idCurrency').val());
-        form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
-        form_data.append('emp_no', $('#emp_no').val());
-        form_data.append('resp_person_name', $('#resp_person_name').val());
-        form_data.append('ou', $('#ou').val());
-        form_data.append('account', $('#account').val());
-        form_data.append('dept', $('#dept').val());
-        form_data.append('fund', $('#fund').val());
-        form_data.append('proj_code', $('#proj_code').val());
-        form_data.append('prog', $('#prog').val());
-        form_data.append('idLocation', $('#idLocation').val());
-        form_data.append('idSubLocation', $('#idSubLocation').val());
-        form_data.append('area', $('#area').val());
-        form_data.append('verification_status', $('#verification_status').val());
-        form_data.append('last_verify_date', $('#last_verify_date').val());
-        form_data.append('due_date', $('#due_date').val());
-        form_data.append('pur_date', $('#pur_date').val());
-        form_data.append('status', $('#status').val());
-        form_data.append('writOff_formNo', $('#writOff_formNo').val());
-        form_data.append('wo_date', $('#wo_date').val());
-        form_data.append('remarks', $('#remarks').val());
-        showloader();
-        $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-        CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/insertData'); ?>', form_data, 'POST', function (result) {
-            console.log(result);
-            hideloader();
-            $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-            try {
-                var response = JSON.parse(result);
-                if (response[0] == 'Success') {
-                    toastMsg(response[0], response[1], 'success');
-                    $('.res_heading').html(response[0]).css('color', 'green');
-                    $('.res_msg').html(response[1]).css('color', 'green');
-                    setTimeout(function () {
-                        // window.location.reload();
-                    }, 1500)
-                } else {
-                    toastMsg(response[0], response[1], 'error');
-                    $('.res_heading').html(response[0]).css('color', 'red');
-                    $('.res_msg').html(response[1]).css('color', 'red');
-                }
-            } catch (e) {
-            }
-        }, true);
-
-    }
-
-
-</script>
-
-
+<!-- BEGIN: Page Vendor JS-->
+<!--<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/inputmask/jquery.inputmask.bundle.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/maxlength/bootstrap-maxlength.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/vendors/js/forms/extended/card/jquery.card.js"
+        type="text/javascript"></script>-->
+<!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app-menu.min.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/core/app.min.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo base_url() ?><!--assets/js/scripts/customizer.min.js" type="text/javascript"></script>-->
+<!-- END: Theme JS-->
+
+<!-- BEGIN: Page JS-->
+<!--<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-inputmask.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-maxlength.min.js"
+        type="text/javascript"></script>
+<script src="<?php /*echo base_url() */ ?>assets/js/scripts/form-card.min.js"
+        type="text/javascript"></script>-->
+<!-- END: Page JS-->
 
 
 <script>
@@ -2067,12 +82,1839 @@
         }
     });
 
+</script>
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">Employee Information</h2>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Employee Information</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <form method="post" id="frm" enctype="multipart/form-data">
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Personal Information</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form form-horizontal">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_empno">Employee Number</span>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <?php
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                                    if (isset($editemp[0]->empno)) { ?>
+
+                                                                        <input type="text" id="empno"
+                                                                               disabled="disabled"
+                                                                               class="form-control" maxlength="6"
+                                                                               placeholder="Employee Number"
+                                                                               name="empno"
+                                                                               onkeypress="return numeralsOnly();"
+                                                                               required
+                                                                               value="<?php echo(isset($editemp[0]->empno) ? $editemp[0]->empno : '') ?>">
+
+                                                                    <?php } else { ?>
+
+                                                                        <input type="text" id="empno"
+                                                                               class="form-control" maxlength="6"
+                                                                               placeholder="Employee Number"
+                                                                               name="empno"
+                                                                               onkeypress="return numeralsOnly();"
+                                                                               required value="">
+
+                                                                    <?php }
+                                                                } else { ?>
+
+                                                                    <input type="text" id="empno"
+                                                                           class="form-control" maxlength="6"
+                                                                           placeholder="Employee Number"
+                                                                           name="empno"
+                                                                           onkeypress="return numeralsOnly();"
+                                                                           required value="">
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_offemail">Official Email<br/>(without aku.edu)</span>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <?php
+
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                    <input type="text" id="offemail"
+                                                                           class="form-control" maxlength="70"
+                                                                           placeholder="Official Email" name="offemail"
+                                                                           onkeypress="return ValidateEmail();"
+                                                                           required
+                                                                           value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
+                                                                    >
+
+                                                                <?php } else { ?>
+
+                                                                    <input type="text" id="offemail"
+                                                                           class="form-control" maxlength="70"
+                                                                           placeholder="Official Email" name="offemail"
+                                                                           onkeypress="return ValidateEmail();"
+                                                                           required
+                                                                           value=""
+                                                                    >
+
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_empname">Full Name <br>(Use Capital Letters)</span>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <?php
+
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                    <input type="text" id="empname"
+                                                                           class="form-control" maxlength="70"
+                                                                           placeholder="Full Name" name="empname"
+                                                                           onkeypress="return lettersOnly_WithSpace();"
+                                                                           style="text-transform: uppercase;" required
+                                                                           value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
+                                                                    >
+
+                                                                <?php } else { ?>
+
+                                                                    <input type="text" id="empname"
+                                                                           class="form-control" maxlength="70"
+                                                                           placeholder="Full Name" name="empname"
+                                                                           onkeypress="return lettersOnly_WithSpace();"
+                                                                           style="text-transform: uppercase;" required
+                                                                           value=""
+                                                                    >
+
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_cnicno">CNIC Number</span>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <?php
+
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                    <input type="text" id="cnicno"
+                                                                           class="form-control" placeholder="CNIC NO"
+                                                                           name="cnicno" required
+                                                                           value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
+                                                                    >
+
+                                                                <?php } else { ?>
+
+                                                                    <input type="text" id="cnicno"
+                                                                           class="form-control" placeholder="CNIC NO"
+                                                                           name="cnicno" required
+                                                                           value=""
+                                                                    >
+
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_dob">Date of Birth</span>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <?php
+
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                    <input type="text" id="dob" required
+                                                                           placeholder="Date of Birth"
+                                                                           class="form-control pickadate-short-string"
+                                                                           name="dob"
+                                                                           value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
+
+                                                                <?php } else { ?>
+
+                                                                    <input type="text" id="dob" required
+                                                                           placeholder="Date of Birth"
+                                                                           class="form-control pickadate-short-string"
+                                                                           name="dob"
+                                                                           value="">
+
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2">
+                                                                <span id="lbl_degree">Highest Qualification <br/>Degree / Field</span>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <?php
+
+                                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                                $htmlQ = '';
+                                                                $oldLabelQ = '';
+                                                                $oldValQ = '';
+                                                                if (isset($degree) && $degree != '') {
+                                                                    foreach ($degree as $v) {
+                                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->degree) {
+                                                                            $oldValQ = $v->id;
+                                                                            $oldLabelQ = $v->degree;
+                                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
+                                                                        } else {
+                                                                            $html_options_Q .= '<option data-text="' . $v->degree . '" value="' . $v->id . '">' . $v->degree . '</option>';
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                $htmlQ .= '<select class="select2 form-control" id="degree"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="degree">';
+                                                                $htmlQ .= $html_options_Q;
+                                                                $htmlQ .= '</select>';
+                                                                echo $htmlQ;
+
+
+                                                                /******* qualification code below *********/
+
+                                                                /*$html_options_Q = '<option value="0">&nbsp;</option>';
+                                                                $htmlQ = '';
+                                                                $oldLabelQ = '';
+                                                                $oldValQ = '';
+                                                                if (isset($qualification) && $qualification != '') {
+                                                                    foreach ($qualification as $v) {
+                                                                        if (isset($editemp) && $v->id === $editemp[0]->qual) {
+                                                                            $oldValQ = $v->id;
+                                                                            $oldLabelQ = $v->qualification;
+                                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
+                                                                        } else {
+                                                                            $html_options_Q .= '<option data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
+                                                                        }
+                                                                    }
+                                                                }
+                                                                $htmlQ .= '<select class="select2 form-control" id="qual"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="qual">';
+                                                                $htmlQ .= $html_options_Q;
+                                                                $htmlQ .= '</select>';
+                                                                echo $htmlQ;*/
+                                                                ?>
+
+                                                            </div>
+
+                                                            <div id="divslash">
+                                                                /
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <?php
+
+                                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                                $htmlQ = '';
+                                                                $oldLabelQ = '';
+                                                                $oldValQ = '';
+
+                                                                if (isset($field) && $field != '') {
+                                                                    foreach ($field as $v) {
+                                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->field) {
+                                                                            $oldValQ = $v->id;
+                                                                            $oldLabelQ = $v->field;
+                                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
+                                                                        } else {
+                                                                            $html_options_Q .= '<option data-text="' . $v->field . '" value="' . $v->id . '">' . $v->field . '</option>';
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                $htmlQ .= '<select class="select2 form-control" id="field"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="field">';
+                                                                $htmlQ .= $html_options_Q;
+                                                                $htmlQ .= '</select>';
+                                                                echo $htmlQ;
+
+                                                                ?>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Contact Details</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_resaddr">Residential Address</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="resaddr" class="form-control"
+                                                                       placeholder="Residential Address"
+                                                                       required
+                                                                       name="resaddr" maxlength="200"
+                                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="resaddr" class="form-control"
+                                                                       placeholder="Residential Address"
+                                                                       required
+                                                                       name="resaddr" maxlength="200"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_peremail">Personal Email</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="peremail" class="form-control"
+                                                                       placeholder="Personal Email"
+                                                                       required
+                                                                       name="peremail" maxlength="100"
+                                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="peremail" class="form-control"
+                                                                       placeholder="Personal Email"
+                                                                       required
+                                                                       name="peremail" maxlength="100"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_landline">Landline Number</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="tel" id="landline" required
+                                                                       onkeypress="return numeralsOnly_phone();"
+                                                                       placeholder="Landline Number"
+                                                                       class="form-control" name="landline"
+                                                                       maxlength="15"
+                                                                       value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
+
+                                                            <?php } else { ?>
+
+                                                                <input type="tel" id="landline" required
+                                                                       onkeypress="return numeralsOnly_phone();"
+                                                                       placeholder="Landline Number"
+                                                                       class="form-control" name="landline"
+                                                                       maxlength="15"
+                                                                       value="">
+
+                                                            <?php } ?>
+
+                                                            <div>
+
+                                                                <?php if (isset($editemp)) {
+
+                                                                    if ($editemp[0]->chk_landline == 1) { ?>
+
+                                                                        <fieldset>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input id="chk_landline"
+                                                                                       name="chk_landline"
+                                                                                       type="checkbox"
+                                                                                       checked="checked"
+                                                                                       class="custom-control-input"
+                                                                                       data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
+                                                                                <label class="custom-control-label"
+                                                                                       for="chk_landline">Not
+                                                                                    Available</label>
+                                                                            </div>
+                                                                        </fieldset>
+
+                                                                    <?php } else { ?>
+
+                                                                        <fieldset>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input id="chk_landline"
+                                                                                       name="chk_landline"
+                                                                                       type="checkbox"
+                                                                                       class="custom-control-input"
+                                                                                       data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
+                                                                                <label class="custom-control-label"
+                                                                                       for="chk_landline">Not
+                                                                                    Available</label>
+                                                                            </div>
+                                                                        </fieldset>
+
+                                                                    <?php }
+
+                                                                } else { ?>
+
+                                                                    <fieldset>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input id="chk_landline"
+                                                                                   name="chk_landline"
+                                                                                   type="checkbox"
+                                                                                   class="custom-control-input"
+                                                                                   data-oldval="0">
+                                                                            <label class="custom-control-label"
+                                                                                   for="chk_landline">Not
+                                                                                Available</label>
+                                                                        </div>
+                                                                    </fieldset>
+
+                                                                <?php } ?>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row" style="margin-top: -15px;">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_cellno1">Mobile Number (Primary)</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="tel" id="cellno1" maxlength="11" required
+                                                                       placeholder="Mobile Number (Primary)"
+                                                                       class="form-control" name="cellno1"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
+
+                                                            <?php } else { ?>
+
+                                                                <input type="tel" id="cellno1" maxlength="11" required
+                                                                       placeholder="Mobile Number (Primary)"
+                                                                       class="form-control" name="cellno1"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       value="">
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_cellno2">Mobile Number (Alternate)</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="tel" id="cellno2" maxlength="11" required
+                                                                       class="form-control" name="cellno2"
+                                                                       placeholder="Mobile Number (Alternate)"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="tel" id="cellno2" maxlength="11" required
+                                                                       class="form-control" name="cellno2"
+                                                                       placeholder="Mobile Number (Alternate)"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Emergency Contact</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_personnme">Person Name</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="personnme" maxlength="70"
+                                                                       required
+                                                                       class="form-control" name="personnme"
+                                                                       placeholder="Person Name"
+                                                                       style="text-transform: uppercase;"
+                                                                       onkeypress="return lettersOnly_WithSpace();"
+                                                                       value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="personnme" maxlength="70"
+                                                                       required
+                                                                       class="form-control" name="personnme"
+                                                                       placeholder="Person Name"
+                                                                       style="text-transform: uppercase;"
+                                                                       onkeypress="return lettersOnly_WithSpace();"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_emcellno">Mobile Number</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="tel" id="emcellno" maxlength="11" required
+                                                                       class="form-control" name="emcellno"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       placeholder="Mobile Number"
+                                                                       value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="tel" id="emcellno" maxlength="11" required
+                                                                       class="form-control" name="emcellno"
+                                                                       onkeypress="return numeralsOnly();"
+                                                                       placeholder="Mobile Number"
+                                                                       value="">
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_emlandno">Landline No.</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="tel" id="emlandno" maxlength="8" required
+                                                                       class="form-control" name="emlandno"
+                                                                       onkeypress="return numeralsOnly_phone1();"
+                                                                       placeholder="Landline No."
+                                                                       value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="tel" id="emlandno" maxlength="8" required
+                                                                       class="form-control" name="emlandno"
+                                                                       onkeypress="return numeralsOnly_phone1();"
+                                                                       placeholder="Landline No."
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                            <div>
+
+                                                                <?php if (isset($editemp)) {
+
+                                                                    if ($editemp[0]->chk_emlandno == 1) { ?>
+
+                                                                        <fieldset>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input id="chk_emlandno"
+                                                                                       name="chk_emlandno"
+                                                                                       type="checkbox"
+                                                                                       checked="checked"
+                                                                                       class="custom-control-input"
+                                                                                       data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
+                                                                                <label class="custom-control-label"
+                                                                                       for="chk_emlandno">Not
+                                                                                    Available</label>
+                                                                            </div>
+                                                                        </fieldset>
+
+                                                                    <?php } else { ?>
+
+                                                                        <fieldset>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input id="chk_emlandno"
+                                                                                       name="chk_emlandno"
+                                                                                       type="checkbox"
+                                                                                       class="custom-control-input"
+                                                                                       data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
+                                                                                <label class="custom-control-label"
+                                                                                       for="chk_emlandno">Not
+                                                                                    Available</label>
+                                                                            </div>
+                                                                        </fieldset>
+
+                                                                    <?php }
+                                                                } else { ?>
+
+                                                                    <fieldset>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input id="chk_emlandno"
+                                                                                   name="chk_emlandno"
+                                                                                   type="checkbox"
+                                                                                   class="custom-control-input"
+                                                                                   data-oldval="0">
+                                                                            <label class="custom-control-label"
+                                                                                   for="chk_emlandno">Not
+                                                                                Available</label>
+                                                                        </div>
+                                                                    </fieldset>
+
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Employment Details</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_ddlemptype">Employment Type</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($employeeType) && $employeeType != '') {
+                                                                foreach ($employeeType as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlemptype) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->emptype;
+                                                                        $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->emptype . '" value="' . $v->id . '">' . $v->emptype . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="ddlemptype"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlemptype">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_ddlcategory">Job Title</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($category) && $category != '') {
+                                                                foreach ($category as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlcategory) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->category;
+                                                                        $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->category . '" value="' . $v->id . '">' . $v->category . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="ddlcategory"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlcategory">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_gncno">GNC Number</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="gncno"
+                                                                       placeholder="GNC Number"
+                                                                       class="form-control" name="gncno" required
+                                                                       value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="gncno"
+                                                                       placeholder="GNC Number"
+                                                                       class="form-control" name="gncno" required
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_ddlband">Band</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($band) && $band != '') {
+                                                                foreach ($band as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlband) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->band;
+                                                                        $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->band . '" value="' . $v->id . '">' . $v->band . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="ddlband"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlband">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_titdesi">Title / Designation</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($designation) && $designation != '') {
+                                                                foreach ($designation as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->titdesi) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->desig;
+                                                                        $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->desig . '" value="' . $v->id . '">' . $v->desig . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="titdesi"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="titdesi">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_rehiredt">Hire / Rehire Date</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="rehiredt" required
+                                                                       placeholder="Hire / Rehire Date"
+                                                                       class="form-control" name="rehiredt"
+                                                                       value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="rehiredt" required
+                                                                       placeholder="Hire / Rehire Date"
+                                                                       class="form-control" name="rehiredt"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_conexpiry">Contract Expiry</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="conexpiry" required
+                                                                       placeholder="Contract Expiry"
+                                                                       class="form-control" name="conexpiry"
+                                                                       value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="conexpiry" required
+                                                                       placeholder="Contract Expiry"
+                                                                       class="form-control" name="conexpiry"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_workproj">Working Project</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($workproj) && $workproj != '') {
+                                                                foreach ($workproj as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->workproj) {
+                                                                        $oldValQ = $v->proj_code;
+                                                                        $oldLabelQ = $v->proj_name;
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="workproj"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="workproj">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_chargproj">Charging Project</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($chargproj) && $chargproj != '') {
+                                                                foreach ($chargproj as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->proj_code === $editemp[0]->chargproj) {
+                                                                        $oldValQ = $v->proj_code;
+                                                                        $oldLabelQ = $v->proj_name;
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="chargproj"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="chargproj">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_ddlloc">Location</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($location) && $location != '') {
+                                                                foreach ($location as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlloc) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->location;
+                                                                        $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->location . '" value="' . $v->id . '">' . $v->location . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="ddlloc"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlloc">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_supernme">Supervisor Name</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($supervisor) && $supervisor != '') {
+                                                                foreach ($supervisor as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->empno === $editemp[0]->supernme) {
+                                                                        $oldValQ = $v->empno;
+                                                                        $oldLabelQ = $v->empname;
+                                                                        $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->empname . '" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="supernme"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="supernme">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_hiresalary">Hiring Salary</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="hiresalary" required
+                                                                       class="form-control" name="hiresalary"
+                                                                       placeholder="Hiring Salary"
+                                                                       data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                                       value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="hiresalary" required
+                                                                       class="form-control" name="hiresalary"
+                                                                       placeholder="Hiring Salary"
+                                                                       data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_ddlhardship">Hardship Allowance</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlhardship) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="ddlhardship"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlhardship">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_amount">Amount</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                if (isset($editemp) && $editemp != '' && $editemp != null && $editemp[0]->ddlhardship) {
+
+                                                                    if ($editemp[0]->ddlhardship == 1) {
+                                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
+                                                                    } else {
+                                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="" >');
+                                                                    }
+
+                                                                } else {
+                                                                    echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
+                                                                }
+
+                                                            }
+
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_benefits">Benefits</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->benefits) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="benefits"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="benefits">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Status of Hiring Formalities</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_peme">PEME</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->peme) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="peme"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="peme">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_gop">General Orientation Program</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->gop) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="gop"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="gop">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_gopdt">GOP Date</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <input type="text" id="gopdt" required
+                                                                       class="form-control" name="gopdt"
+                                                                       placeholder="GOP Date"
+                                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
+                                                                >
+
+                                                            <?php } else { ?>
+
+                                                                <input type="text" id="gopdt" required
+                                                                       class="form-control" name="gopdt"
+                                                                       placeholder="GOP Date"
+                                                                       value=""
+                                                                >
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_entity">Entity</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($entity) && $entity != '') {
+                                                                foreach ($entity as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->entity) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->entity;
+                                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="entity"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="entity">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_dept">Department</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($dept) && $dept != '') {
+                                                                foreach ($dept as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->dept) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->dept;
+                                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="select2 form-control" id="dept"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="dept">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_cardissue">ID Card Issued</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->cardissue) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="cardissue"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="cardissue">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_letterapp">Letter of Appointment Received</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->letterapp) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="letterapp"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="letterapp">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_confirmation">Confirmation</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($yesno) && $yesno != '') {
+                                                                foreach ($yesno as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->confirmation) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->yesno;
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="confirmation"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="confirmation">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_status">Status</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <?php
+
+                                                            $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                            $htmlQ = '';
+                                                            $oldLabelQ = '';
+                                                            $oldValQ = '';
+
+                                                            if (isset($status) && $status != '') {
+                                                                foreach ($status as $v) {
+                                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->status) {
+                                                                        $oldValQ = $v->id;
+                                                                        $oldLabelQ = $v->status;
+                                                                        $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
+                                                                    } else {
+                                                                        $html_options_Q .= '<option data-text="' . $v->status . '" value="' . $v->id . '">' . $v->status . '</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            $htmlQ .= '<select class="form-control" id="status"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="status">';
+                                                            $htmlQ .= $html_options_Q;
+                                                            $htmlQ .= '</select>';
+                                                            echo $htmlQ;
+
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+                                                            <span id="lbl_remarks">Remarks</span>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
+
+                                                                <textarea id="remarks" rows="5" required
+                                                                          class="form-control" name="remarks"
+                                                                          placeholder="Remarks"
+                                                                ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
+
+                                                            <?php } else { ?>
+
+                                                                <textarea id="remarks" rows="5" required
+                                                                          class="form-control" name="remarks"
+                                                                          placeholder="Remarks"></textarea>
+
+                                                            <?php } ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                                if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                                    echo '<span>Replace Picture</span>';
+                                                                } else {
+                                                                    echo '<span>Upload Picture</span>';
+                                                                }
+
+                                                            } else {
+                                                                echo '<span>Upload Picture</span>';
+                                                            }
+
+                                                            ?>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="file" class="custom-file-input" required
+                                                                   id="pic" name="pic" accept="image/jpeg">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                                if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
+                                                                } else {
+                                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">Choose Picture</label>';
+                                                                }
+
+                                                            } else {
+                                                                echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">Choose Picture</label>';
+                                                            }
+
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                                if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                                    echo '<span>Add Documents</span>';
+                                                                } else {
+                                                                    echo '<span>Upload Documents</span>';
+                                                                }
+
+                                                            } else {
+                                                                echo '<span>Upload Documents</span>';
+                                                            }
+
+                                                            ?>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="file" class="custom-file-input" required
+                                                                   id="doc" name="doc" accept="application/pdf">
+
+                                                            <?php
+
+                                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                                if (isset($editemp) && isset($editemp[0]->doc)) {
+                                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
+
+                                                                } else {
+                                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">Choose Documents</label>';
+                                                                }
+
+                                                            } else {
+                                                                echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">Choose Documents</label>';
+                                                            }
+
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-12 offset-md-12">
+
+                                                    <?php
+
+                                                    if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                                        if (isset($editemp[0]->id)) {
+                                                            $_SESSION['id'] = $editemp[0]->id;
+                                                            ?>
+                                                            <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
+                                                                    type="button" class="btn btn-primary mr-1 mb-1"
+                                                                    onclick="showSummary_SaveDraft();">Update Save Draft
+                                                            </button>
+
+                                                            <button id="cmdSummary" name="cmdSummary" type="button"
+                                                                    onclick="showSummary();"
+                                                                    class="btn btn-primary mr-1 mb-1">Update
+                                                            </button>
+
+                                                        <?php } else { ?>
+
+                                                            <button id="cmdAddSaveDraft" type="button"
+                                                                    class="btn btn-primary mr-1 mb-1"
+                                                                    onclick="addData_SaveDraft();">Save Draft
+                                                            </button>
+
+                                                            <button id="cmdAddData" type="button" onclick="addData();"
+                                                                    class="btn btn-primary mr-1 mb-1">Save
+                                                            </button>
+
+                                                        <?php }
+
+                                                    } else { ?>
+
+                                                        <button id="cmdAddSaveDraft" type="button"
+                                                                class="btn btn-primary mr-1 mb-1"
+                                                                onclick="addData_SaveDraft();">Save Draft
+                                                        </button>
+
+                                                        <button id="cmdAddData" type="button" onclick="addData();"
+                                                                class="btn btn-primary mr-1 mb-1">Save
+                                                        </button>
+
+                                                    <?php } ?>
+
+                                                    <button id="cmdCancel" name="cmdCancel" type="button"
+                                                            class="btn btn-outline-warning mr-1 mb-1">Cancel
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+        </section>
+        <!-- // Basic Horizontal form layout section end -->
+
+
+        </form>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="auditModal" tabindex="-1" role="dialog" aria-labelledby="auditModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="auditModalLabel">Summary of Changes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span id="tblaudit"></span>
+            </div>
+            <div class="modal-footer">
+                <button id="cmdconfirm" type="button" class="btn grey btn-primary" onclick="editData();"
+                        data-dismiss="modal">Confirm
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="modal fade text-left" id="auditModal" tabindex="-1" role="dialog" aria-labelledby="auditModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary white">
+                <h5 class="modal-title white" id="auditModalLabel">Audit Trial Data</h5>
+            </div>
+            <div class="modal-body ">
+                <span id="tblaudit"></span>
+            </div>
+            <div class="modal-footer">
+                <button id="cmdconfirm" type="button" class="btn grey btn-primary" onclick="editData();"
+                        data-dismiss="modal">Confirm
+                </button>
+                <button type="button" class="btn grey btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!-- END: Content-->
+
+<script>
+
     let formData;
     let iseditsavedraft = 0;
+
+    /*$(document).on("blur", "#amount", function (e) {
+        if ($("#amount").val() == "") {
+        } else {
+            $("#amount").val(parseFloat($("#amount").val(), 6).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+        }
+    });*/
+
+
+    /*$(document).on("blur", "#hiresalary", function (e) {
+        if ($("#hiresalary").val() == "") {
+        } else {
+            $("#hiresalary").val(parseFloat($("#hiresalary").val(), 6).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+        }
+    });*/
 
     $(document).on("change", "#pic", function () {
         $('#lbl_pic').html($('#pic')[0].files[0].name);
     });
+
 
     $(document).on("change", "#doc", function () {
         $('#lbl_doc').html($('#doc')[0].files[0].name);
@@ -2080,30 +1922,44 @@
 
 
     $(document).on("click", "#cmdCancel", function () {
-        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry');?>';
+        window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry');
+
+            ?>';
     });
 
+
     $(document).on("blur", "#empno", function () {
+
         var data = {};
         data['empno'] = $("#empno").val();
+
         CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
+
             if (result != '' && result != null) {
                 var a = JSON.parse(result);
+
                 try {
                     if (a[0] != null) {
                         toastMsg('Error', 'Employee number already exists', 'error');
+
                         $('#cmdUpdateSaveDraft').css('display', 'none');
                         $('#cmdSummary').css('display', 'none');
                         $('#cmdAddSaveDraft').css('display', 'none');
                         $('#cmdAddData').css('display', 'none');
+
                         $("#empno").focus();
                     } else {
+
                         <?php if (isset($editemp[0]->id)) { ?>
+
                         $('#cmdUpdateSaveDraft').removeAttr('style');
                         $('#cmdSummary').removeAttr('style');
+
                         <?php } else { ?>
+
                         $('#cmdAddSaveDraft').removeAttr('style');
                         $('#cmdAddData').removeAttr('style');
+
                         <?php } ?>
                     }
                 } catch (e) {
@@ -2111,36 +1967,46 @@
             } else {
                 toastMsg('Error', 'Something went wrong', 'error');
             }
+
         });
+
     });
 
 
     $(document).ready(function () {
+
         $("#cnicno").inputmask("99999-9999999-9");
         $("#dob").inputmask("99-99-9999");
+        //$("#landline").inputmask("999-999-99999999");
         $("#gncno").inputmask("9999/9999");
         $("#rehiredt").inputmask("99-99-9999");
         $("#conexpiry").inputmask("99-99-9999");
+        /*$("#chargproj").inputmask("AAAAA-9999");*/
         $("#gopdt").inputmask("99-99-9999");
+
         setPhone("#landline");
         setPhone("#cellno1");
         setPhone("#cellno2");
         setPhone("#emcellno");
         setPhone("#emlandno");
+
     });
 
 
     $(document).on("change", "#ddlhardship", function () {
+
         if ($("#ddlhardship").val() == "2") {
             $("#amount").prop("disabled", "disabled");
             $("#amount").val("");
         } else {
             $("#amount").removeAttr("disabled");
         }
+
     });
 
 
     $(document).on("change", "#ddlband", function () {
+
         var data = {};
         data['bandid'] = $('#ddlband').val();
         $('#titdesi').html('');
@@ -2167,44 +2033,84 @@
             }
 
         });
+
     });
 
 
     function setPhone(phone) {
+
         var input = document.querySelector(phone);
         window.intlTelInput(input, {
             allowDropdown: true,
             autoHideDialCode: false,
+            //autoPlaceholder: "off",
+            //dropdownContainer: document.body,
+            //excludeCountries: ["us"],
+            //formatOnDisplay: true,
+            //geoIpLookup: function (callback) {
+            //    $.get("http://ipinfo.io", function () {
+            //    }, "jsonp").always(function (resp) {
+            //        var countryCode = (resp && resp.country) ? resp.country : "";
+            //        callback(countryCode);
+            //    });
+            //},
+            //hiddenInput: "full_number",
+            //initialCountry: "auto",
             localizedCountries: {'de': 'Deutschland'},
+            //nationalMode: true,
+            //onlyCountries: ['pk', 'gb', 'ch', 'ca', 'do'],
             placeholderNumberType: "MOBILE",
             preferredCountries: ['pk', 'jp'],
             separateDialCode: true
         });
+
+        //input.addEventListener("countrychange", function () {
+        // do something with iti.getSelectedCountryData()
+        //alert($('.iti__selected-dial-code').text());
+        //});
+
+        /*input.addEventListener("open:countrydropdown", function () {
+            // triggered when the user opens the dropdown
+        });
+
+        input.addEventListener("close:countrydropdown", function () {
+            // triggered when the user closes the dropdown
+        });*/
+
     }
 
     function lettersOnly_WithSpace(evt) {
+
         var iserr = true;
+
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
             ((evt.which) ? evt.which : 0));
+
         if (charCode > 31 && (charCode < 65 || charCode > 90) &&
             (charCode < 97 || charCode > 122) && charCode != 32) {
             alert("Please enter string value ");
             iserr = false;
         }
+
         return iserr;
     }
 
+
     function ValidateEmail(evt) {
+
         var iserr = true;
+
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
             ((evt.which) ? evt.which : 0));
+
         if (charCode > 31 && (charCode < 65 || charCode > 90) &&
             (charCode < 97 || charCode > 122) && charCode != 46) {
             alert("Please enter valid string value ");
             iserr = false;
         }
+
         return iserr;
     }
 
@@ -2212,11 +2118,15 @@
     $(document).on("blur", "#peremail", function () {
         if ($("#peremail").val() != "" || $("#peremail").val() != 'undefined') {
             if ($("#peremail").val().indexOf('.') == -1 || $("#peremail").val().indexOf('@') == -1) {
+
                 var error = '';
+
                 var inp = $("#peremail");
                 var id = $("#peremail").attr('id');
                 var inpVal = $("#peremail").val();
+
                 inp.removeClass('error').removeClass('is-invalid');
+
                 error = '<div id="lblerr_' + id + '" class="invalid-feedback">Invalid email address</div>';
                 $("#lblerr_" + id).remove();
                 inp.addClass('error').addClass('is-invalid').parent('div').append(error);
@@ -2230,12 +2140,14 @@
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
             ((evt.which) ? evt.which : 0));
+
         if (charCode > 31 && charCode != 46 && (charCode < 48 || charCode > 57)) {
             alert("Please enter Numeric value ");
             return false;
         }
         return true;
     }
+
 
     function numeralsOnly(evt) {
         evt = (evt) ? evt : event;
@@ -2254,10 +2166,12 @@
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
             ((evt.which) ? evt.which : 0));
+
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
             alert("Please enter Numeric value ");
             return false;
         }
+
         $("#chk_landline").prop("checked", false);
 
         return true;
@@ -2268,11 +2182,14 @@
         evt = (evt) ? evt : event;
         var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
             ((evt.which) ? evt.which : 0));
+
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
             alert("Please enter Numeric value ");
             return false;
         }
+
         $("#chk_emlandno").prop("checked", false);
+
         return true;
     }
 
@@ -2298,12 +2215,16 @@
 
 
     function addData() {
+
         $('#ddlemptype').css('border', '1px solid #babfc7');
         $('#ddlcategory').css('border', '1px solid #babfc7');
         $('#empno').css('border', '1px solid #babfc7');
         $('#empname').css('border', '1px solid #babfc7');
         $('#cnicno').css('border', '1px solid #babfc7');
         $('#dob').css('border', '1px solid #babfc7');
+
+        //$('#qual').css('border', '1px solid #babfc7');
+
         $('#landline').css('border', '1px solid #babfc7');
         $('#cellno1').css('border', '1px solid #babfc7');
         $('#cellno2').css('border', '1px solid #babfc7');
@@ -2338,69 +2259,142 @@
         $('#doc').css('border', '1px solid #babfc7');
         $('#degree').css('border', '1px solid #babfc7');
         $('#field').css('border', '1px solid #babfc7');
+
         var iserror = false;
+
+
+        // var formData = new FormData();
         formData = new FormData($("#frm")[0]);
+
         var arr_pic = "";
         var arr_doc = "";
         var size = 0;
         var fnme = "";
         var imgext = "";
         var ext = "";
+
         var pic_path = "";
         var doc_path = "";
+
+
         if (validateData(formData)) {
+
             if (!checkValues()) {
+
+
                 if ($("#pic").val() != "") {
+
                     arr_pic = $("#pic").val().split("\\");
+
                     size = parseInt($("#pic")[0].files[0].size / 1024);
 
                     fnme = $("#lbl_pic").html();
                     imgext = $("#pic")[0].files[0].name.split(".");
+
+
                     pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
+
+
                     if (size <= 2000) {
+
                         if (fnme.lastIndexOf(".jpg") != -1) {
+
+                            //var formData = new FormData();
+                            //formData.append('file', $('#pic')[0].files[0], $('#empname').val() + "_" + $('#empno').val() + "." + ext[1]);
+
+
+                            //var formData = new FormData($("#frm")[0]);
+                            //formData.append('request', 1);
+
+                            /*$.ajax({
+                                type: 'POST',
+                                url: 'employee_entry/upload',
+                                data: formData,
+                                success: function (status) {
+                                    //var my_path = "/assets/emppic/" + status;
+                                    //$("#pic").attr("src", my_path);
+                                },
+                                processData: false,
+                                contentType: false,
+                                error: function () {
+                                    alert("Pic uploading error");
+                                    iserror = true;
+                                }
+                            });*/
+
                         } else {
+                            //$("#pic").css('border', '1px solid red');
+                            //toastMsg('Pic Uploading Error', 'Please select .jpg files', 'error');
+
                             ShowError($("#pic"), "Please select .jpg files");
                             iserror = true;
+
+                            //$("#lblerr_pic").html("Please select .jpg files");
+                            //$("#lblerr_pic").css('visibility', 'visible');
                         }
 
                     } else {
+                        //$("#pic").css('border', '1px solid red');
+                        //toastMsg('Pic Uploading Error', 'Please select 2 MB files only', 'error');
+
                         ShowError($("#pic"), "Please select 2 MB files only");
                         iserror = true;
+
+                        //$("#lblerr_pic").html("Please select 2 MB files only");
+                        //$("#lblerr_pic").css('visibility', 'visible');
                     }
                 }
 
 
                 if ($("#doc").val() != "") {
+
                     arr_doc = $("#doc").val().split("\\");
+
                     size = parseInt($("#doc")[0].files[0].size / 1024);
+
                     fnme = $("#lbl_doc").html();
                     ext = $("#doc")[0].files[0].name.split(".");
+
                     doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
+
+
                     if (size <= 2000) {
+
                         if (fnme.lastIndexOf(".pdf") != -1) {
 
 
                         } else {
+                            //$("#doc").css('border', '1px solid red');
+                            //toastMsg('Docs Uploading Error', 'Please select .pdf files', 'error');
+
                             ShowError($("#doc"), "Please select .pdf files");
                             iserror = true;
                         }
 
                     } else {
+                        //$("#doc").css('border', '1px solid red');
+                        //toastMsg('Docs Uploading Error', 'Please select 2 MB files only', 'error');
+
                         ShowError($("#doc"), "Please select 2 MB files only");
                         iserror = true;
                     }
                 }
 
+
+                // formData.append('data', $("#frm")[0]);
+
                 if ($("#pic").val() != "") {
                     formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
                 }
+
 
                 if ($("#doc").val() != "") {
                     formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
                 }
 
+
                 var arr = $('.iti__selected-dial-code').text().split('+');
+                //console.log(arr[0] + "=" + arr[1] + "=" + arr[2] + "=" + arr[3] + "=" + arr[4] + "=" + arr[5]);
 
                 formData.append('landlineccode', "+" + arr[1]);
                 formData.append('cellno1ccode', "+" + arr[2]);
@@ -2421,10 +2415,14 @@
                 } else {
                     formData.append('chk_emlandno', "0");
                 }
+
+
                 CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
                     //hideloader();
+
                     if (result == 1) {
                         toastMsg('Success', 'Record Saved Successfully', 'success');
+
                         //$('#addModal').modal('hide');
                         setTimeout(function () {
                             window.location.reload();

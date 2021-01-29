@@ -599,7 +599,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control status" name="status"
-                                                        autocomplete="status"
+                                                        autocomplete="status" onchange="chkStatus(this)"
                                                         id="status" required>
                                                     <option value="0" readonly disabled selected></option>
                                                     <?php if (isset($status) && $status != '') {
@@ -620,7 +620,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="writOff_formNo"
-                                                       name="writOff_formNo"
+                                                       name="writOff_formNo" disabled
                                                        autocomplete="writOff_formNo" required>
                                             </div>
                                         </div>
@@ -632,7 +632,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control mypickadat" id="wo_date"
-                                                       name="wo_date"
+                                                       name="wo_date" disabled
                                                        autocomplete="wo_date" required>
                                             </div>
                                         </div>
@@ -808,6 +808,16 @@
             },
         });
     });
+    function chkStatus(obj) {
+        var status=$('#status').val();
+        if(status==1){
+            $('#writOff_formNo').val('').attr('disabled','disabled');
+            $('#wo_date').val('').attr('disabled','disabled');
+        }else{
+            $('#writOff_formNo').removeAttr('disabled','disabled');
+            $('#wo_date').removeAttr('disabled','disabled');
+        }
+    }
 
 
     function mySubmitData() {
