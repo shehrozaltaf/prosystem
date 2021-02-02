@@ -27,7 +27,6 @@
     }
 
 </style>
-
 <!-- BEGIN: Page JS-->
 <script src="<?php echo base_url() ?>assets/js/scripts/modal/components-modal.js"></script>
 <script src="<?php echo base_url() ?>assets/build/js/intlTelInput.js"></script>
