@@ -157,7 +157,6 @@
 
                                                     <?php }
                                                 } else { ?>
-
                                                     <input type="text" id="empno"
                                                            class="form-control" maxlength="6"
                                                            placeholder="Employee Number"
@@ -165,7 +164,6 @@
                                                            onkeypress="return numeralsOnly();"
                                                            required value="">
                                                 <?php } ?>
-
                                             </div>
                                         </div>
                                     </div>
