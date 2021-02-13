@@ -1051,20 +1051,18 @@ class Employee_entry extends CI_controller
     }
 
 
+    /*shehroz*/
     function getEmployeeEmpNo()
     {
         if (isset($_POST['empno']) && $_POST['empno'] != '') {
             $Mempmodel = new Mempmodel();
             $empno = $_POST['empno'];
-
             $getEmp = $Mempmodel->getEmployeeDataByEmpNo($empno);
-
-            $results = array();
-
             if (isset($getEmp) && $getEmp != null) {
                 $results = array(['error' => 1]);
+            }else{
+                $results = array(['error' => 3]);
             }
-
         } else {
             $results = array(['error' => 2]);
         }

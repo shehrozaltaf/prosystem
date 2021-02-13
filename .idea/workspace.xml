@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,13 +19,14 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="158" column="59" selection-start-line="158" selection-start-column="59" selection-end-line="158" selection-end-column="59" />
+            <state relative-caret-position="391">
+              <caret line="360" lean-forward="true" selection-start-line="360" selection-end-line="360" />
               <folding>
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="e#18#24#1" expanded="true" />
                 <element signature="e#18#24#1" expanded="true" />
                 <element signature="e#18#24#1" expanded="true" />
@@ -44,6 +47,8 @@
                 <element signature="e#18#24#1" expanded="true" />
                 <element signature="e#18#24#1" expanded="true" />
                 <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#125012#125380#0#HTML" />
+                <element signature="e#125411#128501#0#HTML" />
                 <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
@@ -80,6 +85,7 @@
                 <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+                <element signature="e#206185#219004#0#HTML" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -96,6 +102,39 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="899" column="22" selection-start-line="899" selection-start-column="12" selection-end-line="899" selection-end-column="22" />
+              <folding>
+                <element signature="e#51#56#0#PHP" />
+                <element signature="e#180#185#0#PHP" />
+                <element signature="e#315#320#0#PHP" />
+                <element signature="e#446#451#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="1063" column="46" selection-start-line="1063" selection-start-column="46" selection-end-line="1063" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -107,12 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sop_name</find>
-      <find>a.prno</find>
-      <find>a_asset.</find>
-      <find>getDelete</find>
-      <find>delete</find>
-      <find>bf14e</find>
       <find>ftag</find>
       <find>auditTrial</find>
       <find>status_name</find>
@@ -137,6 +170,12 @@
       <find>&lt;span</find>
       <find>&lt;span id</find>
       <find>hr_location</find>
+      <find>#empno</find>
+      <find>empno</find>
+      <find>getEmployeeEmpNo</find>
+      <find>offemail</find>
+      <find>inputma</find>
+      <find>mydate</find>
     </findStrings>
     <replaceStrings>
       <replace>prno</replace>
@@ -215,13 +254,17 @@
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry_.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/EmpLocation.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mhr_Location.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/SearchEmpRpt.php" />
         <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$USER_HOME$/OneDrive - Aga Khan University/Desktop/users.php" />
+        <option value="$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/getData.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/users.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
       </list>
     </option>
@@ -256,7 +299,27 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="asset_views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
@@ -340,7 +403,9 @@
       <workItem from="1612266286677" duration="1435000" />
       <workItem from="1613024102652" duration="2479000" />
       <workItem from="1613036767780" duration="1197000" />
-      <workItem from="1613044864853" duration="646000" />
+      <workItem from="1613044864853" duration="704000" />
+      <workItem from="1613108024068" duration="6001000" />
+      <workItem from="1613197018850" duration="921000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -503,17 +568,24 @@
       <option name="project" value="LOCAL" />
       <updated>1612272496071</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="location">
+      <created>1613049066852</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1613049066852</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125673000" />
+    <option name="totallyTimeSpent" value="132653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21943766" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22432762" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -595,48 +667,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mbudget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="59" column="32" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="59" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Memployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mproject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mprojected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="71" column="81" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/budget_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="275" column="45" lean-forward="true" selection-start-line="275" selection-start-column="45" selection-end-line="275" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Budget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="156" column="34" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="156" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -839,19 +869,6 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa17880.35034/employee_entry.php" />
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_new.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="146" column="68" lean-forward="true" selection-start-line="146" selection-start-column="68" selection-end-line="146" selection-end-column="68" />
-          <folding>
-            <element signature="e#51#56#0#PHP" />
-            <element signature="e#180#185#0#PHP" />
-            <element signature="e#315#320#0#PHP" />
-            <element signature="e#446#451#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa17880.24614/employee_entry_new.php" />
     <entry file="file://$PROJECT_DIR$/application/views/employee_entry_new.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -877,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1002" lean-forward="true" selection-start-line="1002" selection-end-line="1002" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -898,13 +908,6 @@
             <element signature="n#div#1;n#!!top" />
             <element signature="n#script#6;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="198" column="49" lean-forward="true" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -950,11 +953,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/inventory_models/MInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="158" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
+    <entry file="file://$PROJECT_DIR$/../tpvics_s/api/RE__/backup20210212/districts.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/users.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="1063" column="46" selection-start-line="1063" selection-start-column="46" selection-end-line="1063" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="899" column="22" selection-start-line="899" selection-start-column="12" selection-end-line="899" selection-end-column="22" />
+          <folding>
+            <element signature="e#51#56#0#PHP" />
+            <element signature="e#180#185#0#PHP" />
+            <element signature="e#315#320#0#PHP" />
+            <element signature="e#446#451#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="158" column="59" selection-start-line="158" selection-start-column="59" selection-end-line="158" selection-end-column="59" />
+        <state relative-caret-position="391">
+          <caret line="360" lean-forward="true" selection-start-line="360" selection-end-line="360" />
           <folding>
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="e#18#24#1" expanded="true" />
             <element signature="e#18#24#1" expanded="true" />
             <element signature="e#18#24#1" expanded="true" />
@@ -975,6 +1032,8 @@
             <element signature="e#18#24#1" expanded="true" />
             <element signature="e#18#24#1" expanded="true" />
             <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#125012#125380#0#HTML" />
+            <element signature="e#125411#128501#0#HTML" />
             <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
@@ -1011,6 +1070,7 @@
             <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
+            <element signature="e#206185#219004#0#HTML" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />

@@ -1,11 +1,9 @@
-<?php error_reporting(0) ?>
+<?php //error_reporting(0) ?>
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/forms/wizard/bs-stepper.min.css">
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/forms/select/select2.min.css">-->
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/vendors/css/forms/wizard/bs-stepper.min.css">-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-validation.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/plugins/forms/form-wizard.min.css">
-<!-- BEGIN: Content-->
+
 
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/file-uploaders/dropzone.min.css">
@@ -133,36 +131,22 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <?php
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                    if (isset($editemp[0]->empno)) { ?>
-
-                                                        <input type="text" id="empno"
-                                                               disabled="disabled"
-                                                               class="form-control" maxlength="6"
-                                                               placeholder="Employee Number"
-                                                               name="empno"
-                                                               onkeypress="return numeralsOnly();"
-                                                               required
-                                                               value="<?php echo(isset($editemp[0]->empno) ? $editemp[0]->empno : '') ?>">
-
-                                                    <?php } else { ?>
-
-                                                        <input type="text" id="empno"
-                                                               class="form-control" maxlength="6"
-                                                               placeholder="Employee Number"
-                                                               name="empno"
-                                                               onkeypress="return numeralsOnly();"
-                                                               required value="">
-
-                                                    <?php }
-                                                } else { ?>
+                                                if (isset($editemp) && $editemp != '' && isset($editemp[0]->empno)) { ?>
                                                     <input type="text" id="empno"
-                                                           class="form-control" maxlength="6"
+                                                           disabled="disabled"
+                                                           class="form-control numericOnly" maxlength="6"
                                                            placeholder="Employee Number"
                                                            name="empno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           required value="">
+                                                           required
+                                                           value="<?php echo(isset($editemp[0]->empno) ? $editemp[0]->empno : '') ?>">
+                                                    <?php
+                                                } else { ?>
+                                                    <input type="text" id="empno"
+                                                           class="form-control numericOnly" maxlength="6"
+                                                           placeholder="Employee Number"
+                                                           name="empno"
+                                                           onfocusout="chkEmpNo()"
+                                                           required  >
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -174,30 +158,13 @@
                                                 <label id="lbl_offemail">Official Email<br/>(without aku.edu)</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="offemail"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Official Email" name="offemail"
-                                                           onkeypress="return ValidateEmail();"
-                                                           required
-                                                           value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="offemail"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Official Email" name="offemail"
-                                                           onkeypress="return ValidateEmail();"
-                                                           required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="offemail"
+                                                       class="form-control" maxlength="70"
+                                                       placeholder="Official Email" name="offemail"
+                                                       onkeypress="return ValidateEmail();"
+                                                       required
+                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -209,31 +176,13 @@
                                                 <label id="lbl_empname">Full Name <br>(Use Capital Letters)</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="empname"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Full Name" name="empname"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           style="text-transform: uppercase;" required
-                                                           value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="empname"
-                                                           class="form-control" maxlength="70"
-                                                           placeholder="Full Name" name="empname"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           style="text-transform: uppercase;" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="text" id="empname"
+                                                       class="form-control" maxlength="70"
+                                                       placeholder="Full Name" name="empname"
+                                                       onkeypress="return lettersOnly_WithSpace();"
+                                                       style="text-transform: uppercase;" required
+                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -245,27 +194,11 @@
                                                 <label id="lbl_cnicno">CNIC Number</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="cnicno"
-                                                           class="form-control" placeholder="CNIC NO"
-                                                           name="cnicno" required
-                                                           value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="cnicno"
-                                                           class="form-control" placeholder="CNIC NO"
-                                                           name="cnicno" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="text" id="cnicno"
+                                                       class="form-control" placeholder="CNIC NO"
+                                                       name="cnicno" required
+                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -276,27 +209,11 @@
                                                 <label id="lbl_dob">Date of Birth</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="dob" required
-                                                           placeholder="Date of Birth"
-                                                           class="form-control pickadate-short-string"
-                                                           name="dob"
-                                                           value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="dob" required
-                                                           placeholder="Date of Birth"
-                                                           class="form-control pickadate-short-string"
-                                                           name="dob"
-                                                           value="">
-
-                                                <?php } ?>
-
+                                                <input type="text" id="dob" required
+                                                       placeholder="Date of Birth"
+                                                       class="form-control mypickadat_dob"
+                                                       name="dob"
+                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -331,37 +248,10 @@
                                                 $htmlQ .= $html_options_Q;
                                                 $htmlQ .= '</select>';
                                                 echo $htmlQ;
-
-
-                                                /******* qualification code below *********/
-
-                                                /*$html_options_Q = '<option value="0">&nbsp;</option>';
-                                                $htmlQ = '';
-                                                $oldLabelQ = '';
-                                                $oldValQ = '';
-                                                if (isset($qualification) && $qualification != '') {
-                                                    foreach ($qualification as $v) {
-                                                        if (isset($editemp) && $v->id === $editemp[0]->qual) {
-                                                            $oldValQ = $v->id;
-                                                            $oldLabelQ = $v->qualification;
-                                                            $html_options_Q .= '<option selected="selected" data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
-                                                        } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->qualification . '" value="' . $v->id . '">' . $v->qualification . '</option>';
-                                                        }
-                                                    }
-                                                }
-                                                $htmlQ .= '<select class="select2 form-control" id="qual"
-                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="qual">';
-                                                $htmlQ .= $html_options_Q;
-                                                $htmlQ .= '</select>';
-                                                echo $htmlQ;*/
                                                 ?>
 
                                             </div>
 
-                                            <div id="divslash">
-                                                /
-                                            </div>
 
                                             <div class="col-sm-3 col-form-label">
                                                 <?php
@@ -424,28 +314,12 @@
                                                 <label id="lbl_resaddr">Residential Address</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="resaddr" class="form-control"
-                                                           placeholder="Residential Address"
-                                                           required
-                                                           name="resaddr" maxlength="200"
-                                                           value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="resaddr" class="form-control"
-                                                           placeholder="Residential Address"
-                                                           required
-                                                           name="resaddr" maxlength="200"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="resaddr" class="form-control"
+                                                       placeholder="Residential Address"
+                                                       required
+                                                       name="resaddr" maxlength="200"
+                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -457,29 +331,12 @@
                                                 <label id="lbl_peremail">Personal Email</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="peremail" class="form-control"
-                                                           placeholder="Personal Email"
-                                                           required
-                                                           name="peremail" maxlength="100"
-                                                           value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="peremail" class="form-control"
-                                                           placeholder="Personal Email"
-                                                           required
-                                                           name="peremail" maxlength="100"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="text" id="peremail" class="form-control"
+                                                       placeholder="Personal Email"
+                                                       required
+                                                       name="peremail" maxlength="100"
+                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -1872,6 +1729,8 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" id="hidden_id" name="hidden_id" autocomplete="hidden_id" value="<?php echo (isset($editemp[0]->id) && $editemp[0]->id!=''?$editemp[0]->id:'') ?>">
 <!-- END: Content-->
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/select/select2.full.min.js"></script>
@@ -1884,6 +1743,7 @@
     $(document).ready(function () {
         mydate();
         mydate2();
+        mydate_dob();
         $(".numericOnly").ForceNumericOnly();
         // Dropzone.autoDiscover = false;
         $('#dpz-remove-thumbs').dropzone({
@@ -1963,6 +1823,37 @@
         });
     });
 
+    function mydate() {
+        $('.mypickadat').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2010, 12, 1),
+            max: true,
+            clear: ' ',
+            format: 'dd-mm-yyyy'
+        });
+    }
+
+    function mydate2() {
+        $('.mypickadat2').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(2010, 12, 1),
+            clear: ' ',
+            format: 'dd-mm-yyyy'
+        });
+    }
+
+    function mydate_dob() {
+        $('.mypickadat_dob').pickadate({
+            selectYears: true,
+            selectMonths: true,
+            min: new Date(1960, 12, 1),
+            clear: ' ',
+            format: 'dd-mm-yyyy'
+        });
+    }
+
     function chkStatus(obj) {
         var status = $('#status').val();
         if (status == 1) {
@@ -2037,9 +1928,47 @@
     }
 
 
+    function chkEmpNo(){
+        var data = {};
+        data['empno'] = $("#empno").val();
+        $("#empno").removeClass('error');
+        if(data['empno']!='' && data['empno']!=undefined){
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
+                if (result != '' && result != null) {
+                    var hidden_id= $("#hidden_id").val();
+                    var a = JSON.parse(result);
+                    console.log(a);
+                    try {
+                        if (a[0].error ==1 ) {
+                            toastMsg('Error', 'Employee number already exists', 'error');
+                            $("#empno").addClass('error').focus();
+
+                            $('#cmdUpdateSaveDraft').css('display', 'none');
+                            $('#cmdSummary').css('display', 'none');
+                            $('#cmdAddSaveDraft').css('display', 'none');
+                            $('#cmdAddData').css('display', 'none');
+
+                        } else {
+                            if(hidden_id!='' && hidden_id!=undefined){
+                                $('#cmdUpdateSaveDraft').removeAttr('style');
+                                $('#cmdSummary').removeAttr('style');
+                            }else{
+                                $('#cmdAddSaveDraft').removeAttr('style');
+                                $('#cmdAddData').removeAttr('style');
+                            }
+                        }
+                    } catch (e) {
+                    }
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            });
+        }
+
+    }
+
+
 </script>
-
-
 
 
 <script>
@@ -2080,36 +2009,6 @@
         window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry');?>';
     });
 
-    $(document).on("blur", "#empno", function () {
-        var data = {};
-        data['empno'] = $("#empno").val();
-        CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
-            if (result != '' && result != null) {
-                var a = JSON.parse(result);
-                try {
-                    if (a[0] != null) {
-                        toastMsg('Error', 'Employee number already exists', 'error');
-                        $('#cmdUpdateSaveDraft').css('display', 'none');
-                        $('#cmdSummary').css('display', 'none');
-                        $('#cmdAddSaveDraft').css('display', 'none');
-                        $('#cmdAddData').css('display', 'none');
-                        $("#empno").focus();
-                    } else {
-                        <?php if (isset($editemp[0]->id)) { ?>
-                        $('#cmdUpdateSaveDraft').removeAttr('style');
-                        $('#cmdSummary').removeAttr('style');
-                        <?php } else { ?>
-                        $('#cmdAddSaveDraft').removeAttr('style');
-                        $('#cmdAddData').removeAttr('style');
-                        <?php } ?>
-                    }
-                } catch (e) {
-                }
-            } else {
-                toastMsg('Error', 'Something went wrong', 'error');
-            }
-        });
-    });
 
 
     $(document).ready(function () {

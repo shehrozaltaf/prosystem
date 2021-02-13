@@ -47,8 +47,18 @@ class Mempmodel extends CI_Model
         return $results;
     }
 
-
+    /*shehroz*/
     function getEmployeeDataByEmpNo($empno)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_employee');
+        $this->db->where('empno', $empno);
+        $this->db->where('status', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getEmployeeDataByEmpNo2($empno)
     {
         $query = $this->db->query("SELECT convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,status FROM hr_employee where empno='$empno'");
 
