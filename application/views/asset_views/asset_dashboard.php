@@ -215,6 +215,7 @@
                                                 <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Action</th>
+                                                <th>Check</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
@@ -231,21 +232,25 @@
                                                 <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Action</th>
+                                                <th>Check</th>
                                             </tfoot>
                                         </table>
-
-
                                     </div>
 
-
+                                    <div class="row updBtn hide">
+                                        <div class="col-sm-12">
+                                            <button type="button"
+                                                    onclick="updBtnModal()"
+                                                    id="btn-Upd" class="btn btn-danger white addbtn">Update
+                                                Selected Assets
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </section>
         </div>
     </div>
@@ -256,76 +261,6 @@
 
 
 <!-- END: Content-->
-<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-<?php } ?>
-<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-    <div class="modal fade text-left" id="assignCustodianModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel_assignCustodian"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_assignCustodian">Assign Custodian</h4>
-                    <input type="hidden" id="assignCustodian_id" name="assignCustodian_id">
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12 col-12">
-                            <div class="form-group">
-                                <label for="custodian_location" class="label-control">Locations</label>
-                                <select class="select2 form-control" id="custodian_location" name="custodian_location">
-                                    <?php
-                                    if (isset($location) && $location != '') {
-                                        foreach ($location as $k => $v) {
-                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <input type="hidden" id="custodian_location_old" name="custodian_location_old">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12">
-                            <div class="form-group">
-                                <label for="custodian_project" class="label-control">Project</label>
-                                <select class="select2 form-control" id="custodian_project" name="custodian_project">
-                                    <?php
-                                    if (isset($project) && $project != '') {
-                                        foreach ($project as $k => $v) {
-                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '(' . $v->proj_code . ')</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <input type="hidden" id="custodian_project_old" name="custodian_project_old">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12">
-                            <div class="form-group">
-                                <label for="custodian_emp" class="label-control">Owner/Employee</label>
-                                <select class="select2 form-control" id="custodian_emp" name="custodian_emp">
-                                    <?php
-                                    if (isset($employees) && $employees != '') {
-                                        foreach ($employees as $k => $e) {
-                                            echo '<option value="' . $e->empno . '">' . $e->empname . '(' . $e->empno . ')</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <input type="hidden" id="custodian_emp_old" name="custodian_emp_old">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger myCustodianbtn" onclick="saveCustodian()">Save
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
 
 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
     <div class="modal fade text-left" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_status"
@@ -364,6 +299,124 @@
         </div>
     </div>
 <?php } ?>
+
+
+<?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
+    <div class="modal fade text-left" id="editAssetModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel_editAssetModal"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h4 class="modal-title white" id="myModalLabel_editAssetModal">Edit Employees</h4>
+                    <input type="hidden" id="delete_idPage" name="delete_idPage">
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure, you want to edit these employees?</p>
+                    <div class="model_htmlcontent"></div>
+                    <table width='100%'>
+                        <tr>
+                            <th width='50%'>Field</th>
+                            <th width='50%'>Value</th>
+                        </tr>
+                        <tr class="summaryRow status">
+                            <td class='summaryFldid summaryFldid_status' data-key="status" data-fldnme="Status">Status
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control" onchange="chkStatus(this)"
+                                        autocomplete="upd_bulkstatus" name="upd_bulkstatus"
+                                        id="upd_bulkstatus">
+                                    <option value="0" readonly disabled selected></option>
+                                    <?php if (isset($status) && $status != '') {
+                                        foreach ($status as $k => $s) {
+                                            echo '<option value="' . $s->id . '" data-oldkey="' . $s->id . '" data-newval="' . $s->id . '">' . $s->status_name . '</option>';
+                                        }
+                                    } ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow writOff_formNo_bulk hide">
+                            <td class='summaryFldid  summaryFldid_writOff_formNo' data-key="writOff_formNo"
+                                data-fldnme="Writ Off Form">Writ Off Form
+                            </td>
+                            <td class='summaryNewVal'>
+                                <input type="text" class="form-control" id="writOff_formNo_bulk"
+                                       name="writOff_formNo_bulk"
+                                       autocomplete="writOff_formNo_bulk" required>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow wo_date_bulk hide">
+                            <td class='summaryFldid summaryFldid_wo_date' data-key="wo_date"
+                                data-fldnme="Writ Off Date">Writ Off Date
+                            </td>
+                            <td class='summaryNewVal'>
+                                <input type="text" class="form-control mypickadat" id="wo_date_bulk"
+                                       name="wo_date_bulk"
+                                       autocomplete="wo_date_bulk" required>
+                            </td>
+                        </tr>
+
+                        <tr class="summaryRow idLocation_bulk">
+                            <td class='summaryFldid summaryFldid_status' data-key="idLocation" data-fldnme="Location">
+                                Location
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control" id="idLocation_bulk"
+                                        name="idLocation_bulk"
+                                        onchange="changeLocation('idLocation_bulk','idSubLocation_bulk')"
+                                        required>
+                                    <option value="0" readonly disabled selected></option>
+                                    <?php
+                                    if (isset($location) && $location != '') {
+                                        foreach ($location as $k => $v) {
+                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr class="summaryRow idSubLocation">
+                            <td class='summaryFldid summaryFldid_status' data-key="idSubLocation"
+                                data-fldnme="Sub Location">Sub Location
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control"
+                                        id="idSubLocation_bulk"
+                                        name="idSubLocation_bulk" autocomplete="idSubLocation_bulk" required>
+                                    <option value="0" readonly disabled selected></option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updBtnSave()">Save</button>
+                </div>
+                <br/><br/>
+                <div class="m-1">
+                    <h5 class=" bg-primary white  p-1">Summary of Changes (Bulk Update)</h5>
+                    <table id="tblaudit" width='100%'>
+                        <thead>
+                        <tr>
+                            <th>PAEDS ID</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Sub Location</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tblaudit_body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
 
 <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
     <div class="modal fade text-left" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_delete"
@@ -406,7 +459,6 @@
         getData();
     });
 
-
     function mydate() {
         $('.mypickadat').pickadate({
             selectYears: true,
@@ -417,11 +469,245 @@
         });
     }
 
+    function chkStatus(obj) {
+        var status = $('#upd_bulkstatus').val();
+        if (status == 1) {
+
+            $('.writOff_formNo_bulk').addClass('hide');
+            $('.wo_date_bulk').addClass('hide');
+        } else {
+            $('.writOff_formNo_bulk').removeClass('hide');
+            $('.wo_date_bulk').removeClass('hide');
+        }
+    }
+
+    function updBtnToggle() {
+        var assets = [];
+        var assets_no = '';
+        var asset_count = $('#my_table_asset').find('.checkboxes');
+        for (var i = 0; i < asset_count.length; i++) {
+            assets_no = $(asset_count[i]).attr('data-id');
+            if ($(asset_count[i]).is(':checked')) {
+                assets.push({'assets_no': assets_no});
+            }
+        }
+        if (assets.length >= 1) {
+            $('.updBtn').removeClass('hide').addClass('show');
+        } else {
+            $('.updBtn').removeClass('show').addClass('hide');
+        }
+    }
+
+    function updBtnModal() {
+        let assets = [];
+        let assets_no = '';
+        let asset_count = $('#my_table_asset').find('.checkboxes');
+        let counter = 0;
+        let empHtml = '';
+
+        var oldAssetData = '';
+
+        let str = '';
+
+        for (var i = 0; i < asset_count.length; i++) {
+            assets_no = $(asset_count[i]).attr('data-id');
+            if ($(asset_count[i]).is(':checked')) {
+                oldAssetData += "<tr><td>" + assets_no + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.mystatus').attr('data-status_name') + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.loc').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.sub_loc').text() + "</td>"
+                    + "</tr>";
+
+                assets.push({'assets_no': assets_no});
+                counter++;
+            }
+        }
+
+        if (assets.length >= 1) {
+            $.each(assets, function (i, v) {
+                if (i == 0) {
+                    empHtml += v.assets_no;
+                } else {
+                    empHtml += ', ' + v.assets_no;
+                }
+            });
+            str += '<p>Assets: <span  class="danger">' + empHtml + '</span><br/><span>Number of selected assets: ' + counter + '</span></p>';
+            $(".model_htmlcontent").html(str);
+
+            $(".tblaudit_body").html(oldAssetData);
+
+            $("#editAssetModal").modal('show');
+            pickDate();
+        } else {
+            toastMsg('Asset', 'Please select Asset', 'error');
+        }
+    }
+
+
+    function updBtnSave() {
+        var data = {};
+        data['status'] = $('#upd_bulkstatus').val();
+        data['writOff_formNo'] = $('#writOff_formNo_bulk').val();
+        data['wo_date'] = $('#wo_date_bulk').val();
+        data['idLocation'] = $('#idLocation_bulk').val();
+        data['idSubLocation'] = $('#idSubLocation_bulk').val();
+
+        var assets = [];
+        let count = $('#my_table_asset').find('.checkboxes');
+        for (let i = 0; i < count.length; i++) {
+            assets_no = $(count[i]).attr('data-id');
+            if ($(count[i]).is(':checked')) {
+                assets.push(assets_no);
+            }
+        }
+        data['assets'] = assets;
+
+        if (data['assets'].length >= 1) {
+            $('#btn-Edit').css('display', 'none');
+            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/bulkupdate'); ?>', data, "POST", function (result) {
+                if (result == 1) {
+                    toastMsg('Success', 'Successfully Changed', 'success');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (result == 3) {
+                    toastMsg('Error', 'Invalid Asset', 'error');
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            });
+
+        } else {
+            toastMsg('Asset', 'Please select Asset first', 'error');
+        }
+    }
+
+    function updBtnSave2() {
+        var data = {};
+        let assets = [];
+        let assets_no = '';
+        let results = [];
+        let flag = 0;
+
+        let isinputgiven = false;
+
+        let count = $('#my_table_asset').find('.checkboxes');
+
+        for (let i = 0; i < count.length; i++) {
+            assets_no = $(count[i]).attr('data-id');
+            var summaryID = $(count[i]).attr('data-oldval');
+            if ($(count[i]).is(':checked')) {
+                assets.push({'assets_no': assets_no});
+                $(".summaryRow").each(function () {
+                    let summaryVal;
+                    let summaryFldid = $(this).find('.summaryFldid').attr('data-key');
+                    console.log("summaryFldid - " + summaryFldid);
+                    var summaryNewVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
+                    console.log("summaryNewVal - " + summaryNewVal);
+                    if (summaryNewVal == "undefined" || summaryNewVal == undefined || summaryNewVal == "" || summaryNewVal == "null" || summaryNewVal == "NULL") {
+                        summaryVal = "";
+                    } else {
+                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
+                    }
+
+                    let summaryOldVal = $(count[i]).parents('tr').find(summaryFldid).attr('data-oldval');
+                    let summaryFldName = $(this).find('.summaryFldid').attr('data-fldnme');
+                    if (summaryFldName == null || summaryFldName == undefined) {
+                        $(this).find('.summaryFldName').addClass('error');
+                        flag = 1;
+                        return false;
+                    }
+
+
+                    if (parseInt(summaryVal) != parseInt(summaryOldVal)) {
+                        if (summaryVal != "") {
+                            console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal);
+                            isinputgiven = true;
+                            results.push({
+                                'assets_no': assets_no,
+                                'summaryFldid': summaryFldid,
+                                'summaryFldName': summaryFldName,
+                                'summaryVal': summaryVal,
+                                'summaryOldVal': summaryOldVal,
+                                'summaryID': summaryID
+                            });
+                        }
+                    }
+                });
+            }
+        }
+
+        if (isinputgiven == true) {
+            if (assets.length >= 1) {
+                $('#btn-Edit').css('display', 'none');
+                let formData = new FormData();
+                data['results'] = results;
+                formData.append('data', JSON.stringify(data));
+                CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/bulkupdate'); ?>', formData, "POST", function (result) {
+                    if (result == 1) {
+                        toastMsg('Success', 'Successfully Changed', 'success');
+                        setTimeout(function () {
+                            $('#btn-Edit').css('display', 'block');
+                            window.location.reload();
+                        }, 2000);
+                    } else if (result == 3) {
+                        toastMsg('Error', 'Invalid Employee', 'error');
+                    } else {
+                        toastMsg('Error', 'Something went wrong', 'error');
+                    }
+                }, true);
+
+            } else {
+                toastMsg('Employee', 'Please select Employee first', 'error');
+            }
+        } else {
+            toastMsg('Error', 'Please select at least one field', 'error');
+        }
+    }
+
+
     function format(d) {
         var html = '';
-        html += '<p>FTAG: 1111</p>';
-        html += '<p>AADop: 2</p>';
-        // html += '<p>New Entry: ' + (d.newEntry != '' && d.newEntry != undefined && d.newEntry != null ? d.newEntry : '') + '</p>';
+        html += '<div class="row">';
+        html += '<div class="col-4">';
+        html += '<p>PAEDS ID: <span class="text-primary">' + (d.paeds_id != '' && d.paeds_id != undefined && d.paeds_id != null ? d.paeds_id : '') + '</span></p>';
+        html += '<p>Category: <span class="text-primary">' + (d.category != '' && d.category != undefined && d.category != null ? d.category : '') + '</span></p>';
+        html += '<p>Desc: <span class="text-primary">' + (d.desc != '' && d.desc != undefined && d.desc != null ? d.desc : '') + '</span></p>';
+        html += '<p>Model: <span class="text-primary">' + (d.model != '' && d.model != undefined && d.model != null ? d.model : '') + '</span></p>';
+        html += '<p>Product No: <span class="text-primary">' + (d.product_no != '' && d.product_no != undefined && d.product_no != null ? d.product_no : '') + '</span></p>';
+        html += '<p>Serial No: <span class="text-primary">' + (d.serial_no != '' && d.serial_no != undefined && d.serial_no != null ? d.serial_no : '') + '</span></p>';
+        html += '<p>Tag No: <span class="text-primary">' + (d.tag_no != '' && d.tag_no != undefined && d.tag_no != null ? d.tag_no : '') + '</span></p>';
+        html += '<p>PO No: <span class="text-primary">' + (d.po_no != '' && d.po_no != undefined && d.po_no != null ? d.po_no : '') + '</span></p>';
+        html += '<p>Cost: <span class="text-primary">' + (d.cost != '' && d.cost != undefined && d.cost != null ? d.cost : '') + '</span></p>';
+        html += '<p>Currency: <span class="text-primary">' + (d.idCurrency != '' && d.idCurrency != undefined && d.idCurrency != null ? d.idCurrency : '') + '</span></p>';
+        html += '<p>Source Of Purchase: <span class="text-primary">' + (d.idSourceOfPurchase != '' && d.idSourceOfPurchase != undefined && d.idSourceOfPurchase != null ? d.idSourceOfPurchase : '') + '</span></p>';
+        html += '<p>Employee: <span class="text-primary">' + (d.emp != '' && d.emp != undefined && d.emp != null ? d.emp : '') + '</span></p>';
+        html += '<p>Responsible Person: <span class="text-primary">' + (d.resp_person_name != '' && d.resp_person_name != undefined && d.resp_person_name != null ? d.resp_person_name : '') + '</span></p>';
+        html += '</div>';
+        html += '<div class="col-4">';
+        html += '<p>OU: <span class="text-primary">' + (d.ou != '' && d.ou != undefined && d.ou != null ? d.ou : '') + '</span></p>';
+        html += '<p>Account: <span class="text-primary">' + (d.account != '' && d.account != undefined && d.account != null ? d.account : '') + '</span></p>';
+        html += '<p>Dept: <span class="text-primary">' + (d.dept != '' && d.dept != undefined && d.dept != null ? d.dept : '') + '</span></p>';
+        html += '<p>Fund: <span class="text-primary">' + (d.fund != '' && d.fund != undefined && d.fund != null ? d.fund : '') + '</span></p>';
+        html += '<p>Project: <span class="text-primary">' + (d.proj != '' && d.proj != undefined && d.proj != null ? d.proj : '') + '</span></p>';
+        html += '<p>Prog: <span class="text-primary">' + (d.prog != '' && d.prog != undefined && d.prog != null ? d.prog : '') + '</span></p>';
+        html += '<p>Location: <span class="text-primary">' + (d.loc != '' && d.loc != undefined && d.loc != null ? d.loc : '') + '</span></p>';
+        html += '<p>Sub Location: <span class="text-primary">' + (d.sub_loc != '' && d.sub_loc != undefined && d.sub_loc != null ? d.sub_loc : '') + '</span></p>';
+        html += '<p>Area: <span class="text-primary">' + (d.area != '' && d.area != undefined && d.area != null ? d.area : '') + '</span></p>';
+        html += '</div>';
+        html += '<div class="col-4">';
+        html += '<p>Verification Status: <span class="text-primary">' + (d.verification_status != '' && d.verification_status != undefined && d.verification_status != null ? d.verification_status : '') + '</span></p>';
+        html += '<p>Last Verify Date: <span class="text-primary">' + (d.last_verify_date != '' && d.last_verify_date != undefined && d.last_verify_date != null ? d.last_verify_date : '') + '</span></p>';
+        html += '<p>Due Date: <span class="text-primary">' + (d.due_date != '' && d.due_date != undefined && d.due_date != null ? d.due_date : '') + '</span></p>';
+        html += '<p>Purchase Date: <span class="text-primary">' + (d.pur_date != '' && d.pur_date != undefined && d.pur_date != null ? d.pur_date : '') + '</span></p>';
+        html += '<p>Status: <span class="text-primary">' + (d.status != '' && d.status != undefined && d.status != null ? d.status : '') + '</span></p>';
+        html += '<p>WritOff formNo: <span class="text-primary">' + (d.writOff_formNo != '' && d.writOff_formNo != undefined && d.writOff_formNo != null ? d.writOff_formNo : '') + '</span></p>';
+        html += '<p>WO Date: <span class="text-primary">' + (d.wo_date != '' && d.wo_date != undefined && d.wo_date != null ? d.wo_date : '') + '</span></p>';
+        html += '<p>Remarks: <span class="text-primary">' + (d.remarks != '' && d.remarks != undefined && d.remarks != null ? d.remarks : '') + '</span></p>';
+        html += '</div>';
+        html += '</div>';
+
+
         return html;
     }
 
@@ -479,17 +765,18 @@
                     "data": null,
                     "defaultContent": ""
                 },
-                {"data": "paeds_id"},
-                {"data": "category"},
-                {"data": "desc"},
-                {"data": "tag"},
-                {"data": "emp"},
-                {"data": "proj"},
-                {"data": "loc"},
-                {"data": "sub_loc"},
+                {"data": "paeds_id", "class": "paeds_id"},
+                {"data": "category", "class": "category"},
+                {"data": "desc", "class": "desc"},
+                {"data": "tag", "class": "tag"},
+                {"data": "emp", "class": "empl"},
+                {"data": "proj", "class": "proj"},
+                {"data": "loc", "class": "loc"},
+                {"data": "sub_loc", "class": "sub_loc"},
                 {"data": "status"},
                 {"data": "pr_path"},
-                {"data": "Action"}
+                {"data": "Action"},
+                {"data": "check"}
             ],
             order: [
                 [1, 'desc']

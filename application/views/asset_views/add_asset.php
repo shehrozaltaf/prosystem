@@ -38,6 +38,7 @@
         <div class="content-body">
 
             <section class="vertical-wizard">
+
                 <div class="bs-stepper vertical vertical-wizard-example">
                     <div class="bs-stepper-header">
                         <div class="step" data-target="#account-details-vertical">

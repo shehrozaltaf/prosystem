@@ -96,15 +96,37 @@ class Assets extends CI_controller
             }
 
             $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
+            $table_data[$value->idAsset]['model'] = $value->model;
+            $table_data[$value->idAsset]['product_no'] = $value->product_no;
+            $table_data[$value->idAsset]['serial_no'] = $value->serial_no;
+            $table_data[$value->idAsset]['po_no'] = $value->po_no;
+            $table_data[$value->idAsset]['cost'] = $value->cost;
+            $table_data[$value->idAsset]['idCurrency'] = $value->idCurrency;
+            $table_data[$value->idAsset]['idSourceOfPurchase'] = $value->idSourceOfPurchase;
+            $table_data[$value->idAsset]['resp_person_name'] = $value->resp_person_name;
+            $table_data[$value->idAsset]['ou'] = $value->ou;
+            $table_data[$value->idAsset]['account'] = $value->account;
+            $table_data[$value->idAsset]['dept'] = $value->dept;
+            $table_data[$value->idAsset]['fund'] = $value->fund;
+            $table_data[$value->idAsset]['prog'] = $value->prog;
+            $table_data[$value->idAsset]['area'] = $value->area;
+            $table_data[$value->idAsset]['verification_status'] = $value->verification_status;
+            $table_data[$value->idAsset]['last_verify_date'] = $value->last_verify_date;
+            $table_data[$value->idAsset]['due_date'] = $value->due_date;
+            $table_data[$value->idAsset]['pur_date'] = $value->pur_date;
+            $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
+            $table_data[$value->idAsset]['wo_date'] = $value->wo_date;
+            $table_data[$value->idAsset]['remarks'] = $value->remarks;
+
             $table_data[$value->idAsset]['category'] = $value->category;
             $table_data[$value->idAsset]['desc'] = $value->description;
             $table_data[$value->idAsset]['tag'] = $value->tag_no;
-            $table_data[$value->idAsset]['emp'] = $value->emp_no .' - '.$value->empname;
-            $table_data[$value->idAsset]['proj'] = $value->proj_code. ' - '.$value->proj_name;
+            $table_data[$value->idAsset]['emp'] = $value->emp_no . ' - ' . $value->empname;
+            $table_data[$value->idAsset]['proj'] = $value->proj_code . ' - ' . $value->proj_name;
             $table_data[$value->idAsset]['loc'] = $value->location;
             $table_data[$value->idAsset]['sub_loc'] = $value->location_sub;
-            $table_data[$value->idAsset]['status'] = '<span class="label btn btn-sm btn-' . $statusClass . ' waves-effect waves-light" 
-             onclick="changeStatus(this)" data-id="' . $value->idAsset . '" data-status="' . $value->status . '">' . $value->status_name . '</span>';
+            $table_data[$value->idAsset]['status'] = '<span class="label mystatus btn btn-sm btn-' . $statusClass . ' waves-effect waves-light" 
+             onclick="changeStatus(this)" data-id="' . $value->idAsset . '" data-status="' . $value->status . '"  data-status_name="' . $value->status_name . '">' . $value->status_name . '</span>';
             $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
 
             $table_data[$value->idAsset]['Action'] = '
@@ -114,6 +136,13 @@ class Assets extends CI_controller
                 <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
                         <i class="feather icon-trash"></i>
                 </a>';
+
+            $table_data[$value->idAsset]['check'] = '<input type="checkbox" class="checkboxes" 
+                data-id="' . $value->idAsset . '"  
+                data-oldval="' . $value->idAsset . '" 
+                name="check_asset" id="check_asset_' . $key . '"
+                value="1" 
+                onclick="updBtnToggle()" />';
 
         }
         foreach ($table_data as $k => $v) {
@@ -229,8 +258,44 @@ class Assets extends CI_controller
         } else {
             $this->load->view('page-invalid-id');
         }
+    }
+
+    function bulkupdate()
+    {
+        $editArr = array();
+        if (isset($_POST['status']) && $_POST['status'] != '') {
+            $editArr['status'] = $_POST['status'];
+        }
+        if (isset($_POST['writOff_formNo']) && $_POST['writOff_formNo'] != '') {
+            $editArr['writOff_formNo'] = $_POST['writOff_formNo'];
+        }
+        if (isset($_POST['wo_date']) && $_POST['wo_date'] != '') {
+            $editArr['wo_date'] = $_POST['wo_date'];
+        }
+        if (isset($_POST['idLocation']) && $_POST['idLocation'] != '') {
+            $editArr['idLocation'] = $_POST['idLocation'];
+        }
+        if (isset($_POST['idSubLocation']) && $_POST['idSubLocation'] != '') {
+            $editArr['idSubLocation'] = $_POST['idSubLocation'];
+        }
+        $Custom = new Custom();
+        if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
+            foreach ($_POST['assets'] as $asset) {
+                $editData = $Custom->Edit($editArr, 'idAsset', $asset, 'a_asset');
+            }
+
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
 
     }
+
 }
 
 ?>
