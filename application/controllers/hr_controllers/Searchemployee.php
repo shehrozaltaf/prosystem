@@ -27,25 +27,78 @@ class Searchemployee extends CI_Controller
     {
         $data = array();
         $MSettings = new MSettings();
-        $Mempmodel = new Mempmodel();
+
         $Custom = new Custom();
-        $data['datatbl'] = $Mempmodel->getAllEmployee();
+
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
         /*==========Log=============*/
         $trackarray = array("action" => "View Dashboard Users Page",
             "result" => "View Dashboard Users page. Fucntion: index()");
         $Custom->trackLogs($trackarray, "user_logs");
 
-
-        $data['project'] = $Custom->selectAllQuery('project', 'idProject');
-        $data['location'] = $Custom->selectAllQuery('location', 'id');
-        $data['emp'] = $Custom->selectAllQuery('hr_employee', 'id');
+        $data['project'] = $Custom->selectAllQuery('project', 'proj_name');
+        $data['location'] = $Custom->selectAllQuery('location', 'location');
+        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'entity');
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
+        $data['desig'] = $Custom->selectAllQuery('hr_desig', 'desig');
+        $data['band'] = $Custom->selectAllQuery('hr_band', 'band');
+        $data['category'] = $Custom->selectAllQuery('hr_category', 'category');
 
+
+        $Mempmodel = new Mempmodel();
+        $searchData = array();
+        $searchData['projects'] = (isset($_REQUEST['pro']) && $_REQUEST['pro'] != '' && $_REQUEST['pro'] != '0' ? $_REQUEST['pro'] : 0);
+        $searchData['location'] = (isset($_REQUEST['loc']) && $_REQUEST['loc'] != '' && $_REQUEST['loc'] != '0' ? $_REQUEST['loc'] : 0);
+        $searchData['category'] = (isset($_REQUEST['cat']) && $_REQUEST['cat'] != '' && $_REQUEST['cat'] != '0' ? $_REQUEST['cat'] : 0);
+        $searchData['entity'] = (isset($_REQUEST['ent']) && $_REQUEST['ent'] != '' && $_REQUEST['ent'] != '0' ? $_REQUEST['ent'] : 0);
+        $searchData['band'] = (isset($_REQUEST['band']) && $_REQUEST['band'] != '' && $_REQUEST['band'] != '0' ? $_REQUEST['band'] : 0);
+        $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
+        $searchData['empname'] = (isset($_REQUEST['ename']) && $_REQUEST['ename'] != '' ? $_REQUEST['ename'] : 0);
+        $searchData['empno'] = (isset($_REQUEST['eno']) && $_REQUEST['eno'] != '' ? $_REQUEST['eno'] : 0);
+        $searchData['hiredatefrom'] = (isset($_REQUEST['hfrom']) && $_REQUEST['hfrom'] != '' ? $_REQUEST['hfrom'] : 0);
+        $searchData['hiredateto'] = (isset($_REQUEST['hto']) && $_REQUEST['hto'] != '' ? $_REQUEST['hto'] : 0);
+
+        $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
+        $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 500000);
+        $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
+        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'b.id');
+        $searchData['ordersort'] = (isset($_REQUEST['order'][4]['dir']) && $_REQUEST['order'][4]['dir'] != '' ? $_REQUEST['order'][4]['dir'] : 'desc');
+
+        $data['datatbl'] = $Mempmodel->getAllEmployee($searchData);
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
         $this->load->view('hr_views/searchemployee', $data);
+        $this->load->view('include/customizer');
+        $this->load->view('include/footer');
+    }
+
+    function EmpDetail()
+    {
+        $data = array();
+        $MSettings = new MSettings();
+        $Custom = new Custom();
+
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'index.php/hr_controllers/searchemployee');
+        /*==========Log=============*/
+        $trackarray = array("action" => "View Dashboard Users Page",
+            "result" => "View Dashboard Users page. Fucntion: index()");
+        $Custom->trackLogs($trackarray, "user_logs");
+
+        if (isset($_GET['emp']) && $_GET['emp'] != '') {
+            $data['emp'] = $_GET['emp'];
+        } else {
+            $data['emp'] = '';
+//            header('location:');
+        }
+
+        $Mempmodel = new Mempmodel();
+        $data['empDetails'] = $Mempmodel->getEmployeeDataByEmpNo($data['emp']);
+
+        $this->load->view('include/header');
+        $this->load->view('include/top_header');
+        $this->load->view('include/sidebar');
+        $this->load->view('hr_views/empdetail', $data);
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }

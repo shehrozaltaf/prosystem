@@ -1,3 +1,4 @@
+<?php error_reporting(0); ?>
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
 
@@ -30,6 +31,172 @@
             </div>
         </div>
         <div class="content-body">
+
+            <section class="basic-select2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="projects">Working Project</label>
+                                                <select class="select2 form-control" id="projects" name="projects">
+                                                    <option value="0">All Projects</option>
+                                                    <?php
+                                                    if (isset($project) && $project != '') {
+                                                        foreach ($project as $k => $v) {
+                                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <select class="select2 form-control" id="location" name="location">
+                                                    <option value="0">All Locations</option>
+                                                    <?php
+                                                    if (isset($location) && $location != '') {
+                                                        foreach ($location as $k => $v) {
+                                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="category">Category</label>
+                                                <select class="select2 form-control" id="category" name="category">
+                                                    <option value="0">All Categories</option>
+                                                    <?php
+                                                    if (isset($category) && $category != '') {
+                                                        foreach ($category as $k => $v) {
+                                                            echo '<option value="' . $v->id . '">' . $v->category . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="entity">Entity</label>
+                                                <select class="select2 form-control" id="entity" name="entity">
+                                                    <option value="0">All Entity</option>
+                                                    <?php
+                                                    if (isset($entity) && $entity != '') {
+                                                        foreach ($entity as $k => $v) {
+                                                            echo '<option value="' . $v->id . '">' . $v->entity . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="band">Band</label>
+                                                <select class="select2 form-control" id="band" name="band">
+                                                    <option value="0">All Bands</option>
+                                                    <?php
+                                                    if (isset($band) && $band != '') {
+                                                        foreach ($band as $k => $v) {
+                                                            echo '<option value="' . $v->id . '">' . $v->band . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="status">Status</label>
+                                                <select class="select2 form-control" id="status" name="status">
+                                                    <option value="0" selected>All Status</option>
+                                                    <?php if (isset($status) && $status != '') {
+                                                        foreach ($status as $k => $s) {
+                                                            echo '<option value="' . $s->id . '" >' . $s->status . '</option>';
+                                                        }
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="empname">Employee Name</label>
+                                                <input type="text" class="form-control" placeholder="Employee Name"
+                                                       onkeypress="return lettersOnly_WithSpace();" id="empname"
+                                                       name="empname">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="empno">Employee No</label>
+                                                <input type="text" class="form-control" placeholder="Employee No"
+                                                       onkeypress="return numeralsOnly();" maxlength="6" id="empno"
+                                                       name="empno">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="hiredatefrom">Hire / Rehire Date <br/>From</label>
+                                                <input type="text" class="form-control pickadate-short-string"
+                                                       id="hiredatefrom"
+                                                       name="hiredatefrom" placeholder="Hire / Rehire Date From">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="hiredateto"><br/>To</label>
+                                                <input type="text" id="hiredateto"
+                                                       class="form-control pickadate-short-string"
+                                                       name="hiredateto" placeholder="Hire / Rehire Date To">
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="salaryfrom">Salary<br/>From</label>
+                                                <input type="text" class="form-control" placeholder="Salary From"
+                                                       onkeypress="return numeralsOnly();" id="salaryfrom"
+                                                       name="salaryfrom">
+                                            </div>
+                                        </div>-->
+                                        <!--<div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="salaryto"><br/>To</label>
+                                                <input type="text" class="form-control" placeholder="Salary To"
+                                                       onkeypress="return numeralsOnly();" id="salaryto"
+                                                       name="salaryto">
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                    <div class=" ">
+                                        <button type="button" class="btn btn-primary" onclick="getData()">Get Data
+                                        </button>
+                                        <button id="cmdCancel" name="cmdCancel" type="button" class="btn btn-danger">
+                                            Clear Data
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <form method="post" id="frm" name="frm">
                 <section id="column-selectors">
                     <div class="row">
@@ -129,6 +296,10 @@
                                                                 <?php echo $rows->Status ?>
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
+                                                                <?php if (isset($permission[0]->CanView) && $permission[0]->CanView == 1) { ?>
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->EmployeeNo) ?>" >
+                                                                        <i class="feather icon-eye"></i> </a>
+                                                                <?php } ?>
                                                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                     <a href="javascript:void(0)"
                                                                        onclick="getEdit(this)"><i
@@ -430,9 +601,54 @@
         });
     });
 
-    /*$(document).on('blur', '#dt_conexpiry', function () {
-        changeModalVal("#dt_conexpiry");
-    });*/
+
+    function getData() {
+        /*shehroz*/
+        var data = {};
+        data['projects'] = $('#projects').val();
+        data['location'] = $('#location').val();
+        data['category'] = $('#category').val();
+        data['entity'] = $('#entity').val();
+        data['band'] = $('#band').val();
+        data['status'] = $('#status').val();
+        data['empname'] = $('#empname').val();
+        data['empno'] = $('#empno').val();
+        data['hiredatefrom'] = $('#hiredatefrom').val();
+        data['hiredateto'] = $('#hiredateto').val();
+        var url = '<?php echo base_url() ?>index.php/hr_controllers/searchemployee?f=1';
+        if (data['projects'] != '' && data['projects'] != undefined && data['projects'] != 0) {
+            url += '&pro=' + data['projects'];
+        }
+        if (data['location'] != '' && data['location'] != undefined && data['location'] != 0) {
+            url += '&loc=' + data['location'];
+        }
+        if (data['category'] != '' && data['category'] != undefined && data['category'] != 0) {
+            url += '&cat=' + data['category'];
+        }
+        if (data['entity'] != '' && data['entity'] != undefined && data['entity'] != 0) {
+            url += '&ent=' + data['entity'];
+        }
+        if (data['band'] != '' && data['band'] != undefined && data['band'] != 0) {
+            url += '&band=' + data['band'];
+        }
+        if (data['status'] != '' && data['status'] != undefined && data['status'] != 0) {
+            url += '&status=' + data['status'];
+        }
+        if (data['empname'] != '' && data['empname'] != undefined && data['empname'] != 0) {
+            url += '&ename=' + data['empname'];
+        }
+        if (data['empno'] != '' && data['empno'] != undefined && data['empno'] != 0) {
+            url += '&eno=' + data['empno'];
+        }
+        if (data['hiredatefrom'] != '' && data['hiredatefrom'] != undefined && data['hiredatefrom'] != 0) {
+            url += '&hfrom=' + data['hiredatefrom'];
+        }
+        if (data['hiredateto'] != '' && data['hiredateto'] != undefined && data['hiredateto'] != 0) {
+            url += '&hto=' + data['hiredateto'];
+        }
+        window.location.href = url;
+    }
+
 
     function updBtnModal() {
         let employees = [];
@@ -595,7 +811,6 @@
 
             }
         }
-
 
 
         if (isinputgiven == true) {

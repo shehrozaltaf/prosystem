@@ -59,7 +59,7 @@
         </div>
         <div class="content-body">
             <section class="vertical-wizard">
-                <div class="bs-stepper vertical vertical-wizard-example">
+                <div class="bs-stepper vertical modern-verticals-wizard-example">
                     <div class="bs-stepper-header">
                         <div class="step" data-target="#account-details-vertical">
                             <button type="button" class="step-trigger">
@@ -347,83 +347,26 @@
                                                 <label id="lbl_landline">Landline Number</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="">
-
-                                                <?php } ?>
-
+                                                <input type="tel" id="landline" required
+                                                       onkeypress="return numeralsOnly_phone();"
+                                                       placeholder="Landline Number"
+                                                       class="form-control" name="landline"
+                                                       maxlength="15"
+                                                       value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
                                                 <div>
 
-                                                    <?php if (isset($editemp)) {
-
-                                                        if ($editemp[0]->chk_landline == 1) { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           checked="checked"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php } else { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php }
-
-                                                    } else { ?>
-
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="chk_landline"
-                                                                       name="chk_landline"
-                                                                       type="checkbox"
-                                                                       class="custom-control-input"
-                                                                       data-oldval="0">
-                                                                <label class="custom-control-label"
-                                                                       for="chk_landline">Not
-                                                                    Available</label>
-                                                            </div>
-                                                        </fieldset>
-
-                                                    <?php } ?>
-
+                                                    <fieldset>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input id="chk_landline"
+                                                                   name="chk_landline"
+                                                                   type="checkbox"
+                                                                   class="custom-control-input"
+                                                                    <?php echo ($editemp[0]->chk_landline == 1?'checked':'') ?>
+                                                                   data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
+                                                            <label class="custom-control-label"
+                                                                   for="chk_landline">Not Available</label>
+                                                        </div>
+                                                    </fieldset>
                                                 </div>
 
                                             </div>
@@ -436,26 +379,12 @@
                                                 <label id="lbl_cellno1">Mobile Number (Primary)</label>
                                             </div>
                                             <div class="col-sm-9">
+                                                <input type="tel" id="cellno1" maxlength="11" required
+                                                       placeholder="Mobile Number (Primary)"
+                                                       class="form-control" name="cellno1"
+                                                       onkeypress="return numeralsOnly();"
+                                                       value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
 
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="">
-
-                                                <?php } ?>
 
                                             </div>
                                         </div>
@@ -466,28 +395,12 @@
                                                 <label id="lbl_cellno2">Mobile Number (Alternate)</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="tel" id="cellno2" maxlength="11" required
+                                                       class="form-control" name="cellno2"
+                                                       placeholder="Mobile Number (Alternate)"
+                                                       onkeypress="return numeralsOnly();"
+                                                       value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -519,31 +432,14 @@
                                             </div>
                                             <div class="col-sm-9">
 
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="personnme" maxlength="70"
+                                                       required
+                                                       class="form-control" name="personnme"
+                                                       placeholder="Person Name"
+                                                       style="text-transform: uppercase;"
+                                                       onkeypress="return lettersOnly_WithSpace();"
+                                                       value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -555,26 +451,13 @@
                                             </div>
                                             <div class="col-sm-9">
 
-                                                <?php
+                                                <input type="tel" id="emcellno" maxlength="11" required
+                                                       class="form-control" name="emcellno"
+                                                       onkeypress="return numeralsOnly();"
+                                                       placeholder="Mobile Number"
+                                                       value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
+                                                >
 
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="">
-
-                                                <?php } ?>
 
                                             </div>
                                         </div>
@@ -586,27 +469,12 @@
                                             </div>
                                             <div class="col-sm-9">
 
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="tel" id="emlandno" maxlength="8" required
+                                                       class="form-control" name="emlandno"
+                                                       onkeypress="return numeralsOnly_phone1();"
+                                                       placeholder="Landline No."
+                                                       value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
+                                                >
 
                                                 <div>
 
@@ -755,25 +623,11 @@
                                             </div>
                                             <div class="col-sm-9">
 
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="gncno"
+                                                       placeholder="GNC Number"
+                                                       class="form-control" name="gncno" required
+                                                       value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -848,26 +702,11 @@
                                                 <label id="lbl_rehiredt">Hire / Rehire Date</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="rehiredt" required
+                                                       placeholder="Hire / Rehire Date"
+                                                       class="form-control" name="rehiredt"
+                                                       value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -879,27 +718,11 @@
                                                 <label id="lbl_conexpiry">Contract Expiry</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="text" id="conexpiry" required
+                                                       placeholder="Contract Expiry"
+                                                       class="form-control" name="conexpiry"
+                                                       value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -1003,6 +826,38 @@
                                     <div class="col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_ddlloc_sub">Sub Location</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
+                                                if (isset($location) && $location != '') {
+                                                    foreach ($location as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlloc) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->location;
+                                                            $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->location . '" value="' . $v->id . '">' . $v->location . '</option>';
+                                                        }
+                                                    }
+                                                }
+                                                $htmlQ .= '<select class="select2 form-control" id="lbl_ddlloc_sub"
+                                                                        required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="lbl_ddlloc_sub">';
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
                                                 <label id="lbl_supernme">Supervisor Name</label>
                                             </div>
                                             <div class="col-sm-9">
@@ -1039,28 +894,12 @@
                                                 <label id="lbl_hiresalary">Hiring Salary</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="hiresalary" required
+                                                       class="form-control" name="hiresalary"
+                                                       placeholder="Hiring Salary"
+                                                       data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -1263,26 +1102,11 @@
                                             <label id="lbl_gopdt">GOP Date</label>
                                         </div>
                                         <div class="col-sm-9">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                <input type="text" id="gopdt" required
-                                                       class="form-control" name="gopdt"
-                                                       placeholder="GOP Date"
-                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
-                                                >
-
-                                            <?php } else { ?>
-
-                                                <input type="text" id="gopdt" required
-                                                       class="form-control" name="gopdt"
-                                                       placeholder="GOP Date"
-                                                       value=""
-                                                >
-
-                                            <?php } ?>
+                                            <input type="text" id="gopdt" required
+                                                   class="form-control" name="gopdt"
+                                                   placeholder="GOP Date"
+                                                   value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
+                                            >
 
                                         </div>
                                     </div>
@@ -1506,23 +1330,12 @@
                                             <label id="lbl_remarks">Remarks</label>
                                         </div>
                                         <div class="col-sm-9">
+<textarea id="remarks" rows="5" required
+          class="form-control" name="remarks"
+          placeholder="Remarks"
+><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
 
-                                            <?php
 
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"
-                                                ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
-
-                                            <?php } else { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"></textarea>
-
-                                            <?php } ?>
 
                                         </div>
                                     </div>
@@ -1937,7 +1750,6 @@
                 if (result != '' && result != null) {
                     var hidden_id= $("#hidden_id").val();
                     var a = JSON.parse(result);
-                    console.log(a);
                     try {
                         if (a[0].error ==1 ) {
                             toastMsg('Error', 'Employee number already exists', 'error');
