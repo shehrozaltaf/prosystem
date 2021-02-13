@@ -567,6 +567,7 @@
             CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/bulkupdate'); ?>', data, "POST", function (result) {
                 if (result == 1) {
                     toastMsg('Success', 'Successfully Changed', 'success');
+                    $("#editAssetModal").modal('hide');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
