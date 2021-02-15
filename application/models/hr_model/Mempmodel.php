@@ -58,6 +58,16 @@ class Mempmodel extends CI_Model
         return $query->result();
     }
 
+    /*shehroz*/
+    function getAssetByEmpNo($empno)
+    {
+        $this->db->select('*');
+        $this->db->from('asset');
+        $this->db->where('emp_no', $empno);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function getEmployeeDataByEmpNo2($empno)
     {
         $query = $this->db->query("SELECT convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,status FROM hr_employee where empno='$empno'");
@@ -78,7 +88,6 @@ class Mempmodel extends CI_Model
         return $results;
         //return $query->result_array();
     }
-
 
     function getEmployeeData($id)
     {
@@ -142,7 +151,6 @@ class Mempmodel extends CI_Model
         return $results['results'];
         //return $query->result_array();
     }
-
 
     function getAllEmployee($searchdata)
     {
@@ -210,25 +218,25 @@ class Mempmodel extends CI_Model
 
 
         $this->db->from('hr_employee e');
-        $this->db->join('hr_category c', 'e.ddlcategory = c.id','left');
-        $this->db->join('hr_emptype et', 'e.ddlemptype = et.id','left');
-        $this->db->join('hr_desig de', 'e.titdesi = de.id','left');
-        $this->db->join('hr_band b', 'e.ddlband = b.id','left');
-        $this->db->join('hr_band b1', 'b1.id = de.band','left');
-        $this->db->join('location loc', 'loc.id = e.ddlloc','left');
-        $this->db->join('hr_status st', 'st.id = e.status','left');
-        $this->db->join('project pr', 'pr.proj_code = e.workproj','left');
-        $this->db->join('project pr1', 'pr1.proj_code = e.chargproj','left');
-        $this->db->join('hr_employee e1', 'e.empno = e1.supernme','left');
-        $this->db->join('hr_category c4', 'e1.ddlcategory = c4.id','left');
-        $this->db->join('hr_emptype et4', 'e1.ddlemptype = et4.id','left');
-        $this->db->join('hr_desig de4', 'e1.titdesi = de4.id','left');
-        $this->db->join('hr_band b4', 'e1.ddlband = b4.id','left');
-        $this->db->join('hr_band b41', 'b41.id = de.band','left');
-        $this->db->join('location loc4', 'loc4.id = e1.ddlloc','left');
-        $this->db->join('hr_status st4', 'st4.id = e1.status','left');
-        $this->db->join('project pr4', 'pr4.proj_code = e1.workproj','left');
-        $this->db->join('project pr41', 'pr41.proj_code = e1.chargproj','left');
+        $this->db->join('hr_category c', 'e.ddlcategory = c.id', 'left');
+        $this->db->join('hr_emptype et', 'e.ddlemptype = et.id', 'left');
+        $this->db->join('hr_desig de', 'e.titdesi = de.id', 'left');
+        $this->db->join('hr_band b', 'e.ddlband = b.id', 'left');
+        $this->db->join('hr_band b1', 'b1.id = de.band', 'left');
+        $this->db->join('location loc', 'loc.id = e.ddlloc', 'left');
+        $this->db->join('hr_status st', 'st.id = e.status', 'left');
+        $this->db->join('project pr', 'pr.proj_code = e.workproj', 'left');
+        $this->db->join('project pr1', 'pr1.proj_code = e.chargproj', 'left');
+        $this->db->join('hr_employee e1', 'e.empno = e1.supernme', 'left');
+        $this->db->join('hr_category c4', 'e1.ddlcategory = c4.id', 'left');
+        $this->db->join('hr_emptype et4', 'e1.ddlemptype = et4.id', 'left');
+        $this->db->join('hr_desig de4', 'e1.titdesi = de4.id', 'left');
+        $this->db->join('hr_band b4', 'e1.ddlband = b4.id', 'left');
+        $this->db->join('hr_band b41', 'b41.id = de.band', 'left');
+        $this->db->join('location loc4', 'loc4.id = e1.ddlloc', 'left');
+        $this->db->join('hr_status st4', 'st4.id = e1.status', 'left');
+        $this->db->join('project pr4', 'pr4.proj_code = e1.workproj', 'left');
+        $this->db->join('project pr41', 'pr41.proj_code = e1.chargproj', 'left');
 
         $this->db->where('e1.supernme IS NOT NULL');
 
@@ -239,6 +247,7 @@ class Mempmodel extends CI_Model
         return $query->result();
 
     }
+
     function getAllEmployee2()
     {
         /*$query = $this->db->query("select id, case when ddlemptype = 1 then 'Payroll' when ddlemptype = 2 then 'Service Contract' when ddlemptype = 3 then 'Consultancy Contract' end 'EmployeeType',
@@ -307,7 +316,6 @@ order by e.id desc");
         return $query->result();
     }
 
-
     function getAllEmployeeForReport()
     {
         $query = $this->db->query("select e.id, 
@@ -334,7 +342,6 @@ inner join hr_employee e1 on e1.empno = e.supernme");
 
         return $query->result();
     }
-
 
     function getEmployee($searchdata)
     {

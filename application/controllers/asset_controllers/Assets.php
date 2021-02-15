@@ -121,7 +121,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['category'] = $value->category;
             $table_data[$value->idAsset]['desc'] = $value->description;
             $table_data[$value->idAsset]['tag'] = $value->tag_no;
-            $table_data[$value->idAsset]['emp'] = $value->emp_no . ' - ' . $value->empname;
+            $table_data[$value->idAsset]['emp'] = '<a href="' . base_url() . 'index.php/hr_controllers/searchemployee/EmpDetail?emp=' . $value->emp_no . '"  target="_blank">' . $value->emp_no . ' - ' . $value->empname . '</a>';
             $table_data[$value->idAsset]['proj'] = $value->proj_code . ' - ' . $value->proj_name;
             $table_data[$value->idAsset]['loc'] = $value->location;
             $table_data[$value->idAsset]['sub_loc'] = $value->location_sub;
@@ -182,6 +182,8 @@ class Assets extends CI_controller
         if (isset($_POST['idAsset']) && $_POST['idAsset'] != '' && isset($_POST['status']) && $_POST['status'] != '') {
             $id = $_POST['idAsset'];
             $editArr['status'] = $_POST['status'];
+            $editArr['writOff_formNo'] = (isset($_POST['writOff_formNo']) && $_POST['writOff_formNo'] != '' ? $_POST['writOff_formNo'] : '');
+            $editArr['wo_date'] = (isset($_POST['wo_date']) && $_POST['wo_date'] != '' ? date('Y-m-d',strtotime($_POST['wo_date'])) : '');
             $editArr['statusChangedBy'] = $_SESSION['login']['idUser'];
             $editArr['statusDateTime'] = date('Y-m-d H:i:s');
             $editData = $Custom->Edit($editArr, 'idAsset', $id, 'a_asset');

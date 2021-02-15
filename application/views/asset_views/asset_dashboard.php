@@ -276,7 +276,7 @@
                         <div class="col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="change_status" class="label-control">Select Status</label>
-                                <select class="select2 form-control"
+                                <select class="select2 form-control" onchange="changeStatusSingle()"
                                         autocomplete="change_status"
                                         id="change_status" required>
                                     <option value="0" readonly disabled selected></option>
@@ -286,6 +286,23 @@
                                         }
                                     } ?>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12 hide status_writOff_formNo_div">
+                            <div class="form-group">
+                                <label for="status_writOff_formNo" class="label-control">Writ Off Form</label>
+                                <input type="text" class="form-control" id="status_writOff_formNo"
+                                       name="status_writOff_formNo"
+                                       autocomplete="status_writOff_formNo" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12 hide status_wo_date_div">
+                            <div class="form-group">
+                                <label for="status_wo_date" class="label-control">Writ Off Date</label>
+                                <input type="text" class="form-control mypickadat" id="status_wo_date"
+                                       name="status_wo_date"
+                                       autocomplete="status_wo_date" required>
+
                             </div>
                         </div>
                     </div>
@@ -820,6 +837,7 @@
         }, 500);
     }
 
+
     function changeStatus(obj) {
         var id = $(obj).attr('data-id');
         var status = $(obj).attr('data-status');
@@ -828,10 +846,23 @@
         $('#statusModal').modal('show');
     }
 
+    function changeStatusSingle() {
+        var status = $('#change_status').val();
+        if (status == 1) {
+            $('.status_writOff_formNo_div').addClass('hide');
+            $('.status_wo_date_div').addClass('hide');
+        } else {
+            $('.status_writOff_formNo_div').removeClass('hide');
+            $('.status_wo_date_div').removeClass('hide');
+        }
+    }
+
     function saveStatusChange() {
         var data = {};
         data['idAsset'] = $('#status_idAsset').val();
         data['status'] = $('#change_status').val();
+        data['writOff_formNo'] = $('#status_writOff_formNo').val();
+        data['wo_date'] = $('#status_wo_date').val();
         if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
             toastMsg('Asset', 'Invalid Id Asset', 'error');
             return false;
@@ -839,19 +870,28 @@
             toastMsg('Status', 'Invalid Status', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', data, 'POST', function (res) {
-                if (res == 1) {
-                    toastMsg('asset', 'Successfully Changes', 'success');
-                    $('#deleteModal').modal('hide');
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
-                } else if (res == 3) {
-                    toastMsg('asset', 'Invalid Asset Id', 'error');
-                } else {
-                    toastMsg('asset', 'Something went wrong', 'error');
-                }
-            });
+            if (data['status'] != 1 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
+                toastMsg('Writ Off Form No', 'Invalid Form No', 'error');
+                return false;
+            } else if (data['status'] != 1 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
+                toastMsg('Writ Date', 'Invalid Writ Date', 'error');
+                return false;
+            } else {
+                CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', data, 'POST', function (res) {
+                    if (res == 1) {
+                        toastMsg('asset', 'Successfully Changes', 'success');
+                        $('#deleteModal').modal('hide');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    } else if (res == 3) {
+                        toastMsg('asset', 'Invalid Asset Id', 'error');
+                    } else {
+                        toastMsg('asset', 'Something went wrong', 'error');
+                    }
+                });
+            }
+
         }
     }
 

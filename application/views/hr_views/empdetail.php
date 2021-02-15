@@ -110,6 +110,11 @@
                                                        href="#documents-fill" role="tab" aria-controls="documents-fill"
                                                        aria-selected="false">Documents</a>
                                                 </li>
+                                                <li class="nav-item ">
+                                                    <a class="nav-link font-weight-bold" id="assets-tab-fill" data-toggle="tab"
+                                                       href="#assets-fill" role="tab" aria-controls="assets-fill"
+                                                       aria-selected="false">Assets</a>
+                                                </li>
                                             </ul>
                                             <!-- edit button -->
                                             <button class="btn btn-primary">
@@ -500,6 +505,28 @@
                                                         <?php echo(isset($empD->qualification) && $empD->qualification != '' ? $empD->qualification : '') ?>
                                                     </td>
                                                 </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="assets-fill" role="tabpanel"
+                                     aria-labelledby="assets-tab-fill">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">Assets</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-borderless table-hover table-responsive">
+                                                <?php
+                                                if(isset($assetEmp) && $assetEmp!=''){
+                                                    foreach ($assetEmp as $assets){
+                                                        echo ' <tr>
+                                                    <td class="font-weight-bold">Description</td>
+                                                    <td>'.$assets->description.'</td>
+                                                </tr>';
+                                                    }
+                                                } ?>
 
                                             </table>
                                         </div>
