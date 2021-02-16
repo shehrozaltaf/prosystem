@@ -806,21 +806,26 @@
         // Array to track the ids of the details displayed rows
         var detailRows = [];
         $('#my_table_asset tbody').on('click', 'tr td.details-control', function () {
-            var tr = $(this).closest('tr');
+            var tr = $(this).parent('tr');
             var row = dt.row(tr);
+
             var idx = $.inArray(tr.attr('id'), detailRows);
             if (row.child.isShown()) {
+                // Remove from the 'open' array
                 tr.removeClass('details');
                 row.child.hide();
-                // Remove from the 'open' array
                 detailRows.splice(idx, 1);
             } else {
-                tr.addClass('details');
-                row.child(format(row.data())).show();
                 // Add to the 'open' array
-                if (idx === -1) {
-                    detailRows.push(tr.attr('id'));
+                if (row.data() != '' && row.data() != undefined) {
+                    tr.addClass('details');
+                    console.log(row.data());
+                    row.child(format(row.data())).show();
+                    if (idx === -1) {
+                        detailRows.push(tr.attr('id'));
+                    }
                 }
+
             }
         });
 

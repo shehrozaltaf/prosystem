@@ -132,10 +132,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
-                </a> 
-                <a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
-                        <i class="feather icon-trash"></i>
-                </a>';
+                </a>  ';
 
             $table_data[$value->idAsset]['check'] = '<input type="checkbox" class="checkboxes" 
                 data-id="' . $value->idAsset . '"  
