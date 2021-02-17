@@ -121,6 +121,7 @@ class Add_asset extends CI_controller
             $insertArray['desc'] = $_POST['desc'];
             $insertArray['model'] = $_POST['model'];
             $insertArray['product_no'] = $_POST['product_no'];
+            $insertArray['gri_no'] = $_POST['gri_no'];
             $insertArray['serial_no'] = $_POST['serial_no'];
             $insertArray['tag_no'] = $_POST['tag_no'];
             $insertArray['po_no'] = $_POST['po_no'];

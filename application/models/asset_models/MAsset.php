@@ -16,6 +16,7 @@ class MAsset extends CI_Model
     {
         $start = 0;
         $length = 25;
+        $length = 5000;
         if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
             $start = $searchdata['start'];
         }
@@ -43,6 +44,9 @@ class MAsset extends CI_Model
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
         }
+        if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
+            $this->db->where("a.verification_status", $searchdata['verification_status']);
+        }
         if (isset($searchdata['tag_pr']) && $searchdata['tag_pr'] != '' && $searchdata['tag_pr'] != null) {
             $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%' )");
         }
@@ -61,7 +65,7 @@ class MAsset extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(a.username like '%" . $search . "%' OR  a_status.status_name like '%" . $search . "%')");
+            $this->db->where("(a.tag_no like '%" . $search . "%' OR  a.status_name like '%" . $search . "%')");
         }
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
@@ -95,6 +99,9 @@ class MAsset extends CI_Model
         if (isset($searchdata['idSubLocation']) && $searchdata['idSubLocation'] != '' && $searchdata['idSubLocation'] != null) {
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
         }
+        if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
+            $this->db->where("a.verification_status", $searchdata['verification_status']);
+        }
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
         }
@@ -116,12 +123,11 @@ class MAsset extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(a.username like '%" . $search . "%' OR  a_status.status_name like '%" . $search . "%')");
+            $this->db->where("(a.tag_no like '%" . $search . "%' OR  a.status_name like '%" . $search . "%')");
         }
 
         $this->db->select('count(a.idAsset) as cnttotal');
-        $this->db->from('a_asset a');
-        $this->db->join('a_status', 'a.status = a_status.id', 'left');
+        $this->db->from('asset a');
         $this->db->where('a.isActive', 1);
         $query = $this->db->get();
         return $query->result();

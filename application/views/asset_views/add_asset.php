@@ -174,6 +174,21 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
+                                                <label for="gri_no"
+                                                       class="label-control">GRI
+                                                    No.</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       id="gri_no"
+                                                       name="gri_no"
+                                                       autocomplete="gri_no">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
                                                 <label for="serial_no"
                                                        class="label-control">Serial
                                                     No.</label>
@@ -717,8 +732,15 @@
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/scripts/forms/form-wizard.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/js/scripts/jquery.inputmask.bundle.js"></script>
 <script>
     $(document).ready(function () {
+        $("#ou").inputmask("999");
+        $("#account").inputmask("999999");
+        $("#dept").inputmask("99999");
+        $("#fund").inputmask("999");
+        $("#prog").inputmask("9999");
         mydate();
         mydate2();
         $(".numericOnly").ForceNumericOnly();
@@ -752,6 +774,7 @@
                     form_data.append('desc', $('#desc').val());
                     form_data.append('model', $('#model').val());
                     form_data.append('product_no', $('#product_no').val());
+                    form_data.append('gri_no', $('#gri_no').val());
                     form_data.append('serial_no', $('#serial_no').val());
                     form_data.append('tag_no', $('#tag_no').val());
                     form_data.append('po_no', $('#po_no').val());
@@ -837,6 +860,7 @@
         form_data.append('desc', $('#desc').val());
         form_data.append('model', $('#model').val());
         form_data.append('product_no', $('#product_no').val());
+        form_data.append('gri_no', $('#gri_no').val());
         form_data.append('serial_no', $('#serial_no').val());
         form_data.append('tag_no', $('#tag_no').val());
         form_data.append('po_no', $('#po_no').val());

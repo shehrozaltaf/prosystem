@@ -20,7 +20,9 @@
         getMenu();
         setTimeout(function () {
             var men = $('#menuactive').val();
-            $('.' + men).addClass('active').parents('li').addClass('sidebar-group-active open');
+            if(men!='' && men!=undefined){
+                $('.' + men).addClass('active').parents('li').addClass('sidebar-group-active open');
+            }
         }, 500);
 
     });

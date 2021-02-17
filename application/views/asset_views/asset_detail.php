@@ -71,6 +71,12 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td class="font-weight-bold">GRI No</td>
+                                        <td>
+                                            <?php echo(isset($asset->gri_no) && $asset->gri_no != '' ? $asset->gri_no : '') ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td class="font-weight-bold">Serial No</td>
                                         <td>
                                             <?php echo(isset($asset->serial_no) && $asset->serial_no != '' ? $asset->serial_no : '') ?>

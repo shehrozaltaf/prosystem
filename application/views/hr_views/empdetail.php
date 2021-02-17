@@ -517,13 +517,27 @@
                                             <div class="card-title">Assets</div>
                                         </div>
                                         <div class="card-body">
-                                            <table class="table table-borderless table-hover table-responsive">
+                                            <table class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                       <th>SNo</th>
+                                                       <th>Tag No</th>
+                                                       <th>Serial No</th>
+                                                       <th>Category</th>
+                                                       <th>Description</th>
+                                                       <th>Status</th>
+                                                    </tr>
+                                                </thead>
                                                 <?php
                                                 if(isset($assetEmp) && $assetEmp!=''){
-                                                    foreach ($assetEmp as $assets){
+                                                    foreach ($assetEmp as $k_a=>$assets){
                                                         echo ' <tr>
-                                                    <td class="font-weight-bold">Description</td>
-                                                    <td>'.$assets->description.'</td>
+                                                    <td>'.($k_a+1).'</td>
+                                                    <td>'.(isset($assets->tag_no) && $assets->tag_no!=''?$assets->tag_no:'').'</td>
+                                                    <td>'.(isset($assets->serial_no) && $assets->serial_no!=''?$assets->serial_no:'').'</td>
+                                                    <td>'.(isset($assets->category) && $assets->category!=''?$assets->category:'').'</td> 
+                                                    <td>'.(isset($assets->description) && $assets->description!=''?$assets->description:'').'</td> 
+                                                    <td>'.(isset($assets->status_name) && $assets->status_name!=''?$assets->status_name:'').'</td> 
                                                 </tr>';
                                                     }
                                                 } ?>
