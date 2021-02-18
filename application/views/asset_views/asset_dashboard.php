@@ -8,12 +8,8 @@
         border-bottom: 1px solid;
     }
 </style>
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/dt/css/datatable/dataTables.bootstrap4.min.css">-->
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/dt/css/datatable/responsive.bootstrap4.min.css">-->
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/dt/css/datatable/buttons.bootstrap4.min.css">
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/dt/css/datatable/rowGroup.bootstrap4.min.css">-->
-
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/pages/data-list-view.css">
 <!-- BEGIN: Content-->
@@ -215,100 +211,6 @@
                     </div>
                 </div>
             </section>
-
-
-            <!-- Basic table -->
-            <!-- <section id="basic-datatable">
-                 <div class="row">
-                     <div class="col-12">
-                         <div class="card">
-                             <table class="datatables-basic table">
-                                 <thead>
-                                 <tr>
-                                     <th></th>
-                                     <th></th>
-                                     <th>id</th>
-                                     <th>Name</th>
-                                     <th>Email</th>
-                                     <th>Date</th>
-                                     <th>Salary</th>
-                                     <th>Status</th>
-                                     <th>Action</th>
-                                 </tr>
-                                 </thead>
-                             </table>
-
-                         </div>
-                     </div>
-                 </div>
-                 <div class="modal modal-slide-in fade" id="modals-slide-in">
-                     <div class="modal-dialog sidebar-sm">
-                         <form class="add-new-record modal-content pt-0">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
-                             <div class="modal-header mb-1">
-                                 <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
-                             </div>
-                             <div class="modal-body flex-grow-1">
-                                 <div class="form-group">
-                                     <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
-                                     <input
-                                             type="text"
-                                             class="form-control dt-full-name"
-                                             id="basic-icon-default-fullname"
-                                             placeholder="John Doe"
-                                             aria-label="John Doe"
-                                     />
-                                 </div>
-                                 <div class="form-group">
-                                     <label class="form-label" for="basic-icon-default-post">Post</label>
-                                     <input
-                                             type="text"
-                                             id="basic-icon-default-post"
-                                             class="form-control dt-post"
-                                             placeholder="Web Developer"
-                                             aria-label="Web Developer"
-                                     />
-                                 </div>
-                                 <div class="form-group">
-                                     <label class="form-label" for="basic-icon-default-email">Email</label>
-                                     <input
-                                             type="text"
-                                             id="basic-icon-default-email"
-                                             class="form-control dt-email"
-                                             placeholder="john.doe@example.com"
-                                             aria-label="john.doe@example.com"
-                                     />
-                                     <small class="form-text text-muted"> You can use letters, numbers & periods</small>
-                                 </div>
-                                 <div class="form-group">
-                                     <label class="form-label" for="basic-icon-default-date">Joining Date</label>
-                                     <input
-                                             type="text"
-                                             class="form-control dt-date"
-                                             id="basic-icon-default-date"
-                                             placeholder="MM/DD/YYYY"
-                                             aria-label="MM/DD/YYYY"
-                                     />
-                                 </div>
-                                 <div class="form-group mb-4">
-                                     <label class="form-label" for="basic-icon-default-salary">Salary</label>
-                                     <input
-                                             type="text"
-                                             id="basic-icon-default-salary"
-                                             class="form-control dt-salary"
-                                             placeholder="$12000"
-                                             aria-label="$12000"
-                                     />
-                                 </div>
-                                 <button type="button" class="btn btn-primary data-submit mr-1">Submit</button>
-                                 <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel
-                                 </button>
-                             </div>
-                         </form>
-                     </div>
-                 </div>
-             </section>-->
-            <!--/ Basic table -->
 
             <section id="data-list-view" class="hide main_content_div data-list-view-header">
                 <div class="row">
@@ -579,46 +481,17 @@
     </div>
 <?php } ?>
 
-<!-- BEGIN: Vendor JS-->
-<!--<link rel="stylesheet" type="text/css" href="--><?php //echo base_url() ?><!--assets/dt/css/vendors.min.css">-->
-<!--<script src="--><?php //echo base_url() ?><!--assets/dt/js/vendors.min.js"></script>-->
-<!-- BEGIN Vendor JS-->
-
 <!-- BEGIN: Page Vendor JS-->
-<!--<script src="<?php /*echo base_url()  */?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
-<script src="<?php /*echo base_url()  */?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-<script src="<?php /*echo base_url()  */?>assets/vendors/js/tables/datatable/datatables.min.js"></script>
-<script src="<?php /*echo base_url() */?>assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-<script src="<?php /*echo base_url() */?>assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-<script src="<?php /*echo base_url()  */?>assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-<script src="<?php /*echo base_url() */?>assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
-<script src="<?php /*echo base_url()  */?>assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>-->
-<!-- BEGIN: Vendor CSS-->
-
-
-<!-- END: Vendor CSS-->
-
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/scripts/ui/data-list-view.js"></script>
-
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/datatables.bootstrap4.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/dataTables.responsive.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/responsive.bootstrap4.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/datatables.checkboxes.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/datatables.buttons.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/jszip.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/pdfmake.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/vfs_fonts.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/buttons.html5.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/buttons.print.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dt/js/datatable/dataTables.rowGroup.min.js"></script>
-<!-- END: Page Vendor JS-->
-<!-- BEGIN: Page JS-->
-<!--<script src="--><?php //echo base_url() ?><!--assets/dt/js/tables/table-datatables-basic.min.js"></script>-->
-<!-- END: Page JS-->
 
 <script>
 
@@ -899,6 +772,9 @@
         showloader();
         $('.main_content_div').addClass('hide');
         var dt = $('#my_table_asset').DataTable({
+            destroy: true,
+           /* processing: true,
+            serverSide: true,*/
             ajax: {
                 "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",
@@ -927,37 +803,37 @@
             ],
             order: [[2, "desc"]],
             dom: '<"card-header border-bottom p-1"<"head-label"><"dt-action-buttons text-right"B>><"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-            displayLength: 7,
-            lengthMenu: [7, 10, 25, 50, 75, 100],
+            displayLength: 5,
+            lengthMenu: [5, 50, 75, 100],
             buttons: [{
                 extend: "collection",
                 className: "btn btn-outline-secondary dropdown-toggle mr-2",
                 text: "Export",
                 buttons: [{
                     extend: "print",
-                    text:  "Print",
+                    text: "Print",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {
                     extend: "csv",
-                    text:  "Csv",
+                    text: "Csv",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {
                     extend: "excel",
                     text: "Excel",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {
                     extend: "pdf",
-                    text:"Pdf",
+                    text: "Pdf",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {
                     extend: "copy",
                     text: "Copy",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }]
             }],
         });

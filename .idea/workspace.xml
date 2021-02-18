@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/css/tables/datatable/datatables.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/css/tables/datatable/datatables.min.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,48 +22,43 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="323" column="91" selection-start-line="323" selection-start-column="91" selection-end-line="323" selection-end-column="91" />
+            <state relative-caret-position="315">
+              <caret line="806" column="26" selection-start-line="806" selection-start-column="26" selection-end-line="806" selection-end-column="26" />
               <folding>
-                <element signature="n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#16620#19795#0#PHP" />
-                <element signature="e#19807#26240#0#PHP" />
-                <element signature="e#26252#27312#0#PHP" />
-                <element signature="e#28382#28598#0#HTML" />
-                <element signature="e#28628#28955#0#HTML" />
-                <element signature="e#28985#29545#0#HTML" />
-                <element signature="e#29574#31153#0#HTML" />
-                <element signature="e#31182#32689#0#HTML" />
-                <element signature="e#32718#36581#0#HTML" />
-                <element signature="e#36607#41811#0#HTML" />
+                <element signature="n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" />
+                <element signature="e#23744#26919#0#PHP" />
+                <element signature="e#26931#33364#0#PHP" />
+                <element signature="e#33376#34436#0#PHP" />
+                <element signature="e#37451#37778#0#HTML" />
+                <element signature="e#37808#38368#0#HTML" />
+                <element signature="e#38397#39976#0#HTML" />
+                <element signature="e#40005#41512#0#HTML" />
+                <element signature="e#41541#45404#0#HTML" />
+                <element signature="e#45430#50634#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/dt/js/tables/table-datatables-basic.min.js">
+        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="680">
+              <caret line="74" column="25" lean-forward="true" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+              <folding>
+                <element signature="n#__construct#0;n#Assets#0;n#!!top" />
+                <element signature="n#index#0;n#Assets#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/table-datatable-basic.html">
+        <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="50" column="61" lean-forward="true" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
-              <folding>
-                <element signature="n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#1;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#2;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#3;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#div#2;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -88,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SummaryEftDate</find>
-      <find>console</find>
       <find>summaryFldid</find>
       <find>Location</find>
       <find>idLocation</find>
@@ -113,11 +97,13 @@
       <find>t.full_name</find>
       <find>match</find>
       <find>25</find>
-      <find>DataTab</find>
       <find>feather</find>
       <find>getData2</find>
+      <find>DataTab</find>
       <find>feat</find>
       <find>flatpickr</find>
+      <find>rowGroup</find>
+      <find>checkboxes</find>
     </findStrings>
     <replaceStrings>
       <replace>idSourceOfPurchase</replace>
@@ -202,12 +188,12 @@
         <option value="$PROJECT_DIR$/app-assets/data/locales/en.json" />
         <option value="$PROJECT_DIR$/assets/dt/js/vendors.min.js" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
-        <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/app-assets/js/scripts/tables/table-datatables-basic.min.js" />
         <option value="$PROJECT_DIR$/assets/dt/js/tables/table-datatables-basic.min.js" />
         <option value="$PROJECT_DIR$/assets/dt/css/datatable/buttons.bootstrap4.min.css" />
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
+        <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
       </list>
     </option>
@@ -263,52 +249,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="asset_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="dt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="dt" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="dt" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="datatable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="dt" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vendors" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -391,7 +331,8 @@
       <workItem from="1613453795775" duration="2775000" />
       <workItem from="1613458939294" duration="3158000" />
       <workItem from="1613539232581" duration="603000" />
-      <workItem from="1613545434852" duration="14387000" />
+      <workItem from="1613545434852" duration="14551000" />
+      <workItem from="1613625982527" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -603,17 +544,24 @@
       <option name="project" value="LOCAL" />
       <updated>1613481683994</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="asset DT">
+      <created>1613565825702</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1613565825702</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180799000" />
+    <option name="totallyTimeSpent" value="181586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19070904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19315404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -659,7 +607,8 @@
     <MESSAGE value="emp hr" />
     <MESSAGE value="asset" />
     <MESSAGE value="asset status" />
-    <option name="LAST_COMMIT_MESSAGE" value="asset status" />
+    <MESSAGE value="asset DT" />
+    <option name="LAST_COMMIT_MESSAGE" value="asset DT" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2072,13 +2021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1687">
-          <caret line="218" column="80" selection-start-line="218" selection-start-column="69" selection-end-line="218" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -2124,11 +2066,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app-assets/data/locales/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1980" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app-assets/data/locales/en.json" />
     <entry file="file://$PROJECT_DIR$/assets/dt/js/vendors.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -2139,28 +2077,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/app-assets/js/scripts/tables/table-datatables-basic.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="177" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="177" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="69" column="114" selection-start-line="69" selection-start-column="114" selection-end-line="69" selection-end-column="114" />
-          <folding>
-            <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-            <element signature="n#index#0;n#Assets#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2207,23 +2127,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3706">
+          <caret line="218" column="80" selection-start-line="218" selection-start-column="69" selection-end-line="218" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="74" column="25" lean-forward="true" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+          <folding>
+            <element signature="n#__construct#0;n#Assets#0;n#!!top" />
+            <element signature="n#index#0;n#Assets#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="323" column="91" selection-start-line="323" selection-start-column="91" selection-end-line="323" selection-end-column="91" />
+        <state relative-caret-position="315">
+          <caret line="806" column="26" selection-start-line="806" selection-start-column="26" selection-end-line="806" selection-end-column="26" />
           <folding>
-            <element signature="n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#16620#19795#0#PHP" />
-            <element signature="e#19807#26240#0#PHP" />
-            <element signature="e#26252#27312#0#PHP" />
-            <element signature="e#28382#28598#0#HTML" />
-            <element signature="e#28628#28955#0#HTML" />
-            <element signature="e#28985#29545#0#HTML" />
-            <element signature="e#29574#31153#0#HTML" />
-            <element signature="e#31182#32689#0#HTML" />
-            <element signature="e#32718#36581#0#HTML" />
-            <element signature="e#36607#41811#0#HTML" />
+            <element signature="n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#section#1;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="e#23744#26919#0#PHP" />
+            <element signature="e#26931#33364#0#PHP" />
+            <element signature="e#33376#34436#0#PHP" />
+            <element signature="e#37451#37778#0#HTML" />
+            <element signature="e#37808#38368#0#HTML" />
+            <element signature="e#38397#39976#0#HTML" />
+            <element signature="e#40005#41512#0#HTML" />
+            <element signature="e#41541#45404#0#HTML" />
+            <element signature="e#45430#50634#0#HTML" />
           </folding>
         </state>
       </provider>

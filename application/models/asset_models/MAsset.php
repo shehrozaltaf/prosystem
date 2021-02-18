@@ -16,7 +16,7 @@ class MAsset extends CI_Model
     {
         $start = 0;
         $length = 25;
-        $length = 5000;
+        $length = 500000;
         if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
             $start = $searchdata['start'];
         }
