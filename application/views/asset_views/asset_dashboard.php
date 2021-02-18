@@ -397,6 +397,86 @@
                             </td>
                         </tr>
 
+                        <tr class="summaryRow emp_no_bulk">
+                            <td class='summaryFldid summaryFldid_emp_no_bulk' data-key="emp_no_bulk"
+                                data-fldnme="Employee">
+                                Employee
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control" id="emp_no_bulk"
+                                        name="emp_no_bulk" autocomplete="emp_no_bulk" required>
+                                    <option value="0" readonly disabled selected></option>
+                                    <?php
+                                    if (isset($employee) && $employee != '') {
+                                        foreach ($employee as $k => $e) {
+                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow resp_person_name_bulk">
+                            <td class='summaryFldid summaryFldid_resp_person_name_bulk' data-key="resp_person_name_bulk"
+                                data-fldnme="Responsbile Person">
+                                Responsbile Person
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control" id="resp_person_name_bulk"
+                                        name="resp_person_name_bulk" autocomplete="resp_person_name_bulk">
+                                    <option value="0" readonly disabled selected></option>
+                                    <?php
+                                    if (isset($employee) && $employee != '') {
+                                        foreach ($employee as $k => $e) {
+                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr class="summaryRow verification_status_bulk">
+                            <td class='summaryFldid summaryFldid_verification_status_bulk'
+                                data-key="verification_status_bulk" data-fldnme="Vertification">
+                                Vertification
+                            </td>
+                            <td class='summaryNewVal'>
+                                <select class="select2 form-control"
+                                        id="verification_status_bulk"
+                                        name="verification_status_bulk" autocomplete="verification_status_bulk">
+                                    <option value="0" readonly disabled></option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Pending">Pending</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="summaryRow last_verify_date_bulk">
+                            <td class='summaryFldid summaryFldid_last_verify_date_bulk' data-key="last_verify_date_bulk"
+                                data-fldnme="Last Verification Date">
+                                Last Verification Date
+                            </td>
+                            <td class='summaryNewVal'>
+                                <input type="text" class="form-control mypickadat"
+                                       id="last_verify_date_bulk" name="last_verify_date_bulk"
+                                       autocomplete="last_verify_date_bulk"
+                                       value="<?php echo date('d-m-Y') ?>">
+                            </td>
+                        </tr>
+                        <tr class="summaryRow due_date_bulk">
+                            <td class='summaryFldid summaryFldid_due_date_bulk' data-key="due_date_bulk"
+                                data-fldnme="Due Date">
+                                Due Date
+                            </td>
+                            <td class='summaryNewVal'>
+                                <input type="text" class="form-control mypickadat2"
+                                       id="due_date_bulk" name="due_date_bulk"
+                                       autocomplete="due_date_bulk"
+                                       value="<?php echo date('d-m-Y', strtotime('+1 years')) ?>">
+                            </td>
+                        </tr>
+
                         <tr class="summaryRow idLocation_bulk">
                             <td class='summaryFldid summaryFldid_status' data-key="idLocation" data-fldnme="Location">
                                 Location
@@ -592,6 +672,11 @@
         data['wo_date'] = $('#wo_date_bulk').val();
         data['idLocation'] = $('#idLocation_bulk').val();
         data['idSubLocation'] = $('#idSubLocation_bulk').val();
+        data['emp_no'] = $('#emp_no_bulk').val();
+        data['resp_person_name'] = $('#resp_person_name_bulk').val();
+        data['verification_status'] = $('#verification_status_bulk').val();
+        data['last_verify_date'] = $('#last_verify_date_bulk').val();
+        data['due_date'] = $('#due_date_bulk').val();
 
         var assets = [];
         let count = $('#my_table_asset').find('.checkboxes');
@@ -623,90 +708,6 @@
             toastMsg('Asset', 'Please select Asset first', 'error');
         }
     }
-
-    function updBtnSave2() {
-        var data = {};
-        let assets = [];
-        let assets_no = '';
-        let results = [];
-        let flag = 0;
-
-        let isinputgiven = false;
-
-        let count = $('#my_table_asset').find('.checkboxes');
-
-        for (let i = 0; i < count.length; i++) {
-            assets_no = $(count[i]).attr('data-id');
-            var summaryID = $(count[i]).attr('data-oldval');
-            if ($(count[i]).is(':checked')) {
-                assets.push({'assets_no': assets_no});
-                $(".summaryRow").each(function () {
-                    let summaryVal;
-                    let summaryFldid = $(this).find('.summaryFldid').attr('data-key');
-                    console.log("summaryFldid - " + summaryFldid);
-                    var summaryNewVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
-                    console.log("summaryNewVal - " + summaryNewVal);
-                    if (summaryNewVal == "undefined" || summaryNewVal == undefined || summaryNewVal == "" || summaryNewVal == "null" || summaryNewVal == "NULL") {
-                        summaryVal = "";
-                    } else {
-                        summaryVal = $(this).find('.summaryNewVal').find('option:selected').attr("data-newval");
-                    }
-
-                    let summaryOldVal = $(count[i]).parents('tr').find(summaryFldid).attr('data-oldval');
-                    let summaryFldName = $(this).find('.summaryFldid').attr('data-fldnme');
-                    if (summaryFldName == null || summaryFldName == undefined) {
-                        $(this).find('.summaryFldName').addClass('error');
-                        flag = 1;
-                        return false;
-                    }
-
-
-                    if (parseInt(summaryVal) != parseInt(summaryOldVal)) {
-                        if (summaryVal != "") {
-                            console.log("summaryVal - " + summaryVal + " summaryFldid - " + summaryFldid + " summaryFldName - " + summaryFldName + " summaryOldVal - " + summaryOldVal);
-                            isinputgiven = true;
-                            results.push({
-                                'assets_no': assets_no,
-                                'summaryFldid': summaryFldid,
-                                'summaryFldName': summaryFldName,
-                                'summaryVal': summaryVal,
-                                'summaryOldVal': summaryOldVal,
-                                'summaryID': summaryID
-                            });
-                        }
-                    }
-                });
-            }
-        }
-
-        if (isinputgiven == true) {
-            if (assets.length >= 1) {
-                $('#btn-Edit').css('display', 'none');
-                let formData = new FormData();
-                data['results'] = results;
-                formData.append('data', JSON.stringify(data));
-                CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/bulkupdate'); ?>', formData, "POST", function (result) {
-                    if (result == 1) {
-                        toastMsg('Success', 'Successfully Changed', 'success');
-                        setTimeout(function () {
-                            $('#btn-Edit').css('display', 'block');
-                            window.location.reload();
-                        }, 2000);
-                    } else if (result == 3) {
-                        toastMsg('Error', 'Invalid Employee', 'error');
-                    } else {
-                        toastMsg('Error', 'Something went wrong', 'error');
-                    }
-                }, true);
-
-            } else {
-                toastMsg('Employee', 'Please select Employee first', 'error');
-            }
-        } else {
-            toastMsg('Error', 'Please select at least one field', 'error');
-        }
-    }
-
 
     function format(d) {
         var html = '';
@@ -773,8 +774,8 @@
         $('.main_content_div').addClass('hide');
         var dt = $('#my_table_asset').DataTable({
             destroy: true,
-           /* processing: true,
-            serverSide: true,*/
+            /* processing: true,
+             serverSide: true,*/
             ajax: {
                 "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",

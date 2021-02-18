@@ -2,7 +2,7 @@
 ini_set('memory_limit', '512M'); // This also needs to be increased in some cases. Can be changed to a higher value as per need)
 ini_set('sqlsrv.ClientBufferMaxKBSize', '524288'); // Setting to 512M
 ini_set('pdo_sqlsrv.client_buffer_max_kb_size', '524288');
-ini_set('max_input_vars','1000000' );
+ini_set('max_input_vars', '1000000');
 
 class Assets extends CI_controller
 {
@@ -309,7 +309,7 @@ class Assets extends CI_controller
             $id = $_POST['idAsset'];
             $editArr['status'] = $_POST['status'];
             $editArr['writOff_formNo'] = (isset($_POST['writOff_formNo']) && $_POST['writOff_formNo'] != '' ? $_POST['writOff_formNo'] : '');
-            $editArr['wo_date'] = (isset($_POST['wo_date']) && $_POST['wo_date'] != '' ? date('Y-m-d',strtotime($_POST['wo_date'])) : '');
+            $editArr['wo_date'] = (isset($_POST['wo_date']) && $_POST['wo_date'] != '' ? date('Y-m-d', strtotime($_POST['wo_date'])) : '');
             $editArr['statusChangedBy'] = $_SESSION['login']['idUser'];
             $editArr['statusDateTime'] = date('Y-m-d H:i:s');
             $editData = $Custom->Edit($editArr, 'idAsset', $id, 'a_asset');
@@ -405,6 +405,21 @@ class Assets extends CI_controller
         }
         if (isset($_POST['idSubLocation']) && $_POST['idSubLocation'] != '') {
             $editArr['idSubLocation'] = $_POST['idSubLocation'];
+        }
+        if (isset($_POST['emp_no']) && $_POST['emp_no'] != '') {
+            $editArr['emp_no'] = $_POST['emp_no'];
+        }
+        if (isset($_POST['resp_person_name']) && $_POST['resp_person_name'] != '') {
+            $editArr['resp_person_name'] = $_POST['resp_person_name'];
+        }
+        if (isset($_POST['verification_status']) && $_POST['verification_status'] != '') {
+            $editArr['verification_status'] = $_POST['verification_status'];
+        }
+        if (isset($_POST['last_verify_date']) && $_POST['last_verify_date'] != '') {
+            $editArr['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+        }
+        if (isset($_POST['due_date']) && $_POST['due_date'] != '') {
+            $editArr['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
         }
         $Custom = new Custom();
         if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
