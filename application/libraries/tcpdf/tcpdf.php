@@ -3519,7 +3519,22 @@ class TCPDF
      * It is automatically called by AddPage() and could be overwritten in your own inherited class.
      * @public
      */
-    public function Footer()
+
+    // Page footer
+    public function Footer() {
+        // Position at 15 mm from bottom
+
+        // Set font
+        $this->SetFont('helvetica', 'I', 8);
+        // Page number
+        $this->SetY(-15);
+        $this->Cell(0, 10, 'Name _________________________________ Designation _________________________________ Date _________________________________ Sign _________________________________', 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        $this->SetY(-8);
+        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'R', 0, '', 0, false, 'T', 'M');
+    }
+
+
+    public function Footer2()
     {
         $cur_y = $this->y;
         $this->SetTextColorArray($this->footer_text_color);

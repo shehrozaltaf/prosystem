@@ -16,7 +16,6 @@ class MAsset extends CI_Model
     {
         $start = 0;
         $length = 25;
-        $length = 500000;
         if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
             $start = $searchdata['start'];
         }
@@ -35,6 +34,7 @@ class MAsset extends CI_Model
         if (isset($searchdata['sop']) && $searchdata['sop'] != '' && $searchdata['sop'] != null) {
             $this->db->where("a.idSourceOfPurchase", $searchdata['sop']);
         }
+
         if (isset($searchdata['idLocation']) && $searchdata['idLocation'] != '' && $searchdata['idLocation'] != null) {
             $this->db->where("a.idLocation", $searchdata['idLocation']);
         }
@@ -138,10 +138,17 @@ class MAsset extends CI_Model
         $idAsset = '';
         if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
             $idAsset = $searchdata['idAsset'];
+            $this->db->where('idAsset', $idAsset);
+        }
+        if (isset($searchdata['idAsset_multiple']) && $searchdata['idAsset_multiple'] != '' && $searchdata['idAsset_multiple'] != null) {
+            foreach ($searchdata['idAsset_multiple'] as $a){
+                $this->db->or_where('idAsset', $a);
+            }
         }
         $this->db->select('*');
         $this->db->from('asset');
-        $this->db->where('idAsset', $idAsset);
+        $this->db->limit(50, 0);
+        $this->db->order_by('idAsset','desc');
         $query = $this->db->get();
         return $query->result();
     }

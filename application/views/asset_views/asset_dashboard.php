@@ -204,6 +204,10 @@
                                         <button type="button" class="btn btn-primary" onclick="getData()">Get
                                             Data
                                         </button>
+                                        <button type="button"
+                                                onclick="exportPDF()"
+                                                id="btn-expPDF" class="btn btn-info white addbtn">Export PDF
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -260,13 +264,14 @@
                                         </table>
                                     </div>
 
-                                    <div class="row updBtn hide">
+                                    <div class="row ">
                                         <div class="col-sm-12">
                                             <button type="button"
                                                     onclick="updBtnModal()"
-                                                    id="btn-Upd" class="btn btn-danger white addbtn">Update
+                                                    id="btn-Upd" class="btn btn-danger white addbtn  updBtn hide">Update
                                                 Selected Assets
                                             </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -590,6 +595,7 @@
         });
     }
 
+
     function chkStatus(obj) {
         var status = $('#upd_bulkstatus').val();
         if (status == 1) {
@@ -663,7 +669,6 @@
             toastMsg('Asset', 'Please select Asset', 'error');
         }
     }
-
 
     function updBtnSave() {
         var data = {};
@@ -874,6 +879,65 @@
             hideloader();
             $('.main_content_div').removeClass('hide');
         }, 500);
+    }
+
+    function exportPDF() {
+        var data = {};
+        data['project'] = $('#project').val();
+        data['emp'] = $('#emp').val();
+        data['category'] = $('#category').val();
+        data['sop'] = $('#sop').val();
+        data['location'] = $('#location').val();
+        data['sublocation'] = $('#sublocation').val();
+        data['verification_status'] = $('#verification_status_filter').val();
+        data['status'] = $('#status').val();
+        data['tag_pr'] = $('#tag_pr').val();
+        data['idAsset'] = $('#idAsset').val();
+        data['writeOffNo'] = $('#writeOffNo').val();
+        data['dateTo'] = $('#dateTo').val();
+        data['dateFrom'] = $('#dateFrom').val();
+
+        var url = '<?php echo base_url() ?>index.php/asset_controllers/Assets/getPDF?f=1';
+        if (data['project'] != '' && data['project'] != undefined && data['project'] != 0) {
+            url += '&project=' + data['project'];
+        }
+        if (data['emp'] != '' && data['emp'] != undefined && data['emp'] != 0) {
+            url += '&emp=' + data['emp'];
+        }
+        if (data['category'] != '' && data['category'] != undefined && data['category'] != 0) {
+            url += '&category=' + data['category'];
+        }
+        if (data['sop'] != '' && data['sop'] != undefined && data['sop'] != 0) {
+            url += '&sop=' + data['sop'];
+        }
+        if (data['location'] != '' && data['location'] != undefined && data['location'] != 0) {
+            url += '&location=' + data['location'];
+        }
+        if (data['sublocation'] != '' && data['sublocation'] != undefined && data['sublocation'] != 0) {
+            url += '&sublocation=' + data['sublocation'];
+        }
+        if (data['verification_status'] != '' && data['verification_status'] != undefined && data['verification_status'] != 0) {
+            url += '&verification_status=' + data['verification_status'];
+        }
+        if (data['status'] != '' && data['status'] != undefined && data['status'] != 0) {
+            url += '&status=' + data['status'];
+        }
+        if (data['tag_pr'] != '' && data['tag_pr'] != undefined && data['tag_pr'] != 0) {
+            url += '&tag_pr=' + data['tag_pr'];
+        }
+        if (data['idAsset'] != '' && data['idAsset'] != undefined && data['idAsset'] != 0) {
+            url += '&idAsset=' + data['idAsset'];
+        }
+        if (data['writeOffNo'] != '' && data['writeOffNo'] != undefined && data['writeOffNo'] != 0) {
+            url += '&writeOffNo=' + data['writeOffNo'];
+        }
+        if (data['dateTo'] != '' && data['dateTo'] != undefined && data['dateTo'] != 0) {
+            url += '&dateTo=' + data['dateTo'];
+        }
+        if (data['dateFrom'] != '' && data['dateFrom'] != undefined && data['dateFrom'] != 0) {
+            url += '&dateFrom=' + data['dateFrom'];
+        }
+        window.open(url, '_blank');
     }
 
 

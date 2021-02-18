@@ -439,6 +439,108 @@ class Assets extends CI_controller
 
     }
 
+
+    /**
+     *
+     */
+    function getPDF()
+    {
+        if (isset($_REQUEST['f']) && $_REQUEST['f'] != '' && $_REQUEST['f'] != 0) {
+            $searchData = array();
+            $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
+            $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
+            $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
+            $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
+            $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
+            $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+            $searchData['verification_status'] = (isset($_REQUEST['verification_status']) && $_REQUEST['verification_status'] != '' && $_REQUEST['verification_status'] != '0' ? $_REQUEST['verification_status'] : 0);
+            $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
+            $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);
+            $searchData['idAsset'] = (isset($_REQUEST['idAsset']) && $_REQUEST['idAsset'] != '' && $_REQUEST['idAsset'] != '0' ? $_REQUEST['idAsset'] : 0);
+            $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
+            $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
+            $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
+
+            $M = new MAsset();
+            $asset_data = $M->getAsset($searchData);
+
+            $this->load->library('tcpdf');
+            $project_name = 'Department of Paediatrics and Child Health';
+            $short_title = ' Inventory (Capital Items)';
+            $title = $project_name . $short_title;
+            $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF - 8', false);
+            $pdf->SetCreator(PDF_CREATOR);
+            $pdf->SetAuthor('PRO System Inventory');
+            $pdf->SetTitle($title);
+            $pdf->SetSubject($title);
+            $pdf->SetKeywords($title);
+            $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+            $pdf->SetTopMargin(1);
+            $pdf->setPrintHeader(false);
+            $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+            $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+            $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+            $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+            if (@file_exists(dirname(__FILE__) . ' / lang / eng . php')) {
+                require_once(dirname(__FILE__) . ' / lang / eng . php');
+            }
+
+            $pdf->setFontSubsetting(true);
+            $pdf->SetFont('freeserif', '', 8);
+            $style = "<style> 
+                        h3{text-align: center; font-size: 16px;color: #002D57;}
+                        h5{text-align: center; font-size: 13px;}  
+                        th {font-weight: bold;} 
+                     </style>";
+            $Mainheader = "<div class='head'>
+                                    <h3 class='mainheading'>" . $project_name . "</h3>
+                                    <h5 class='subheading'>" . $short_title . "</h5>
+                                    <h5 class='subheading'>" . date('M, Y') . "</h5>
+                               </div>";
+            $pdf->AddPage();
+            $pdf->writeHTML($style . $Mainheader, true, false, true, false, 'centre');
+
+
+            $tbl = '<table cellspacing="0" cellpadding="3" border="1">
+                                            <tr align="center">
+                                                <th width="4%">ID</th> 
+                                                <th width="15%">Category</th> 
+                                                <th width="15%">Description</th> 
+                                                <th width="6%">Tag No</th> 
+                                                <th width="7%">Emp No</th> 
+                                                <th width="7%">Emp Name</th> 
+                                                <th width="7%">Location</th> 
+                                                <th width="7%">Sub Location</th> 
+                                                <th width="7%">Area</th> 
+                                                <th width="7%">Status</th> 
+                                                <th width="7%">Verification Status [Y/N]</th> 
+                                                <th width="11%">Remarks</th>  
+                                            </tr> ';
+            foreach ($asset_data as $data) {
+                $tbl .= '<tr> 
+                               <td> ' . (isset($data->idAsset) && $data->idAsset != '' ? $data->idAsset : '') . '</td> 
+                               <td> ' . (isset($data->category) && $data->category != '' ? $data->category : '') . '</td> 
+                               <td> ' . (isset($data->description) && $data->description != '' ? $data->description : '') . '</td> 
+                               <td> ' . (isset($data->tag_no) && $data->tag_no != '' ? $data->tag_no : '') . '</td> 
+                               <td> ' . (isset($data->emp_no) && $data->emp_no != '' ? $data->emp_no : '') . '</td> 
+                               <td> ' . (isset($data->empname) && $data->empname != '' ? $data->empname : '') . '</td> 
+                               <td> ' . (isset($data->location) && $data->location != '' ? $data->location : '') . '</td> 
+                               <td> ' . (isset($data->location_sub) && $data->location_sub != '' ? $data->location_sub : '') . '</td> 
+                               <td> ' . (isset($data->area) && $data->area != '' ? $data->area : '') . '</td> 
+                               <td> ' . (isset($data->status_name) && $data->status_name != '' ? $data->status_name : '') . '</td> 
+                               <td> </td> 
+                               <td> </td> 
+                          </tr> ';
+            }
+            $tbl .= '</table>';
+            $pdf->writeHTML($style . $tbl, true, false, true, true, '');
+            ob_end_clean();
+            $pdf->Output('pro_asset.pdf', 'I');
+        } else {
+            echo 'Invalid Asset, Please select Asset';
+        }
+    }
+
 }
 
 ?>
