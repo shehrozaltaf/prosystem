@@ -38,208 +38,197 @@
                             <?php
                             $asset = $asset_data[0];
                             ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <table class="table table-borderless table-hover table-responsive">
                                     <tr>
                                         <td class="font-weight-bold">PAEDS ID</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->idAsset) && $asset->idAsset != '' ? $asset->idAsset : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Category</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->category) && $asset->category != '' ? $asset->category : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Desc</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->description) && $asset->description != '' ? $asset->description : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Model</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->model) && $asset->model != '' ? $asset->model : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Product No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->product_no) && $asset->product_no != '' ? $asset->product_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">GRI No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->gri_no) && $asset->gri_no != '' ? $asset->gri_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Serial No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->serial_no) && $asset->serial_no != '' ? $asset->serial_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Tag No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->tag_no) && $asset->tag_no != '' ? $asset->tag_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">PO No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->po_no) && $asset->po_no != '' ? $asset->po_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Cost</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->cost) && $asset->cost != '' ? $asset->cost : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Currency</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->currency) && $asset->currency != '' ? $asset->currency : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Source Of Purchase</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->sopName) && $asset->sopName != '' ? $asset->sopName : '') ?>
                                         </td>
                                     </tr>
-
-                                </table>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                                <table class="table table-borderless table-hover table-responsive">
-
                                     <tr>
                                         <td class="font-weight-bold">PR No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->pr_no) && $asset->pr_no != '' ? $asset->pr_no : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Employee</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->emp_no) && $asset->emp_no != '' ? $asset->emp_no . ' - ' . $asset->empname : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">resp_person_name</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->resp_person_name) && $asset->resp_person_name != '' ? $asset->resp_person_name : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Proj Code</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->proj_code) && $asset->proj_code != '' ? $asset->proj_code . ' - ' . $asset->proj_name : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">OU</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->ou) && $asset->ou != '' ? $asset->ou : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Account</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->account) && $asset->account != '' ? $asset->account : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Department</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->dept) && $asset->dept != '' ? $asset->dept : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Fund</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->fund) && $asset->fund != '' ? $asset->fund : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Location</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->location) && $asset->location != '' ? $asset->location : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Sub Location</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->location_sub) && $asset->location_sub != '' ? $asset->location_sub : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Area</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->area) && $asset->area != '' ? $asset->area : '') ?>
                                         </td>
                                     </tr>
-                                </table>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                                <table class="table table-borderless table-hover table-responsive">
-
                                     <tr>
                                         <td class="font-weight-bold">Verification Status</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->verification_status) && $asset->verification_status != '' ? $asset->verification_status : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Last Verify Date</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->last_verify_date) && $asset->last_verify_date != '' ? $asset->last_verify_date : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Due Date</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->due_date) && $asset->due_date != '' ? $asset->due_date : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Pur Date</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->pur_date) && $asset->pur_date != '' ? $asset->pur_date : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Status</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->status_name) && $asset->status_name != '' ? $asset->status_name : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">WritOff Form No</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->writOff_formNo) && $asset->writOff_formNo != '' ? $asset->writOff_formNo : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">WritOff Date</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->wo_date) && $asset->wo_date != '' ? $asset->wo_date : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">remarks</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->remarks) && $asset->remarks != '' ? $asset->remarks : '') ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">PR Path</td>
-                                        <td>
+                                        <td class="text-primary">
                                             <?php echo(isset($asset->pr_path) && $asset->pr_path != '' ? $asset->pr_path : '') ?>
                                         </td>
                                     </tr>
@@ -249,16 +238,10 @@
                                 <input type="hidden" id="idAsset" name="idAsset"
                                        value="<?php echo(isset($asset->idAsset) && $asset->idAsset != '' ? $asset->idAsset : '') ?>">
                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-                                    <a href="#"
+                                    <!--<a href="#"
                                        class="btn btn-primary mr-1 waves-effect waves-light"><i
-                                                class="feather icon-edit-1"></i> Edit</a>
-                                <?php }
-                                if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
-                                    <button class="btn btn-outline-danger waves-effect waves-light"
-                                            onclick="getDelete(this)">
-                                        <i class="feather icon-trash-2"></i> Delete
-                                    </button>
-                                <?php } ?>
+                                                class="feather icon-edit-1"></i> Edit</a>-->
+                                <?php }  ?>
                             </div>
                         </div>
                     </div>

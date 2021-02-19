@@ -30,7 +30,6 @@ class Dashboard extends CI_controller
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'Dashboard');
-
         $this->load->view('include/header',$data);
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');

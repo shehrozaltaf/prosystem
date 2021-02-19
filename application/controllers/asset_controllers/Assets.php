@@ -67,7 +67,7 @@ class Assets extends CI_controller
         $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
 
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
-        $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 0);
+        $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : '');
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
         $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'a.idAsset');
         $searchData['ordersort'] = (isset($_REQUEST['order'][0]['dir']) && $_REQUEST['order'][0]['dir'] != '' ? $_REQUEST['order'][0]['dir'] : 'desc');
@@ -106,7 +106,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['serial_no'] = $value->serial_no;
             $table_data[$value->idAsset]['po_no'] = $value->po_no;
             $table_data[$value->idAsset]['cost'] = $value->cost;
-            $table_data[$value->idAsset]['idCurrency'] = $value->idCurrency;
+            $table_data[$value->idAsset]['idCurrency'] = $value->currency;
             $table_data[$value->idAsset]['idSourceOfPurchase'] = $value->idSourceOfPurchase;
             $table_data[$value->idAsset]['resp_person_name'] = $value->resp_person_name;
             $table_data[$value->idAsset]['ou'] = $value->ou;

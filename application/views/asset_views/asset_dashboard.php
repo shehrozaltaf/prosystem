@@ -724,7 +724,7 @@
         html += '<p>Model: <span class="text-primary">' + (d.model != '' && d.model != undefined && d.model != null ? d.model : '') + '</span></p>';
         html += '<p>Product No: <span class="text-primary">' + (d.product_no != '' && d.product_no != undefined && d.product_no != null ? d.product_no : '') + '</span></p>';
         html += '<p>Serial No: <span class="text-primary">' + (d.serial_no != '' && d.serial_no != undefined && d.serial_no != null ? d.serial_no : '') + '</span></p>';
-        html += '<p>Tag No: <span class="text-primary">' + (d.tag_no != '' && d.tag_no != undefined && d.tag_no != null ? d.tag_no : '') + '</span></p>';
+        html += '<p>Tag No: <span class="text-primary">' + (d.tag != '' && d.tag != undefined && d.tag != null ? d.tag : '') + '</span></p>';
         html += '<p>PO No: <span class="text-primary">' + (d.po_no != '' && d.po_no != undefined && d.po_no != null ? d.po_no : '') + '</span></p>';
         html += '<p>Cost: <span class="text-primary">' + (d.cost != '' && d.cost != undefined && d.cost != null ? d.cost : '') + '</span></p>';
         html += '<p>Currency: <span class="text-primary">' + (d.idCurrency != '' && d.idCurrency != undefined && d.idCurrency != null ? d.idCurrency : '') + '</span></p>';
@@ -779,8 +779,8 @@
         $('.main_content_div').addClass('hide');
         var dt = $('#my_table_asset').DataTable({
             destroy: true,
-            /* processing: true,
-             serverSide: true,*/
+             processing: true,
+             serverSide: true,
             ajax: {
                 "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",
@@ -809,8 +809,8 @@
             ],
             order: [[2, "desc"]],
             dom: '<"card-header border-bottom p-1"<"head-label"><"dt-action-buttons text-right"B>><"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-            displayLength: 5,
-            lengthMenu: [5, 50, 75, 100],
+            displayLength: 25,
+            lengthMenu: [25, 50, 75, 100],
             buttons: [{
                 extend: "collection",
                 className: "btn btn-outline-secondary dropdown-toggle mr-2",
