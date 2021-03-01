@@ -1545,153 +1545,6 @@
                                 </div>
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<span>Replace Picture</span>';
-                                                } else {
-                                                    echo '<span>Upload Picture</span>';
-                                                }
-
-                                            } else {
-                                                echo '<span>Upload Picture</span>';
-                                            }
-
-                                            ?>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="custom-file-input" required
-                                                   id="pic" name="pic" accept="image/jpeg">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
-                                                } else {
-                                                    echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Picture</label>';
-                                                }
-
-                                            } else {
-                                                echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Picture</label>';
-                                            }
-
-                                            ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->pic)) {
-                                                    echo '<span>Add Documents</span>';
-                                                } else {
-                                                    echo '<span>Upload Documents</span>';
-                                                }
-
-                                            } else {
-                                                echo '<span>Upload Documents</span>';
-                                            }
-
-                                            ?>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="custom-file-input" required
-                                                   id="doc" name="doc" accept="application/pdf">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                                if (isset($editemp) && isset($editemp[0]->doc)) {
-                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
-
-                                                } else {
-                                                    echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose Documents</label>';
-                                                }
-
-                                            } else {
-                                                echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose Documents</label>';
-                                            }
-
-                                            ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-12 offset-md-12">
-
-                                    <?php
-
-                                    if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                        if (isset($editemp[0]->id)) {
-                                            $_SESSION['id'] = $editemp[0]->id;
-                                            ?>
-                                            <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
-                                                    type="button" class="btn btn-primary mr-1 mb-1"
-                                                    onclick="showSummary_SaveDraft();">Update Save Draft
-                                            </button>
-
-                                            <button id="cmdSummary" name="cmdSummary" type="button"
-                                                    onclick="showSummary();"
-                                                    class="btn btn-primary mr-1 mb-1">Update
-                                            </button>
-
-                                        <?php } else { ?>
-
-                                            <button id="cmdAddSaveDraft" type="button"
-                                                    class="btn btn-primary mr-1 mb-1"
-                                                    onclick="addData_SaveDraft();">Save Draft
-                                            </button>
-
-                                            <button id="cmdAddData" type="button" onclick="addData();"
-                                                    class="btn btn-primary mr-1 mb-1">Save
-                                            </button>
-
-                                        <?php }
-
-                                    } else { ?>
-
-                                        <button id="cmdAddSaveDraft" type="button"
-                                                class="btn btn-primary mr-1 mb-1"
-                                                onclick="addData_SaveDraft();">Save Draft
-                                        </button>
-
-                                        <button id="cmdAddData" type="button" onclick="addData();"
-                                                class="btn btn-primary mr-1 mb-1">Save
-                                        </button>
-
-                                    <?php } ?>
-
-                                    <button id="cmdCancel" name="cmdCancel" type="button"
-                                            class="btn btn-outline-warning mr-1 mb-1">Cancel
-                                    </button>
-                                </div>
-
                             </div>
 
                             <div class="d-flex justify-content-between">
@@ -1711,6 +1564,108 @@
                                 <h5 class="mb-0">Documents</h5>
                                 <small>Upload Documents.</small>
                             </div>
+
+
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-3 col-form-label">
+
+                                        <?php
+
+                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                echo '<span>Replace Picture</span>';
+                                            } else {
+                                                echo '<span>Upload Picture</span>';
+                                            }
+
+                                        } else {
+                                            echo '<span>Upload Picture</span>';
+                                        }
+
+                                        ?>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="custom-file-input" required
+                                               id="pic" name="pic" accept="image/jpeg">
+
+                                        <?php
+
+                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
+                                            } else {
+                                                echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">Choose Picture</label>';
+                                            }
+
+                                        } else {
+                                            echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
+                                                                   for="inputGroupFile01">Choose Picture</label>';
+                                        }
+
+                                        ?>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-3 col-form-label">
+
+                                        <?php
+
+                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                                echo '<span>Add Documents</span>';
+                                            } else {
+                                                echo '<span>Upload Documents</span>';
+                                            }
+
+                                        } else {
+                                            echo '<span>Upload Documents</span>';
+                                        }
+
+                                        ?>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="custom-file-input" required
+                                               id="doc" name="doc" accept="application/pdf">
+
+                                        <?php
+
+                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                            if (isset($editemp) && isset($editemp[0]->doc)) {
+                                                echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
+
+                                            } else {
+                                                echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">Choose Documents</label>';
+                                            }
+
+                                        } else {
+                                            echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
+                                                                   for="inputGroupFile01">Choose Documents</label>';
+                                        }
+
+                                        ?>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
                             <!-- remove thumbnail file upload starts -->
                             <div class="row">
                                 <div class="col-12">
@@ -1736,6 +1691,56 @@
                                     <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                 </button>
                                 <button class="btn btn-success btn-submit mybtn" id="btn-submit">Submit</button>
+                            </div>
+
+                            <div class="col-md-12 offset-md-12">
+
+                                <?php
+
+                                if (isset($editemp) && $editemp != '' && $editemp != null) {
+
+                                    if (isset($editemp[0]->id)) {
+                                        $_SESSION['id'] = $editemp[0]->id;
+                                        ?>
+                                        <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
+                                                type="button" class="btn btn-primary mr-1 mb-1"
+                                                onclick="showSummary_SaveDraft();">Update Save Draft
+                                        </button>
+
+                                        <button id="cmdSummary" name="cmdSummary" type="button"
+                                                onclick="showSummary();"
+                                                class="btn btn-primary mr-1 mb-1">Update
+                                        </button>
+
+                                    <?php } else { ?>
+
+                                        <button id="cmdAddSaveDraft" type="button"
+                                                class="btn btn-primary mr-1 mb-1"
+                                                onclick="addData_SaveDraft();">Save Draft
+                                        </button>
+
+                                        <button id="cmdAddData" type="button" onclick="addData();"
+                                                class="btn btn-primary mr-1 mb-1">Save
+                                        </button>
+
+                                    <?php }
+
+                                } else { ?>
+
+                                    <button id="cmdAddSaveDraft" type="button"
+                                            class="btn btn-primary mr-1 mb-1"
+                                            onclick="addData_SaveDraft();">Save Draft
+                                    </button>
+
+                                    <button id="cmdAddData" type="button" onclick="addData();"
+                                            class="btn btn-primary mr-1 mb-1">Save
+                                    </button>
+
+                                <?php } ?>
+
+                                <button id="cmdCancel" name="cmdCancel" type="button"
+                                        class="btn btn-outline-warning mr-1 mb-1">Cancel
+                                </button>
                             </div>
                         </div>
                     </div>
