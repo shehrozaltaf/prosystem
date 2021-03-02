@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entrybk.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,57 +16,12 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all_html_sindhnew.php">
+        <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
-              <folding>
-                <element signature="e#251#567#0#PHP" />
-                <element signature="e#342#440#0#PHP" />
-                <element signature="e#441#567#0#PHP" />
-                <element signature="e#14286#14420#0#PHP" />
-                <element signature="e#14390#14420#0#PHP" />
-                <element signature="e#14483#15603#0#PHP" />
-                <element signature="e#14678#15603#0#PHP" />
-                <element signature="e#14693#15597#0#PHP" />
-                <element signature="e#14812#15587#0#PHP" />
-                <element signature="e#14870#15434#0#PHP" />
-                <element signature="e#15272#15434#0#PHP" />
-                <element signature="e#15606#15657#0#PHP" />
-                <element signature="n#downloadFile#0;n#!!top" />
-                <element signature="e#16298#16364#0#PHP" />
-                <element signature="e#16370#16584#0#PHP" />
-                <element signature="e#16624#16827#0#PHP" />
-                <element signature="e#16685#16821#0#PHP" />
-                <element signature="e#16710#16811#0#PHP" />
-                <element signature="e#16832#16873#0#PHP" />
-                <element signature="e#16878#16919#0#PHP" />
-                <element signature="e#16925#17271#0#PHP" />
-                <element signature="e#17088#17258#0#PHP" />
-                <element signature="e#17259#17271#0#PHP" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="n#insertSecondaryAllProvince#0;n#!!top" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../fetch_files_live/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-              <folding>
-                <element signature="n#getSectionsDetail#1;n#!!top" />
-                <element signature="n#getSectionsDetail2#0;n#!!top" />
-                <element signature="n#getSectionsDetail3#0;n#!!top" />
-                <element signature="n#getSections1Detail#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="476">
+              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -84,11 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SetAutoPageBreak</find>
-      <find>json.p</find>
-      <find>footer (</find>
-      <find>SetFont</find>
-      <find>footer(</find>
       <find>$dom[$key]['tag'] AND isset($dom[$key]['attribute']['pagebreak']</find>
       <find>footer</find>
       <find>or</find>
@@ -100,7 +48,6 @@
       <find>no</find>
       <find>facility fo</find>
       <find>getSectionsDetail</find>
-      <find>getSectionsDetail2</find>
       <find>value'</find>
       <find>Birth_Asphyxia</find>
       <find>Male</find>
@@ -111,15 +58,17 @@
       <find>$array[4]</find>
       <find>Section VII-G</find>
       <find>$sec7gArr</find>
-      <find>insertsqlQry</find>
       <find>isset( $array[$key-1])</find>
       <find>loadHTML</find>
+      <find>7</find>
+      <find>FP</find>
+      <find>$table</find>
+      <find>primary</find>
+      <find>getSectionsDetail2</find>
+      <find>7b</find>
+      <find>insertsqlQry</find>
     </findStrings>
     <replaceStrings>
-      <replace>remarks</replace>
-      <replace>+ '&lt;/span&gt;&lt;/p&gt;';</replace>
-      <replace>editAssetModal</replace>
-      <replace>assets</replace>
       <replace>KMC</replace>
       <replace>as.status_name</replace>
       <replace>&lt;?php echo base_url() ?&gt;assets/dt</replace>
@@ -146,6 +95,10 @@
       <replace>$array[14]</replace>
       <replace>$sec11BArr</replace>
       <replace>isset($array[$key-1])</replace>
+      <replace>7a</replace>
+      <replace>7b</replace>
+      <replace>PPFP</replace>
+      <replace>PFAP</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -154,7 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/application/models/budget_model/Mprojected.php" />
         <option value="$PROJECT_DIR$/application/controllers/Settings.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-file-uploader.html" />
@@ -205,12 +157,13 @@
         <option value="$PROJECT_DIR$/../fetch_files_live/fetch_alldata_html/fetch_data_sindh_new/primary/2021/01/202101_211008.html" />
         <option value="$PROJECT_DIR$/../fetch_files_live/config.php" />
         <option value="$PROJECT_DIR$/../fetch_files_live/fetch_all_html_sindhnew.php" />
+        <option value="$PROJECT_DIR$/application/views/upload_data.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="940" />
-    <option name="width" value="747" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="833" />
+    <option name="width" value="854" />
     <option name="height" value="1017" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -228,6 +181,17 @@
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -318,7 +282,9 @@
       <workItem from="1613726580997" duration="1570000" />
       <workItem from="1614318016719" duration="3669000" />
       <workItem from="1614580795137" duration="3136000" />
-      <workItem from="1614597824485" duration="7935000" />
+      <workItem from="1614597824485" duration="8258000" />
+      <workItem from="1614664529978" duration="18000" />
+      <workItem from="1614664846540" duration="9784000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -565,17 +531,24 @@
       <option name="project" value="LOCAL" />
       <updated>1613737166955</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="asset">
+      <created>1614605980840</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1614605980841</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214849000" />
+    <option name="totallyTimeSpent" value="224974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.12408313" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.19987775" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -668,21 +641,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
-    <entry file="file://$PROJECT_DIR$/../tpvics_s/api/RE__/backup20210212/districts.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/users.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="1063" column="46" selection-start-line="1063" selection-start-column="46" selection-end-line="1063" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/form-wizard.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/vendors/js/forms/wizard/bs-stepper.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1557,25 +1515,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../fetch_files_live/config.php">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/CScreening-2021-03-19.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-          <folding>
-            <element signature="n#getSectionsDetail#1;n#!!top" />
-            <element signature="n#getSectionsDetail2#0;n#!!top" />
-            <element signature="n#getSectionsDetail3#0;n#!!top" />
-            <element signature="n#getSections1Detail#0;n#!!top" />
-          </folding>
+        <state>
+          <caret column="636" lean-forward="true" selection-start-column="22" selection-end-column="636" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/WScreening-2021-03-19.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="636" lean-forward="true" selection-start-column="22" selection-end-column="636" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/CScreening-2021-03-02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="636" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="636" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all_html_sindhnew.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
+        <state relative-caret-position="454">
+          <caret line="652" column="4" selection-start-line="652" selection-start-column="4" selection-end-line="652" selection-end-column="4" />
           <folding>
-            <element signature="e#251#567#0#PHP" />
             <element signature="e#342#440#0#PHP" />
             <element signature="e#441#567#0#PHP" />
             <element signature="e#14286#14420#0#PHP" />
@@ -1585,7 +1557,6 @@
             <element signature="e#14693#15597#0#PHP" />
             <element signature="e#14812#15587#0#PHP" />
             <element signature="e#14870#15434#0#PHP" />
-            <element signature="e#15272#15434#0#PHP" />
             <element signature="e#15606#15657#0#PHP" />
             <element signature="n#downloadFile#0;n#!!top" />
             <element signature="e#16298#16364#0#PHP" />
@@ -1595,7 +1566,6 @@
             <element signature="e#16710#16811#0#PHP" />
             <element signature="e#16832#16873#0#PHP" />
             <element signature="e#16878#16919#0#PHP" />
-            <element signature="e#16925#17271#0#PHP" />
             <element signature="e#17088#17258#0#PHP" />
             <element signature="e#17259#17271#0#PHP" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
@@ -1604,6 +1574,24 @@
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fetch_files_live/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="n#getSectionsDetail3#0;n#!!top" />
+            <element signature="n#getSections1Detail#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/upload_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
         </state>
       </provider>
     </entry>

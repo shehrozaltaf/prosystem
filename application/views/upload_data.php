@@ -27,7 +27,6 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-
                                     <!-- <form method="post" id="upload_form" enctype="multipart/form-data">
                                          <div class="col-md-6" align="right">Select File</div>
                                          <div class="col-md-6">
