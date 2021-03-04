@@ -146,7 +146,7 @@
                                                            placeholder="Employee Number"
                                                            name="empno"
                                                            onfocusout="chkEmpNo()"
-                                                           required  >
+                                                           required>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -1566,7 +1566,6 @@
                             </div>
 
 
-
                             <div class="col-12">
                                 <div class="form-group row">
                                     <div class="col-sm-3 col-form-label">
@@ -1663,45 +1662,16 @@
                                 </div>
                             </div>
 
-
-
-
-                            <!-- remove thumbnail file upload starts -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Images</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <form action="#" class="dropzone dropzone-area" id="dpz-remove-thumbs">
-                                                <div class="fallback">
-                                                    <input type="file" id="files" name="files[]" multiple/>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- remove thumbnail file upload ends -->
-
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                            <div class="col-md-12 offset-md-12 d-flex justify-content-between">
+                                <button class="btn btn-primary btn-prev  mr-1 mb-1">
+                                    <span class="align-middle">Previous</span>
                                 </button>
-                                <button class="btn btn-success btn-submit mybtn" id="btn-submit">Submit</button>
-                            </div>
-
-                            <div class="col-md-12 offset-md-12">
-
                                 <?php
 
-                                if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                    if (isset($editemp[0]->id)) {
-                                        $_SESSION['id'] = $editemp[0]->id;
-                                        ?>
+                                if (isset($editemp) && $editemp != '' && $editemp != null && isset($editemp[0]->id)) {
+                                    $_SESSION['id'] = $editemp[0]->id;
+                                    ?>
+                                    <div class="d-flex justify-content-between">
                                         <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
                                                 type="button" class="btn btn-primary mr-1 mb-1"
                                                 onclick="showSummary_SaveDraft();">Update Save Draft
@@ -1711,36 +1681,23 @@
                                                 onclick="showSummary();"
                                                 class="btn btn-primary mr-1 mb-1">Update
                                         </button>
+                                    </div>
+                                    <?php
 
-                                    <?php } else { ?>
-
+                                } else { ?>
+                                    <div class="d-flex justify-content-between">
                                         <button id="cmdAddSaveDraft" type="button"
-                                                class="btn btn-primary mr-1 mb-1"
+                                                class="btn btn-success mr-1 mb-1"
                                                 onclick="addData_SaveDraft();">Save Draft
                                         </button>
 
                                         <button id="cmdAddData" type="button" onclick="addData();"
                                                 class="btn btn-primary mr-1 mb-1">Save
                                         </button>
+                                    </div>
 
-                                    <?php }
-
-                                } else { ?>
-
-                                    <button id="cmdAddSaveDraft" type="button"
-                                            class="btn btn-primary mr-1 mb-1"
-                                            onclick="addData_SaveDraft();">Save Draft
-                                    </button>
-
-                                    <button id="cmdAddData" type="button" onclick="addData();"
-                                            class="btn btn-primary mr-1 mb-1">Save
-                                    </button>
 
                                 <?php } ?>
-
-                                <button id="cmdCancel" name="cmdCancel" type="button"
-                                        class="btn btn-outline-warning mr-1 mb-1">Cancel
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -1751,7 +1708,8 @@
     </div>
 </div>
 
-<input type="hidden" id="hidden_id" name="hidden_id" autocomplete="hidden_id" value="<?php echo (isset($editemp[0]->id) && $editemp[0]->id!=''?$editemp[0]->id:'') ?>">
+<input type="hidden" id="hidden_id" name="hidden_id" autocomplete="hidden_id"
+       value="<?php echo(isset($editemp[0]->id) && $editemp[0]->id != '' ? $editemp[0]->id : '') ?>">
 <!-- END: Content-->
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/select/select2.full.min.js"></script>
@@ -1786,7 +1744,6 @@
                         mySubmitData();
                     }
                 });
-
 
                 // My project only has 1 file hence not sendingmultiple
                 dzClosure.on('sending', function (data, xhr, form_data) {
@@ -1869,23 +1826,11 @@
         $('.mypickadat_dob').pickadate({
             selectYears: true,
             selectMonths: true,
-            min: new Date(1960, 12, 1),
-            clear: ' ',
+            max: new Date(2010, 12, 1),
+            clear: '',
             format: 'dd-mm-yyyy'
         });
     }
-
-    function chkStatus(obj) {
-        var status = $('#status').val();
-        if (status == 1) {
-            $('#writOff_formNo').val('').attr('disabled', 'disabled');
-            $('#wo_date').val('').attr('disabled', 'disabled');
-        } else {
-            $('#writOff_formNo').removeAttr('disabled', 'disabled');
-            $('#wo_date').removeAttr('disabled', 'disabled');
-        }
-    }
-
 
     function mySubmitData() {
         console.log('mySubmitData');
@@ -1948,18 +1893,17 @@
 
     }
 
-
-    function chkEmpNo(){
+    function chkEmpNo() {
         var data = {};
         data['empno'] = $("#empno").val();
         $("#empno").removeClass('error');
-        if(data['empno']!='' && data['empno']!=undefined){
+        if (data['empno'] != '' && data['empno'] != undefined) {
             CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEmpNo'); ?>', data, 'POST', function (result) {
                 if (result != '' && result != null) {
-                    var hidden_id= $("#hidden_id").val();
+                    var hidden_id = $("#hidden_id").val();
                     var a = JSON.parse(result);
                     try {
-                        if (a[0].error ==1 ) {
+                        if (a[0].error == 1) {
                             toastMsg('Error', 'Employee number already exists', 'error');
                             $("#empno").addClass('error').focus();
 
@@ -1969,10 +1913,10 @@
                             $('#cmdAddData').css('display', 'none');
 
                         } else {
-                            if(hidden_id!='' && hidden_id!=undefined){
+                            if (hidden_id != '' && hidden_id != undefined) {
                                 $('#cmdUpdateSaveDraft').removeAttr('style');
                                 $('#cmdSummary').removeAttr('style');
-                            }else{
+                            } else {
                                 $('#cmdAddSaveDraft').removeAttr('style');
                                 $('#cmdAddData').removeAttr('style');
                             }
@@ -1987,6 +1931,305 @@
 
     }
 
+    function addData() {
+        $('#ddlemptype').css('border', '1px solid #babfc7');
+        $('#ddlcategory').css('border', '1px solid #babfc7');
+        $('#empno').css('border', '1px solid #babfc7');
+        $('#empname').css('border', '1px solid #babfc7');
+        $('#cnicno').css('border', '1px solid #babfc7');
+        $('#dob').css('border', '1px solid #babfc7');
+        $('#landline').css('border', '1px solid #babfc7');
+        $('#cellno1').css('border', '1px solid #babfc7');
+        $('#cellno2').css('border', '1px solid #babfc7');
+        $('#personnme').css('border', '1px solid #babfc7');
+        $('#emcellno').css('border', '1px solid #babfc7');
+        $('#emlandno').css('border', '1px solid #babfc7');
+        $('#resaddr').css('border', '1px solid #babfc7');
+        $('#gncno').css('border', '1px solid #babfc7');
+        $('#ddlband').css('border', '1px solid #babfc7');
+        $('#titdesi').css('border', '1px solid #babfc7');
+        $('#rehiredt').css('border', '1px solid #babfc7');
+        $('#conexpiry').css('border', '1px solid #babfc7');
+        $('#workproj').css('border', '1px solid #babfc7');
+        $('#chargproj').css('border', '1px solid #babfc7');
+        $('#ddlloc').css('border', '1px solid #babfc7');
+        $('#supernme').css('border', '1px solid #babfc7');
+        $('#hiresalary').css('border', '1px solid #babfc7');
+        $('#ddlhardship').css('border', '1px solid #babfc7');
+        $('#amount').css('border', '1px solid #babfc7');
+        $('#benefits').css('border', '1px solid #babfc7');
+        $('#peme').css('border', '1px solid #babfc7');
+        $('#gop').css('border', '1px solid #babfc7');
+        $('#gopdt').css('border', '1px solid #babfc7');
+        $('#entity').css('border', '1px solid #babfc7');
+        $('#dept').css('border', '1px solid #babfc7');
+        $('#cardissue').css('border', '1px solid #babfc7');
+        $('#letterapp').css('border', '1px solid #babfc7');
+        $('#confirmation').css('border', '1px solid #babfc7');
+        $('#status').css('border', '1px solid #babfc7');
+        $('#remarks').css('border', '1px solid #babfc7');
+        $('#pic').css('border', '1px solid #babfc7');
+        $('#doc').css('border', '1px solid #babfc7');
+        $('#degree').css('border', '1px solid #babfc7');
+        $('#field').css('border', '1px solid #babfc7');
+        var iserror = false;
+        formData = new FormData($("#frm")[0]);
+        var arr_pic = "";
+        var arr_doc = "";
+        var size = 0;
+        var fnme = "";
+        var imgext = "";
+        var ext = "";
+        var pic_path = "";
+        var doc_path = "";
+        if (validateData(formData)) {
+            if (!checkValues()) {
+                if ($("#pic").val() != "") {
+                    arr_pic = $("#pic").val().split("\\");
+                    size = parseInt($("#pic")[0].files[0].size / 1024);
+
+                    fnme = $("#lbl_pic").html();
+                    imgext = $("#pic")[0].files[0].name.split(".");
+                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
+                    if (size <= 2000) {
+                        if (fnme.lastIndexOf(".jpg") != -1) {
+                        } else {
+                            ShowError($("#pic"), "Please select .jpg files");
+                            iserror = true;
+                        }
+
+                    } else {
+                        ShowError($("#pic"), "Please select 2 MB files only");
+                        iserror = true;
+                    }
+                }
+
+
+                if ($("#doc").val() != "") {
+                    arr_doc = $("#doc").val().split("\\");
+                    size = parseInt($("#doc")[0].files[0].size / 1024);
+                    fnme = $("#lbl_doc").html();
+                    ext = $("#doc")[0].files[0].name.split(".");
+                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
+                    if (size <= 2000) {
+                        if (fnme.lastIndexOf(".pdf") != -1) {
+
+
+                        } else {
+                            ShowError($("#doc"), "Please select .pdf files");
+                            iserror = true;
+                        }
+
+                    } else {
+                        ShowError($("#doc"), "Please select 2 MB files only");
+                        iserror = true;
+                    }
+                }
+
+                if ($("#pic").val() != "") {
+                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
+                }
+
+                if ($("#doc").val() != "") {
+                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
+                }
+
+                var arr = $('.iti__selected-dial-code').text().split('+');
+
+                formData.append('landlineccode', "+" + arr[1]);
+                formData.append('cellno1ccode', "+" + arr[2]);
+                formData.append('cellno2ccode', "+" + arr[3]);
+                formData.append('emcellnoccode', "+" + arr[4]);
+                formData.append('emlandnoccode', "+" + arr[5]);
+
+
+                if ($('#chk_landline').is(':checked')) {
+                    formData.append('chk_landline', "1");
+                } else {
+                    formData.append('chk_landline', "0");
+                }
+
+
+                if ($('#chk_emlandno').is(':checked')) {
+                    formData.append('chk_emlandno', "1");
+                } else {
+                    formData.append('chk_emlandno', "0");
+                }
+                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
+                    //hideloader();
+                    if (result == 1) {
+                        toastMsg('Success', 'Record Saved Successfully', 'success');
+                        //$('#addModal').modal('hide');
+                        setTimeout(function () {
+                            // window.location.reload();
+                        }, 500);
+                    } else if (result == 4) {
+                        toastMsg('Page', 'Duplicate Page URL', 'error');
+                    } else if (result.indexOf('Invalid', 1) != -1) {
+                        toastMsg('Invalid Field', 'Field not found', 'error');
+                    } else if (result == 3) {
+                        toastMsg('Page', 'Invalid Page Name', 'error');
+                    } else {
+                        toastMsg('Error', 'Something went wrong', 'error');
+                    }
+                }, true);
+
+            }
+        }
+
+    }
+
+    function checkValues() {
+        var iserror = false;
+        var re = /^[A-Za-z]+$/;
+        if (re.test($("#empno").val())) {
+            ShowError($("#empno"), "Employee number must be numeric");
+            iserror = true;
+        } else {
+            if ($("#empno").val().length != 6) {
+                ShowError($("#empno"), "Employee no must be 6 digits");
+                iserror = true;
+            }
+        }
+
+        var re = /^[A-Za-z ]+$/;
+        if (!re.test($("#empname").val())) {
+            ShowError($("#empname"), "Employee name must be string");
+            iserror = true;
+        }
+
+        if ($("#cnicno").val().indexOf("_") != -1) {
+            ShowError($("#cnicno"), "CNIC must be 13 digits");
+            iserror = true;
+        }
+
+        var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
+        var start_dt1 = start_dt.split('-');
+        var parts = $("#dob").val().split('-');
+
+        if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
+            ShowError($("#dob"), "Invalid date");
+            iserror = true;
+        } else {
+            var end_dt = parts[1] + '-' + parts[0] + '-' + parts[2];
+            if (Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy") > Date.parse(start_dt1[1] + '-' + start_dt1[0] + '-' + start_dt1[2], "mm-dd-yyyy")) {
+                ShowError($("#dob"), "Birth date cannot be greater than current date");
+                iserror = true;
+            }
+        }
+
+        var re = /^[0-9]+$/;
+        if (!re.test($("#cellno1").val())) {
+            ShowError($("#cellno1"), "Cell Number 1 must be numeric");
+            iserror = true;
+        }
+        if ($("#cellno2").val() == "" && $("#cellno2").val() == null && $("#cellno2").val() == 'null' && $("#cellno2").val() == undefined && $("#cellno2").val() == 'undefined') {
+            var re = /^[0-9]+$/;
+            if (!re.test($("#cellno2").val())) {
+                ShowError($("#cellno2"), "Cell Number 2 must be numeric");
+                iserror = true;
+            }
+        }
+
+
+        var re = /^[A-Za-z ]+$/;
+        if (!re.test($("#personnme").val())) {
+            ShowError($("#personnme"), "Person name cannot contains special characters");
+            iserror = true;
+        }
+
+        var re = /^[0-9]+$/;
+        if (!re.test($("#emcellno").val())) {
+            ShowError($("#emcellno"), "Emergency cell number must be numeric");
+            iserror = true;
+        }
+
+        var re = /^[0-9]+$/;
+        if (!re.test($("#emlandno").val())) {
+            ShowError($("#emlandno"), "Person landline number must be numeric");
+            iserror = true;
+        }
+
+        if ($("#gncno").val().indexOf("_") != -1) {
+            ShowError($("#gncno"), "Please enter complete GNC number");
+            iserror = true;
+        }
+
+        if ($("#rehiredt").val() != "") {
+            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
+            var start_dt1 = start_dt.split('-');
+            var parts = $("#rehiredt").val().split('-');
+            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
+                ShowError($("#rehiredt"), "Invalid date");
+                iserror = true;
+            } else {
+                var dtdob = $("#dob").val().split('-');
+                if (Date.parse(dtdob[1] + '-' + dtdob[0] + '-' + dtdob[2], "mm-dd-yyyy") > Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) {
+                    ShowError($("#rehiredt"), "Rehire date cannot be less than date of birth");
+                    iserror = true;
+                }
+            }
+        }
+
+        if ($("#conexpiry").val() != "") {
+            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
+            var start_dt1 = start_dt.split('-');
+            var parts = $("#conexpiry").val().split('-');
+
+            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
+                ShowError($("#conexpiry"), "Invalid date");
+                iserror = true;
+            }
+        }
+
+        if ($("#gopdt").val() != "") {
+
+            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
+            var start_dt1 = start_dt.split('-');
+
+            var parts = $("#gopdt").val().split('-');
+
+            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
+                ShowError($("#gopdt"), "Invalid date");
+                iserror = true;
+            } else {
+
+                var dtrehiredt = $("#rehiredt").val().split('-');
+
+                if (Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy") < Date.parse(dtrehiredt[1] + '-' + dtrehiredt[0] + '-' + dtrehiredt[2], "mm-dd-yyyy")) {
+                    ShowError($("#gopdt"), "GOP date cannot be less than rehire date");
+                    iserror = true;
+                }
+
+
+            }
+        }
+
+        if ($("#remarks").val() == "" && $("#remarks").val() == null
+            && $("#remarks").val() == 'null' && $("#remarks").val() == undefined && $("#remarks").val() == 'undefined') {
+
+            var re = /[^\w\s]/gi;
+
+            if (re.test($("#remarks").val())) {
+                ShowError($("#remarks"), "Remarks cannot contains special characters");
+                iserror = true;
+            }
+        }
+
+        if (iserror === true) {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+
+        return iserror;
+    }
+
+    function ShowError(id, msg) {
+        id.removeClass('error').removeClass('is-invalid');
+        id.removeClass('error').removeClass('is-invalid').parent('div').append("");
+        var error = '<div id="lblerr_' + id.attr("id") + '" class="invalid-feedback">' + msg + '</div>';
+        $("#lblerr_" + id.attr("id")).remove();
+        id.addClass('error').addClass('is-invalid').parent('div').append(error);
+    }
 
 </script>
 
@@ -2028,7 +2271,6 @@
     $(document).on("click", "#cmdCancel", function () {
         window.location.href = '<?php echo base_url('index.php/hr_controllers/employee_entry');?>';
     });
-
 
 
     $(document).ready(function () {
@@ -2213,153 +2455,7 @@
     }
 
 
-    function addData() {
-        $('#ddlemptype').css('border', '1px solid #babfc7');
-        $('#ddlcategory').css('border', '1px solid #babfc7');
-        $('#empno').css('border', '1px solid #babfc7');
-        $('#empname').css('border', '1px solid #babfc7');
-        $('#cnicno').css('border', '1px solid #babfc7');
-        $('#dob').css('border', '1px solid #babfc7');
-        $('#landline').css('border', '1px solid #babfc7');
-        $('#cellno1').css('border', '1px solid #babfc7');
-        $('#cellno2').css('border', '1px solid #babfc7');
-        $('#personnme').css('border', '1px solid #babfc7');
-        $('#emcellno').css('border', '1px solid #babfc7');
-        $('#emlandno').css('border', '1px solid #babfc7');
-        $('#resaddr').css('border', '1px solid #babfc7');
-        $('#gncno').css('border', '1px solid #babfc7');
-        $('#ddlband').css('border', '1px solid #babfc7');
-        $('#titdesi').css('border', '1px solid #babfc7');
-        $('#rehiredt').css('border', '1px solid #babfc7');
-        $('#conexpiry').css('border', '1px solid #babfc7');
-        $('#workproj').css('border', '1px solid #babfc7');
-        $('#chargproj').css('border', '1px solid #babfc7');
-        $('#ddlloc').css('border', '1px solid #babfc7');
-        $('#supernme').css('border', '1px solid #babfc7');
-        $('#hiresalary').css('border', '1px solid #babfc7');
-        $('#ddlhardship').css('border', '1px solid #babfc7');
-        $('#amount').css('border', '1px solid #babfc7');
-        $('#benefits').css('border', '1px solid #babfc7');
-        $('#peme').css('border', '1px solid #babfc7');
-        $('#gop').css('border', '1px solid #babfc7');
-        $('#gopdt').css('border', '1px solid #babfc7');
-        $('#entity').css('border', '1px solid #babfc7');
-        $('#dept').css('border', '1px solid #babfc7');
-        $('#cardissue').css('border', '1px solid #babfc7');
-        $('#letterapp').css('border', '1px solid #babfc7');
-        $('#confirmation').css('border', '1px solid #babfc7');
-        $('#status').css('border', '1px solid #babfc7');
-        $('#remarks').css('border', '1px solid #babfc7');
-        $('#pic').css('border', '1px solid #babfc7');
-        $('#doc').css('border', '1px solid #babfc7');
-        $('#degree').css('border', '1px solid #babfc7');
-        $('#field').css('border', '1px solid #babfc7');
-        var iserror = false;
-        formData = new FormData($("#frm")[0]);
-        var arr_pic = "";
-        var arr_doc = "";
-        var size = 0;
-        var fnme = "";
-        var imgext = "";
-        var ext = "";
-        var pic_path = "";
-        var doc_path = "";
-        if (validateData(formData)) {
-            if (!checkValues()) {
-                if ($("#pic").val() != "") {
-                    arr_pic = $("#pic").val().split("\\");
-                    size = parseInt($("#pic")[0].files[0].size / 1024);
 
-                    fnme = $("#lbl_pic").html();
-                    imgext = $("#pic")[0].files[0].name.split(".");
-                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
-                    if (size <= 2000) {
-                        if (fnme.lastIndexOf(".jpg") != -1) {
-                        } else {
-                            ShowError($("#pic"), "Please select .jpg files");
-                            iserror = true;
-                        }
-
-                    } else {
-                        ShowError($("#pic"), "Please select 2 MB files only");
-                        iserror = true;
-                    }
-                }
-
-
-                if ($("#doc").val() != "") {
-                    arr_doc = $("#doc").val().split("\\");
-                    size = parseInt($("#doc")[0].files[0].size / 1024);
-                    fnme = $("#lbl_doc").html();
-                    ext = $("#doc")[0].files[0].name.split(".");
-                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
-                    if (size <= 2000) {
-                        if (fnme.lastIndexOf(".pdf") != -1) {
-
-
-                        } else {
-                            ShowError($("#doc"), "Please select .pdf files");
-                            iserror = true;
-                        }
-
-                    } else {
-                        ShowError($("#doc"), "Please select 2 MB files only");
-                        iserror = true;
-                    }
-                }
-
-                if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
-                }
-
-                if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
-                }
-
-                var arr = $('.iti__selected-dial-code').text().split('+');
-
-                formData.append('landlineccode', "+" + arr[1]);
-                formData.append('cellno1ccode', "+" + arr[2]);
-                formData.append('cellno2ccode', "+" + arr[3]);
-                formData.append('emcellnoccode', "+" + arr[4]);
-                formData.append('emlandnoccode', "+" + arr[5]);
-
-
-                if ($('#chk_landline').is(':checked')) {
-                    formData.append('chk_landline', "1");
-                } else {
-                    formData.append('chk_landline', "0");
-                }
-
-
-                if ($('#chk_emlandno').is(':checked')) {
-                    formData.append('chk_emlandno', "1");
-                } else {
-                    formData.append('chk_emlandno', "0");
-                }
-                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
-                    //hideloader();
-                    if (result == 1) {
-                        toastMsg('Success', 'Record Saved Successfully', 'success');
-                        //$('#addModal').modal('hide');
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 500);
-                    } else if (result == 4) {
-                        toastMsg('Page', 'Duplicate Page URL', 'error');
-                    } else if (result.indexOf('Invalid', 1) != -1) {
-                        toastMsg('Invalid Field', 'Field not found', 'error');
-                    } else if (result == 3) {
-                        toastMsg('Page', 'Invalid Page Name', 'error');
-                    } else {
-                        toastMsg('Error', 'Something went wrong', 'error');
-                    }
-                }, true);
-
-            }
-        }
-
-    }
 
 
     function showSummary() {
@@ -2907,7 +3003,6 @@
 
     }
 
-
     function showSummary_SaveDraft() {
 
         $('#ddlemptype').css('border', '1px solid #babfc7');
@@ -3450,7 +3545,6 @@
         }
 
     }
-
 
     function editData() {
         var data = [];
@@ -4039,234 +4133,9 @@
     }
 
 
-    function checkValues() {
 
-        var iserror = false;
 
-        var re = /^[A-Za-z]+$/;
 
-        if (re.test($("#empno").val())) {
-            ShowError($("#empno"), "Employee number must be numeric");
-            iserror = true;
-        } else {
-
-            if ($("#empno").val().length != 6) {
-                ShowError($("#empno"), "Employee no must be 6 digits");
-                iserror = true;
-            }
-        }
-
-
-        //var re = /^[A-Za-z ]+d/;
-        var re = /^[A-Za-z ]+$/;
-        //var re = /^[0-9 -()+]+$/;
-
-        if (!re.test($("#empname").val())) {
-            ShowError($("#empname"), "Employee name must be string");
-            iserror = true;
-        }
-
-
-        if ($("#cnicno").val().indexOf("_") != -1) {
-            ShowError($("#cnicno"), "CNIC must be 13 digits");
-            iserror = true;
-        }
-
-
-        var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
-        var start_dt1 = start_dt.split('-');
-
-        var parts = $("#dob").val().split('-');
-
-
-        if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
-            ShowError($("#dob"), "Invalid date");
-            iserror = true;
-
-        } else {
-
-            var end_dt = parts[1] + '-' + parts[0] + '-' + parts[2];
-            //console.log(Date.parse(parts[1] + '/' + parts[0] + '/' + parts[2], "dd-mm-yyyy"));
-            //console.log(Date.parse(start_dt1[1] + '/' + start_dt1[0] + '/' + start_dt1[2], "dd-mm-yyyy"));
-
-            if (Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy") > Date.parse(start_dt1[1] + '-' + start_dt1[0] + '-' + start_dt1[2], "mm-dd-yyyy")) {
-                ShowError($("#dob"), "Birth date cannot be greater than current date");
-                iserror = true;
-            }
-        }
-
-
-        //var re = /^[A-Za-z]+$/;
-        var re = /^[0-9]+$/;
-        //var re = /^[A-Za-z ]+$/;
-        //var re = /^[0-9 -()+]+$/;
-
-        if (!re.test($("#cellno1").val())) {
-            ShowError($("#cellno1"), "Cell Number 1 must be numeric");
-            iserror = true;
-        }
-
-
-        if ($("#cellno2").val() == "" && $("#cellno2").val() == null && $("#cellno2").val() == 'null' && $("#cellno2").val() == undefined && $("#cellno2").val() == 'undefined') {
-
-            //var re = /^[A-Za-z]+$/;
-            var re = /^[0-9]+$/;
-
-            if (!re.test($("#cellno2").val())) {
-                ShowError($("#cellno2"), "Cell Number 2 must be numeric");
-                iserror = true;
-            }
-        }
-
-
-        var re = /^[A-Za-z ]+$/;
-
-        if (!re.test($("#personnme").val())) {
-            ShowError($("#personnme"), "Person name cannot contains special characters");
-            iserror = true;
-        }
-
-
-        //var re = /^[A-Za-z]+$/;
-        var re = /^[0-9]+$/;
-
-        if (!re.test($("#emcellno").val())) {
-            ShowError($("#emcellno"), "Emergency cell number must be numeric");
-            iserror = true;
-        }
-
-
-        //var re = /^[A-Za-z]+$/;
-        var re = /^[0-9]+$/;
-
-        if (!re.test($("#emlandno").val())) {
-            ShowError($("#emlandno"), "Person landline number must be numeric");
-            iserror = true;
-        }
-
-
-        if ($("#gncno").val().indexOf("_") != -1) {
-            ShowError($("#gncno"), "Please enter complete GNC number");
-            iserror = true;
-        }
-
-
-        if ($("#rehiredt").val() != "") {
-
-            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
-            var start_dt1 = start_dt.split('-');
-            //console.log(start_dt1);
-
-
-            //var start_dt = new Date().getDate().toString().split('/');
-            //console.log(start_dt1[1] + '/' + start_dt1[0] + '/' + start_dt1[2], "dd-mm-yyyy");
-
-            var parts = $("#rehiredt").val().split('-');
-
-            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
-                ShowError($("#rehiredt"), "Invalid date");
-                iserror = true;
-
-            } else {
-
-                var dtdob = $("#dob").val().split('-');
-
-                if (Date.parse(dtdob[1] + '-' + dtdob[0] + '-' + dtdob[2], "mm-dd-yyyy") > Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) {
-                    ShowError($("#rehiredt"), "Rehire date cannot be less than date of birth");
-                    iserror = true;
-                }
-            }
-        }
-
-
-        if ($("#conexpiry").val() != "") {
-
-            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
-            var start_dt1 = start_dt.split('-');
-            //console.log(start_dt1);
-
-            //var start_dt = new Date().getDate().toString().split('/');
-            //console.log(start_dt1[1] + '/' + start_dt1[0] + '/' + start_dt1[2], "dd-mm-yyyy");
-
-            var parts = $("#conexpiry").val().split('-');
-
-            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
-                ShowError($("#conexpiry"), "Invalid date");
-                iserror = true;
-            }
-        }
-
-
-        /*if ($("#chargproj").val().indexOf("_") != -1) {
-            ShowError($("#chargproj"), "Charging project must be 10 digits");
-            iserror = true;
-        }*/
-
-
-        /*var re = /^[A-Za-z ]+$/;
-
-        if (!re.test($("#supernme").val())) {
-            ShowError($("#supernme"), "Supervisor name cannot contains special characters");
-            iserror = true;
-        }*/
-
-
-        if ($("#gopdt").val() != "") {
-
-            var start_dt = new Date().getDate() + "-" + parseInt(new Date().getMonth() + 1) + "-" + new Date().getFullYear();
-            var start_dt1 = start_dt.split('-');
-            //console.log(start_dt1);
-
-
-            //var start_dt = new Date().getDate().toString().split('/');
-            //console.log(start_dt1[1] + '/' + start_dt1[0] + '/' + start_dt1[2], "dd-mm-yyyy");
-
-            var parts = $("#gopdt").val().split('-');
-
-            if (isNaN(Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy")) == true) {
-                ShowError($("#gopdt"), "Invalid date");
-                iserror = true;
-            } else {
-
-                var dtrehiredt = $("#rehiredt").val().split('-');
-
-                if (Date.parse(parts[1] + '-' + parts[0] + '-' + parts[2], "mm-dd-yyyy") < Date.parse(dtrehiredt[1] + '-' + dtrehiredt[0] + '-' + dtrehiredt[2], "mm-dd-yyyy")) {
-                    ShowError($("#gopdt"), "GOP date cannot be less than rehire date");
-                    iserror = true;
-                }
-
-
-            }
-        }
-
-        if ($("#remarks").val() == "" && $("#remarks").val() == null
-            && $("#remarks").val() == 'null' && $("#remarks").val() == undefined && $("#remarks").val() == 'undefined') {
-
-            var re = /[^\w\s]/gi;
-
-            if (re.test($("#remarks").val())) {
-                ShowError($("#remarks"), "Remarks cannot contains special characters");
-                iserror = true;
-            }
-        }
-
-        if (iserror === true) {
-            toastMsg('Error', 'Please see range issue', 'error');
-        }
-
-        return iserror;
-    }
-
-    function ShowError(id, msg) {
-
-        id.removeClass('error').removeClass('is-invalid');
-        id.removeClass('error').removeClass('is-invalid').parent('div').append("");
-
-        var error = '<div id="lblerr_' + id.attr("id") + '" class="invalid-feedback">' + msg + '</div>';
-
-        $("#lblerr_" + id.attr("id")).remove();
-        id.addClass('error').addClass('is-invalid').parent('div').append(error);
-    }
 
     function addData1() {
 
