@@ -51,9 +51,8 @@ class Mempmodel extends CI_Model
     function getEmployeeDataByEmpNo($empno)
     {
         $this->db->select('*');
-        $this->db->from('employee_view');
+        $this->db->from('hr_employee');
         $this->db->where('empno', $empno);
-        $this->db->where('status', 1);
         $query = $this->db->get();
         return $query->result();
     }

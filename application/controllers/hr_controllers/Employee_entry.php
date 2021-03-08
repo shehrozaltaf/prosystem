@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(0);
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -144,6 +144,112 @@ class Employee_entry extends CI_controller
         $formArray = array();
 
         foreach ($_POST as $k => $v) {
+            if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
+                $formArray[$k] = date('Y-m-d', strtotime($v));
+            } else if ($k === 'empname') {
+                $formArray[$k] = ucwords($v);
+            } else if ($k === 'hiresalary') {
+                $formArray[$k] = $this->encrypt->encode($v);
+            } else {
+                $formArray[$k] = $v;
+            }
+        }
+
+        $result=2;
+        if ($flag == 0) {
+
+            $Custom = new Custom();
+            if (isset($_FILES["pic"]["name"])) {
+                $formArray["pic"] = $_FILES["pic"]["name"];
+            } else {
+                $formArray["pic"] = null;
+            }
+
+            if (isset($_FILES["docfile"]["name"])) {
+                $formArray["doc"] = $_FILES["doc"]["name"];
+            } else {
+                $formArray["doc"] = null;
+            }
+
+
+            if (isset($_SESSION['login']['idUser'])) {
+                $formArray["userid"] = $_SESSION['login']['idUser'];
+            } else {
+                $formArray["userid"] = null;
+            }
+            $now = new DateTime();
+            $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
+            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'Y');
+
+            if ($InsertData) {
+                $result=1;
+                if (isset($formArray['empno']) && $formArray['empno'] != '') {
+                    $folder = $formArray['empno'];
+                } else {
+                    $folder = $InsertData;
+                }
+
+                if (isset($_FILES) && isset($_FILES["pic"]) && $_FILES["pic"] != '') {
+                    $upload_location = "assets/uploads/hrUploads/" . $folder . '/profilepic/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+
+                    $filename = $_FILES["pic"]['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                    if (in_array($ext, $valid_ext)) {
+                        $path = $upload_location . $filename;
+                        if (move_uploaded_file($_FILES["pic"]['tmp_name'], $path)) {
+                        }else{
+                            $result=4;
+                        }
+                    }
+                }
+
+                if (isset($_FILES) && isset($_FILES["doc"]) && $_FILES["doc"] != '') {
+                    $doc_upload_location = "assets/uploads/hrUploads/" . $folder . '/docs/';
+                    if (!is_dir($doc_upload_location)) {
+                        mkdir($doc_upload_location, 0777, TRUE);
+                    }
+
+                    $filename = $_FILES["doc"]['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                    if (in_array($ext, $valid_ext)) {
+                        $path = $doc_upload_location . $filename;
+                        if (move_uploaded_file($_FILES["doc"]['tmp_name'], $path)) {
+                            $files_arr[] = $path;
+                            $fileUpload = array();
+                            $fileUpload['id_hr_employee'] = $InsertData;
+                            $fileUpload['empno'] = $formArray['empno'];
+                            $fileUpload['docPath'] = $doc_upload_location . $filename;
+                            $fileUpload['docName'] = $filename;
+                            $fileUpload['isActive'] = 1;
+                            $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                            $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                            $Custom->Insert($fileUpload, 'id', 'hr_employee_docs', 'Y');
+                        }else{
+                            $result=5;
+                        }
+                    }
+                }
+            }
+
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
+
+    function addRecord2()
+    {
+
+        ob_end_clean();
+        $flag = 0;
+        $formArray = array();
+
+        foreach ($_POST as $k => $v) {
             if (!isset($v) || $v == '') {
 
                 if (!isset($v) && $k === "cellno2" || $v == '' && $k === "cellno2" ||
@@ -175,7 +281,6 @@ class Employee_entry extends CI_controller
                     $formArray[$k] = ucwords($v);
                 } else if ($k === 'hiresalary') {
                     $formArray[$k] = $this->encrypt->encode($v);
-                    //$formArray[$k] = md5($v);
                 } else {
                     $formArray[$k] = $v;
                 }
@@ -186,74 +291,11 @@ class Employee_entry extends CI_controller
         if ($flag == 0) {
 
             $Custom = new Custom();
-
-
-            /*$formArray['ddlemptype'] = $_POST['ddlemptype'];
-            $formArray['ddlcategory'] = $_POST['ddlcategory'];
-            $formArray['empno'] = $_POST['empno'];
-            $formArray['empname'] = $_POST['empname'];
-            $formArray['cnicno'] = $_POST['cnicno'];
-            $formArray['dob'] = date('Y-m-d', $_POST['dob']);
-            $formArray['qual'] = $_POST['qual'];
-            $formArray['landline'] = $_POST['landline'];
-            $formArray['cellno1'] = $_POST['cellno1'];
-            $formArray['personnme'] = $_POST['personnme'];
-            $formArray['emcellno'] = $_POST['emcellno'];
-            $formArray['emlandno'] = $_POST['emlandno'];
-            $formArray['resaddr'] = $_POST['resaddr'];
-            $formArray['gncno'] = $_POST['gncno'];
-            $formArray['ddlband'] = $_POST['ddlband'];
-            $formArray['titdesi'] = $_POST['titdesi'];
-            $formArray['rehiredt'] = date('Y-m-d', $_POST['rehiredt']);
-            $formArray['conexpiry'] = date('Y-m-d', $_POST['conexpiry']);
-            $formArray['workproj'] = $_POST['workproj'];
-            $formArray['chargproj'] = $_POST['chargproj'];
-            $formArray['ddlloc'] = $_POST['ddlloc'];
-            $formArray['supernme'] = $_POST['supernme'];
-            $formArray['hiresalary'] = $_POST['hiresalary'];
-            $formArray['ddlhardship'] = $_POST['ddlhardship'];
-            $formArray['amount'] = $_POST['amount'];
-            $formArray['benefits'] = $_POST['benefits'];
-            $formArray['peme'] = $_POST['peme'];
-            $formArray['gop'] = $_POST['gop'];
-            $formArray['gopdt'] = date('m-d-Y', strtotime($_POST['gopdt']));
-            $formArray['cardissue'] = $_POST['cardissue'];
-            $formArray['letterapp'] = $_POST['letterapp'];
-            $formArray['confirmation'] = $_POST['confirmation'];
-            $formArray['status'] = $_POST['status'];*/
-
-
-            /*if (isset($_POST['cellno2']) && $_POST['cellno2'] == '') {
-                $formArray['cellno2'] = null;
-            } else {
-                $formArray['cellno2'] = $_POST['cellno2'];
-            }*/
-
-
-            /*if (isset($_POST['remarks']) && $_POST['remarks'] == '') {
-                $formArray['remarks'] = null;
-            } else {
-                $formArray['remarks'] = $_POST['remarks'];
-            }*/
-
-
-            /*$formArray['pic'] = $_POST['pic'];
-            $formArray['doc'] = $_POST['doc'];*/
-
-
-            //array_push($formArray, $_FILES["pic"]["name"], $_FILES["doc"]["name"]);
-
-            //echo var_dump($_FILES);
-
-            //die();
-
-
             if (isset($_FILES["imgfile"]["name"])) {
                 $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
             } else {
                 $formArray["pic"] = null;
             }
-
 
             if (isset($_FILES["docfile"]["name"])) {
                 $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
@@ -267,32 +309,20 @@ class Employee_entry extends CI_controller
             } else {
                 $formArray["userid"] = null;
             }
-
-
-            //date_default_timezone_set('Asia/Karachi');
-
             $now = new DateTime();
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
-
-
             $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
-
-
             if (isset($_FILES["imgfile"]["name"])) {
                 $config['upload_path'] = 'assets/emppic';
                 $config['allowed_types'] = 'jpg|jpeg|gif|png';
-
                 $this->load->library('upload', $config);
-
                 if (!$this->upload->do_upload('imgfile')) {
                     $file = null;
                 } else {
                     $data = array('upload_data' => $this->upload->data());
                     $file = 'assets/emppic/' . $data['upload_data']['file_name'];
                 }
-
             }
-
 
             if (isset($_FILES["docfile"]["name"])) {
                 $config2['upload_path'] = 'assets/docs';
@@ -300,25 +330,15 @@ class Employee_entry extends CI_controller
                 $this->upload->initialize($config2);
                 $this->load->library('upload', $config2);
                 if (!$this->upload->do_upload('docfile')) {
-                    /*$error = array('error' => $this->upload->display_errors());
-                    echo "<pre>";
-                    print_r($error);*/
                     $file = null;
                 } else {
                     $data = array('upload_data' => $this->upload->data());
                     $file = 'assets/docs/' . $data['upload_data']['file_name'];
                 }
             }
-
-
-            /*$trackarray = array("action" => "Add Employee -> Function: addRecord() ",
-                "result" => $InsertData, "PostData" => $formArray);
-            $Custom->trackLogs($trackarray, "user_logs");*/
-
         } else {
             $InsertData = 3;
         }
-
         echo $InsertData;
     }
 
@@ -529,131 +549,6 @@ class Employee_entry extends CI_controller
         echo $EditData;
     }
 
-
-    function bulkupdate()
-    {
-        ob_end_clean();
-        $flag = 0;
-        $formArray = array();
-
-        $olddata = array();
-
-
-        foreach ($_POST as $k => $v) {
-            if (!isset($v) || $v == '') {
-
-                if (!isset($v) && $k === "workproj" || $v == '' && $k === "workproj" || $v == 'NULL' && $k === "workproj" || $v == 'undefined' && $k === "workproj" ||
-                    !isset($v) && $k === "ddlloc" || $v == '' && $k === "ddlloc" || $v == 'NULL' && $k === "ddlloc" || $v == 'undefined' && $k === "ddlloc" ||
-                    !isset($v) && $k === "supernme" || $v == '' && $k === "supernme" || $v == 'NULL' && $k === "supernme" || $v == 'undefined' && $k === "supernme" ||
-                    !isset($v) && $k === "status" || $v == '' && $k === "status" || $v == 'NULL' && $k === "status" || $v == 'undefined' && $k === "status"
-                ) {
-                    $formArray[$k] = null;
-                } else {
-                    $flag = 1;
-                    echo json_encode('Invalid ' . $k);
-                    return false;
-                }
-
-            } else {
-
-                if ($k === 'conexpiry' || $k === 'SummaryEftDate') {
-                    $formArray[$k] = date('Y-m-d', strtotime($v));
-                } else {
-                    $formArray[$k] = $v;
-                }
-            }
-        }
-
-
-        /*print_r($formArray);
-        die();*/
-
-
-        if ($flag == 0) {
-
-            $Custom = new Custom();
-            $Mempmodel = new Mempmodel();
-
-            //date_default_timezone_set('Asia/Karachi');
-
-
-            //$olddata['results'] =  $Mempmodel->getEmployeeDataByEmpNo('111111');
-
-            //print_r($olddata);
-            //die();
-
-
-            $this->AuditTrials_BulkUpd();
-
-
-            if (isset($_POST['data']) && $_POST['data'] != '') {
-
-                $js = json_decode($_POST['data']);
-
-                //foreach (json_decode($_POST['data']) as $k => $v) {
-                foreach ($js->results as $kk => $v) {
-
-
-                    /*echo "<pre>";
-                    echo print_r($v->summaryFldid);
-                    echo "</pre>";
-                    die();*/
-
-
-                    if ($v->summaryFldid == "conexpiry") {
-                        $formArray[$v->summaryFldid] = date('Y-m-d', strtotime($v->summaryVal));
-                    } else {
-                        $formArray[$v->summaryFldid] = $v->summaryVal;
-                    }
-
-
-                    /*$formArray['workproj'] = $v->summaryVal;
-                    $formArray['ddlloc'] = $v->summaryVal;
-                    $formArray['supernme'] = $v->summaryVal;
-                    //$formArray['conexpiry'] = date('Y-d-m', $v[3]->summaryVal);
-                    $formArray['conexpiry'] = date('Y-m-d', strtotime($v->summaryVal));
-                    $formArray['status'] = $v->summaryVal;*/
-
-
-                    unset($formArray['data']);
-
-
-                    //echo $v[$v->empno]->empno;
-
-
-                    //$formArray[$v->summaryFldid] = $v->summaryFldNewVal;
-
-                    //$formArray[$v['summaryFldNewVal']] = $v['summaryFldNewVal'];
-                    //$formArray["FieldName"] = $v['summaryFldName'];
-                    //$formArray["OldValue"] = $v['summaryOldVal'];
-                    //$formArray["NewValue"] = $v['summaryNewVal'];
-                    //$formArray["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
-
-
-                    $EditData = $Custom->Edit($formArray, 'empno', $v->empno, 'hr_employee');
-
-                    $_SESSION['id'] = '';
-                }
-            }
-
-            /*echo "<pre>";
-            echo print_r(json_decode($formArray['data']));
-            echo "</pre>";*/
-
-
-            /*$trackarray = array("action" => "Add Employee -> Function: addRecord() ",
-                "result" => $InsertData, "PostData" => $formArray);
-            $Custom->trackLogs($trackarray, "user_logs");*/
-
-        } else {
-            $EditData = 3;
-        }
-
-
-        echo $EditData;
-    }
-
-
     function AuditTrials()
     {
         $Custom = new Custom();
@@ -806,6 +701,128 @@ class Employee_entry extends CI_controller
 
     }
 
+    function bulkupdate()
+    {
+        ob_end_clean();
+        $flag = 0;
+        $formArray = array();
+
+        $olddata = array();
+
+
+        foreach ($_POST as $k => $v) {
+            if (!isset($v) || $v == '') {
+
+                if (!isset($v) && $k === "workproj" || $v == '' && $k === "workproj" || $v == 'NULL' && $k === "workproj" || $v == 'undefined' && $k === "workproj" ||
+                    !isset($v) && $k === "ddlloc" || $v == '' && $k === "ddlloc" || $v == 'NULL' && $k === "ddlloc" || $v == 'undefined' && $k === "ddlloc" ||
+                    !isset($v) && $k === "supernme" || $v == '' && $k === "supernme" || $v == 'NULL' && $k === "supernme" || $v == 'undefined' && $k === "supernme" ||
+                    !isset($v) && $k === "status" || $v == '' && $k === "status" || $v == 'NULL' && $k === "status" || $v == 'undefined' && $k === "status"
+                ) {
+                    $formArray[$k] = null;
+                } else {
+                    $flag = 1;
+                    echo json_encode('Invalid ' . $k);
+                    return false;
+                }
+
+            } else {
+
+                if ($k === 'conexpiry' || $k === 'SummaryEftDate') {
+                    $formArray[$k] = date('Y-m-d', strtotime($v));
+                } else {
+                    $formArray[$k] = $v;
+                }
+            }
+        }
+
+
+        /*print_r($formArray);
+        die();*/
+
+
+        if ($flag == 0) {
+
+            $Custom = new Custom();
+            $Mempmodel = new Mempmodel();
+
+            //date_default_timezone_set('Asia/Karachi');
+
+
+            //$olddata['results'] =  $Mempmodel->getEmployeeDataByEmpNo('111111');
+
+            //print_r($olddata);
+            //die();
+
+
+            $this->AuditTrials_BulkUpd();
+
+
+            if (isset($_POST['data']) && $_POST['data'] != '') {
+
+                $js = json_decode($_POST['data']);
+
+                //foreach (json_decode($_POST['data']) as $k => $v) {
+                foreach ($js->results as $kk => $v) {
+
+
+                    /*echo "<pre>";
+                    echo print_r($v->summaryFldid);
+                    echo "</pre>";
+                    die();*/
+
+
+                    if ($v->summaryFldid == "conexpiry") {
+                        $formArray[$v->summaryFldid] = date('Y-m-d', strtotime($v->summaryVal));
+                    } else {
+                        $formArray[$v->summaryFldid] = $v->summaryVal;
+                    }
+
+
+                    /*$formArray['workproj'] = $v->summaryVal;
+                    $formArray['ddlloc'] = $v->summaryVal;
+                    $formArray['supernme'] = $v->summaryVal;
+                    //$formArray['conexpiry'] = date('Y-d-m', $v[3]->summaryVal);
+                    $formArray['conexpiry'] = date('Y-m-d', strtotime($v->summaryVal));
+                    $formArray['status'] = $v->summaryVal;*/
+
+
+                    unset($formArray['data']);
+
+
+                    //echo $v[$v->empno]->empno;
+
+
+                    //$formArray[$v->summaryFldid] = $v->summaryFldNewVal;
+
+                    //$formArray[$v['summaryFldNewVal']] = $v['summaryFldNewVal'];
+                    //$formArray["FieldName"] = $v['summaryFldName'];
+                    //$formArray["OldValue"] = $v['summaryOldVal'];
+                    //$formArray["NewValue"] = $v['summaryNewVal'];
+                    //$formArray["effdt"] = date('Y-m-d', strtotime($v['SummaryEftDate']));
+
+
+                    $EditData = $Custom->Edit($formArray, 'empno', $v->empno, 'hr_employee');
+
+                    $_SESSION['id'] = '';
+                }
+            }
+
+            /*echo "<pre>";
+            echo print_r(json_decode($formArray['data']));
+            echo "</pre>";*/
+
+
+            /*$trackarray = array("action" => "Add Employee -> Function: addRecord() ",
+                "result" => $InsertData, "PostData" => $formArray);
+            $Custom->trackLogs($trackarray, "user_logs");*/
+
+        } else {
+            $EditData = 3;
+        }
+
+
+        echo $EditData;
+    }
 
     function AuditTrials_BulkUpd()
     {
@@ -1060,7 +1077,7 @@ class Employee_entry extends CI_controller
             $getEmp = $Mempmodel->getEmployeeDataByEmpNo($empno);
             if (isset($getEmp) && $getEmp != null) {
                 $results = array(['error' => 1]);
-            }else{
+            } else {
                 $results = array(['error' => 3]);
             }
         } else {

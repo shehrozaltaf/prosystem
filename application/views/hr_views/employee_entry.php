@@ -117,12 +117,13 @@
                         </div>
                     </div>
                     <div class="bs-stepper-content">
-                        <div id="account-details-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Personal Information</h5>
-                                <small class="text-muted">Enter Personal Information</small>
-                            </div>
-                            <form id="myForm">
+                        <form id="myForm" method="post" action="" enctype="multipart/form-data">
+                            <div id="account-details-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Personal Information</h5>
+                                    <small class="text-muted">Enter Personal Information</small>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group row">
@@ -144,7 +145,7 @@
                                                     <input type="text" id="empno"
                                                            class="form-control numericOnly" maxlength="6"
                                                            placeholder="Employee Number"
-                                                           name="empno"
+                                                           name="empno" value="242511"
                                                            onfocusout="chkEmpNo()"
                                                            required>
                                                 <?php } ?>
@@ -163,7 +164,7 @@
                                                        placeholder="Official Email" name="offemail"
                                                        onkeypress="return ValidateEmail();"
                                                        required
-                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : 'shahroz.khan') ?>"
                                                 >
 
                                             </div>
@@ -181,7 +182,7 @@
                                                        placeholder="Full Name" name="empname"
                                                        onkeypress="return lettersOnly_WithSpace();"
                                                        style="text-transform: uppercase;" required
-                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : 'Shahroz Khan') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -197,7 +198,7 @@
                                                 <input type="text" id="cnicno"
                                                        class="form-control" placeholder="CNIC NO"
                                                        name="cnicno" required
-                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '42201-55555555-5') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -213,7 +214,7 @@
                                                        placeholder="Date of Birth"
                                                        class="form-control mypickadat_dob"
                                                        name="dob"
-                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
+                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '13-09-1992') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -287,25 +288,23 @@
                                     </div>
 
                                 </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev " disabled>
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary btn-prev " disabled>
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
 
-                        </div>
-                        <div id="personal-info-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Contact Details</h5>
-                                <small>Enter Contact Details.</small>
                             </div>
-                            <form>
+                            <div id="personal-info-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Contact Details</h5>
+                                    <small>Enter Contact Details.</small>
+                                </div>
                                 <div class="row">
 
                                     <div class="col-12">
@@ -318,7 +317,7 @@
                                                        placeholder="Residential Address"
                                                        required
                                                        name="resaddr" maxlength="200"
-                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : 'abcd xyz test') ?>"
                                                 >
 
                                             </div>
@@ -335,7 +334,7 @@
                                                        placeholder="Personal Email"
                                                        required
                                                        name="peremail" maxlength="100"
-                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : 'shehroz.altaf92@gmail.com') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -347,85 +346,28 @@
                                                 <label id="lbl_landline">Landline Number</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="landline" required
-                                                           onkeypress="return numeralsOnly_phone();"
-                                                           placeholder="Landline Number"
-                                                           class="form-control" name="landline"
-                                                           maxlength="15"
-                                                           value="">
-
-                                                <?php } ?>
+                                                <input type="tel" id="landline" required
+                                                       onkeypress="return numeralsOnly_phone();"
+                                                       placeholder="Landline Number"
+                                                       class="form-control" name="landline"
+                                                       maxlength="15"
+                                                       value="<?php echo((isset ($editemp[0]->landlineccode) ? $editemp[0]->landlineccode : '') . (isset($editemp[0]->landline) ? $editemp[0]->landline : '')) ?>">
 
                                                 <div>
-
-                                                    <?php if (isset($editemp)) {
-
-                                                        if ($editemp[0]->chk_landline == 1) { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           checked="checked"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php } else { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_landline"
-                                                                           name="chk_landline"
-                                                                           type="checkbox"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_landline">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php }
-
-                                                    } else { ?>
-
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="chk_landline"
-                                                                       name="chk_landline"
-                                                                       type="checkbox"
-                                                                       class="custom-control-input"
-                                                                       data-oldval="0">
-                                                                <label class="custom-control-label"
-                                                                       for="chk_landline">Not
-                                                                    Available</label>
-                                                            </div>
-                                                        </fieldset>
-
-                                                    <?php } ?>
-
+                                                    <fieldset>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input id="chk_landline"
+                                                                   name="chk_landline"
+                                                                   type="checkbox"
+                                                                <?php echo(isset($editemp[0]->chk_landline) && $editemp[0]->chk_landline == 1 ? 'checked="checked"' : '') ?>
+                                                                   class="custom-control-input"
+                                                                   data-oldval="<?php echo(isset($editemp[0]->chk_landline) ? $editemp[0]->chk_landline : '0') ?>">
+                                                            <label class="custom-control-label"
+                                                                   for="chk_landline">Not
+                                                                Available</label>
+                                                        </div>
+                                                    </fieldset>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -436,27 +378,11 @@
                                                 <label id="lbl_cellno1">Mobile Number (Primary)</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno1" maxlength="11" required
-                                                           placeholder="Mobile Number (Primary)"
-                                                           class="form-control" name="cellno1"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="">
-
-                                                <?php } ?>
-
+                                                <input type="tel" id="cellno1" maxlength="11" required
+                                                       placeholder="Mobile Number (Primary)"
+                                                       class="form-control" name="cellno1"
+                                                       onkeypress="return numeralsOnly();"
+                                                       value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '+923432855294')) ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -466,51 +392,33 @@
                                                 <label id="lbl_cellno2">Mobile Number (Alternate)</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="cellno2" maxlength="11" required
-                                                           class="form-control" name="cellno2"
-                                                           placeholder="Mobile Number (Alternate)"
-                                                           onkeypress="return numeralsOnly();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="tel" id="cellno2" maxlength="11" required
+                                                       class="form-control" name="cellno2"
+                                                       placeholder="Mobile Number (Alternate)"
+                                                       onkeypress="return numeralsOnly();"
+                                                       value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '+923432855294')) ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
+                                <div class="d-flex justify-content-between">
+                                    <button  type="button" class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="address-step-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Emergency Contact</h5>
-                                <small>Enter Emergency Contact.</small>
-                            </div>
-                            <form>
+                            <div id="address-step-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Emergency Contact</h5>
+                                    <small>Enter Emergency Contact.</small>
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group row">
@@ -519,32 +427,14 @@
                                             </div>
                                             <div class="col-sm-9">
 
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="personnme" maxlength="70"
-                                                           required
-                                                           class="form-control" name="personnme"
-                                                           placeholder="Person Name"
-                                                           style="text-transform: uppercase;"
-                                                           onkeypress="return lettersOnly_WithSpace();"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="text" id="personnme" maxlength="70"
+                                                       required
+                                                       class="form-control" name="personnme"
+                                                       placeholder="Person Name"
+                                                       style="text-transform: uppercase;"
+                                                       onkeypress="return lettersOnly_WithSpace();"
+                                                       value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : 'Altaf Hussain Khan') ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -554,28 +444,12 @@
                                                 <label id="lbl_emcellno">Mobile Number</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emcellno" maxlength="11" required
-                                                           class="form-control" name="emcellno"
-                                                           onkeypress="return numeralsOnly();"
-                                                           placeholder="Mobile Number"
-                                                           value="">
-
-                                                <?php } ?>
-
+                                                <input type="tel" id="emcellno" maxlength="11" required
+                                                       class="form-control" name="emcellno"
+                                                       onkeypress="return numeralsOnly();"
+                                                       placeholder="Mobile Number"
+                                                       value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '+923002276053')) ?>"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -585,105 +459,49 @@
                                                 <label id="lbl_emlandno">Landline No.</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="tel" id="emlandno" maxlength="8" required
-                                                           class="form-control" name="emlandno"
-                                                           onkeypress="return numeralsOnly_phone1();"
-                                                           placeholder="Landline No."
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
-
+                                                <input type="tel" id="emlandno" maxlength="8" required
+                                                       class="form-control" name="emlandno"
+                                                       onkeypress="return numeralsOnly_phone1();"
+                                                       placeholder="Landline No."
+                                                       value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '+923002276053')) ?>"
+                                                >
                                                 <div>
+                                                    <fieldset>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input id="chk_emlandno"
+                                                                   name="chk_emlandno"
+                                                                   type="checkbox"
 
-                                                    <?php if (isset($editemp)) {
-
-                                                        if ($editemp[0]->chk_emlandno == 1) { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_emlandno"
-                                                                           name="chk_emlandno"
-                                                                           type="checkbox"
-                                                                           checked="checked"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_emlandno">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php } else { ?>
-
-                                                            <fieldset>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input id="chk_emlandno"
-                                                                           name="chk_emlandno"
-                                                                           type="checkbox"
-                                                                           class="custom-control-input"
-                                                                           data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
-                                                                    <label class="custom-control-label"
-                                                                           for="chk_emlandno">Not
-                                                                        Available</label>
-                                                                </div>
-                                                            </fieldset>
-
-                                                        <?php }
-                                                    } else { ?>
-
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="chk_emlandno"
-                                                                       name="chk_emlandno"
-                                                                       type="checkbox"
-                                                                       class="custom-control-input"
-                                                                       data-oldval="0">
-                                                                <label class="custom-control-label"
-                                                                       for="chk_emlandno">Not
-                                                                    Available</label>
-                                                            </div>
-                                                        </fieldset>
-
-                                                    <?php } ?>
+                                                                <?php echo(isset($editemp[0]->chk_emlandno) && $editemp[0]->chk_emlandno == 1 ? 'checked="checked"' : '') ?>
+                                                                   class="custom-control-input"
+                                                                   data-oldval="<?php echo(isset($editemp[0]->chk_emlandno) ? $editemp[0]->chk_emlandno : '') ?>">
+                                                            <label class="custom-control-label"
+                                                                   for="chk_emlandno">Not
+                                                                Available</label>
+                                                        </div>
+                                                    </fieldset>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="social-links-vertical" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Employment Details</h5>
-                                <small>Enter Employment Details.</small>
-                            </div>
-                            <form>
+                            <div id="social-links-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Employment Details</h5>
+                                    <small>Enter Employment Details.</small>
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group row">
@@ -703,7 +521,7 @@
                                                             $oldLabelQ = $v->emptype;
                                                             $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" value="' . $v->id . '">' . $v->emptype . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
                                                         }
                                                     }
                                                 }
@@ -734,7 +552,7 @@
                                                             $oldLabelQ = $v->category;
                                                             $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->category . '" value="' . $v->id . '">' . $v->category . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
                                                         }
                                                     }
                                                 }
@@ -754,26 +572,11 @@
                                                 <label id="lbl_gncno">GNC Number</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="gncno"
-                                                           placeholder="GNC Number"
-                                                           class="form-control" name="gncno" required
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="gncno"
+                                                       placeholder="GNC Number"
+                                                       class="form-control" name="gncno" required
+                                                       value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '1232/1312') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -796,7 +599,7 @@
                                                             $oldLabelQ = $v->band;
                                                             $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->band . '" value="' . $v->id . '">' . $v->band . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
                                                         }
                                                     }
                                                 }
@@ -828,7 +631,7 @@
                                                             $oldLabelQ = $v->desig;
                                                             $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" value="' . $v->id . '">' . $v->desig . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
                                                         }
                                                     }
                                                 }
@@ -848,26 +651,11 @@
                                                 <label id="lbl_rehiredt">Hire / Rehire Date</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="rehiredt" required
-                                                           placeholder="Hire / Rehire Date"
-                                                           class="form-control" name="rehiredt"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="rehiredt" required
+                                                       placeholder="Hire / Rehire Date"
+                                                       class="form-control" name="rehiredt"
+                                                       value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '08-03-2021') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -879,26 +667,11 @@
                                                 <label id="lbl_conexpiry">Contract Expiry</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="conexpiry" required
-                                                           placeholder="Contract Expiry"
-                                                           class="form-control" name="conexpiry"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="conexpiry" required
+                                                       placeholder="Contract Expiry"
+                                                       class="form-control" name="conexpiry"
+                                                       value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '08-03-2021') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -922,7 +695,7 @@
                                                             $oldLabelQ = $v->proj_name;
                                                             $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         }
                                                     }
                                                 }
@@ -954,7 +727,7 @@
                                                             $oldLabelQ = $v->proj_name;
                                                             $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         }
                                                     }
                                                 }
@@ -986,12 +759,12 @@
                                                             $oldLabelQ = $v->location;
                                                             $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->location . '" value="' . $v->id . '">' . $v->location . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
                                                         }
                                                     }
                                                 }
                                                 $htmlQ .= '<select class="select2 form-control" id="ddlloc"  
-                                                 onchange="changeLocation(\'ddlloc\',\'lbl_ddlloc_sub\')"
+                                                 onchange="changeLocation(\'ddlloc\',\'ddlloc_sub\')"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="ddlloc">';
                                                 $htmlQ .= $html_options_Q;
                                                 $htmlQ .= '</select>';
@@ -1004,12 +777,12 @@
                                     <div class="col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="lbl_ddlloc_sub">Sub Location</label>
+                                                <label for="ddlloc_sub">Sub Location</label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control"
-                                                        id="lbl_ddlloc_sub"
-                                                        name="lbl_ddlloc_sub" autocomplete="lbl_ddlloc_sub" required>
+                                                        id="ddlloc_sub"
+                                                        name="ddlloc_sub" autocomplete="ddlloc_sub" required>
                                                     <option value="0" readonly disabled selected></option>
                                                 </select>
                                             </div>
@@ -1035,7 +808,7 @@
                                                             $oldLabelQ = $v->empname;
                                                             $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1055,28 +828,12 @@
                                                 <label id="lbl_hiresalary">Hiring Salary</label>
                                             </div>
                                             <div class="col-sm-9">
-
-                                                <?php
-
-                                                if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                    >
-
-                                                <?php } else { ?>
-
-                                                    <input type="text" id="hiresalary" required
-                                                           class="form-control" name="hiresalary"
-                                                           placeholder="Hiring Salary"
-                                                           data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
-                                                           value=""
-                                                    >
-
-                                                <?php } ?>
+                                                <input type="text" id="hiresalary" required
+                                                       class="form-control" name="hiresalary"
+                                                       placeholder="Hiring Salary"
+                                                       data-oldval="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->hiresalary) ? $this->encrypt->decode($editemp[0]->hiresalary) : '') ?>"
+                                                >
 
                                             </div>
                                         </div>
@@ -1102,7 +859,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1131,11 +888,11 @@
                                                         if ($editemp[0]->ddlhardship == 1) {
                                                             echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
                                                         } else {
-                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="" >');
+                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="50000" >');
                                                         }
 
                                                     } else {
-                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
+                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '50000') . '" >');
                                                     }
 
                                                 }
@@ -1167,7 +924,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1183,523 +940,452 @@
                                     </div>
 
                                 </div>
-                            </form>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="hiring_status" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Status of Hiring Formalities</h5>
-                                <small>Status of Hiring Formalities.</small>
-                            </div>
-                            <div class="row">
+                            <div id="hiring_status" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Status of Hiring Formalities</h5>
+                                    <small>Status of Hiring Formalities.</small>
+                                </div>
+                                <div class="row">
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_peme">PEME</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_peme">PEME</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
 
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->peme) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                if (isset($yesno) && $yesno != '') {
+                                                    foreach ($yesno as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->peme) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->yesno;
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="peme"
+                                                $htmlQ .= '<select class="form-control" id="peme"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="peme">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_gop">General Orientation Program</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_gop">General Orientation Program</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
 
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->gop) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                if (isset($yesno) && $yesno != '') {
+                                                    foreach ($yesno as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->gop) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->yesno;
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="gop"
+                                                $htmlQ .= '<select class="form-control" id="gop"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="gop">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_gopdt">GOP Date</label>
-                                        </div>
-                                        <div class="col-sm-9">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_gopdt">GOP Date</label>
+                                            </div>
+                                            <div class="col-sm-9">
                                                 <input type="text" id="gopdt" required
                                                        class="form-control" name="gopdt"
                                                        placeholder="GOP Date"
-                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
+                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '08-03-2021') ?>"
                                                 >
-
-                                            <?php } else { ?>
-
-                                                <input type="text" id="gopdt" required
-                                                       class="form-control" name="gopdt"
-                                                       placeholder="GOP Date"
-                                                       value=""
-                                                >
-
-                                            <?php } ?>
-
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_entity">Entity</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_entity">Entity</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($entity) && $entity != '') {
-                                                foreach ($entity as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->entity) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->entity;
-                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->entity . '" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
+                                                if (isset($entity) && $entity != '') {
+                                                    foreach ($entity as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->entity) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->entity;
+                                                            $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="select2 form-control" id="entity"
+                                                $htmlQ .= '<select class="select2 form-control" id="entity"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="entity">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_dept">Department</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_dept">Department</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($dept) && $dept != '') {
-                                                foreach ($dept as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->dept) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->dept;
-                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->dept . '" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
+                                                if (isset($dept) && $dept != '') {
+                                                    foreach ($dept as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->dept) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->dept;
+                                                            $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="select2 form-control" id="dept"
+                                                $htmlQ .= '<select class="select2 form-control" id="dept"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="dept">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_cardissue">ID Card Issued</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_cardissue">ID Card Issued</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
 
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->cardissue) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                if (isset($yesno) && $yesno != '') {
+                                                    foreach ($yesno as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->cardissue) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->yesno;
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="cardissue"
+                                                $htmlQ .= '<select class="form-control" id="cardissue"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="cardissue">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_letterapp">Letter of Appointment Received</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_letterapp">Letter of Appointment Received</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->letterapp) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
+                                                if (isset($yesno) && $yesno != '') {
+                                                    foreach ($yesno as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->letterapp) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->yesno;
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="letterapp"
+                                                $htmlQ .= '<select class="form-control" id="letterapp"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="letterapp">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_confirmation">Confirmation</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_confirmation">Confirmation</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
 
-                                            if (isset($yesno) && $yesno != '') {
-                                                foreach ($yesno as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->confirmation) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->yesno;
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                if (isset($yesno) && $yesno != '') {
+                                                    foreach ($yesno as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->confirmation) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->yesno;
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="confirmation"
+                                                $htmlQ .= '<select class="form-control" id="confirmation"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="confirmation">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div class="col-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_status">Status</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <?php
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_status">Status</label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <?php
 
-                                            $html_options_Q = '<option value="0">&nbsp;</option>';
-                                            $htmlQ = '';
-                                            $oldLabelQ = '';
-                                            $oldValQ = '';
+                                                $html_options_Q = '<option value="0">&nbsp;</option>';
+                                                $htmlQ = '';
+                                                $oldLabelQ = '';
+                                                $oldValQ = '';
 
-                                            if (isset($status) && $status != '') {
-                                                foreach ($status as $v) {
-                                                    if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->status) {
-                                                        $oldValQ = $v->id;
-                                                        $oldLabelQ = $v->status;
-                                                        $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
-                                                    } else {
-                                                        $html_options_Q .= '<option data-text="' . $v->status . '" value="' . $v->id . '">' . $v->status . '</option>';
+                                                if (isset($status) && $status != '') {
+                                                    foreach ($status as $v) {
+                                                        if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->status) {
+                                                            $oldValQ = $v->id;
+                                                            $oldLabelQ = $v->status;
+                                                            $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
+                                                        } else {
+                                                            $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            $htmlQ .= '<select class="form-control" id="status"
+                                                $htmlQ .= '<select class="form-control" id="status"
                                                                         required  data-oldval="' . $oldValQ . '" data-oldLabel="' . $oldLabelQ . '" name="status">';
-                                            $htmlQ .= $html_options_Q;
-                                            $htmlQ .= '</select>';
-                                            echo $htmlQ;
+                                                $htmlQ .= $html_options_Q;
+                                                $htmlQ .= '</select>';
+                                                echo $htmlQ;
 
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 col-form-label">
+                                                <label id="lbl_remarks">Remarks</label>
+                                            </div>
+                                            <div class="col-sm-9">
+ <textarea id="remarks" rows="5" required
+           class="form-control" name="remarks"
+           placeholder="Remarks"
+ ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?>asdsa</textarea>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="documents" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Documents</h5>
+                                    <small>Upload Documents.</small>
                                 </div>
 
 
                                 <div class="col-12">
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-form-label">
-                                            <label id="lbl_remarks">Remarks</label>
-                                        </div>
-                                        <div class="col-sm-9">
-
-                                            <?php
-
-                                            if (isset($editemp) && $editemp != '' && $editemp != null) { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"
-                                                ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
-
-                                            <?php } else { ?>
-
-                                                <textarea id="remarks" rows="5" required
-                                                          class="form-control" name="remarks"
-                                                          placeholder="Remarks"></textarea>
-
-                                            <?php } ?>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev">
-                                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                </button>
-                                <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none">Next</span>
-                                    <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="documents" class="content">
-                            <div class="content-header">
-                                <h5 class="mb-0">Documents</h5>
-                                <small>Upload Documents.</small>
-                            </div>
-
-
-                            <div class="col-12">
-                                <div class="form-group row">
-                                    <div class="col-sm-3 col-form-label">
-
-                                        <?php
-
-                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                            <?php if (isset($editemp) && isset($editemp[0]->pic)) {
                                                 echo '<span>Replace Picture</span>';
                                             } else {
                                                 echo '<span>Upload Picture</span>';
-                                            }
+                                            } ?>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="custom-file-input" required
+                                                   id="pic" name="pic" accept="image/jpeg">
 
-                                        } else {
-                                            echo '<span>Upload Picture</span>';
-                                        }
-
-                                        ?>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="custom-file-input" required
-                                               id="pic" name="pic" accept="image/jpeg">
-
-                                        <?php
-
-                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                            <?php  if (isset($editemp) && isset($editemp[0]->pic)) {
                                                 echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
                                                                    for="inputGroupFile01">' . $editemp[0]->pic . '</label>';
                                             } else {
                                                 echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
                                                                    for="inputGroupFile01">Choose Picture</label>';
-                                            }
+                                            } ?>
 
-                                        } else {
-                                            echo '<label class="custom-file-label" id="lbl_pic" name="lbl_pic"
-                                                                   for="inputGroupFile01">Choose Picture</label>';
-                                        }
-
-                                        ?>
-
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                            <div class="col-12">
-                                <div class="form-group row">
-                                    <div class="col-sm-3 col-form-label">
+                                <div class="col-12">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 col-form-label">
 
-                                        <?php
-
-                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                            if (isset($editemp) && isset($editemp[0]->pic)) {
+                                            <?php  if (isset($editemp) && isset($editemp[0]->pic)) {
                                                 echo '<span>Add Documents</span>';
                                             } else {
                                                 echo '<span>Upload Documents</span>';
                                             }
+                                            ?>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="custom-file-input" required
+                                                   id="doc" name="doc" accept="application/pdf">
 
-                                        } else {
-                                            echo '<span>Upload Documents</span>';
-                                        }
-
-                                        ?>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="custom-file-input" required
-                                               id="doc" name="doc" accept="application/pdf">
-
-                                        <?php
-
-                                        if (isset($editemp) && $editemp != '' && $editemp != null) {
-
-                                            if (isset($editemp) && isset($editemp[0]->doc)) {
+                                            <?php if (isset($editemp) && isset($editemp[0]->doc)) {
                                                 echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
                                                                    for="inputGroupFile01">' . $editemp[0]->doc . '</label>';
 
                                             } else {
                                                 echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
                                                                    for="inputGroupFile01">Choose Documents</label>';
-                                            }
+                                            } ?>
 
-                                        } else {
-                                            echo '<label class="custom-file-label" id="lbl_doc" name="lbl_doc"
-                                                                   for="inputGroupFile01">Choose Documents</label>';
-                                        }
-
-                                        ?>
-
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12 offset-md-12 d-flex justify-content-between">
-                                <button class="btn btn-primary btn-prev  mr-1 mb-1">
-                                    <span class="align-middle">Previous</span>
-                                </button>
-                                <?php
 
-                                if (isset($editemp) && $editemp != '' && $editemp != null && isset($editemp[0]->id)) {
-                                    $_SESSION['id'] = $editemp[0]->id;
-                                    ?>
-                                    <div class="d-flex justify-content-between">
-                                        <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
-                                                type="button" class="btn btn-primary mr-1 mb-1"
-                                                onclick="showSummary_SaveDraft();">Update Save Draft
-                                        </button>
-
-                                        <button id="cmdSummary" name="cmdSummary" type="button"
-                                                onclick="showSummary();"
-                                                class="btn btn-primary mr-1 mb-1">Update
-                                        </button>
-                                    </div>
+                                <div class="col-md-12 offset-md-12 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary btn-prev  mr-1 mb-1">
+                                        <span class="align-middle">Previous</span>
+                                    </button>
                                     <?php
 
-                                } else { ?>
-                                    <div class="d-flex justify-content-between">
-                                        <button id="cmdAddSaveDraft" type="button"
-                                                class="btn btn-success mr-1 mb-1"
-                                                onclick="addData_SaveDraft();">Save Draft
-                                        </button>
+                                    if (isset($editemp) && $editemp != '' && $editemp != null && isset($editemp[0]->id)) {
+                                        $_SESSION['id'] = $editemp[0]->id;
+                                        ?>
+                                        <div class="d-flex justify-content-between">
+                                            <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
+                                                    type="button" class="btn btn-primary mr-1 mb-1"
+                                                    onclick="showSummary_SaveDraft();">Update Save Draft
+                                            </button>
 
-                                        <button id="cmdAddData" type="button" onclick="addData();"
-                                                class="btn btn-primary mr-1 mb-1">Save
-                                        </button>
-                                    </div>
+                                            <button id="cmdSummary" name="cmdSummary" type="button"
+                                                    onclick="showSummary();"
+                                                    class="btn btn-primary mr-1 mb-1">Update
+                                            </button>
+                                        </div>
+                                        <?php
+
+                                    } else { ?>
+                                        <div class="d-flex justify-content-between">
+                                            <button id="cmdAddSaveDraft" type="button"
+                                                    class="btn btn-success mr-1 mb-1"
+                                                    onclick="addData_SaveDraft();">Save Draft
+                                            </button>
+
+                                            <button id="cmdAddData" type="button" onclick="addData();"
+                                                    class="btn btn-primary mr-1 mb-1">Save
+                                            </button>
+                                        </div>
 
 
-                                <?php } ?>
+                                    <?php } ?>
+                                </div>
                             </div>
-                        </div>
+                        </form
                     </div>
                 </div>
             </section>
@@ -1932,149 +1618,30 @@
     }
 
     function addData() {
-        $('#ddlemptype').css('border', '1px solid #babfc7');
-        $('#ddlcategory').css('border', '1px solid #babfc7');
-        $('#empno').css('border', '1px solid #babfc7');
-        $('#empname').css('border', '1px solid #babfc7');
-        $('#cnicno').css('border', '1px solid #babfc7');
-        $('#dob').css('border', '1px solid #babfc7');
-        $('#landline').css('border', '1px solid #babfc7');
-        $('#cellno1').css('border', '1px solid #babfc7');
-        $('#cellno2').css('border', '1px solid #babfc7');
-        $('#personnme').css('border', '1px solid #babfc7');
-        $('#emcellno').css('border', '1px solid #babfc7');
-        $('#emlandno').css('border', '1px solid #babfc7');
-        $('#resaddr').css('border', '1px solid #babfc7');
-        $('#gncno').css('border', '1px solid #babfc7');
-        $('#ddlband').css('border', '1px solid #babfc7');
-        $('#titdesi').css('border', '1px solid #babfc7');
-        $('#rehiredt').css('border', '1px solid #babfc7');
-        $('#conexpiry').css('border', '1px solid #babfc7');
-        $('#workproj').css('border', '1px solid #babfc7');
-        $('#chargproj').css('border', '1px solid #babfc7');
-        $('#ddlloc').css('border', '1px solid #babfc7');
-        $('#supernme').css('border', '1px solid #babfc7');
-        $('#hiresalary').css('border', '1px solid #babfc7');
-        $('#ddlhardship').css('border', '1px solid #babfc7');
-        $('#amount').css('border', '1px solid #babfc7');
-        $('#benefits').css('border', '1px solid #babfc7');
-        $('#peme').css('border', '1px solid #babfc7');
-        $('#gop').css('border', '1px solid #babfc7');
-        $('#gopdt').css('border', '1px solid #babfc7');
-        $('#entity').css('border', '1px solid #babfc7');
-        $('#dept').css('border', '1px solid #babfc7');
-        $('#cardissue').css('border', '1px solid #babfc7');
-        $('#letterapp').css('border', '1px solid #babfc7');
-        $('#confirmation').css('border', '1px solid #babfc7');
-        $('#status').css('border', '1px solid #babfc7');
-        $('#remarks').css('border', '1px solid #babfc7');
-        $('#pic').css('border', '1px solid #babfc7');
-        $('#doc').css('border', '1px solid #babfc7');
-        $('#degree').css('border', '1px solid #babfc7');
-        $('#field').css('border', '1px solid #babfc7');
-        var iserror = false;
-        formData = new FormData($("#frm")[0]);
-        var arr_pic = "";
-        var arr_doc = "";
-        var size = 0;
-        var fnme = "";
-        var imgext = "";
-        var ext = "";
-        var pic_path = "";
-        var doc_path = "";
-        if (validateData(formData)) {
-            if (!checkValues()) {
-                if ($("#pic").val() != "") {
-                    arr_pic = $("#pic").val().split("\\");
-                    size = parseInt($("#pic")[0].files[0].size / 1024);
-
-                    fnme = $("#lbl_pic").html();
-                    imgext = $("#pic")[0].files[0].name.split(".");
-                    pic_path = '<?php echo base_url() ?>' + "assets/emppic/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1];
-                    if (size <= 2000) {
-                        if (fnme.lastIndexOf(".jpg") != -1) {
-                        } else {
-                            ShowError($("#pic"), "Please select .jpg files");
-                            iserror = true;
-                        }
-
-                    } else {
-                        ShowError($("#pic"), "Please select 2 MB files only");
-                        iserror = true;
-                    }
-                }
-
-
-                if ($("#doc").val() != "") {
-                    arr_doc = $("#doc").val().split("\\");
-                    size = parseInt($("#doc")[0].files[0].size / 1024);
-                    fnme = $("#lbl_doc").html();
-                    ext = $("#doc")[0].files[0].name.split(".");
-                    doc_path = '<?php echo base_url() ?>' + "assets/docs/" + $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1];
-                    if (size <= 2000) {
-                        if (fnme.lastIndexOf(".pdf") != -1) {
-
-
-                        } else {
-                            ShowError($("#doc"), "Please select .pdf files");
-                            iserror = true;
-                        }
-
-                    } else {
-                        ShowError($("#doc"), "Please select 2 MB files only");
-                        iserror = true;
-                    }
-                }
-
-                if ($("#pic").val() != "") {
-                    formData.append('imgfile', $('#pic')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_img." + imgext[1]);
-                }
-
-                if ($("#doc").val() != "") {
-                    formData.append('docfile', $('#doc')[0].files[0], $('#empname').val().replace(' ', "_") + "_" + $('#empno').val() + "_doc." + ext[1]);
-                }
-
-                var arr = $('.iti__selected-dial-code').text().split('+');
-
-                formData.append('landlineccode', "+" + arr[1]);
-                formData.append('cellno1ccode', "+" + arr[2]);
-                formData.append('cellno2ccode', "+" + arr[3]);
-                formData.append('emcellnoccode', "+" + arr[4]);
-                formData.append('emlandnoccode', "+" + arr[5]);
-
-
-                if ($('#chk_landline').is(':checked')) {
-                    formData.append('chk_landline', "1");
+        $('#myForm').find('.is-invalid').removeClass('is-invalid');
+        $('#myForm').find('.error').removeClass('error');
+        var myformData = new FormData($("#myForm")[0]);
+        if (validateData(myformData) && !checkValues()) {
+            showloader();
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', myformData, 'POST', function (result) {
+                hideloader();
+                if (result == 1) {
+                    toastMsg('Success', 'Record Saved Successfully', 'success');
+                    setTimeout(function () {
+                        // window.location.reload();
+                    }, 500);
+                } else if (result == 4) {
+                    toastMsg('Page', 'Duplicate Page URL', 'error');
+                } else if (result.indexOf('Invalid', 1) != -1) {
+                    toastMsg('Invalid Field', 'Field not found', 'error');
+                } else if (result == 3) {
+                    toastMsg('Page', 'Invalid Page Name', 'error');
                 } else {
-                    formData.append('chk_landline', "0");
+                    toastMsg('Error', 'Something went wrong', 'error');
                 }
-
-
-                if ($('#chk_emlandno').is(':checked')) {
-                    formData.append('chk_emlandno', "1");
-                } else {
-                    formData.append('chk_emlandno', "0");
-                }
-                CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', formData, 'POST', function (result) {
-                    //hideloader();
-                    if (result == 1) {
-                        toastMsg('Success', 'Record Saved Successfully', 'success');
-                        //$('#addModal').modal('hide');
-                        setTimeout(function () {
-                            // window.location.reload();
-                        }, 500);
-                    } else if (result == 4) {
-                        toastMsg('Page', 'Duplicate Page URL', 'error');
-                    } else if (result.indexOf('Invalid', 1) != -1) {
-                        toastMsg('Invalid Field', 'Field not found', 'error');
-                    } else if (result == 3) {
-                        toastMsg('Page', 'Invalid Page Name', 'error');
-                    } else {
-                        toastMsg('Error', 'Something went wrong', 'error');
-                    }
-                }, true);
-
-            }
+            }, true);
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
         }
 
     }
@@ -2238,10 +1805,8 @@
     $(document).on('click', '#chk_landline', function () {
         if ($('#chk_landline').prop('checked') == true) {
             $('#landline').val('999999999999999');
-            //$('#landline').prop('disabled', 'disabled');
         } else {
             $('#landline').val('');
-            //$('#landline').removeAttr('disabled');
         }
     });
 
@@ -2453,9 +2018,6 @@
             }
         });
     }
-
-
-
 
 
     function showSummary() {
@@ -4131,10 +3693,6 @@
             return false;
         }
     }
-
-
-
-
 
 
     function addData1() {
