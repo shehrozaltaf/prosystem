@@ -76,7 +76,7 @@ class Employee_entry extends CI_controller
 
 
     /*Setting Page, User Rights*/
-    function getMenuData()
+    function getMenuData2()
     {
         $this->load->model('msettings');
         $idGroup = $_SESSION['login']['idGroup'];
@@ -136,111 +136,6 @@ class Employee_entry extends CI_controller
     }
 
 
-    function addRecord()
-    {
-
-        ob_end_clean();
-        $flag = 0;
-        $formArray = array();
-
-        foreach ($_POST as $k => $v) {
-            if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
-                $formArray[$k] = date('Y-m-d', strtotime($v));
-            } else if ($k === 'empname') {
-                $formArray[$k] = ucwords($v);
-            } else if ($k === 'hiresalary') {
-                $formArray[$k] = $this->encrypt->encode($v);
-            } else {
-                $formArray[$k] = $v;
-            }
-        }
-
-        $result=2;
-        if ($flag == 0) {
-
-            $Custom = new Custom();
-            if (isset($_FILES["pic"]["name"])) {
-                $formArray["pic"] = $_FILES["pic"]["name"];
-            } else {
-                $formArray["pic"] = null;
-            }
-
-            if (isset($_FILES["docfile"]["name"])) {
-                $formArray["doc"] = $_FILES["doc"]["name"];
-            } else {
-                $formArray["doc"] = null;
-            }
-
-
-            if (isset($_SESSION['login']['idUser'])) {
-                $formArray["userid"] = $_SESSION['login']['idUser'];
-            } else {
-                $formArray["userid"] = null;
-            }
-            $now = new DateTime();
-            $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'Y');
-
-            if ($InsertData) {
-                $result=1;
-                if (isset($formArray['empno']) && $formArray['empno'] != '') {
-                    $folder = $formArray['empno'];
-                } else {
-                    $folder = $InsertData;
-                }
-
-                if (isset($_FILES) && isset($_FILES["pic"]) && $_FILES["pic"] != '') {
-                    $upload_location = "assets/uploads/hrUploads/" . $folder . '/profilepic/';
-                    if (!is_dir($upload_location)) {
-                        mkdir($upload_location, 0777, TRUE);
-                    }
-
-                    $filename = $_FILES["pic"]['name'];
-                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
-                    if (in_array($ext, $valid_ext)) {
-                        $path = $upload_location . $filename;
-                        if (move_uploaded_file($_FILES["pic"]['tmp_name'], $path)) {
-                        }else{
-                            $result=4;
-                        }
-                    }
-                }
-
-                if (isset($_FILES) && isset($_FILES["doc"]) && $_FILES["doc"] != '') {
-                    $doc_upload_location = "assets/uploads/hrUploads/" . $folder . '/docs/';
-                    if (!is_dir($doc_upload_location)) {
-                        mkdir($doc_upload_location, 0777, TRUE);
-                    }
-
-                    $filename = $_FILES["doc"]['name'];
-                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
-                    if (in_array($ext, $valid_ext)) {
-                        $path = $doc_upload_location . $filename;
-                        if (move_uploaded_file($_FILES["doc"]['tmp_name'], $path)) {
-                            $files_arr[] = $path;
-                            $fileUpload = array();
-                            $fileUpload['id_hr_employee'] = $InsertData;
-                            $fileUpload['empno'] = $formArray['empno'];
-                            $fileUpload['docPath'] = $doc_upload_location . $filename;
-                            $fileUpload['docName'] = $filename;
-                            $fileUpload['isActive'] = 1;
-                            $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
-                            $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
-                            $Custom->Insert($fileUpload, 'id', 'hr_employee_docs', 'Y');
-                        }else{
-                            $result=5;
-                        }
-                    }
-                }
-            }
-
-        } else {
-            $result = 3;
-        }
-        echo $result;
-    }
 
     function addRecord2()
     {
@@ -1085,5 +980,112 @@ class Employee_entry extends CI_controller
         }
 
         echo json_encode($results);
+    }
+
+
+    function addRecord()
+    {
+
+        ob_end_clean();
+        $flag = 0;
+        $formArray = array();
+
+        foreach ($_POST as $k => $v) {
+            if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
+                $formArray[$k] = date('Y-m-d', strtotime($v));
+            } else if ($k === 'empname') {
+                $formArray[$k] = ucwords($v);
+            } else if ($k === 'hiresalary' && $v!='') {
+                $formArray[$k] = $this->encrypt->encode($v);
+            } else {
+                $formArray[$k] = $v;
+            }
+        }
+
+        $result=2;
+        if ($flag == 0) {
+
+            $Custom = new Custom();
+            if (isset($_FILES["pic"]["name"])) {
+                $formArray["pic"] = $_FILES["pic"]["name"];
+            } else {
+                $formArray["pic"] = null;
+            }
+
+            if (isset($_FILES["docfile"]["name"])) {
+                $formArray["doc"] = $_FILES["doc"]["name"];
+            } else {
+                $formArray["doc"] = null;
+            }
+
+
+            if (isset($_SESSION['login']['idUser'])) {
+                $formArray["userid"] = $_SESSION['login']['idUser'];
+            } else {
+                $formArray["userid"] = null;
+            }
+            $now = new DateTime();
+            $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
+            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'Y');
+
+            if ($InsertData) {
+                $result=1;
+                if (isset($formArray['empno']) && $formArray['empno'] != '') {
+                    $folder = $formArray['empno'];
+                } else {
+                    $folder = $InsertData;
+                }
+
+                if (isset($_FILES) && isset($_FILES["pic"]) && $_FILES["pic"] != '') {
+                    $upload_location = "assets/uploads/hrUploads/" . $folder . '/profilepic/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+
+                    $filename = $_FILES["pic"]['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                    if (in_array($ext, $valid_ext)) {
+                        $path = $upload_location . $filename;
+                        if (move_uploaded_file($_FILES["pic"]['tmp_name'], $path)) {
+                        }else{
+                            $result=4;
+                        }
+                    }
+                }
+
+                if (isset($_FILES) && isset($_FILES["doc"]) && $_FILES["doc"] != '') {
+                    $doc_upload_location = "assets/uploads/hrUploads/" . $folder . '/docs/';
+                    if (!is_dir($doc_upload_location)) {
+                        mkdir($doc_upload_location, 0777, TRUE);
+                    }
+
+                    $filename = $_FILES["doc"]['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                    if (in_array($ext, $valid_ext)) {
+                        $path = $doc_upload_location . $filename;
+                        if (move_uploaded_file($_FILES["doc"]['tmp_name'], $path)) {
+                            $files_arr[] = $path;
+                            $fileUpload = array();
+                            $fileUpload['id_hr_employee'] = $InsertData;
+                            $fileUpload['empno'] = $formArray['empno'];
+                            $fileUpload['docPath'] = $doc_upload_location . $filename;
+                            $fileUpload['docName'] = $filename;
+                            $fileUpload['isActive'] = 1;
+                            $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                            $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                            $Custom->Insert($fileUpload, 'id', 'hr_employee_docs', 'Y');
+                        }else{
+                            $result=5;
+                        }
+                    }
+                }
+            }
+
+        } else {
+            $result = 3;
+        }
+        echo $result;
     }
 }

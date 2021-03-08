@@ -145,7 +145,7 @@
                                                     <input type="text" id="empno"
                                                            class="form-control numericOnly" maxlength="6"
                                                            placeholder="Employee Number"
-                                                           name="empno" value="242511"
+                                                           name="empno" value=""
                                                            onfocusout="chkEmpNo()"
                                                            required>
                                                 <?php } ?>
@@ -164,7 +164,7 @@
                                                        placeholder="Official Email" name="offemail"
                                                        onkeypress="return ValidateEmail();"
                                                        required
-                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : 'shahroz.khan') ?>"
+                                                       value="<?php echo(isset($editemp[0]->offemail) ? $editemp[0]->offemail : '') ?>"
                                                 >
 
                                             </div>
@@ -182,7 +182,7 @@
                                                        placeholder="Full Name" name="empname"
                                                        onkeypress="return lettersOnly_WithSpace();"
                                                        style="text-transform: uppercase;" required
-                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : 'Shahroz Khan') ?>"
+                                                       value="<?php echo(isset($editemp[0]->empname) ? $editemp[0]->empname : '') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                                                 <input type="text" id="cnicno"
                                                        class="form-control" placeholder="CNIC NO"
                                                        name="cnicno" required
-                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '42201-55555555-5') ?>"
+                                                       value="<?php echo(isset($editemp[0]->cnicno) ? $editemp[0]->cnicno : '') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -214,7 +214,7 @@
                                                        placeholder="Date of Birth"
                                                        class="form-control mypickadat_dob"
                                                        name="dob"
-                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '13-09-1992') ?>">
+                                                       value="<?php echo(isset($editemp[0]->dob) ? $editemp[0]->dob : '') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -317,7 +317,7 @@
                                                        placeholder="Residential Address"
                                                        required
                                                        name="resaddr" maxlength="200"
-                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : 'abcd xyz test') ?>"
+                                                       value="<?php echo(isset($editemp[0]->resaddr) ? $editemp[0]->resaddr : '') ?>"
                                                 >
 
                                             </div>
@@ -334,7 +334,7 @@
                                                        placeholder="Personal Email"
                                                        required
                                                        name="peremail" maxlength="100"
-                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : 'shehroz.altaf92@gmail.com') ?>"
+                                                       value="<?php echo(isset($editemp[0]->peremail) ? $editemp[0]->peremail : '') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -382,7 +382,7 @@
                                                        placeholder="Mobile Number (Primary)"
                                                        class="form-control" name="cellno1"
                                                        onkeypress="return numeralsOnly();"
-                                                       value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '+923432855294')) ?>">
+                                                       value="<?php echo((isset($editemp[0]->cellno1ccode) ? $editemp[0]->cellno1ccode : '') . (isset($editemp[0]->cellno1) ? $editemp[0]->cellno1 : '')) ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -396,7 +396,7 @@
                                                        class="form-control" name="cellno2"
                                                        placeholder="Mobile Number (Alternate)"
                                                        onkeypress="return numeralsOnly();"
-                                                       value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '+923432855294')) ?>"
+                                                       value="<?php echo((isset($editemp[0]->cellno2ccode) ? $editemp[0]->cellno2ccode : '') . (isset($editemp[0]->cellno2) ? $editemp[0]->cellno2 : '')) ?>"
                                                 >
                                             </div>
                                         </div>
@@ -433,7 +433,7 @@
                                                        placeholder="Person Name"
                                                        style="text-transform: uppercase;"
                                                        onkeypress="return lettersOnly_WithSpace();"
-                                                       value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : 'Altaf Hussain Khan') ?>"
+                                                       value="<?php echo(isset($editemp[0]->personnme) ? $editemp[0]->personnme : '') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -448,7 +448,7 @@
                                                        class="form-control" name="emcellno"
                                                        onkeypress="return numeralsOnly();"
                                                        placeholder="Mobile Number"
-                                                       value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '+923002276053')) ?>"
+                                                       value="<?php echo((isset($editemp[0]->emcellnoccode) ? $editemp[0]->emcellnoccode : '') . (isset($editemp[0]->emcellno) ? $editemp[0]->emcellno : '')) ?>"
                                                 >
                                             </div>
                                         </div>
@@ -463,7 +463,7 @@
                                                        class="form-control" name="emlandno"
                                                        onkeypress="return numeralsOnly_phone1();"
                                                        placeholder="Landline No."
-                                                       value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '+923002276053')) ?>"
+                                                       value="<?php echo((isset($editemp[0]->emlandnoccode) ? $editemp[0]->emlandnoccode : '') . (isset($editemp[0]->emlandno) ? $editemp[0]->emlandno : '')) ?>"
                                                 >
                                                 <div>
                                                     <fieldset>
@@ -521,7 +521,7 @@
                                                             $oldLabelQ = $v->emptype;
                                                             $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" selected="selected" value="' . $v->id . '">' . $v->emptype . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->emptype . '" value="' . $v->id . '">' . $v->emptype . '</option>';
                                                         }
                                                     }
                                                 }
@@ -552,7 +552,7 @@
                                                             $oldLabelQ = $v->category;
                                                             $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->category . '" selected="selected" value="' . $v->id . '">' . $v->category . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->category . '" value="' . $v->id . '">' . $v->category . '</option>';
                                                         }
                                                     }
                                                 }
@@ -575,7 +575,7 @@
                                                 <input type="text" id="gncno"
                                                        placeholder="GNC Number"
                                                        class="form-control" name="gncno" required
-                                                       value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '1232/1312') ?>"
+                                                       value="<?php echo(isset($editemp[0]->gncno) ? $editemp[0]->gncno : '') ?>"
                                                 >
 
                                             </div>
@@ -599,7 +599,7 @@
                                                             $oldLabelQ = $v->band;
                                                             $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->band . '" selected="selected" value="' . $v->id . '">' . $v->band . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->band . '" value="' . $v->id . '">' . $v->band . '</option>';
                                                         }
                                                     }
                                                 }
@@ -631,7 +631,7 @@
                                                             $oldLabelQ = $v->desig;
                                                             $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" selected="selected" value="' . $v->id . '">' . $v->desig . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" value="' . $v->id . '">' . $v->desig . '</option>';
                                                         }
                                                     }
                                                 }
@@ -654,7 +654,7 @@
                                                 <input type="text" id="rehiredt" required
                                                        placeholder="Hire / Rehire Date"
                                                        class="form-control" name="rehiredt"
-                                                       value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '08-03-2021') ?>"
+                                                       value="<?php echo(isset($editemp[0]->rehiredt) ? $editemp[0]->rehiredt : '') ?>"
                                                 >
 
                                             </div>
@@ -670,7 +670,7 @@
                                                 <input type="text" id="conexpiry" required
                                                        placeholder="Contract Expiry"
                                                        class="form-control" name="conexpiry"
-                                                       value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '08-03-2021') ?>"
+                                                       value="<?php echo(isset($editemp[0]->conexpiry) ? $editemp[0]->conexpiry : '') ?>"
                                                 >
 
                                             </div>
@@ -695,7 +695,7 @@
                                                             $oldLabelQ = $v->proj_name;
                                                             $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         }
                                                     }
                                                 }
@@ -727,7 +727,7 @@
                                                             $oldLabelQ = $v->proj_name;
                                                             $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" selected="selected" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->proj_name . '" value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
                                                         }
                                                     }
                                                 }
@@ -759,7 +759,7 @@
                                                             $oldLabelQ = $v->location;
                                                             $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->location . '" selected="selected" value="' . $v->id . '">' . $v->location . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->location . '" value="' . $v->id . '">' . $v->location . '</option>';
                                                         }
                                                     }
                                                 }
@@ -808,7 +808,7 @@
                                                             $oldLabelQ = $v->empname;
                                                             $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" selected="selected" value="' . $v->empno . '">' . $v->empname . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->empname . '" value="' . $v->empno . '">' . $v->empname . '</option>';
                                                         }
                                                     }
                                                 }
@@ -859,7 +859,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -888,11 +888,11 @@
                                                         if ($editemp[0]->ddlhardship == 1) {
                                                             echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
                                                         } else {
-                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="50000" >');
+                                                            echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" disabled="disabled" placeholder="Amount" value="" >');
                                                         }
 
                                                     } else {
-                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '50000') . '" >');
+                                                        echo('<input type="text" id="amount" MaxLength="6" required class="form-control" name="amount" placeholder="Amount" onkeypress="return numeralsOnly();" value="' . (isset($editemp[0]->amount) ? $editemp[0]->amount : '') . '" >');
                                                     }
 
                                                 }
@@ -924,7 +924,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -979,7 +979,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1014,7 +1014,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1038,7 +1038,7 @@
                                                 <input type="text" id="gopdt" required
                                                        class="form-control" name="gopdt"
                                                        placeholder="GOP Date"
-                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '08-03-2021') ?>"
+                                                       value="<?php echo(isset($editemp[0]->gopdt) ? $editemp[0]->gopdt : '') ?>"
                                                 >
                                             </div>
                                         </div>
@@ -1063,7 +1063,7 @@
                                                             $oldLabelQ = $v->entity;
                                                             $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->entity . '" selected="selected" value="' . $v->id . '">' . $v->entity . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->entity . '" value="' . $v->id . '">' . $v->entity . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1098,7 +1098,7 @@
                                                             $oldLabelQ = $v->dept;
                                                             $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->dept . '" selected="selected" value="' . $v->id . '">' . $v->dept . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->dept . '" value="' . $v->id . '">' . $v->dept . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1134,7 +1134,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1168,7 +1168,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1204,7 +1204,7 @@
                                                             $oldLabelQ = $v->yesno;
                                                             $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" selected="selected" value="' . $v->id . '">' . $v->yesno . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->yesno . '" value="' . $v->id . '">' . $v->yesno . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1240,7 +1240,7 @@
                                                             $oldLabelQ = $v->status;
                                                             $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
                                                         } else {
-                                                            $html_options_Q .= '<option data-text="' . $v->status . '" selected="selected" value="' . $v->id . '">' . $v->status . '</option>';
+                                                            $html_options_Q .= '<option data-text="' . $v->status . '" value="' . $v->id . '">' . $v->status . '</option>';
                                                         }
                                                     }
                                                 }
@@ -1265,7 +1265,7 @@
  <textarea id="remarks" rows="5" required
            class="form-control" name="remarks"
            placeholder="Remarks"
- ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?>asdsa</textarea>
+ ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
 
                                             </div>
                                         </div>
@@ -1646,6 +1646,46 @@
 
     }
 
+    function addData_SaveDraft() {
+        $('#myForm').find('.is-invalid').removeClass('is-invalid');
+        $('#myForm').find('.error').removeClass('error');
+        var myformData = new FormData($("#myForm")[0]);
+        var empno=$('#empno').val();
+        var empname=$('#empname').val();
+        var flag=0;
+        if(empno==undefined || empno==''){
+            flag=1;
+            toastMsg('Error', 'Invalid Employee No', 'error');
+        }
+        if(empname==undefined || empname==''){
+            flag=1;
+            toastMsg('Error', 'Invalid Employee Name', 'error');
+        }
+        if (flag==0) {
+            showloader();
+            CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/addRecord'); ?>', myformData, 'POST', function (result) {
+                hideloader();
+                if (result == 1) {
+                    toastMsg('Success', 'Record Saved Successfully', 'success');
+                    setTimeout(function () {
+                        // window.location.reload();
+                    }, 500);
+                } else if (result == 4) {
+                    toastMsg('Page', 'Duplicate Page URL', 'error');
+                } else if (result.indexOf('Invalid', 1) != -1) {
+                    toastMsg('Invalid Field', 'Field not found', 'error');
+                } else if (result == 3) {
+                    toastMsg('Page', 'Invalid Page Name', 'error');
+                } else {
+                    toastMsg('Error', 'Something went wrong', 'error');
+                }
+            }, true);
+        } else {
+            toastMsg('Error', 'Invalid Data', 'error');
+        }
+
+    }
+
     function checkValues() {
         var iserror = false;
         var re = /^[A-Za-z]+$/;
@@ -1809,7 +1849,6 @@
             $('#landline').val('');
         }
     });
-
 
     $(document).on('click', '#chk_emlandno', function () {
         if ($('#chk_emlandno').prop('checked') == true) {
@@ -4501,7 +4540,7 @@
 
     }
 
-    function addData_SaveDraft() {
+    function addData_SaveDraft2() {
 
         // var formData = new FormData();
         formData = new FormData($("#frm")[0]);

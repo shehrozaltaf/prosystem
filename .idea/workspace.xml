@@ -4,9 +4,9 @@
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee_entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee_entry_new.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/docs/budget_sir.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,38 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="996" column="45" selection-start-line="996" selection-start-column="45" selection-end-line="996" selection-end-column="45" />
+              <folding>
+                <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#index#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#addRecord2#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#editRecord#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#AuditTrials#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#bulkupdate#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#AuditTrials_BulkUpd#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#addRecord_SaveDraft#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#getEmployeeEdit#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#getDesignation#0;n#Employee_entry#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28186">
+              <caret line="1658" column="9" selection-start-line="1658" selection-start-column="9" selection-end-line="1658" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -45,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$sec7gArr</find>
       <find>isset( $array[$key-1])</find>
       <find>loadHTML</find>
       <find>7</find>
@@ -75,6 +105,7 @@
       <find>lbl_ddlloc_sub</find>
       <find>button</find>
       <find>$InsertData</find>
+      <find>value</find>
     </findStrings>
     <replaceStrings>
       <replace>a.status_name</replace>
@@ -105,8 +136,8 @@
       <replace>PFAP</replace>
       <replace>&quot;</replace>
       <replace>$_FILES[&quot;imgfile&quot;]</replace>
-      <replace>ddlloc_sub</replace>
       <replace>$doc_upload_location</replace>
+      <replace>ddlloc_sub</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -164,8 +195,8 @@
         <option value="$PROJECT_DIR$/application/views/upload_data.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
       </list>
     </option>
   </component>
@@ -199,7 +230,27 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +352,8 @@
       <workItem from="1614865330182" duration="16000" />
       <workItem from="1614867848756" duration="3058000" />
       <workItem from="1614920103760" duration="3635000" />
-      <workItem from="1615179112276" duration="9276000" />
+      <workItem from="1615179112276" duration="11772000" />
+      <workItem from="1615220686713" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -569,16 +621,24 @@
       <option name="project" value="LOCAL" />
       <updated>1614870635459</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="add HR">
+      <created>1615196387445</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1615196387446</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245444000" />
+    <option name="totallyTimeSpent" value="248535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.18215159" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.18459658" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -603,7 +663,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="live" />
     <MESSAGE value="login page" />
     <MESSAGE value="asset management system" />
     <MESSAGE value="add- asset management system" />
@@ -628,7 +687,8 @@
     <MESSAGE value="asset" />
     <MESSAGE value="assets" />
     <MESSAGE value="emp entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="emp entry" />
+    <MESSAGE value="add HR" />
+    <option name="LAST_COMMIT_MESSAGE" value="add HR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -847,13 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="1281" column="12" selection-start-line="1281" selection-start-column="12" selection-end-line="1294" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1298,150 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
-          <folding>
-            <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#383#470#0#PHP" />
-            <element signature="n#index#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#787#905#0#PHP" />
-            <element signature="e#2391#2731#0#PHP" />
-            <element signature="n#getMenuData#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#3035#5567#0#PHP" />
-            <element signature="e#3140#3629#0#PHP" />
-            <element signature="e#3201#3615#0#PHP" />
-            <element signature="e#3473#3615#0#PHP" />
-            <element signature="e#3642#5516#0#PHP" />
-            <element signature="e#3690#5502#0#PHP" />
-            <element signature="e#4235#4929#0#PHP" />
-            <element signature="e#4326#4907#0#PHP" />
-            <element signature="e#4992#5502#0#PHP" />
-            <element signature="e#5527#5567#0#PHP" />
-            <element signature="n#li#0;n#!!top" />
-            <element signature="n#a#0;n#li#0;n#!!top" />
-            <element signature="n#addRecord2#1;n#Employee_entry#0;n#!!top" />
-            <element signature="n#editRecord#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#13767#16211#0#PHP" />
-            <element signature="e#13810#16201#0#PHP" />
-            <element signature="e#13857#15656#0#PHP" />
-            <element signature="e#15512#15656#0#PHP" />
-            <element signature="e#15672#16201#0#PHP" />
-            <element signature="e#15696#16187#0#PHP" />
-            <element signature="e#15867#16187#0#PHP" />
-            <element signature="e#15964#16187#0#PHP" />
-            <element signature="e#16122#16187#0#PHP" />
-            <element signature="e#16222#21217#0#PHP" />
-            <element signature="e#16291#16562#0#PHP" />
-            <element signature="e#16429#16562#0#PHP" />
-            <element signature="e#16452#16548#0#PHP" />
-            <element signature="e#16577#16846#0#PHP" />
-            <element signature="e#16713#16846#0#PHP" />
-            <element signature="e#16736#16832#0#PHP" />
-            <element signature="e#16861#17052#0#PHP" />
-            <element signature="e#16987#17052#0#PHP" />
-            <element signature="e#17334#19350#0#PHP" />
-            <element signature="e#17382#19336#0#PHP" />
-            <element signature="e#17452#19066#0#PHP" />
-            <element signature="e#18708#19066#0#PHP" />
-            <element signature="e#18876#19066#0#PHP" />
-            <element signature="e#18962#19066#0#PHP" />
-            <element signature="e#19365#20009#0#PHP" />
-            <element signature="e#19717#19994#0#PHP" />
-            <element signature="e#19813#19994#0#PHP" />
-            <element signature="e#20024#20944#0#PHP" />
-            <element signature="e#20237#20352#0#PHP" />
-            <element signature="e#20499#20930#0#PHP" />
-            <element signature="e#20563#20697#0#PHP" />
-            <element signature="e#20750#20930#0#PHP" />
-            <element signature="e#20959#21162#0#PHP" />
-            <element signature="e#21174#21217#0#PHP" />
-            <element signature="n#AuditTrials#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#25418#27740#0#PHP" />
-            <element signature="e#25489#27693#0#PHP" />
-            <element signature="e#25749#25864#0#PHP" />
-            <element signature="e#26246#27507#0#PHP" />
-            <element signature="e#27357#27507#0#PHP" />
-            <element signature="e#27704#27740#0#PHP" />
-            <element signature="e#27831#28677#0#PHP" />
-            <element signature="e#28724#28766#0#PHP" />
-            <element signature="n#bulkupdate#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#21395#22610#0#PHP" />
-            <element signature="e#21438#22600#0#PHP" />
-            <element signature="e#21485#22343#0#PHP" />
-            <element signature="e#22199#22343#0#PHP" />
-            <element signature="e#22359#22600#0#PHP" />
-            <element signature="e#22383#22586#0#PHP" />
-            <element signature="e#22521#22586#0#PHP" />
-            <element signature="e#22621#22660#0#PHP" />
-            <element signature="e#22671#25223#0#PHP" />
-            <element signature="e#23024#24833#0#PHP" />
-            <element signature="e#23216#24819#0#PHP" />
-            <element signature="e#23276#23407#0#PHP" />
-            <element signature="e#23430#23687#0#PHP" />
-            <element signature="e#23588#23687#0#PHP" />
-            <element signature="e#23710#24103#0#PHP" />
-            <element signature="e#24302#24364#0#PHP" />
-            <element signature="e#24847#24950#0#PHP" />
-            <element signature="e#24965#25168#0#PHP" />
-            <element signature="e#25180#25223#0#PHP" />
-            <element signature="n#AuditTrials_BulkUpd#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#31449#31542#0#PHP" />
-            <element signature="e#31553#33013#0#PHP" />
-            <element signature="e#31668#32966#0#PHP" />
-            <element signature="e#31905#32020#0#PHP" />
-            <element signature="e#32402#32781#0#PHP" />
-            <element signature="e#32634#32781#0#PHP" />
-            <element signature="e#32977#33013#0#PHP" />
-            <element signature="n#addRecord_SaveDraft#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#33127#34114#0#PHP" />
-            <element signature="e#33170#34104#0#PHP" />
-            <element signature="e#33255#34104#0#PHP" />
-            <element signature="e#33278#33586#0#PHP" />
-            <element signature="e#33604#34090#0#PHP" />
-            <element signature="e#33820#34090#0#PHP" />
-            <element signature="e#33916#34090#0#PHP" />
-            <element signature="e#34025#34090#0#PHP" />
-            <element signature="e#34217#34464#0#PHP" />
-            <element signature="e#34347#34464#0#PHP" />
-            <element signature="e#34366#34454#0#PHP" />
-            <element signature="e#34475#34720#0#PHP" />
-            <element signature="e#34603#34720#0#PHP" />
-            <element signature="e#34622#34710#0#PHP" />
-            <element signature="e#34765#35157#0#PHP" />
-            <element signature="e#35060#35157#0#PHP" />
-            <element signature="e#35168#35698#0#PHP" />
-            <element signature="e#35430#35687#0#PHP" />
-            <element signature="e#35518#35687#0#PHP" />
-            <element signature="e#35709#36491#0#PHP" />
-            <element signature="e#35906#36013#0#PHP" />
-            <element signature="e#36083#36481#0#PHP" />
-            <element signature="e#36143#36269#0#PHP" />
-            <element signature="e#36314#36481#0#PHP" />
-            <element signature="e#36502#36697#0#PHP" />
-            <element signature="e#36708#36803#0#PHP" />
-            <element signature="e#36762#36803#0#PHP" />
-            <element signature="n#getEmployeeEdit#0;n#Employee_entry#0;n#!!top" />
-            <element signature="n#getDesignation#0;n#Employee_entry#0;n#!!top" />
-            <element signature="e#38674#39154#0#PHP" />
-            <element signature="e#38892#39081#0#PHP" />
-            <element signature="e#39011#39081#0#PHP" />
-            <element signature="e#39092#39154#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="106" column="37" lean-forward="true" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
-          <folding>
-            <element signature="e#121078#121362#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -1472,6 +1381,33 @@
             <element signature="n#getEmployee#0;n#Mempmodel#0;n#!!top" />
             <element signature="n#getCntTotalEmployee#0;n#Mempmodel#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/employee_entry.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="996" column="45" selection-start-line="996" selection-start-column="45" selection-end-line="996" selection-end-column="45" />
+          <folding>
+            <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#index#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#addRecord2#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#editRecord#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#AuditTrials#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#bulkupdate#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#AuditTrials_BulkUpd#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#addRecord_SaveDraft#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#getEmployeeEdit#0;n#Employee_entry#0;n#!!top" />
+            <element signature="n#getDesignation#0;n#Employee_entry#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28186">
+          <caret line="1658" column="9" selection-start-line="1658" selection-start-column="9" selection-end-line="1658" selection-end-column="9" />
         </state>
       </provider>
     </entry>
