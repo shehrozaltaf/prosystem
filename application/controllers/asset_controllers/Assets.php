@@ -117,7 +117,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['area'] = $value->area;
             $table_data[$value->idAsset]['verification_status'] = $value->verification_status;
             $table_data[$value->idAsset]['last_verify_date'] = $value->last_verify_date;
-            $table_data[$value->idAsset]['due_date'] = $value->due_date;
+            $table_data[$value->idAsset]['due_date'] = date('d/m/y', strtotime($value->due_date));
             $table_data[$value->idAsset]['pur_date'] = $value->pur_date;
             $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
             $table_data[$value->idAsset]['wo_date'] = $value->wo_date;
@@ -420,6 +420,9 @@ class Assets extends CI_controller
         }
         if (isset($_POST['due_date']) && $_POST['due_date'] != '') {
             $editArr['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+        }
+        if (isset($_POST['area']) && $_POST['area'] != '') {
+            $editArr['area'] = $_POST['area'];
         }
         $Custom = new Custom();
         if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {

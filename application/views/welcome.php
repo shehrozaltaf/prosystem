@@ -26,6 +26,10 @@
                                    href="<?php echo base_url('index.php/inventory_controllers/Inventory') ?>">
                                     Inventory System
                                 </a>
+                                <a class="btn btn-primary btn-lg mt-2 waves-effect waves-light"
+                                   href="<?php echo base_url('index.php/asset_controllers/Assets') ?>">
+                                    Asset System
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -146,6 +146,7 @@
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                     <option value="Pending">Pending</option>
+                                                    <option value="Due">Due</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -242,6 +243,7 @@
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
                                                 <th>PRPath</th>
+                                                <th>Verification</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -259,6 +261,7 @@
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
                                                 <th>PRPath</th>
+                                                <th>Verification</th>
                                                 <th>Action</th>
                                             </tfoot>
                                         </table>
@@ -516,6 +519,18 @@
                             </td>
                         </tr>
 
+                        <tr class="summaryRow area_bulk">
+                            <td class='summaryFldid summaryFldid_area_bulk' data-key="area_bulk"
+                                data-fldnme="Area">
+                                Area
+                            </td>
+                            <td class='summaryNewVal'>
+                                <input type="text" class="form-control"
+                                       id="area_bulk" name="area_bulk"
+                                       autocomplete="area_bulk" >
+                            </td>
+                        </tr>
+
                     </table>
                 </div>
                 <div class="modal-footer">
@@ -682,6 +697,7 @@
         data['verification_status'] = $('#verification_status_bulk').val();
         data['last_verify_date'] = $('#last_verify_date_bulk').val();
         data['due_date'] = $('#due_date_bulk').val();
+        data['area'] = $('#area_bulk').val();
 
         var assets = [];
         let count = $('#my_table_asset').find('.checkboxes');
@@ -805,6 +821,7 @@
                 {"data": "sub_loc", "class": "sub_loc"},
                 {"data": "status"},
                 {"data": "pr_path"},
+                {"data": "due_date"},
                 {"data": "Action"}
             ],
             order: [[2, "desc"]],

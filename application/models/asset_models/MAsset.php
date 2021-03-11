@@ -45,7 +45,11 @@ class MAsset extends CI_Model
             $this->db->where("a.status", $searchdata['status']);
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
-            $this->db->where("a.verification_status", $searchdata['verification_status']);
+            if($searchdata['verification_status']=='Due'){
+                $this->db->where("a.due_date <= '".date('Y-m-d')."' " );
+            }else{
+                $this->db->where("a.verification_status", $searchdata['verification_status']);
+            }
         }
         if (isset($searchdata['tag_pr']) && $searchdata['tag_pr'] != '' && $searchdata['tag_pr'] != null) {
             $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%' )");
@@ -100,7 +104,11 @@ class MAsset extends CI_Model
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
-            $this->db->where("a.verification_status", $searchdata['verification_status']);
+            if($searchdata['verification_status']=='Due'){
+                $this->db->where("a.due_date <= '".date('Y-m-d')."' " );
+            }else{
+                $this->db->where("a.verification_status", $searchdata['verification_status']);
+            }
         }
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
