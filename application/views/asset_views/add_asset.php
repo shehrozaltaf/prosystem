@@ -832,14 +832,15 @@
             },
         });
     });
+
     function chkStatus(obj) {
-        var status=$('#status').val();
-        if(status==1){
-            $('#writOff_formNo').val('').attr('disabled','disabled');
-            $('#wo_date').val('').attr('disabled','disabled');
-        }else{
-            $('#writOff_formNo').removeAttr('disabled','disabled');
-            $('#wo_date').removeAttr('disabled','disabled');
+        var status = $('#status').val();
+        if (status == 1) {
+            $('#writOff_formNo').val('').attr('disabled', 'disabled');
+            $('#wo_date').val('').attr('disabled', 'disabled');
+        } else {
+            $('#writOff_formNo').removeAttr('disabled', 'disabled');
+            $('#wo_date').removeAttr('disabled', 'disabled');
         }
     }
 
@@ -898,9 +899,7 @@
                     toastMsg(response[0], response[1], 'success');
                     $('.res_heading').html(response[0]).css('color', 'green');
                     $('.res_msg').html(response[1]).css('color', 'green');
-                    setTimeout(function () {
-                        // window.location.reload();
-                    }, 1500)
+                    $('.paeds_id').text('0'+response[2]);
                 } else {
                     toastMsg(response[0], response[1], 'error');
                     $('.res_heading').html(response[0]).css('color', 'red');

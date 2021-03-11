@@ -188,9 +188,9 @@ class Add_asset extends CI_controller
 
 //                $Custom->insrt_AT($InsertData, 'inventory_type', 'inventory_type', 'Inventory Type', 'New Entry', $insertArray['inventory_type']);
 
-                $result = array('0' => 'Success', '1' => 'Successfully Inserted');
+                $result = array('0' => 'Success', '1' => 'Successfully Inserted','2'=>$InsertData+1);
             } else {
-                $result = array('0' => 'Error', '1' => 'Error in Inserting Data');
+                $result = array('0' => 'Error', '1' => 'Error in Inserting Data','2'=>'0');
             }
             echo json_encode($result);
         }

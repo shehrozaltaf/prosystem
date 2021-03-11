@@ -144,7 +144,11 @@ class Assets extends CI_controller
                 data-oldval="' . $value->idAsset . '" 
                 name="check_asset" id="check_asset_' . $key . '"
                 value="1" 
-                onclick="updBtnToggle()" />';
+                onclick="updBtnToggle()" />
+                
+                <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
+                        <i class="feather icon-eye" ></i> 
+                </a> ';
 
         }
         foreach ($table_data as $k => $v) {

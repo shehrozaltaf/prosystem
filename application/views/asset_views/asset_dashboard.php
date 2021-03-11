@@ -232,7 +232,7 @@
                                             <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Check</th>
+                                                <th>Action</th>
                                                 <th>PAEDS Id</th>
                                                 <th>Category</th>
                                                 <th>Description</th>
@@ -244,13 +244,13 @@
                                                 <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Verification</th>
-                                                <th>Action</th>
+<!--                                                <th>Action</th>-->
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
                                                 <th></th>
-                                                <th>Check</th>
+                                                <th>Action</th>
                                                 <th>PAEDS Id</th>
                                                 <th>Category</th>
                                                 <th>Description</th>
@@ -262,7 +262,7 @@
                                                 <th>Status</th>
                                                 <th>PRPath</th>
                                                 <th>Verification</th>
-                                                <th>Action</th>
+<!--                                                <th>Action</th>-->
                                             </tfoot>
                                         </table>
                                     </div>
@@ -821,8 +821,8 @@
                 {"data": "sub_loc", "class": "sub_loc"},
                 {"data": "status"},
                 {"data": "pr_path"},
-                {"data": "due_date"},
-                {"data": "Action"}
+                {"data": "due_date"}
+                // {"data": "Action"}
             ],
             order: [[2, "desc"]],
             dom: '<"card-header border-bottom p-1"<"head-label"><"dt-action-buttons text-right"B>><"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
