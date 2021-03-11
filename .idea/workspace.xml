@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" line="362" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="asset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/welcome.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,37 +37,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1646">
-              <caret line="248" column="22" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="720" column="30" lean-forward="true" selection-start-line="720" selection-start-column="30" selection-end-line="720" selection-end-column="30" />
-              <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#180#185#0#PHP" />
-                <element signature="e#315#320#0#PHP" />
-                <element signature="e#446#451#0#PHP" />
-                <element signature="e#50159#50164#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="263" column="64" selection-start-line="263" selection-start-column="64" selection-end-line="263" selection-end-column="64" />
+            <state relative-caret-position="544">
+              <caret line="689" column="24" lean-forward="true" selection-start-line="689" selection-start-column="24" selection-end-line="689" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -73,24 +50,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+            <state relative-caret-position="586">
+              <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
               <folding>
                 <element signature="n#__construct#0;n#Assets#0;n#!!top" />
                 <element signature="n#index#0;n#Assets#0;n#!!top" />
                 <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
                 <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
+                <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
                 <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -106,18 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>7</find>
-      <find>FP</find>
-      <find>$table</find>
-      <find>primary</find>
-      <find>getSectionsDetail2</find>
-      <find>7b</find>
-      <find>insertsqlQry</find>
-      <find>chkEmpNo</find>
-      <find>mySubmitData</find>
-      <find>checkValues</find>
-      <find>mydate_dob</find>
-      <find>mypickadat_dob</find>
       <find>formData</find>
       <find>frm</find>
       <find>myForm</find>
@@ -134,17 +91,22 @@
       <find>button</find>
       <find>$InsertData</find>
       <find>value</find>
-      <find>verification_status_filter</find>
+      <find>$result</find>
+      <find>paeds_id</find>
+      <find>maxAssetId</find>
       <find>bulkupdate</find>
+      <find>verification_status_filter</find>
+      <find>$insertArray</find>
+      <find>$insertArray_at</find>
+      <find>$all_inventory_audit</find>
+      <find>AuditTrials</find>
+      <find>asset_audit</find>
+      <find>i_AuditTrials.</find>
+      <find>document</find>
+      <find>$value-&gt;</find>
+      <find>.'&quot;</find>
     </findStrings>
     <replaceStrings>
-      <replace>a.status_name</replace>
-      <replace>getData</replace>
-      <replace>t.emp</replace>
-      <replace>$searchData='</replace>
-      <replace>&lt;td class=&quot;text-primary&quot;</replace>
-      <replace>&lt;td class=&quot;text-primary&quot;&gt;</replace>
-      <replace>7d</replace>
       <replace>7e</replace>
       <replace>7f</replace>
       <replace>7g</replace>
@@ -168,6 +130,13 @@
       <replace>$_FILES[&quot;imgfile&quot;]</replace>
       <replace>$doc_upload_location</replace>
       <replace>ddlloc_sub</replace>
+      <replace>$insertArray_at</replace>
+      <replace>$insertArray_at[$i]</replace>
+      <replace>$all_audit</replace>
+      <replace>$at_array</replace>
+      <replace>$table_data[$value-&gt;idAsset]['</replace>
+      <replace>.']'&quot;</replace>
+      <replace>'].'&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,8 +168,6 @@
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/component-tabs-component.html" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/index.html" />
-        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
-        <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
         <option value="$PROJECT_DIR$/assets/vendors/css/tables/datatable/datatables.min.css" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/table-datatable-basic.html" />
@@ -223,8 +190,10 @@
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/views/welcome.php" />
-        <option value="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" />
+        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
+        <option value="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
       </list>
@@ -243,7 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,6 +241,13 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory_controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -286,6 +261,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,7 +364,8 @@
       <workItem from="1615266351585" duration="101000" />
       <workItem from="1615268878131" duration="1213000" />
       <workItem from="1615354912397" duration="2236000" />
-      <workItem from="1615438315068" duration="2386000" />
+      <workItem from="1615438315068" duration="4349000" />
+      <workItem from="1615472378114" duration="5279000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -670,17 +647,31 @@
       <option name="project" value="LOCAL" />
       <updated>1615221523786</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Bulk Area">
+      <created>1615442390251</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1615442390251</updated>
+    </task>
+    <task id="LOCAL-00042" summary="asset">
+      <created>1615461014402</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1615461014402</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254581000" />
+    <option name="totallyTimeSpent" value="261823000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.19682151" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.19926651" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -705,7 +696,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asset management system" />
     <MESSAGE value="add- asset management system" />
     <MESSAGE value="asset form" />
     <MESSAGE value="asset forms" />
@@ -725,12 +715,13 @@
     <MESSAGE value="asset DT" />
     <MESSAGE value="asset bulk edit" />
     <MESSAGE value="pdf" />
-    <MESSAGE value="asset" />
     <MESSAGE value="assets" />
     <MESSAGE value="emp entry" />
     <MESSAGE value="add HR" />
     <MESSAGE value="add draft HR" />
-    <option name="LAST_COMMIT_MESSAGE" value="add draft HR" />
+    <MESSAGE value="Bulk Area" />
+    <MESSAGE value="asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="asset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -769,21 +760,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/component-tabs-component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="1087" column="32" lean-forward="true" selection-start-line="1087" selection-start-column="32" selection-end-line="1134" selection-end-column="42" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#1;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/budget_model/Mproject.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-382">
@@ -1360,13 +1336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1776">
@@ -1383,25 +1352,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        <state relative-caret-position="628">
+          <caret line="190" column="99" selection-start-line="190" selection-start-column="99" selection-end-line="190" selection-end-column="99" />
           <folding>
             <element signature="n#testUpload#0;n#Add_asset#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1646">
-          <caret line="248" column="22" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="720" column="30" lean-forward="true" selection-start-line="720" selection-start-column="30" selection-end-line="720" selection-end-column="30" />
+        <state relative-caret-position="46">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding>
             <element signature="e#51#56#0#PHP" />
             <element signature="e#180#185#0#PHP" />
@@ -1412,22 +1374,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="189" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/inventory_controllers/Add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-401">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
+        <state relative-caret-position="400">
+          <caret line="195" column="23" selection-start-line="195" selection-start-column="14" selection-end-line="195" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="351" column="54" selection-start-line="351" selection-start-column="54" selection-end-line="351" selection-end-column="54" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#2;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+        <state relative-caret-position="586">
+          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
           <folding>
             <element signature="n#__construct#0;n#Assets#0;n#!!top" />
             <element signature="n#index#0;n#Assets#0;n#!!top" />
             <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
             <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
+            <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
             <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
           </folding>
         </state>
@@ -1435,8 +1423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="263" column="64" selection-start-line="263" selection-start-column="64" selection-end-line="263" selection-end-column="64" />
+        <state relative-caret-position="544">
+          <caret line="689" column="24" lean-forward="true" selection-start-line="689" selection-start-column="24" selection-end-line="689" selection-end-column="24" />
         </state>
       </provider>
     </entry>

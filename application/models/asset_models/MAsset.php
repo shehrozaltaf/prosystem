@@ -170,6 +170,7 @@ class MAsset extends CI_Model
         $this->db->select('*');
         $this->db->from('a_asset_docs');
         $this->db->where('idAsset', $idAsset);
+        $this->db->order_by('idAssetImage','desc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -185,25 +186,25 @@ class MAsset extends CI_Model
     function getAuditTrialById($searchdata)
     {
         $FormID = '';
-        if (isset($searchdata['id']) && $searchdata['id'] != '' && $searchdata['id'] != null) {
-            $FormID = $searchdata['id'];
+        if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
+            $FormID = $searchdata['idAsset'];
         }
-        $this->db->select('i_AuditTrials.id,
-i_AuditTrials.FormID,
-i_AuditTrials.FormName,
-i_AuditTrials.Fieldid,
-i_AuditTrials.FieldName,
-i_AuditTrials.OldValue,
-i_AuditTrials.NewValue,
-i_AuditTrials.effdt,
-i_AuditTrials.createdBy,
-i_AuditTrials.createdDateTime,
+        $this->db->select('a_AuditTrials.id,
+a_AuditTrials.FormID,
+a_AuditTrials.FormName,
+a_AuditTrials.Fieldid,
+a_AuditTrials.FieldName,
+a_AuditTrials.OldValue,
+a_AuditTrials.NewValue,
+a_AuditTrials.effdt,
+a_AuditTrials.createdBy,
+a_AuditTrials.createdDateTime,
 users_dash.username');
-        $this->db->from('i_AuditTrials');
-        $this->db->join('users_dash', 'i_AuditTrials.createdBy = users_dash.id', 'left');
-        $this->db->where('FormID', $FormID);
-        $this->db->where('isActive', 1);
-        $this->db->order_By('id', 'desc');
+        $this->db->from('a_AuditTrials');
+        $this->db->join('users_dash', 'a_AuditTrials.createdBy = users_dash.id', 'left');
+        $this->db->where('a_AuditTrials.FormID', $FormID);
+        $this->db->where('a_AuditTrials.isActive', 1);
+        $this->db->order_By('a_AuditTrials.id', 'desc');
         $query = $this->db->get();
         return $query->result();
     }

@@ -122,7 +122,6 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
             $table_data[$value->idAsset]['wo_date'] = $value->wo_date;
             $table_data[$value->idAsset]['remarks'] = $value->remarks;
-
             $table_data[$value->idAsset]['category'] = $value->category;
             $table_data[$value->idAsset]['desc'] = $value->description;
             $table_data[$value->idAsset]['tag'] = $value->tag_no;
@@ -134,6 +133,12 @@ class Assets extends CI_controller
              onclick="changeStatus(this)" data-id="' . $value->idAsset . '" data-status="' . $value->status . '"  data-status_name="' . $value->status_name . '">' . $value->status_name . '</span>';
             $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
 
+            $searchdata_docs = array();
+            $searchdata_docs['idAsset'] = $value->idAsset;
+            $docs = $M->getAssetDocsByIdAsset($searchdata_docs);
+            $table_data[$value->idAsset]['document'] = (isset($docs[0]->docPath) && $docs[0]->docPath != '' ?
+                '<a href="' . base_url($docs[0]->docPath) . '" target="_blank">' . $docs[0]->docName . '</a>' : '');
+
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
@@ -142,7 +147,11 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['check'] = '<input type="checkbox" class="checkboxes" 
                 data-id="' . $value->idAsset . '"  
                 data-oldval="' . $value->idAsset . '" 
-                name="check_asset" id="check_asset_' . $key . '"
+                name="check_asset" 
+                id="check_asset_' . $key . '"
+                
+                
+                
                 value="1" 
                 onclick="updBtnToggle()" />
                 
@@ -374,13 +383,13 @@ class Assets extends CI_controller
             $M = new MAsset();
             $data['asset_data'] = $M->getAssetById($searchData);
             $data['asset_data_docs'] = $M->getAssetDocsByIdAsset($searchData);
-            /*$audit = array();
+            $audit = array();
             $asset_audit = $M->getAuditTrialById($searchData);
             foreach ($asset_audit as $k => $a) {
                 $audit[$a->FormName][] = $a;
             }
             $data['asset_audit'] = $audit;
-            $data['all_asset_audit'] = $asset_audit;*/
+            $data['all_audit'] = $asset_audit;
             $this->load->view('include/header');
             $this->load->view('include/top_header');
             $this->load->view('include/sidebar');
@@ -394,51 +403,137 @@ class Assets extends CI_controller
 
     function bulkupdate()
     {
+        $at_array = array();
+        $i = -1;
         $editArr = array();
         if (isset($_POST['status']) && $_POST['status'] != '') {
             $editArr['status'] = $_POST['status'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Status';
+            $at_array[$i]['Fieldid'] = 'status';
+            $at_array[$i]['FieldName'] = 'Status';
+            $at_array[$i]['NewValue'] = $editArr['status'];
+
         }
         if (isset($_POST['writOff_formNo']) && $_POST['writOff_formNo'] != '') {
             $editArr['writOff_formNo'] = $_POST['writOff_formNo'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Writ Off Form';
+            $at_array[$i]['Fieldid'] = 'writOff_formNo';
+            $at_array[$i]['FieldName'] = 'Writ Off Form';
+            $at_array[$i]['NewValue'] = $editArr['writOff_formNo'];
         }
         if (isset($_POST['wo_date']) && $_POST['wo_date'] != '') {
             $editArr['wo_date'] = $_POST['wo_date'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Writ Off Date';
+            $at_array[$i]['Fieldid'] = 'wo_date';
+            $at_array[$i]['FieldName'] = 'Writ Off Date';
+            $at_array[$i]['NewValue'] =  $editArr['wo_date'];
         }
         if (isset($_POST['idLocation']) && $_POST['idLocation'] != '') {
             $editArr['idLocation'] = $_POST['idLocation'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Location';
+            $at_array[$i]['Fieldid'] = 'idLocation';
+            $at_array[$i]['FieldName'] = 'Location';
+            $at_array[$i]['NewValue'] = $editArr['idLocation'];
         }
         if (isset($_POST['idSubLocation']) && $_POST['idSubLocation'] != '') {
             $editArr['idSubLocation'] = $_POST['idSubLocation'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Sub Location';
+            $at_array[$i]['Fieldid'] = 'idSubLocation';
+            $at_array[$i]['FieldName'] = 'Sub Location';
+            $at_array[$i]['NewValue'] = $editArr['idSubLocation'];
         }
         if (isset($_POST['emp_no']) && $_POST['emp_no'] != '') {
             $editArr['emp_no'] = $_POST['emp_no'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Employee';
+            $at_array[$i]['Fieldid'] = 'emp_no';
+            $at_array[$i]['FieldName'] = 'Employee';
+            $at_array[$i]['NewValue'] =  $editArr['emp_no'];
         }
         if (isset($_POST['resp_person_name']) && $_POST['resp_person_name'] != '') {
             $editArr['resp_person_name'] = $_POST['resp_person_name'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Responsbile Person';
+            $at_array[$i]['Fieldid'] = 'resp_person_name';
+            $at_array[$i]['FieldName'] = 'Responsbile Person';
+            $at_array[$i]['NewValue'] = $editArr['resp_person_name'];
         }
         if (isset($_POST['verification_status']) && $_POST['verification_status'] != '') {
             $editArr['verification_status'] = $_POST['verification_status'];
+            $i++;
+            $at_array[$i]['FormName'] = 'Vertification';
+            $at_array[$i]['Fieldid'] = 'verification_status';
+            $at_array[$i]['FieldName'] = 'Vertification';
+            $at_array[$i]['OldValue'] = 'No value';
+            $at_array[$i]['NewValue'] = $editArr['verification_status'];
         }
         if (isset($_POST['last_verify_date']) && $_POST['last_verify_date'] != '') {
             $editArr['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+            $i++;
+            $at_array[$i]['FormName'] = 'Last Verification Date';
+            $at_array[$i]['Fieldid'] = 'last_verify_date';
+            $at_array[$i]['FieldName'] = 'Last Verification Date';
+            $at_array[$i]['NewValue'] = $editArr['last_verify_date'];
         }
         if (isset($_POST['due_date']) && $_POST['due_date'] != '') {
             $editArr['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+            $i++;
+            $at_array[$i]['FormName'] = 'Due Date';
+            $at_array[$i]['Fieldid'] = 'due_date';
+            $at_array[$i]['FieldName'] = 'Due Date';
+            $at_array[$i]['NewValue'] = $editArr['due_date'];
         }
         if (isset($_POST['area']) && $_POST['area'] != '') {
             $editArr['area'] = $_POST['area'];
-        }
+            $i++;
+            $at_array[$i]['FormName'] = 'Area';
+            $at_array[$i]['Fieldid'] = 'area';
+            $at_array[$i]['FieldName'] = 'Area';
+            $at_array[$i]['NewValue'] = $editArr['area'];
+        } 
         $Custom = new Custom();
         if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
             foreach ($_POST['assets'] as $asset) {
                 $editData = $Custom->Edit($editArr, 'idAsset', $asset, 'a_asset');
+
+                if ($editData) {
+                    foreach ($at_array as $at) {
+                        $insertArray_at=array();
+                        $insertArray_at['FormID'] = $asset;
+                        $insertArray_at['FormName'] = $at['FormName'];
+                        $insertArray_at['Fieldid'] = $at['Fieldid'];
+                        $insertArray_at['FieldName'] = $at['FieldName'];
+                        $insertArray_at['OldValue'] = $at['OldValue'];
+                        $insertArray_at['NewValue'] = $at['NewValue'];
+                        $insertArray_at['isActive'] = 1;
+                        $insertArray_at['createdBy'] = $_SESSION['login']['idUser'];
+                        $insertArray_at['createdDateTime'] = date('Y-m-d H:i:s');
+                        $InsertData_at = $Custom->Insert($insertArray_at, 'id', 'a_AuditTrials', 'N');
+                    }
+
+                    if ($InsertData_at) {
+                        $result = 1;
+                    } else {
+                        $result = 4;
+                    }
+                } else {
+                    $result = 2;
+                }
+
             }
 
-            if ($editData) {
+
+
+            /*if ($editData) {
                 $result = 1;
             } else {
                 $result = 2;
-            }
+            }*/
         } else {
             $result = 3;
         }

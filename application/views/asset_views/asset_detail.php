@@ -38,7 +38,7 @@
                             <?php
                             $asset = $asset_data[0];
                             ?>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <table class="table table-borderless table-hover table-responsive">
                                     <tr>
                                         <td class="font-weight-bold">PAEDS ID</td>
@@ -326,8 +326,6 @@
 
                                 <tr>
                                     <th>Form Name</th>
-                                    <th>Fieldid</th>
-                                    <th>FieldName</th>
                                     <th>OldValue</th>
                                     <th>NewValue</th>
                                     <th>createdBy</th>
@@ -335,13 +333,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if (isset($all_inventory_audit) && $all_inventory_audit != '') {
+                                <?php if (isset($all_audit) && $all_audit != '') {
 
-                                    foreach ($all_inventory_audit as $k => $a) {
+                                    foreach ($all_audit as $k => $a) {
                                         echo '<tr> 
-                                                <td>' . $a->FormName . '</td> 
-                                                <td>' . $a->Fieldid . '</td>
-                                                <td>' . $a->FieldName . '</td>
+                                                <td>' . $a->FieldName . '</td> 
                                                 <td>' . $a->OldValue . '</td>
                                                 <td>' . $a->NewValue . '</td> 
                                                 <td>' . $a->username . '</td>
@@ -354,8 +350,6 @@
                                 <tfoot>
                                 <tr>
                                     <th>Form Name</th>
-                                    <th>Fieldid</th>
-                                    <th>FieldName</th>
                                     <th>OldValue</th>
                                     <th>NewValue</th>
                                     <th>createdBy</th>

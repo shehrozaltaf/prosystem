@@ -7,6 +7,10 @@
         text-align: center;
         border-bottom: 1px solid;
     }
+
+    #tblaudit th,#tblaudit td {
+        width: 10%;
+    }
 </style>
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/dt/css/datatable/buttons.bootstrap4.min.css">
@@ -243,6 +247,7 @@
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
                                                 <th>PRPath</th>
+                                                <th>Document</th>
                                                 <th>Verification</th>
 <!--                                                <th>Action</th>-->
                                             </tr>
@@ -261,6 +266,7 @@
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
                                                 <th>PRPath</th>
+                                                <th>Document</th>
                                                 <th>Verification</th>
 <!--                                                <th>Action</th>-->
                                             </tfoot>
@@ -351,10 +357,10 @@
 
 
 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-    <div class="modal fade text-left" id="editAssetModal" tabindex="-1" role="dialog"
+    <div class="modal  fade text-left" id="editAssetModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel_editAssetModal"
          aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
                     <h4 class="modal-title white" id="myModalLabel_editAssetModal">Edit Employees</h4>
@@ -540,13 +546,19 @@
                 <br/><br/>
                 <div class="m-1">
                     <h5 class=" bg-primary white  p-1">Summary of Changes (Bulk Update)</h5>
-                    <table id="tblaudit" width='100%'>
+                    <table id="tblaudit" width='100%'  border="1">
                         <thead>
                         <tr>
                             <th>PAEDS ID</th>
                             <th>Status</th>
+                            <th>Employee</th>
+                            <th>Responsible</th>
+                            <th>Vertification</th>
+                            <th>Last Verification</th>
+                            <th>Due</th>
                             <th>Location</th>
                             <th>Sub Location</th>
+                            <th>Area</th>
                         </tr>
                         </thead>
                         <tbody class="tblaudit_body">
@@ -656,8 +668,14 @@
             if ($(asset_count[i]).is(':checked')) {
                 oldAssetData += "<tr><td>" + assets_no + "</td>"
                     + "<td>" + $(asset_count[i]).parents('tr').find('.mystatus').attr('data-status_name') + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.empl_code').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.resp_person_name_bulk').text() + "</td>"
                     + "<td>" + $(asset_count[i]).parents('tr').find('.loc').text() + "</td>"
                     + "<td>" + $(asset_count[i]).parents('tr').find('.sub_loc').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.area').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.area').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.area').text() + "</td>"
+                    + "<td>" + $(asset_count[i]).parents('tr').find('.area').text() + "</td>"
                     + "</tr>";
 
                 assets.push({'assets_no': assets_no});
@@ -821,6 +839,7 @@
                 {"data": "sub_loc", "class": "sub_loc"},
                 {"data": "status"},
                 {"data": "pr_path"},
+                {"data": "document"},
                 {"data": "due_date"}
                 // {"data": "Action"}
             ],
