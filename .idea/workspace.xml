@@ -4,94 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" line="362" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/language/arabic/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/arabic/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/bengali/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/bengali/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/bulgarian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/bulgarian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/burmese/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/burmese/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/catalan/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/catalan/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/croatian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/croatian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/czech/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/czech/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/danish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/danish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/dutch/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/dutch/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/estonian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/estonian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/filipino/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/filipino/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/finnish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/finnish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/french/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/french/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/german/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/german/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/greek/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/greek/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/hungarian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/hungarian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/indonesian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/indonesian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/italian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/italian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/japanese/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/japanese/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/korean/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/korean/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/lithuanian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/lithuanian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/norwegian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/norwegian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/persian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/persian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/pirate/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/pirate/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/polish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/polish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/portuguese/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/portuguese/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/romanian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/romanian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/russian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/russian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/slovak/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/slovak/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/slovenian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/slovenian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/spanish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/spanish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/swedish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/swedish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/thai/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/thai/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/turkish/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/turkish/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/ukrainian/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/ukrainian/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/vietnamese/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/vietnamese/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/zh_cn/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/zh_cn/ion_auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/zh_tw/auth_lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/language/zh_tw/ion_auth_lang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Mlogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Mlogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/auth/dashboard_users.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/core.js" afterDir="false" />
-    </list>
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,75 +31,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-              <folding>
-                <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
-                <element signature="n#getLogin#0;n#Login#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/auth_/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="213" column="68" lean-forward="true" selection-start-line="213" selection-start-column="55" selection-end-line="213" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="81" column="71" selection-start-line="81" selection-start-column="63" selection-end-line="81" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Auth.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -197,7 +42,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>chk_landline</find>
       <find>gncno</find>
       <find>$_FILES['file']</find>
       <find>getEmployeeEmpNo</find>
@@ -227,6 +71,7 @@
       <find>login_username</find>
       <find>index</find>
       <find>login_password</find>
+      <find>message</find>
     </findStrings>
     <replaceStrings>
       <replace>$array[7]</replace>
@@ -341,37 +186,6 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth_" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -483,7 +297,7 @@
       <workItem from="1615472378114" duration="5402000" />
       <workItem from="1615526446111" duration="594000" />
       <workItem from="1615533403745" duration="13643000" />
-      <workItem from="1615554475005" duration="2752000" />
+      <workItem from="1615554475005" duration="2918000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -786,15 +600,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615477755548</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="ionauth">
+      <created>1615557311848</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1615557311848</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278935000" />
+    <option name="totallyTimeSpent" value="279101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.20660147" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
@@ -821,7 +641,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add- asset management system" />
     <MESSAGE value="asset form" />
     <MESSAGE value="asset forms" />
     <MESSAGE value="pro system" />
@@ -846,7 +665,8 @@
     <MESSAGE value="add draft HR" />
     <MESSAGE value="Bulk Area" />
     <MESSAGE value="asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="asset" />
+    <MESSAGE value="ionauth" />
+    <option name="LAST_COMMIT_MESSAGE" value="ionauth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1718,8 +1538,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="340">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
