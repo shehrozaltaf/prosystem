@@ -64,9 +64,6 @@
                 <div class="col-xl-8 col-11 d-flex justify-content-center">
                     <div class="card bg-authentication rounded-0 mb-0">
                         <div class="row m-0">
-                            <!--<div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                <img src="<?php /*echo base_url() */ ?>assets/images/logo/logos_2.jpg" alt="branding logo">
-                            </div>-->
                             <div class="col-lg-12 col-12 p-0">
                                 <div class="card rounded-0 mb-0 px-2">
                                     <div class="card-header pb-1">
@@ -79,34 +76,36 @@
                                     <p class="px-2">Welcome, please login to your account.</p>
                                     <div class="card-content">
                                         <div class="card-body pt-1">
-                                            <div>
-                                                <div id="msg" style="display: none;" class="alert  mb-2"
-                                                     role="alert"></div>
+                                            <form action="<?php echo base_url("index.php/auth/login") ?>" method="post">
+                                                <div id="msg" class="alert  mb-2"
+                                                     role="alert">
+                                                    <?php echo $message;?>
+                                                </div>
                                                 <fieldset
                                                         class="form-label-group form-group position-relative has-icon-left">
                                                     <input type="text" class="form-control inpSubmit"
-                                                           id="login_username" name="login_username"
+                                                           id="identity" name="identity"
                                                            placeholder="Username" required>
                                                     <div class="form-control-position">
                                                         <i class="feather icon-user"></i>
                                                     </div>
-                                                    <label for="login_username">Username</label>
+                                                    <label for="identity">Username</label>
                                                 </fieldset>
 
                                                 <fieldset class="form-label-group position-relative has-icon-left">
                                                     <input type="password" class="form-control myPwdInput inpSubmit"
-                                                           id="login_password" name="login_password"
+                                                           id="password" name="password"
                                                            placeholder="Password" required>
                                                     <div class="form-control-position toggle-password">
                                                         <i class="feather icon-eye-off pwdIcon"></i>
                                                     </div>
-                                                    <label for="login_password">Password</label>
+                                                    <label for="password">Password</label>
                                                 </fieldset>
                                                 <div class="form-group d-flex justify-content-between align-items-center">
                                                     <div class="text-left">
                                                         <fieldset class="checkbox">
                                                             <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                <input type="checkbox">
+                                                                <input type="checkbox" name="remember" id="remember" value="1">
                                                                 <span class="vs-checkbox">
                                                                         <span class="vs-checkbox--check">
                                                                             <i class="vs-icon feather icon-check"></i>
@@ -118,12 +117,10 @@
                                                     </div>
 
                                                 </div>
-                                                <a href="javascript:void(0)" onClick="login()"
-                                                   class="btn btn-outline-primary float-left btn-inline">Login</a>
-                                               <!-- <a href="javascript:void(0)" onClick="cancel()"
-                                                   class="btn btn-outline-primary float-left btn-inline">Cancel</a>-->
-
-                                            </div>
+                                                <button type="submit"  class="btn btn-outline-primary float-left btn-inline">Submit</button>
+                                                <!--<a href="javascript:void(0)" onClick="login()"
+                                                   class="btn btn-outline-primary float-left btn-inline">Login</a>-->
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="login-footer">
@@ -135,18 +132,6 @@
                                                         href="<?php echo base_url('index.php/Login/recover_password') ?>"
                                                         class="card-link">Forgot Password?</a></div>
                                         </div>
-                                        <!--<div class="divider">
-                                           <div class="divider-text"></div>
-                                       </div>
-                                      <img class="myimg-fluid"
-                                            src="< ? php /*/*echo base_url() */ */?>assets/images/logo/logos_1.jpg"
-                                            alt="logo">-->
-                                        <!--<img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/worldbank.jpg" alt="worldbank logo">
-                                        <img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/who.jpg" alt="who logo">
-                                        <img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/gates.jpg" alt="gates logo">
-                                        <img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/gavi.png" alt="gavi logo">
-                                        <img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/pak_bereau.jpg" alt="pak_bereau logo">
-                                        <img class="myimg-fluid" src="<?php /*echo base_url() */ ?>assets/images/logo/aku.jpg" alt="aku logo">-->
                                     </div>
                                 </div>
                             </div>
@@ -179,63 +164,11 @@
     });
 
 
-   /* function cancel() {
-        $('#login_username').val('');
-        $('#login_password').val('');
-        $('#login_username').focus();
-    }*/
-
-    function login() {
-        var errorFlag = 0;
-        $('#login_username').removeClass('error');
-        $('#login_password').removeClass('error');
-        var data = {};
-        data['login_username'] = $('#login_username').val();
-        data['login_password'] = $('#login_password').val();
-        if (data['login_username'] == '' || data['login_username'] == undefined) {
-            $('#login_username').addClass('error');
-            returnMsg('msg', 'Invalid User Name', 'alert-danger', 'msg');
-            errorFlag = 1;
-            return false;
-        }
-        if (data['login_password'] == '' || data['login_password'] == undefined) {
-            $('#login_password').addClass('error');
-            returnMsg('msg', 'Invalid Password 1', 'alert-danger', 'msg');
-            errorFlag = 1;
-            return false;
-        }
-        if (errorFlag === 0) {
-
-            CallAjax('<?php echo base_url('index.php/Login/getLogin')?>', data, 'POST', function (res) {
-
-                if (res == 1) {
-                    setTimeout(function () {
-                        window.location.href = "<?php echo base_url() . 'index.php/Dashboard' ?>";
-                    }, 500);
-                    returnMsg('msg', 'Success', 'alert-success');
-                } else if (res == 2 || res == 5) {
-                    $('#login_password').addClass('error');
-                    returnMsg('msg', 'Invalid Password 2', 'alert-danger');
-                } else if (res == 4) {
-                    $('#login_username').addClass('error');
-                    returnMsg('msg', 'Invalid User Name', 'alert-danger');
-                } else {
-                    $('#login_username').addClass('error');
-                    $('#login_password').addClass('error');
-                    returnMsg('msg', 'Invalid Username/Password', 'alert-danger');
-                }
-
-            });
-        }
-    }
-
-
     function gotFocus() {
-        $("#login_username").focus();
+        $("#identity").focus();
     }
 
 </script>
-
 </body>
 <!-- END: Body-->
 </html>

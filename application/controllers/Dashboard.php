@@ -13,9 +13,9 @@ class Dashboard extends CI_controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        if (!isset($_SESSION['login']['idUser'])) {
+       /* if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
-        }
+        }*/
     }
 
 
@@ -29,7 +29,8 @@ class Dashboard extends CI_controller
         $Custom->trackLogs($trackarray, "user_logs");
         /*==========Log=============*/
         $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'Dashboard');
+//        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'Dashboard');
+        $data['permission'] = '';
         $this->load->view('include/header',$data);
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');

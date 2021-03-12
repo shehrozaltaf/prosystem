@@ -17,8 +17,9 @@ class MLogin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('users_dash');
-        $this->db->where('username', $user);
-        $this->db->where('password', $pass);
+        $this->db->where("(username ='" . $user . "' or email = '" . $user . "')");
+        $this->db->where('status', 1);
+//        $this->db->where('password', $pass);
         $query = $this->db->get();
         $res = $query->result();
         return $res;
