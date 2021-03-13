@@ -4,7 +4,112 @@
     <bookmark url="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" line="362" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="" />
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/application.rar" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/ion_auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/arabic/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/arabic/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/bengali/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/bengali/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/bulgarian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/bulgarian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/burmese/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/burmese/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/catalan/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/catalan/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/croatian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/croatian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/czech/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/czech/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/danish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/danish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/dutch/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/dutch/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/estonian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/estonian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/filipino/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/filipino/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/finnish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/finnish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/french/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/french/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/german/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/german/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/greek/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/greek/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/hungarian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/hungarian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/indonesian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/indonesian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/italian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/italian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/japanese/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/japanese/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/korean/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/korean/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/lithuanian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/lithuanian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/norwegian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/norwegian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/persian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/persian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/pirate/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/pirate/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/polish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/polish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/portuguese/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/portuguese/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/romanian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/romanian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/russian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/russian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/slovak/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/slovak/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/slovenian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/slovenian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/spanish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/spanish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/swedish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/swedish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/thai/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/thai/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/turkish/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/turkish/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/ukrainian/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/ukrainian/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/vietnamese/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/vietnamese/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/zh_cn/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/zh_cn/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/zh_tw/auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/zh_tw/ion_auth_lang.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/Ion_auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Ion_auth_model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/change_password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/create_group.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/create_user.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/deactivate_user.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/edit_group.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/edit_user.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/email/activate.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/email/forgot_password.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/forgot_password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/reset_password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth_/dashboard_users.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth_/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/core.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +136,41 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="121" column="110" selection-start-line="121" selection-start-column="94" selection-end-line="121" selection-end-column="110" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-19">
+              <caret line="38" column="41" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="41" />
+              <folding>
+                <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,9 +181,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gncno</find>
-      <find>$_FILES['file']</find>
-      <find>getEmployeeEmpNo</find>
       <find>lbl_ddlloc_sub</find>
       <find>button</find>
       <find>$InsertData</find>
@@ -72,6 +208,9 @@
       <find>index</find>
       <find>login_password</find>
       <find>message</find>
+      <find>getLogin</find>
+      <find>$captcha</find>
+      <find>validate_captcha</find>
     </findStrings>
     <replaceStrings>
       <replace>$array[7]</replace>
@@ -155,13 +294,13 @@
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
         <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
-        <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
         <option value="$PROJECT_DIR$/application/controllers/Auth.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
+        <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/views/auth/login.php" />
       </list>
     </option>
@@ -185,6 +324,30 @@
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -298,6 +461,9 @@
       <workItem from="1615526446111" duration="594000" />
       <workItem from="1615533403745" duration="13643000" />
       <workItem from="1615554475005" duration="2918000" />
+      <workItem from="1615557546497" duration="463000" />
+      <workItem from="1615616287275" duration="4011000" />
+      <workItem from="1615627578304" duration="4576000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -607,16 +773,24 @@
       <option name="project" value="LOCAL" />
       <updated>1615557311848</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="ionauth">
+      <created>1615557706225</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1615557706225</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279101000" />
+    <option name="totallyTimeSpent" value="288151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.20660147" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.21393643" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -705,20 +879,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/tables.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -1250,37 +1410,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.29607/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11422">
-          <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.27468/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.26832/Ion_auth_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="1167" column="43" selection-start-line="1167" selection-start-column="20" selection-end-line="1167" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.29607/Auth.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.27468/login.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.26832/Ion_auth_model.php" />
     <entry file="file://$PROJECT_DIR$/../action1_waseem/application/libraries/Ion_auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1309">
@@ -1476,13 +1608,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth/index.php" />
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="689">
@@ -1504,42 +1630,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
-            <element signature="n#getLogin#0;n#Login#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth_/login.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/Ion_auth_model.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/ion_auth.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Auth.php" />
+    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="81" column="71" selection-start-line="81" selection-start-column="63" selection-end-line="81" selection-end-column="71" />
+        <state relative-caret-position="271">
+          <caret line="121" column="110" selection-start-line="121" selection-start-column="94" selection-end-line="121" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth_/login.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="213" column="68" lean-forward="true" selection-start-line="213" selection-start-column="55" selection-end-line="213" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="-19">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="41" />
+          <folding>
+            <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -64,6 +64,9 @@
                 <div class="col-xl-8 col-11 d-flex justify-content-center">
                     <div class="card bg-authentication rounded-0 mb-0">
                         <div class="row m-0">
+                            <!--<div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
+                                <img src="<?php /*echo base_url() */ ?>assets/images/logo/logos_2.jpg" alt="branding logo">
+                            </div>-->
                             <div class="col-lg-12 col-12 p-0">
                                 <div class="card rounded-0 mb-0 px-2">
                                     <div class="card-header pb-1">
@@ -76,36 +79,34 @@
                                     <p class="px-2">Welcome, please login to your account.</p>
                                     <div class="card-content">
                                         <div class="card-body pt-1">
-                                            <form action="<?php echo base_url("index.php/auth/login") ?>" method="post">
-                                                <div id="msg" class="alert  mb-2"
-                                                     role="alert">
-                                                    <?php echo $message;?>
-                                                </div>
+                                            <div>
+                                                <div id="msg" style="display: none;" class="alert  mb-2"
+                                                     role="alert"></div>
                                                 <fieldset
                                                         class="form-label-group form-group position-relative has-icon-left">
                                                     <input type="text" class="form-control inpSubmit"
-                                                           id="identity" name="identity"
+                                                           id="login_username" name="login_username"
                                                            placeholder="Username" required>
                                                     <div class="form-control-position">
                                                         <i class="feather icon-user"></i>
                                                     </div>
-                                                    <label for="identity">Username</label>
+                                                    <label for="login_username">Username</label>
                                                 </fieldset>
 
                                                 <fieldset class="form-label-group position-relative has-icon-left">
                                                     <input type="password" class="form-control myPwdInput inpSubmit"
-                                                           id="password" name="password"
+                                                           id="login_password" name="login_password"
                                                            placeholder="Password" required>
                                                     <div class="form-control-position toggle-password">
                                                         <i class="feather icon-eye-off pwdIcon"></i>
                                                     </div>
-                                                    <label for="password">Password</label>
+                                                    <label for="login_password">Password</label>
                                                 </fieldset>
                                                 <div class="form-group d-flex justify-content-between align-items-center">
                                                     <div class="text-left">
                                                         <fieldset class="checkbox">
                                                             <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                <input type="checkbox" name="remember" id="remember" value="1">
+                                                                <input type="checkbox">
                                                                 <span class="vs-checkbox">
                                                                         <span class="vs-checkbox--check">
                                                                             <i class="vs-icon feather icon-check"></i>
@@ -116,11 +117,17 @@
                                                         </fieldset>
                                                     </div>
 
+                                                    <input type="hidden" id="g-recaptcha-response"
+                                                           name="g-recaptcha-response">
+                                                    <input type="hidden" name="action" value="validate_captcha">
+
                                                 </div>
-                                                <button type="submit"  class="btn btn-outline-primary float-left btn-inline">Submit</button>
-                                                <!--<a href="javascript:void(0)" onClick="login()"
-                                                   class="btn btn-outline-primary float-left btn-inline">Login</a>-->
-                                            </form>
+
+                                                <a href="javascript:void(0)" onClick="login()"
+                                                   class="btn btn-outline-primary float-left btn-inline">Login</a>
+
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="login-footer">
@@ -155,7 +162,10 @@
 
 
 <script src="<?php echo base_url() ?>assets/js/core.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LeJq30aAAAAAMMxbp_314MX3BfNjk-MEnDcKcnA"></script>
 <script>
+
     $('.inpSubmit').keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -163,12 +173,83 @@
         }
     });
 
+    function login() {
+        var errorFlag = 0;
+        $('#login_username').removeClass('error');
+        $('#login_password').removeClass('error');
+        var data = {};
+        data['login_username'] = $('#login_username').val();
+        data['login_password'] = $('#login_password').val();
+
+        if (data['login_username'] == '' || data['login_username'] == undefined) {
+            $('#login_username').addClass('error');
+            returnMsg('msg', 'Invalid User Name', 'alert-danger', 'msg');
+            errorFlag = 1;
+            return false;
+        }
+        if (data['login_password'] == '' || data['login_password'] == undefined) {
+            $('#login_password').addClass('error');
+            returnMsg('msg', 'Invalid Password 1', 'alert-danger', 'msg');
+            errorFlag = 1;
+            return false;
+        }
+        if (errorFlag === 0) {
+            grecaptcha.ready(function () {
+                // do request for recaptcha token
+                // response is promise with passed token
+                grecaptcha.execute('6LeJq30aAAAAAMMxbp_314MX3BfNjk-MEnDcKcnA', {action: 'validate_captcha'})
+                    .then(function (token) {
+                        data['g-recaptcha-response'] = token;
+                        CallAjax('<?php echo base_url('index.php/Login/getLogin')?>', data, 'POST', function (res) {
+                            try {
+                                var response = JSON.parse(res);
+                                if (response[0] == 'Success') {
+                                    returnMsg('msg', response[1], 'alert-success');
+                                    setTimeout(function () {
+                                        window.location.href = "< ?php echo base_url() . 'index.php/Dashboard' ?>";
+                                    }, 500)
+                                } else {
+                                    returnMsg('msg', response[1], 'alert-danger');
+                                }
+                            } catch (e) {
+                            }
+
+
+                            /* if (res == 1) {
+                                 setTimeout(function () {
+                                     // window.location.href = "< ?php echo base_url() . 'index.php/Dashboard' ?>";
+                                 }, 500);
+
+                                 returnMsg('msg', 'Success', 'alert-success');
+                             } else if (res == 2 || res == 5) {
+                                 $('#login_password').addClass('error');
+                                 returnMsg('msg', 'Invalid Password', 'alert-danger');
+                             } else if (res == 4) {
+                                 $('#login_username').addClass('error');
+                                 returnMsg('msg', 'Invalid User Name', 'alert-danger');
+                             } else if (res == 7) {
+                                 $('#login_username').addClass('error');
+                                 returnMsg('msg', 'Your account is blocked. Try again after an hour', 'alert-info');
+                             } else {
+                                 $('#login_username').addClass('error');
+                                 $('#login_password').addClass('error');
+                                 returnMsg('msg', 'Invalid Username/Password', 'alert-danger');
+                             }*/
+
+                        });
+                    });
+            });
+
+        }
+    }
+
 
     function gotFocus() {
-        $("#identity").focus();
+        $("#login_username").focus();
     }
 
 </script>
+
 </body>
 <!-- END: Body-->
 </html>

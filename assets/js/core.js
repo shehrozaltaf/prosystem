@@ -25,7 +25,7 @@ function returnMsg(divId, TextMsg, divClass) {
     $('#' + divId).removeClass('alert-danger').removeClass('alert-success').addClass(divClass).html(TextMsg).css('display', 'block');
     setTimeout(function () {
         $('#' + divId).removeClass(divClass).html('').css('display', 'none');
-    }, 50000);
+    }, 5000);
     hideloader();
 }
 

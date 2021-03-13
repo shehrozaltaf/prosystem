@@ -80,8 +80,7 @@ $db['default'] = array(
     'hostname' => 'F38158',
     'username' => 'app',
     'password' => 'abcd1234',
-//    'database' => 'pro_system',
-    'database' => 'shehroz_testing',
+    'database' => 'pro_system',
 
     'dbdriver' => 'sqlsrv',
     'dbprefix' => '',
