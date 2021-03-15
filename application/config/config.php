@@ -4,10 +4,11 @@
 header("X-Frame-Options: DENY");
 header_remove("X-Powered-By");
 
-header("Strict-Transport-Security:max-age=63072000");
+//header("Strict-Transport-Security:max-age=63072000");
 header('X-Content-Type-Options: nosniff');
 header('X-Permitted-Cross-Domain-Policies: none');
 header('Referrer-Policy: no-referrer');
+header('Access-Control-Allow-Origin: *');
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');

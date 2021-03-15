@@ -45,7 +45,6 @@ class Custom extends CI_Model
     {
         $this->db->where($key, $value);
         $update = $this->db->update($table, $Data);
-
         $trackarray = array("action" => "Edit -> Function: Custom->Edit() ",
             "result" => $update, "Query" => $this->db->last_query());
         $this->trackLogs($trackarray, "user_logs");
@@ -91,9 +90,30 @@ class Custom extends CI_Model
             "Result: " . $result . PHP_EOL .
             "PostData: " . $postData . PHP_EOL .
             "-------------------------------------------------" . PHP_EOL;
-       /* $txt = fopen($logFilePath, "a") or die("Unable to open file!");
-        fwrite($txt, $log);
-        fclose($txt);*/
+        /* $txt = fopen($logFilePath, "a") or die("Unable to open file!");
+         fwrite($txt, $log);
+         fclose($txt);*/
+    }
+
+    function Edit_multi_where($Data, $where, $table)
+    {
+        if (isset($where) && $where != '') {
+            foreach ($where as $k => $v) {
+                $this->db->where($k, $v);
+            }
+            $update = $this->db->update($table, $Data);
+            $trackarray = array("action" => "Edit -> Function: Custom->Edit() ",
+                "result" => $update, "Query" => $this->db->last_query());
+            $this->trackLogs($trackarray, "user_logs");
+
+            if ($update) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
     }
 
     function getGUID()

@@ -45,9 +45,9 @@ class MAsset extends CI_Model
             $this->db->where("a.status", $searchdata['status']);
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
-            if($searchdata['verification_status']=='Due'){
-                $this->db->where("a.due_date <= '".date('Y-m-d')."' " );
-            }else{
+            if ($searchdata['verification_status'] == 'Due') {
+                $this->db->where("a.due_date <= '" . date('Y-m-d') . "' ");
+            } else {
                 $this->db->where("a.verification_status", $searchdata['verification_status']);
             }
         }
@@ -104,9 +104,9 @@ class MAsset extends CI_Model
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
-            if($searchdata['verification_status']=='Due'){
-                $this->db->where("a.due_date <= '".date('Y-m-d')."' " );
-            }else{
+            if ($searchdata['verification_status'] == 'Due') {
+                $this->db->where("a.due_date <= '" . date('Y-m-d') . "' ");
+            } else {
                 $this->db->where("a.verification_status", $searchdata['verification_status']);
             }
         }
@@ -149,14 +149,14 @@ class MAsset extends CI_Model
             $this->db->where('idAsset', $idAsset);
         }
         if (isset($searchdata['idAsset_multiple']) && $searchdata['idAsset_multiple'] != '' && $searchdata['idAsset_multiple'] != null) {
-            foreach ($searchdata['idAsset_multiple'] as $a){
+            foreach ($searchdata['idAsset_multiple'] as $a) {
                 $this->db->or_where('idAsset', $a);
             }
         }
         $this->db->select('*');
         $this->db->from('asset');
         $this->db->limit(50, 0);
-        $this->db->order_by('idAsset','desc');
+        $this->db->order_by('idAsset', 'desc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -170,7 +170,8 @@ class MAsset extends CI_Model
         $this->db->select('*');
         $this->db->from('a_asset_docs');
         $this->db->where('idAsset', $idAsset);
-        $this->db->order_by('idAssetImage','desc');
+        $this->db->where('isActive', 1);
+        $this->db->order_by('idAssetImage', 'desc');
         $query = $this->db->get();
         return $query->result();
     }

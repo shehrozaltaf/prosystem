@@ -125,8 +125,6 @@
 
                                                 <a href="javascript:void(0)" onClick="login()"
                                                    class="btn btn-outline-primary float-left btn-inline">Login</a>
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +204,7 @@
                                 if (response[0] == 'Success') {
                                     returnMsg('msg', response[1], 'alert-success');
                                     setTimeout(function () {
-                                        window.location.href = "< ?php echo base_url() . 'index.php/Dashboard' ?>";
+                                        window.location.href = "<?php echo base_url() . 'index.php/Dashboard' ?>";
                                     }, 500)
                                 } else {
                                     returnMsg('msg', response[1], 'alert-danger');

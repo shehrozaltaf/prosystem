@@ -142,21 +142,24 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
-                </a>  ';
+                </a> 
+                
+                 <a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
+                        <i class="feather icon-edit" ></i> 
+                </a>   ';
 
             $table_data[$value->idAsset]['check'] = '<input type="checkbox" class="checkboxes" 
                 data-id="' . $value->idAsset . '"  
                 data-oldval="' . $value->idAsset . '" 
                 name="check_asset" 
-                id="check_asset_' . $key . '"
-                
-                
-                
-                value="1" 
+                id="check_asset_' . $key . '"  value="1" 
                 onclick="updBtnToggle()" />
                 
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
+                </a> 
+                <a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
+                        <i class="feather icon-edit" ></i> 
                 </a> ';
 
         }
@@ -429,7 +432,7 @@ class Assets extends CI_controller
             $at_array[$i]['FormName'] = 'Writ Off Date';
             $at_array[$i]['Fieldid'] = 'wo_date';
             $at_array[$i]['FieldName'] = 'Writ Off Date';
-            $at_array[$i]['NewValue'] =  $editArr['wo_date'];
+            $at_array[$i]['NewValue'] = $editArr['wo_date'];
         }
         if (isset($_POST['idLocation']) && $_POST['idLocation'] != '') {
             $editArr['idLocation'] = $_POST['idLocation'];
@@ -453,7 +456,7 @@ class Assets extends CI_controller
             $at_array[$i]['FormName'] = 'Employee';
             $at_array[$i]['Fieldid'] = 'emp_no';
             $at_array[$i]['FieldName'] = 'Employee';
-            $at_array[$i]['NewValue'] =  $editArr['emp_no'];
+            $at_array[$i]['NewValue'] = $editArr['emp_no'];
         }
         if (isset($_POST['resp_person_name']) && $_POST['resp_person_name'] != '') {
             $editArr['resp_person_name'] = $_POST['resp_person_name'];
@@ -495,7 +498,7 @@ class Assets extends CI_controller
             $at_array[$i]['Fieldid'] = 'area';
             $at_array[$i]['FieldName'] = 'Area';
             $at_array[$i]['NewValue'] = $editArr['area'];
-        } 
+        }
         $Custom = new Custom();
         if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
             foreach ($_POST['assets'] as $asset) {
@@ -503,7 +506,7 @@ class Assets extends CI_controller
 
                 if ($editData) {
                     foreach ($at_array as $at) {
-                        $insertArray_at=array();
+                        $insertArray_at = array();
                         $insertArray_at['FormID'] = $asset;
                         $insertArray_at['FormName'] = $at['FormName'];
                         $insertArray_at['Fieldid'] = $at['Fieldid'];
@@ -526,7 +529,6 @@ class Assets extends CI_controller
                 }
 
             }
-
 
 
             /*if ($editData) {
@@ -640,6 +642,174 @@ class Assets extends CI_controller
             $pdf->Output('pro_asset.pdf', 'I');
         } else {
             echo 'Invalid Asset, Please select Asset';
+        }
+    }
+
+
+    /*=============================Edit Asset====================================*/
+
+    function editAsset()
+    {
+        if (isset($_GET['a']) && $_GET['a'] != '') {
+            $idAsset = $_GET['a'];
+        } else {
+            $idAsset = '0';
+        }
+        $data = array();
+        /*==========Log=============*/
+        $Custom = new Custom();
+        $trackarray = array("action" => "View editAsset",
+            "result" => "View editAsset page. Fucntion: Asset/editAsset()");
+        $Custom->trackLogs($trackarray, "user_logs");
+        /*==========Log=============*/
+        $MSettings = new MSettings();
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/Assets');
+        $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
+        $data['currency'] = $Custom->selectAllQuery('currency', 'idCurrency', 'isActive');
+        $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'idSop', 'status');
+        $data['employee'] = $Custom->getEmpAllDetails('');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['project'] = $Custom->selectAllQuery('project', 'idProject');
+        $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
+        $MAsset = new MAsset();
+        $searchdata['idAsset'] = $idAsset;
+        $data['asset'] = $MAsset->getAssetById($searchdata);
+        $this->load->view('include/header');
+        $this->load->view('include/top_header');
+        $this->load->view('include/sidebar');
+        $this->load->view('asset_views/edit_asset', $data);
+        $this->load->view('include/customizer');
+        $this->load->view('include/footer');
+    }
+
+    function editData()
+    {
+        $idAsset = 0;
+        if (!isset($_POST['idAsset']) || $_POST['idAsset'] == '' || $_POST['idAsset'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Asset ID');
+        } else {
+            $idAsset = $_POST['idAsset'];
+            $Custom = new Custom();
+            $editArray = array();
+            $editArray['idCategory'] = $_POST['idCategory'];
+            $editArray['desc'] = $_POST['desc'];
+            $editArray['model'] = $_POST['model'];
+            $editArray['product_no'] = $_POST['product_no'];
+            $editArray['gri_no'] = $_POST['gri_no'];
+            $editArray['serial_no'] = $_POST['serial_no'];
+            $editArray['po_no'] = $_POST['po_no'];
+            $editArray['cost'] = $_POST['cost'];
+            $editArray['idCurrency'] = $_POST['idCurrency'];
+            $editArray['idSourceOfPurchase'] = $_POST['idSourceOfPurchase'];
+            $editArray['emp_no'] = $_POST['emp_no'];
+            $editArray['resp_person_name'] = $_POST['resp_person_name'];
+            $editArray['ou'] = $_POST['ou'];
+            $editArray['account'] = $_POST['account'];
+            $editArray['dept'] = $_POST['dept'];
+            $editArray['fund'] = $_POST['fund'];
+            $editArray['proj_code'] = $_POST['proj_code'];
+            $editArray['prog'] = $_POST['prog'];
+            $editArray['idLocation'] = $_POST['idLocation'];
+            $editArray['idSubLocation'] = $_POST['idSubLocation'];
+            $editArray['area'] = $_POST['area'];
+            $editArray['verification_status'] = $_POST['verification_status'];
+            $editArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+            $editArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+            $editArray['pur_date'] = date('Y-m-d', strtotime($_POST['pur_date']));
+            $editArray['status'] = $_POST['status'];
+            $editArray['writOff_formNo'] = $_POST['writOff_formNo'];
+            $editArray['wo_date'] = date('Y-m-d', strtotime($_POST['wo_date']));
+            $editArray['remarks'] = $_POST['remarks'];
+            $editArray['updatedBy'] = $_SESSION['login']['idUser'];
+            $editArray['updatedDateTime'] = date('Y-m-d H:i:s');
+            $editArray['entry_date'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArray, 'idAsset', $idAsset, 'a_asset');
+            if ($editData) {
+                if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
+                    $upload_location = "assets/uploads/assetUploads/" . $idAsset . '/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+                    $countfiles = count($_FILES['file']['name']);
+                    $files_arr = array();
+                    for ($index = 0; $index < $countfiles; $index++) {
+                        if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
+                            $filename = $_FILES['file']['name'][$index];
+                            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                            $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                            if (in_array($ext, $valid_ext)) {
+                                $path = $upload_location . $filename;
+                                if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
+                                    $files_arr[] = $path;
+                                    $fileUpload = array();
+                                    $fileUpload['idAsset'] = $idAsset;
+                                    $fileUpload['docPath'] = $upload_location . $filename;
+                                    $fileUpload['docName'] = $filename;
+                                    $fileUpload['isActive'] = 1;
+                                    $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                                    $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                                    $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'Y');
+                                }
+                            }else{
+                                $result = array('0' => 'Error', '1' => 'Invalid file extension', '2' => 0);
+                            }
+                        }
+                    }
+                }
+                $result = array('0' => 'Success', '1' => 'Successfully Edited', '2' => 0);
+            } else {
+                $result = array('0' => 'Error', '1' => 'Error in Editing Data', '2' => '0');
+            }
+
+        }
+        echo json_encode($result);
+    }
+
+    function getAssetDocs()
+    {
+        $result = array();
+        if (isset($_GET['a']) && $_GET['a'] != '') {
+            $MAsset = new MAsset();
+            $searchdata = array();
+            $searchdata['idAsset'] = $_GET['a'];
+            $storeFolder = 'assets/uploads/assetUploads/' . $searchdata['idAsset'] . '/';
+            $docs = $MAsset->getAssetDocsByIdAsset($searchdata);
+            if (isset($docs) && $docs != '') {
+                foreach ($docs as $d) {
+                    $obj['name'] = $d->docName;
+                    $obj['size'] = filesize($storeFolder . '/' . $d->docName);
+                    $result[] = $obj;
+                }
+            }
+        }
+        header('Content-type: text/json');
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
+
+    function deleteDoc()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        $where = array();
+        if (isset($_POST['idAsset']) && $_POST['idAsset'] != '') {
+            $where['idAsset'] = $_POST['idAsset'];
+            if (isset($_POST['file']) && $_POST['file'] != '') {
+                $where['docName'] = $_POST['file'];
+                $editArr['isActive'] = 0;
+                $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+                $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+                $editData = $Custom->Edit_multi_where($editArr, $where, 'a_asset_docs');
+                if ($editData) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            } else {
+                echo 3;
+            }
+        } else {
+            echo 4;
         }
     }
 
