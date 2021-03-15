@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Custom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,217 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="738" column="47" selection-start-line="738" selection-start-column="47" selection-end-line="738" selection-end-column="111" />
-              <folding>
-                <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-                <element signature="e#613#700#0#PHP" />
-                <element signature="n#index#0;n#Assets#0;n#!!top" />
-                <element signature="e#853#973#0#PHP" />
-                <element signature="n#getAsset#0;n#Assets#0;n#!!top" />
-                <element signature="e#5137#10197#0#PHP" />
-                <element signature="e#5186#6019#0#PHP" />
-                <element signature="e#5269#5354#0#PHP" />
-                <element signature="e#5355#5441#0#PHP" />
-                <element signature="e#5442#5528#0#PHP" />
-                <element signature="e#5529#5612#0#PHP" />
-                <element signature="e#5613#5700#0#PHP" />
-                <element signature="e#5701#5788#0#PHP" />
-                <element signature="e#5789#5876#0#PHP" />
-                <element signature="e#5877#5963#0#PHP" />
-                <element signature="e#5964#6019#0#PHP" />
-                <element signature="e#10206#10290#0#PHP" />
-                <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
-                <element signature="e#14852#18097#0#PHP" />
-                <element signature="e#14901#15734#0#PHP" />
-                <element signature="e#14984#15069#0#PHP" />
-                <element signature="e#15070#15156#0#PHP" />
-                <element signature="e#15157#15243#0#PHP" />
-                <element signature="e#15244#15327#0#PHP" />
-                <element signature="e#15328#15415#0#PHP" />
-                <element signature="e#15416#15503#0#PHP" />
-                <element signature="e#15504#15591#0#PHP" />
-                <element signature="e#15592#15678#0#PHP" />
-                <element signature="e#15679#15734#0#PHP" />
-                <element signature="e#18106#18190#0#PHP" />
-                <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
-                <element signature="e#19794#20870#0#PHP" />
-                <element signature="e#20512#20637#0#PHP" />
-                <element signature="e#20709#20818#0#PHP" />
-                <element signature="e#20769#20818#0#PHP" />
-                <element signature="e#20829#20870#0#PHP" />
-                <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
-                <element signature="e#21001#21722#0#PHP" />
-                <element signature="e#21365#21489#0#PHP" />
-                <element signature="e#21561#21670#0#PHP" />
-                <element signature="e#21621#21670#0#PHP" />
-                <element signature="e#21681#21722#0#PHP" />
-                <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
-                <element signature="e#21793#23326#0#PHP" />
-                <element signature="e#21972#22096#0#PHP" />
-                <element signature="e#22744#22839#0#PHP" />
-                <element signature="e#23260#23326#0#PHP" />
-                <element signature="e#23448#23794#0#PHP" />
-                <element signature="e#23803#24210#0#PHP" />
-                <element signature="e#24219#24585#0#PHP" />
-                <element signature="e#24594#24967#0#PHP" />
-                <element signature="e#24976#25375#0#PHP" />
-                <element signature="e#25384#25734#0#PHP" />
-                <element signature="e#25743#26172#0#PHP" />
-                <element signature="e#26181#26670#0#PHP" />
-                <element signature="e#26679#27142#0#PHP" />
-                <element signature="e#27151#27538#0#PHP" />
-                <element signature="e#27547#27876#0#PHP" />
-                <element signature="e#29058#29204#0#PHP" />
-                <element signature="e#29139#29204#0#PHP" />
-                <element signature="e#29311#29424#0#PHP" />
-                <element signature="e#29512#29530#0#PHP" />
-                <element signature="n#getPDF#0;n#Assets#0;n#!!top" />
-                <element signature="e#29567#36502#0#PHP" />
-                <element signature="e#32703#32852#0#PHP" />
-                <element signature="n#style#0;n#!!top" />
-                <element signature="n#div#0;n#!!top" />
-                <element signature="n#table#0;n#!!top" />
-                <element signature="n#tr#0;n#table#0;n#!!top" />
-                <element signature="e#34811#36239#0#PHP" />
-                <element signature="n#tr#0;n#!!top" />
-                <element signature="e#36431#36502#0#PHP" />
-                <element signature="e#37238#37349#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/asset_views/edit_asset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="764">
-              <caret line="773" column="20" selection-start-line="773" selection-start-column="20" selection-end-line="773" selection-end-column="20" />
+            <state relative-caret-position="169">
+              <caret line="825" column="20" selection-start-line="825" selection-start-column="20" selection-end-line="825" selection-end-column="20" />
               <folding>
-                <element signature="n#link#0;n#!!top" />
                 <element signature="e#51#56#0#PHP" />
                 <element signature="e#180#185#0#PHP" />
                 <element signature="e#315#320#0#PHP" />
                 <element signature="e#446#451#0#PHP" />
                 <element signature="e#562#567#0#PHP" />
-                <element signature="n#link#3;n#!!top" />
                 <element signature="e#708#713#0#PHP" />
                 <element signature="e#837#842#0#PHP" />
                 <element signature="e#929#934#0#PHP" />
                 <element signature="e#1022#1027#0#PHP" />
-                <element signature="e#49764#49769#0#PHP" />
-                <element signature="e#49861#49866#0#PHP" />
-                <element signature="e#49960#49965#0#PHP" />
-                <element signature="e#50067#50072#0#PHP" />
-                <element signature="e#50159#50164#0#PHP" />
-                <element signature="e#59519#59758#0#HTML" />
-                <element signature="e#59556#59750#0#HTML" />
-                <element signature="e#59783#60000#0#HTML" />
-                <element signature="e#59821#59992#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
-              <folding>
-                <element signature="e#6#80#0#PHP" />
-                <element signature="n#__construct#0;n#MAsset#0;n#!!top" />
-                <element signature="n#getAsset#0;n#MAsset#0;n#!!top" />
-                <element signature="e#339#488#0#PHP" />
-                <element signature="e#497#651#0#PHP" />
-                <element signature="e#660#841#0#PHP" />
-                <element signature="e#850#1012#0#PHP" />
-                <element signature="e#1021#1207#0#PHP" />
-                <element signature="e#1216#1390#0#PHP" />
-                <element signature="e#1400#1594#0#PHP" />
-                <element signature="e#1603#1812#0#PHP" />
-                <element signature="e#1821#1995#0#PHP" />
-                <element signature="e#2004#2412#0#PHP" />
-                <element signature="e#2155#2402#0#PHP" />
-                <element signature="e#2288#2402#0#PHP" />
-                <element signature="e#2421#2664#0#PHP" />
-                <element signature="e#2673#2852#0#PHP" />
-                <element signature="e#2861#3077#0#PHP" />
-                <element signature="e#3086#3302#0#PHP" />
-                <element signature="e#3311#3535#0#PHP" />
-                <element signature="e#3545#3811#0#PHP" />
-                <element signature="e#3820#4015#0#PHP" />
-                <element signature="n#getCntTotalAsset#0;n#MAsset#0;n#!!top" />
-                <element signature="e#4303#4484#0#PHP" />
-                <element signature="e#4493#4655#0#PHP" />
-                <element signature="e#4664#4850#0#PHP" />
-                <element signature="e#4859#5033#0#PHP" />
-                <element signature="e#5042#5236#0#PHP" />
-                <element signature="e#5245#5454#0#PHP" />
-                <element signature="e#5463#5871#0#PHP" />
-                <element signature="e#5614#5861#0#PHP" />
-                <element signature="e#5747#5861#0#PHP" />
-                <element signature="e#5880#6054#0#PHP" />
-                <element signature="e#6063#6306#0#PHP" />
-                <element signature="e#6315#6494#0#PHP" />
-                <element signature="e#6503#6719#0#PHP" />
-                <element signature="e#6728#6944#0#PHP" />
-                <element signature="e#6953#7177#0#PHP" />
-                <element signature="e#7187#7453#0#PHP" />
-                <element signature="e#8536#8695#0#PHP" />
-                <element signature="e#9229#9387#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/scripts/forms/form-file-uploader.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="43" column="17" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="17" />
-              <folding>
-                <element signature="n#Edit#0;n#Custom#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="545" column="72" lean-forward="true" selection-start-line="545" selection-start-column="72" selection-end-line="545" selection-end-column="72" />
-              <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#180#185#0#PHP" />
-                <element signature="e#315#320#0#PHP" />
-                <element signature="e#446#451#0#PHP" />
-                <element signature="e#50159#50164#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/core.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="227" column="37" selection-start-line="227" selection-start-column="35" selection-end-line="227" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -294,11 +91,11 @@
       <find>submit</find>
       <find>$insertArray</find>
       <find>&quot;, &quot;</find>
-      <find>dpz-remove-thumbs</find>
       <find>response_ajax</find>
       <find>Drop files</find>
       <find>select</find>
       <find>verification_status</find>
+      <find>dpz-remove-thumbs</find>
     </findStrings>
     <replaceStrings>
       <replace>$array[11]</replace>
@@ -329,8 +126,8 @@
       <replace>password</replace>
       <replace>$editArray</replace>
       <replace>,</replace>
-      <replace>Edit</replace>
       <replace>response</replace>
+      <replace>Edit</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -386,9 +183,9 @@
         <option value="$PROJECT_DIR$/application/views/auth/login.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
+        <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" />
       </list>
     </option>
@@ -422,19 +219,6 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -443,39 +227,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="asset_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -593,7 +344,7 @@
       <workItem from="1615616287275" duration="4011000" />
       <workItem from="1615627578304" duration="5088000" />
       <workItem from="1615785046121" duration="6857000" />
-      <workItem from="1615806090760" duration="11951000" />
+      <workItem from="1615806090760" duration="12544000" />
     </task>
     <task id="LOCAL-00001" summary="live">
       <created>1610707728069</created>
@@ -931,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1615791911280</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="edit">
+      <created>1615819634674</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1615819634674</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307471000" />
+    <option name="totallyTimeSpent" value="308064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -966,7 +724,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asset uploads" />
     <MESSAGE value="img upload" />
     <MESSAGE value="add asset" />
     <MESSAGE value="add asset - status list" />
@@ -991,7 +748,8 @@
     <MESSAGE value="captcha" />
     <MESSAGE value="xframe" />
     <MESSAGE value="headers" />
-    <option name="LAST_COMMIT_MESSAGE" value="headers" />
+    <MESSAGE value="edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1526,10 +1284,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <element signature="n#Edit#0;n#Custom#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="227" column="37" selection-start-line="227" selection-start-column="35" selection-end-line="227" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="545" column="72" lean-forward="true" selection-start-line="545" selection-start-column="72" selection-end-line="545" selection-end-column="72" />
+          <folding>
+            <element signature="e#51#56#0#PHP" />
+            <element signature="e#180#185#0#PHP" />
+            <element signature="e#315#320#0#PHP" />
+            <element signature="e#446#451#0#PHP" />
+            <element signature="e#50159#50164#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+        <state relative-caret-position="136">
+          <caret line="151" column="61" selection-start-line="151" selection-start-column="61" selection-end-line="151" selection-end-column="61" />
           <folding>
             <element signature="e#6#80#0#PHP" />
             <element signature="n#__construct#0;n#MAsset#0;n#!!top" />
@@ -1576,65 +1368,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="n#Edit#0;n#Custom#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="227" column="37" selection-start-line="227" selection-start-column="35" selection-end-line="227" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="545" column="72" lean-forward="true" selection-start-line="545" selection-start-column="72" selection-end-line="545" selection-end-column="72" />
-          <folding>
-            <element signature="e#51#56#0#PHP" />
-            <element signature="e#180#185#0#PHP" />
-            <element signature="e#315#320#0#PHP" />
-            <element signature="e#446#451#0#PHP" />
-            <element signature="e#50159#50164#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/edit_asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="773" column="20" selection-start-line="773" selection-start-column="20" selection-end-line="773" selection-end-column="20" />
+        <state relative-caret-position="169">
+          <caret line="825" column="20" selection-start-line="825" selection-start-column="20" selection-end-line="825" selection-end-column="20" />
           <folding>
-            <element signature="n#link#0;n#!!top" />
             <element signature="e#51#56#0#PHP" />
             <element signature="e#180#185#0#PHP" />
             <element signature="e#315#320#0#PHP" />
             <element signature="e#446#451#0#PHP" />
             <element signature="e#562#567#0#PHP" />
-            <element signature="n#link#3;n#!!top" />
             <element signature="e#708#713#0#PHP" />
             <element signature="e#837#842#0#PHP" />
             <element signature="e#929#934#0#PHP" />
             <element signature="e#1022#1027#0#PHP" />
-            <element signature="e#49764#49769#0#PHP" />
-            <element signature="e#49861#49866#0#PHP" />
-            <element signature="e#49960#49965#0#PHP" />
-            <element signature="e#50067#50072#0#PHP" />
-            <element signature="e#50159#50164#0#PHP" />
-            <element signature="e#59519#59758#0#HTML" />
-            <element signature="e#59556#59750#0#HTML" />
-            <element signature="e#59783#60000#0#HTML" />
-            <element signature="e#59821#59992#0#HTML" />
           </folding>
         </state>
       </provider>

@@ -824,11 +824,9 @@
                         mySubmitData();
                     }
                 });
-
-                // My project only has 1 file hence not sendingmultiple
                 dzClosure.on('sending', function (data, xhr, form_data) {
-                    showloader();
-                    $('.mybtn').addClass('hide').attr('disabled', 'disabled');
+                    // showloader();
+                    // $('.mybtn').addClass('hide').attr('disabled', 'disabled');
                     xhr.onload = () => {
                         if (xhr.status >= 200 && xhr.status < 300) {
                             const response = JSON.parse(xhr.responseText);
