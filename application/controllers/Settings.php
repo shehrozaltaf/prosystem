@@ -38,6 +38,7 @@ class Settings extends CI_controller
             $Custom = new Custom();
             $formArray = array();
             $formArray['groupName'] = ucfirst($_POST['groupName']);
+            $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
             $InsertData = $Custom->Insert($formArray, 'idGroup', 'group', 'Y');

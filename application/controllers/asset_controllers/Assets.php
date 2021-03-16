@@ -406,6 +406,94 @@ class Assets extends CI_controller
 
     function bulkupdate()
     {
+        $editArr = array();
+        if (isset($_POST['status']) && $_POST['status'] != '') {
+            $editArr['status'] = $_POST['status'];
+
+        }
+        if (isset($_POST['writOff_formNo']) && $_POST['writOff_formNo'] != '') {
+            $editArr['writOff_formNo'] = $_POST['writOff_formNo'];
+        }
+        if (isset($_POST['wo_date']) && $_POST['wo_date'] != '') {
+            $editArr['wo_date'] = $_POST['wo_date'];
+        }
+        if (isset($_POST['idLocation']) && $_POST['idLocation'] != '') {
+            $editArr['idLocation'] = $_POST['idLocation'];
+        }
+        if (isset($_POST['idSubLocation']) && $_POST['idSubLocation'] != '') {
+            $editArr['idSubLocation'] = $_POST['idSubLocation'];
+        }
+        if (isset($_POST['emp_no']) && $_POST['emp_no'] != '') {
+            $editArr['emp_no'] = $_POST['emp_no'];
+        }
+        if (isset($_POST['resp_person_name']) && $_POST['resp_person_name'] != '') {
+            $editArr['resp_person_name'] = $_POST['resp_person_name'];
+        }
+        if (isset($_POST['verification_status']) && $_POST['verification_status'] != '') {
+            $editArr['verification_status'] = $_POST['verification_status'];
+        }
+        if (isset($_POST['last_verify_date']) && $_POST['last_verify_date'] != '') {
+            $editArr['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+        }
+        if (isset($_POST['due_date']) && $_POST['due_date'] != '') {
+            $editArr['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+        }
+        if (isset($_POST['area']) && $_POST['area'] != '') {
+            $editArr['area'] = $_POST['area'];
+        }
+        $Custom = new Custom();
+        if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
+            $MAsset = new MAsset();
+            foreach ($_POST['assets'] as $asset) {
+                $searchdata = array();
+                $searchdata['idAsset'] = $asset;
+                $asset_data = $MAsset->getAssetById($searchdata);
+                $editData = $Custom->Edit($editArr, 'idAsset', $asset, 'a_asset');
+
+                if ($editData) {
+                    foreach ($editArr as $ek => $e) {
+                        foreach ($asset_data[0] as $k => $a) {
+                            if (trim($ek) == trim($k) && $e != $a) {
+                                $insertArray_at = array();
+                                $insertArray_at['FormID'] = $asset;
+                                $insertArray_at['FormName'] = $ek;
+                                $insertArray_at['Fieldid'] = $ek;
+                                $insertArray_at['FieldName'] = $ek;
+                                $insertArray_at['OldValue'] = $a;
+                                $insertArray_at['NewValue'] = $e;
+                                $insertArray_at['isActive'] = 1;
+                                $insertArray_at['createdBy'] = $_SESSION['login']['idUser'];
+                                $insertArray_at['createdDateTime'] = date('Y-m-d H:i:s');
+                                $InsertData_at = $Custom->Insert($insertArray_at, 'id', 'a_AuditTrials', 'N');
+                            }
+                        }
+                    }
+                    if ($InsertData_at) {
+                        $result = 1;
+                    } else {
+                        $result = 4;
+                    }
+                } else {
+                    $result = 2;
+                }
+
+            }
+
+
+            /*if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }*/
+        } else {
+            $result = 3;
+        }
+        echo $result;
+
+    }
+
+    function bulkupdate2()
+    {
         $at_array = array();
         $i = -1;
         $editArr = array();
@@ -505,6 +593,8 @@ class Assets extends CI_controller
                 $editData = $Custom->Edit($editArr, 'idAsset', $asset, 'a_asset');
 
                 if ($editData) {
+
+
                     foreach ($at_array as $at) {
                         $insertArray_at = array();
                         $insertArray_at['FormID'] = $asset;
@@ -689,6 +779,12 @@ class Assets extends CI_controller
             $result = array('0' => 'Error', '1' => 'Invalid Asset ID');
         } else {
             $idAsset = $_POST['idAsset'];
+            $MAsset = new MAsset();
+            $searchdata = array();
+            $searchdata['idAsset'] = $idAsset;
+            $asset = $MAsset->getAssetById($searchdata);
+
+
             $Custom = new Custom();
             $editArray = array();
             $editArray['idCategory'] = $_POST['idCategory'];
@@ -725,6 +821,23 @@ class Assets extends CI_controller
             $editArray['entry_date'] = date('Y-m-d H:i:s');
             $editData = $Custom->Edit($editArray, 'idAsset', $idAsset, 'a_asset');
             if ($editData) {
+                foreach ($editArray as $ek => $e) {
+                    foreach ($asset[0] as $k => $a) {
+                        if (trim($ek) == trim($k) && $e != $a) {
+                            $insertArray_at = array();
+                            $insertArray_at['FormID'] = $idAsset;
+                            $insertArray_at['FormName'] = $ek;
+                            $insertArray_at['Fieldid'] = $ek;
+                            $insertArray_at['FieldName'] = $ek;
+                            $insertArray_at['OldValue'] = $a;
+                            $insertArray_at['NewValue'] = $e;
+                            $insertArray_at['isActive'] = 1;
+                            $insertArray_at['createdBy'] = $_SESSION['login']['idUser'];
+                            $insertArray_at['createdDateTime'] = date('Y-m-d H:i:s');
+                            $Custom->Insert($insertArray_at, 'id', 'a_AuditTrials', 'N');
+                        }
+                    }
+                }
                 if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
                     $upload_location = "assets/uploads/assetUploads/" . $idAsset . '/';
                     if (!is_dir($upload_location)) {
@@ -750,7 +863,7 @@ class Assets extends CI_controller
                                     $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
                                     $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'Y');
                                 }
-                            }else{
+                            } else {
                                 $result = array('0' => 'Error', '1' => 'Invalid file extension', '2' => 0);
                             }
                         }

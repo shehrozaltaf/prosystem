@@ -325,11 +325,11 @@
                                 <thead>
 
                                 <tr>
-                                    <th>Form Name</th>
-                                    <th>OldValue</th>
-                                    <th>NewValue</th>
-                                    <th>createdBy</th>
-                                    <th>createdDateTime</th>
+                                    <th>Feild Name</th>
+                                    <th>Old Value</th>
+                                    <th>New Value</th>
+                                    <th>By User</th>
+                                    <th>Date Time</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -349,11 +349,11 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Form Name</th>
-                                    <th>OldValue</th>
-                                    <th>NewValue</th>
-                                    <th>createdBy</th>
-                                    <th>createdDateTime</th>
+                                    <th>Feild Name</th>
+                                    <th>Old Value</th>
+                                    <th>New Value</th>
+                                    <th>By User</th>
+                                    <th>Date Time</th>
                                 </tr>
                                 </tfoot>
                             </table>
