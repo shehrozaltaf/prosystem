@@ -55,36 +55,50 @@ class Users extends CI_controller
     function editData()
     {
         $Custom = new Custom();
-        $editArr = array();
         $flag = 0;
         if (!isset($_POST['idUser']) || $_POST['idUser'] == '') {
             $result = 4;
             $flag = 1;
+            echo $result;
+            die();
         }
 
         if (!isset($_POST['userName']) || $_POST['userName'] == '') {
             $result = 5;
             $flag = 1;
+            echo $result;
+            die();
         }
 
-        if (!isset($_POST['email']) || $_POST['email'] == '') {
+        if (!isset($_POST['userEmail']) || $_POST['userEmail'] == '') {
             $result = 6;
             $flag = 1;
+            echo $result;
+            die();
         }
 
-        if (!isset($_POST['password']) || $_POST['password'] == '') {
+        if (!isset($_POST['userPassword']) || $_POST['userPassword'] == '') {
             $result = 7;
             $flag = 1;
+            echo $result;
+            die();
         }
 
         if ($flag == 0) {
             $idUser = $_POST['idUser'];
-            $editArr['username'] = $_POST['userName'];
-            $editArr['email'] = $_POST['email'];
-            $editArr['password'] = $_POST['password'];
-            $editArr['updateBy'] = $_SESSION['login']['idUser'];
-            $editArr['updatedDateTime'] = date('Y-m-d H:m:s');
-            $editData = $Custom->Edit($editArr, 'idUser', $idUser, 'users');
+
+            $formArray = array();
+            $formArray['full_name'] = ucfirst($_POST['fullName']);
+            $formArray['username'] = $_POST['userName'];
+            $formArray['email'] = $_POST['userEmail'];
+            $formArray['password'] = hash('sha256', $_POST['userPassword']);
+            $formArray['designation'] = $_POST['designation'];
+            $formArray['contact'] = $_POST['contactNo'];
+            $formArray['idGroup'] = $_POST['userGroup'];
+            $formArray['updateBy'] = $_SESSION['login']['idUser'];
+            $formArray['updatedDateTime'] = date('Y-m-d H:m:s');
+
+            $editData = $Custom->Edit($formArray, 'id', $idUser, 'users_dash');
             if ($editData) {
                 $result = 1;
             } else {
@@ -126,10 +140,9 @@ class Users extends CI_controller
             $formArray['full_name'] = ucfirst($_POST['fullName']);
             $formArray['username'] = $_POST['userName'];
             $formArray['email'] = $_POST['userEmail'];
-            $formArray['password'] = $_POST['userPassword'];
+            $formArray['password'] = hash('sha256', $_POST['userPassword']);
             $formArray['designation'] = $_POST['designation'];
             $formArray['contact'] = $_POST['contactNo'];
-            $formArray['district'] = $_POST['district'];
             $formArray['idGroup'] = $_POST['userGroup'];
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:m:s');

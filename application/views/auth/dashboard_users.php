@@ -43,8 +43,7 @@
                                                 <th>User Name</th>
                                                 <th>Email</th>
                                                 <th>Designation</th>
-                                                <th>Contract</th>
-                                                <th>District</th>
+                                                <th>Contact</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -58,7 +57,6 @@
                                                         <td><?php echo $u->email ?></td>
                                                         <td><?php echo $u->designation ?></td>
                                                         <td><?php echo $u->contact ?></td>
-                                                        <td><?php echo $u->district ?></td>
                                                         <td data-id="<?php echo $u->id ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
@@ -80,8 +78,7 @@
                                                 <th>User Name</th>
                                                 <th>Email</th>
                                                 <th>Designation</th>
-                                                <th>Contract</th>
-                                                <th>District</th>
+                                                <th>Contact</th>
                                                 <th>Action</th>
                                             </tr>
                                             </tfoot>
@@ -140,18 +137,6 @@
                     </fieldset>
 
                     <div class="form-group">
-                        <label for="district">District: </label>
-                        <select class="form-control" id="district">
-                            <option  value="0">Select District</option>
-                            <?php if (isset($districts) && $districts != '') {
-                                foreach ($districts as $d) {
-                                    echo '<option value="' . $d->dist_id . '">' . $d->dist_id . '</option>';
-                                }
-                            } ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="designation">Designation: </label>
                         <input type="text" class="form-control" id="designation" required>
                     </div>
@@ -190,14 +175,55 @@
                 <div class="modal-header bg-primary white">
                     <h4 class="modal-title white" id="myModalLabel_edit">Edit User</h4>
 
-                    <input type="hidden" id="edit_idUser" name="edit_idUser">
+                    <input type="hidden" id="edit_idUser" name="edit_idUser"  autocomplete="user_contactNo">
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit_fullName">Full Name: </label>
+                        <input type="text" class="form-control edit_fullName"
+                               autocomplete="user_edit_fullName"     id="edit_fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_userName">User Name: </label>
+                        <input type="email" class="form-control edit_userName"
+                               autocomplete="user_edit_userName"   id="edit_userName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_userEmail">Email: </label>
+                        <input type="text" class="form-control edit_userEmail"
+                               autocomplete="user_edit_userEmail"    id="edit_userEmail" required>
+                    </div>
+
+                    <fieldset class="form-label-group position-relative has-icon-left">
+                        <input type="password" class="form-control myPwdInput"
+                               autocomplete="user_edit_userPassword"   id="edit_userPassword" name="edit_userPassword"
+                               placeholder="Password" required>
+                        <div class="form-control-position toggle-password">
+                            <i class="feather icon-eye-off pwdIcon"></i>
+                        </div>
+                        <label for="edit_userPassword">Password</label>
+                    </fieldset>
 
                     <div class="form-group">
-                        <label for="edit_userName">User: </label>
-                        <input type="text" class="form-control edit_userName" id="edit_userName">
+                        <label for="edit_designation">Designation: </label>
+                        <input type="text" class="form-control" id="edit_designation" required>
                     </div>
+                    <div class="edit_form-group">
+                        <label for="edit_contactNo">Contact No: </label>
+                        <input type="text" class="form-control" id="edit_contactNo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_userGroup">User Group: </label>
+                        <select class="form-control" id="edit_userGroup" required>
+                            <option value="0">Select Group</option>
+                            <?php if (isset($groups) && $groups != '') {
+                                foreach ($groups as $g) {
+                                    echo '<option value="' . $g->idGroup . '">' . $g->groupName . '</option>';
+                                }
+                            } ?>
+                        </select>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
@@ -306,7 +332,6 @@
         data['userName'] = $('#userName').val();
         data['userEmail'] = $('#userEmail').val();
         data['userPassword'] = $('#userPassword').val();
-        data['district'] = $('#district').val();
         data['designation'] = $('#designation').val();
         data['contactNo'] = $('#contactNo').val();
         data['userGroup'] = $('#userGroup').val();
@@ -399,12 +424,19 @@
         var data = {};
         data['id'] = $(obj).parent('td').attr('data-id');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/Users/getUserEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/Users/getEdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
                         $('#edit_idUser').val(data['id']);
-                        $('#edit_userName').val(a[0]['userName']);
+                        $('#edit_fullName').val(a[0]['full_name']);
+                        $('#edit_userName').val(a[0]['username']);
+                        $('#edit_userEmail').val(a[0]['email']);
+                        $('#edit_userPassword').val(a[0]['password']);
+                        $('#edit_designation').val(a[0]['designation']);
+                        $('#edit_contactNo').val(a[0]['contact']);
+                        $('#edit_userGroup').val(a[0]['idGroup']);
+
                     } catch (e) {
                     }
                     $('#editModal').modal('show');
@@ -416,36 +448,75 @@
     }
 
     function editData() {
+        $('#edit_fullName').css('border', '1px solid #babfc7');
         $('#edit_userName').css('border', '1px solid #babfc7');
+        $('#edit_userEmail').css('border', '1px solid #babfc7');
+        $('#edit_userPassword').css('border', '1px solid #babfc7');
+        $('#edit_userGroup').css('border', '1px solid #babfc7');
         var flag = 0;
         var data = {};
         data['idUser'] = $('#edit_idUser').val();
+        data['fullName'] = $('#edit_fullName').val();
         data['userName'] = $('#edit_userName').val();
-        if (data['idUser'] == '' || data['idUser'] == undefined || data['idUser'].length < 1) {
+        data['userEmail'] = $('#edit_userEmail').val();
+        data['userPassword'] = $('#edit_userPassword').val();
+        data['designation'] = $('#edit_designation').val();
+        data['contactNo'] = $('#edit_contactNo').val();
+        data['userGroup'] = $('#edit_userGroup').val();
+        if (data['fullName'] == '' || data['fullName'] == undefined) {
+            $('#edit_fullName').css('border', '1px solid red');
             flag = 1;
+            toastMsg('Full Name', 'Invalid Full Name', 'error');
             return false;
         }
-        if (data['userName'] == '' || data['userName'] == undefined || data['userName'].length < 1) {
+        if (data['userName'] == '' || data['userName'] == undefined) {
             $('#edit_userName').css('border', '1px solid red');
-            toastMsg('User', 'Invalid User Name', 'error');
             flag = 1;
+            toastMsg('User Name', 'Invalid User Name', 'error');
             return false;
         }
+        if (data['userEmail'] == '' || data['userEmail'] == undefined) {
+            $('#edit_userEmail').css('border', '1px solid red');
+            flag = 1;
+            toastMsg('Email', 'Invalid Email', 'error');
+            return false;
+        }
+        if (data['userPassword'] == '' || data['userPassword'] == undefined) {
+            $('#edit_userPassword').css('border', '1px solid red');
+            flag = 1;
+            toastMsg('Password', 'Invalid Password', 'error');
+            return false;
+        }
+        if (data['userGroup'] == '' || data['userGroup'] == undefined) {
+            $('#edit_userGroup').css('border', '1px solid red');
+            flag = 1;
+            toastMsg('Group', 'Invalid Group', 'error');
+            return false;
+        }
+
         if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/Users/editUserData')?>', data, 'POST', function (res) {
+            showloader();
+            CallAjax('<?php echo base_url('index.php/Users/editData')?>', data, 'POST', function (res) {
+                hideloader();
                 if (res == 1) {
                     $('#editModal').modal('hide');
                     toastMsg('User', 'Successfully Edited', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
+                } else if (res == 3 || res == 4 || res == 5) {
+                    $('#edit_userName').css('border', '1px solid red');
+                    toastMsg('User Name', 'Invalid User Name', 'error');
+                } else if (res == 6) {
+                    $('#edit_userEmail').css('border', '1px solid red');
+                    toastMsg('Email', 'Invalid Email', 'error');
+                } else if (res == 7) {
+                    $('#edit_userPassword').css('border', '1px solid red');
+                    toastMsg('Password', 'Invalid Password', 'error');
                 } else if (res == 2) {
                     toastMsg('User', 'Something went wrong', 'error');
-                } else if (res == 3) {
-                    toastMsg('User', 'Invalid User', 'error');
                 }
             });
         }
     }
-
 </script>
