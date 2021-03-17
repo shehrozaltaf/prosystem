@@ -211,6 +211,7 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
                                                        id="tag_no"
+                                                       onfocusout="chkTagNo()"
                                                        name="tag_no"
                                                        autocomplete="tag_no" required>
                                                 <small><input type="checkbox" value="1" id="paeds_tagID"
@@ -303,7 +304,7 @@
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous/Submit</span>
                                 </button>
-                                <button class="btn btn-primary btn-next">
+                                <button class="btn btn-primary btn-next tagNextBtn" onclick="chkTagNo()">
                                     <span class="align-middle d-sm-inline-block d-none">Next</span>
                                     <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
                                 </button>
@@ -765,9 +766,31 @@
                     }
                 });
 
-
                 // My project only has 1 file hence not sendingmultiple
                 dzClosure.on('sending', function (data, xhr, form_data) {
+                    xhr.onload = () => {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            const response = JSON.parse(xhr.responseText);
+                            hideloader();
+                            $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                            try {
+                                if (response[0] == 'Success') {
+                                    toastMsg(response[0], response[1], 'success');
+                                    $('.res_heading').html(response[0]).css('color', 'green');
+                                    $('.res_msg').html(response[1]).css('color', 'green');
+                                    setTimeout(function () {
+                                        window.location.reload();
+                                    }, 1000)
+                                } else {
+                                    toastMsg(response[0], response[1], 'error');
+                                    $('.res_heading').html(response[0]).css('color', 'red');
+                                    $('.res_msg').html(response[1]).css('color', 'red');
+                                }
+                            } catch (e) {
+                            }
+                        }
+                    };
+
                     console.log('sending');
                     form_data.append('pr_reqId', $('#pr_reqId').val());
                     form_data.append('idCategory', $('#idCategory').val());
@@ -802,7 +825,9 @@
                     form_data.append('remarks', $('#remarks').val());
                 });
 
-                dzClosure.on('complete', function (result) {
+                /*dzClosure.on('complete', function (result) {
+
+
                     toastMsg('success', 'Successfully Inserted', 'success');
                     $('.res_heading').html('success').css('color', 'green');
                     $('.res_msg').html('Image Successfully Inserted').css('color', 'green');
@@ -827,8 +852,7 @@
                         }
                     } catch (e) {
                     }
-                    // window.location.href = base_url+'admin/saveProject';
-                })
+                })*/
             },
         });
     });
@@ -843,6 +867,8 @@
             $('#wo_date').removeAttr('disabled', 'disabled');
         }
     }
+
+
 
 
     function mySubmitData() {
@@ -899,7 +925,7 @@
                     toastMsg(response[0], response[1], 'success');
                     $('.res_heading').html(response[0]).css('color', 'green');
                     $('.res_msg').html(response[1]).css('color', 'green');
-                    $('.paeds_id').text('0'+response[2]);
+                    $('.paeds_id').text('0' + response[2]);
                 } else {
                     toastMsg(response[0], response[1], 'error');
                     $('.res_heading').html(response[0]).css('color', 'red');
@@ -912,11 +938,44 @@
     }
 
     function changeTagPaedID() {
+        $('#tag_no').removeClass('error');
+        $('.tagNextBtn').removeAttr('disabled');
         if ($('#paeds_tagID').prop("checked") == true) {
             var paeds_id = $('.paeds_id').text().trim();
             $('#tag_no').val('PAEDSID ' + paeds_id).attr('disabled', 'disabled');
         } else if ($('#paeds_tagID').prop("checked") == false) {
             $('#tag_no').val('').removeAttr('disabled', 'disabled');
+        }
+    }
+
+    function chkTagNo() {
+        var data = {};
+        data['tag_no'] = $('#tag_no').val();
+        $('#tag_no').removeClass('error');
+        $('.tagNextBtn').removeAttr('disabled');
+        if (data['tag_no'] != '' && data['tag_no'] != undefined) {
+            CallAjax('<?php echo base_url('index.php/asset_controllers/Add_asset/chkTag')?>', data, 'Post', function (result) {
+                try {
+                    var response = JSON.parse(result);
+                    if (response[0] == 'Success') {
+                        $('#tag_no').removeClass('error');
+                        $('.tagNextBtn').removeAttr('disabled');
+                        return true;
+                        // toastMsg(response[0], response[1], 'success');
+                    } else {
+                        $('.tagNextBtn').attr('disabled','disabled');
+                        $('#tag_no').addClass('error');
+                        toastMsg(response[0], response[1], 'error');
+                        return false;
+                    }
+                } catch (e) {
+                }
+            })
+        } else {
+            $('.tagNextBtn').attr('disabled','disabled');
+            $('#tag_no').addClass('error');
+            toastMsg('Error', 'Invalid Tag No', 'error');
+            return false;
         }
     }
 

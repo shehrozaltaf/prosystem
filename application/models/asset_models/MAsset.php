@@ -184,6 +184,15 @@ class MAsset extends CI_Model
         return $query->result();
     }
 
+    function chkTagNo($tagNo)
+    {
+        $this->db->select('tag_no');
+        $this->db->from('a_asset');
+        $this->db->where('tag_no', $tagNo);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function getAuditTrialById($searchdata)
     {
         $FormID = '';
