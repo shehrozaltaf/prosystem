@@ -46,12 +46,13 @@ class Assets extends CI_controller
 
     function getAsset()
     {
+        $MSettings = new MSettings();
+        $permission = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/Assets');
+
         $M = new MAsset();
         $orderindex = (isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : '');
         $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
         $searchData = array();
-
-
         $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
         $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
         $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
@@ -65,7 +66,6 @@ class Assets extends CI_controller
         $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
         $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
         $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
-
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : '');
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
@@ -139,14 +139,23 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['document'] = (isset($docs[0]->docPath) && $docs[0]->docPath != '' ?
                 '<a href="' . base_url($docs[0]->docPath) . '" target="_blank">' . $docs[0]->docName . '</a>' : '');
 
+            if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) {
+                $edit = '<a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
+                             <i class="feather icon-edit" ></i> 
+                       </a> ';
+            }
+
+            if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) {
+                $delete = '<a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
+                                <i class="feather icon-trash"></i>
+                            </a>';
+            }
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
                 </a> 
                 
-                 <a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
-                        <i class="feather icon-edit" ></i> 
-                </a>   ';
+                  ' . $edit . $delete;
 
             $table_data[$value->idAsset]['check'] = '<input type="checkbox" class="checkboxes" 
                 data-id="' . $value->idAsset . '"  
@@ -154,13 +163,9 @@ class Assets extends CI_controller
                 name="check_asset" 
                 id="check_asset_' . $key . '"  value="1" 
                 onclick="updBtnToggle()" />
-                
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
                         <i class="feather icon-eye" ></i> 
-                </a> 
-                <a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
-                        <i class="feather icon-edit" ></i> 
-                </a> ';
+                </a>' . $edit . $delete;
 
         }
         foreach ($table_data as $k => $v) {

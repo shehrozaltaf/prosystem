@@ -665,7 +665,7 @@
                                                           class="form-control"
                                                           cols="30"
                                                           rows="7"
-                                                          autocomplete="remarks" required></textarea>
+                                                          autocomplete="remarks"></textarea>
                                             </div>
                                         </div>
                                     </div>

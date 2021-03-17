@@ -828,7 +828,7 @@
                     "data": null,
                     "defaultContent": ""
                 },
-                {"data": "check", "orderable": false},
+                {"data": "check",  "orderable": false,  "defaultContent": ""},
                 {"data": "paeds_id", "class": "paeds_id"},
                 {"data": "category", "class": "category"},
                 {"data": "desc", "class": "desc"},

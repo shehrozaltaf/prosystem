@@ -219,7 +219,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       id="tag_no"
+                                                       id="tag_no" disabled readonly
                                                        name="tag_no"
                                                        value="<?php echo(isset($a->tag_no) && $a->tag_no != '' ? $a->tag_no : '') ?>"
                                                        autocomplete="tag_no" required>
