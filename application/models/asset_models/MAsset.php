@@ -41,6 +41,10 @@ class MAsset extends CI_Model
         if (isset($searchdata['idSubLocation']) && $searchdata['idSubLocation'] != '' && $searchdata['idSubLocation'] != null) {
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
         }
+
+        if (isset($searchdata['area']) && $searchdata['area'] != '' && $searchdata['area'] != null) {
+            $this->db->where("(a.area like '%" . $searchdata['area'] . "%')");
+        }
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where("a.status", $searchdata['status']);
         }
@@ -54,6 +58,7 @@ class MAsset extends CI_Model
         if (isset($searchdata['tag_pr']) && $searchdata['tag_pr'] != '' && $searchdata['tag_pr'] != null) {
             $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%' )");
         }
+
         if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
             $this->db->where("a.idAsset", $searchdata['idAsset']);
         }
@@ -102,6 +107,9 @@ class MAsset extends CI_Model
         }
         if (isset($searchdata['idSubLocation']) && $searchdata['idSubLocation'] != '' && $searchdata['idSubLocation'] != null) {
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
+        }
+        if (isset($searchdata['area']) && $searchdata['area'] != '' && $searchdata['area'] != null) {
+            $this->db->where("(a.area like '%" . $searchdata['area'] . "%')");
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
             if ($searchdata['verification_status'] == 'Due') {

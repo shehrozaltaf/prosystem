@@ -59,6 +59,7 @@ class Assets extends CI_controller
         $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
         $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
         $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+        $searchData['area'] = (isset($_REQUEST['area']) && $_REQUEST['area'] != '' && $_REQUEST['area'] != '0' ? $_REQUEST['area'] : 0);
         $searchData['verification_status'] = (isset($_REQUEST['verification_status']) && $_REQUEST['verification_status'] != '' && $_REQUEST['verification_status'] != '0' ? $_REQUEST['verification_status'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
         $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);
@@ -183,6 +184,7 @@ class Assets extends CI_controller
         $totalsearchData['sop'] = $searchData['sop'];
         $totalsearchData['idLocation'] = $searchData['idLocation'];
         $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
+        $totalsearchData['area'] = $searchData['area'];
         $totalsearchData['status'] = $searchData['status'];
         $totalsearchData['verification_status'] = $searchData['verification_status'];
         $totalsearchData['tag_pr'] = $searchData['tag_pr'];
@@ -652,6 +654,7 @@ class Assets extends CI_controller
             $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
             $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
             $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+            $searchData['area'] = (isset($_REQUEST['area']) && $_REQUEST['area'] != '' && $_REQUEST['area'] != '0' ? $_REQUEST['area'] : 0);
             $searchData['verification_status'] = (isset($_REQUEST['verification_status']) && $_REQUEST['verification_status'] != '' && $_REQUEST['verification_status'] != '0' ? $_REQUEST['verification_status'] : 0);
             $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
             $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);

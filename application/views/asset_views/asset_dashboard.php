@@ -8,7 +8,7 @@
         border-bottom: 1px solid;
     }
 
-    #tblaudit th,#tblaudit td {
+    #tblaudit th, #tblaudit td {
         width: 10%;
     }
 </style>
@@ -141,6 +141,15 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="col-sm-3 col-12">
+                                            <div class="form-group">
+                                                <label for="area_filter">Area</label>
+                                                <input type="text" class="form-control" id="area_filter"
+                                                       name="area_filter">
+                                            </div>
+                                        </div>
+
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="verification_status_filter">Verification Status</label>
@@ -249,7 +258,7 @@
                                                 <th>PRPath</th>
                                                 <th>Document</th>
                                                 <th>Verification</th>
-<!--                                                <th>Action</th>-->
+                                                <!--                                                <th>Action</th>-->
                                             </tr>
                                             </thead>
                                             <tfoot>
@@ -268,7 +277,7 @@
                                                 <th>PRPath</th>
                                                 <th>Document</th>
                                                 <th>Verification</th>
-<!--                                                <th>Action</th>-->
+                                                <!--                                                <th>Action</th>-->
                                             </tfoot>
                                         </table>
                                     </div>
@@ -474,7 +483,7 @@
                             <td class='summaryNewVal'>
                                 <input type="text" class="form-control mypickadat"
                                        id="last_verify_date_bulk" name="last_verify_date_bulk"
-                                       autocomplete="last_verify_date_bulk"
+                                       autocomplete="last_verify_date_bulk" onchange="changeVeriDueDate()"
                                        value="<?php echo date('d-m-Y') ?>">
                             </td>
                         </tr>
@@ -484,13 +493,13 @@
                                 Due Date
                             </td>
                             <td class='summaryNewVal'>
-                                <input type="text" class="form-control mypickadat2"
+                                <input type="text" class="form-control mypickadat"
                                        id="due_date_bulk" name="due_date_bulk"
                                        autocomplete="due_date_bulk"
                                        value="<?php echo date('d-m-Y', strtotime('+1 years')) ?>">
                             </td>
-                        </tr>
 
+                        </tr>
                         <tr class="summaryRow idLocation_bulk">
                             <td class='summaryFldid summaryFldid_status' data-key="idLocation" data-fldnme="Location">
                                 Location
@@ -533,7 +542,7 @@
                             <td class='summaryNewVal'>
                                 <input type="text" class="form-control"
                                        id="area_bulk" name="area_bulk"
-                                       autocomplete="area_bulk" >
+                                       autocomplete="area_bulk">
                             </td>
                         </tr>
 
@@ -546,7 +555,7 @@
                 <br/><br/>
                 <div class="m-1">
                     <h5 class=" bg-primary white  p-1">Summary of Changes (Bulk Update)</h5>
-                    <table id="tblaudit" width='100%'  border="1">
+                    <table id="tblaudit" width='100%' border="1">
                         <thead>
                         <tr>
                             <th>PAEDS ID</th>
@@ -633,6 +642,19 @@
             $('.writOff_formNo_bulk').removeClass('hide');
             $('.wo_date_bulk').removeClass('hide');
         }
+    }
+
+    function changeVeriDueDate() {
+        var last_verify_date_bulk = $('#last_verify_date_bulk').val();
+        var due_date_bulk = '';
+        if (last_verify_date_bulk != '' && last_verify_date_bulk != undefined) {
+            var a = last_verify_date_bulk.split('-');
+            var y = parseInt(a[2]) + 1;
+            due_date_bulk = a[0] + '-' + a[1] + '-' + y;
+        } else {
+            due_date_bulk = '';
+        }
+        $('#due_date_bulk').val(due_date_bulk);
     }
 
     function updBtnToggle() {
@@ -801,6 +823,7 @@
         data['sop'] = $('#sop').val();
         data['location'] = $('#location').val();
         data['sublocation'] = $('#sublocation').val();
+        data['area'] = $('#area_filter').val();
         data['verification_status'] = $('#verification_status_filter').val();
         data['status'] = $('#status').val();
         data['tag_pr'] = $('#tag_pr').val();
@@ -813,8 +836,8 @@
         $('.main_content_div').addClass('hide');
         var dt = $('#my_table_asset').DataTable({
             destroy: true,
-             processing: true,
-             serverSide: true,
+            processing: true,
+            serverSide: true,
             ajax: {
                 "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",
@@ -828,7 +851,7 @@
                     "data": null,
                     "defaultContent": ""
                 },
-                {"data": "check",  "orderable": false,  "defaultContent": ""},
+                {"data": "check", "orderable": false, "defaultContent": ""},
                 {"data": "paeds_id", "class": "paeds_id"},
                 {"data": "category", "class": "category"},
                 {"data": "desc", "class": "desc"},
@@ -925,6 +948,7 @@
         data['sop'] = $('#sop').val();
         data['location'] = $('#location').val();
         data['sublocation'] = $('#sublocation').val();
+        data['area'] = $('#area_filter').val();
         data['verification_status'] = $('#verification_status_filter').val();
         data['status'] = $('#status').val();
         data['tag_pr'] = $('#tag_pr').val();
