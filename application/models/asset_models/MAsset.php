@@ -74,7 +74,29 @@ class MAsset extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(a.tag_no like '%" . $search . "%' OR  a.status_name like '%" . $search . "%')");
+            $this->db->where("(a.tag_no like '%" . $search . "%'
+            OR  a.status_name like '%" . $search . "%'
+            OR  a.description like '%" . $search . "%'
+            OR  a.model like '%" . $search . "%'
+            OR  a.product_no like '%" . $search . "%'
+            OR  a.serial_no like '%" . $search . "%'
+            OR  a.gri_no like '%" . $search . "%'
+            OR  a.tag_no like '%" . $search . "%'
+            OR  a.po_no like '%" . $search . "%'
+            OR  a.cost like '%" . $search . "%'
+            OR  a.pr_no like '%" . $search . "%'
+            OR  a.emp_no like '%" . $search . "%'
+            OR  a.resp_person_name like '%" . $search . "%'
+            OR  a.account like '%" . $search . "%'
+            OR  a.ou like '%" . $search . "%'
+            OR  a.area like '%" . $search . "%'
+            OR  a.category like '%" . $search . "%'
+            OR  a.currency like '%" . $search . "%'
+            OR  a.sopName like '%" . $search . "%'
+            OR  a.empname like '%" . $search . "%'
+            OR  a.proj_name like '%" . $search . "%'
+            OR  a.remarks like '%" . $search . "%'
+            OR  a.verification_status LIKE '%" . $search . "%' )");
         }
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
@@ -139,7 +161,29 @@ class MAsset extends CI_Model
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
             $search = $searchdata['search'];
-            $this->db->where("(a.tag_no like '%" . $search . "%' OR  a.status_name like '%" . $search . "%')");
+            $this->db->where("(a.tag_no like '%" . $search . "%'
+            OR  a.status_name like '%" . $search . "%'
+            OR  a.description like '%" . $search . "%'
+            OR  a.model like '%" . $search . "%'
+            OR  a.product_no like '%" . $search . "%'
+            OR  a.serial_no like '%" . $search . "%'
+            OR  a.gri_no like '%" . $search . "%'
+            OR  a.tag_no like '%" . $search . "%'
+            OR  a.po_no like '%" . $search . "%'
+            OR  a.cost like '%" . $search . "%'
+            OR  a.pr_no like '%" . $search . "%'
+            OR  a.emp_no like '%" . $search . "%'
+            OR  a.resp_person_name like '%" . $search . "%'
+            OR  a.account like '%" . $search . "%'
+            OR  a.ou like '%" . $search . "%'
+            OR  a.area like '%" . $search . "%'
+            OR  a.category like '%" . $search . "%'
+            OR  a.currency like '%" . $search . "%'
+            OR  a.sopName like '%" . $search . "%'
+            OR  a.empname like '%" . $search . "%'
+            OR  a.proj_name like '%" . $search . "%'
+            OR  a.remarks like '%" . $search . "%'
+            OR  a.verification_status LIKE '%" . $search . "%' )");
         }
 
         $this->db->select('count(a.idAsset) as cnttotal');
