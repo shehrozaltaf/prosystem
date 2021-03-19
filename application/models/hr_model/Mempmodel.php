@@ -141,9 +141,7 @@ class Mempmodel extends CI_Model
                 "status" => $row->status,
                 "remarks" => $row->remarks,
                 "pic" => $row->pic,
-                "doc" => $row->doc,
-                "degree" => $row->degree,
-                "field" => $row->field
+                "doc" => $row->doc
             );
         }
 
@@ -200,7 +198,7 @@ class Mempmodel extends CI_Model
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
         }
-        $this->db->select('e1.id id,
+       /* $this->db->select('e1.id id,
             et4.emptype EmployeeType,
             c4.category EmployeeCategory,
             e1.empno EmployeeNo,
@@ -214,8 +212,6 @@ class Mempmodel extends CI_Model
             loc4.location LocationCode,
             e.conexpiry ConExpiry,
             st4.status Status');
-
-
         $this->db->from('hr_employee e');
         $this->db->join('hr_category c', 'e.ddlcategory = c.id', 'left');
         $this->db->join('hr_emptype et', 'e.ddlemptype = et.id', 'left');
@@ -236,9 +232,10 @@ class Mempmodel extends CI_Model
         $this->db->join('hr_status st4', 'st4.id = e1.status', 'left');
         $this->db->join('project pr4', 'pr4.proj_code = e1.workproj', 'left');
         $this->db->join('project pr41', 'pr41.proj_code = e1.chargproj', 'left');
+        $this->db->where('e1.supernme IS NOT NULL');*/
 
-        $this->db->where('e1.supernme IS NOT NULL');
-
+        $this->db->select('*');
+        $this->db->from('employee_view');
         $this->db->limit($length, $start);
         $query = $this->db->get();
 

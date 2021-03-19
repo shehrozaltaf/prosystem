@@ -251,53 +251,53 @@
                                                                 <?php echo $sno ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $rows->EmployeeType ?>
+                                                                <?php echo $rows->emptype ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $rows->EmployeeCategory ?>
+                                                                <?php echo $rows->category ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $rows->EmployeeNo ?>
+                                                                <?php echo $rows->empno ?>
                                                             </td>
                                                             <td style="text-transform: uppercase;">
-                                                                <?php echo $rows->EmployeeName ?>
+                                                                <?php echo $rows->empname ?>
                                                             </td>
                                                             <td class="auditcol_supernme"
                                                                 style="text-transform: uppercase;"
-                                                                data-key="<?php echo $rows->SupervisorName ?>"
-                                                                data-oldval="<?php echo $rows->SupervisorCode ?>">
-                                                                <?php echo $rows->SupervisorName ?>
+                                                                data-key="<?php echo $rows->supernme ?>"
+                                                                data-oldval="<?php echo $rows->supernme ?>">
+                                                                <?php echo $rows->supernme ?>
                                                             </td>
                                                             <td class="auditcol_workproj"
                                                                 style="text-transform: capitalize;"
-                                                                data-key="<?php echo $rows->WorkingProject ?>"
-                                                                data-oldval="<?php echo $rows->WorkProjectCode ?>">
-                                                                <?php echo $rows->WorkingProject ?>
+                                                                data-key="<?php echo $rows->workingProj ?>"
+                                                                data-oldval="<?php echo $rows->workproj ?>">
+                                                                <?php echo $rows->workingProj ?>
                                                             </td>
                                                             <td class="auditcol_chargproj"
                                                                 style="text-transform: capitalize;"
-                                                                data-key="<?php echo $rows->ChargingProject ?>"
-                                                                data-oldval="<?php echo $rows->ChargeProjectCode ?>">
-                                                                <?php echo $rows->ChargingProject ?>
+                                                                data-key="<?php echo $rows->chargingProj ?>"
+                                                                data-oldval="<?php echo $rows->chargproj ?>">
+                                                                <?php echo $rows->chargingProj ?>
                                                             </td>
                                                             <td class="auditcol_ddlloc"
-                                                                data-key="<?php echo $rows->Location ?>"
-                                                                data-oldval="<?php echo $rows->LocationCode ?>">
-                                                                <?php echo $rows->Location ?>
+                                                                data-key="<?php echo $rows->location ?>"
+                                                                data-oldval="<?php echo $rows->ddlloc ?>">
+                                                                <?php echo $rows->location ?>
                                                             </td>
                                                             <td class="auditcol_conexpiry"
-                                                                data-key="<?php echo $rows->ContractExpiry ?>"
-                                                                data-oldval="<?php echo date('d-m-Y', strtotime($rows->ConExpiry)) ?>">
-                                                                <?php echo $rows->ContractExpiry ?>
+                                                                data-key="<?php echo $rows->conexpiry ?>"
+                                                                data-oldval="<?php echo date('d-m-Y', strtotime($rows->conexpiry)) ?>">
+                                                                <?php echo $rows->conexpiry ?>
                                                             </td>
                                                             <td class="auditcol_status"
-                                                                data-key="<?php echo $rows->Status ?>"
-                                                                data-oldval="<?php echo $rows->StatusCode ?>">
-                                                                <?php echo $rows->Status ?>
+                                                                data-key="<?php echo $rows->statusName ?>"
+                                                                data-oldval="<?php echo $rows->status ?>">
+                                                                <?php echo $rows->statusName ?>
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
                                                                 <?php if (isset($permission[0]->CanView) && $permission[0]->CanView == 1) { ?>
-                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->EmployeeNo) ?>" >
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->empno) ?>" >
                                                                         <i class="feather icon-eye"></i> </a>
                                                                 <?php } ?>
                                                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
@@ -313,7 +313,7 @@
                                                                 <?php } ?>
                                                             </td>
                                                             <td><input type="checkbox" class="checkboxes"
-                                                                       data-emp="<?php echo $rows->EmployeeNo ?>"
+                                                                       data-emp="<?php echo $rows->empno ?>"
                                                                        data-oldval="<?php echo $rows->id ?>"
                                                                        name="locked_clusters" value="1"
                                                                        onclick="updBtnToggle()"

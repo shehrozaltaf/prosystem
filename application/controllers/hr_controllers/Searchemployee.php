@@ -61,7 +61,7 @@ class Searchemployee extends CI_Controller
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 500000);
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
-        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'b.id');
+        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'id');
         $searchData['ordersort'] = (isset($_REQUEST['order'][4]['dir']) && $_REQUEST['order'][4]['dir'] != '' ? $_REQUEST['order'][4]['dir'] : 'desc');
 
         $data['datatbl'] = $Mempmodel->getAllEmployee($searchData);
