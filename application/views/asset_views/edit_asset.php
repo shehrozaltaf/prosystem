@@ -770,11 +770,13 @@
         $("#prog").inputmask("9999");
         mydate();
         mydate2();
-        changeLocation('idLocation', 'idSubLocation');
         chkStatus('');
         setTimeout(function () {
-            var idSubLocation = $('#hidden_idSubLocation').val();
-            $('#idSubLocation').val(idSubLocation).select2()
+            changeLocation('idLocation', 'idSubLocation');
+            setTimeout(function () {
+                var idSubLocation = $('#hidden_idSubLocation').val();
+                $('#idSubLocation').val(idSubLocation).select2();
+            }, 500);
         }, 500);
         $(".numericOnly").ForceNumericOnly();
         // Dropzone.autoDiscover = false;
