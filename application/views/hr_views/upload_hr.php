@@ -6,11 +6,11 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Upload Data</h2>
+                        <h2 class="content-header-title float-left mb-0">Upload HR Data</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a></li>
-                                <li class="breadcrumb-item active">Upload</li>
+                                <li class="breadcrumb-item active">Upload HR</li>
                             </ol>
                         </div>
                     </div>
@@ -27,17 +27,6 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-
-                                    <!-- <form method="post" id="upload_form" enctype="multipart/form-data">
-                                         <div class="col-md-6" align="right">Select File</div>
-                                         <div class="col-md-6">
-                                             <input type="file" name="file" id="csv_file" />
-                                         </div>
-                                         <br /><br /><br />
-                                         <div class="col-md-12" align="center">
-                                             <input type="submit" name="upload_file" id="upload_file" class="btn btn-primary" value="Upload" />
-                                         </div>
-                                     </form>-->
                                     <form id="document_form" method="post"
                                           onsubmit="return false" enctype="multipart/form-data">
                                         <div class="row">
@@ -48,11 +37,7 @@
                                                             name="idTable" required onchange="requiredField()">
                                                         <option value="0" readonly disabled selected>Table Type
                                                         </option>
-                                                        <option value="project">Project</option>
-                                                        <option value="b_budget">Budget</option>
-                                                        <option value="b_actual">Actual - Budget</option>
-                                                        <option value="b_projected">Projected - Budget</option>
-                                                        <option value="devices">Inventory - Add Asset</option>
+                                                        <option value="hr_employee2">Employee</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -66,22 +51,13 @@
                                                 </h4>
                                                 <p></p>
                                                 <div class="form-group">
-                                                    <!--                                                        <input type="file" class="form-control" -->
-                                                    <!--                                                               id="document_file" name="document_file" required>-->
                                                     <input type="file" class="form-control"
                                                            name="file" id="csv_file" required>
                                                 </div>
                                             </div>
                                         </div>
 
-
                                         <?php if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
-
-                                            <!--   <div class="col-md-12" >
-                                                   <input type="submit" name="upload_file" id="upload_file"
-                                                          class="btn btn-primary" value="Upload"/>
-                                               </div>-->
-
                                             <button type="submit" class="btn btn-primary mybtn" name="upload_file"
                                                     id="upload_file">
                                                 Submit
@@ -136,6 +112,7 @@
                 cache: false,
                 processData: false,
                 success: function (data) {
+                    console.log(data);
                     $('.res_heading').html('');
                     $('.res_msg').html('');
 
@@ -189,60 +166,20 @@
         $('.requiredFieldDiv').addClass('hide').find('ul').html('');
         var idTable = $('#idTable').val();
         var html = '';
-        if (idTable == 'project') {
-            html += '<li>proj_code</li>';
-            html += '<li>proj_name</li>';
-            html += '<li>proj_priv</li>';
-            html += '<li>proj_sn</li>';
-        } else if (idTable == 'b_actual') {
-            html += '<li>proj_code</li>';
-            html += '<li>empl_code</li>';
-            html += '<li>actl_pctg</li>';
-            html += '<li>actl_month</li>';
-            html += '<li>actl_year</li>';
-        } else if (idTable == 'b_budget') {
-            html += '<li>proj_code</li>';
-            html += '<li>bdgt_code</li>';
-            html += '<li>bdgt_posi</li>';
-            html += '<li>bdgt_band</li>';
-            html += '<li>bdgt_amnt</li>';
-            html += '<li>bdgt_pctg</li>';
-            html += '<li>bdgt_month</li>';
-            html += '<li>bdgt_year</li>';
-        } else if (idTable == 'b_projected') {
-            html += '<li>proj_code</li>';
-            html += '<li>empl_code</li>';
-            html += '<li>prjn_pctg</li>';
-            html += '<li>prjn_month</li>';
-            html += '<li>prjn_year</li>';
-        } else if (idTable == 'devices') {
-            html += '<li>inventory_type</li>';
-            html += '<li>model</li>';
-            html += '<li>product</li>';
-            html += '<li>serial</li>';
-            html += '<li>dop</li>';
-            html += '<li>username</li>';
-            html += '<li>loc</li>';
-            html += '<li>remarks</li>';
-            html += '<li>status</li>';
-            html += '<li>newEntry</li>';
-            html += '<li>expiryDateTime</li>';
-            html += '<li>tagable</li>';
-            html += '<li>ftag</li>';
-            html += '<li>aaftag</li>';
-        } else {
+        if (idTable == 'hr_employee2') {
+            html += '<li>empno</li>';
+            html += '<li>empname</li>';
+        }else {
             html = '';
         }
         $('.requiredFieldDiv').removeClass('hide').find('ul').html(html);
     }
 
     function submitData() {
-
         $('#idTable').css('border', '1px solid #babfc7');
         $('#document_file').css('border', '1px solid #babfc7');
         var flag = 0;
         var data = {};
-
         var head = [];
         var thead = $('.myTable').find('thead').find('select');
         $.each(thead, function (i, v) {
@@ -255,7 +192,6 @@
                 flag = 1;
                 return false;
             }
-
         });
 
         var body_keys = [];

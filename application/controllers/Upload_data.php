@@ -86,7 +86,7 @@ class Upload_data extends CI_controller
                     $limit = 0;
                     while (($row = fgetcsv($file_data)) !== FALSE) {
                         $limit++;
-                        if ($limit < 5000) {
+                        if ($limit < 10000) {
                             $html .= '<tr>';
                             for ($count = 0; $count < count($row); $count++) {
                                 if (!isset($row[$count]) || $row[$count] == '') {
@@ -127,12 +127,13 @@ class Upload_data extends CI_controller
             $error = 'Please Select CSV File';
         }
 
+
         $output = array(
             'error' => $error,
             'output' => $html
         );
 
-        echo json_encode($output);
+        echo json_encode($output,true);
     }
 
 

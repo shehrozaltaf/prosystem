@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Upload_asset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Upload_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Upload_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/upload_hr.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/upload_hr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/excelsUpload/budget_sir.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,85 +40,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
+        <entry file="file://$PROJECT_DIR$/application/views/hr_views/upload_hr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="861" column="32" selection-start-line="861" selection-start-column="32" selection-end-line="868" selection-end-column="68" />
-              <folding>
-                <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-                <element signature="e#613#700#0#PHP" />
-                <element signature="e#853#973#0#PHP" />
-                <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
-                <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
-                <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
-                <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
-                <element signature="n#bulkupdate#0;n#Assets#0;n#!!top" />
-                <element signature="n#bulkupdate2#0;n#Assets#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="125" column="32" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="125" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="196" column="37" lean-forward="true" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
-              <folding>
-                <element signature="n#__construct#0;n#Add_asset#0;n#!!top" />
-                <element signature="e#256#343#0#PHP" />
-                <element signature="e#496#607#0#PHP" />
-                <element signature="n#testUpload3#0;n#Add_asset#0;n#!!top" />
-                <element signature="e#1860#2012#0#PHP" />
-                <element signature="e#2148#2918#0#PHP" />
-                <element signature="e#2761#2908#0#PHP" />
-                <element signature="e#2858#2908#0#PHP" />
-                <element signature="e#3136#3788#0#PHP" />
-                <element signature="e#3199#3778#0#PHP" />
-                <element signature="e#3497#3764#0#PHP" />
-                <element signature="e#3609#3746#0#PHP" />
-              </folding>
+            <state relative-caret-position="356">
+              <caret line="106" column="45" lean-forward="true" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/edit_asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="842" column="44" lean-forward="true" selection-start-line="842" selection-start-column="44" selection-end-line="842" selection-end-column="44" />
-              <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#180#185#0#PHP" />
-                <element signature="e#315#320#0#PHP" />
-                <element signature="e#446#451#0#PHP" />
-                <element signature="e#562#567#0#PHP" />
-                <element signature="e#708#713#0#PHP" />
-                <element signature="e#837#842#0#PHP" />
-                <element signature="e#929#934#0#PHP" />
-                <element signature="e#1022#1027#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="536">
-              <caret line="273" column="25" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="25" />
-              <folding>
-                <element signature="e#6#80#0#PHP" />
-                <element signature="n#__construct#0;n#MAsset#0;n#!!top" />
-                <element signature="e#339#488#0#PHP" />
-                <element signature="e#497#651#0#PHP" />
-                <element signature="e#660#841#0#PHP" />
-                <element signature="e#850#1012#0#PHP" />
-                <element signature="e#1021#1207#0#PHP" />
-                <element signature="e#1216#1390#0#PHP" />
-                <element signature="e#1400#1594#0#PHP" />
-                <element signature="e#1603#1812#0#PHP" />
-              </folding>
+              <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -133,8 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>validate_captcha</find>
-      <find>$captcha</find>
       <find>Access-Control-Allow-Origin</find>
       <find>gotFocus</find>
       <find>Add</find>
@@ -163,6 +105,8 @@
       <find>Area</find>
       <find>,</find>
       <find>$filename</find>
+      <find>date</find>
+      <find>myTable</find>
     </findStrings>
     <replaceStrings>
       <replace>$array[13]</replace>
@@ -203,10 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/getData.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/users.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy2/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/page-profile.html" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/component-tabs-component.html" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
@@ -232,7 +172,6 @@
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/views/welcome.php" />
         <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/controllers/Auth.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
@@ -254,6 +193,11 @@
         <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
+        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Upload_asset.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/upload_hr.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Upload_data.php" />
       </list>
     </option>
   </component>
@@ -286,6 +230,12 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -299,19 +249,6 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -319,7 +256,7 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_views" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -446,14 +383,7 @@
       <workItem from="1616044767520" duration="742000" />
       <workItem from="1616064470443" duration="677000" />
       <workItem from="1616068860682" duration="3361000" />
-      <workItem from="1616131403367" duration="2855000" />
-    </task>
-    <task id="LOCAL-00008" summary="pro system">
-      <created>1611314613165</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1611314613165</updated>
+      <workItem from="1616131403367" duration="8515000" />
     </task>
     <task id="LOCAL-00009" summary="asset uploads">
       <created>1611411460604</created>
@@ -791,11 +721,18 @@
       <option name="project" value="LOCAL" />
       <updated>1616071622160</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="rename file name">
+      <created>1616134369270</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1616134369270</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329858000" />
+    <option name="totallyTimeSpent" value="335518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -826,7 +763,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asset invoice" />
     <MESSAGE value="area" />
     <MESSAGE value="asset details" />
     <MESSAGE value="hr design" />
@@ -851,7 +787,8 @@
     <MESSAGE value="chk tag" />
     <MESSAGE value="assets" />
     <MESSAGE value="filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter" />
+    <MESSAGE value="rename file name" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename file name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,23 +837,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="246" column="21" lean-forward="true" selection-start-line="246" selection-start-column="21" selection-end-line="246" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.29607/Auth.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.27468/login.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10596.26832/Ion_auth_model.php" />
-    <entry file="file://$PROJECT_DIR$/../action1_waseem/application/libraries/Ion_auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1309">
-          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../action1_waseem/application/config/ion_auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1263">
@@ -1172,13 +1092,6 @@
     <entry file="file://$PROJECT_DIR$/application/config/doctypes.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/constants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-365" />
@@ -1404,6 +1317,48 @@
             <element signature="e#3497#3764#0#PHP" />
             <element signature="e#3609#3746#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/budget_controllers/Upload_budget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="36" column="30" lean-forward="true" selection-end-line="171" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Upload_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="116" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/upload_hr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="125" column="32" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="125" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="106" column="45" lean-forward="true" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
         </state>
       </provider>
     </entry>
