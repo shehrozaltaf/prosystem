@@ -190,7 +190,14 @@ class Add_asset extends CI_controller
                                 $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                                 $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
                                 if (in_array($ext, $valid_ext)) {
-                                    $path = $upload_location . $filename;
+                                    if (isset( $insertArray['tag_no']) && $insertArray['tag_no'] != '') {
+                                        $tag = $insertArray['tag_no'];
+                                    } else {
+                                        $tag = $InsertData;
+                                    }
+                                    $filename = $tag . '.' . $ext;
+                                    $newName=$MAsset->file_newname($upload_location, $filename);
+                                    $path = $upload_location . $newName;
                                     if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
                                         $files_arr[] = $path;
                                         $fileUpload = array();

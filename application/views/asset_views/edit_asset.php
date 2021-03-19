@@ -839,7 +839,7 @@
                                     $('.res_heading').html(response[0]).css('color', 'green');
                                     $('.res_msg').html(response[1]).css('color', 'green');
                                     setTimeout(function () {
-                                        window.location.reload();
+                                        // window.location.reload();
                                     }, 1000)
                                 } else {
                                     toastMsg(response[0], response[1], 'error');
