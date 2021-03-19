@@ -144,12 +144,16 @@ class Assets extends CI_controller
                 $edit = '<a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
                              <i class="feather icon-edit" ></i> 
                        </a> ';
+            }else{
+                $edit='';
             }
 
             if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) {
                 $delete = '<a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
                                 <i class="feather icon-trash"></i>
                             </a>';
+            }else{
+                $delete='';
             }
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
