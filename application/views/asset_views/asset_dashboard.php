@@ -874,24 +874,9 @@
                 extend: "collection",
                 className: "btn btn-outline-secondary dropdown-toggle mr-2",
                 text: "Export",
-                buttons: [{
-                    extend: "print",
-                    text: "Print",
-                    className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
-                }, {
+                buttons: [  {
                     extend: "csv",
                     text: "Csv",
-                    className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
-                }, {
-                    extend: "excel",
-                    text: "Excel",
-                    className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
-                }, {
-                    extend: "pdf",
-                    text: "Pdf",
                     className: "dropdown-item",
                     exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {

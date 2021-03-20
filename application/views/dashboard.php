@@ -1,7 +1,4 @@
-<link rel="stylesheet" type="text/css"
-      href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
-
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -14,11 +11,8 @@
                         <h2 class="content-header-title float-left mb-0">Employee Information</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="<?php base_url() ?>">Home</a>
-                                </li>
-                                <li class="breadcrumb-item active">Employee Information
-                                </li>
+                                <li class="breadcrumb-item"><a href="<?php base_url() ?>">Home</a></li>
+                                <li class="breadcrumb-item active">Employee Information</li>
                             </ol>
                         </div>
                     </div>
