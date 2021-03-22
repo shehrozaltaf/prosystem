@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/asset_models/MAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -433,14 +428,7 @@
       <workItem from="1616231059175" duration="2633000" />
       <workItem from="1616390130556" duration="6761000" />
       <workItem from="1616398084478" duration="291000" />
-      <workItem from="1616399344677" duration="3812000" />
-    </task>
-    <task id="LOCAL-00015" summary="asset change status">
-      <created>1611587743825</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1611587743825</updated>
+      <workItem from="1616399344677" duration="4458000" />
     </task>
     <task id="LOCAL-00016" summary="asset details">
       <created>1611654206937</created>
@@ -778,11 +766,18 @@
       <option name="project" value="LOCAL" />
       <updated>1616395226703</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="edit Asset">
+      <created>1616411226905</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1616411226906</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352626000" />
+    <option name="totallyTimeSpent" value="353272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -813,7 +808,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asset details" />
     <MESSAGE value="hr design" />
     <MESSAGE value="location" />
     <MESSAGE value="emp hr" />
@@ -838,7 +832,8 @@
     <MESSAGE value="rename file name" />
     <MESSAGE value="upload data" />
     <MESSAGE value="asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="asset" />
+    <MESSAGE value="edit Asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit Asset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
