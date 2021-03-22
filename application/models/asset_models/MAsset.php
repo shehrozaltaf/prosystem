@@ -56,7 +56,8 @@ class MAsset extends CI_Model
             }
         }
         if (isset($searchdata['tag_pr']) && $searchdata['tag_pr'] != '' && $searchdata['tag_pr'] != null) {
-            $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%' )");
+            $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%'
+             or a.gri_no like '%" . $searchdata['tag_pr'] . "%' )");
         }
 
         if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
@@ -73,8 +74,10 @@ class MAsset extends CI_Model
         }
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
-            $search = $searchdata['search'];
-            $this->db->where("(a.tag_no like '%" . $search . "%'
+            $search = trim($searchdata['search']);
+            $this->db->where("(
+            a.tag_no like '%" . $search . "%'
+            OR  a.idAsset like '%" . $search . "%'
             OR  a.status_name like '%" . $search . "%'
             OR  a.description like '%" . $search . "%'
             OR  a.model like '%" . $search . "%'
@@ -124,14 +127,19 @@ class MAsset extends CI_Model
         if (isset($searchdata['sop']) && $searchdata['sop'] != '' && $searchdata['sop'] != null) {
             $this->db->where("a.idSourceOfPurchase", $searchdata['sop']);
         }
+
         if (isset($searchdata['idLocation']) && $searchdata['idLocation'] != '' && $searchdata['idLocation'] != null) {
             $this->db->where("a.idLocation", $searchdata['idLocation']);
         }
         if (isset($searchdata['idSubLocation']) && $searchdata['idSubLocation'] != '' && $searchdata['idSubLocation'] != null) {
             $this->db->where("a.idSubLocation", $searchdata['idSubLocation']);
         }
+
         if (isset($searchdata['area']) && $searchdata['area'] != '' && $searchdata['area'] != null) {
             $this->db->where("(a.area like '%" . $searchdata['area'] . "%')");
+        }
+        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
+            $this->db->where("a.status", $searchdata['status']);
         }
         if (isset($searchdata['verification_status']) && $searchdata['verification_status'] != '' && $searchdata['verification_status'] != null) {
             if ($searchdata['verification_status'] == 'Due') {
@@ -140,12 +148,12 @@ class MAsset extends CI_Model
                 $this->db->where("a.verification_status", $searchdata['verification_status']);
             }
         }
-        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
-            $this->db->where("a.status", $searchdata['status']);
-        }
+
         if (isset($searchdata['tag_pr']) && $searchdata['tag_pr'] != '' && $searchdata['tag_pr'] != null) {
-            $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%' )");
+            $this->db->where("(a.pr_no like '%" . $searchdata['tag_pr'] . "%' or a.tag_no like '%" . $searchdata['tag_pr'] . "%'
+             or a.gri_no like '%" . $searchdata['tag_pr'] . "%' )");
         }
+
         if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
             $this->db->where("a.idAsset", $searchdata['idAsset']);
         }
@@ -160,8 +168,10 @@ class MAsset extends CI_Model
         }
 
         if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
-            $search = $searchdata['search'];
-            $this->db->where("(a.tag_no like '%" . $search . "%'
+            $search = trim($searchdata['search']);
+            $this->db->where("(
+            a.tag_no like '%" . $search . "%'
+            OR  a.idAsset like '%" . $search . "%'
             OR  a.status_name like '%" . $search . "%'
             OR  a.description like '%" . $search . "%'
             OR  a.model like '%" . $search . "%'
@@ -271,19 +281,20 @@ users_dash.username');
         return $query->result();
     }
 
-    function file_newname($path, $filename){
+    function file_newname($path, $filename)
+    {
         if ($pos = strrpos($filename, '.')) {
             $name = substr($filename, 0, $pos);
             $ext = substr($filename, $pos);
         } else {
             $name = $filename;
         }
-        $newpath = $path.'/'.$filename;
+        $newpath = $path . '/' . $filename;
         $newname = $filename;
         $counter = 0;
         while (file_exists($newpath)) {
-            $newname = $name .'_'. $counter . $ext;
-            $newpath = $path.'/'.$newname;
+            $newname = $name . '_' . $counter . $ext;
+            $newpath = $path . '/' . $newname;
             $counter++;
         }
         return $newname;

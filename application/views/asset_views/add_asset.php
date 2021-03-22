@@ -856,7 +856,7 @@
 
     function chkStatus(obj) {
         var status = $('#status').val();
-        if (status == 1) {
+        if (status == 1 || status == 2 || status == 4 || status == 5 || status == 6 || status == 7 || status == 8) {
             $('#writOff_formNo').val('').attr('disabled', 'disabled');
             $('#wo_date').val('').attr('disabled', 'disabled');
         } else {

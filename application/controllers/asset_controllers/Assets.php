@@ -104,6 +104,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
             $table_data[$value->idAsset]['model'] = $value->model;
             $table_data[$value->idAsset]['product_no'] = $value->product_no;
+            $table_data[$value->idAsset]['gri_no'] = $value->gri_no;
             $table_data[$value->idAsset]['serial_no'] = $value->serial_no;
             $table_data[$value->idAsset]['po_no'] = $value->po_no;
             $table_data[$value->idAsset]['cost'] = $value->cost;
@@ -144,16 +145,16 @@ class Assets extends CI_controller
                 $edit = '<a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">
                              <i class="feather icon-edit" ></i> 
                        </a> ';
-            }else{
-                $edit='';
+            } else {
+                $edit = '';
             }
 
             if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) {
                 $delete = '<a href="javascript:void(0)" onclick="getDelete(this)" data-id="' . $value->idAsset . '">
                                 <i class="feather icon-trash"></i>
                             </a>';
-            }else{
-                $delete='';
+            } else {
+                $delete = '';
             }
             $table_data[$value->idAsset]['Action'] = '
                 <a href="' . base_url('index.php/asset_controllers/Assets/assetDetail?a=' . $value->idAsset) . '"  target="_blank" title="Asset Details" data-id="' . $value->idAsset . '">
@@ -666,6 +667,7 @@ class Assets extends CI_controller
             $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
             $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
             $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
+            $searchData['search'] = (isset($_REQUEST['search']) && $_REQUEST['search'] != '' ? $_REQUEST['search'] : '');
 
             $M = new MAsset();
             $asset_data = $M->getAsset($searchData);
@@ -869,7 +871,7 @@ class Assets extends CI_controller
                                     $tag = $idAsset;
                                 }
                                 $filename = $tag . '.' . $ext;
-                                $newName=$MAsset->file_newname($upload_location, $filename);
+                                $newName = $MAsset->file_newname($upload_location, $filename);
                                 $path = $upload_location . $newName;
                                 if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
                                     $files_arr[] = $path;
@@ -896,7 +898,6 @@ class Assets extends CI_controller
         }
         echo json_encode($result);
     }
-
 
 
     function getAssetDocs()

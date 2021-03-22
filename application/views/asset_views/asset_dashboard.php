@@ -11,6 +11,10 @@
     #tblaudit th, #tblaudit td {
         width: 10%;
     }
+
+    table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+        font-size: 12px;
+    }
 </style>
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/dt/css/datatable/buttons.bootstrap4.min.css">
@@ -181,7 +185,7 @@
 
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
-                                                <label for="tag_pr">TAG / PR No</label>
+                                                <label for="tag_pr">TAG / PR No / GRI No</label>
                                                 <input type="text" class="form-control" id="tag_pr" name="tag_pr">
                                             </div>
                                         </div>
@@ -255,10 +259,8 @@
                                                 <th>Location</th>
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
-                                                <th>PRPath</th>
                                                 <th>Document</th>
                                                 <th>Verification</th>
-                                                <!--                                                <th>Action</th>-->
                                             </tr>
                                             </thead>
                                             <tfoot>
@@ -274,10 +276,9 @@
                                                 <th>Location</th>
                                                 <th>Sub Location</th>
                                                 <th>Status</th>
-                                                <th>PRPath</th>
                                                 <th>Document</th>
                                                 <th>Verification</th>
-                                                <!--                                                <th>Action</th>-->
+                                            </tr>
                                             </tfoot>
                                         </table>
                                     </div>
@@ -634,8 +635,7 @@
 
     function chkStatus(obj) {
         var status = $('#upd_bulkstatus').val();
-        if (status == 1) {
-
+        if (status == 1 || status == 2 || status == 4 || status == 5 || status == 6 || status == 7 || status == 8) {
             $('.writOff_formNo_bulk').addClass('hide');
             $('.wo_date_bulk').addClass('hide');
         } else {
@@ -779,16 +779,17 @@
         html += '<p>Desc: <span class="text-primary">' + (d.desc != '' && d.desc != undefined && d.desc != null ? d.desc : '') + '</span></p>';
         html += '<p>Model: <span class="text-primary">' + (d.model != '' && d.model != undefined && d.model != null ? d.model : '') + '</span></p>';
         html += '<p>Product No: <span class="text-primary">' + (d.product_no != '' && d.product_no != undefined && d.product_no != null ? d.product_no : '') + '</span></p>';
+        html += '<p>GRI No: <span class="text-primary">' + (d.gri_no != '' && d.gri_no != undefined && d.gri_no != null ? d.gri_no : '') + '</span></p>';
         html += '<p>Serial No: <span class="text-primary">' + (d.serial_no != '' && d.serial_no != undefined && d.serial_no != null ? d.serial_no : '') + '</span></p>';
         html += '<p>Tag No: <span class="text-primary">' + (d.tag != '' && d.tag != undefined && d.tag != null ? d.tag : '') + '</span></p>';
         html += '<p>PO No: <span class="text-primary">' + (d.po_no != '' && d.po_no != undefined && d.po_no != null ? d.po_no : '') + '</span></p>';
         html += '<p>Cost: <span class="text-primary">' + (d.cost != '' && d.cost != undefined && d.cost != null ? d.cost : '') + '</span></p>';
         html += '<p>Currency: <span class="text-primary">' + (d.idCurrency != '' && d.idCurrency != undefined && d.idCurrency != null ? d.idCurrency : '') + '</span></p>';
         html += '<p>Source Of Purchase: <span class="text-primary">' + (d.idSourceOfPurchase != '' && d.idSourceOfPurchase != undefined && d.idSourceOfPurchase != null ? d.idSourceOfPurchase : '') + '</span></p>';
-        html += '<p>Employee: <span class="text-primary">' + (d.emp != '' && d.emp != undefined && d.emp != null ? d.emp : '') + '</span></p>';
-        html += '<p>Responsible Person: <span class="text-primary">' + (d.resp_person_name != '' && d.resp_person_name != undefined && d.resp_person_name != null ? d.resp_person_name : '') + '</span></p>';
         html += '</div>';
         html += '<div class="col-4">';
+        html += '<p>Employee: <span class="text-primary">' + (d.emp != '' && d.emp != undefined && d.emp != null ? d.emp : '') + '</span></p>';
+        html += '<p>Responsible Person: <span class="text-primary">' + (d.resp_person_name != '' && d.resp_person_name != undefined && d.resp_person_name != null ? d.resp_person_name : '') + '</span></p>';
         html += '<p>OU: <span class="text-primary">' + (d.ou != '' && d.ou != undefined && d.ou != null ? d.ou : '') + '</span></p>';
         html += '<p>Account: <span class="text-primary">' + (d.account != '' && d.account != undefined && d.account != null ? d.account : '') + '</span></p>';
         html += '<p>Dept: <span class="text-primary">' + (d.dept != '' && d.dept != undefined && d.dept != null ? d.dept : '') + '</span></p>';
@@ -838,6 +839,16 @@
             destroy: true,
             processing: true,
             serverSide: true,
+
+            oSearch: {"sSearch": " "},
+            autoFill: false,
+            attr: {
+                autocomplete: 'off'
+            },
+            initComplete: function() {
+                $(this.api().table().container()).find('input[type="search"]').parent().wrap('<form>').parent().attr('autocomplete','off').css('overflow','hidden').css('margin','auto');
+            },
+
             ajax: {
                 "url": "<?php echo base_url() . 'index.php/asset_controllers/Assets/getAsset' ?>",
                 "method": "POST",
@@ -861,7 +872,6 @@
                 {"data": "loc", "class": "loc"},
                 {"data": "sub_loc", "class": "sub_loc"},
                 {"data": "status"},
-                {"data": "pr_path"},
                 {"data": "document"},
                 {"data": "due_date"}
                 // {"data": "Action"}
@@ -874,7 +884,7 @@
                 extend: "collection",
                 className: "btn btn-outline-secondary dropdown-toggle mr-2",
                 text: "Export",
-                buttons: [  {
+                buttons: [{
                     extend: "csv",
                     text: "Csv",
                     className: "dropdown-item",
@@ -941,7 +951,7 @@
         data['writeOffNo'] = $('#writeOffNo').val();
         data['dateTo'] = $('#dateTo').val();
         data['dateFrom'] = $('#dateFrom').val();
-
+        data['search'] =$('#my_table_asset_filter').find('input[type="search"]').val();
         var url = '<?php echo base_url() ?>index.php/asset_controllers/Assets/getPDF?f=1';
         if (data['project'] != '' && data['project'] != undefined && data['project'] != 0) {
             url += '&project=' + data['project'];
@@ -982,6 +992,9 @@
         if (data['dateFrom'] != '' && data['dateFrom'] != undefined && data['dateFrom'] != 0) {
             url += '&dateFrom=' + data['dateFrom'];
         }
+        if (data['search'] != '' && data['search'] != undefined && data['search'] != 0) {
+            url += '&search=' + data['search'];
+        }
         window.open(url, '_blank');
     }
 
@@ -996,7 +1009,7 @@
 
     function changeStatusSingle() {
         var status = $('#change_status').val();
-        if (status == 1) {
+        if (status == 1 || status == 2 || status == 4 || status == 5 || status == 6 || status == 7 || status == 8) {
             $('.status_writOff_formNo_div').addClass('hide');
             $('.status_wo_date_div').addClass('hide');
         } else {
