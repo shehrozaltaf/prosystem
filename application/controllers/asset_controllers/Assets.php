@@ -832,7 +832,6 @@ class Assets extends CI_controller
             $editArray['remarks'] = $_POST['remarks'];
             $editArray['updatedBy'] = $_SESSION['login']['idUser'];
             $editArray['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editArray['entry_date'] = date('Y-m-d H:i:s');
             $editData = $Custom->Edit($editArray, 'idAsset', $idAsset, 'a_asset');
             if ($editData) {
                 foreach ($editArray as $ek => $e) {

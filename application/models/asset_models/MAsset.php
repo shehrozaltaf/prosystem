@@ -73,7 +73,7 @@ class MAsset extends CI_Model
             $this->db->where("(a.pur_date <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
         }
 
-        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null && $searchdata['search'] != ' ') {
             $search = trim($searchdata['search']);
             $this->db->where("(
             a.tag_no like '%" . $search . "%'
@@ -167,7 +167,7 @@ class MAsset extends CI_Model
             $this->db->where("(a.pur_date <= '" . date('Y-m-d', strtotime($searchdata['dateFrom'])) . "')");
         }
 
-        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null) {
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null && $searchdata['search'] != ' ') {
             $search = trim($searchdata['search']);
             $this->db->where("(
             a.tag_no like '%" . $search . "%'

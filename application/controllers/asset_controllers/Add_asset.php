@@ -172,7 +172,6 @@ class Add_asset extends CI_controller
                 $insertArray['isActive'] = 1;
                 $insertArray['createdBy'] = $_SESSION['login']['idUser'];
                 $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
-                $insertArray['entry_date'] = date('Y-m-d H:i:s');
                 $InsertData = $Custom->Insert($insertArray, 'idAsset', 'a_asset', 'Y');
                 if ($InsertData) {
 

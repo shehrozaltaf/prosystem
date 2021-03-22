@@ -45,7 +45,7 @@
 
                 <div class="bs-stepper vertical modern-verticals-wizard-example">
                     <div class="bs-stepper-header">
-                        <div class="step" data-target="#account-details-vertical">
+                        <div class="step account-details-vertical" data-target="#account-details-vertical">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">1</span>
                                 <span class="bs-stepper-label">
@@ -54,7 +54,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="step" data-target="#personal-info-vertical">
+                        <div class="step personal-info-vertical" data-target="#personal-info-vertical">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">2</span>
                                 <span class="bs-stepper-label">
@@ -63,7 +63,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="step" data-target="#address-step-vertical">
+                        <div class="step address-step-vertical" data-target="#address-step-vertical">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">3</span>
                                 <span class="bs-stepper-label">
@@ -72,7 +72,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="step" data-target="#social-links-vertical">
+                        <div class="step social-links-vertical" data-target="#social-links-vertical">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">4</span>
                                 <span class="bs-stepper-label">
@@ -81,7 +81,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="step" data-target="#documents">
+                        <div class="step documents" data-target="#documents">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">5</span>
                                 <span class="bs-stepper-label">
@@ -123,7 +123,7 @@
                                                     Category <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" autocomplete="idCategory"
+                                                <select class="select2 form-control required" autocomplete="idCategory"
                                                         id="idCategory" required>
                                                     <option value="0" label="Pl" readonly disabled></option>
                                                     <?php if (isset($category) && $category != '') {
@@ -143,7 +143,8 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                    <textarea id="desc" name="desc" class="form-control" cols="30"
+                                                    <textarea id="desc" name="desc" class="form-control required"
+                                                              cols="30"
                                                               rows="7" autocomplete="desc"
                                                               required><?php echo(isset($a->description) && $a->description != '' ? $a->description : '') ?></textarea>
                                             </div>
@@ -218,7 +219,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control required"
                                                        id="tag_no" disabled readonly
                                                        name="tag_no"
                                                        value="<?php echo(isset($a->tag_no) && $a->tag_no != '' ? $a->tag_no : '') ?>"
@@ -240,7 +241,7 @@
                                                     No. <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="po_no"
+                                                <input type="text" class="form-control numericOnly required" id="po_no"
                                                        name="po_no"
                                                        value="<?php echo(isset($a->po_no) && $a->po_no != '' ? $a->po_no : '') ?>"
                                                        autocomplete="po_no" required>
@@ -254,7 +255,7 @@
                                                        class="label-control">Cost <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="cost"
+                                                <input type="text" class="form-control numericOnly required" id="cost"
                                                        name="cost"
                                                        value="<?php echo(isset($a->cost) && $a->cost != '' ? $a->cost : '') ?>"
                                                        autocomplete="cost" required>
@@ -269,7 +270,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" name="idCurrency"
+                                                <select class="select2 form-control required" name="idCurrency"
                                                         autocomplete="idCurrency"
                                                         id="idCurrency" required>
                                                     <option value="0" readonly disabled></option>
@@ -290,7 +291,7 @@
                                                     Purchase <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="idSourceOfPurchase"
+                                                <select class="select2 form-control required" id="idSourceOfPurchase"
                                                         name="idSourceOfPurchase" autocomplete="idSourceOfPurchase"
                                                         required>
                                                     <option value="0" readonly disabled selected></option>
@@ -334,7 +335,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="emp_no"
+                                                <select class="select2 form-control required" id="emp_no"
                                                         name="emp_no" autocomplete="emp_no" required>
                                                     <option value="0" readonly disabled></option>
                                                     <?php
@@ -355,7 +356,7 @@
                                                     Name <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="resp_person_name"
+                                                <select class="select2 form-control required" id="resp_person_name"
                                                         name="resp_person_name" autocomplete="resp_person_name"
                                                         required>
                                                     <option value="0" readonly disabled></option>
@@ -397,7 +398,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="proj_code"
+                                                <select class="select2 form-control required" id="proj_code"
                                                         name="proj_code" autocomplete="proj_code" required>
                                                     <option value="0" readonly disabled></option>
                                                     <?php
@@ -420,7 +421,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="ou"
+                                                <input type="text" class="form-control numericOnly required" id="ou"
                                                        name="ou"
                                                        value="<?php echo(isset($a->ou) && $a->ou != '' ? $a->ou : '') ?>"
                                                        autocomplete="ou" required>
@@ -435,7 +436,8 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="account"
+                                                <input type="text" class="form-control numericOnly required"
+                                                       id="account"
                                                        name="account"
                                                        value="<?php echo(isset($a->account) && $a->account != '' ? $a->account : '') ?>"
                                                        autocomplete="accounts" required></div>
@@ -449,7 +451,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="dept"
+                                                <input type="text" class="form-control numericOnly required" id="dept"
                                                        name="dept"
                                                        value="<?php echo(isset($a->dept) && $a->dept != '' ? $a->dept : '') ?>"
                                                        autocomplete="dept" required>
@@ -464,7 +466,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control numericOnly" id="fund"
+                                                <input type="text" class="form-control numericOnly required" id="fund"
                                                        name="fund"
                                                        value="<?php echo(isset($a->fund) && $a->fund != '' ? $a->fund : '') ?>"
                                                        autocomplete="fund" required>
@@ -479,7 +481,7 @@
                                                        class="label-control">Prog <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control  numericOnly" id="prog"
+                                                <input type="text" class="form-control  numericOnly required" id="prog"
                                                        name="prog"
                                                        value="<?php echo(isset($a->prog) && $a->prog != '' ? $a->prog : '') ?>"
                                                        autocomplete="prog" required></div>
@@ -492,7 +494,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control" id="idLocation"
+                                                <select class="select2 form-control required" id="idLocation"
                                                         name="idLocation"
                                                         onchange="changeLocation('idLocation','idSubLocation')"
                                                         required>
@@ -515,7 +517,7 @@
                                                     Location <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control"
+                                                <select class="select2 form-control required"
                                                         id="idSubLocation"
                                                         name="idSubLocation" autocomplete="idSubLocation" required>
                                                     <option value="0" readonly disabled selected></option>
@@ -532,7 +534,7 @@
                                                        class="label-control">Area <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="area"
+                                                <input type="text" class="form-control required" id="area"
                                                        name="area"
                                                        value="<?php echo(isset($a->area) && $a->area != '' ? $a->area : '') ?>"
                                                        autocomplete="area" required></div>
@@ -564,7 +566,7 @@
                                                 <label for="verification_status">Verification
                                                     Status</label></div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control"
+                                                <select class="select2 form-control required"
                                                         id="verification_status"
                                                         name="verification_status" autocomplete="verification_status"
                                                         required>
@@ -586,7 +588,7 @@
                                                     Verification Date</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control mypickadat"
+                                                <input type="text" class="form-control mypickadat required"
                                                        id="last_verify_date" name="last_verify_date"
                                                        autocomplete="last_verify_date"
                                                        value="<?php echo(isset($a->last_verify_date) && $a->last_verify_date != '' ? $a->last_verify_date : '') ?>"
@@ -602,7 +604,7 @@
                                                     Date</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control mypickadat2"
+                                                <input type="text" class="form-control mypickadat2 required"
                                                        id="due_date" name="due_date"
                                                        autocomplete="due_date"
                                                        value="<?php echo(isset($a->due_date) && $a->due_date != '' ? $a->due_date : '') ?>"
@@ -618,7 +620,7 @@
                                                     Date</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control mypickadat"
+                                                <input type="text" class="form-control mypickadat required"
                                                        id="pur_date" name="pur_date"
                                                        autocomplete="pur_date"
                                                        value="<?php echo(isset($a->pur_date) && $a->pur_date != '' ? $a->pur_date : '') ?>"
@@ -635,7 +637,7 @@
                                                             class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="select2 form-control status" name="status"
+                                                <select class="select2 form-control status required" name="status"
                                                         autocomplete="status" onchange="chkStatus(this)"
                                                         id="status" required>
                                                     <option value="0" readonly disabled selected></option>
@@ -689,8 +691,7 @@
                                                           class="form-control"
                                                           cols="30"
                                                           rows="7"
-                                                          autocomplete="remarks"
-                                                          required><?php echo(isset($a->remarks) && $a->remarks != '' ? $a->remarks : '') ?></textarea>
+                                                          autocomplete="remarks"><?php echo(isset($a->remarks) && $a->remarks != '' ? $a->remarks : '') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -819,16 +820,36 @@
                 var idAsset = $('#idAsset').val();
                 dzClosure = this;
                 $('#btn-submit').on('click', function (e) {
-                    console.log('processQueue');
-                    if (dzClosure.getQueuedFiles().length > 0) {
-                        dzClosure.processQueue();
+                    var flag = 0;
+                    var idAsset = $('#idAsset').val();
+                    $('.bs-stepper-content').find('.active').removeClass('active');
+                    $('.bs-stepper-header').find('.active').removeClass('active');
+                    var inps = $('.bs-stepper-content').find('.required');
+                    $.each(inps, function (i, v) {
+                        var va = $(v).val();
+                        if (va == '' || va == undefined || va == 0) {
+                            $(v).parents('.content').addClass('active');
+                            var side = $(v).parents('.content').attr('id');
+                            $('.' + side).addClass('active').removeClass('crossed');
+                            $(v).addClass('error');
+                            flag = 1;
+                        } else {
+                            $(v).removeClass('error');
+                        }
+                    });
+
+                    if (idAsset != '' && idAsset != undefined && flag == 0) {
+                        if (dzClosure.getQueuedFiles().length > 0) {
+                            dzClosure.processQueue();
+                        } else {
+                            mySubmitData();
+                        }
                     } else {
-                        mySubmitData();
+                        toastMsg('Error', 'Invalid Asset', 'error');
                     }
+
                 });
                 dzClosure.on('sending', function (data, xhr, form_data) {
-                    // showloader();
-                    // $('.mybtn').addClass('hide').attr('disabled', 'disabled');
                     xhr.onload = () => {
                         if (xhr.status >= 200 && xhr.status < 300) {
                             const response = JSON.parse(xhr.responseText);
@@ -926,6 +947,95 @@
         });
     });
 
+    function mySubmitData() {
+        console.log('mySubmitData');
+        var flag = 0;
+        var idAsset = $('#idAsset').val();
+        $('.bs-stepper-content').find('.active').removeClass('active');
+        $('.bs-stepper-header').find('.active').removeClass('active');
+        var inps = $('.bs-stepper-content').find('.required');
+        $.each(inps, function (i, v) {
+            var va = $(v).val();
+            if (va == '' || va == undefined || va == 0) {
+                // var lab = $(v).parent('div').parent('.row').find('label').html();
+                // toastMsg('Error', 'Invalid ' + lab, 'error');
+                $(v).parents('.content').addClass('active');
+                var side = $(v).parents('.content').attr('id');
+                $('.' + side).addClass('active').removeClass('crossed');
+                $(v).addClass('error');
+                flag = 1;
+            } else {
+                $(v).removeClass('error');
+            }
+        });
+        if (idAsset != '' && idAsset != undefined) {
+            if (flag == 0) {
+
+                dzClosure.processQueue();
+                var form_data = new FormData();
+                form_data.append('idAsset', idAsset);
+                form_data.append('pr_reqId', $('#pr_reqId').val());
+                form_data.append('idCategory', $('#idCategory').val());
+                form_data.append('desc', $('#desc').val());
+                form_data.append('model', $('#model').val());
+                form_data.append('product_no', $('#product_no').val());
+                form_data.append('gri_no', $('#gri_no').val());
+                form_data.append('serial_no', $('#serial_no').val());
+                form_data.append('tag_no', $('#tag_no').val());
+                form_data.append('po_no', $('#po_no').val());
+                form_data.append('cost', $('#cost').val());
+                form_data.append('idCurrency', $('#idCurrency').val());
+                form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
+                form_data.append('emp_no', $('#emp_no').val());
+                form_data.append('resp_person_name', $('#resp_person_name').val());
+                form_data.append('ou', $('#ou').val());
+                form_data.append('account', $('#account').val());
+                form_data.append('dept', $('#dept').val());
+                form_data.append('fund', $('#fund').val());
+                form_data.append('proj_code', $('#proj_code').val());
+                form_data.append('prog', $('#prog').val());
+                form_data.append('idLocation', $('#idLocation').val());
+                form_data.append('idSubLocation', $('#idSubLocation').val());
+                form_data.append('area', $('#area').val());
+                form_data.append('verification_status', $('#verification_status').val());
+                form_data.append('last_verify_date', $('#last_verify_date').val());
+                form_data.append('due_date', $('#due_date').val());
+                form_data.append('pur_date', $('#pur_date').val());
+                form_data.append('status', $('#status').val());
+                form_data.append('writOff_formNo', $('#writOff_formNo').val());
+                form_data.append('wo_date', $('#wo_date').val());
+                form_data.append('remarks', $('#remarks').val());
+                showloader();
+                $('.mybtn').addClass('hide').attr('disabled', 'disabled');
+                CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/editData'); ?>', form_data, 'POST', function (result) {
+                    console.log(result);
+                    hideloader();
+                    $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
+                    try {
+                        var response = JSON.parse(result);
+                        if (response[0] == 'Success') {
+                            toastMsg(response[0], response[1], 'success');
+                            $('.res_heading').html(response[0]).css('color', 'green');
+                            $('.res_msg').html(response[1]).css('color', 'green');
+                            $('.paeds_id').text('0' + response[2]);
+                        } else {
+                            toastMsg(response[0], response[1], 'error');
+                            $('.res_heading').html(response[0]).css('color', 'red');
+                            $('.res_msg').html(response[1]).css('color', 'red');
+                        }
+                    } catch (e) {
+                    }
+                }, true);
+            } else {
+                toastMsg('Error', 'Invalid Data', 'error');
+            }
+        } else {
+            toastMsg('Error', 'Invalid Asset', 'error');
+        }
+
+
+    }
+
     function chkStatus(obj) {
         var status = $('#status').val();
         if (status == 1) {
@@ -937,70 +1047,6 @@
         }
     }
 
-    function mySubmitData() {
-        var idAsset = $('#idAsset').val();
-        if (idAsset != '' && idAsset != undefined) {
-            dzClosure.processQueue();
-            var form_data = new FormData();
-            form_data.append('idAsset', idAsset);
-            form_data.append('pr_reqId', $('#pr_reqId').val());
-            form_data.append('idCategory', $('#idCategory').val());
-            form_data.append('desc', $('#desc').val());
-            form_data.append('model', $('#model').val());
-            form_data.append('product_no', $('#product_no').val());
-            form_data.append('gri_no', $('#gri_no').val());
-            form_data.append('serial_no', $('#serial_no').val());
-            form_data.append('tag_no', $('#tag_no').val());
-            form_data.append('po_no', $('#po_no').val());
-            form_data.append('cost', $('#cost').val());
-            form_data.append('idCurrency', $('#idCurrency').val());
-            form_data.append('idSourceOfPurchase', $('#idSourceOfPurchase').val());
-            form_data.append('emp_no', $('#emp_no').val());
-            form_data.append('resp_person_name', $('#resp_person_name').val());
-            form_data.append('ou', $('#ou').val());
-            form_data.append('account', $('#account').val());
-            form_data.append('dept', $('#dept').val());
-            form_data.append('fund', $('#fund').val());
-            form_data.append('proj_code', $('#proj_code').val());
-            form_data.append('prog', $('#prog').val());
-            form_data.append('idLocation', $('#idLocation').val());
-            form_data.append('idSubLocation', $('#idSubLocation').val());
-            form_data.append('area', $('#area').val());
-            form_data.append('verification_status', $('#verification_status').val());
-            form_data.append('last_verify_date', $('#last_verify_date').val());
-            form_data.append('due_date', $('#due_date').val());
-            form_data.append('pur_date', $('#pur_date').val());
-            form_data.append('status', $('#status').val());
-            form_data.append('writOff_formNo', $('#writOff_formNo').val());
-            form_data.append('wo_date', $('#wo_date').val());
-            form_data.append('remarks', $('#remarks').val());
-            showloader();
-            $('.mybtn').addClass('hide').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/editData'); ?>', form_data, 'POST', function (result) {
-                console.log(result);
-                hideloader();
-                $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
-                try {
-                    var response = JSON.parse(result);
-                    if (response[0] == 'Success') {
-                        toastMsg(response[0], response[1], 'success');
-                        $('.res_heading').html(response[0]).css('color', 'green');
-                        $('.res_msg').html(response[1]).css('color', 'green');
-                        $('.paeds_id').text('0' + response[2]);
-                    } else {
-                        toastMsg(response[0], response[1], 'error');
-                        $('.res_heading').html(response[0]).css('color', 'red');
-                        $('.res_msg').html(response[1]).css('color', 'red');
-                    }
-                } catch (e) {
-                }
-            }, true);
-        } else {
-            toastMsg('Error', 'Invalid Asset', 'error');
-        }
-
-
-    }
 
     function mydate() {
         $('.mypickadat').pickadate({
