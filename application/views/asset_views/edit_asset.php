@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="pr_reqId"
-                                                       name="pr_reqId"
+                                                       name="pr_reqId"  maxlength="6" minlength="3"
                                                        value="<?php echo(isset($a->pr_no) && $a->pr_no != '' ? $a->pr_no : '') ?>"
                                                        autocomplete="pr_reqId">
                                             </div>

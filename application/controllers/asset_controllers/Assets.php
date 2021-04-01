@@ -603,10 +603,7 @@ class Assets extends CI_controller
         if (isset($_POST['assets']) && $_POST['assets'] != '' && count($_POST['assets']) >= 1) {
             foreach ($_POST['assets'] as $asset) {
                 $editData = $Custom->Edit($editArr, 'idAsset', $asset, 'a_asset');
-
                 if ($editData) {
-
-
                     foreach ($at_array as $at) {
                         $insertArray_at = array();
                         $insertArray_at['FormID'] = $asset;
@@ -668,10 +665,11 @@ class Assets extends CI_controller
             $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
             $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
             $searchData['search'] = (isset($_REQUEST['search']) && $_REQUEST['search'] != '' ? $_REQUEST['search'] : '');
+            $searchData['start'] = 0;
+            $searchData['length'] = 50000;
 
             $M = new MAsset();
             $asset_data = $M->getAsset($searchData);
-
             $this->load->library('tcpdf');
             $project_name = 'Department of Paediatrics and Child Health';
             $short_title = ' Inventory (Capital Items)';
@@ -797,8 +795,6 @@ class Assets extends CI_controller
             $searchdata = array();
             $searchdata['idAsset'] = $idAsset;
             $asset = $MAsset->getAssetById($searchdata);
-
-
             $Custom = new Custom();
             $editArray = array();
             $editArray['idCategory'] = $_POST['idCategory'];

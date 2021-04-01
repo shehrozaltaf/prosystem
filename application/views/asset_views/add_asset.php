@@ -108,7 +108,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="pr_reqId"
-                                                       name="pr_reqId"
+                                                       name="pr_reqId" maxlength="6" minlength="3"
                                                        autocomplete="pr_reqId">
                                             </div>
                                         </div>
