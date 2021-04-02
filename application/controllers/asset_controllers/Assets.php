@@ -17,6 +17,7 @@ class Assets extends CI_controller
         }
     }
 
+    
     function index()
     {
         $data = array();
