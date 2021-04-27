@@ -235,7 +235,7 @@ class Mempmodel extends CI_Model
         $this->db->where('e1.supernme IS NOT NULL');*/
 
         $this->db->select('*');
-        $this->db->from('employee_view');
+        $this->db->from('employee_view e');
         $this->db->limit($length, $start);
         $query = $this->db->get();
 

@@ -214,7 +214,8 @@
                                                        onfocusout="chkTagNo()"
                                                        name="tag_no"
                                                        autocomplete="tag_no" required>
-                                                <small><input type="checkbox" value="1" id="paeds_tagID"
+                                                <small>
+                                                    <input type="checkbox" value="1" id="paeds_tagID"
                                                               name="paeds_tagID" class="" onclick="changeTagPaedID()">
                                                     Paeds ID
                                                 </small>
