@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ini_set('memory_limit', '512M'); // This also needs to be increased in some cases. Can be changed to a higher value as per need)
 ini_set('sqlsrv.ClientBufferMaxKBSize', '524288'); // Setting to 512M
 ini_set('pdo_sqlsrv.client_buffer_max_kb_size', '524288');
-ini_set('max_input_vars','1000000' );
+ini_set('max_input_vars', '1000000');
 
 class Upload_data extends CI_controller
 {
@@ -48,7 +48,7 @@ class Upload_data extends CI_controller
         if (isset($_POST['idTable']) && $_POST['idTable'] != '') {
             $table = $_POST['idTable'];
             $Custom = new Custom();
-            $tableColumn=$Custom->getTableColumn($table);
+            $tableColumn = $Custom->getTableColumn($table);
         } else {
             $flag = 1;
         }
@@ -133,7 +133,7 @@ class Upload_data extends CI_controller
             'output' => $html
         );
 
-        echo json_encode($output,true);
+        echo json_encode($output, true);
     }
 
 
@@ -147,7 +147,7 @@ class Upload_data extends CI_controller
                 $body = $_POST['body'];
                 foreach ($body as $k => $b) {
                     $arr = array();
-                    $arr['createdBy'] = $_SESSION['login']['idUser'].',excel';
+                    $arr['createdBy'] = $_SESSION['login']['idUser'] . ',excel';
                     $arr['createdDateTime'] = date('Y-m-d H:i:s');
                     foreach ($b as $key => $v) {
                         $ke = $head[$key];

@@ -31,7 +31,12 @@ class Mempmodel extends CI_Model
 
     function getDataSupervisor()
     {
-        $query = $this->db->query("SELECT empno,empname FROM hr_employee");
+        $query = $this->db->query("SELECT
+	empno,
+	empname,
+	desig 
+FROM
+	employee_view");
         return $query->result();
     }
 
@@ -55,6 +60,26 @@ class Mempmodel extends CI_Model
         $this->db->where('empno', $empno);
         $query = $this->db->get();
         return $query->result();
+    }
+
+    /*shehroz*/
+    function file_newname($path, $filename)
+    {
+        if ($pos = strrpos($filename, '.')) {
+            $name = substr($filename, 0, $pos);
+            $ext = substr($filename, $pos);
+        } else {
+            $name = $filename;
+        }
+        $newpath = $path . '/' . $filename;
+        $newname = $filename;
+        $counter = 0;
+        while (file_exists($newpath)) {
+            $newname = $name . '_' . $counter . $ext;
+            $newpath = $path . '/' . $newname;
+            $counter++;
+        }
+        return $newname;
     }
 
     /*shehroz*/
@@ -198,41 +223,41 @@ class Mempmodel extends CI_Model
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
         }
-       /* $this->db->select('e1.id id,
-            et4.emptype EmployeeType,
-            c4.category EmployeeCategory,
-            e1.empno EmployeeNo,
-            e1.empname EmployeeName,
-            de4.desig Designation,
-            e.empname SupervisorName, 
-            e.empname SupervisorCode, 
-            pr4.proj_name WorkProjectCode,
-            pr4.proj_name WorkingProject,
-            pr41.proj_name ChargingProject,
-            loc4.location LocationCode,
-            e.conexpiry ConExpiry,
-            st4.status Status');
-        $this->db->from('hr_employee e');
-        $this->db->join('hr_category c', 'e.ddlcategory = c.id', 'left');
-        $this->db->join('hr_emptype et', 'e.ddlemptype = et.id', 'left');
-        $this->db->join('hr_desig de', 'e.titdesi = de.id', 'left');
-        $this->db->join('hr_band b', 'e.ddlband = b.id', 'left');
-        $this->db->join('hr_band b1', 'b1.id = de.band', 'left');
-        $this->db->join('location loc', 'loc.id = e.ddlloc', 'left');
-        $this->db->join('hr_status st', 'st.id = e.status', 'left');
-        $this->db->join('project pr', 'pr.proj_code = e.workproj', 'left');
-        $this->db->join('project pr1', 'pr1.proj_code = e.chargproj', 'left');
-        $this->db->join('hr_employee e1', 'e.empno = e1.supernme', 'left');
-        $this->db->join('hr_category c4', 'e1.ddlcategory = c4.id', 'left');
-        $this->db->join('hr_emptype et4', 'e1.ddlemptype = et4.id', 'left');
-        $this->db->join('hr_desig de4', 'e1.titdesi = de4.id', 'left');
-        $this->db->join('hr_band b4', 'e1.ddlband = b4.id', 'left');
-        $this->db->join('hr_band b41', 'b41.id = de.band', 'left');
-        $this->db->join('location loc4', 'loc4.id = e1.ddlloc', 'left');
-        $this->db->join('hr_status st4', 'st4.id = e1.status', 'left');
-        $this->db->join('project pr4', 'pr4.proj_code = e1.workproj', 'left');
-        $this->db->join('project pr41', 'pr41.proj_code = e1.chargproj', 'left');
-        $this->db->where('e1.supernme IS NOT NULL');*/
+        /* $this->db->select('e1.id id,
+             et4.emptype EmployeeType,
+             c4.category EmployeeCategory,
+             e1.empno EmployeeNo,
+             e1.empname EmployeeName,
+             de4.desig Designation,
+             e.empname SupervisorName,
+             e.empname SupervisorCode,
+             pr4.proj_name WorkProjectCode,
+             pr4.proj_name WorkingProject,
+             pr41.proj_name ChargingProject,
+             loc4.location LocationCode,
+             e.conexpiry ConExpiry,
+             st4.status Status');
+         $this->db->from('hr_employee e');
+         $this->db->join('hr_category c', 'e.ddlcategory = c.id', 'left');
+         $this->db->join('hr_emptype et', 'e.ddlemptype = et.id', 'left');
+         $this->db->join('hr_desig de', 'e.titdesi = de.id', 'left');
+         $this->db->join('hr_band b', 'e.ddlband = b.id', 'left');
+         $this->db->join('hr_band b1', 'b1.id = de.band', 'left');
+         $this->db->join('location loc', 'loc.id = e.ddlloc', 'left');
+         $this->db->join('hr_status st', 'st.id = e.status', 'left');
+         $this->db->join('project pr', 'pr.proj_code = e.workproj', 'left');
+         $this->db->join('project pr1', 'pr1.proj_code = e.chargproj', 'left');
+         $this->db->join('hr_employee e1', 'e.empno = e1.supernme', 'left');
+         $this->db->join('hr_category c4', 'e1.ddlcategory = c4.id', 'left');
+         $this->db->join('hr_emptype et4', 'e1.ddlemptype = et4.id', 'left');
+         $this->db->join('hr_desig de4', 'e1.titdesi = de4.id', 'left');
+         $this->db->join('hr_band b4', 'e1.ddlband = b4.id', 'left');
+         $this->db->join('hr_band b41', 'b41.id = de.band', 'left');
+         $this->db->join('location loc4', 'loc4.id = e1.ddlloc', 'left');
+         $this->db->join('hr_status st4', 'st4.id = e1.status', 'left');
+         $this->db->join('project pr4', 'pr4.proj_code = e1.workproj', 'left');
+         $this->db->join('project pr41', 'pr41.proj_code = e1.chargproj', 'left');
+         $this->db->where('e1.supernme IS NOT NULL');*/
 
         $this->db->select('*');
         $this->db->from('employee_view e');
