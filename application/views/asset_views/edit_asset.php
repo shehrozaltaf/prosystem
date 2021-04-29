@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control numericOnly" id="pr_reqId"
-                                                       name="pr_reqId"  maxlength="6" minlength="3"
+                                                       name="pr_reqId" maxlength="6" minlength="3"
                                                        value="<?php echo(isset($a->pr_no) && $a->pr_no != '' ? $a->pr_no : '') ?>"
                                                        autocomplete="pr_reqId">
                                             </div>
@@ -939,7 +939,7 @@
                 $.get("<?php echo base_url('index.php/asset_controllers/Assets/getAssetDocs?a='); ?>" + idAsset, function (data) {
                     $.each(data, function (key, value) {
                         var mockFile = {name: value.name, size: value.size};
-                        thisDropzone.displayExistingFile(mockFile, "<?php echo base_url()?>/assets/uploads/assetUploads/4195/" + value.name);
+                        thisDropzone.displayExistingFile(mockFile, "E:/PortalFiles/ASSET_PROREPORTS/" + idAsset + "/" + value.name);
                     });
                 });
 

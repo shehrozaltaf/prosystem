@@ -85,7 +85,7 @@ class Add_asset extends CI_controller
     function testUpload()
     {
         $countfiles = count($_FILES['file']['name']);
-        $upload_location = "assets/uploads/assetUploads/";
+        $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/";
         $files_arr = array();
         for ($index = 0; $index < $countfiles; $index++) {
             if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
@@ -176,7 +176,7 @@ class Add_asset extends CI_controller
                 if ($InsertData) {
 
                     if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                        $upload_location = "assets/uploads/assetUploads/" . $InsertData . '/';
+                        $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $InsertData . '/';
                         if (!is_dir($upload_location)) {
                             mkdir($upload_location, 0777, TRUE);
                         }

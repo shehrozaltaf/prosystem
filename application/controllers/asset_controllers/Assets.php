@@ -849,7 +849,7 @@ class Assets extends CI_controller
                     }
                 }
                 if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                    $upload_location = "assets/uploads/assetUploads/" . $idAsset . '/';
+                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
                     if (!is_dir($upload_location)) {
                         mkdir($upload_location, 0777, TRUE);
                     }
@@ -903,7 +903,7 @@ class Assets extends CI_controller
             $MAsset = new MAsset();
             $searchdata = array();
             $searchdata['idAsset'] = $_GET['a'];
-            $storeFolder = 'assets/uploads/assetUploads/' . $searchdata['idAsset'] . '/';
+            $storeFolder = 'E:/PortalFiles/ASSET_PROREPORTS/' . $searchdata['idAsset'] . '/';
             $docs = $MAsset->getAssetDocsByIdAsset($searchdata);
             if (isset($docs) && $docs != '') {
                 foreach ($docs as $d) {
