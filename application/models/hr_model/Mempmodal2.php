@@ -19,62 +19,37 @@ class Mempmodel extends CI_Model
         $this->load->library('session');
     }
 
-    /*shehroz*/
-    function getAllEmployee($searchdata)
+
+    function getDataFromTableByID($id)
     {
-        $start = 0;
-        $length = 500000;
-        if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
-            $start = $searchdata['start'];
-        }
-        if (isset($searchdata['length']) && $searchdata['length'] != '' && $searchdata['length'] != null) {
-            $length = $searchdata['length'];
-        }
+        //$query = $this->db->query("SELECT e.id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,qual,landlineccode,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,e.degree,e.field,d.id id1,d.degree degree1,f.id idf,f.field ffield FROM hr_employee e inner join hr_degree d on e.degree = d.id inner join hr_field f on e.field = f.id where e.id='$id'");
 
-
-        if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
-            $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
-        }
-        if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
-            $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
-        }
-        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
-            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
-        }
-        if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
-            $this->db->where('e.entity', $searchdata['entity']);
-        }
-        if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
-            $this->db->where('e.ddlband', $searchdata['band']);
-        }
-
-        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
-            $this->db->where('e.status', $searchdata['status']);
-        }
-
-        if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
-            $this->db->where("(e.empname like '%" . $searchdata['empname'] . "%')");
-        }
-
-        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
-            $this->db->where('e.empno', $searchdata['empno']);
-        }
-
-        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
-            isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
-            $this->db->where("e.rehiredt between '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "' and '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
-        }
-        if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
-            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
-        }
-        $this->db->select('*');
-        $this->db->from('employee_view e');
-        $this->db->limit($length, $start);
-        $query = $this->db->get();
-
-
+        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,landlineccode,chk_landline,chk_emlandno,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where id='$id'");
         return $query->result();
+    }
 
+
+    function getDataSupervisor()
+    {
+        $query = $this->db->query("SELECT
+	empno,
+	empname,
+	desig 
+FROM
+	employee_view");
+        return $query->result();
+    }
+
+
+    function getDesignation($id)
+    {
+        $query = $this->db->query("SELECT id,desig,band FROM hr_desig where band='$id'");
+        $results = array();
+        foreach ($query->result() as $row) {
+            $results[] = $row;
+        }
+
+        return $results;
     }
 
     /*shehroz*/
@@ -108,18 +83,6 @@ class Mempmodel extends CI_Model
     }
 
     /*shehroz*/
-    function getDataSupervisor()
-    {
-        $query = $this->db->query("SELECT
-	empno,
-	empname,
-	desig 
-FROM
-	employee_view");
-        return $query->result();
-    }
-
-    /*shehroz*/
     function getAssetByEmpNo($empno)
     {
         $this->db->select('*');
@@ -128,30 +91,6 @@ FROM
         $query = $this->db->get();
         return $query->result();
     }
-
-
-   /* function getDataFromTableByID($id)
-    {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,landlineccode,chk_landline,chk_emlandno,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where id='$id'");
-        return $query->result();
-    }*/
-
-
-
-
-
-    function getDesignation($id)
-    {
-        $query = $this->db->query("SELECT id,desig,band FROM hr_desig where band='$id'");
-        $results = array();
-        foreach ($query->result() as $row) {
-            $results[] = $row;
-        }
-
-        return $results;
-    }
-
-
 
     function getEmployeeDataByEmpNo2($empno)
     {
@@ -235,6 +174,64 @@ FROM
         //return $query->result_array();
     }
 
+    function getAllEmployee($searchdata)
+    {
+        /*shehroz*/
+
+        $start = 0;
+        $length = 500000;
+        if (isset($searchdata['start']) && $searchdata['start'] != '' && $searchdata['start'] != null) {
+            $start = $searchdata['start'];
+        }
+        if (isset($searchdata['length']) && $searchdata['length'] != '' && $searchdata['length'] != null) {
+            $length = $searchdata['length'];
+        }
+
+
+        if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
+            $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
+        }
+        if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
+            $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
+        }
+        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        }
+        if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
+            $this->db->where('e.entity', $searchdata['entity']);
+        }
+        if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
+            $this->db->where('e.ddlband', $searchdata['band']);
+        }
+
+        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
+            $this->db->where('e.status', $searchdata['status']);
+        }
+
+        if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
+            $this->db->where("(e.empname like '%" . $searchdata['empname'] . "%')");
+        }
+
+        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
+            $this->db->where('e.empno', $searchdata['empno']);
+        }
+
+        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
+            isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
+            $this->db->where("e.rehiredt between '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "' and '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
+        }
+        if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
+            $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
+        }
+        $this->db->select('*');
+        $this->db->from('employee_view e');
+        $this->db->limit($length, $start);
+        $query = $this->db->get();
+
+
+        return $query->result();
+
+    }
 
     function getAllEmployee2()
     {

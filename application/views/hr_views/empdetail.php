@@ -36,15 +36,16 @@
                                 $empD = $empDetails[0];
                             } else {
                                 $empD = '';
-                            } ?>
+                            }
+                            ?>
                             <div class="position-relative">
                                 <!-- profile picture -->
                                 <div class="profile-img-container d-flex align-items-center">
                                     <div class="profile-img">
                                         <img
-                                                src="https://banner2.cleanpng.com/20180410/bbw/kisspng-avatar-user-medicine-surgery-patient-avatar-5acc9f7a7cb983.0104600115233596105109.jpg"
+                                                src="<?php echo((isset($empD->pic)) && $empD->pic != '' ? $empD->pic : base_url() . 'assets/images/profile/dummy.jpg') ?>"
                                                 class="rounded img-fluid"
-                                                alt="Card image"
+                                                alt="<?php echo(isset($empD->empname) && $empD->empname != '' ? $empD->empname : '') ?>"
                                         />
                                     </div>
                                     <!-- profile title -->
@@ -78,39 +79,47 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link font-weight-bold active" id="home-tab-fill"
                                                        data-toggle="tab"
-                                                       href="#personal-info-fill" role="tab" aria-controls="personal-info-fill"
+                                                       href="#personal-info-fill" role="tab"
+                                                       aria-controls="personal-info-fill"
                                                        aria-selected="true">Personal Information</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link font-weight-bold" id="profile-tab-fill"
                                                        data-toggle="tab"
-                                                       href="#contact-details-fill" role="tab" aria-controls="contact-details-fill"
+                                                       href="#contact-details-fill" role="tab"
+                                                       aria-controls="contact-details-fill"
                                                        aria-selected="false">Contact Details</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link font-weight-bold" id="messages-tab-fill"
                                                        data-toggle="tab"
-                                                       href="#emergency-contact-fill" role="tab" aria-controls="emergency-contact-fill"
+                                                       href="#emergency-contact-fill" role="tab"
+                                                       aria-controls="emergency-contact-fill"
                                                        aria-selected="false">Emergency Contact</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link font-weight-bold" id="emp-details-tab-fill"
                                                        data-toggle="tab"
-                                                       href="#emp-details-fill" role="tab" aria-controls="emp-details-fill"
+                                                       href="#emp-details-fill" role="tab"
+                                                       aria-controls="emp-details-fill"
                                                        aria-selected="false">Employment Details</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link font-weight-bold " id="settings-tab-fill" data-toggle="tab"
-                                                       href="#hiring-status-fill" role="tab" aria-controls="hiring-status-fill"
+                                                    <a class="nav-link font-weight-bold " id="settings-tab-fill"
+                                                       data-toggle="tab"
+                                                       href="#hiring-status-fill" role="tab"
+                                                       aria-controls="hiring-status-fill"
                                                        aria-selected="false">Hiring Status</a>
                                                 </li>
                                                 <li class="nav-item ">
-                                                    <a class="nav-link font-weight-bold" id="documents-tab-fill" data-toggle="tab"
+                                                    <a class="nav-link font-weight-bold" id="documents-tab-fill"
+                                                       data-toggle="tab"
                                                        href="#documents-fill" role="tab" aria-controls="documents-fill"
                                                        aria-selected="false">Documents</a>
                                                 </li>
                                                 <li class="nav-item ">
-                                                    <a class="nav-link font-weight-bold" id="assets-tab-fill" data-toggle="tab"
+                                                    <a class="nav-link font-weight-bold" id="assets-tab-fill"
+                                                       data-toggle="tab"
                                                        href="#assets-fill" role="tab" aria-controls="assets-fill"
                                                        aria-selected="false">Assets</a>
                                                 </li>
@@ -134,9 +143,8 @@
                 <!-- profile info section -->
                 <section id="profile-info">
                     <div class="row">
-
                         <!-- left profile info section -->
-                        <div class="col-lg-9 col-12 order-1 order-lg-1">
+                        <div class="col-lg-12 col-12 order-1 order-lg-1">
                             <div class="tab-content pt-1">
                                 <div class="tab-pane active" id="personal-info-fill" role="tabpanel"
                                      aria-labelledby="home-tab-fill">
@@ -153,13 +161,15 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="font-weight-bold">Official Email<br/>(without aku.edu)</td>
+                                                    <td class="font-weight-bold">Official Email<br/>(without aku.edu)
+                                                    </td>
                                                     <td>
                                                         <?php echo(isset($empD->offemail) && $empD->offemail != '' ? $empD->offemail : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="font-weight-bold">Full Name <br>(Use Capital Letters)</td>
+                                                    <td class="font-weight-bold">Full Name <br>(Use Capital Letters)
+                                                    </td>
                                                     <td>
                                                         <?php echo(isset($empD->empname) && $empD->empname != '' ? $empD->empname : '') ?>
                                                     </td>
@@ -185,7 +195,7 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Highest Field</td>
                                                     <td>
-                                                        <?php echo(isset($empD->qualification) && $empD->qualification != '' ? $empD->qualification : '') ?>
+                                                        <?php echo(isset($empD->field) && $empD->field != '' ? $empD->field : '') ?>
                                                     </td>
                                                 </tr>
 
@@ -222,13 +232,13 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Mobile Number (Primary)</td>
                                                     <td>
-                                                        <?php echo(isset($empD->cellno1ccode) && $empD->cellno1ccode != '' ? $empD->cellno1ccode : '') ?>
+                                                        <?php echo(isset($empD->cellno1) && $empD->cellno1 != '' ? $empD->cellno1 : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="font-weight-bold">Mobile Number (Alternate)</td>
                                                     <td>
-                                                        <?php echo(isset($empD->cellno2ccode) && $empD->cellno2ccode != '' ? $empD->cellno2ccode : '') ?>
+                                                        <?php echo(isset($empD->cellno2) && $empD->cellno2 != '' ? $empD->cellno2 : '') ?>
                                                     </td>
                                                 </tr>
 
@@ -253,13 +263,13 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Mobile Number</td>
                                                     <td>
-                                                        <?php echo(isset($empD->emcellnoccode) && $empD->emcellnoccode != '' ? $empD->emcellnoccode : '') ?>
+                                                        <?php echo(isset($empD->emcellno) && $empD->emcellno != '' ? $empD->emcellno : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="font-weight-bold">Landline No.</td>
                                                     <td>
-                                                        <?php echo(isset($empD->emlandnoccode) && $empD->emlandnoccode != '' ? $empD->emlandnoccode : '') ?>
+                                                        <?php echo(isset($empD->emlandno) && $empD->emlandno != '' ? $empD->emlandno : '') ?>
                                                     </td>
                                                 </tr>
 
@@ -282,7 +292,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="font-weight-bold">Job Title</td>
+                                                    <td class="font-weight-bold">Category</td>
                                                     <td>
                                                         <?php echo(isset($empD->category) && $empD->category != '' ? $empD->category : '') ?>
                                                     </td>
@@ -408,7 +418,7 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Entity</td>
                                                     <td>
-                                                        <?php echo(isset($empD->entity) && $empD->entity != '' ? $empD->entity : '') ?>
+                                                        <?php echo(isset($empD->entityName) && $empD->entityName != '' ? $empD->entityName : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -420,13 +430,13 @@
                                                 <tr>
                                                     <td class="font-weight-bold">ID Card Issued</td>
                                                     <td>
-                                                        <?php echo(isset($empD->lbl_cardissue) && $empD->lbl_cardissue != '' ? $empD->lbl_cardissue : '') ?>
+                                                        <?php echo(isset($empD->cardissue) && $empD->cardissue != '' ? $empD->cardissue : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="font-weight-bold">Letter of Appointment Received</td>
                                                     <td>
-                                                        <?php echo(isset($empD->lbl_letterapp) && $empD->lbl_letterapp != '' ? $empD->lbl_letterapp : '') ?>
+                                                        <?php echo(isset($empD->letterapp) && $empD->letterapp != '' ? $empD->letterapp : '') ?>
                                                     </td>
                                                 </tr>
 
@@ -434,7 +444,7 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Confirmation</td>
                                                     <td>
-                                                        <?php echo(isset($empD->lbl_confirmation) && $empD->lbl_confirmation != '' ? $empD->lbl_confirmation : '') ?>
+                                                        <?php echo(isset($empD->confirmation) && $empD->confirmation != '' ? $empD->confirmation : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -469,13 +479,15 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="font-weight-bold">Official Email<br/>(without aku.edu)</td>
+                                                    <td class="font-weight-bold">Official Email<br/>(without aku.edu)
+                                                    </td>
                                                     <td>
                                                         <?php echo(isset($empD->offemail) && $empD->offemail != '' ? $empD->offemail : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="font-weight-bold">Full Name <br>(Use Capital Letters)</td>
+                                                    <td class="font-weight-bold">Full Name <br>(Use Capital Letters)
+                                                    </td>
                                                     <td>
                                                         <?php echo(isset($empD->empname) && $empD->empname != '' ? $empD->empname : '') ?>
                                                     </td>
@@ -518,25 +530,25 @@
                                         <div class="card-body">
                                             <table class="table table-bordered table-hover table-striped">
                                                 <thead>
-                                                    <tr>
-                                                       <th>SNo</th>
-                                                       <th>Tag No</th>
-                                                       <th>Serial No</th>
-                                                       <th>Category</th>
-                                                       <th>Description</th>
-                                                       <th>Status</th>
-                                                    </tr>
+                                                <tr>
+                                                    <th>SNo</th>
+                                                    <th>Tag No</th>
+                                                    <th>Serial No</th>
+                                                    <th>Category</th>
+                                                    <th>Description</th>
+                                                    <th>Status</th>
+                                                </tr>
                                                 </thead>
                                                 <?php
-                                                if(isset($assetEmp) && $assetEmp!=''){
-                                                    foreach ($assetEmp as $k_a=>$assets){
+                                                if (isset($assetEmp) && $assetEmp != '') {
+                                                    foreach ($assetEmp as $k_a => $assets) {
                                                         echo ' <tr>
-                                                    <td>'.($k_a+1).'</td>
-                                                    <td>'.(isset($assets->tag_no) && $assets->tag_no!=''?$assets->tag_no:'').'</td>
-                                                    <td>'.(isset($assets->serial_no) && $assets->serial_no!=''?$assets->serial_no:'').'</td>
-                                                    <td>'.(isset($assets->category) && $assets->category!=''?$assets->category:'').'</td> 
-                                                    <td>'.(isset($assets->description) && $assets->description!=''?$assets->description:'').'</td> 
-                                                    <td>'.(isset($assets->status_name) && $assets->status_name!=''?$assets->status_name:'').'</td> 
+                                                    <td>' . ($k_a + 1) . '</td>
+                                                    <td>' . (isset($assets->tag_no) && $assets->tag_no != '' ? $assets->tag_no : '') . '</td>
+                                                    <td>' . (isset($assets->serial_no) && $assets->serial_no != '' ? $assets->serial_no : '') . '</td>
+                                                    <td>' . (isset($assets->category) && $assets->category != '' ? $assets->category : '') . '</td> 
+                                                    <td>' . (isset($assets->description) && $assets->description != '' ? $assets->description : '') . '</td> 
+                                                    <td>' . (isset($assets->status_name) && $assets->status_name != '' ? $assets->status_name : '') . '</td> 
                                                 </tr>';
                                                     }
                                                 } ?>
@@ -549,101 +561,6 @@
                         </div>
                         <!--/ left profile info section -->
 
-
-                        <!-- right profile info section -->
-                        <div class="col-lg-3 col-12 order-2">
-                            <!-- latest profile pictures -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="mb-0">Latest Photos</h5>
-                                    <div class="row">
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-13.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-02.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-03.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-04.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-05.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-06.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-07.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-08.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-6 profile-latest-img">
-                                            <a href="javascript:void(0)">
-                                                <img
-                                                        src="../../../app-assets/images/profile/user-uploads/user-09.jpg"
-                                                        class="img-fluid rounded"
-                                                        alt="avatar img"
-                                                />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ latest profile pictures -->
-                        </div>
-                        <!--/ right profile info section -->
                     </div>
                 </section>
                 <!--/ profile info section -->

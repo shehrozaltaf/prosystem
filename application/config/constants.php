@@ -87,3 +87,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('PROJECT_NAME','Staff Online Data Repository COE / Department of Paeds & Child Health');
 define('PROJECT_NAME1','DMU Paeds');
+define('EMPLOYEE_LOC','C:/hrfiles/');

@@ -52,6 +52,39 @@ class Employee_entry extends CI_controller
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }
+    function getEmployeeEdit($id)
+    {
+        $data = array();
+
+        $MSettings = new MSettings();
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/employee_entry');
+        /*==========Log=============*/
+        $Custom = new Custom();
+        $trackarray = array("action" => "View Dashboard Users Page",
+            "result" => "View Dashboard Users page. Fucntion: index()");
+        $Custom->trackLogs($trackarray, "user_logs");
+
+        $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
+        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
+        $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
+        $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
+        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
+        $data['location'] = $Custom->selectAllQuery('location', 'id');
+        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
+        $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
+        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
+        $data['proj'] = $Custom->selectAllQuery('project', 'idProject');
+        $Mempmodel = new Mempmodel();
+        $data['supervisor'] = $Mempmodel->getDataSupervisor();
+
+        $data['editemp'] = $Mempmodel->getEmployeeDataByEmpNo($id);
+        $this->load->view('include/header');
+        $this->load->view('include/top_header');
+        $this->load->view('include/sidebar');
+        $this->load->view('hr_views/employee_entry_edit', $data);
+        $this->load->view('include/customizer');
+        $this->load->view('include/footer');
+    }
 
     function getEmployeeEmpNo()
     {
@@ -139,7 +172,8 @@ class Employee_entry extends CI_controller
                 $insertArray['status'] = (isset($_POST['status']) && $_POST['status'] != '' ? $_POST['status'] : '');
                 $insertArray['remarks'] = (isset($_POST['remarks']) && $_POST['remarks'] != '' ? $_POST['remarks'] : '');
                 $insertArray['entryType'] = (isset($_POST['entryType']) && $_POST['entryType'] != '' ? $_POST['entryType'] : '');
-                $insertArray['pic'] = (isset($_FILES["pic"]["name"]) && $_FILES["pic"]["name"] != '' ? $_FILES["pic"]["name"] : '');
+                $pic_location = EMPLOYEE_LOC . $empno . '/profilepic/';
+                $insertArray['pic'] = (isset($_FILES["pic"]["name"]) && $_FILES["pic"]["name"] != '' ? $pic_location . $_FILES["pic"]["name"] : '');
 
                 $insertArray['isActive'] = 1;
                 $insertArray['createdBy'] = $_SESSION['login']['idUser'];
@@ -149,7 +183,6 @@ class Employee_entry extends CI_controller
                     $result = array('0' => 'Success', '1' => 'Successfully Inserted', '2' => $empno);
 
                     if (isset($_FILES["pic"]["name"])) {
-                        $pic_location = "assets/uploads/hrUploads/" . $empno . '/profilepic/';
                         if (!is_dir($pic_location)) {
                             mkdir($pic_location, 0777, TRUE);
                         }
@@ -162,7 +195,7 @@ class Employee_entry extends CI_controller
                     }
 
                     if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                        $upload_location = "assets/uploads/hrUploads/" . $empno . '/docs/';
+                        $upload_location = EMPLOYEE_LOC . $empno . '/docs/';
                         if (!is_dir($upload_location)) {
                             mkdir($upload_location, 0777, TRUE);
                         }
@@ -217,173 +250,25 @@ class Employee_entry extends CI_controller
 
     /*Javed Bhai*/
 
-    function index2()
-    {
-        $data = array();
-
-        $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/employee_entry');
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View Dashboard Users Page",
-            "result" => "View Dashboard Users page. Fucntion: index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-
-        $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
-        //$data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
-
-        $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
-        $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
-
-        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
-        //$data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('location', 'id');
-
-        $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
-        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
-        $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
-        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
-        $data['workproj'] = $Custom->selectAllQuery('project', 'idProject');
-        $data['chargproj'] = $Custom->selectAllQuery('project', 'idProject');
-
-        $Mempmodel = new Mempmodel();
-        $data['supervisor'] = $Mempmodel->getDataSupervisor();
-
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('hr_views/employee_entry', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
-    }
-
-    function addRecord2()
-    {
-
-        ob_end_clean();
-        $flag = 0;
-        $formArray = array();
-
-        foreach ($_POST as $k => $v) {
-            if (!isset($v) || $v == '') {
-
-                if (!isset($v) && $k === "cellno2" || $v == '' && $k === "cellno2" ||
-                    !isset($v) && $k === "remarks" || $v == '' && $k === "remarks" ||
-                    !isset($v) && $k === "offemail" || $v == '' && $k === "offemail" ||
-                    !isset($v) && $k === "peremail" || $v == '' && $k === "peremail" ||
-
-                    !isset($v) && $k === "landlineccode" || $v == '' && $k === "landlineccode" || $v == 'NULL' && $k === "landlineccode" || $v == 'undefined' && $k === "landlineccode" ||
-                    !isset($v) && $k === "cellno1ccode" || $v == '' && $k === "cellno1ccode" || $v == 'NULL' && $k === "cellno1ccode" || $v == 'undefined' && $k === "cellno1ccode" ||
-                    !isset($v) && $k === "cellno2ccode" || $v == '' && $k === "cellno2ccode" || $v == 'NULL' && $k === "cellno2ccode" || $v == 'undefined' && $k === "cellno2ccode" ||
-                    !isset($v) && $k === "emcellnoccode" || $v == '' && $k === "emcellnoccode" || $v == 'NULL' && $k === "emcellnoccode" || $v == 'undefined' && $k === "emcellnoccode" ||
-                    !isset($v) && $k === "emlandnoccode" || $v == '' && $k === "emlandnoccode" || $v == 'NULL' && $k === "emlandnoccode" || $v == 'undefined' && $k === "emlandnoccode" ||
-
-                    !isset($v) && $k === "degree" || $v == '' && $k === "degree" || $v == 'NULL' && $k === "degree" || $v == 'undefined' && $k === "degree" ||
-                    !isset($v) && $k === "field" || $v == '' && $k === "field" || $v == 'NULL' && $k === "field" || $v == 'undefined' && $k === "field"
-                ) {
-                    $formArray[$k] = null;
-                } else {
-                    $flag = 1;
-                    echo json_encode('Invalid ' . $k);
-                    return false;
-                }
-
-            } else {
-
-                if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
-                    $formArray[$k] = date('Y-m-d', strtotime($v));
-                } else if ($k === 'empname') {
-                    $formArray[$k] = ucwords($v);
-                } else if ($k === 'hiresalary') {
-                    $formArray[$k] = $this->encrypt->encode($v);
-                } else {
-                    $formArray[$k] = $v;
-                }
-            }
-        }
-
-
-        if ($flag == 0) {
-
-            $Custom = new Custom();
-            if (isset($_FILES["imgfile"]["name"])) {
-                $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
-            } else {
-                $formArray["pic"] = null;
-            }
-
-
-            if (isset($_FILES["docfile"]["name"])) {
-                $formArray["doc"] = "assets/docs/" . $_FILES["docfile"]["name"];
-            } else {
-                $formArray["doc"] = null;
-            }
-
-
-            if (isset($_SESSION['login']['idUser'])) {
-                $formArray["userid"] = $_SESSION['login']['idUser'];
-            } else {
-                $formArray["userid"] = null;
-            }
-            $now = new DateTime();
-            $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_employee', 'N');
-            if (isset($_FILES["imgfile"]["name"])) {
-                $config['upload_path'] = 'assets/emppic';
-                $config['allowed_types'] = 'jpg|jpeg|gif|png';
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('imgfile')) {
-                    $file = null;
-                } else {
-                    $data = array('upload_data' => $this->upload->data());
-                    $file = 'assets/emppic/' . $data['upload_data']['file_name'];
-                }
-            }
-
-            if (isset($_FILES["docfile"]["name"])) {
-                $config2['upload_path'] = 'assets/docs';
-                $config2['allowed_types'] = 'pdf';
-                $this->upload->initialize($config2);
-                $this->load->library('upload', $config2);
-                if (!$this->upload->do_upload('docfile')) {
-                    $file = null;
-                } else {
-                    $data = array('upload_data' => $this->upload->data());
-                    $file = 'assets/docs/' . $data['upload_data']['file_name'];
-                }
-            }
-        } else {
-            $InsertData = 3;
-        }
-        echo $InsertData;
-    }
 
     function editRecord()
     {
         ob_end_clean();
         $flag = 0;
         $formArray = array();
-
-
         foreach ($_POST as $k => $v) {
             if (!isset($v) || $v == '') {
-
                 if (!isset($v) && $k === "cellno2" || $v == '' && $k === "cellno2" ||
                     !isset($v) && $k === "remarks" || $v == '' && $k === "remarks" ||
                     !isset($v) && $k === "offemail" || $v == '' && $k === "offemail" ||
                     !isset($v) && $k === "peremail" || $v == '' && $k === "peremail" ||
-
                     !isset($v) && $k === "landlineccode" || $v == '' && $k === "landlineccode" || $v == 'NULL' && $k === "landlineccode" || $v == 'undefined' && $k === "landlineccode" ||
                     !isset($v) && $k === "cellno1ccode" || $v == '' && $k === "cellno1ccode" || $v == 'NULL' && $k === "cellno1ccode" || $v == 'undefined' && $k === "cellno1ccode" ||
                     !isset($v) && $k === "cellno2ccode" || $v == '' && $k === "cellno2ccode" || $v == 'NULL' && $k === "cellno2ccode" || $v == 'undefined' && $k === "cellno2ccode" ||
                     !isset($v) && $k === "emcellnoccode" || $v == '' && $k === "emcellnoccode" || $v == 'NULL' && $k === "emcellnoccode" || $v == 'undefined' && $k === "emcellnoccode" ||
                     !isset($v) && $k === "emlandnoccode" || $v == '' && $k === "emlandnoccode" || $v == 'NULL' && $k === "emlandnoccode" || $v == 'undefined' && $k === "emlandnoccode" ||
-
-
                     !isset($v) && $k === "degree" || $v == '' && $k === "degree" || $v == 'NULL' && $k === "degree" || $v == 'undefined' && $k === "degree" ||
                     !isset($v) && $k === "field" || $v == '' && $k === "field" || $v == 'NULL' && $k === "field" || $v == 'undefined' && $k === "field"
-
                 ) {
                     $formArray[$k] = null;
                 } else {
@@ -391,9 +276,7 @@ class Employee_entry extends CI_controller
                     echo json_encode('Invalid ' . $k);
                     return false;
                 }
-
             } else {
-
                 if ($k === 'dob' || $k === 'rehiredt' || $k === 'conexpiry' || $k === 'gopdt') {
                     $formArray[$k] = date('Y-m-d', strtotime($v));
                 } else if ($k === 'empname') {
@@ -407,12 +290,8 @@ class Employee_entry extends CI_controller
             }
         }
 
-
         if ($flag == 0) {
-
             $Custom = new Custom();
-
-
             if (isset($_FILES["imgfile"]["name"])) {
                 $formArray["pic"] = "assets/emppic/" . $_FILES["imgfile"]["name"];
             } else {
@@ -429,30 +308,16 @@ class Employee_entry extends CI_controller
                     $formArray["doc"] = null;
                 }
             }
-
-
             if (isset($_SESSION['login']['idUser'])) {
                 $formArray["userid"] = $_SESSION['login']['idUser'];
             } else {
                 $formArray["userid"] = null;
             }
-
-
-            //print_r($formArray);
-            //print_r($_FILES);
-            //die();
-
-
             $now = new DateTime();
             $formArray["entrydate"] = $now->format('Y-m-d H:i:s');
 
-
             $id = $_SESSION['id'];
-
-
             $this->AuditTrials();
-
-
             if (isset($_POST['results'])) {
                 foreach (json_decode($_POST['results']) as $v) {
 
@@ -494,12 +359,6 @@ class Employee_entry extends CI_controller
                     }
 
                     unset($formArray['results']);
-
-
-                    //print_r($formArray);
-                    //print_r($_FILES);
-                    //die();
-
 
                     $EditData = $Custom->Edit($formArray, 'id', $id, 'hr_employee');
                 }
@@ -1019,7 +878,7 @@ class Employee_entry extends CI_controller
         echo $result;
     }
 
-    public function getEmployeeEdit($id)
+    public function getEmployeeEdit2($id)
     {
 
         $MSettings = new MSettings();
