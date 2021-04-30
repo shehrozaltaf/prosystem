@@ -1160,38 +1160,15 @@
                                     <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
                                     <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                 </button>
-
-                                <?php
-
-                                if (isset($editemp) && $editemp != '' && $editemp != null && isset($editemp[0]->id)) {
-                                    $_SESSION['id'] = $editemp[0]->id;
-                                    ?>
-                                    <div class="d-flex justify-content-between">
-                                        <button id="cmdUpdateSaveDraft" name="cmdSaveDraftSummary"
-                                                type="button" class="btn btn-primary mr-1 mb-1"
-                                                onclick="showSummary_SaveDraft();">Update Save Draft
-                                        </button>
-
-                                        <button id="cmdSummary" name="cmdSummary" type="button"
-                                                onclick="showSummary();"
-                                                class="btn btn-primary mr-1 mb-1">Update
-                                        </button>
-                                    </div>
-                                    <?php
-
-                                } else { ?>
-                                    <div class="d-flex justify-content-between">
-                                        <button class="btn btn-primary btn-submitDraft btn-submit mybtn"
-                                                data-status="draft" id="btn-submitDraft">Save
-                                            Draft
-                                        </button>
-                                        <button class="btn btn-success btn-submit mybtn" id="btn-submit"
-                                                data-status="save">Save
-                                        </button>
-                                    </div>
-                                <?php } ?>
-
-
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-submitDraft btn-submit mybtn mr-1"
+                                            data-status="draft" id="btn-submitDraft">Update
+                                        Draft
+                                    </button>
+                                    <button class="btn btn-success btn-submit mybtn" id="btn-submit"
+                                            data-status="save">Update
+                                    </button>
+                                </div>
                             </div>
 
                         </div>
@@ -1508,7 +1485,6 @@
         } else {
             toastMsg('Error', 'Invalid Emp No', 'error');
         }
-
     }
 
 

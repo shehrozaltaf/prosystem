@@ -228,7 +228,7 @@ class Employee_entry extends CI_controller
                                         $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
                                         $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
                                         $inst_docs = $Custom->Insert($fileUpload, 'id', 'hr_employee_docs', 'N');
-                                        if ($inst_docs) {
+                                        if (!$inst_docs) {
                                             $result = array('0' => 'Error', '1' => 'Data Inserted, but documents not uploaded', '2' => $empno);
                                         }
                                     }
@@ -270,51 +270,77 @@ class Employee_entry extends CI_controller
 
     function editData()
     {
-        $idAsset = 0;
-        if (!isset($_POST['idAsset']) || $_POST['idAsset'] == '' || $_POST['idAsset'] == '0') {
-            $result = array('0' => 'Error', '1' => 'Invalid Asset ID');
-        } else {
-            $idAsset = $_POST['idAsset'];
-            $MAsset = new MAsset();
+        $flag = 0;
+        if (!isset($_POST['empno']) || $_POST['empno'] == '' || $_POST['empno'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Emp No', '2' => '0');
+            $flag = 1;
+            echo json_encode($result);
+            exit();
+        }
+        if ($flag == 0) {
+            $empno = $_POST['empno'];
+            /*$MAsset = new MAsset();
             $searchdata = array();
-            $searchdata['idAsset'] = $idAsset;
-            $asset = $MAsset->getAssetById($searchdata);
+             $searchdata['idAsset'] = $empno;
+             $asset = $MAsset->getAssetById($searchdata);*/
             $Custom = new Custom();
             $editArray = array();
-            $editArray['idCategory'] = $_POST['idCategory'];
-            $editArray['desc'] = $_POST['desc'];
-            $editArray['model'] = $_POST['model'];
-            $editArray['product_no'] = $_POST['product_no'];
-            $editArray['gri_no'] = $_POST['gri_no'];
-            $editArray['serial_no'] = $_POST['serial_no'];
-            $editArray['po_no'] = $_POST['po_no'];
-            $editArray['cost'] = $_POST['cost'];
-            $editArray['idCurrency'] = $_POST['idCurrency'];
-            $editArray['idSourceOfPurchase'] = $_POST['idSourceOfPurchase'];
-            $editArray['emp_no'] = $_POST['emp_no'];
-            $editArray['resp_person_name'] = $_POST['resp_person_name'];
-            $editArray['ou'] = $_POST['ou'];
-            $editArray['account'] = $_POST['account'];
-            $editArray['dept'] = $_POST['dept'];
-            $editArray['fund'] = $_POST['fund'];
-            $editArray['proj_code'] = $_POST['proj_code'];
-            $editArray['prog'] = $_POST['prog'];
-            $editArray['idLocation'] = $_POST['idLocation'];
-            $editArray['idSubLocation'] = $_POST['idSubLocation'];
-            $editArray['area'] = $_POST['area'];
-            $editArray['verification_status'] = $_POST['verification_status'];
-            $editArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
-            $editArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
-            $editArray['pur_date'] = date('Y-m-d', strtotime($_POST['pur_date']));
-            $editArray['status'] = $_POST['status'];
-            $editArray['writOff_formNo'] = $_POST['writOff_formNo'];
-            $editArray['wo_date'] = date('Y-m-d', strtotime($_POST['wo_date']));
-            $editArray['remarks'] = $_POST['remarks'];
+            $editArray['offemail'] = (isset($_POST['offemail']) && $_POST['offemail'] != '' ? $_POST['offemail'] . '@aku.edu' : '');
+            $editArray['empname'] = (isset($_POST['empname']) && $_POST['empname'] != '' ? $_POST['empname'] : '');
+            $editArray['cnicno'] = (isset($_POST['cnicno']) && $_POST['cnicno'] != '' ? $_POST['cnicno'] : '');
+            $editArray['cnicexdt'] = (isset($_POST['cnicexdt']) && $_POST['cnicexdt'] != '' ? date('Y-m-d', strtotime($_POST['cnicexdt'])) : '');
+            $editArray['dob'] = (isset($_POST['dob']) && $_POST['dob'] != '' ? date('Y-m-d', strtotime($_POST['dob'])) : '');
+            $editArray['degree'] = (isset($_POST['degree']) && $_POST['degree'] != '' ? $_POST['degree'] : '');
+            $editArray['field'] = (isset($_POST['field']) && $_POST['field'] != '' ? $_POST['field'] : '');
+
+            $editArray['resaddr'] = (isset($_POST['resaddr']) && $_POST['resaddr'] != '' ? $_POST['resaddr'] : '');
+            $editArray['peremail'] = (isset($_POST['peremail']) && $_POST['peremail'] != '' ? $_POST['peremail'] : '');
+            $editArray['chk_landline'] = (isset($_POST['chk_landline']) && $_POST['chk_landline'] != '' ? $_POST['chk_landline'] : '');
+            $editArray['landline'] = (isset($_POST['landline']) && $_POST['landline'] != '' ? $_POST['landline'] : '');
+            $editArray['cellno1'] = (isset($_POST['cellno1']) && $_POST['cellno1'] != '' ? $_POST['cellno1'] : '');
+            $editArray['cellno2'] = (isset($_POST['cellno2']) && $_POST['cellno2'] != '' ? $_POST['cellno2'] : '');
+
+            $editArray['personnme'] = (isset($_POST['personnme']) && $_POST['personnme'] != '' ? $_POST['personnme'] : '');
+            $editArray['emcellno'] = (isset($_POST['emcellno']) && $_POST['emcellno'] != '' ? $_POST['emcellno'] : '');
+            $editArray['emlandno'] = (isset($_POST['emlandno']) && $_POST['emlandno'] != '' ? $_POST['emlandno'] : '');
+            $editArray['chk_emlandno'] = (isset($_POST['chk_emlandno']) && $_POST['chk_emlandno'] != '' ? $_POST['chk_emlandno'] : '');
+
+            $editArray['ddlemptype'] = (isset($_POST['ddlemptype']) && $_POST['ddlemptype'] != '' ? $_POST['ddlemptype'] : '');
+            $editArray['ddlcategory'] = (isset($_POST['ddlcategory']) && $_POST['ddlcategory'] != '' ? $_POST['ddlcategory'] : '');
+            $editArray['gncno'] = (isset($_POST['gncno']) && $_POST['gncno'] != '' ? $_POST['gncno'] : '');
+            $editArray['ddlband'] = (isset($_POST['ddlband']) && $_POST['ddlband'] != '' ? $_POST['ddlband'] : '');
+            $editArray['titdesi'] = (isset($_POST['titdesi']) && $_POST['titdesi'] != '' ? $_POST['titdesi'] : '');
+            $editArray['rehiredt'] = (isset($_POST['rehiredt']) && $_POST['rehiredt'] != '' ? date('Y-m-d', strtotime($_POST['rehiredt'])) : '');
+            $editArray['conexpiry'] = (isset($_POST['conexpiry']) && $_POST['conexpiry'] != '' ? date('Y-m-d', strtotime($_POST['conexpiry'])) : '');
+            $editArray['workproj'] = (isset($_POST['workproj']) && $_POST['workproj'] != '' ? $_POST['workproj'] : '');
+            $editArray['chargproj'] = (isset($_POST['chargproj']) && $_POST['chargproj'] != '' ? $_POST['chargproj'] : '');
+            $editArray['ddlloc'] = (isset($_POST['ddlloc']) && $_POST['ddlloc'] != '' ? $_POST['ddlloc'] : '');
+            $editArray['ddlloc_sub'] = (isset($_POST['ddlloc_sub']) && $_POST['ddlloc_sub'] != '' ? $_POST['ddlloc_sub'] : '');
+            $editArray['supernme'] = (isset($_POST['supernme']) && $_POST['supernme'] != '' ? $_POST['supernme'] : '');
+            $editArray['hiresalary'] = (isset($_POST['hiresalary']) && $_POST['hiresalary'] != '' ? $this->encrypt->encode($_POST['hiresalary']) : '');
+            $editArray['ddlhardship'] = (isset($_POST['ddlhardship']) && $_POST['ddlhardship'] != '' ? $_POST['ddlhardship'] : '');
+            $editArray['amount'] = (isset($_POST['amount']) && $_POST['amount'] != '' ? $_POST['amount'] : '');
+            $editArray['benefits'] = (isset($_POST['benefits']) && $_POST['benefits'] != '' ? $_POST['benefits'] : '');
+
+            $editArray['peme'] = (isset($_POST['peme']) && $_POST['peme'] != '' ? $_POST['peme'] : '');
+            $editArray['gop'] = (isset($_POST['gop']) && $_POST['gop'] != '' ? $_POST['gop'] : '');
+            $editArray['gopdt'] = (isset($_POST['gopdt']) && $_POST['gopdt'] != '' ? date('Y-m-d', strtotime($_POST['gopdt'])) : '');
+            $editArray['entity'] = (isset($_POST['entity']) && $_POST['entity'] != '' ? $_POST['entity'] : '');
+            $editArray['dept'] = (isset($_POST['dept']) && $_POST['dept'] != '' ? $_POST['dept'] : '');
+            $editArray['cardissue'] = (isset($_POST['cardissue']) && $_POST['cardissue'] != '' ? $_POST['cardissue'] : '');
+            $editArray['letterapp'] = (isset($_POST['letterapp']) && $_POST['letterapp'] != '' ? $_POST['letterapp'] : '');
+            $editArray['confirmation'] = (isset($_POST['confirmation']) && $_POST['confirmation'] != '' ? $_POST['confirmation'] : '');
+            $editArray['status'] = (isset($_POST['status']) && $_POST['status'] != '' ? $_POST['status'] : '');
+            $editArray['remarks'] = (isset($_POST['remarks']) && $_POST['remarks'] != '' ? $_POST['remarks'] : '');
+            $editArray['entryType'] = (isset($_POST['entryType']) && $_POST['entryType'] != '' ? $_POST['entryType'] : '');
+            $pic_location = EMPLOYEE_LOC . $empno . '/profilepic/';
+            $editArray['pic'] = (isset($_FILES["pic"]["name"]) && $_FILES["pic"]["name"] != '' ? $pic_location . $_FILES["pic"]["name"] : '');
+
             $editArray['updatedBy'] = $_SESSION['login']['idUser'];
             $editArray['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArray, 'idAsset', $idAsset, 'a_asset');
+            $editData = $Custom->Edit($editArray, 'empno', $empno, 'hr_employee');
             if ($editData) {
-                foreach ($editArray as $ek => $e) {
+                /*foreach ($editArray as $ek => $e) {
                     foreach ($asset[0] as $k => $a) {
                         if (trim($ek) == trim($k) && $e != $a) {
                             $insertArray_at = array();
@@ -330,12 +356,26 @@ class Employee_entry extends CI_controller
                             $Custom->Insert($insertArray_at, 'id', 'a_AuditTrials', 'N');
                         }
                     }
+                }*/
+                $result = array('0' => 'Success', '1' => 'Successfully Inserted', '2' => $empno);
+
+                if (isset($_FILES["pic"]["name"])) {
+                    if (!is_dir($pic_location)) {
+                        mkdir($pic_location, 0777, TRUE);
+                    }
+                    $config['upload_path'] = $pic_location;
+                    $config['allowed_types'] = 'jpg|jpeg|gif|png';
+                    $this->load->library('upload', $config);
+                    if (!$this->upload->do_upload('pic')) {
+                        $result = array('0' => 'Error', '1' => 'Data Inserted, but' . $this->upload->display_errors(), '2' => $empno);
+                    }
                 }
                 if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
+                    $upload_location = EMPLOYEE_LOC . $empno . '/docs/';
                     if (!is_dir($upload_location)) {
                         mkdir($upload_location, 0777, TRUE);
                     }
+
                     $countfiles = count($_FILES['file']['name']);
                     $files_arr = array();
                     for ($index = 0; $index < $countfiles; $index++) {
@@ -344,32 +384,28 @@ class Employee_entry extends CI_controller
                             $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                             $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
                             if (in_array($ext, $valid_ext)) {
-                                if (isset($asset[0]->tag_no) && $asset[0]->tag_no != '') {
-                                    $tag = $asset[0]->tag_no;
-                                } else {
-                                    $tag = $idAsset;
-                                }
-                                $filename = $tag . '.' . $ext;
-                                $newName = $MAsset->file_newname($upload_location, $filename);
+                                $filename = $empno . '.' . $ext;
+                                $newName = $Mempmodel->file_newname($upload_location, $filename);
                                 $path = $upload_location . $newName;
                                 if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
                                     $files_arr[] = $path;
                                     $fileUpload = array();
-                                    $fileUpload['idAsset'] = $idAsset;
+                                    $fileUpload['id_hr_employee'] = $empno;
+                                    $fileUpload['empno'] = $empno;
                                     $fileUpload['docPath'] = $upload_location . $filename;
                                     $fileUpload['docName'] = $filename;
                                     $fileUpload['isActive'] = 1;
                                     $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
                                     $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
-                                    $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'Y');
+                                    $inst_docs = $Custom->Insert($fileUpload, 'id', 'hr_employee_docs', 'N');
+                                    if (!$inst_docs) {
+                                        $result = array('0' => 'Error', '1' => 'Data Inserted, but documents not uploaded', '2' => $empno);
+                                    }
                                 }
-                            } else {
-                                $result = array('0' => 'Error', '1' => 'Invalid file extension', '2' => 0);
                             }
                         }
                     }
                 }
-                $result = array('0' => 'Success', '1' => 'Successfully Edited', '2' => 0);
             } else {
                 $result = array('0' => 'Error', '1' => 'Error in Editing Data', '2' => '0');
             }
@@ -602,7 +638,6 @@ class Employee_entry extends CI_controller
 
         echo $EditData;
     }
-
 
     function AuditTrials()
     {
@@ -1057,8 +1092,4 @@ class Employee_entry extends CI_controller
 
         echo $result;
     }
-
-
-
-
 }
