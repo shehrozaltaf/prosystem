@@ -297,12 +297,12 @@
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
                                                                 <?php if (isset($permission[0]->CanView) && $permission[0]->CanView == 1) { ?>
-                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->empno) ?>" >
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->empno) ?>" target="_blank">
                                                                         <i class="feather icon-eye"></i> </a>
                                                                 <?php } ?>
                                                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-                                                                    <a href="javascript:void(0)"
-                                                                       onclick="getEdit(this)"><i
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEdit/'.$rows->empno) ?>"
+                                                                    target="_blank"> <i
                                                                                 class="feather icon-edit"></i> </a>
                                                                 <?php } ?>
                                                                 <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
@@ -940,15 +940,6 @@
         }
     }
 
-
-    function getEdit(obj) {
-        var data = {};
-        data['id'] = $(obj).parent('td').attr('data-id');
-
-        if (data['id'] != '' && data['id'] != undefined) {
-            window.location.href = "employee_entry/getEmployeeEdit/" + data['id'];
-        }
-    }
 
 
     function editData() {

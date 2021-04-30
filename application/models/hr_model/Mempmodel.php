@@ -129,6 +129,21 @@ FROM
         return $query->result();
     }
 
+    function getEmpDocsByEmpNo($searchdata)
+    {
+        $emp_no = '';
+        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
+            $emp_no = $searchdata['empno'];
+        }
+        $this->db->select('*');
+        $this->db->from('hr_employee_docs');
+        $this->db->where('empno', $emp_no);
+        $this->db->where('isActive', 1);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
    /* function getDataFromTableByID($id)
     {

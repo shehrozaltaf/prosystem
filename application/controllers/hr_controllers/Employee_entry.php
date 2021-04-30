@@ -52,6 +52,7 @@ class Employee_entry extends CI_controller
         $this->load->view('include/customizer');
         $this->load->view('include/footer');
     }
+
     function getEmployeeEdit($id)
     {
         $data = array();
@@ -124,7 +125,7 @@ class Employee_entry extends CI_controller
                 $Custom = new Custom();
                 $insertArray = array();
                 $insertArray['empno'] = $empno;
-                $insertArray['offemail'] = (isset($_POST['offemail']) && $_POST['offemail'] != '' ? $_POST['offemail'] : '');
+                $insertArray['offemail'] = (isset($_POST['offemail']) && $_POST['offemail'] != '' ? $_POST['offemail'] . '@aku.edu' : '');
                 $insertArray['empname'] = (isset($_POST['empname']) && $_POST['empname'] != '' ? $_POST['empname'] : '');
                 $insertArray['cnicno'] = (isset($_POST['cnicno']) && $_POST['cnicno'] != '' ? $_POST['cnicno'] : '');
                 $insertArray['cnicexdt'] = (isset($_POST['cnicexdt']) && $_POST['cnicexdt'] != '' ? date('Y-m-d', strtotime($_POST['cnicexdt'])) : '');
@@ -247,11 +248,189 @@ class Employee_entry extends CI_controller
 
     }
 
+    function getDesignation()
+    {
+        if (isset($_POST['bandid']) && $_POST['bandid'] != '') {
+            $Mempmodel = new Mempmodel();
+            $bandid = $_POST['bandid'];
+            $getDesignation = $Mempmodel->getDesignation($bandid);
+            if (isset($getDesignation) && count($getDesignation) >= 1) {
+                $results = $getDesignation;
+            } else {
+                $results = array(['error' => 3]);
+            }
+        } else {
+            $results = array(['error' => 2]);
+        }
+
+        echo json_encode($results);
+    }
+
+    /*Edit Record*/
+
+    function editData()
+    {
+        $idAsset = 0;
+        if (!isset($_POST['idAsset']) || $_POST['idAsset'] == '' || $_POST['idAsset'] == '0') {
+            $result = array('0' => 'Error', '1' => 'Invalid Asset ID');
+        } else {
+            $idAsset = $_POST['idAsset'];
+            $MAsset = new MAsset();
+            $searchdata = array();
+            $searchdata['idAsset'] = $idAsset;
+            $asset = $MAsset->getAssetById($searchdata);
+            $Custom = new Custom();
+            $editArray = array();
+            $editArray['idCategory'] = $_POST['idCategory'];
+            $editArray['desc'] = $_POST['desc'];
+            $editArray['model'] = $_POST['model'];
+            $editArray['product_no'] = $_POST['product_no'];
+            $editArray['gri_no'] = $_POST['gri_no'];
+            $editArray['serial_no'] = $_POST['serial_no'];
+            $editArray['po_no'] = $_POST['po_no'];
+            $editArray['cost'] = $_POST['cost'];
+            $editArray['idCurrency'] = $_POST['idCurrency'];
+            $editArray['idSourceOfPurchase'] = $_POST['idSourceOfPurchase'];
+            $editArray['emp_no'] = $_POST['emp_no'];
+            $editArray['resp_person_name'] = $_POST['resp_person_name'];
+            $editArray['ou'] = $_POST['ou'];
+            $editArray['account'] = $_POST['account'];
+            $editArray['dept'] = $_POST['dept'];
+            $editArray['fund'] = $_POST['fund'];
+            $editArray['proj_code'] = $_POST['proj_code'];
+            $editArray['prog'] = $_POST['prog'];
+            $editArray['idLocation'] = $_POST['idLocation'];
+            $editArray['idSubLocation'] = $_POST['idSubLocation'];
+            $editArray['area'] = $_POST['area'];
+            $editArray['verification_status'] = $_POST['verification_status'];
+            $editArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
+            $editArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
+            $editArray['pur_date'] = date('Y-m-d', strtotime($_POST['pur_date']));
+            $editArray['status'] = $_POST['status'];
+            $editArray['writOff_formNo'] = $_POST['writOff_formNo'];
+            $editArray['wo_date'] = date('Y-m-d', strtotime($_POST['wo_date']));
+            $editArray['remarks'] = $_POST['remarks'];
+            $editArray['updatedBy'] = $_SESSION['login']['idUser'];
+            $editArray['updatedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArray, 'idAsset', $idAsset, 'a_asset');
+            if ($editData) {
+                foreach ($editArray as $ek => $e) {
+                    foreach ($asset[0] as $k => $a) {
+                        if (trim($ek) == trim($k) && $e != $a) {
+                            $insertArray_at = array();
+                            $insertArray_at['FormID'] = $idAsset;
+                            $insertArray_at['FormName'] = $ek;
+                            $insertArray_at['Fieldid'] = $ek;
+                            $insertArray_at['FieldName'] = $ek;
+                            $insertArray_at['OldValue'] = $a;
+                            $insertArray_at['NewValue'] = $e;
+                            $insertArray_at['isActive'] = 1;
+                            $insertArray_at['createdBy'] = $_SESSION['login']['idUser'];
+                            $insertArray_at['createdDateTime'] = date('Y-m-d H:i:s');
+                            $Custom->Insert($insertArray_at, 'id', 'a_AuditTrials', 'N');
+                        }
+                    }
+                }
+                if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
+                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+                    $countfiles = count($_FILES['file']['name']);
+                    $files_arr = array();
+                    for ($index = 0; $index < $countfiles; $index++) {
+                        if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
+                            $filename = $_FILES['file']['name'][$index];
+                            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                            $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                            if (in_array($ext, $valid_ext)) {
+                                if (isset($asset[0]->tag_no) && $asset[0]->tag_no != '') {
+                                    $tag = $asset[0]->tag_no;
+                                } else {
+                                    $tag = $idAsset;
+                                }
+                                $filename = $tag . '.' . $ext;
+                                $newName = $MAsset->file_newname($upload_location, $filename);
+                                $path = $upload_location . $newName;
+                                if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
+                                    $files_arr[] = $path;
+                                    $fileUpload = array();
+                                    $fileUpload['idAsset'] = $idAsset;
+                                    $fileUpload['docPath'] = $upload_location . $filename;
+                                    $fileUpload['docName'] = $filename;
+                                    $fileUpload['isActive'] = 1;
+                                    $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                                    $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                                    $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'Y');
+                                }
+                            } else {
+                                $result = array('0' => 'Error', '1' => 'Invalid file extension', '2' => 0);
+                            }
+                        }
+                    }
+                }
+                $result = array('0' => 'Success', '1' => 'Successfully Edited', '2' => 0);
+            } else {
+                $result = array('0' => 'Error', '1' => 'Error in Editing Data', '2' => '0');
+            }
+
+        }
+        echo json_encode($result);
+    }
+
+    function getEmpDocs()
+    {
+        $result = array();
+        if (isset($_GET['e']) && $_GET['e'] != '') {
+            $Mempmodel = new Mempmodel();
+            $searchdata = array();
+            $searchdata['empno'] = $_GET['e'];
+            $storeFolder = 'assets/uploads/hrUploads/' . $searchdata['empno'] . '/docs/';
+            $docs = $Mempmodel->getEmpDocsByEmpNo($searchdata);
+            if (isset($docs) && $docs != '') {
+                foreach ($docs as $d) {
+                    $obj['name'] = $d->docName;
+                    $obj['size'] = filesize($storeFolder . '/' . $d->docName);
+                    $result[] = $obj;
+                }
+            }
+        }
+        header('Content-type: text/json');
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
+
+    function deleteDoc()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        $where = array();
+        if (isset($_POST['empno']) && $_POST['empno'] != '') {
+            $where['empno'] = $_POST['empno'];
+            if (isset($_POST['file']) && $_POST['file'] != '') {
+                $where['docName'] = $_POST['file'];
+                $editArr['isActive'] = 0;
+                $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+                $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+                $editData = $Custom->Edit_multi_where($editArr, $where, 'hr_employee_docs');
+                if ($editData) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            } else {
+                echo 3;
+            }
+        } else {
+            echo 4;
+        }
+    }
+
 
     /*Javed Bhai*/
 
 
-    function editRecord()
+    function editRecord2()
     {
         ob_end_clean();
         $flag = 0;
@@ -423,6 +602,7 @@ class Employee_entry extends CI_controller
 
         echo $EditData;
     }
+
 
     function AuditTrials()
     {
@@ -748,7 +928,7 @@ class Employee_entry extends CI_controller
         }
     }
 
-    function addRecord_SaveDraft()
+    function addRecord_SaveDraft2()
     {
         ob_end_clean();
 
@@ -878,67 +1058,7 @@ class Employee_entry extends CI_controller
         echo $result;
     }
 
-    public function getEmployeeEdit2($id)
-    {
 
-        $MSettings = new MSettings();
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/employee_entry');
-
-        $Custom = new Custom();
-
-        $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
-
-        //$data['qualification'] = $Custom->selectAllQuery('hr_qualification', 'id');
-
-
-        $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
-        $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
-
-        $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
-        $data['designation'] = $Custom->selectAllQuery('hr_desig', 'id');
-        $data['location'] = $Custom->selectAllQuery('location', 'id');
-
-        $data['yesno'] = $Custom->selectAllQuery('hr_yesno', 'id');
-        $data['entity'] = $Custom->selectAllQuery('hr_entity', 'id');
-        $data['dept'] = $Custom->selectAllQuery('hr_dept', 'id');
-        $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
-
-        $data['workproj'] = $Custom->selectAllQuery('project', 'idProject');
-        $data['chargproj'] = $Custom->selectAllQuery('project', 'idProject');
-
-        $Mempmodel = new Mempmodel();
-        $data['supervisor'] = $Mempmodel->getDataSupervisor();
-        $data['editemp'] = $Mempmodel->getDataFromTableByID($id, 'hr_employee');
-
-
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('hr_views/employee_entry', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
-
-        //echo json_encode($data, true);
-    }
-
-    function getDesignation()
-    {
-        if (isset($_POST['bandid']) && $_POST['bandid'] != '') {
-            $Mempmodel = new Mempmodel();
-            $bandid = $_POST['bandid'];
-            $getDesignation = $Mempmodel->getDesignation($bandid);
-            if (isset($getDesignation) && count($getDesignation) >= 1) {
-                $results = $getDesignation;
-            } else {
-                $results = array(['error' => 3]);
-            }
-        } else {
-            $results = array(['error' => 2]);
-        }
-
-        echo json_encode($results);
-    }
 
 
 }

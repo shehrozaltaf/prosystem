@@ -463,7 +463,7 @@
                                     <div class="col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="ddlcategory">Job Title</label>
+                                                <label for="ddlcategory">Job Category</label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control required" id="ddlcategory"
@@ -504,7 +504,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control required" id="ddlband"
-                                                        autocomplete="ddlband_add"
+                                                        autocomplete="ddlband_add"  onchange="changeBand()"
                                                         required name="ddlband">
                                                     <?php
                                                     $html_options_Q = '<option value="0" readonly selected></option>';
@@ -528,15 +528,7 @@
                                                 <select class="select2 form-control required" id="titdesi"
                                                         autocomplete="titdesi_add"
                                                         required name="titdesi">
-                                                    <?php
-                                                    $html_options_Q = '<option value="0" readonly selected></option>';
-                                                    if (isset($designation) && $designation != '') {
-                                                        foreach ($designation as $v) {
-                                                            $html_options_Q .= '<option data-text="' . $v->desig . '" value="' . $v->id . '">' . $v->desig . '</option>';
-                                                        }
-                                                    }
-                                                    echo $html_options_Q;
-                                                    ?>
+                                                    <option value="0" readonly selected></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -959,11 +951,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="col-12">
                                 <div class="card">
@@ -1085,7 +1074,6 @@
                     } else {
                         toastMsg('Error', 'Invalid Emp Detailsss', 'error');
                     }
-
                 });
                 // My project only has 1 file hence not sendingmultiple
                 dzClosure.on('sending', function (data, xhr, form_data) {
@@ -1311,12 +1299,11 @@
         }
     });
 
-    $(document).on("change", "#ddlband", function () {
+    function changeBand() {
         var data = {};
         data['bandid'] = $('#ddlband').val();
         $('#titdesi').html('');
         CallAjax('<?php echo base_url('index.php/hr_controllers/employee_entry/getDesignation'); ?>', data, 'POST', function (result) {
-
             if (result != '' && JSON.parse(result).length > 0) {
                 var a = JSON.parse(result);
                 try {
@@ -1336,10 +1323,8 @@
             } else {
                 toastMsg('Error', 'Something went wrong', 'error');
             }
-
         });
-    });
-
+    }
 
     function mydate() {
         $('.mypickadat').pickadate({
