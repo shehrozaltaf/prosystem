@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/auth/recover_password.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/auth/user_activity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,98 +39,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+              <folding>
+                <element signature="n#getMenuData#0;n#Dashboard#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="281" column="14" selection-start-line="281" selection-start-column="14" selection-end-line="281" selection-end-column="14" />
+            <state relative-caret-position="373">
+              <caret line="76" column="75" lean-forward="true" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
               <folding>
-                <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
-                <element signature="e#403#490#0#PHP" />
-                <element signature="n#index#0;n#Employee_entry#0;n#!!top" />
-                <element signature="e#823#941#0#PHP" />
-                <element signature="n#getEmployeeEdit#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#getEmployeeEmpNo#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#getDesignation#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#getEmpDocs#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#deleteDoc#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#editRecord#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#AuditTrials#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#bulkupdate#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#AuditTrials_BulkUpd#0;n#Employee_entry#0;n#!!top" />
-                <element signature="n#addRecord_SaveDraft#0;n#Employee_entry#0;n#!!top" />
+                <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php">
+        <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-341">
-              <caret line="1265" column="59" lean-forward="true" selection-start-line="1265" selection-start-column="59" selection-end-line="1265" selection-end-column="59" />
+            <state relative-caret-position="502">
+              <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
               <folding>
-                <element signature="n#div#0;n#!!top" />
+                <element signature="e#10045#12161#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
+        <entry file="file://$PROJECT_DIR$/application/models/Mlogin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="787" column="3" lean-forward="true" selection-start-line="787" selection-start-column="3" selection-end-line="895" selection-end-column="5" />
-              <folding>
-                <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-                <element signature="e#613#700#0#PHP" />
-                <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
-                <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
-                <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
-                <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
-                <element signature="n#bulkupdate#0;n#Assets#0;n#!!top" />
-                <element signature="n#bulkupdate2#0;n#Assets#0;n#!!top" />
-                <element signature="n#editAsset#0;n#Assets#0;n#!!top" />
-                <element signature="n#editData#0;n#Assets#0;n#!!top" />
-                <element signature="n#deleteDoc#0;n#Assets#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="3146" column="5" lean-forward="true" selection-start-line="2060" selection-start-column="3" selection-end-line="3146" selection-end-column="5" />
-              <folding>
-                <element signature="e#81#86#0#PHP" />
-                <element signature="e#443#448#0#PHP" />
-                <element signature="e#572#577#0#PHP" />
-                <element signature="e#664#669#0#PHP" />
-                <element signature="e#757#762#0#PHP" />
-                <element signature="e#1005#1010#0#PHP" />
-                <element signature="e#1097#1102#0#PHP" />
-                <element signature="e#1266#1271#0#PHP" />
-                <element signature="e#1393#1398#0#PHP" />
-                <element signature="e#1481#1486#0#PHP" />
-                <element signature="e#2199#2204#0#PHP" />
-                <element signature="e#2348#2353#0#PHP" />
-                <element signature="e#124031#149388#0#HTML" />
-                <element signature="e#149427#172356#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="984" column="38" lean-forward="true" selection-start-line="976" selection-start-column="32" selection-end-line="984" selection-end-column="38" />
-              <folding>
-                <element signature="e#51#56#0#PHP" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -143,7 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>avatar-upload</find>
       <find>pic</find>
       <find>$upload_location</find>
       <find>ASSET_PROREPORTS</find>
@@ -170,9 +121,10 @@
       <find>getAssetDocs</find>
       <find>getDesignation</find>
       <find>Asset</find>
-      <find>showSummary</find>
       <find>btn-submitDraft</find>
       <find>btn-submit</find>
+      <find>showSummary</find>
+      <find>Inserted</find>
     </findStrings>
     <replaceStrings>
       <replace>identity</replace>
@@ -203,8 +155,8 @@
       <replace>cardissue</replace>
       <replace>letterapp</replace>
       <replace>Edit</replace>
-      <replace>$editArray</replace>
       <replace>confirmation</replace>
+      <replace>$editArray</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -225,7 +177,6 @@
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/welcome_message.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="$PROJECT_DIR$/application/views/auth/login.php" />
         <option value="$PROJECT_DIR$/application/models/Custom.php" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" />
@@ -239,8 +190,6 @@
         <option value="$PROJECT_DIR$/application/views/dashboard.php" />
         <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/table-datatable.html" />
-        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
-        <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
         <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
@@ -264,6 +213,9 @@
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
+        <option value="$PROJECT_DIR$/application/views/auth/login.php" />
+        <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
       </list>
     </option>
   </component>
@@ -316,6 +268,13 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="hr_views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -328,7 +287,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vehicle_portal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -342,11 +301,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\pro_system\application\views\auth" />
       <recent name="C:\xampp\htdocs\pro_system\application\language" />
       <recent name="C:\xampp\htdocs\pro_system\application\libraries\tcpdf\fonts" />
       <recent name="C:\xampp\htdocs\pro_system\assets\js\scripts\extensions" />
       <recent name="C:\xampp\htdocs\pro_system\assets\js\scripts\pages" />
-      <recent name="C:\xampp\htdocs\pro_system\assets\css\pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,14 +429,7 @@
       <workItem from="1619686053024" duration="393000" />
       <workItem from="1619686547737" duration="5140000" />
       <workItem from="1619695093178" duration="2747000" />
-      <workItem from="1619762998575" duration="12754000" />
-    </task>
-    <task id="LOCAL-00027" summary="asset">
-      <created>1613224669133</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1613224669133</updated>
+      <workItem from="1619762998575" duration="13278000" />
     </task>
     <task id="LOCAL-00028" summary="asset">
       <created>1613224923589</created>
@@ -815,11 +767,18 @@
       <option name="project" value="LOCAL" />
       <updated>1619783868680</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="edit hr">
+      <created>1619787065831</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1619787065831</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="420563000" />
+    <option name="totallyTimeSpent" value="421087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -959,13 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Mlogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/scripts/forms/wizard-steps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -978,17 +930,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/biodata2-2021-03-24.json" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/CScreening-2021-03-24.json" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="e#1991#4695#0#PHP" />
-            <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/my404.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1131,13 +1072,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/dashboard.php" />
     <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1245,11 +1179,6 @@
         <state relative-caret-position="440">
           <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/welcome.php">
@@ -1465,8 +1394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="281" column="14" selection-start-line="281" selection-start-column="14" selection-end-line="281" selection-end-column="14" />
+        <state relative-caret-position="441">
+          <caret line="193" column="79" selection-start-line="193" selection-start-column="79" selection-end-line="193" selection-end-column="79" />
           <folding>
             <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
             <element signature="e#403#490#0#PHP" />
@@ -1482,6 +1411,43 @@
             <element signature="n#bulkupdate#0;n#Employee_entry#0;n#!!top" />
             <element signature="n#AuditTrials_BulkUpd#0;n#Employee_entry#0;n#!!top" />
             <element signature="n#addRecord_SaveDraft#0;n#Employee_entry#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding>
+            <element signature="n#getMenuData#0;n#Dashboard#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Mlogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
+          <folding>
+            <element signature="e#10045#12161#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="76" column="75" lean-forward="true" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
+          <folding>
+            <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
           </folding>
         </state>
       </provider>

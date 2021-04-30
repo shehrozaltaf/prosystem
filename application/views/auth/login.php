@@ -161,9 +161,8 @@
 
 <script src="<?php echo base_url() ?>assets/js/core.js"></script>
 
-<script src="https://www.google.com/recaptcha/api.js?render=6LeJq30aAAAAAMMxbp_314MX3BfNjk-MEnDcKcnA"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfNqIwaAAAAAIiXHDw1aseLt5ZGbh-Qok-zBbCc"></script>
 <script>
-
     $('.inpSubmit').keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -195,7 +194,7 @@
             grecaptcha.ready(function () {
                 // do request for recaptcha token
                 // response is promise with passed token
-                grecaptcha.execute('6LeJq30aAAAAAMMxbp_314MX3BfNjk-MEnDcKcnA', {action: 'validate_captcha'})
+                grecaptcha.execute('6LfNqIwaAAAAAIiXHDw1aseLt5ZGbh-Qok-zBbCc', {action: 'validate_captcha'})
                     .then(function (token) {
                         data['g-recaptcha-response'] = token;
                         CallAjax('<?php echo base_url('index.php/Login/getLogin')?>', data, 'POST', function (res) {
@@ -212,40 +211,15 @@
                             } catch (e) {
                             }
 
-
-                            /* if (res == 1) {
-                                 setTimeout(function () {
-                                     // window.location.href = "< ?php echo base_url() . 'index.php/Dashboard' ?>";
-                                 }, 500);
-
-                                 returnMsg('msg', 'Success', 'alert-success');
-                             } else if (res == 2 || res == 5) {
-                                 $('#login_password').addClass('error');
-                                 returnMsg('msg', 'Invalid Password', 'alert-danger');
-                             } else if (res == 4) {
-                                 $('#login_username').addClass('error');
-                                 returnMsg('msg', 'Invalid User Name', 'alert-danger');
-                             } else if (res == 7) {
-                                 $('#login_username').addClass('error');
-                                 returnMsg('msg', 'Your account is blocked. Try again after an hour', 'alert-info');
-                             } else {
-                                 $('#login_username').addClass('error');
-                                 $('#login_password').addClass('error');
-                                 returnMsg('msg', 'Invalid Username/Password', 'alert-danger');
-                             }*/
-
                         });
                     });
             });
-
         }
     }
-
 
     function gotFocus() {
         $("#login_username").focus();
     }
-
 </script>
 
 </body>
