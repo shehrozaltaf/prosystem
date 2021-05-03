@@ -468,56 +468,61 @@
                                      aria-labelledby="settings-tab-fill">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Information</div>
+                                            <div class="card-title">Documents</div>
                                         </div>
                                         <div class="card-body">
-                                            <table class="table table-borderless table-hover table-responsive">
-                                                <tr>
-                                                    <td class="font-weight-bold">Employee Number</td>
-                                                    <td>
-                                                        <?php echo(isset($empD->empno) && $empD->empno != '' ? $empD->empno : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">Official Email<br/>(without aku.edu)
-                                                    </td>
-                                                    <td>
-                                                        <?php echo(isset($empD->offemail) && $empD->offemail != '' ? $empD->offemail : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">Full Name <br>(Use Capital Letters)
-                                                    </td>
-                                                    <td>
-                                                        <?php echo(isset($empD->empname) && $empD->empname != '' ? $empD->empname : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">CNIC Number</td>
-                                                    <td>
-                                                        <?php echo(isset($empD->cnicno) && $empD->cnicno != '' ? $empD->cnicno : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">Date of Birth</td>
-                                                    <td>
-                                                        <?php echo(isset($empD->dob) && $empD->dob != '' ? $empD->dob : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">Highest Degree</td>
-                                                    <td>
-                                                        <?php echo(isset($empD->degreeName) && $empD->degreeName != '' ? $empD->degreeName : '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="font-weight-bold">Highest Field</td>
-                                                    <td>
-                                                        <?php echo(isset($empD->qualification) && $empD->qualification != '' ? $empD->qualification : '') ?>
-                                                    </td>
-                                                </tr>
-
-                                            </table>
+                                            <?php
+                                            if (isset($emp_docs) && $emp_docs != '') {
+                                                foreach ($emp_docs as $docs) {
+                                                    $fileName = $docs->docName;
+                                                    $file = base_url() . $docs->docPath;
+                                                    $ext = pathinfo($file, PATHINFO_EXTENSION);
+                                                    if ($ext == 'doc') {
+                                                        $type = 'application/msword';
+                                                    } elseif ($ext == 'docx') {
+                                                        $type = 'application/msword';
+//                                               $type='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                                                    } elseif ($ext == 'csv') {
+                                                        $type = 'text/csv';
+                                                    } elseif ($ext == 'xls') {
+                                                        $type = 'application/vnd.ms-excel';
+                                                    } elseif ($ext == 'xlsx') {
+                                                        $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                                                    } elseif ($ext == 'gif') {
+                                                        $type = 'image/gif';
+                                                    } elseif ($ext == 'html' || $ext == 'htm') {
+                                                        $type = 'text/html';
+                                                    } elseif ($ext == 'jpeg' || $ext == 'jpg') {
+                                                        $type = 'image/jpeg';
+                                                    } elseif ($ext == 'png') {
+                                                        $type = 'image/png';
+                                                    } elseif ($ext == 'pdf') {
+                                                        $type = 'application/pdf';
+                                                    } elseif ($ext == 'mp3') {
+                                                        $type = 'audio/mpeg';
+                                                    } elseif ($ext == 'mpeg') {
+                                                        $type = 'video/mpeg';
+                                                    } elseif ($ext == 'zip') {
+                                                        $type = 'application/zip';
+                                                    } else {
+                                                        $type = 'text/plain';
+                                                    }
+                                                    echo '<div class="col-4 col-sm-4 mb-3">
+                                                <a class=" "
+                                                   href="' . $file . '"
+                                                   target="_blank">
+                                                    <embed width="100%" height="100%" name="plugin"
+                                                           src="' . $file . '"
+                                                            type="' . $type . '" > 
+                                                           <p class="  text-danger text-center">' . $fileName . '</p> 
+                                                </a>
+                                                 
+                                            </div>';
+                                                }
+                                            } else {
+                                                echo '<p>No record found</p>';
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
