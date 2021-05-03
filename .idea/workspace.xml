@@ -4,10 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" line="372" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="edit hr">
+    <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,201 +34,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="97" column="23" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="406" column="42" lean-forward="true" selection-start-line="406" selection-start-column="42" selection-end-line="406" selection-end-column="42" />
-              <folding>
-                <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-                <element signature="e#613#700#0#PHP" />
-                <element signature="n#index#0;n#Assets#0;n#!!top" />
-                <element signature="e#858#978#0#PHP" />
-                <element signature="n#getAsset#0;n#Assets#0;n#!!top" />
-                <element signature="e#5427#11347#0#PHP" />
-                <element signature="e#5476#6309#0#PHP" />
-                <element signature="e#5559#5644#0#PHP" />
-                <element signature="e#5645#5731#0#PHP" />
-                <element signature="e#5732#5818#0#PHP" />
-                <element signature="e#5819#5902#0#PHP" />
-                <element signature="e#5903#5990#0#PHP" />
-                <element signature="e#5991#6078#0#PHP" />
-                <element signature="e#6079#6166#0#PHP" />
-                <element signature="e#6167#6253#0#PHP" />
-                <element signature="e#6254#6309#0#PHP" />
-                <element signature="e#9535#9955#0#PHP" />
-                <element signature="e#9907#9955#0#PHP" />
-                <element signature="e#9969#10326#0#PHP" />
-                <element signature="e#10276#10326#0#PHP" />
-                <element signature="e#11356#11440#0#PHP" />
-                <element signature="n#getAsset2#0;n#Assets#0;n#!!top" />
-                <element signature="e#16058#19303#0#PHP" />
-                <element signature="e#16107#16940#0#PHP" />
-                <element signature="e#16190#16275#0#PHP" />
-                <element signature="e#16276#16362#0#PHP" />
-                <element signature="e#16363#16449#0#PHP" />
-                <element signature="e#16450#16533#0#PHP" />
-                <element signature="e#16534#16621#0#PHP" />
-                <element signature="e#16622#16709#0#PHP" />
-                <element signature="e#16710#16797#0#PHP" />
-                <element signature="e#16798#16884#0#PHP" />
-                <element signature="e#16885#16940#0#PHP" />
-                <element signature="e#19312#19396#0#PHP" />
-                <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
-                <element signature="e#21000#22076#0#PHP" />
-                <element signature="e#21718#21843#0#PHP" />
-                <element signature="e#21915#22024#0#PHP" />
-                <element signature="e#21975#22024#0#PHP" />
-                <element signature="e#22035#22076#0#PHP" />
-                <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
-                <element signature="e#22207#22928#0#PHP" />
-                <element signature="e#22571#22695#0#PHP" />
-                <element signature="e#22767#22876#0#PHP" />
-                <element signature="e#22827#22876#0#PHP" />
-                <element signature="e#22887#22928#0#PHP" />
-                <element signature="e#23178#23302#0#PHP" />
-                <element signature="e#23950#24045#0#PHP" />
-                <element signature="e#24466#24532#0#PHP" />
-                <element signature="n#bulkupdate#0;n#Assets#0;n#!!top" />
-                <element signature="e#24608#24726#0#PHP" />
-                <element signature="e#24735#24884#0#PHP" />
-                <element signature="e#24893#25014#0#PHP" />
-                <element signature="e#25023#25156#0#PHP" />
-                <element signature="e#25165#25310#0#PHP" />
-                <element signature="e#25319#25436#0#PHP" />
-                <element signature="e#25445#25602#0#PHP" />
-                <element signature="e#25611#25780#0#PHP" />
-                <element signature="e#25789#25972#0#PHP" />
-                <element signature="e#25981#26132#0#PHP" />
-                <element signature="e#26141#26250#0#PHP" />
-                <element signature="e#26291#28258#0#PHP" />
-                <element signature="e#26428#28078#0#PHP" />
-                <element signature="e#26721#28063#0#PHP" />
-                <element signature="e#26758#27820#0#PHP" />
-                <element signature="e#26816#27798#0#PHP" />
-                <element signature="e#26883#27772#0#PHP" />
-                <element signature="e#27841#27987#0#PHP" />
-                <element signature="e#27922#27987#0#PHP" />
-                <element signature="e#28006#28063#0#PHP" />
-                <element signature="e#28093#28206#0#PHP" />
-                <element signature="e#28217#28258#0#PHP" />
-                <element signature="n#bulkupdate2#0;n#Assets#0;n#!!top" />
-                <element signature="e#28404#28750#0#PHP" />
-                <element signature="e#28759#29166#0#PHP" />
-                <element signature="e#29175#29540#0#PHP" />
-                <element signature="e#29549#29922#0#PHP" />
-                <element signature="e#29931#30330#0#PHP" />
-                <element signature="e#30339#30688#0#PHP" />
-                <element signature="e#30697#31126#0#PHP" />
-                <element signature="e#31135#31624#0#PHP" />
-                <element signature="e#31633#32096#0#PHP" />
-                <element signature="e#32105#32492#0#PHP" />
-                <element signature="e#32501#32830#0#PHP" />
-                <element signature="e#32871#34429#0#PHP" />
-                <element signature="e#32972#34249#0#PHP" />
-                <element signature="e#33110#34234#0#PHP" />
-                <element signature="e#33147#33990#0#PHP" />
-                <element signature="e#34012#34158#0#PHP" />
-                <element signature="e#34093#34158#0#PHP" />
-                <element signature="e#34177#34234#0#PHP" />
-                <element signature="e#34264#34377#0#PHP" />
-                <element signature="e#34388#34429#0#PHP" />
-                <element signature="e#34465#34483#0#PHP" />
-                <element signature="n#getPDF#0;n#Assets#0;n#!!top" />
-                <element signature="e#34520#41798#0#PHP" />
-                <element signature="e#37999#38148#0#PHP" />
-                <element signature="e#40107#41535#0#PHP" />
-                <element signature="e#41727#41798#0#PHP" />
-                <element signature="n#editAsset#0;n#Assets#0;n#!!top" />
-                <element signature="e#41931#42065#0#PHP" />
-                <element signature="e#42021#42065#0#PHP" />
-                <element signature="e#42184#42295#0#PHP" />
-                <element signature="n#editData#0;n#Assets#0;n#!!top" />
-                <element signature="e#43601#49850#0#PHP" />
-                <element signature="e#43771#49850#0#PHP" />
-                <element signature="e#46076#49839#0#PHP" />
-                <element signature="e#46109#47089#0#PHP" />
-                <element signature="e#46165#47071#0#PHP" />
-                <element signature="e#46223#47049#0#PHP" />
-                <element signature="e#47106#49620#0#PHP" />
-                <element signature="e#47291#47406#0#PHP" />
-                <element signature="e#47535#49602#0#PHP" />
-                <element signature="e#47610#49580#0#PHP" />
-                <element signature="e#48000#49554#0#PHP" />
-                <element signature="e#48066#48314#0#PHP" />
-                <element signature="e#48221#48314#0#PHP" />
-                <element signature="e#48574#49379#0#PHP" />
-                <element signature="e#49410#49554#0#PHP" />
-                <element signature="e#49726#49839#0#PHP" />
-                <element signature="n#getAssetDocs#0;n#Assets#0;n#!!top" />
-                <element signature="e#49963#50580#0#PHP" />
-                <element signature="e#50299#50570#0#PHP" />
-                <element signature="e#50350#50556#0#PHP" />
-                <element signature="n#deleteDoc#0;n#Assets#0;n#!!top" />
-                <element signature="e#50841#51572#0#PHP" />
-                <element signature="e#50963#51525#0#PHP" />
-                <element signature="e#51351#51466#0#PHP" />
-                <element signature="e#51414#51466#0#PHP" />
-                <element signature="e#51481#51525#0#PHP" />
-                <element signature="e#51536#51572#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="131" column="30" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="30" />
-              <folding>
-                <element signature="n#getAllEmployee#0;n#Mempmodel#0;n#!!top" />
-                <element signature="n#getAllEmployee2#0;n#Mempmodel#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="257" column="28" selection-start-line="257" selection-start-column="28" selection-end-line="308" selection-end-column="30" />
-              <folding>
-                <element signature="e#22452#24480#0#PHP" />
-                <element signature="e#24491#25551#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="475" column="66" selection-start-line="475" selection-start-column="66" selection-end-line="475" selection-end-column="66" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -347,7 +152,6 @@
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/config/constants.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodal2.php" />
@@ -361,6 +165,7 @@
         <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
       </list>
     </option>
   </component>
@@ -394,41 +199,7 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -583,14 +354,8 @@
       <workItem from="1619695093178" duration="2747000" />
       <workItem from="1619762998575" duration="13659000" />
       <workItem from="1620018607747" duration="69000" />
-      <workItem from="1620022966963" duration="1072000" />
-    </task>
-    <task id="LOCAL-00029" summary="asset status">
-      <created>1613382865861</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1613382865862</updated>
+      <workItem from="1620022966963" duration="2019000" />
+      <workItem from="1620047409497" duration="610000" />
     </task>
     <task id="LOCAL-00030" summary="asset status">
       <created>1613481683994</created>
@@ -928,17 +693,23 @@
       <option name="project" value="LOCAL" />
       <updated>1619787536164</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="emp docs">
+      <created>1620024538893</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1620024538894</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422609000" />
+    <option name="totallyTimeSpent" value="424166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.200489" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.20293398" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -963,7 +734,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asset bulk edit" />
     <MESSAGE value="pdf" />
     <MESSAGE value="emp entry" />
     <MESSAGE value="add draft HR" />
@@ -988,7 +758,8 @@
     <MESSAGE value="Asset" />
     <MESSAGE value="Assets" />
     <MESSAGE value="edit hr" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit hr" />
+    <MESSAGE value="emp docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="emp docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1314,13 +1085,6 @@
             <element signature="e#36493#36498#0#PHP" />
             <element signature="e#36606#36611#0#PHP" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1726,6 +1490,13 @@
             <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
             <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
         </state>
       </provider>
     </entry>
