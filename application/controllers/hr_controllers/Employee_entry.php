@@ -181,7 +181,7 @@ class Employee_entry extends CI_controller
                 $insertArray['createdDateTime'] = date('Y-m-d H:i:s');
                 $InsertData = $Custom->Insert($insertArray, 'id', 'hr_employee', 'Y');
                 if ($InsertData) {
-                    $result = array('0' => 'Success', '1' => 'Successfully Edited', '2' => $empno);
+                    $result = array('0' => 'Success', '1' => 'Successfully Inserted', '2' => $empno);
 
                     if (isset($_FILES["pic"]["name"])) {
                         if (!is_dir($pic_location)) {
@@ -191,7 +191,7 @@ class Employee_entry extends CI_controller
                         $config['allowed_types'] = 'jpg|jpeg|gif|png';
                         $this->load->library('upload', $config);
                         if (!$this->upload->do_upload('pic')) {
-                            $result = array('0' => 'Error', '1' => 'Data Edited, but' . $this->upload->display_errors(), '2' => $empno);
+                            $result = array('0' => 'Error', '1' => 'Data Added, but' . $this->upload->display_errors(), '2' => $empno);
                         }
                     }
 

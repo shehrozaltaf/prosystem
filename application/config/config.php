@@ -1,7 +1,7 @@
 <?php  date_default_timezone_set("Asia/Karachi");
 
 
-header("X-Frame-Options: DENY");
+//header("X-Frame-Options: DENY");
 header_remove("X-Powered-By");
 
 //header("Strict-Transport-Security:max-age=63072000");
