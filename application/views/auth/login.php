@@ -64,16 +64,11 @@
                 <div class="col-xl-8 col-11 d-flex justify-content-center">
                     <div class="card bg-authentication rounded-0 mb-0">
                         <div class="row m-0">
-                            <!--<div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                <img src="<?php /*echo base_url() */ ?>assets/images/logo/logos_2.jpg" alt="branding logo">
-                            </div>-->
                             <div class="col-lg-12 col-12 p-0">
                                 <div class="card rounded-0 mb-0 px-2">
                                     <div class="card-header pb-1">
                                         <div class="card-title">
-                                            <h3 class=" text-center">Staff Online Data Repository COE / Department of
-                                                Paeds & Child Health</h3>
-                                            <h4 class=" text-center">AKUH PAEDS DEPT</h4>
+                                            <h3 class=" text-center">Staff Online Data Repository COE / DWCH</h3>
                                         </div>
                                     </div>
                                     <p class="px-2">Welcome, please login to your account.</p>

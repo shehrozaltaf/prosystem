@@ -17,7 +17,6 @@ class Assets extends CI_controller
         }
     }
 
-    
     function index()
     {
         $data = array();
@@ -140,7 +139,8 @@ class Assets extends CI_controller
             $searchdata_docs['idAsset'] = $value->idAsset;
             $docs = $M->getAssetDocsByIdAsset($searchdata_docs);
             $table_data[$value->idAsset]['document'] = (isset($docs[0]->docPath) && $docs[0]->docPath != '' ?
-                '<a href="' . base_url($docs[0]->docPath) . '" target="_blank">' . $docs[0]->docName . '</a>' : '');
+                '<a data-ur="' . base_url($docs[0]->docPath) . '" href="' . base_url() . 'index.php/OpenFile?a=' . $value->idAsset . '&doc=' . $docs[0]->docName . '"
+                 target="_blank">' . $docs[0]->docName . '</a>' : '');
 
             if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) {
                 $edit = '<a href="' . base_url('index.php/asset_controllers/Assets/editAsset?a=' . $value->idAsset) . '"  target="_blank" title="Asset Edit" data-id="' . $value->idAsset . '">

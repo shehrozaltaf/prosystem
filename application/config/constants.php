@@ -85,6 +85,6 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-define('PROJECT_NAME','Staff Online Data Repository COE / Department of Paeds & Child Health');
-define('PROJECT_NAME1','DMU Paeds');
+define('PROJECT_NAME','Staff Online Data Repository COE / DWCH');
+define('PROJECT_NAME1','');
 define('EMPLOYEE_LOC','C:/hrfiles/');

@@ -229,6 +229,9 @@ class MAsset extends CI_Model
         if (isset($searchdata['idAsset']) && $searchdata['idAsset'] != '' && $searchdata['idAsset'] != null) {
             $idAsset = $searchdata['idAsset'];
         }
+        if (isset($searchdata['docName']) && $searchdata['docName'] != '' && $searchdata['docName'] != null) {
+            $this->db->where('docName', $searchdata['docName']);
+        }
         $this->db->select('*');
         $this->db->from('a_asset_docs');
         $this->db->where('idAsset', $idAsset);

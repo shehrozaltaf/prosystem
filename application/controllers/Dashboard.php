@@ -38,6 +38,11 @@ class Dashboard extends CI_controller
         $this->load->view('include/footer');
     }
 
+    function test()
+    {
+        $this->load->view('test_iframe');
+    }
+
 
     /*Setting Page, User Rights*/
     function getMenuData()
