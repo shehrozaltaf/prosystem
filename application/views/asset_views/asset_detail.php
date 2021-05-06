@@ -241,7 +241,7 @@
                                     <!--<a href="#"
                                        class="btn btn-primary mr-1 waves-effect waves-light"><i
                                                 class="feather icon-edit-1"></i> Edit</a>-->
-                                <?php }  ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -259,39 +259,56 @@
                             if (isset($asset_data_docs) && $asset_data_docs != '') {
                                 foreach ($asset_data_docs as $docs) {
                                     $fileName = $docs->docName;
-                                    $file = base_url() . $docs->docPath;
+                                    $file = $docs->docPath;
+                                    $img = base_url() . 'assets/images/icons/text.png';
                                     $ext = pathinfo($file, PATHINFO_EXTENSION);
-                                    if ($ext == 'doc') {
+                                    if ($ext == 'doc' || $ext == 'docx') {
                                         $type = 'application/msword';
-                                    } elseif ($ext == 'docx') {
-                                        $type = 'application/msword';
-//                                               $type='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                                        $img = base_url() . 'assets/images/icons/docs.png';
                                     } elseif ($ext == 'csv') {
                                         $type = 'text/csv';
+                                        $img = base_url() . 'assets/images/icons/xls.png';
                                     } elseif ($ext == 'xls') {
                                         $type = 'application/vnd.ms-excel';
+                                        $img = base_url() . 'assets/images/icons/xls.png';
                                     } elseif ($ext == 'xlsx') {
                                         $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                                        $img = base_url() . 'assets/images/icons/xls.png';
                                     } elseif ($ext == 'gif') {
                                         $type = 'image/gif';
+                                        $img = base_url() . 'assets/images/icons/img.png';
                                     } elseif ($ext == 'html' || $ext == 'htm') {
                                         $type = 'text/html';
                                     } elseif ($ext == 'jpeg' || $ext == 'jpg') {
                                         $type = 'image/jpeg';
+                                        $img = base_url() . 'assets/images/icons/img.png';
                                     } elseif ($ext == 'png') {
                                         $type = 'image/png';
+                                        $img = base_url() . 'assets/images/icons/img.png';
                                     } elseif ($ext == 'pdf') {
                                         $type = 'application/pdf';
+                                        $img = base_url() . 'assets/images/icons/pdf.png';
                                     } elseif ($ext == 'mp3') {
                                         $type = 'audio/mpeg';
+                                        $img = base_url() . 'assets/images/icons/img.png';
                                     } elseif ($ext == 'mpeg') {
                                         $type = 'video/mpeg';
+                                        $img = base_url() . 'assets/images/icons/img.png';
                                     } elseif ($ext == 'zip') {
                                         $type = 'application/zip';
                                     } else {
                                         $type = 'text/plain';
+                                        $img = base_url() . 'assets/images/icons/text.png';
                                     }
-                                    echo '<div class="col-4 col-sm-4 mb-3">
+
+                                    echo '<div class="img-container col-2"  style="width: 150px;">
+                                            <a data-ur="' . $file . '" href="' . base_url() . 'index.php/OpenFile?a=' . $docs->idAsset . '&doc=' . $fileName . '" target="_blank">
+                                                <img src="' . $img . '" class="img-fluid" alt="image">
+                                                <p class="  text-danger text-center">' . $fileName . '</p> 
+                                            </a>
+                                        </div> ';
+
+                                    /*echo '<div class="col-4 col-sm-4 mb-3">
                                                 <a class=" "
                                                    href="' . $file . '"
                                                    target="_blank">
@@ -300,8 +317,7 @@
                                                             type="' . $type . '" > 
                                                            <p class="  text-danger text-center">' . $fileName . '</p> 
                                                 </a>
-                                                 
-                                            </div>';
+                                            </div>'; */
                                 }
                             } else {
                                 echo '<p>No record found</p>';

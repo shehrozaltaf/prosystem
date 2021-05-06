@@ -339,9 +339,10 @@
                                                         name="emp_no" autocomplete="emp_no" required>
                                                     <option value="0" readonly disabled></option>
                                                     <?php
+
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '" ' . (isset($a->empno) && $a->empno == $e->emp_no ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
+                                                            echo '<option value="' . $e->empno . '" ' . (isset($a->emp_no) && $a->emp_no == $e->empno ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -363,7 +364,7 @@
                                                     <?php
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '" ' . (isset($a->resp_person_name) && $a->resp_person_name == $e->emp_no ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
+                                                            echo '<option value="' . $e->empname . '" ' . (isset($a->resp_person_name) && $a->resp_person_name == $e->empname ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>

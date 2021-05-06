@@ -354,7 +354,7 @@
                                                     <?php
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empno . '">(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
+                                                            echo '<option value="' . $e->empname . '">(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>

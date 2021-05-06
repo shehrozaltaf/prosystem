@@ -1,22 +1,17 @@
 <html>
 <head>
-    <title>iframe</title>
+    <title>PRO System</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-
 <?php
-
-/*echo '<pre>';
-print_r($docs);
-echo '<pre>';
-exit();*/
-if(isset($docs) && isset($docs[0]->docPath) && $docs[0]->docPath!=''){
-    $docs= $docs[0];
+$file = '';
+$type = 'text/plain';
+if (isset($docs) && isset($docs[0]->docPath) && $docs[0]->docPath != '') {
+    $docs = $docs[0];
     $fileName = $docs->docName;
-    $file =  $docs->docPath;
+    $file = $docs->docPath;
     $ext = pathinfo($file, PATHINFO_EXTENSION);
     if ($ext == 'doc') {
         $type = 'application/msword';
@@ -49,15 +44,8 @@ if(isset($docs) && isset($docs[0]->docPath) && $docs[0]->docPath!=''){
     }
 }
 header('Content-disposition: inline');
-header('Content-type: '.$type);
+header('Content-type: ' . $type);
 readfile($file);
-exit();
-$myfile = fopen(base_url()."assets/uploads/hrUploads/456789/docs/456789.pdf", "r") or die("Unable to open file!");
-echo fgets($myfile);
-fclose($myfile);
-
 ?>
-<iframe src="file:///C:/hrfiles/123456/docs/123456.pdf?url=&embedded=true" width="100%" height="500px"></iframe>
-<iframe src="<?php echo base_url() ?>assets/uploads/hrUploads/456789/docs/456789.pdf?url=&embedded=true" width="100%" height="500px"></iframe>
 </body>
 </html>

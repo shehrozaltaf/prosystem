@@ -118,11 +118,11 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['prog'] = $value->prog;
             $table_data[$value->idAsset]['area'] = $value->area;
             $table_data[$value->idAsset]['verification_status'] = $value->verification_status;
-            $table_data[$value->idAsset]['last_verify_date'] = $value->last_verify_date;
-            $table_data[$value->idAsset]['due_date'] = date('d/m/y', strtotime($value->due_date));
-            $table_data[$value->idAsset]['pur_date'] = $value->pur_date;
+            $table_data[$value->idAsset]['last_verify_date'] = (isset($value->last_verify_date) && $value->last_verify_date != '' ? date('d/m/y', strtotime($value->last_verify_date)) : '-');
+            $table_data[$value->idAsset]['due_date'] = (isset($value->due_date) && $value->due_date != '' ? date('d/m/y', strtotime($value->due_date)) : '-');
+            $table_data[$value->idAsset]['pur_date'] = (isset($value->pur_date) && $value->pur_date != '' ? date('d/m/y', strtotime($value->pur_date)) : '-');
             $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
-            $table_data[$value->idAsset]['wo_date'] = $value->wo_date;
+            $table_data[$value->idAsset]['wo_date'] = (isset($value->wo_date) && $value->wo_date != '' ? date('d/m/y', strtotime($value->wo_date)) : '-');
             $table_data[$value->idAsset]['remarks'] = $value->remarks;
             $table_data[$value->idAsset]['category'] = $value->category;
             $table_data[$value->idAsset]['desc'] = $value->description;
@@ -191,129 +191,6 @@ class Assets extends CI_controller
         $totalsearchData['idLocation'] = $searchData['idLocation'];
         $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
         $totalsearchData['area'] = $searchData['area'];
-        $totalsearchData['status'] = $searchData['status'];
-        $totalsearchData['verification_status'] = $searchData['verification_status'];
-        $totalsearchData['tag_pr'] = $searchData['tag_pr'];
-        $totalsearchData['idAsset'] = $searchData['idAsset'];
-        $totalsearchData['writeOffNo'] = $searchData['writeOffNo'];
-        $totalsearchData['dateTo'] = $searchData['dateTo'];
-        $totalsearchData['dateFrom'] = $searchData['dateFrom'];
-        $totalsearchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
-        $totalrecords = $M->getCntTotalAsset($totalsearchData);
-        $result["recordsTotal"] = $totalrecords[0]->cnttotal;
-        $result["recordsFiltered"] = $totalrecords[0]->cnttotal;
-        $result["data"] = $result_table_data;
-
-        echo json_encode($result, true);
-    }
-
-    function getAsset2()
-    {
-        $M = new MAsset();
-        $orderindex = (isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : '');
-        $orderby = (isset($_REQUEST['columns'][$orderindex]['name']) ? $_REQUEST['columns'][$orderindex]['name'] : '');
-        $searchData = array();
-
-
-        $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
-        $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
-        $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
-        $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
-        $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
-        $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
-        $searchData['verification_status'] = (isset($_REQUEST['verification_status']) && $_REQUEST['verification_status'] != '' && $_REQUEST['verification_status'] != '0' ? $_REQUEST['verification_status'] : 0);
-        $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
-        $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);
-        $searchData['idAsset'] = (isset($_REQUEST['idAsset']) && $_REQUEST['idAsset'] != '' && $_REQUEST['idAsset'] != '0' ? $_REQUEST['idAsset'] : 0);
-        $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
-        $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
-        $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
-
-        $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
-        $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 25);
-        $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
-        $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'a.idAsset');
-        $searchData['ordersort'] = (isset($_REQUEST['order'][0]['dir']) && $_REQUEST['order'][0]['dir'] != '' ? $_REQUEST['order'][0]['dir'] : 'desc');
-
-        $data = $M->getAsset($searchData);
-        $table_data = array();
-        $result_table_data = array();
-
-        foreach ($data as $key => $value) {
-
-            if ($value->status == 1) {
-                $statusClass = 'primary';
-            } elseif ($value->status == 2) {
-                $statusClass = 'danger';
-            } elseif ($value->status == 3) {
-                $statusClass = 'warning';
-            } elseif ($value->status == 4) {
-                $statusClass = 'success';
-            } elseif ($value->status == 5) {
-                $statusClass = 'info';
-            } elseif ($value->status == 6) {
-                $statusClass = 'mycolor1';
-            } elseif ($value->status == 7) {
-                $statusClass = 'mycolor2';
-            } elseif ($value->status == 8) {
-                $statusClass = 'mycolor3';
-            } elseif ($value->status == 9) {
-                $statusClass = 'warning';
-            } else {
-                $statusClass = '';
-            }
-
-            $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
-            $table_data[$value->idAsset]['model'] = $value->model;
-            $table_data[$value->idAsset]['product_no'] = $value->product_no;
-            $table_data[$value->idAsset]['serial_no'] = $value->serial_no;
-            $table_data[$value->idAsset]['po_no'] = $value->po_no;
-            $table_data[$value->idAsset]['cost'] = $value->cost;
-            $table_data[$value->idAsset]['idCurrency'] = $value->idCurrency;
-            $table_data[$value->idAsset]['idSourceOfPurchase'] = $value->idSourceOfPurchase;
-            $table_data[$value->idAsset]['resp_person_name'] = $value->resp_person_name;
-            $table_data[$value->idAsset]['ou'] = $value->ou;
-            $table_data[$value->idAsset]['account'] = $value->account;
-            $table_data[$value->idAsset]['dept'] = $value->dept;
-            $table_data[$value->idAsset]['fund'] = $value->fund;
-            $table_data[$value->idAsset]['prog'] = $value->prog;
-            $table_data[$value->idAsset]['area'] = $value->area;
-            $table_data[$value->idAsset]['verification_status'] = $value->verification_status;
-            $table_data[$value->idAsset]['last_verify_date'] = $value->last_verify_date;
-            $table_data[$value->idAsset]['due_date'] = $value->due_date;
-            $table_data[$value->idAsset]['pur_date'] = $value->pur_date;
-            $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
-            $table_data[$value->idAsset]['wo_date'] = $value->wo_date;
-            $table_data[$value->idAsset]['remarks'] = $value->remarks;
-
-            $table_data[$value->idAsset]['category'] = $value->category;
-            $table_data[$value->idAsset]['desc'] = $value->description;
-            $table_data[$value->idAsset]['tag'] = $value->tag_no;
-            $table_data[$value->idAsset]['emp'] = $value->empname;
-            $table_data[$value->idAsset]['proj'] = $value->proj_code . ' - ' . $value->proj_name;
-            $table_data[$value->idAsset]['loc'] = $value->location;
-            $table_data[$value->idAsset]['sub_loc'] = $value->location_sub;
-            $table_data[$value->idAsset]['status'] = $value->status;
-            $table_data[$value->idAsset]['pr_path'] = $value->pr_path;
-
-            $table_data[$value->idAsset]['Action'] = ' ';
-
-        }
-        foreach ($table_data as $k => $v) {
-            $result_table_data[] = $v;
-        }
-
-        $result["draw"] = (isset($_REQUEST['draw']) && $_REQUEST['draw'] != '' ? $_REQUEST['draw'] : 0);
-        $totalsearchData = array();
-        $totalsearchData['start'] = 0;
-        $totalsearchData['length'] = 10000000;
-
-        $totalsearchData['project'] = $searchData['project'];
-        $totalsearchData['emp'] = $searchData['emp'];
-        $totalsearchData['category'] = $searchData['category'];
-        $totalsearchData['sop'] = $searchData['sop'];
-        $totalsearchData['idLocation'] = $searchData['idLocation'];
-        $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
         $totalsearchData['status'] = $searchData['status'];
         $totalsearchData['verification_status'] = $searchData['verification_status'];
         $totalsearchData['tag_pr'] = $searchData['tag_pr'];
