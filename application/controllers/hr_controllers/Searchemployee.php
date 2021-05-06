@@ -95,7 +95,9 @@ class Searchemployee extends CI_Controller
         $Mempmodel = new Mempmodel();
         $data['empDetails'] = $Mempmodel->getEmployeeDataByEmpNo($data['emp']);
         $data['assetEmp'] = $Mempmodel->getAssetByEmpNo($data['emp']);
-        $data['emp_docs'] = $Mempmodel->getEmpDocsByEmpNo($data['emp']);
+        $searchdata = array();
+        $searchdata['empno'] = $data['emp'];
+        $data['emp_docs'] = $Mempmodel->getEmpDocsByEmpNo($searchdata);
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');

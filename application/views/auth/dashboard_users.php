@@ -125,16 +125,16 @@
                                id="userEmail" required>
                     </div>
 
-
                     <fieldset class="form-label-group position-relative has-icon-left">
-                        <input type="password" class="form-control"
-                               id="userPassword" name="userPassword"
+                        <input type="password" class="form-control myPwdInput"
+                               autocomplete="user_userPassword"     id="userPassword" name="userPassword"
                                placeholder="Password" required>
                         <div class="form-control-position toggle-password">
                             <i class="feather icon-eye-off pwdIcon"></i>
                         </div>
                         <label for="userPassword">Password</label>
                     </fieldset>
+
 
                     <div class="form-group">
                         <label for="designation">Designation: </label>
@@ -281,6 +281,14 @@
         $('.dataex-html5-selectors').DataTable({
             dom: 'Bfrtip',
             "displayLength": 50,
+            "oSearch": {"sSearch": " "},
+            autoFill: false,
+            attr: {
+                autocomplete: 'off'
+            },
+            initComplete: function() {
+                $(this.api().table().container()).find('input[type="search"]').parent().wrap('<form>').parent().attr('autocomplete','off').css('overflow','hidden').css('margin','auto');
+            },
             buttons: [
                 {
                     extend: 'copyHtml5',

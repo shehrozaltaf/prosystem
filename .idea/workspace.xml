@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/EmpDegree.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/hr_settings/emp_degree.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/OpenFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/OpenFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/auth/dashboard_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/auth/dashboard_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/include/top_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/top_header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/open_file.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/open_file.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,38 +40,67 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/edit_asset.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="366" column="173" selection-start-line="366" selection-start-column="173" selection-end-line="366" selection-end-column="173" />
+            <state relative-caret-position="306">
+              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="308" column="49" lean-forward="true" selection-start-line="303" selection-start-column="35" selection-end-line="308" selection-end-column="49" />
               <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#180#185#0#PHP" />
-                <element signature="e#315#320#0#PHP" />
-                <element signature="e#446#451#0#PHP" />
-                <element signature="e#562#567#0#PHP" />
-                <element signature="e#708#713#0#PHP" />
-                <element signature="e#837#842#0#PHP" />
-                <element signature="e#929#934#0#PHP" />
-                <element signature="e#1022#1027#0#PHP" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/asset_views/add_asset.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="356" column="96" selection-start-line="356" selection-start-column="96" selection-end-line="356" selection-end-column="96" />
+            <state relative-caret-position="230">
+              <caret line="507" column="50" lean-forward="true" selection-start-line="507" selection-start-column="50" selection-end-line="507" selection-end-column="50" />
               <folding>
-                <element signature="e#51#56#0#PHP" />
-                <element signature="e#180#185#0#PHP" />
-                <element signature="e#315#320#0#PHP" />
-                <element signature="e#446#451#0#PHP" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+              <folding>
+                <element signature="n#getAllEmployee#0;n#Mempmodel#0;n#!!top" />
+                <element signature="n#getAllEmployee2#0;n#Mempmodel#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/OpenFile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="60" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/open_file.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -88,11 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ASSET_PROREPORTS</find>
-      <find>assetUploads</find>
-      <find>hrUploads</find>
-      <find>profiler</find>
-      <find>html</find>
       <find>e1</find>
       <find>qualit</find>
       <find>getEmployeeEdit</find>
@@ -118,6 +141,11 @@
       <find>Inserted</find>
       <find>$pic_location</find>
       <find>$docs</find>
+      <find>$file</find>
+      <find>json/</find>
+      <find>autoFill</find>
+      <find>Password</find>
+      <find>emp_docs</find>
     </findStrings>
     <replaceStrings>
       <replace>identity</replace>
@@ -158,14 +186,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/controllers/Auth.php" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/welcome_message.php" />
         <option value="$PROJECT_DIR$/application/models/Custom.php" />
         <option value="$PROJECT_DIR$/assets/js/core.js" />
         <option value="$PROJECT_DIR$/application/controllers/Settings.php" />
-        <option value="$PROJECT_DIR$/application/views/auth/dashboard_users.php" />
         <option value="$PROJECT_DIR$/application/controllers/Users.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Upload_asset.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php" />
@@ -174,7 +200,6 @@
         <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
         <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/table-datatable.html" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry2.php" />
         <option value="$PROJECT_DIR$/../vehicle_portal/application/config/config.php" />
         <option value="$PROJECT_DIR$/../vehicle_portal/application/config/database.php" />
@@ -186,12 +211,9 @@
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodal2.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" />
-        <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" />
         <option value="$PROJECT_DIR$/application/models/Mlogin.php" />
         <option value="$PROJECT_DIR$/application/controllers/Login.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/config/constants.php" />
@@ -200,15 +222,21 @@
         <option value="$PROJECT_DIR$/application/controllers/general_settings/Degree.php" />
         <option value="$PROJECT_DIR$/../xframe/index.php" />
         <option value="$PROJECT_DIR$/application/views/test_iframe.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/syncenc.php" />
         <option value="$PROJECT_DIR$/application/models/asset_models/MAsset.php" />
-        <option value="$PROJECT_DIR$/application/controllers/OpenFile.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
-        <option value="$PROJECT_DIR$/application/views/open_file.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" />
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/syncenc.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
+        <option value="$PROJECT_DIR$/application/views/include/top_header.php" />
+        <option value="$PROJECT_DIR$/application/views/auth/dashboard_users.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
+        <option value="$PROJECT_DIR$/application/controllers/OpenFile.php" />
+        <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
+        <option value="$PROJECT_DIR$/application/views/open_file.php" />
       </list>
     </option>
   </component>
@@ -225,7 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,7 +276,7 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
@@ -267,6 +294,13 @@
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,10 +309,18 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="icons" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,14 +479,8 @@
       <workItem from="1620107936727" duration="53000" />
       <workItem from="1620199507302" duration="1530000" />
       <workItem from="1620212705005" duration="3865000" />
-      <workItem from="1620283135881" duration="9570000" />
-    </task>
-    <task id="LOCAL-00033" summary="asset bulk edit">
-      <created>1613627573552</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1613627573552</updated>
+      <workItem from="1620283135881" duration="11162000" />
+      <workItem from="1620298844920" duration="4886000" />
     </task>
     <task id="LOCAL-00034" summary="pdf">
       <created>1613656715322</created>
@@ -782,17 +818,24 @@
       <option name="project" value="LOCAL" />
       <updated>1620287738385</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="docs">
+      <created>1620296398372</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1620296398372</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439231000" />
+    <option name="totallyTimeSpent" value="445709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.21271394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.21515892" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -859,7 +902,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php</url>
-          <line>321</line>
+          <line>324</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -901,125 +944,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../vehicle_portal/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../vehicle_portal/application/config/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="80" column="2" lean-forward="true" selection-start-line="80" selection-start-column="2" selection-end-line="80" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../vehicle_portal/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="100" column="20" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../fetch_files_live/form_fetch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="75" column="55" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="5375" column="15" selection-start-line="5375" selection-start-column="15" selection-end-line="5375" selection-end-column="135" />
-          <folding>
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="e#18#24#1" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#!!top" expanded="true" />
-            <element signature="e#216648#229467#0#HTML" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#229497#236755#0#HTML" />
-            <element signature="e#236789#237176#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Upload_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard.php" />
     <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php" />
@@ -1151,38 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="131" column="30" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="30" />
-          <folding>
-            <element signature="n#getAllEmployee#0;n#Mempmodel#0;n#!!top" />
-            <element signature="n#getAllEmployee2#0;n#Mempmodel#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="97" column="23" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="475" column="66" selection-start-line="475" selection-start-column="66" selection-end-line="475" selection-end-column="66" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -1254,16 +1146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/syncenc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="258" column="20" lean-forward="true" selection-start-line="258" selection-start-column="20" selection-end-line="258" selection-end-column="20" />
-          <folding>
-            <element signature="e#988#8622#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/listings-2021-05-05.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1275,13 +1157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/OpenFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1299,30 +1174,6 @@
           <folding>
             <element signature="n#getMenuData#0;n#Dashboard#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
-          <folding>
-            <element signature="n#__construct#0;n#Add_asset#0;n#!!top" />
-            <element signature="e#256#343#0#PHP" />
-            <element signature="e#496#607#0#PHP" />
-            <element signature="n#testUpload3#0;n#Add_asset#0;n#!!top" />
-            <element signature="e#1860#2012#0#PHP" />
-            <element signature="e#2148#2918#0#PHP" />
-            <element signature="e#2761#2908#0#PHP" />
-            <element signature="e#2858#2908#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/open_file.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1387,25 +1238,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="238" column="41" selection-start-line="238" selection-start-column="29" selection-end-line="238" selection-end-column="41" />
-          <folding>
-            <element signature="e#6#80#0#PHP" />
-            <element signature="n#__construct#0;n#MAsset#0;n#!!top" />
-            <element signature="e#339#488#0#PHP" />
-            <element signature="e#497#651#0#PHP" />
-            <element signature="e#660#841#0#PHP" />
-            <element signature="e#850#1012#0#PHP" />
-            <element signature="e#1021#1207#0#PHP" />
-            <element signature="e#1216#1390#0#PHP" />
-            <element signature="e#1400#1594#0#PHP" />
-            <element signature="e#1603#1812#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -1421,16 +1253,6 @@
             <element signature="n#editData#0;n#Assets#0;n#!!top" />
             <element signature="n#getAssetDocs#0;n#Assets#0;n#!!top" />
             <element signature="n#deleteDoc#0;n#Assets#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="295" column="90" selection-start-line="295" selection-start-column="90" selection-end-line="295" selection-end-column="90" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1463,6 +1285,144 @@
             <element signature="e#315#320#0#PHP" />
             <element signature="e#446#451#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/syncenc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="228" column="74" selection-start-line="228" selection-start-column="7" selection-end-line="228" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="181" column="25" lean-forward="true" selection-start-line="178" selection-start-column="24" selection-end-line="181" selection-end-column="25" />
+          <folding>
+            <element signature="n#__construct#0;n#Add_asset#0;n#!!top" />
+            <element signature="e#256#343#0#PHP" />
+            <element signature="e#496#607#0#PHP" />
+            <element signature="n#testUpload3#0;n#Add_asset#0;n#!!top" />
+            <element signature="e#1860#2012#0#PHP" />
+            <element signature="e#2148#2918#0#PHP" />
+            <element signature="e#2761#2908#0#PHP" />
+            <element signature="e#2858#2908#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/syncenc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/listings-2021-05-06.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-399" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/include/top_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth/dashboard_users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="197" column="77" selection-start-line="197" selection-start-column="67" selection-end-line="197" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="308" column="49" lean-forward="true" selection-start-line="303" selection-start-column="35" selection-end-line="308" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="507" column="50" lean-forward="true" selection-start-line="507" selection-start-column="50" selection-end-line="507" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/asset_models/MAsset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="232" column="44" lean-forward="true" selection-start-line="232" selection-start-column="44" selection-end-line="232" selection-end-column="44" />
+          <folding>
+            <element signature="e#6#80#0#PHP" />
+            <element signature="n#__construct#0;n#MAsset#0;n#!!top" />
+            <element signature="e#339#488#0#PHP" />
+            <element signature="e#497#651#0#PHP" />
+            <element signature="e#660#841#0#PHP" />
+            <element signature="e#850#1012#0#PHP" />
+            <element signature="e#1021#1207#0#PHP" />
+            <element signature="e#1216#1390#0#PHP" />
+            <element signature="e#1400#1594#0#PHP" />
+            <element signature="e#1603#1812#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+          <folding>
+            <element signature="n#getAllEmployee#0;n#Mempmodel#0;n#!!top" />
+            <element signature="n#getAllEmployee2#0;n#Mempmodel#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/OpenFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="60" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/open_file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
         </state>
       </provider>
     </entry>

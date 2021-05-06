@@ -471,58 +471,63 @@
                                             <div class="card-title">Documents</div>
                                         </div>
                                         <div class="card-body">
+                                            <div class="row">
                                             <?php
                                             if (isset($emp_docs) && $emp_docs != '') {
                                                 foreach ($emp_docs as $docs) {
                                                     $fileName = $docs->docName;
-                                                    $file = base_url() . $docs->docPath;
+                                                    $file = $docs->docPath;
+                                                    $img = base_url() . 'assets/images/icons/text.png';
                                                     $ext = pathinfo($file, PATHINFO_EXTENSION);
-                                                    if ($ext == 'doc') {
+                                                    if ($ext == 'doc' || $ext == 'docx') {
                                                         $type = 'application/msword';
-                                                    } elseif ($ext == 'docx') {
-                                                        $type = 'application/msword';
-//                                               $type='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                                                        $img = base_url() . 'assets/images/icons/docs.png';
                                                     } elseif ($ext == 'csv') {
                                                         $type = 'text/csv';
+                                                        $img = base_url() . 'assets/images/icons/xls.png';
                                                     } elseif ($ext == 'xls') {
                                                         $type = 'application/vnd.ms-excel';
+                                                        $img = base_url() . 'assets/images/icons/xls.png';
                                                     } elseif ($ext == 'xlsx') {
                                                         $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                                                        $img = base_url() . 'assets/images/icons/xls.png';
                                                     } elseif ($ext == 'gif') {
                                                         $type = 'image/gif';
+                                                        $img = base_url() . 'assets/images/icons/img.png';
                                                     } elseif ($ext == 'html' || $ext == 'htm') {
                                                         $type = 'text/html';
                                                     } elseif ($ext == 'jpeg' || $ext == 'jpg') {
                                                         $type = 'image/jpeg';
+                                                        $img = base_url() . 'assets/images/icons/img.png';
                                                     } elseif ($ext == 'png') {
                                                         $type = 'image/png';
+                                                        $img = base_url() . 'assets/images/icons/img.png';
                                                     } elseif ($ext == 'pdf') {
                                                         $type = 'application/pdf';
+                                                        $img = base_url() . 'assets/images/icons/pdf.png';
                                                     } elseif ($ext == 'mp3') {
                                                         $type = 'audio/mpeg';
+                                                        $img = base_url() . 'assets/images/icons/img.png';
                                                     } elseif ($ext == 'mpeg') {
                                                         $type = 'video/mpeg';
+                                                        $img = base_url() . 'assets/images/icons/img.png';
                                                     } elseif ($ext == 'zip') {
                                                         $type = 'application/zip';
                                                     } else {
                                                         $type = 'text/plain';
+                                                        $img = base_url() . 'assets/images/icons/text.png';
                                                     }
-                                                    echo '<div class="col-4 col-sm-4 mb-3">
-                                                <a class=" "
-                                                   href="' . $file . '"
-                                                   target="_blank">
-                                                    <embed width="100%" height="100%" name="plugin"
-                                                           src="' . $file . '"
-                                                            type="' . $type . '" > 
-                                                           <p class="  text-danger text-center">' . $fileName . '</p> 
-                                                </a>
-                                                 
-                                            </div>';
+                                                    echo '<div class="img-container col-2"  style="width: 150px;">
+                                            <a data-ur="' . $file . '" href="' . base_url() . 'index.php/OpenFile?e=' . $docs->empno . '&doc=' . $fileName . '" target="_blank">
+                                                <img src="' . $img . '" class="img-fluid" alt="image">
+                                                <p class="  text-danger text-center">' . $fileName . '</p> 
+                                            </a>
+                                        </div> ';
                                                 }
                                             } else {
                                                 echo '<p>No record found</p>';
                                             }
-                                            ?>
+                                            ?></div>
                                         </div>
                                     </div>
                                 </div>

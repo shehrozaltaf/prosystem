@@ -30,6 +30,15 @@ class OpenFile extends CI_controller
             $M = new MAsset();
             $data['docs'] = $M->getAssetDocsByIdAsset($searchData);
         }
+
+        if(isset($_GET['e']) && $_GET['e']!='' && isset($_GET['doc']) && $_GET['doc']!=''){
+            $this->load->model('hr_model/Mempmodel');
+            $searchData = array();
+            $searchData['empno'] = $_GET['e'];
+            $searchData['docName'] = $_GET['doc'];
+            $M = new Mempmodel();
+            $data['docs'] =$M->getEmpDocsByEmpNo($searchData);
+        }
         /*==========Log=============*/
         $this->load->view('open_file',$data);
     }

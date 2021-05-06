@@ -135,6 +135,9 @@ FROM
         if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
             $emp_no = $searchdata['empno'];
         }
+        if (isset($searchdata['docName']) && $searchdata['docName'] != '' && $searchdata['docName'] != null) {
+            $this->db->where('docName', $searchdata['docName']);
+        }
         $this->db->select('*');
         $this->db->from('hr_employee_docs');
         $this->db->where('empno', $emp_no);
