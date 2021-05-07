@@ -125,9 +125,10 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="font-weight-bold">resp_person_name</td>
+                                        <td class="font-weight-bold">Responsbile Person Name</td>
                                         <td class="text-primary">
-                                            <?php echo(isset($asset->resp_person_name) && $asset->resp_person_name != '' ? $asset->resp_person_name : '') ?>
+                                            <?php echo(isset($asset->resp_person_name) && $asset->resp_person_name != '' ? $asset->resp_person_name .' - ' : '') ?>
+                                            <?php echo(isset($asset->res_person_empname) && $asset->res_person_empname != '' ? $asset->res_person_empname : '') ?>
                                         </td>
                                     </tr>
                                     <tr>

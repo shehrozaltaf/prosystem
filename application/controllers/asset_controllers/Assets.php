@@ -113,6 +113,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['idSourceOfPurchase'] = $value->idSourceOfPurchase;
             $table_data[$value->idAsset]['sopName'] = $value->sopName;
             $table_data[$value->idAsset]['resp_person_name'] = $value->resp_person_name;
+            $table_data[$value->idAsset]['res_person_empname'] = $value->resp_person_name . ' - ' . $value->res_person_empname;
             $table_data[$value->idAsset]['ou'] = $value->ou;
             $table_data[$value->idAsset]['account'] = $value->account;
             $table_data[$value->idAsset]['dept'] = $value->dept;

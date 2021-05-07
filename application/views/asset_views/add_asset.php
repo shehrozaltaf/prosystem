@@ -343,8 +343,7 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group row">
                                             <div class="col-sm-3 col-form-label">
-                                                <label for="resp_person_name">Responsbile Person
-                                                    Name <span class="requried_label">*</span></label>
+                                                <label for="resp_person_name">Responsbile Person Name <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control" id="resp_person_name"

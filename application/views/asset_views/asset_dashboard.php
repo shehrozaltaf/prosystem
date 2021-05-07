@@ -790,7 +790,7 @@
         html += '<div class="col-4">';
         html += '<p>Source Of Purchase: <span class="text-primary">' + (d.sopName != '' && d.sopName != undefined && d.sopName != null ? d.sopName : '') + '</span></p>';
         html += '<p>Employee: <span class="text-primary">' + (d.emp != '' && d.emp != undefined && d.emp != null ? d.emp : '') + '</span></p>';
-        html += '<p>Responsible Person: <span class="text-primary">' + (d.resp_person_name != '' && d.resp_person_name != undefined && d.resp_person_name != null ? d.resp_person_name : '') + '</span></p>';
+        html += '<p>Responsible Person: <span class="text-primary">' + (d.res_person_empname != '' && d.res_person_empname != undefined && d.res_person_empname != null ? d.res_person_empname : '') + '</span></p>';
         html += '<p>OU: <span class="text-primary">' + (d.ou != '' && d.ou != undefined && d.ou != null ? d.ou : '') + '</span></p>';
         html += '<p>Account: <span class="text-primary">' + (d.account != '' && d.account != undefined && d.account != null ? d.account : '') + '</span></p>';
         html += '<p>Dept: <span class="text-primary">' + (d.dept != '' && d.dept != undefined && d.dept != null ? d.dept : '') + '</span></p>';
