@@ -294,7 +294,8 @@
                                                 <select class="select2 form-control required" id="idSourceOfPurchase"
                                                         name="idSourceOfPurchase" autocomplete="idSourceOfPurchase"
                                                         required>
-                                                    <option value="0" readonly disabled selected></option>
+                                                    <option value="0" readonly disabled selected>Select Source of
+                                                        Purchase</option>
                                                     <?php
                                                     if (isset($sop) && $sop != '') {
                                                         foreach ($sop as $k => $sp) {
@@ -337,7 +338,7 @@
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control required" id="emp_no"
                                                         name="emp_no" autocomplete="emp_no" required>
-                                                    <option value="0" readonly disabled></option>
+                                                    <option value="0" readonly disabled selected>Select Employee</option>
                                                     <?php
 
                                                     if (isset($employee) && $employee != '') {
@@ -360,11 +361,11 @@
                                                 <select class="select2 form-control required" id="resp_person_name"
                                                         name="resp_person_name" autocomplete="resp_person_name"
                                                         required>
-                                                    <option value="0" readonly disabled></option>
+                                                    <option value="0" readonly disabled selected>Select Employee</option>
                                                     <?php
                                                     if (isset($employee) && $employee != '') {
                                                         foreach ($employee as $k => $e) {
-                                                            echo '<option value="' . $e->empname . '" ' . (isset($a->resp_person_name) && $a->resp_person_name == $e->empname ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
+                                                            echo '<option value="' . $e->empno . '" ' . (isset($a->resp_person_name) && $a->resp_person_name == $e->empno ? 'selected' : '') . '>(' . $e->empno . ') ' . $e->empname . ' - ' . $e->desig . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -401,7 +402,7 @@
                                             <div class="col-sm-9">
                                                 <select class="select2 form-control required" id="proj_code"
                                                         name="proj_code" autocomplete="proj_code" required>
-                                                    <option value="0" readonly disabled></option>
+                                                    <option value="0" readonly disabled selected>Select Project</option>
                                                     <?php
                                                     if (isset($project) && $project != '') {
                                                         foreach ($project as $k => $v) {
@@ -482,7 +483,7 @@
                                                        class="label-control">Prog <span class="requried_label">*</span></label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control  numericOnly required" id="prog"
+                                                <input type="text" class="form-control  numericOnly" id="prog"
                                                        name="prog"
                                                        value="<?php echo(isset($a->prog) && $a->prog != '' ? $a->prog : '') ?>"
                                                        autocomplete="prog" required></div>
@@ -499,7 +500,7 @@
                                                         name="idLocation"
                                                         onchange="changeLocation('idLocation','idSubLocation')"
                                                         required>
-                                                    <option value="0" readonly disabled></option>
+                                                    <option value="0" readonly disabled selected>Select One</option>
                                                     <?php
                                                     if (isset($location) && $location != '') {
                                                         foreach ($location as $k => $v) {
@@ -571,7 +572,7 @@
                                                         id="verification_status"
                                                         name="verification_status" autocomplete="verification_status"
                                                         required>
-                                                    <option value="0" readonly disabled></option>
+                                                    <option value="0" readonly disabled selected>Select One</option>
                                                     <?php $verification_status = array('Yes', 'No', 'Pending');
                                                     foreach ($verification_status as $ver) {
                                                         echo '<option value="' . $ver . '" ' . (isset($a->verification_status) && $a->verification_status == $ver ? 'selected' : '') . '>' . $ver . '</option>';
@@ -641,7 +642,7 @@
                                                 <select class="select2 form-control status required" name="status"
                                                         autocomplete="status" onchange="chkStatus(this)"
                                                         id="status" required>
-                                                    <option value="0" readonly disabled selected></option>
+                                                    <option value="0" readonly disabled selected>Select One</option>
                                                     <?php if (isset($status) && $status != '') {
                                                         foreach ($status as $k => $s) {
                                                             echo '<option value="' . $s->id . '" 

@@ -632,7 +632,6 @@
         });
     }
 
-
     function chkStatus(obj) {
         var status = $('#upd_bulkstatus').val();
         if (status == 1 || status == 2 || status == 4 || status == 5 || status == 6 || status == 7 || status == 8) {
@@ -775,6 +774,7 @@
         html += '<div class="row">';
         html += '<div class="col-4">';
         html += '<p>PAEDS ID: <span class="text-primary">' + (d.paeds_id != '' && d.paeds_id != undefined && d.paeds_id != null ? d.paeds_id : '') + '</span></p>';
+        html += '<p>PR No: <span class="text-primary">' + (d.pr_no != '' && d.pr_no != undefined && d.pr_no != null ? d.pr_no : '') + '</span></p>';
         html += '<p>Category: <span class="text-primary">' + (d.category != '' && d.category != undefined && d.category != null ? d.category : '') + '</span></p>';
         html += '<p>Desc: <span class="text-primary">' + (d.desc != '' && d.desc != undefined && d.desc != null ? d.desc : '') + '</span></p>';
         html += '<p>Model: <span class="text-primary">' + (d.model != '' && d.model != undefined && d.model != null ? d.model : '') + '</span></p>';
@@ -785,9 +785,10 @@
         html += '<p>PO No: <span class="text-primary">' + (d.po_no != '' && d.po_no != undefined && d.po_no != null ? d.po_no : '') + '</span></p>';
         html += '<p>Cost: <span class="text-primary">' + (d.cost != '' && d.cost != undefined && d.cost != null ? d.cost : '') + '</span></p>';
         html += '<p>Currency: <span class="text-primary">' + (d.idCurrency != '' && d.idCurrency != undefined && d.idCurrency != null ? d.idCurrency : '') + '</span></p>';
-        html += '<p>Source Of Purchase: <span class="text-primary">' + (d.idSourceOfPurchase != '' && d.idSourceOfPurchase != undefined && d.idSourceOfPurchase != null ? d.idSourceOfPurchase : '') + '</span></p>';
+
         html += '</div>';
         html += '<div class="col-4">';
+        html += '<p>Source Of Purchase: <span class="text-primary">' + (d.sopName != '' && d.sopName != undefined && d.sopName != null ? d.sopName : '') + '</span></p>';
         html += '<p>Employee: <span class="text-primary">' + (d.emp != '' && d.emp != undefined && d.emp != null ? d.emp : '') + '</span></p>';
         html += '<p>Responsible Person: <span class="text-primary">' + (d.resp_person_name != '' && d.resp_person_name != undefined && d.resp_person_name != null ? d.resp_person_name : '') + '</span></p>';
         html += '<p>OU: <span class="text-primary">' + (d.ou != '' && d.ou != undefined && d.ou != null ? d.ou : '') + '</span></p>';

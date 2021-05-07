@@ -102,6 +102,7 @@ class Assets extends CI_controller
             }
 
             $table_data[$value->idAsset]['paeds_id'] = $value->idAsset;
+            $table_data[$value->idAsset]['pr_no'] = $value->pr_no;
             $table_data[$value->idAsset]['model'] = $value->model;
             $table_data[$value->idAsset]['product_no'] = $value->product_no;
             $table_data[$value->idAsset]['gri_no'] = $value->gri_no;
@@ -110,6 +111,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['cost'] = $value->cost;
             $table_data[$value->idAsset]['idCurrency'] = $value->currency;
             $table_data[$value->idAsset]['idSourceOfPurchase'] = $value->idSourceOfPurchase;
+            $table_data[$value->idAsset]['sopName'] = $value->sopName;
             $table_data[$value->idAsset]['resp_person_name'] = $value->resp_person_name;
             $table_data[$value->idAsset]['ou'] = $value->ou;
             $table_data[$value->idAsset]['account'] = $value->account;
