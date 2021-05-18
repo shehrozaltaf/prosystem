@@ -678,6 +678,7 @@ class Assets extends CI_controller
             $asset = $MAsset->getAssetById($searchdata);
             $Custom = new Custom();
             $editArray = array();
+            $editArray['pr_no'] = $_POST['pr_reqId'];
             $editArray['idCategory'] = $_POST['idCategory'];
             $editArray['desc'] = $_POST['desc'];
             $editArray['model'] = $_POST['model'];
