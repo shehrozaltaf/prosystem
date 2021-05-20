@@ -162,6 +162,12 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td class="font-weight-bold">Prog</td>
+                                        <td class="text-primary">
+                                            <?php echo(isset($asset->prog) && $asset->prog != '' ? $asset->prog : '') ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td class="font-weight-bold">Location</td>
                                         <td class="text-primary">
                                             <?php echo(isset($asset->location) && $asset->location != '' ? $asset->location : '') ?>

@@ -730,7 +730,8 @@ class Assets extends CI_controller
                     }
                 }
                 if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
+                    $upload_location = "C:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
+//                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
                     if (!is_dir($upload_location)) {
                         mkdir($upload_location, 0777, TRUE);
                     }
@@ -747,7 +748,7 @@ class Assets extends CI_controller
                                 } else {
                                     $tag = $idAsset;
                                 }
-                                $filename = $tag . '.' . $ext;
+                                $filename = $tag.'_'.date('d_m_Y_H_i_s') . '.' . $ext;
                                 $newName = $MAsset->file_newname($upload_location, $filename);
                                 $path = $upload_location . $newName;
                                 if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {

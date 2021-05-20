@@ -69,6 +69,7 @@ class Mempmodel extends CI_Model
         }
         $this->db->select('*');
         $this->db->from('employee_view e');
+        $this->db->where('e.isActive',1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
 

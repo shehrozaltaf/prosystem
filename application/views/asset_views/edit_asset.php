@@ -842,6 +842,7 @@
 
                     if (idAsset != '' && idAsset != undefined && flag == 0) {
                         if (dzClosure.getQueuedFiles().length > 0) {
+                            showloader();
                             dzClosure.processQueue();
                         } else {
                             mySubmitData();
@@ -852,6 +853,7 @@
 
                 });
                 dzClosure.on('sending', function (data, xhr, form_data) {
+
                     xhr.onload = () => {
                         if (xhr.status >= 200 && xhr.status < 300) {
                             const response = JSON.parse(xhr.responseText);
