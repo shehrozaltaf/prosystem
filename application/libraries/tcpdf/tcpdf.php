@@ -9956,8 +9956,8 @@ class TCPDF
             $out .= ' /OFF [' . $lyrobjs_view . ']';
             $out .= ' /Intent /View';
             $out .= ' /AS [';
-            $out .= ' << /Event /Print /OCGs [' . $lyrobjs . '] /Category [/Print] >>';
-            $out .= ' << /Event /View /OCGs [' . $lyrobjs . '] /Category [/View] >>';
+            $out .= ' << /Event /Print /OCGs [' . $lyrobjs . '] /CategoryHR [/Print] >>';
+            $out .= ' << /Event /View /OCGs [' . $lyrobjs . '] /CategoryHR [/View] >>';
             $out .= ' ]';
             $out .= ' /Order [' . $lyrobjs . ']';
             $out .= ' /ListMode /AllPages';

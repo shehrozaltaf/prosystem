@@ -20880,7 +20880,7 @@ function resetSourceDefaulter(ecModel) {
  * before "series.getInitailData()" called.
  *
  * [The rule of making default encode]:
- * Category axis (if exists) alway map to the first dimension.
+ * CategoryHR axis (if exists) alway map to the first dimension.
  * Each other axis occupies a subsequent dimension.
  *
  * [Why make default encode]:

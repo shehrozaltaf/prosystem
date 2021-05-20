@@ -1521,7 +1521,7 @@ class PHPExcel_Reader_Excel5 extends PHPExcel_Reader_Abstract implements PHPExce
                 case 0x01:    //    Code Page
                     $codePage = PHPExcel_Shared_CodePage::NumberToName($value);
                     break;
-                case 0x02:    //    Category
+                case 0x02:    //    CategoryHR
                     $this->phpExcel->getProperties()->setCategory($value);
                     break;
                 case 0x03:    //    Presentation Target

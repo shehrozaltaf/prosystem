@@ -194,8 +194,8 @@ FROM
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
         }
-        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
-            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        if (isset($searchdata['CategoryHR']) && $searchdata['CategoryHR'] != '' && $searchdata['CategoryHR'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['CategoryHR'] . "%')");
         }
         if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
             $this->db->where('e.entity', $searchdata['entity']);
@@ -349,8 +349,8 @@ inner join hr_employee e1 on e1.empno = e.supernme");
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
         }
-        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
-            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        if (isset($searchdata['CategoryHR']) && $searchdata['CategoryHR'] != '' && $searchdata['CategoryHR'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['CategoryHR'] . "%')");
         }
         if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
             $this->db->where('e.entity', $searchdata['entity']);
@@ -489,8 +489,8 @@ inner join hr_employee e1 on e1.empno = e.supernme");
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
         }
-        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
-            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        if (isset($searchdata['CategoryHR']) && $searchdata['CategoryHR'] != '' && $searchdata['CategoryHR'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['CategoryHR'] . "%')");
         }
         if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
             $this->db->where('e.entity', $searchdata['entity']);

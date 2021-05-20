@@ -113,7 +113,7 @@ class PHPExcel_Chart_DataSeries
     private $plotLabel = array();
 
     /**
-     * Plot Category
+     * Plot CategoryHR
      *
      * @var array of PHPExcel_Chart_DataSeriesValues
      */
@@ -274,7 +274,7 @@ class PHPExcel_Chart_DataSeries
     }
 
     /**
-     * Get Plot Category by Index
+     * Get Plot CategoryHR by Index
      *
      * @return PHPExcel_Chart_DataSeriesValues
      */

@@ -294,7 +294,7 @@ class PHPExcel_Reader_Gnumeric extends PHPExcel_Reader_Abstract implements PHPEx
                                 case 'publisher':
                                     $docProps->setCompany(trim($propertyValue));
                                     break;
-                                case 'category':
+                                case 'CategoryHR':
                                     $docProps->setCategory(trim($propertyValue));
                                     break;
                                 case 'manager':
@@ -319,7 +319,7 @@ class PHPExcel_Reader_Gnumeric extends PHPExcel_Reader_Abstract implements PHPEx
                     case 'keywords':
                         $docProps->setKeywords(trim($propertyValue));
                         break;
-                    case 'category':
+                    case 'CategoryHR':
                         $docProps->setCategory(trim($propertyValue));
                         break;
                     case 'manager':

@@ -395,7 +395,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
     }
 
     /**
-     * Write Category Axis
+     * Write CategoryHR Axis
      *
      * @param  PHPExcel_Shared_XMLWriter $objWriter XML Writer
      * @param  PHPExcel_Chart_PlotArea $plotArea
@@ -1161,7 +1161,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
                 $objWriter->endElement();
             }
 
-            //    Category Labels
+            //    CategoryHR Labels
             $plotSeriesCategory = $plotGroup->getPlotCategoryByIndex($plotSeriesRef);
             if ($plotSeriesCategory && ($plotSeriesCategory->getPointCount() > 0)) {
                 $catIsMultiLevelSeries = $catIsMultiLevelSeries || $plotSeriesCategory->isMultiLevelSeries();

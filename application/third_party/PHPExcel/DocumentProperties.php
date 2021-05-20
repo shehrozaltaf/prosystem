@@ -92,7 +92,7 @@ class PHPExcel_DocumentProperties
     private $keywords = '';
 
     /**
-     * Category
+     * CategoryHR
      *
      * @var string
      */
@@ -328,7 +328,7 @@ class PHPExcel_DocumentProperties
     }
 
     /**
-     * Get Category
+     * Get CategoryHR
      *
      * @return string
      */
@@ -338,7 +338,7 @@ class PHPExcel_DocumentProperties
     }
 
     /**
-     * Set Category
+     * Set CategoryHR
      *
      * @param string $pValue
      * @return PHPExcel_DocumentProperties

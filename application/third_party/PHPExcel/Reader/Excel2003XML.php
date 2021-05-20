@@ -351,7 +351,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
                     case 'Company':
                         $docProps->setCompany(self::convertStringEncoding($propertyValue, $this->charSet));
                         break;
-                    case 'Category':
+                    case 'CategoryHR':
                         $docProps->setCategory(self::convertStringEncoding($propertyValue, $this->charSet));
                         break;
                     case 'Manager':

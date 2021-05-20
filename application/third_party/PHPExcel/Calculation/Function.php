@@ -41,7 +41,7 @@ class PHPExcel_Calculation_Function
     const CATEGORY_TEXT_AND_DATA        = 'Text and Data';
 
     /**
-     * Category (represented by CATEGORY_*)
+     * CategoryHR (represented by CATEGORY_*)
      *
      * @var string
      */
@@ -64,7 +64,7 @@ class PHPExcel_Calculation_Function
     /**
      * Create a new PHPExcel_Calculation_Function
      *
-     * @param     string        $pCategory         Category (represented by CATEGORY_*)
+     * @param     string        $pCategory         CategoryHR (represented by CATEGORY_*)
      * @param     string        $pExcelName        Excel function name
      * @param     string        $pPHPExcelName    PHPExcel function mapping
      * @throws     PHPExcel_Calculation_Exception
@@ -82,7 +82,7 @@ class PHPExcel_Calculation_Function
     }
 
     /**
-     * Get Category (represented by CATEGORY_*)
+     * Get CategoryHR (represented by CATEGORY_*)
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class PHPExcel_Calculation_Function
     }
 
     /**
-     * Set Category (represented by CATEGORY_*)
+     * Set CategoryHR (represented by CATEGORY_*)
      *
      * @param     string        $value
      * @throws     PHPExcel_Calculation_Exception

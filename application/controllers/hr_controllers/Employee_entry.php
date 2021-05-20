@@ -34,7 +34,7 @@ class Employee_entry extends CI_controller
         $Custom->trackLogs($trackarray, "user_logs");
 
         $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
+        $data['CategoryHR'] = $Custom->selectAllQuery('hr_category', 'id');
         $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
         $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');
@@ -66,7 +66,7 @@ class Employee_entry extends CI_controller
         $Custom->trackLogs($trackarray, "user_logs");
 
         $data['employeeType'] = $Custom->selectAllQuery('hr_emptype', 'id');
-        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
+        $data['CategoryHR'] = $Custom->selectAllQuery('hr_category', 'id');
         $data['degree'] = $Custom->selectAllQuery('hr_degree', 'id');
         $data['field'] = $Custom->selectAllQuery('hr_field', 'id');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'id');

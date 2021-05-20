@@ -570,7 +570,7 @@ class PHPExcel_Writer_Excel5 extends PHPExcel_Writer_Abstract implements PHPExce
                                'data'    => array('data' => 1252));
         $dataSection_NumProps++;
 
-        // GKPIDDSI_CATEGORY : Category
+        // GKPIDDSI_CATEGORY : CategoryHR
         if ($this->phpExcel->getProperties()->getCategory()) {
             $dataProp = $this->phpExcel->getProperties()->getCategory();
             $dataSection[] = array('summary'=> array('pack' => 'V', 'data' => 0x02),

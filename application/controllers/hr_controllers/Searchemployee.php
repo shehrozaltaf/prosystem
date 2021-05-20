@@ -42,14 +42,14 @@ class Searchemployee extends CI_Controller
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
         $data['desig'] = $Custom->selectAllQuery('hr_desig', 'desig');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'band');
-        $data['category'] = $Custom->selectAllQuery('hr_category', 'category');
+        $data['CategoryHR'] = $Custom->selectAllQuery('hr_category', 'CategoryHR');
 
 
         $Mempmodel = new Mempmodel();
         $searchData = array();
         $searchData['projects'] = (isset($_REQUEST['pro']) && $_REQUEST['pro'] != '' && $_REQUEST['pro'] != '0' ? $_REQUEST['pro'] : 0);
         $searchData['location'] = (isset($_REQUEST['loc']) && $_REQUEST['loc'] != '' && $_REQUEST['loc'] != '0' ? $_REQUEST['loc'] : 0);
-        $searchData['category'] = (isset($_REQUEST['cat']) && $_REQUEST['cat'] != '' && $_REQUEST['cat'] != '0' ? $_REQUEST['cat'] : 0);
+        $searchData['CategoryHR'] = (isset($_REQUEST['cat']) && $_REQUEST['cat'] != '' && $_REQUEST['cat'] != '0' ? $_REQUEST['cat'] : 0);
         $searchData['entity'] = (isset($_REQUEST['ent']) && $_REQUEST['ent'] != '' && $_REQUEST['ent'] != '0' ? $_REQUEST['ent'] : 0);
         $searchData['band'] = (isset($_REQUEST['band']) && $_REQUEST['band'] != '' && $_REQUEST['band'] != '0' ? $_REQUEST['band'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
