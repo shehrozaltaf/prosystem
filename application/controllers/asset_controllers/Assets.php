@@ -227,6 +227,39 @@ class Assets extends CI_controller
             $Custom->trackLogs($trackarray, "user_logs");
             if ($editData) {
                 $result = 1;
+                if (isset($_FILES['status_doc']['name']) && $_FILES['status_doc']['name'] != '') {
+                    $upload_location = ASSET_LOC . $id . '/';
+                    if (!is_dir($upload_location)) {
+                        mkdir($upload_location, 0777, TRUE);
+                    }
+
+                    $filename = $_FILES['status_doc']['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
+                    if (in_array($ext, $valid_ext)) {
+                        $filename = $id . '_' . date('d_m_Y_H_i_s') . '.' . $ext;
+                        $MAsset = new MAsset();
+                        $newName = $MAsset->file_newname($upload_location, $filename);
+                        $path = $upload_location . $newName;
+                        if (move_uploaded_file($_FILES['status_doc']['tmp_name'], $path)) {
+                            $files_arr[] = $path;
+                            $fileUpload = array();
+                            $fileUpload['idAsset'] = $id;
+                            $fileUpload['docPath'] = $upload_location . $filename;
+                            $fileUpload['docName'] = $filename;
+                            $fileUpload['isActive'] = 1;
+                            $fileUpload['createdBy'] = $_SESSION['login']['idUser'];
+                            $fileUpload['createdDateTime'] = date('Y-m-d H:i:s');
+                            $Custom->Insert($fileUpload, 'idAssetImage', 'a_asset_docs', 'N');
+                            $result = 1;
+                        } else {
+                            $result = 5;
+                        }
+                    } else {
+                        $result = 4;
+                    }
+                }
+
             } else {
                 $result = 2;
             }
@@ -523,10 +556,6 @@ class Assets extends CI_controller
 
     }
 
-
-    /**
-     *
-     */
     function getPDF()
     {
         if (isset($_REQUEST['f']) && $_REQUEST['f'] != '' && $_REQUEST['f'] != 0) {
@@ -844,8 +873,7 @@ class Assets extends CI_controller
                     }
                 }
                 if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                    $upload_location = "C:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
-//                    $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $idAsset . '/';
+                    $upload_location = ASSET_LOC . $idAsset . '/';
                     if (!is_dir($upload_location)) {
                         mkdir($upload_location, 0777, TRUE);
                     }
@@ -891,7 +919,6 @@ class Assets extends CI_controller
         echo json_encode($result);
     }
 
-
     function getAssetDocs()
     {
         $result = array();
@@ -899,7 +926,7 @@ class Assets extends CI_controller
             $MAsset = new MAsset();
             $searchdata = array();
             $searchdata['idAsset'] = $_GET['a'];
-            $storeFolder = 'E:/PortalFiles/ASSET_PROREPORTS/' . $searchdata['idAsset'] . '/';
+            $storeFolder = ASSET_LOC . $searchdata['idAsset'] . '/';
             $docs = $MAsset->getAssetDocsByIdAsset($searchdata);
             if (isset($docs) && $docs != '') {
                 foreach ($docs as $d) {

@@ -41,51 +41,10 @@ class Add_asset extends CI_controller
         $this->load->view('include/footer');
     }
 
-    function testUpload3()
-    {
-
-        $config = array(
-            'upload_path' => 'assets/uploads/excelsUpload',
-            'allowed_types' => 'jpg|gif|png',
-            'overwrite' => 1,
-        );
-
-        $this->load->library('upload', $config);
-
-        $images = array();
-        $files = $_FILES;
-        $title = 't';
-        foreach ($files['file'] as $key => $image) {
-            $_FILES['images[]']['name'] = $files['file'] ['name'][$key];
-            $_FILES['images[]']['type'] = $files['file'] ['type'][$key];
-            $_FILES['images[]']['tmp_name'] = $files['file'] ['tmp_name'][$key];
-            $_FILES['images[]']['error'] = $files['file'] ['error'][$key];
-            $_FILES['images[]']['size'] = $files['file'] ['size'][$key];
-
-            $fileName = $title . '_' . $image;
-
-            $images[] = $fileName;
-
-            $config['file_name'] = $fileName;
-
-            $this->upload->initialize($config);
-
-            if ($this->upload->do_upload('images[]')) {
-                $this->upload->data();
-            } else {
-                return false;
-            }
-        }
-
-        return $images;
-
-
-    }
-
     function testUpload()
     {
         $countfiles = count($_FILES['file']['name']);
-        $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/";
+        $upload_location = ASSET_LOC;
         $files_arr = array();
         for ($index = 0; $index < $countfiles; $index++) {
             if (isset($_FILES['file']['name'][$index]) && $_FILES['file']['name'][$index] != '') {
@@ -176,7 +135,7 @@ class Add_asset extends CI_controller
                 if ($InsertData) {
 
                     if (isset($_FILES) && isset($_FILES['file']) && $_FILES['file'] != '') {
-                        $upload_location = "E:/PortalFiles/ASSET_PROREPORTS/" . $InsertData . '/';
+                        $upload_location = ASSET_LOC . $InsertData . '/';
                         if (!is_dir($upload_location)) {
                             mkdir($upload_location, 0777, TRUE);
                         }
@@ -189,13 +148,13 @@ class Add_asset extends CI_controller
                                 $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                                 $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
                                 if (in_array($ext, $valid_ext)) {
-                                    if (isset( $insertArray['tag_no']) && $insertArray['tag_no'] != '') {
+                                    if (isset($insertArray['tag_no']) && $insertArray['tag_no'] != '') {
                                         $tag = $insertArray['tag_no'];
                                     } else {
                                         $tag = $InsertData;
                                     }
                                     $filename = $tag . '.' . $ext;
-                                    $newName=$MAsset->file_newname($upload_location, $filename);
+                                    $newName = $MAsset->file_newname($upload_location, $filename);
                                     $path = $upload_location . $newName;
                                     if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
                                         $files_arr[] = $path;

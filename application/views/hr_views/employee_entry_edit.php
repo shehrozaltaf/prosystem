@@ -1124,9 +1124,7 @@
                                         <div class="avatar-upload  ">
                                             <div class="avatar-preview">
                                                 <div id="imagePreview"
-                                                     style='background-image: url("<?php echo (isset($editemp[0]->pic) && $editemp[0]->pic!=''?base_url($editemp[0]->pic):base_url('assets/images/profile/dummy.jpg')) ?>")'
-
-                                                     >
+                                                     style='background-image: url("<?php echo (isset($editemp[0]->pic) && $editemp[0]->pic!=''?base_url($editemp[0]->pic):base_url('assets/images/profile/dummy.jpg')) ?>")'>
                                                 </div>
                                             </div>
                                         </div>

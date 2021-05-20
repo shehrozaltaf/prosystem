@@ -357,6 +357,13 @@
 
                             </div>
                         </div>
+                        <div class="col-sm-12 col-12 status_doc">
+                            <div class="form-group">
+                                <label for="status_doc" class="label-control">Document</label>
+                                <input type="file" required id="status_doc" name="status_doc">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -893,7 +900,7 @@
                     extend: "print",
                     text: "Print",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11 ]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
                 }, {
                     extend: "copy",
                     text: "Copy",
@@ -1036,6 +1043,15 @@
         data['status'] = $('#change_status').val();
         data['writOff_formNo'] = $('#status_writOff_formNo').val();
         data['wo_date'] = $('#status_wo_date').val();
+
+        var form_data = new FormData();
+        form_data.append('idAsset', data['idAsset']);
+        form_data.append('status', data['status']);
+        form_data.append('writOff_formNo', data['writOff_formNo']);
+        form_data.append('wo_date', data['wo_date']);
+        form_data.append('status_doc', $('#status_doc')[0].files[0]);
+
+
         if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
             toastMsg('Asset', 'Invalid Id Asset', 'error');
             return false;
@@ -1043,14 +1059,16 @@
             toastMsg('Status', 'Invalid Status', 'error');
             return false;
         } else {
-            if (data['status'] != 1 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
-                toastMsg('Writ Off Form No', 'Invalid Form No', 'error');
+            if (data['status'] == 3 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
+                toastMsg('Writ Off Form No', 'Invalid Writ Off Form No', 'error');
                 return false;
-            } else if (data['status'] != 1 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
+            } else if (data['status'] == 3 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
                 toastMsg('Writ Date', 'Invalid Writ Date', 'error');
                 return false;
             } else {
-                CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', data, 'POST', function (res) {
+                showloader();
+                CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', form_data, 'POST', function (res) {
+                    hideloader();
                     if (res == 1) {
                         toastMsg('asset', 'Successfully Changes', 'success');
                         $('#deleteModal').modal('hide');
@@ -1058,11 +1076,15 @@
                             window.location.reload();
                         }, 500);
                     } else if (res == 3) {
-                        toastMsg('asset', 'Invalid Asset Id', 'error');
+                        toastMsg('Erorr', 'Invalid Asset Id', 'error');
+                    } else if (res == 4) {
+                        toastMsg('Erorr', 'Invalid Document Extension', 'error');
+                    } else if (res == 5) {
+                        toastMsg('Warning', 'Data edited, but file not uploaded', 'error');
                     } else {
-                        toastMsg('asset', 'Something went wrong', 'error');
+                        toastMsg('Erorr', 'Something went wrong', 'error');
                     }
-                });
+                }, true);
             }
 
         }
