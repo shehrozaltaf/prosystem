@@ -223,8 +223,12 @@
                                             Data
                                         </button>
                                         <button type="button"
-                                                onclick="exportPDF()"
+                                                onclick="exportPDF(1)"
                                                 id="btn-expPDF" class="btn btn-info white addbtn">Export PDF
+                                        </button>
+                                        <button type="button"
+                                                onclick="exportPDF(2)"
+                                                id="btn-expExcel" class="btn btn-danger white addbtn">Export Excel
                                         </button>
                                     </div>
                                 </div>
@@ -846,8 +850,8 @@
             attr: {
                 autocomplete: 'off'
             },
-            initComplete: function() {
-                $(this.api().table().container()).find('input[type="search"]').parent().wrap('<form>').parent().attr('autocomplete','off').css('overflow','hidden').css('margin','auto');
+            initComplete: function () {
+                $(this.api().table().container()).find('input[type="search"]').parent().wrap('<form>').parent().attr('autocomplete', 'off').css('overflow', 'hidden').css('margin', 'auto');
             },
 
             ajax: {
@@ -886,10 +890,10 @@
                 className: "btn btn-outline-secondary dropdown-toggle mr-2",
                 text: "Export",
                 buttons: [{
-                    extend: "csv",
-                    text: "Csv",
+                    extend: "print",
+                    text: "Print",
                     className: "dropdown-item",
-                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11]}
+                    exportOptions: {columns: [3, 4, 5, 6, 7, 8, 9, 10, 11 ]}
                 }, {
                     extend: "copy",
                     text: "Copy",
@@ -936,7 +940,7 @@
         }, 500);
     }
 
-    function exportPDF() {
+    function exportPDF(filter) {
         var data = {};
         data['project'] = $('#project').val();
         data['emp'] = $('#emp').val();
@@ -952,8 +956,15 @@
         data['writeOffNo'] = $('#writeOffNo').val();
         data['dateTo'] = $('#dateTo').val();
         data['dateFrom'] = $('#dateFrom').val();
-        data['search'] =$('#my_table_asset_filter').find('input[type="search"]').val();
-        var url = '<?php echo base_url() ?>index.php/asset_controllers/Assets/getPDF?f=1';
+        data['search'] = $('#my_table_asset_filter').find('input[type="search"]').val();
+        var url = '<?php echo base_url() ?>index.php/asset_controllers/Assets/';
+        if (filter == 1) {
+            url += 'getPDF?f=1';
+        } else if (filter == 2) {
+            url += 'getExcel?f=1';
+        } else {
+            url += 'getPDF?f=1';
+        }
         if (data['project'] != '' && data['project'] != undefined && data['project'] != 0) {
             url += '&project=' + data['project'];
         }

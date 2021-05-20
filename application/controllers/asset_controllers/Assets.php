@@ -628,6 +628,120 @@ class Assets extends CI_controller
         }
     }
 
+    function getExcel()
+    {
+        if (isset($_REQUEST['f']) && $_REQUEST['f'] != '' && $_REQUEST['f'] != 0) {
+            ob_end_clean();
+            $fileName = 'assets_pro_system_' . time() . '.xlsx';
+            $this->load->library('excel');
+
+            $searchData = array();
+            $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
+            $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
+            $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
+            $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
+            $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
+            $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
+            $searchData['area'] = (isset($_REQUEST['area']) && $_REQUEST['area'] != '' && $_REQUEST['area'] != '0' ? $_REQUEST['area'] : 0);
+            $searchData['verification_status'] = (isset($_REQUEST['verification_status']) && $_REQUEST['verification_status'] != '' && $_REQUEST['verification_status'] != '0' ? $_REQUEST['verification_status'] : 0);
+            $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
+            $searchData['tag_pr'] = (isset($_REQUEST['tag_pr']) && $_REQUEST['tag_pr'] != '' && $_REQUEST['tag_pr'] != '0' ? $_REQUEST['tag_pr'] : 0);
+            $searchData['idAsset'] = (isset($_REQUEST['idAsset']) && $_REQUEST['idAsset'] != '' && $_REQUEST['idAsset'] != '0' ? $_REQUEST['idAsset'] : 0);
+            $searchData['writeOffNo'] = (isset($_REQUEST['writeOffNo']) && $_REQUEST['writeOffNo'] != '' && $_REQUEST['writeOffNo'] != '0' ? $_REQUEST['writeOffNo'] : 0);
+            $searchData['dateTo'] = (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] != '' ? $_REQUEST['dateTo'] : 0);
+            $searchData['dateFrom'] = (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] != '' ? $_REQUEST['dateFrom'] : 0);
+            $searchData['search'] = (isset($_REQUEST['search']) && $_REQUEST['search'] != '' ? $_REQUEST['search'] : '');
+            $searchData['start'] = 0;
+            $searchData['length'] = 50000;
+
+            $M = new MAsset();
+            $asset_data = $M->getAsset($searchData);
+
+            $objPHPExcel = new    PHPExcel();
+            $objPHPExcel->setActiveSheetIndex(0);
+            $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'PAEDS ID');
+            $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Category');
+            $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Description');
+            $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Model');
+            $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Product No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'GRI No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'Serial No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('H1', 'Tag No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('I1', 'PO No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('J1', 'Cost');
+            $objPHPExcel->getActiveSheet()->SetCellValue('K1', 'Currency');
+            $objPHPExcel->getActiveSheet()->SetCellValue('L1', 'Source Of Purchase');
+            $objPHPExcel->getActiveSheet()->SetCellValue('M1', 'PR No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('N1', 'Employee No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('O1', 'Employee Name');
+            $objPHPExcel->getActiveSheet()->SetCellValue('P1', 'Responsbile Person Name');
+            $objPHPExcel->getActiveSheet()->SetCellValue('Q1', 'Proj Code');
+            $objPHPExcel->getActiveSheet()->SetCellValue('R1', 'OU');
+            $objPHPExcel->getActiveSheet()->SetCellValue('S1', 'Account');
+            $objPHPExcel->getActiveSheet()->SetCellValue('T1', 'Department');
+            $objPHPExcel->getActiveSheet()->SetCellValue('U1', 'Fund');
+            $objPHPExcel->getActiveSheet()->SetCellValue('V1', 'Prog');
+            $objPHPExcel->getActiveSheet()->SetCellValue('W1', 'Location');
+            $objPHPExcel->getActiveSheet()->SetCellValue('X1', 'Sub Location');
+            $objPHPExcel->getActiveSheet()->SetCellValue('Y1', 'Area');
+            $objPHPExcel->getActiveSheet()->SetCellValue('Z1', 'Verification Status');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AA1', 'Last Verify Date');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AB1', 'Due Date');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AC1', 'Pur Date');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AD1', 'Status');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AE1', 'WritOff Form No');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AF1', 'WritOff Date');
+            $objPHPExcel->getActiveSheet()->SetCellValue('AG1', 'Remarks');
+            $objPHPExcel->getActiveSheet()->getStyle("A1:AAZ1")->getFont()->setBold(true);
+            $rowCount = 1;
+            foreach ($asset_data as $data) {
+                $rowCount++;
+                $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, (isset($data->idAsset) && $data->idAsset != '' ? $data->idAsset : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, (isset($data->category) && $data->category != '' ? $data->category : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, (isset($data->description) && $data->description != '' ? $data->description : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, (isset($data->model) && $data->model != '' ? $data->model : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, (isset($data->product_no) && $data->product_no != '' ? $data->product_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount, (isset($data->gri_no) && $data->gri_no != '' ? $data->gri_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, (isset($data->serial_no) && $data->serial_no != '' ? $data->serial_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('H' . $rowCount, (isset($data->tag_no) && $data->tag_no != '' ? $data->tag_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('I' . $rowCount, (isset($data->po_no) && $data->po_no != '' ? $data->po_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('J' . $rowCount, (isset($data->cost) && $data->cost != '' ? $data->cost : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('K' . $rowCount, (isset($data->currency) && $data->currency != '' ? $data->currency : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('L' . $rowCount, (isset($data->sopName) && $data->sopName != '' ? $data->sopName : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('M' . $rowCount, (isset($data->pr_no) && $data->pr_no != '' ? $data->pr_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('N' . $rowCount, (isset($data->emp_no) && $data->emp_no != '' ? $data->emp_no : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('O' . $rowCount, (isset($data->empname) && $data->empname != '' ? $data->empname : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('P' . $rowCount, (isset($data->resp_person_name) && $data->resp_person_name != '' ? $data->resp_person_name . ' - ' . (isset($data->res_person_empname) && $data->res_person_empname != '' ? $data->res_person_empname : '') : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('Q' . $rowCount, (isset($data->proj_code) && $data->proj_code != '' ? $data->proj_code : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('R' . $rowCount, (isset($data->OU) && $data->OU != '' ? $data->OU : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('S' . $rowCount, (isset($data->account) && $data->account != '' ? $data->account : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('T' . $rowCount, (isset($data->dept) && $data->dept != '' ? $data->dept : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('U' . $rowCount, (isset($data->fund) && $data->fund != '' ? $data->fund : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('V' . $rowCount, (isset($data->prog) && $data->prog != '' ? $data->prog : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('W' . $rowCount, (isset($data->location) && $data->location != '' ? $data->location : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('X' . $rowCount, (isset($data->location_sub) && $data->location_sub != '' ? $data->location_sub : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('Y' . $rowCount, (isset($data->area) && $data->area != '' ? $data->area : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('Z' . $rowCount, (isset($data->verification_status) && $data->verification_status != '' ? $data->verification_status : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AA' . $rowCount, (isset($data->last_verify_date) && $data->last_verify_date != '' ? $data->last_verify_date : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AB' . $rowCount, (isset($data->due_date) && $data->due_date != '' ? $data->due_date : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AC' . $rowCount, (isset($data->pur_date) && $data->pur_date != '' ? $data->pur_date : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AD' . $rowCount, (isset($data->status_name) && $data->status_name != '' ? $data->status_name : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AE' . $rowCount, (isset($data->writOff_formNo) && $data->writOff_formNo != '' ? $data->writOff_formNo : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AF' . $rowCount, (isset($data->wo_date) && $data->wo_date != '' ? $data->wo_date : ''));
+                $objPHPExcel->getActiveSheet()->SetCellValue('AG' . $rowCount, (isset($data->remarks) && $data->remarks != '' ? $data->remarks : ''));
+            }
+
+            $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+            header('Content-Type: application/vnd.ms-excel'); //mime type
+            header('Content-Disposition: attachment;filename="' . $fileName . '"'); //tell browser what's the file name
+            header('Cache-Control: max-age=0'); //no cache
+            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            $objWriter->save('php://output');
+        } else {
+            echo 'Invalid Asset, Please select Asset';
+        }
+    }
+
 
     /*=============================Edit Asset====================================*/
 
@@ -748,7 +862,7 @@ class Assets extends CI_controller
                                 } else {
                                     $tag = $idAsset;
                                 }
-                                $filename = $tag.'_'.date('d_m_Y_H_i_s') . '.' . $ext;
+                                $filename = $tag . '_' . date('d_m_Y_H_i_s') . '.' . $ext;
                                 $newName = $MAsset->file_newname($upload_location, $filename);
                                 $path = $upload_location . $newName;
                                 if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {

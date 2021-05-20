@@ -228,15 +228,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="font-weight-bold">remarks</td>
+                                        <td class="font-weight-bold">Remarks</td>
                                         <td class="text-primary">
                                             <?php echo(isset($asset->remarks) && $asset->remarks != '' ? $asset->remarks : '') ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">PR Path</td>
-                                        <td class="text-primary">
-                                            <?php echo(isset($asset->pr_path) && $asset->pr_path != '' ? $asset->pr_path : '') ?>
                                         </td>
                                     </tr>
                                 </table>
