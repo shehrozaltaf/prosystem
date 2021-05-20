@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MDegree.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Band.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/EmpType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Entity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Field.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Status.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MBand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MEmpType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MEntity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/band.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/emptype.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/entity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/field.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/status.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/general_settings/Degree.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/general_settings/Degree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/add_asset2.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/general_settings/degree.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/general_settings/degree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,28 +50,37 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/status.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-443">
-              <caret line="237" column="66" selection-start-line="237" selection-start-column="66" selection-end-line="237" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Degree.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+            <state relative-caret-position="3944">
+              <caret line="232" column="62" selection-start-line="232" selection-start-column="62" selection-end-line="232" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDegree.php">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/field.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="952">
+              <caret line="56" column="83" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/entity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="56" column="84" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/emptype.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1013">
+              <caret line="158" column="97" selection-start-line="158" selection-start-column="97" selection-end-line="158" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -81,13 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Password</find>
-      <find>emp_docs</find>
-      <find>prog</find>
-      <find>format</find>
-      <find>idSourceOfPurchase</find>
-      <find>pr_no</find>
-      <find>select</find>
       <find>idCurrency</find>
       <find>pr_reqId</find>
       <find>Fund</find>
@@ -109,20 +117,17 @@
       <find>idDegree</find>
       <find>Settings</find>
       <find>editDegreeData</find>
-      <find>Group</find>
       <find>edit_DegreeName</find>
+      <find>Group</find>
+      <find>idField</find>
+      <find>hr_Field</find>
+      <find>hr_Band</find>
+      <find>hr_Status</find>
+      <find>hr_EmpType</find>
+      <find>hr_Entity</find>
+      <find>Degree</find>
     </findStrings>
     <replaceStrings>
-      <replace>OR  a.</replace>
-      <replace>like '%&quot; . $search . &quot;%',</replace>
-      <replace>empno</replace>
-      <replace>workingProj</replace>
-      <replace>Employee Information</replace>
-      <replace>&lt;label for=</replace>
-      <replace>'&lt;option value=&quot;0&quot; readonly selected disabled&gt;&lt;/option&gt;';</replace>
-      <replace>form_data.append('</replace>
-      <replace>',</replace>
-      <replace>.val());</replace>
       <replace>hr_controllers/Employee_entry</replace>
       <replace>$insertArray['</replace>
       <replace>$_POST['offemail</replace>
@@ -143,6 +148,16 @@
       <replace>E:/</replace>
       <replace>index.php/general_settings/Degree</replace>
       <replace>Degree</replace>
+      <replace>hr_field</replace>
+      <replace>hr_band</replace>
+      <replace>Band</replace>
+      <replace>Field</replace>
+      <replace>hr_status</replace>
+      <replace>hr_empType</replace>
+      <replace>hr_entity</replace>
+      <replace>Entity</replace>
+      <replace>EmpType</replace>
+      <replace>Status</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -151,21 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/welcome_message.php" />
-        <option value="$PROJECT_DIR$/application/models/Custom.php" />
-        <option value="$PROJECT_DIR$/assets/js/core.js" />
-        <option value="$PROJECT_DIR$/application/controllers/Settings.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Users.php" />
-        <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Upload_asset.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/upload_hr.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard.php" />
-        <option value="$PROJECT_DIR$/application/views/page-not-authorized.php" />
-        <option value="C:/shehroz/themes/dashboards/vuexy/vuexy-admin/vuexy-html-admin/html/ltr/vertical-menu-template-semi-dark/table-datatable.html" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry2.php" />
-        <option value="$PROJECT_DIR$/../vehicle_portal/application/config/config.php" />
-        <option value="$PROJECT_DIR$/../vehicle_portal/application/config/database.php" />
-        <option value="$PROJECT_DIR$/../fetch_files_live/fetch_all_html.php" />
         <option value="$PROJECT_DIR$/assets/js/scripts/forms/form-wizard.min.js" />
         <option value="$PROJECT_DIR$/application/controllers/Upload_data.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
@@ -202,6 +202,21 @@
         <option value="$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/general_settings/degree.php" />
         <option value="$PROJECT_DIR$/application/controllers/general_settings/Degree.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MField.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MBand.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/field.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/band.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MStatus.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MEntity.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MEmpType.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/status.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/entity.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Status.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Entity.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Field.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Band.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/EmpType.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/emptype.php" />
       </list>
     </option>
   </component>
@@ -241,13 +256,6 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="general_settings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,28 +282,7 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="asset_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="budget_views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="general_settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -470,14 +457,7 @@
       <workItem from="1621245891609" duration="1324000" />
       <workItem from="1621331826111" duration="4411000" />
       <workItem from="1621403220784" duration="251000" />
-      <workItem from="1621488868087" duration="10665000" />
-    </task>
-    <task id="LOCAL-00040" summary="add draft HR">
-      <created>1615221523786</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1615221523786</updated>
+      <workItem from="1621488868087" duration="11987000" />
     </task>
     <task id="LOCAL-00041" summary="Bulk Area">
       <created>1615442390251</created>
@@ -815,11 +795,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621493001192</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Degree">
+      <created>1621506847234</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1621506847234</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="467573000" />
+    <option name="totallyTimeSpent" value="468895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -850,7 +837,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ionauth" />
     <MESSAGE value="captcha" />
     <MESSAGE value="xframe" />
     <MESSAGE value="headers" />
@@ -875,7 +861,8 @@
     <MESSAGE value="updates" />
     <MESSAGE value="asset docs" />
     <MESSAGE value="asset docs export" />
-    <option name="LAST_COMMIT_MESSAGE" value="asset docs export" />
+    <MESSAGE value="Degree" />
+    <option name="LAST_COMMIT_MESSAGE" value="Degree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -934,109 +921,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../fetch_files_live/fetch_all_html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="180" column="104" lean-forward="true" selection-start-line="180" selection-start-column="104" selection-end-line="180" selection-end-column="104" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="299" column="187" selection-start-line="299" selection-start-column="187" selection-end-line="299" selection-end-column="187" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="3146" column="5" lean-forward="true" selection-start-line="2060" selection-start-column="3" selection-end-line="3146" selection-end-column="5" />
-          <folding>
-            <element signature="e#81#86#0#PHP" />
-            <element signature="e#443#448#0#PHP" />
-            <element signature="e#572#577#0#PHP" />
-            <element signature="e#664#669#0#PHP" />
-            <element signature="e#757#762#0#PHP" />
-            <element signature="e#1005#1010#0#PHP" />
-            <element signature="e#1097#1102#0#PHP" />
-            <element signature="e#1266#1271#0#PHP" />
-            <element signature="e#1393#1398#0#PHP" />
-            <element signature="e#1481#1486#0#PHP" />
-            <element signature="e#2199#2204#0#PHP" />
-            <element signature="e#2348#2353#0#PHP" />
-            <element signature="e#124031#149388#0#HTML" />
-            <element signature="e#149427#172356#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Mlogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="63" column="65" lean-forward="true" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
-          <folding>
-            <element signature="n#get_client_ip#0;n#Login#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="75" column="68" lean-forward="true" selection-start-line="75" selection-start-column="68" selection-end-line="75" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/EmpDegree.php" />
-    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api2/syncenc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-end-line="274" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/ERROR-2021-05-06.json" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/listings-2021-05-05.json" />
-    <entry file="file://$PROJECT_DIR$/../xframe/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding>
-            <element signature="n#getMenuData#0;n#Dashboard#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/syncenc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="228" column="74" selection-start-line="228" selection-start-column="7" selection-end-line="228" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/syncenc.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/listings-2021-05-06.json" />
     <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1410,24 +1294,129 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MBand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MField.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/band.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2269">
+          <caret line="50" column="53" lean-forward="true" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDegree.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="340">
+          <caret line="20" column="36" lean-forward="true" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-443">
-          <caret line="237" column="66" selection-start-line="237" selection-start-column="66" selection-end-line="237" selection-end-column="66" />
+        <state relative-caret-position="323">
+          <caret line="255" column="63" lean-forward="true" selection-end-line="305" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MEmpType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MEntity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Field.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Degree.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+        <state relative-caret-position="323">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Band.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/EmpType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3944">
+          <caret line="232" column="62" selection-start-line="232" selection-start-column="62" selection-end-line="232" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/field.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="83" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="56" column="84" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/emptype.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1013">
+          <caret line="158" column="97" selection-start-line="158" selection-start-column="97" selection-end-line="158" selection-end-column="97" />
         </state>
       </provider>
     </entry>
