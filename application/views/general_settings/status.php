@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Status
+                                <li class="breadcrumb-item active">Status HR
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Status</h4>
+                                <h4 class="card-title">HR Statuses</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -204,7 +204,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         } else {
             showloader();
             $('.mybtn').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/general_settings/Status/addStatusData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/addStatusData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 if (result == 1) {
                     toastMsg('Success', 'Successfully inserted', 'success');
@@ -225,7 +225,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         var data = {};
         data['id'] = $(obj).parent('td').attr('data-id');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/general_settings/Status/getStatusEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/getStatusEdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
@@ -258,7 +258,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
             return false;
         }
         if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/general_settings/Status/editStatusData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/editStatusData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#editModal').modal('hide');
                     toastMsg('Status', 'Successfully Edited', 'success');
@@ -287,7 +287,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
             toastMsg('Status', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/general_settings/Status/deleteStatusData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/deleteStatusData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#deleteModal').modal('hide');
                     toastMsg('Status', 'Successfully Deleted', 'success');
