@@ -22,41 +22,53 @@ class CategoryAsset extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View CategoryAsset", "activityName" => "CategoryAsset Main",
-            "result" => "View CategoryAsset Main page. URL: " . current_url() . " .  Function: CategoryAsset/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MCategoryAsset();
-        $data['myData'] = $model->getAllCategoryAssets();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/categoryasset', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View CategoryAsset", "activityName" => "View CategoryAsset Pg",
+                "result" => "View CategoryAsset page. URL: " . current_url() . " .  Function: CategoryAsset/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MCategoryAsset();
+            $data['myData'] = $model->getAllCategoryAssets();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/categoryasset', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
     function addCategoryAssetData()
     {
         ob_end_clean();
+        $Custom = new Custom();
         if (isset($_POST['CategoryAssetName']) && $_POST['CategoryAssetName'] != '') {
-            $Custom = new Custom();
+            $InsertData = 0;
             $formArray = array();
-            $formArray['CategoryHR'] = ucfirst($_POST['CategoryAssetName']);
+            $formArray['category'] = ucfirst($_POST['CategoryAssetName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'idCategory', 'CategoryHR', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['category']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'id', 'category', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "CategoryAsset Add -> Function: addCategoryAssetData() CategoryAsset insert ",
+            $trackarray = array("action" => "CategoryAsset Add -> Function: addCategoryAssetData() ",
                 "activityName" => "Add CategoryAsset",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -66,29 +78,45 @@ class CategoryAsset extends CI_Controller
         echo $result;
     }
 
+    function chkDuplicate($field)
+    {
+        $model = new MCategoryAsset();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
     public function getCategoryAssetEdit()
     {
         $model = new MCategoryAsset();
-        $result = $model->getEditCategoryAsset($this->input->post('idCategory'));
+        $result = $model->getEditCategoryAsset($this->input->post('id'));
         echo json_encode($result, true);
     }
+
 
     function editCategoryAssetData()
     {
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idCategoryAsset']) && $_POST['idCategoryAsset'] != '' && isset($_POST['CategoryAssetName']) && $_POST['CategoryAssetName'] != '') {
+            $editData = 0;
             $idCategoryAsset = $_POST['idCategoryAsset'];
-            $editArr['CategoryHR'] = $_POST['CategoryAssetName'];
+            $editArr['category'] = ucfirst($_POST['CategoryAssetName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'idCategory', $idCategoryAsset, 'CategoryHR');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['category']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'idCategory', $idCategoryAsset, 'category');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "CategoryAsset Edit -> Function: editCategoryAssetData() CategoryAsset Edit ",
+            $trackarray = array("action" => "CategoryAsset Edit -> Function: editCategoryAssetData()",
                 "activityName" => "Edit CategoryAsset",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -97,6 +125,7 @@ class CategoryAsset extends CI_Controller
         }
         echo $result;
     }
+
 
     function deleteCategoryAssetData()
     {
@@ -107,7 +136,7 @@ class CategoryAsset extends CI_Controller
             $editArr['isActive'] = 0;
             $editArr['deleteBy'] = $_SESSION['login']['idUser'];
             $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'idCategory', $idCategoryAsset, 'CategoryHR');
+            $editData = $Custom->Edit($editArr, 'idCategory', $idCategoryAsset, 'category');
             if ($editData) {
                 $result = 1;
             } else {

@@ -10,7 +10,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Category</h2>
+                        <h2 class="content-header-title float-left mb-0">HR Category</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Category
+                                <li class="breadcrumb-item active">HR Category
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Category</h4>
+                                <h4 class="card-title">HR Category</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -58,7 +58,7 @@
                                                         <td data-id="<?php echo $data->id ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
-                                                                        class="feather icon-edit"></i> </a>
+                                                                            class="feather icon-edit"></i> </a>
                                                             <?php } ?>
                                                             <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
@@ -106,12 +106,12 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_add">Add Category</h4>
+                    <h4 class="modal-title white" id="myModalLabel_add">Add HR Category</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-Category">
-                        <label for="CategoryName">Category: </label>
-                        <input type="text" class="form-control CategoryName" id="CategoryName">
+                    <div class="form-CategoryHR">
+                        <label for="CategoryHRName">Category: </label>
+                        <input type="text" class="form-control CategoryHRName" id="CategoryHRName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,13 +130,13 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_edit">Edit Category</h4>
-                    <input type="hidden" id="edit_idCategory" name="edit_idCategory">
+                    <h4 class="modal-title white" id="myModalLabel_edit">Edit HR Category</h4>
+                    <input type="hidden" id="edit_idCategoryHR" name="edit_idCategoryHR">
                 </div>
                 <div class="modal-body">
-                    <div class="form-Category">
-                        <label for="edit_CategoryName">Category: </label>
-                        <input type="text" class="form-control edit_CategoryName" id="edit_CategoryName">
+                    <div class="form-CategoryHR">
+                        <label for="edit_CategoryHRName">Category: </label>
+                        <input type="text" class="form-control edit_CategoryHRName" id="edit_CategoryHRName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -156,8 +156,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Category</h4>
-                    <input type="hidden" id="delete_idCategory" name="delete_idCategory">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete HR Category</h4>
+                    <input type="hidden" id="delete_idCategoryHR" name="delete_idCategoryHR">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -195,16 +195,16 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
     });
 
     function addData() {
-        $('#CategoryName').css('border', '1px solid #babfc7');
+        $('#CategoryHRName').css('border', '1px solid #babfc7');
         var data = {};
-        data['CategoryName'] = $('#CategoryName').val();
-        if (data['CategoryName'] == '' || data['CategoryName'] == undefined) {
-            $('#CategoryName').css('border', '1px solid red');
-            toastMsg('CategoryHR', 'Invalid CategoryHR Name', 'error');
+        data['CategoryHRName'] = $('#CategoryHRName').val();
+        if (data['CategoryHRName'] == '' || data['CategoryHRName'] == undefined) {
+            $('#CategoryHRName').css('border', '1px solid red');
+            toastMsg('Category', 'Invalid Category Name', 'error');
         } else {
             showloader();
             $('.mybtn').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/addCategoryData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/addCategoryHRData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 if (result == 1) {
                     toastMsg('Success', 'Successfully inserted', 'success');
@@ -213,7 +213,9 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                         window.location.reload();
                     }, 500);
                 } else if (result == 3) {
-                    toastMsg('CategoryHR', 'Invalid CategoryHR Name', 'error');
+                    toastMsg('Category', 'Invalid Category Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Category', 'Category Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -225,40 +227,41 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         var data = {};
         data['id'] = $(obj).parent('td').attr('data-id');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/getCategoryEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/getCategoryHREdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
-                        $('#edit_idCategory').val(data['id']);
-                        $('#edit_CategoryName').val(a[0]['category']);
+                        $('#edit_idCategoryHR').val(data['id']);
+                        $('#edit_CategoryHRName').val(a[0]['category']);
                     } catch (e) {
                     }
                     $('#editModal').modal('show');
                 } else {
-                    toastMsg('CategoryHR', 'Invalid CategoryHR', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
             });
         }
     }
 
     function editData() {
-        $('#edit_CategoryName').css('border', '1px solid #babfc7');
+        $('#edit_CategoryHRName').css('border', '1px solid #babfc7');
         var flag = 0;
         var data = {};
-        data['idCategory'] = $('#edit_idCategory').val();
-        data['CategoryName'] = $('#edit_CategoryName').val();
-        if (data['idCategory'] == '' || data['idCategory'] == undefined || data['idCategory'].length < 1) {
+        data['idCategoryHR'] = $('#edit_idCategoryHR').val();
+        data['CategoryHRName'] = $('#edit_CategoryHRName').val();
+        if (data['idCategoryHR'] == '' || data['idCategoryHR'] == undefined || data['idCategoryHR'].length < 1) {
             flag = 1;
+            toastMsg('Category', 'Invalid Category', 'error');
             return false;
         }
-        if (data['CategoryName'] == '' || data['CategoryName'] == undefined || data['CategoryName'].length < 1) {
-            $('#edit_CategoryName').css('border', '1px solid red');
-            toastMsg('CategoryHR', 'Invalid CategoryHR Name', 'error');
+        if (data['CategoryHRName'] == '' || data['CategoryHRName'] == undefined || data['CategoryHRName'].length < 1) {
+            $('#edit_CategoryHRName').css('border', '1px solid red');
+            toastMsg('Category', 'Invalid Category Name', 'error');
             flag = 1;
             return false;
         }
         if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/editCategoryData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/editCategoryHRData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#editModal').modal('hide');
                     toastMsg('CategoryHR', 'Successfully Edited', 'success');
@@ -266,9 +269,13 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                         window.location.reload();
                     }, 500);
                 } else if (res == 2) {
-                    toastMsg('CategoryHR', 'Something went wrong', 'error');
+                    toastMsg('Category', 'Something went wrong', 'error');
                 } else if (res == 3) {
-                    toastMsg('CategoryHR', 'Invalid CategoryHR', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
+                } else if (res == 4) {
+                    toastMsg('Category', 'Category Name already exist', 'error');
+                } else {
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
             });
         }
@@ -276,28 +283,30 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
 
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
-        $('#delete_idCategory').val(id);
+        $('#delete_idCategoryHR').val(id);
         $('#deleteModal').modal('show');
     }
 
     function deleteData() {
         var data = {};
-        data['idCategory'] = $('#delete_idCategory').val();
-        if (data['idCategory'] == '' || data['idCategory'] == undefined || data['idCategory'] == 0) {
-            toastMsg('CategoryHR', 'Something went wrong', 'error');
+        data['idCategoryHR'] = $('#delete_idCategoryHR').val();
+        if (data['idCategoryHR'] == '' || data['idCategoryHR'] == undefined || data['idCategoryHR'] == 0) {
+            toastMsg('Category', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/deleteCategoryData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/CategoryHR/deleteCategoryHRData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#deleteModal').modal('hide');
-                    toastMsg('CategoryHR', 'Successfully Deleted', 'success');
+                    toastMsg('Category', 'Successfully Deleted', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 2) {
-                    toastMsg('CategoryHR', 'Something went wrong', 'error');
+                    toastMsg('Category', 'Something went wrong', 'error');
                 } else if (res == 3) {
-                    toastMsg('CategoryHR', 'Invalid CategoryHR', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
+                } else {
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
 
             });

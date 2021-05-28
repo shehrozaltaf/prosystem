@@ -10,7 +10,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Asset's Category</h2>
+                        <h2 class="content-header-title float-left mb-0">Asset Category</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Asset's Category
+                                <li class="breadcrumb-item active">sset Category
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Asset Category</h4>
+                                <h4 class="card-title">sset Category</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -58,7 +58,7 @@
                                                         <td data-id="<?php echo $data->idCategory ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
-                                                                        class="feather icon-edit"></i> </a>
+                                                                            class="feather icon-edit"></i> </a>
                                                             <?php } ?>
                                                             <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
@@ -106,7 +106,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_add">Add Category</h4>
+                    <h4 class="modal-title white" id="myModalLabel_add">Add Asset Category</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-CategoryAsset">
@@ -130,7 +130,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_edit">Edit Category</h4>
+                    <h4 class="modal-title white" id="myModalLabel_edit">Edit Asset Category</h4>
                     <input type="hidden" id="edit_idCategoryAsset" name="edit_idCategoryAsset">
                 </div>
                 <div class="modal-body">
@@ -156,7 +156,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Category</h4>
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Asset Category</h4>
                     <input type="hidden" id="delete_idCategoryAsset" name="delete_idCategoryAsset">
                 </div>
                 <div class="modal-body">
@@ -200,7 +200,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         data['CategoryAssetName'] = $('#CategoryAssetName').val();
         if (data['CategoryAssetName'] == '' || data['CategoryAssetName'] == undefined) {
             $('#CategoryAssetName').css('border', '1px solid red');
-            toastMsg('CategoryAsset', 'Invalid CategoryAsset Name', 'error');
+            toastMsg('Category', 'Invalid Category Name', 'error');
         } else {
             showloader();
             $('.mybtn').attr('disabled', 'disabled');
@@ -213,7 +213,9 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                         window.location.reload();
                     }, 500);
                 } else if (result == 3) {
-                    toastMsg('CategoryAsset', 'Invalid Category Name', 'error');
+                    toastMsg('Category', 'Invalid Category Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Category', 'Category Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -229,13 +231,13 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
-                        $('#edit_idCategoryAsset').val(data['idCategory']);
+                        $('#edit_idCategoryAsset').val(data['id']);
                         $('#edit_CategoryAssetName').val(a[0]['category']);
                     } catch (e) {
                     }
                     $('#editModal').modal('show');
                 } else {
-                    toastMsg('CategoryAsset', 'Invalid Category', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
             });
         }
@@ -249,11 +251,12 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         data['CategoryAssetName'] = $('#edit_CategoryAssetName').val();
         if (data['idCategoryAsset'] == '' || data['idCategoryAsset'] == undefined || data['idCategoryAsset'].length < 1) {
             flag = 1;
+            toastMsg('Category', 'Invalid Category', 'error');
             return false;
         }
         if (data['CategoryAssetName'] == '' || data['CategoryAssetName'] == undefined || data['CategoryAssetName'].length < 1) {
             $('#edit_CategoryAssetName').css('border', '1px solid red');
-            toastMsg('CategoryAsset', 'Invalid Category Name', 'error');
+            toastMsg('Category', 'Invalid Category Name', 'error');
             flag = 1;
             return false;
         }
@@ -261,14 +264,18 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
             CallAjax('<?php echo base_url('index.php/general_settings/CategoryAsset/editCategoryAssetData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#editModal').modal('hide');
-                    toastMsg('CategoryAsset', 'Successfully Edited', 'success');
+                    toastMsg('Category', 'Successfully Edited', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 2) {
-                    toastMsg('CategoryAsset', 'Something went wrong', 'error');
+                    toastMsg('Category', 'Something went wrong', 'error');
                 } else if (res == 3) {
-                    toastMsg('CategoryAsset', 'Invalid Category', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
+                } else if (res == 4) {
+                    toastMsg('Category', 'Category Name already exist', 'error');
+                } else {
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
             });
         }
@@ -284,20 +291,22 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         var data = {};
         data['idCategoryAsset'] = $('#delete_idCategoryAsset').val();
         if (data['idCategoryAsset'] == '' || data['idCategoryAsset'] == undefined || data['idCategoryAsset'] == 0) {
-            toastMsg('CategoryAsset', 'Something went wrong', 'error');
+            toastMsg('Category', 'Something went wrong', 'error');
             return false;
         } else {
             CallAjax('<?php echo base_url('index.php/general_settings/CategoryAsset/deleteCategoryAssetData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#deleteModal').modal('hide');
-                    toastMsg('CategoryAsset', 'Successfully Deleted', 'success');
+                    toastMsg('Category', 'Successfully Deleted', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 2) {
-                    toastMsg('CategoryAsset', 'Something went wrong', 'error');
+                    toastMsg('Category', 'Something went wrong', 'error');
                 } else if (res == 3) {
-                    toastMsg('CategoryAsset', 'Invalid Category', 'error');
+                    toastMsg('Category', 'Invalid Category', 'error');
+                } else {
+                    toastMsg('Category', 'Invalid Category', 'error');
                 }
 
             });

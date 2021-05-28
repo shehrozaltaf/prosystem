@@ -2,7 +2,7 @@
     exit('No direct script access allowed');
 }
 
-class MCategory extends CI_Model
+class MCategoryHR extends CI_Model
 {
     function getAllCategorys()
     {
@@ -22,5 +22,13 @@ class MCategory extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_category');
+        $this->db->where('category', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

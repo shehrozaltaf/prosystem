@@ -786,7 +786,7 @@
         html += '<div class="col-4">';
         html += '<p>PAEDS ID: <span class="text-primary">' + (d.paeds_id != '' && d.paeds_id != undefined && d.paeds_id != null ? d.paeds_id : '') + '</span></p>';
         html += '<p>PR No: <span class="text-primary">' + (d.pr_no != '' && d.pr_no != undefined && d.pr_no != null ? d.pr_no : '') + '</span></p>';
-        html += '<p>Category: <span class="text-primary">' + (d.category != '' && d.category != undefined && d.category != null ? d.category : '') + '</span></p>';
+        html += '<p>Category: <span class="text-primary">' + (d.category != '' && d.category != undefined && d.categoryhr != null ? d.categoryhr : '') + '</span></p>';
         html += '<p>Desc: <span class="text-primary">' + (d.desc != '' && d.desc != undefined && d.desc != null ? d.desc : '') + '</span></p>';
         html += '<p>Model: <span class="text-primary">' + (d.model != '' && d.model != undefined && d.model != null ? d.model : '') + '</span></p>';
         html += '<p>Product No: <span class="text-primary">' + (d.product_no != '' && d.product_no != undefined && d.product_no != null ? d.product_no : '') + '</span></p>';
