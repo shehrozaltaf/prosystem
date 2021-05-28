@@ -10,7 +10,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Location</h2>
+                        <h2 class="content-header-title float-left mb-0">LocationSub</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Location
+                                <li class="breadcrumb-item active">Sub Location
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Location</h4>
+                                <h4 class="card-title">Sub Location</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -42,6 +42,7 @@
                                             <thead>
                                             <tr>
                                                 <th>SNo</th>
+                                                <th>Sub Location</th>
                                                 <th>Location</th>
                                                 <th>Action</th>
                                             </tr>
@@ -54,6 +55,7 @@
                                                     $SNo++; ?>
                                                     <tr>
                                                         <td><?php echo $SNo ?></td>
+                                                        <td><?php echo $data->location_sub ?></td>
                                                         <td><?php echo $data->location ?></td>
                                                         <td data-id="<?php echo $data->id ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
@@ -73,6 +75,7 @@
                                             <tfoot>
                                             <tr>
                                                 <th>SNo</th>
+                                                <th>Sub Location</th>
                                                 <th>Location</th>
                                                 <th>Action</th>
                                             </tr>
@@ -106,12 +109,23 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_add">Add Location</h4>
+                    <h4 class="modal-title white" id="myModalLabel_add">Add LocationSub</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="LocationName">Location: </label>
-                        <input type="text" class="form-control LocationName" id="LocationName">
+                        <label for="idLocation">Location: </label>
+                        <select id="idLocation" name="idLocation" class="form-control select2 idLocation">
+                            <option value="0">Select Location</option>
+                            <?php if (isset($location) && $location != '') {
+                                foreach ($location as $loc) {
+                                    echo '<option value="' . $loc->id . '">' . $loc->location . '</option>';
+                                }
+                            } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="LocationSubName">Sub Location: </label>
+                        <input type="text" class="form-control LocationSubName" id="LocationSubName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,13 +144,25 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_edit">Edit Location</h4>
-                    <input type="hidden" id="edit_idLocation" name="edit_idLocation">
+                    <h4 class="modal-title white" id="myModalLabel_edit">Edit LocationSub</h4>
+                    <input type="hidden" id="edit_idLocationSub" name="edit_idLocationSub">
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="edit_LocationName">Location: </label>
-                        <input type="text" class="form-control edit_LocationName" id="edit_LocationName">
+                        <label for="edit_idLocation">Location: </label>
+                        <select id="edit_idLocation" name="edit_idLocation"
+                                class="form-control select2 edit_idLocation">
+                            <option value="0">Select Location</option>
+                            <?php if (isset($location) && $location != '') {
+                                foreach ($location as $loc) {
+                                    echo '<option value="' . $loc->id . '">' . $loc->location . '</option>';
+                                }
+                            } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_LocationSubName">LocationSub: </label>
+                        <input type="text" class="form-control edit_LocationSubName" id="edit_LocationSubName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -156,8 +182,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Location</h4>
-                    <input type="hidden" id="delete_idLocation" name="delete_idLocation">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete LocationSub</h4>
+                    <input type="hidden" id="delete_idLocationSub" name="delete_idLocationSub">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -195,16 +221,22 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
     });
 
     function addData() {
-        $('#LocationName').css('border', '1px solid #babfc7');
+        $('#LocationSubName').css('border', '1px solid #babfc7');
         var data = {};
-        data['LocationName'] = $('#LocationName').val();
-        if (data['LocationName'] == '' || data['LocationName'] == undefined) {
-            $('#LocationName').css('border', '1px solid red');
-            toastMsg('Location', 'Invalid Location Name', 'error');
+        data['idLocation'] = $('#idLocation').val();
+        if (data['idLocation'] == '' || data['idLocation'] == undefined) {
+            $('#idLocation').css('border', '1px solid red');
+            toastMsg('Location', 'Invalid Location', 'error');
+            return false;
+        }
+        data['LocationSubName'] = $('#LocationSubName').val();
+        if (data['LocationSubName'] == '' || data['LocationSubName'] == undefined) {
+            $('#LocationSubName').css('border', '1px solid red');
+            toastMsg('LocationSub', 'Invalid LocationSub Name', 'error');
         } else {
             showloader();
             $('.mybtn').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/general_settings/Location/addLocationData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/LocationSub/addLocationSubData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 if (result == 1) {
                     toastMsg('Success', 'Successfully inserted', 'success');
@@ -213,9 +245,9 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                         window.location.reload();
                     }, 500);
                 } else if (result == 3) {
-                    toastMsg('Location', 'Invalid Location Name', 'error');
+                    toastMsg('Sub Location', 'Invalid Sub Location Name', 'error');
                 } else if (result == 4) {
-                    toastMsg('Location', 'Location Name already exist', 'error');
+                    toastMsg('Sub Location', 'Sub Location Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -227,52 +259,65 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         var data = {};
         data['id'] = $(obj).parent('td').attr('data-id');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/general_settings/Location/getLocationEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/LocationSub/getLocationSubEdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
-                        $('#edit_idLocation').val(data['id']);
-                        $('#edit_LocationName').val(a[0]['location']);
+                        $('#edit_idLocationSub').val(data['id']);
+                        $('#edit_idLocation').val(a[0]['idLocation']);
+                        setTimeout(function () {
+                            $('#edit_idLocation').val(a[0]['idLocation']).select2();
+                        }, 500);
+                        $('#edit_LocationSubName').val(a[0]['location_sub']);
                     } catch (e) {
                     }
                     $('#editModal').modal('show');
                 } else {
-                    toastMsg('Location', 'Invalid Location', 'error');
+                    toastMsg('Sub Location', 'Invalid Sub Location', 'error');
                 }
             });
         }
     }
 
     function editData() {
-        $('#edit_LocationName').css('border', '1px solid #babfc7');
+        $('#edit_LocationSubName').css('border', '1px solid #babfc7');
         var flag = 0;
         var data = {};
         data['idLocation'] = $('#edit_idLocation').val();
-        data['LocationName'] = $('#edit_LocationName').val();
-        if (data['idLocation'] == '' || data['idLocation'] == undefined || data['idLocation'].length < 1) {
+        if (data['idLocation'] == '' || data['idLocation'] == undefined) {
+            $('#edit_idLocation').css('border', '1px solid red');
+            toastMsg('Location', 'Invalid Location', 'error');
+            return false;
+        }
+
+
+        data['idLocationSub'] = $('#edit_idLocationSub').val();
+        data['LocationSubName'] = $('#edit_LocationSubName').val();
+
+        if (data['idLocationSub'] == '' || data['idLocationSub'] == undefined || data['idLocationSub'].length < 1) {
             flag = 1;
             return false;
         }
-        if (data['LocationName'] == '' || data['LocationName'] == undefined || data['LocationName'].length < 1) {
-            $('#edit_LocationName').css('border', '1px solid red');
-            toastMsg('Location', 'Invalid Location Name', 'error');
+        if (data['LocationSubName'] == '' || data['LocationSubName'] == undefined || data['LocationSubName'].length < 1) {
+            $('#edit_LocationSubName').css('border', '1px solid red');
+            toastMsg('LocationSub', 'Invalid LocationSub Name', 'error');
             flag = 1;
             return false;
         }
         if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/general_settings/Location/editLocationData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/LocationSub/editLocationSubData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#editModal').modal('hide');
-                    toastMsg('Location', 'Successfully Edited', 'success');
+                    toastMsg('Sub Location', 'Successfully Edited', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 3) {
-                    toastMsg('Location', 'Invalid Location', 'error');
+                    toastMsg('Sub Location', 'Invalid Sub Location', 'error');
                 } else if (res == 4) {
-                    toastMsg('Location', 'Location Name already exist', 'error');
+                    toastMsg('Sub Location', 'Sub Location Name already exist', 'error');
                 } else {
-                    toastMsg('Location', 'Something went wrong', 'error');
+                    toastMsg('Sub Location', 'Something went wrong', 'error');
                 }
             });
         }
@@ -280,28 +325,28 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
 
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
-        $('#delete_idLocation').val(id);
+        $('#delete_idLocationSub').val(id);
         $('#deleteModal').modal('show');
     }
 
     function deleteData() {
         var data = {};
-        data['idLocation'] = $('#delete_idLocation').val();
-        if (data['idLocation'] == '' || data['idLocation'] == undefined || data['idLocation'] == 0) {
-            toastMsg('Location', 'Something went wrong', 'error');
+        data['idLocationSub'] = $('#delete_idLocationSub').val();
+        if (data['idLocationSub'] == '' || data['idLocationSub'] == undefined || data['idLocationSub'] == 0) {
+            toastMsg('LocationSub', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/general_settings/Location/deleteLocationData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/LocationSub/deleteLocationSubData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#deleteModal').modal('hide');
-                    toastMsg('Location', 'Successfully Deleted', 'success');
+                    toastMsg('Sub Location', 'Successfully Deleted', 'success');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 3) {
-                    toastMsg('Location', 'Invalid Location', 'error');
+                    toastMsg('Sub Location', 'Invalid Sub Location', 'error');
                 } else {
-                    toastMsg('Location', 'Something went wrong', 'error');
+                    toastMsg('Sub Location', 'Something went wrong', 'error');
                 }
 
             });
