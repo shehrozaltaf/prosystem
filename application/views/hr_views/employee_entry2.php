@@ -1459,7 +1459,7 @@
                     form_data.append('last_verify_date', $('#last_verify_date').val());
                     form_data.append('due_date', $('#due_date').val());
                     form_data.append('pur_date', $('#pur_date').val());
-                    form_data.append('status', $('#status').val());
+                    form_data.append('statushr.php', $('#status').val());
                     form_data.append('writOff_formNo', $('#writOff_formNo').val());
                     form_data.append('wo_date', $('#wo_date').val());
                     form_data.append('remarks', $('#remarks').val());
@@ -1548,7 +1548,7 @@
         form_data.append('last_verify_date', $('#last_verify_date').val());
         form_data.append('due_date', $('#due_date').val());
         form_data.append('pur_date', $('#pur_date').val());
-        form_data.append('status', $('#status').val());
+        form_data.append('statushr.php', $('#status').val());
         form_data.append('writOff_formNo', $('#writOff_formNo').val());
         form_data.append('wo_date', $('#wo_date').val());
         form_data.append('remarks', $('#remarks').val());

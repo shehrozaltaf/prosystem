@@ -540,7 +540,7 @@
         html += '<p>AADop: ' + (d.aadop != '' && d.aadop != undefined && d.aadop != null ? d.aadop : '') + '</p>';
         html += '<p>New Entry: ' + (d.newEntry != '' && d.newEntry != undefined && d.newEntry != null ? d.newEntry : '') + '</p>';
         html += '<p>Remarks: ' + (d.remarks != '' && d.remarks != undefined && d.remarks != null ? d.remarks : '') + '</p>';
-        html += '<p>Status: ' + (d.status != '' && d.status != undefined && d.status != null ? d.status : '') + '</p>';
+        html += '<p>Status: ' + (d.statushr != '' && d.statushr != undefined && d.statushr != null ? d.statushr : '') + '</p>';
         /* $.each(d.subChild, function (i, v) {
             html += '<p>FTAG: ' + (v.ftag != '' && v.ftag != undefined && v.aadop != null ? v.ftag : '') + '</p>';
             html += '<p>AADop: ' + (v.aadop != '' && v.aadop != undefined && v.aadop != null ? v.aadop : '') + '</p>';
@@ -564,7 +564,7 @@
         data['category'] = $('#category').val();
         data['entity'] = $('#entity').val();
         data['band'] = $('#band').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         data['empname'] = $('#empname').val();
         data['empno'] = $('#empno').val();
         data['hiredatefrom'] = $('#hiredatefrom').val();

@@ -13,7 +13,7 @@ class StatusHR extends CI_Controller
         parent::__construct();
         $this->load->model('custom');
         $this->load->model('msettings');
-        $this->load->model('general_setting_models/mStatus');
+        $this->load->model('general_setting_models/mstatushr');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
         }
@@ -22,42 +22,54 @@ class StatusHR extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View Status", "activityName" => "Status Main",
-            "result" => "View Status Main page. URL: " . current_url() . " .  Function: Status/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MStatus();
-        $data['myData'] = $model->getAllStatuss();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/status', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View StatusHR", "activityName" => "View StatusHR Pg",
+                "result" => "View StatusHR page. URL: " . current_url() . " .  Function: StatusHR/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MStatusHR();
+            $data['myData'] = $model->getAllStatusHR();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/statushr', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
-    function addStatusData()
+    function addStatusHRData()
     {
         ob_end_clean();
-        if (isset($_POST['StatusName']) && $_POST['StatusName'] != '') {
-            $Custom = new Custom();
+        $Custom = new Custom();
+        if (isset($_POST['StatusHRName']) && $_POST['StatusHRName'] != '') {
+            $InsertData = 0;
             $formArray = array();
-            $formArray['status'] = ucfirst($_POST['StatusName']);
+            $formArray['status'] = ucfirst($_POST['StatusHRName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_status', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['status']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'id', 'hr_status', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Status Add -> Function: addStatusData() Status insert ",
-                "activityName" => "Add Status",
+            $trackarray = array("action" => "StatusHR Add -> Function: addStatusHRData() ",
+                "activityName" => "Add StatusHR",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
         } else {
@@ -66,30 +78,46 @@ class StatusHR extends CI_Controller
         echo $result;
     }
 
-    public function getStatusEdit()
+    function chkDuplicate($field)
     {
-        $model = new MStatus();
-        $result = $model->getEditStatus($this->input->post('id'));
+        $model = new MStatusHR();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
+    public function getStatusHREdit()
+    {
+        $model = new MStatusHR();
+        $result = $model->getEditStatusHR($this->input->post('id'));
         echo json_encode($result, true);
     }
 
-    function editStatusData()
+
+    function editStatusHRData()
     {
         $Custom = new Custom();
         $editArr = array();
-        if (isset($_POST['idStatus']) && $_POST['idStatus'] != '' && isset($_POST['StatusName']) && $_POST['StatusName'] != '') {
-            $idStatus = $_POST['idStatus'];
-            $editArr['status'] = $_POST['StatusName'];
+        if (isset($_POST['idStatusHR']) && $_POST['idStatusHR'] != '' && isset($_POST['StatusHRName']) && $_POST['StatusHRName'] != '') {
+            $editData = 0;
+            $idStatusHR = $_POST['idStatusHR'];
+            $editArr['status'] = ucfirst($_POST['StatusHRName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $idStatus, 'hr_status');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['status']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'id', $idStatusHR, 'hr_status');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Status Edit -> Function: editStatusData() Status Edit ",
-                "activityName" => "Edit Status",
+            $trackarray = array("action" => "StatusHR Edit -> Function: editStatusHRData()",
+                "activityName" => "Edit StatusHR",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
         } else {
@@ -98,23 +126,24 @@ class StatusHR extends CI_Controller
         echo $result;
     }
 
-    function deleteStatusData()
+
+    function deleteStatusHRData()
     {
         $Custom = new Custom();
         $editArr = array();
-        if (isset($_POST['idStatus']) && $_POST['idStatus'] != '') {
-            $idStatus = $_POST['idStatus'];
+        if (isset($_POST['idStatusHR']) && $_POST['idStatusHR'] != '') {
+            $idStatusHR = $_POST['idStatusHR'];
             $editArr['isActive'] = 0;
             $editArr['deleteBy'] = $_SESSION['login']['idUser'];
             $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $idStatus, 'hr_status');
+            $editData = $Custom->Edit($editArr, 'id', $idStatusHR, 'hr_status');
             if ($editData) {
                 $result = 1;
             } else {
                 $result = 2;
             }
-            $trackarray = array("action" => "Status Delete -> Function: deleteStatusData() Status Delete ",
-                "activityName" => "Delete Status",
+            $trackarray = array("action" => "StatusHR Delete -> Function: deleteStatusHRData() StatusHR Delete ",
+                "activityName" => "Delete StatusHR",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
         } else {

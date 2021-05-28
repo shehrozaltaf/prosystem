@@ -610,7 +610,7 @@
         data['category'] = $('#category').val();
         data['entity'] = $('#entity').val();
         data['band'] = $('#band').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         data['empname'] = $('#empname').val();
         data['empno'] = $('#empno').val();
         data['hiredatefrom'] = $('#hiredatefrom').val();
@@ -631,8 +631,8 @@
         if (data['band'] != '' && data['band'] != undefined && data['band'] != 0) {
             url += '&band=' + data['band'];
         }
-        if (data['status'] != '' && data['status'] != undefined && data['status'] != 0) {
-            url += '&status=' + data['status'];
+        if (data['statushr.php'] != '' && data['statushr.php'] != undefined && data['statushr.php'] != 0) {
+            url += '&status=' + data['statushr.php'];
         }
         if (data['empname'] != '' && data['empname'] != undefined && data['empname'] != 0) {
             url += '&ename=' + data['empname'];

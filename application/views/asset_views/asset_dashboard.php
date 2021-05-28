@@ -737,7 +737,7 @@
 
     function updBtnSave() {
         var data = {};
-        data['status'] = $('#upd_bulkstatus').val();
+        data['statushr.php'] = $('#upd_bulkstatus').val();
         data['writOff_formNo'] = $('#writOff_formNo_bulk').val();
         data['wo_date'] = $('#wo_date_bulk').val();
         data['idLocation'] = $('#idLocation_bulk').val();
@@ -817,7 +817,7 @@
         html += '<p>Last Verify Date: <span class="text-primary">' + (d.last_verify_date != '' && d.last_verify_date != undefined && d.last_verify_date != null ? d.last_verify_date : '') + '</span></p>';
         html += '<p>Due Date: <span class="text-primary">' + (d.due_date != '' && d.due_date != undefined && d.due_date != null ? d.due_date : '') + '</span></p>';
         html += '<p>Purchase Date: <span class="text-primary">' + (d.pur_date != '' && d.pur_date != undefined && d.pur_date != null ? d.pur_date : '') + '</span></p>';
-        html += '<p>Status: <span class="text-primary">' + (d.status != '' && d.status != undefined && d.status != null ? d.status : '') + '</span></p>';
+        html += '<p>Status: <span class="text-primary">' + (d.statushr != '' && d.statushr != undefined && d.statushr != null ? d.statushr : '') + '</span></p>';
         html += '<p>WritOff formNo: <span class="text-primary">' + (d.writOff_formNo != '' && d.writOff_formNo != undefined && d.writOff_formNo != null ? d.writOff_formNo : '') + '</span></p>';
         html += '<p>WO Date: <span class="text-primary">' + (d.wo_date != '' && d.wo_date != undefined && d.wo_date != null ? d.wo_date : '') + '</span></p>';
         html += '<p>Remarks: <span class="text-primary">' + (d.remarks != '' && d.remarks != undefined && d.remarks != null ? d.remarks : '') + '</span></p>';
@@ -838,7 +838,7 @@
         data['sublocation'] = $('#sublocation').val();
         data['area'] = $('#area_filter').val();
         data['verification_status'] = $('#verification_status_filter').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         data['tag_pr'] = $('#tag_pr').val();
         data['idAsset'] = $('#idAsset').val();
         data['writeOffNo'] = $('#writeOffNo').val();
@@ -883,7 +883,7 @@
                 {"data": "proj", "class": "proj"},
                 {"data": "loc", "class": "loc"},
                 {"data": "sub_loc", "class": "sub_loc"},
-                {"data": "status"},
+                {"data": "statushr.php"},
                 {"data": "document"},
                 {"data": "due_date"}
                 // {"data": "Action"}
@@ -957,7 +957,7 @@
         data['sublocation'] = $('#sublocation').val();
         data['area'] = $('#area_filter').val();
         data['verification_status'] = $('#verification_status_filter').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         data['tag_pr'] = $('#tag_pr').val();
         data['idAsset'] = $('#idAsset').val();
         data['writeOffNo'] = $('#writeOffNo').val();
@@ -993,8 +993,8 @@
         if (data['verification_status'] != '' && data['verification_status'] != undefined && data['verification_status'] != 0) {
             url += '&verification_status=' + data['verification_status'];
         }
-        if (data['status'] != '' && data['status'] != undefined && data['status'] != 0) {
-            url += '&status=' + data['status'];
+        if (data['statushr.php'] != '' && data['statushr.php'] != undefined && data['statushr.php'] != 0) {
+            url += '&status=' + data['statushr.php'];
         }
         if (data['tag_pr'] != '' && data['tag_pr'] != undefined && data['tag_pr'] != 0) {
             url += '&tag_pr=' + data['tag_pr'];
@@ -1040,13 +1040,13 @@
     function saveStatusChange() {
         var data = {};
         data['idAsset'] = $('#status_idAsset').val();
-        data['status'] = $('#change_status').val();
+        data['statushr.php'] = $('#change_status').val();
         data['writOff_formNo'] = $('#status_writOff_formNo').val();
         data['wo_date'] = $('#status_wo_date').val();
 
         var form_data = new FormData();
         form_data.append('idAsset', data['idAsset']);
-        form_data.append('status', data['status']);
+        form_data.append('statushr.php', data['statushr.php']);
         form_data.append('writOff_formNo', data['writOff_formNo']);
         form_data.append('wo_date', data['wo_date']);
         form_data.append('status_doc', $('#status_doc')[0].files[0]);
@@ -1055,14 +1055,14 @@
         if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
             toastMsg('Asset', 'Invalid Id Asset', 'error');
             return false;
-        } else if (data['status'] == '' || data['status'] == undefined || data['status'] == 0) {
+        } else if (data['statushr.php'] == '' || data['statushr.php'] == undefined || data['statushr.php'] == 0) {
             toastMsg('Status', 'Invalid Status', 'error');
             return false;
         } else {
-            if (data['status'] == 3 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
+            if (data['statushr.php'] == 3 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
                 toastMsg('Writ Off Form No', 'Invalid Writ Off Form No', 'error');
                 return false;
-            } else if (data['status'] == 3 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
+            } else if (data['statushr.php'] == 3 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
                 toastMsg('Writ Date', 'Invalid Writ Date', 'error');
                 return false;
             } else {

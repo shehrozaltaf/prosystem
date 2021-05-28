@@ -1078,7 +1078,7 @@
                 // My project only has 1 file hence not sendingmultiple
                 dzClosure.on('sending', function (data, xhr, form_data) {
                     xhr.onload = () => {
-                        if (xhr.status >= 200 && xhr.status < 300) {
+                        if (xhr.statushr >= 200 && xhr.statushr < 300) {
                             const response = JSON.parse(xhr.responseText);
                             hideloader();
                             $('.mybtn').removeClass('hide').removeAttr('disabled', 'disabled');
@@ -1143,7 +1143,7 @@
                     form_data.append('cardissue', $('#cardissue').val());
                     form_data.append('letterapp', $('#letterapp').val());
                     form_data.append('confirmation', $('#confirmation').val());
-                    form_data.append('status', $('#status').val());
+                    form_data.append('statushr.php', $('#status').val());
                     form_data.append('remarks', $('#remarks').val());
                     form_data.append('pic', $('#pic')[0].files[0]);
                     form_data.append('entryType', $('#entryType').val());
@@ -1225,7 +1225,7 @@
                 form_data.append('cardissue', $('#cardissue').val());
                 form_data.append('letterapp', $('#letterapp').val());
                 form_data.append('confirmation', $('#confirmation').val());
-                form_data.append('status', $('#status').val());
+                form_data.append('statushr.php', $('#status').val());
                 form_data.append('remarks', $('#remarks').val());
                 form_data.append('pic', $('#pic')[0].files[0]);
                 form_data.append('entryType', $('#entryType').val());

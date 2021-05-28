@@ -22,5 +22,14 @@ class MStatusAsset extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('a_status');
+        $this->db->where('status_value', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 }

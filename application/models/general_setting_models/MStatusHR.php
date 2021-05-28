@@ -2,9 +2,9 @@
     exit('No direct script access allowed');
 }
 
-class MStatus extends CI_Model
+class MStatusHR extends CI_Model
 {
-    function getAllStatuss()
+    function getAllStatusHR()
     {
         $this->db->select('*');
         $this->db->from('hr_status');
@@ -14,11 +14,21 @@ class MStatus extends CI_Model
         return $query->result();
     }
 
-    function getEditStatus($id)
+    function getEditStatusHR($id)
     {
         $this->db->select('*');
         $this->db->from('hr_status');
         $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_status');
+        $this->db->where('status', $name);
+        $this->db->where('isActive', 1);
         $query = $this->db->get();
         return $query->result();
     }

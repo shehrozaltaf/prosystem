@@ -10,7 +10,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Status</h2>
+                        <h2 class="content-header-title float-left mb-0">HR Status</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Status HR
+                                <li class="breadcrumb-item active">HR Status
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">HR Statuses</h4>
+                                <h4 class="card-title">HR Status</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -58,7 +58,7 @@
                                                         <td data-id="<?php echo $data->id ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
-                                                                        class="feather icon-edit"></i> </a>
+                                                                            class="feather icon-edit"></i> </a>
                                                             <?php } ?>
                                                             <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
@@ -106,12 +106,12 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_add">Add Status</h4>
+                    <h4 class="modal-title white" id="myModalLabel_add">Add StatusHR</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-Status">
-                        <label for="StatusName">Status: </label>
-                        <input type="text" class="form-control StatusName" id="StatusName">
+                    <div class="form-StatusHR">
+                        <label for="StatusHRName">StatusHR: </label>
+                        <input type="text" class="form-control StatusHRName" id="StatusHRName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,13 +130,13 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_edit">Edit Status</h4>
-                    <input type="hidden" id="edit_idStatus" name="edit_idStatus">
+                    <h4 class="modal-title white" id="myModalLabel_edit">Edit StatusHR</h4>
+                    <input type="hidden" id="edit_idStatusHR" name="edit_idStatusHR">
                 </div>
                 <div class="modal-body">
-                    <div class="form-Status">
-                        <label for="edit_StatusName">Status: </label>
-                        <input type="text" class="form-control edit_StatusName" id="edit_StatusName">
+                    <div class="form-StatusHR">
+                        <label for="edit_StatusHRName">StatusHR: </label>
+                        <input type="text" class="form-control edit_StatusHRName" id="edit_StatusHRName">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -156,8 +156,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Status</h4>
-                    <input type="hidden" id="delete_idStatus" name="delete_idStatus">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete StatusHR</h4>
+                    <input type="hidden" id="delete_idStatusHR" name="delete_idStatusHR">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -195,16 +195,16 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
     });
 
     function addData() {
-        $('#StatusName').css('border', '1px solid #babfc7');
+        $('#StatusHRName').css('border', '1px solid #babfc7');
         var data = {};
-        data['StatusName'] = $('#StatusName').val();
-        if (data['StatusName'] == '' || data['StatusName'] == undefined) {
-            $('#StatusName').css('border', '1px solid red');
+        data['StatusHRName'] = $('#StatusHRName').val();
+        if (data['StatusHRName'] == '' || data['StatusHRName'] == undefined) {
+            $('#StatusHRName').css('border', '1px solid red');
             toastMsg('Status', 'Invalid Status Name', 'error');
         } else {
             showloader();
             $('.mybtn').attr('disabled', 'disabled');
-            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/addStatusData'); ?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/addStatusHRData'); ?>', data, 'POST', function (result) {
                 hideloader();
                 if (result == 1) {
                     toastMsg('Success', 'Successfully inserted', 'success');
@@ -214,6 +214,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     }, 500);
                 } else if (result == 3) {
                     toastMsg('Status', 'Invalid Status Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Status', 'Status Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -225,12 +227,12 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         var data = {};
         data['id'] = $(obj).parent('td').attr('data-id');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/getStatusEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/getStatusHREdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
-                        $('#edit_idStatus').val(data['id']);
-                        $('#edit_StatusName').val(a[0]['status']);
+                        $('#edit_idStatusHR').val(data['id']);
+                        $('#edit_StatusHRName').val(a[0]['status']);
                     } catch (e) {
                     }
                     $('#editModal').modal('show');
@@ -242,23 +244,24 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
     }
 
     function editData() {
-        $('#edit_StatusName').css('border', '1px solid #babfc7');
+        $('#edit_StatusHRName').css('border', '1px solid #babfc7');
         var flag = 0;
         var data = {};
-        data['idStatus'] = $('#edit_idStatus').val();
-        data['StatusName'] = $('#edit_StatusName').val();
-        if (data['idStatus'] == '' || data['idStatus'] == undefined || data['idStatus'].length < 1) {
+        data['idStatusHR'] = $('#edit_idStatusHR').val();
+        data['StatusHRName'] = $('#edit_StatusHRName').val();
+        if (data['idStatusHR'] == '' || data['idStatusHR'] == undefined || data['idStatusHR'].length < 1) {
             flag = 1;
+            toastMsg('Status', 'Invalid Status', 'error');
             return false;
         }
-        if (data['StatusName'] == '' || data['StatusName'] == undefined || data['StatusName'].length < 1) {
-            $('#edit_StatusName').css('border', '1px solid red');
+        if (data['StatusHRName'] == '' || data['StatusHRName'] == undefined || data['StatusHRName'].length < 1) {
+            $('#edit_StatusHRName').css('border', '1px solid red');
             toastMsg('Status', 'Invalid Status Name', 'error');
             flag = 1;
             return false;
         }
         if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/editStatusData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/editStatusHRData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#editModal').modal('hide');
                     toastMsg('Status', 'Successfully Edited', 'success');
@@ -269,6 +272,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     toastMsg('Status', 'Something went wrong', 'error');
                 } else if (res == 3) {
                     toastMsg('Status', 'Invalid Status', 'error');
+                } else if (res == 4) {
+                    toastMsg('Status', 'Status Name already exist', 'error');
+                } else {
+                    toastMsg('Status', 'Invalid Status', 'error');
                 }
             });
         }
@@ -276,18 +283,18 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
 
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
-        $('#delete_idStatus').val(id);
+        $('#delete_idStatusHR').val(id);
         $('#deleteModal').modal('show');
     }
 
     function deleteData() {
         var data = {};
-        data['idStatus'] = $('#delete_idStatus').val();
-        if (data['idStatus'] == '' || data['idStatus'] == undefined || data['idStatus'] == 0) {
+        data['idStatusHR'] = $('#delete_idStatusHR').val();
+        if (data['idStatusHR'] == '' || data['idStatusHR'] == undefined || data['idStatusHR'] == 0) {
             toastMsg('Status', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/deleteStatusData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/general_settings/StatusHR/deleteStatusHRData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     $('#deleteModal').modal('hide');
                     toastMsg('Status', 'Successfully Deleted', 'success');
@@ -297,6 +304,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('Status', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('Status', 'Invalid Status', 'error');
+                } else {
                     toastMsg('Status', 'Invalid Status', 'error');
                 }
 

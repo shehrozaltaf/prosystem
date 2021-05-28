@@ -514,7 +514,7 @@
         html += '<p>AADop: ' + (d.aadop != '' && d.aadop != undefined && d.aadop != null ? d.aadop : '') + '</p>';
         html += '<p>New Entry: ' + (d.newEntry != '' && d.newEntry != undefined && d.newEntry != null ? d.newEntry : '') + '</p>';
         html += '<p>Remarks: ' + (d.remarks != '' && d.remarks != undefined && d.remarks != null ? d.remarks : '') + '</p>';
-        html += '<p>Status: ' + (d.status != '' && d.status != undefined && d.status != null ? d.status : '') + '</p>';
+        html += '<p>Status: ' + (d.statushr != '' && d.statushr != undefined && d.statushr != null ? d.statushr : '') + '</p>';
         /* $.each(d.subChild, function (i, v) {
             html += '<p>FTAG: ' + (v.ftag != '' && v.ftag != undefined && v.aadop != null ? v.ftag : '') + '</p>';
             html += '<p>AADop: ' + (v.aadop != '' && v.aadop != undefined && v.aadop != null ? v.aadop : '') + '</p>';
@@ -533,7 +533,7 @@
         data['dateFrom'] = $('#dateFrom').val();
         data['location'] = $('#location').val();
         data['project'] = $('#project').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         showloader();
         $('.main_content_div').addClass('hide');
         var columnDefs = [
@@ -582,7 +582,7 @@
                 {"data": "username"},
                 {"data": "loc"},
                 // {"data": "remarks"},
-                {"data": "status"},
+                {"data": "statushr.php"},
                 {"data": "expiryDateTime"},
                 {"data": "Settings"},
                 {"data": "Action"}

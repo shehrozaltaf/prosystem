@@ -234,7 +234,7 @@
         data['pr_num'] = $('#pr_num').val();
         data['dor'] = $('#dor').val();
         data['dop'] = $('#dop').val();
-        data['status'] = $('#status').val();
+        data['statushr.php'] = $('#status').val();
         data['tagable'] = $('#tagable').val();
         data['ftag'] = $('#ftag').val();
         data['aaftag'] = $('#aaftag').val();
