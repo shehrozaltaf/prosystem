@@ -5,42 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Designation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MDesignation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/designation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/general_settings/StatusAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/general_settings/StatusAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/general_settings/StatusHR.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/general_settings/StatusHR.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/general_setting_models/MStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/general_setting_models/MStatusHR.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/general_setting_models/MStatusAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/general_setting_models/MStatusAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/add_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/general_settings/status.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/general_settings/statushr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/general_settings/statusasset.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/general_settings/statusasset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry2.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entrybk.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entrybk.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/search_emp_rpt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/add_inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventory_views/inventory_dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/datatable/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/datatable/datatables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/datatable/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/datatable/jquery.dataTables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/datatable/jszip.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/datatable/jszip.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/datatable/pdfmake.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/datatable/pdfmake.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/tables/table-datatables-advanced.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/tables/table-datatables-advanced.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dt/js/vendors.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dt/js/vendors.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/scripts/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/scripts/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/extensions/dropzone.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/extensions/dropzone.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/datatables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/pdfmake.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/pdfmake.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/vendors.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/vendors.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/vendors_.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/vendors_.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Custom.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,28 +39,37 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MStatusAsset.php">
+        <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDesignation.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
-              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/StatusAsset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="110" column="70" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
+              <caret line="28" column="31" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/general_settings/statusasset.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Designation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="260" column="9" lean-forward="true" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
+            <state relative-caret-position="441">
+              <caret line="111" column="75" selection-start-line="111" selection-start-column="75" selection-end-line="111" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/designation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="245" column="49" selection-start-line="245" selection-start-column="49" selection-end-line="245" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -107,12 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hr_Field</find>
-      <find>hr_Band</find>
-      <find>hr_Status</find>
-      <find>hr_EmpType</find>
-      <find>hr_Entity</find>
-      <find>hr_Currency</find>
       <find>'id'</find>
       <find>['CategoryAsset']</find>
       <find>['Department']</find>
@@ -127,19 +99,24 @@
       <find>locat</find>
       <find>form-Location</find>
       <find>form-LocationSub</find>
-      <find>Location</find>
       <find>id</find>
       <find>getCurrencyEdit</find>
       <find>edit_idCurrency</find>
       <find>CategoryHR</find>
       <find>CategoryAsset</find>
       <find>edit_idCategoryAsset</find>
-      <find>Degree</find>
       <find>StatusAssetValue</find>
       <find>hr_StatusAsset</find>
+      <find>degree</find>
+      <find>Degree</find>
+      <find>edit_idLocation</find>
+      <find>Location</find>
+      <find>hr_Designation</find>
+      <find>DesignationName</find>
+      <find>chkDuplicateByName</find>
+      <find>chkDuplicate</find>
     </findStrings>
     <replaceStrings>
-      <replace>$editArray</replace>
       <replace>ASSET_LOC</replace>
       <replace>E:/</replace>
       <replace>index.php/general_settings/Degree</replace>
@@ -159,7 +136,6 @@
       <replace>form-group</replace>
       <replace>Degree</replace>
       <replace>Field</replace>
-      <replace>Band</replace>
       <replace>EmpType</replace>
       <replace>Entity</replace>
       <replace>Department</replace>
@@ -169,6 +145,8 @@
       <replace>CategoryHR</replace>
       <replace>StatusHR</replace>
       <replace>StatusAsset</replace>
+      <replace>Band</replace>
+      <replace>Designation</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -177,9 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/models/general_setting_models/MStatus.php" />
-        <option value="$PROJECT_DIR$/application/controllers/general_settings/Status.php" />
-        <option value="$PROJECT_DIR$/application/models/general_setting_models/MCategory.php" />
         <option value="$PROJECT_DIR$/application/controllers/general_settings/Category.php" />
         <option value="$PROJECT_DIR$/application/views/general_settings/category.php" />
         <option value="$PROJECT_DIR$/application/views/general_settings/status.php" />
@@ -187,7 +162,6 @@
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/models/Custom.php" />
         <option value="$PROJECT_DIR$/application/models/general_setting_models/MLocation.php" />
         <option value="$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/sync.php" />
         <option value="$PROJECT_DIR$/application/views/general_settings/location.php" />
@@ -228,6 +202,10 @@
         <option value="$PROJECT_DIR$/application/views/general_settings/statusasset.php" />
         <option value="$PROJECT_DIR$/application/controllers/general_settings/StatusAsset.php" />
         <option value="$PROJECT_DIR$/application/models/general_setting_models/MStatusAsset.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MDesignation.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Designation.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/designation.php" />
       </list>
     </option>
   </component>
@@ -471,14 +449,7 @@
       <workItem from="1621488868087" duration="15816000" />
       <workItem from="1621575298474" duration="1298000" />
       <workItem from="1622178560041" duration="9281000" />
-      <workItem from="1622193484888" duration="5517000" />
-    </task>
-    <task id="LOCAL-00052" summary="users">
-      <created>1615891659418</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1615891659418</updated>
+      <workItem from="1622193484888" duration="7711000" />
     </task>
     <task id="LOCAL-00053" summary="asset">
       <created>1615982644591</created>
@@ -816,17 +787,24 @@
       <option name="project" value="LOCAL" />
       <updated>1622200896589</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="status hr and asset">
+      <created>1622202478179</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1622202478179</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="488820000" />
+    <option name="totallyTimeSpent" value="491014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.20293398" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.20293398" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -851,7 +829,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filter" />
     <MESSAGE value="rename file name" />
     <MESSAGE value="upload data" />
     <MESSAGE value="asset" />
@@ -876,7 +853,8 @@
     <MESSAGE value="band, entity, emptype" />
     <MESSAGE value="dept, currency" />
     <MESSAGE value="category hr and asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="category hr and asset" />
+    <MESSAGE value="status hr and asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="status hr and asset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,30 +913,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="355" column="56" lean-forward="true" selection-start-line="355" selection-start-column="56" selection-end-line="355" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="89" column="39" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -996,20 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MLocationSub.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="55" lean-forward="true" selection-start-line="17" selection-start-column="55" selection-end-line="18" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/edit_asset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1022,16 +962,6 @@
         <state relative-caret-position="-15692" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/locationsub.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3115">
-          <caret line="330" selection-start-line="330" selection-end-line="330" />
-          <folding>
-            <element signature="e#7789#8877#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MLocation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1039,13 +969,6 @@
           <folding>
             <element signature="n#getEditLocation#0;n#MLocation#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/LocationSub.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="105" column="73" selection-start-line="105" selection-start-column="73" selection-end-line="105" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -1210,13 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/categoryhr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="308" column="58" selection-start-line="308" selection-start-column="58" selection-end-line="308" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/CategoryHR.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
@@ -1238,34 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Degree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="82" column="19" lean-forward="true" selection-end-line="155" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDegree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="274" column="53" selection-end-line="313" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/statushr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="234" column="64" selection-start-line="234" selection-start-column="64" selection-end-line="234" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/StatusHR.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-501">
@@ -1280,13 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/statusasset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="260" column="9" lean-forward="true" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MStatusAsset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1298,6 +1179,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="110" column="70" selection-start-line="110" selection-start-column="70" selection-end-line="110" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/statushr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-620">
+          <caret line="234" column="64" selection-start-line="234" selection-start-column="64" selection-end-line="234" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/statusasset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2619">
+          <caret line="278" column="21" lean-forward="true" selection-start-line="278" selection-start-column="21" selection-end-line="278" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/categoryhr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="281" column="5" lean-forward="true" selection-start-line="281" selection-start-column="5" selection-end-line="281" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Degree.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="86" lean-forward="true" selection-end-line="155" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDegree.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="31" lean-forward="true" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="264" column="33" selection-end-line="313" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MLocationSub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="85" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/LocationSub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="34" column="94" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/locationsub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="150" column="19" selection-start-line="150" selection-start-column="19" selection-end-line="161" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDesignation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Designation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="111" column="75" selection-start-line="111" selection-start-column="75" selection-end-line="111" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/designation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="245" column="49" selection-start-line="245" selection-start-column="49" selection-end-line="245" selection-end-column="49" />
         </state>
       </provider>
     </entry>

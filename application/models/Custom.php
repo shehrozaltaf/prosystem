@@ -20,7 +20,8 @@ class Custom extends CI_Model
 
     function selectAllQuery($table, $orderBy, $whereClause = '', $orderBySort = 'ASC')
     {
-        if (isset($whereClause) && $whereClause != '' && $whereClause != 0) {
+//        if (isset($whereClause) && $whereClause != '' && $whereClause != 0) {
+        if (isset($whereClause) && $whereClause != '') {
             $this->db->where($whereClause, 1);
         }
         $this->db->select('*');
