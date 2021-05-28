@@ -22,41 +22,53 @@ class Currency extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View Currency", "activityName" => "Currency Main",
-            "result" => "View Currency Main page. URL: " . current_url() . " .  Function: Currency/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MCurrency();
-        $data['myData'] = $model->getAllCurrency();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/currency', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View Currency", "activityName" => "View Currency Pg",
+                "result" => "View Currency page. URL: " . current_url() . " .  Function: Currency/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MCurrency();
+            $data['myData'] = $model->getAllCurrency();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/currency', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
     function addCurrencyData()
     {
         ob_end_clean();
+        $Custom = new Custom();
         if (isset($_POST['CurrencyName']) && $_POST['CurrencyName'] != '') {
-            $Custom = new Custom();
+            $InsertData = 0;
             $formArray = array();
             $formArray['currency'] = ucfirst($_POST['CurrencyName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'idCurrency', 'currency', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['currency']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'idCurrency', 'currency', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Currency Add -> Function: addCurrencyData() Currency insert ",
+            $trackarray = array("action" => "Currency Add -> Function: addCurrencyData() ",
                 "activityName" => "Add Currency",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -66,6 +78,14 @@ class Currency extends CI_Controller
         echo $result;
     }
 
+    function chkDuplicate($field)
+    {
+        $model = new MCurrency();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
     public function getCurrencyEdit()
     {
         $model = new MCurrency();
@@ -73,22 +93,30 @@ class Currency extends CI_Controller
         echo json_encode($result, true);
     }
 
+
     function editCurrencyData()
     {
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idCurrency']) && $_POST['idCurrency'] != '' && isset($_POST['CurrencyName']) && $_POST['CurrencyName'] != '') {
+            $editData = 0;
             $idCurrency = $_POST['idCurrency'];
-            $editArr['currency'] = $_POST['CurrencyName'];
+            $editArr['currency'] = ucfirst($_POST['CurrencyName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'idCurrency', $idCurrency, 'currency');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['currency']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'idCurrency', $idCurrency, 'currency');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Currency Edit -> Function: editCurrencyData() Currency Edit ",
+            $trackarray = array("action" => "Currency Edit -> Function: editCurrencyData()",
                 "activityName" => "Edit Currency",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -97,6 +125,7 @@ class Currency extends CI_Controller
         }
         echo $result;
     }
+
 
     function deleteCurrencyData()
     {

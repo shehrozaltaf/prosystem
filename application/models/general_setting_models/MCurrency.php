@@ -22,5 +22,13 @@ class MCurrency extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('currency');
+        $this->db->where('currency', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

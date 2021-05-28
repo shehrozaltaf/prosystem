@@ -58,7 +58,7 @@
                                                         <td data-id="<?php echo $data->idCurrency ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
-                                                                        class="feather icon-edit"></i> </a>
+                                                                            class="feather icon-edit"></i> </a>
                                                             <?php } ?>
                                                             <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
@@ -214,8 +214,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     }, 500);
                 } else if (result == 3) {
                     toastMsg('Currency', 'Invalid Currency Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Currency', 'Currency Name already exist', 'error');
                 } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
+                    toastMsg('Currency', 'Invalid Currency', 'error');
                 }
             });
         }
@@ -229,7 +231,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     try {
-                        $('#edit_idCurrency').val(data['idCurrency']);
+                        $('#edit_idCurrency').val(data['id']);
                         $('#edit_CurrencyName').val(a[0]['currency']);
                     } catch (e) {
                     }
@@ -249,6 +251,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
         data['CurrencyName'] = $('#edit_CurrencyName').val();
         if (data['idCurrency'] == '' || data['idCurrency'] == undefined || data['idCurrency'].length < 1) {
             flag = 1;
+            toastMsg('Currency', 'Invalid Currency', 'error');
             return false;
         }
         if (data['CurrencyName'] == '' || data['CurrencyName'] == undefined || data['CurrencyName'].length < 1) {
@@ -268,6 +271,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('Currency', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('Currency', 'Invalid Currency', 'error');
+                } else if (res == 4) {
+                    toastMsg('Currency', 'Currency Name already exist', 'error');
+                } else {
                     toastMsg('Currency', 'Invalid Currency', 'error');
                 }
             });
@@ -297,6 +304,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('Currency', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('Currency', 'Invalid Currency', 'error');
+                } else if (res == 4) {
+                    toastMsg('Currency', 'Currency Name already exist', 'error');
+                } else {
                     toastMsg('Currency', 'Invalid Currency', 'error');
                 }
 

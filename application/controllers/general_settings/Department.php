@@ -22,41 +22,53 @@ class Department extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View Department", "activityName" => "Department Main",
-            "result" => "View Department Main page. URL: " . current_url() . " .  Function: Department/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MDepartment();
-        $data['myData'] = $model->getAllDepartments();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/department', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View Department", "activityName" => "View Department Pg",
+                "result" => "View Department page. URL: " . current_url() . " .  Function: Department/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MDepartment();
+            $data['myData'] = $model->getAllDepartments();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/department', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
     function addDepartmentData()
     {
         ob_end_clean();
+        $Custom = new Custom();
         if (isset($_POST['DepartmentName']) && $_POST['DepartmentName'] != '') {
-            $Custom = new Custom();
+            $InsertData = 0;
             $formArray = array();
             $formArray['dept'] = ucfirst($_POST['DepartmentName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_dept', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['dept']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'id', 'hr_dept', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Department Add -> Function: addDepartmentData() Department insert ",
+            $trackarray = array("action" => "Department Add -> Function: addDepartmentData() ",
                 "activityName" => "Add Department",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -66,6 +78,14 @@ class Department extends CI_Controller
         echo $result;
     }
 
+    function chkDuplicate($field)
+    {
+        $model = new MDepartment();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
     public function getDepartmentEdit()
     {
         $model = new MDepartment();
@@ -73,22 +93,30 @@ class Department extends CI_Controller
         echo json_encode($result, true);
     }
 
+
     function editDepartmentData()
     {
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idDepartment']) && $_POST['idDepartment'] != '' && isset($_POST['DepartmentName']) && $_POST['DepartmentName'] != '') {
+            $editData = 0;
             $idDepartment = $_POST['idDepartment'];
-            $editArr['dept'] = $_POST['DepartmentName'];
+            $editArr['dept'] = ucfirst($_POST['DepartmentName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $idDepartment, 'hr_dept');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['dept']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'id', $idDepartment, 'hr_dept');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Department Edit -> Function: editDepartmentData() Department Edit ",
+            $trackarray = array("action" => "Department Edit -> Function: editDepartmentData()",
                 "activityName" => "Edit Department",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -97,6 +125,7 @@ class Department extends CI_Controller
         }
         echo $result;
     }
+
 
     function deleteDepartmentData()
     {

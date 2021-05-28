@@ -22,5 +22,13 @@ class MDepartment extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_dept');
+        $this->db->where('dept', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
