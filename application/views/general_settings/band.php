@@ -58,7 +58,7 @@
                                                         <td data-id="<?php echo $data->id ?>">
                                                             <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getEdit(this)"><i
-                                                                        class="feather icon-edit"></i> </a>
+                                                                            class="feather icon-edit"></i> </a>
                                                             <?php } ?>
                                                             <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>
                                                                 <a href="javascript:void(0)" onclick="getDelete(this)">
@@ -214,6 +214,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     }, 500);
                 } else if (result == 3) {
                     toastMsg('Band', 'Invalid Band Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Band', 'Band Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -269,6 +271,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     toastMsg('Band', 'Something went wrong', 'error');
                 } else if (res == 3) {
                     toastMsg('Band', 'Invalid Band', 'error');
+                } else if (res == 4) {
+                    toastMsg('Band', 'Band Name already exist', 'error');
+                } else {
+                    toastMsg('Band', 'Invalid Band', 'error');
                 }
             });
         }
@@ -297,6 +303,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('Band', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('Band', 'Invalid Band', 'error');
+                } else if (res == 4) {
+                    toastMsg('Band', 'Band Name already exist', 'error');
+                } else {
                     toastMsg('Band', 'Invalid Band', 'error');
                 }
 

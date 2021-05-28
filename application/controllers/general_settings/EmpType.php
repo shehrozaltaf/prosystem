@@ -22,41 +22,53 @@ class EmpType extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View EmpType", "activityName" => "EmpType Main",
-            "result" => "View EmpType Main page. URL: " . current_url() . " .  Function: EmpType/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MEmpType();
-        $data['myData'] = $model->getAllEmpTypes();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/emptype', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View EmpType", "activityName" => "View EmpType Pg",
+                "result" => "View EmpType page. URL: " . current_url() . " .  Function: EmpType/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MEmpType();
+            $data['myData'] = $model->getAllEmpTypes();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/emptype', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
     function addEmpTypeData()
     {
         ob_end_clean();
+        $Custom = new Custom();
         if (isset($_POST['EmpTypeName']) && $_POST['EmpTypeName'] != '') {
-            $Custom = new Custom();
+            $InsertData = 0;
             $formArray = array();
             $formArray['emptype'] = ucfirst($_POST['EmpTypeName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_emptype', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['emptype']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'id', 'hr_emptype', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "EmpType Add -> Function: addEmpTypeData() EmpType insert ",
+            $trackarray = array("action" => "EmpType Add -> Function: addEmpTypeData() ",
                 "activityName" => "Add EmpType",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -66,6 +78,14 @@ class EmpType extends CI_Controller
         echo $result;
     }
 
+    function chkDuplicate($field)
+    {
+        $model = new MEmpType();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
     public function getEmpTypeEdit()
     {
         $model = new MEmpType();
@@ -73,22 +93,30 @@ class EmpType extends CI_Controller
         echo json_encode($result, true);
     }
 
+
     function editEmpTypeData()
     {
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idEmpType']) && $_POST['idEmpType'] != '' && isset($_POST['EmpTypeName']) && $_POST['EmpTypeName'] != '') {
+            $editData = 0;
             $idEmpType = $_POST['idEmpType'];
-            $editArr['emptype'] = $_POST['EmpTypeName'];
+            $editArr['emptype'] = ucfirst($_POST['EmpTypeName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $idEmpType, 'hr_emptype');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['emptype']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'id', $idEmpType, 'hr_emptype');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "EmpType Edit -> Function: editEmpTypeData() EmpType Edit ",
+            $trackarray = array("action" => "EmpType Edit -> Function: editEmpTypeData()",
                 "activityName" => "Edit EmpType",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -97,6 +125,7 @@ class EmpType extends CI_Controller
         }
         echo $result;
     }
+
 
     function deleteEmpTypeData()
     {

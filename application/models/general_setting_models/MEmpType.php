@@ -23,4 +23,14 @@ class MEmpType extends CI_Model
         return $query->result();
     }
 
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_emptype');
+        $this->db->where('emptype', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

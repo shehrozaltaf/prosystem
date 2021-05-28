@@ -10,7 +10,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">EmpType</h2>
+                        <h2 class="content-header-title float-left mb-0">Employment Type</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php base_url() ?>">General Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">EmpType
+                                <li class="breadcrumb-item active">Employment Type
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">EmpType</h4>
+                                <h4 class="card-title">Employment Type</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
@@ -214,8 +214,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     }, 500);
                 } else if (result == 3) {
                     toastMsg('EmpType', 'Invalid EmpType Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('EmpType', 'EmpType Name already exist', 'error');
                 } else {
-                    toastMsg('Error', 'Something went wrong', 'error');
+                    toastMsg('EmpType', 'Invalid EmpType', 'error');
                 }
             });
         }
@@ -269,6 +271,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     toastMsg('EmpType', 'Something went wrong', 'error');
                 } else if (res == 3) {
                     toastMsg('EmpType', 'Invalid EmpType', 'error');
+                }else if (res == 4) {
+                    toastMsg('EmpType', 'EmpType Name already exist', 'error');
+                } else {
+                    toastMsg('EmpType', 'Invalid EmpType', 'error');
                 }
             });
         }
@@ -297,6 +303,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('EmpType', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('EmpType', 'Invalid EmpType', 'error');
+                }else if (res == 4) {
+                    toastMsg('EmpType', 'EmpType Name already exist', 'error');
+                } else {
                     toastMsg('EmpType', 'Invalid EmpType', 'error');
                 }
 
