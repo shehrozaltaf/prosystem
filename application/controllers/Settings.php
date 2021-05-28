@@ -155,7 +155,7 @@ class Settings extends CI_controller
             $formArray = array();
             $formArray['pageName'] = ucfirst($_POST['pageName']);
             $formArray['pageUrl'] = $_POST['pageUrl'];
-            if (isset($_POST['menuParent'])) {
+            if (isset($_POST['menuParent']) && $_POST['menuParent']==1) {
                 $formArray['isParent'] = 1;
                 $formArray['idParent'] = $_POST['menuParent'];
             } else {

@@ -31,7 +31,7 @@ class Assets extends CI_controller
 
         $data['project'] = $Custom->selectAllQuery('project', 'idProject');
         $data['employee'] = $Custom->selectAllQuery('hr_employee', 'id');
-        $data['CategoryHR'] = $Custom->selectAllQuery('CategoryHR', 'idCategory', 'isActive');
+        $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
         $data['location'] = $Custom->selectAllQuery('location', 'id');
         $data['location_sub'] = $Custom->selectAllQuery('location_sub', 'id');
         $data['status'] = $Custom->selectAllQuery('a_status', 'id', 'status');
@@ -55,7 +55,7 @@ class Assets extends CI_controller
         $searchData = array();
         $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
         $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
-        $searchData['CategoryHR'] = (isset($_REQUEST['CategoryHR']) && $_REQUEST['CategoryHR'] != '' && $_REQUEST['CategoryHR'] != '0' ? $_REQUEST['CategoryHR'] : 0);
+        $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
         $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
         $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
         $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
@@ -127,7 +127,7 @@ class Assets extends CI_controller
             $table_data[$value->idAsset]['writOff_formNo'] = $value->writOff_formNo;
             $table_data[$value->idAsset]['wo_date'] = (isset($value->wo_date) && $value->wo_date != '' ? date('d/m/y', strtotime($value->wo_date)) : '-');
             $table_data[$value->idAsset]['remarks'] = $value->remarks;
-            $table_data[$value->idAsset]['CategoryHR'] = $value->category;
+            $table_data[$value->idAsset]['category'] = $value->category;
             $table_data[$value->idAsset]['desc'] = $value->description;
             $table_data[$value->idAsset]['tag'] = $value->tag_no;
             $table_data[$value->idAsset]['emp'] = '<a href="' . base_url() . 'index.php/hr_controllers/searchemployee/EmpDetail?emp=' . $value->emp_no . '"  target="_blank">' . $value->emp_no . ' - ' . $value->empname . '</a>';
@@ -189,7 +189,7 @@ class Assets extends CI_controller
 
         $totalsearchData['project'] = $searchData['project'];
         $totalsearchData['emp'] = $searchData['emp'];
-        $totalsearchData['CategoryHR'] = $searchData['CategoryHR'];
+        $totalsearchData['category'] = $searchData['category'];
         $totalsearchData['sop'] = $searchData['sop'];
         $totalsearchData['idLocation'] = $searchData['idLocation'];
         $totalsearchData['idSubLocation'] = $searchData['idSubLocation'];
@@ -562,7 +562,7 @@ class Assets extends CI_controller
             $searchData = array();
             $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
             $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
-            $searchData['CategoryHR'] = (isset($_REQUEST['CategoryHR']) && $_REQUEST['CategoryHR'] != '' && $_REQUEST['CategoryHR'] != '0' ? $_REQUEST['CategoryHR'] : 0);
+            $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
             $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
             $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
             $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
@@ -620,7 +620,7 @@ class Assets extends CI_controller
             $tbl = '<table cellspacing="0" cellpadding="3" border="1">
                                             <tr align="center">
                                                 <th width="4%">ID</th> 
-                                                <th width="15%">CategoryHR</th> 
+                                                <th width="15%">category</th> 
                                                 <th width="15%">Description</th> 
                                                 <th width="6%">Tag No</th> 
                                                 <th width="7%">Emp No</th> 
@@ -667,7 +667,7 @@ class Assets extends CI_controller
             $searchData = array();
             $searchData['project'] = (isset($_REQUEST['project']) && $_REQUEST['project'] != '' && $_REQUEST['project'] != '0' ? $_REQUEST['project'] : 0);
             $searchData['emp'] = (isset($_REQUEST['emp']) && $_REQUEST['emp'] != '' && $_REQUEST['emp'] != '0' ? $_REQUEST['emp'] : 0);
-            $searchData['CategoryHR'] = (isset($_REQUEST['CategoryHR']) && $_REQUEST['CategoryHR'] != '' && $_REQUEST['CategoryHR'] != '0' ? $_REQUEST['CategoryHR'] : 0);
+            $searchData['category'] = (isset($_REQUEST['category']) && $_REQUEST['category'] != '' && $_REQUEST['category'] != '0' ? $_REQUEST['category'] : 0);
             $searchData['sop'] = (isset($_REQUEST['sop']) && $_REQUEST['sop'] != '' && $_REQUEST['sop'] != '0' ? $_REQUEST['sop'] : 0);
             $searchData['idLocation'] = (isset($_REQUEST['location']) && $_REQUEST['location'] != '' && $_REQUEST['location'] != '0' ? $_REQUEST['location'] : 0);
             $searchData['idSubLocation'] = (isset($_REQUEST['sublocation']) && $_REQUEST['sublocation'] != '' && $_REQUEST['sublocation'] != '0' ? $_REQUEST['sublocation'] : 0);
@@ -689,7 +689,7 @@ class Assets extends CI_controller
             $objPHPExcel = new    PHPExcel();
             $objPHPExcel->setActiveSheetIndex(0);
             $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'PAEDS ID');
-            $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'CategoryHR');
+            $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'category');
             $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Description');
             $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Model');
             $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Product No');
@@ -790,7 +790,7 @@ class Assets extends CI_controller
         /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'asset_controllers/Assets');
-        $data['CategoryHR'] = $Custom->selectAllQuery('CategoryHR', 'idCategory', 'isActive');
+        $data['category'] = $Custom->selectAllQuery('category', 'idCategory', 'isActive');
         $data['currency'] = $Custom->selectAllQuery('currency', 'idCurrency', 'isActive');
         $data['sop'] = $Custom->selectAllQuery('a_sourceOfPurchase', 'idSop', 'status');
         $data['employee'] = $Custom->getEmpAllDetails('');
