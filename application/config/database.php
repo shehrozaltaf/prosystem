@@ -74,10 +74,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'dsn' => '', 
-
-    'hostname' => 'VCOE1',
-//    'hostname' => 'f38158',
+    'dsn' => '',
+//    'hostname' => 'VCOE1',
+    'hostname' => 'f38158',
     'username' => 'app',
     'password' => 'abcd1234',
     'database' => 'pro_system',

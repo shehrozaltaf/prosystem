@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/Location.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/general_settings/LocationSub.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/general_setting_models/MLocation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/general_settings/location.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/empdetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Custom.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,65 +41,40 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+        <entry file="file://$PROJECT_DIR$/application/views/general_settings/location.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+            <state relative-caret-position="179">
+              <caret line="234" column="66" selection-start-line="234" selection-start-column="66" selection-end-line="234" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Location.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="106" column="10" lean-forward="true" selection-start-line="106" selection-start-column="10" selection-end-line="109" selection-end-column="17" />
-              <folding>
-                <element signature="n#index#0;n#Searchemployee#0;n#!!top" />
-                <element signature="e#811#929#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-256">
-              <caret line="81" column="66" lean-forward="true" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/hr_model/Mempmodel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-              <folding>
-                <element signature="n#getAllEmployee2#0;n#Mempmodel#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/MSettings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+            <state relative-caret-position="883">
+              <caret line="142" column="94" selection-start-line="142" selection-start-column="94" selection-end-line="142" selection-end-column="94" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
+        <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MLocation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="366" column="68" selection-start-line="366" selection-start-column="68" selection-end-line="366" selection-end-column="68" />
+            <state relative-caret-position="153">
+              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#getEditLocation#0;n#MLocation#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/sync.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -113,10 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changeStatus</find>
-      <find>$filename</find>
-      <find>file_newname</find>
-      <find>mkdir</find>
       <find>&quot;E:/PortalFiles/ASSET_PROREPORTS/&quot;</find>
       <find>E:/</find>
       <find>status_doc</find>
@@ -143,9 +116,12 @@
       <find>$searchdata['category']</find>
       <find>CategoryHR</find>
       <find>category</find>
+      <find>$UserName</find>
+      <find>Function</find>
+      <find>Department</find>
+      <find>activityName</find>
     </findStrings>
     <replaceStrings>
-      <replace>gop</replace>
       <replace>cardissue</replace>
       <replace>letterapp</replace>
       <replace>Edit</replace>
@@ -175,6 +151,7 @@
       <replace>CategoryAsset</replace>
       <replace>Category</replace>
       <replace>/general_settings/StatusHR/</replace>
+      <replace>Location</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -183,12 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/sync.php" />
-        <option value="$PROJECT_DIR$/application/views/include/top_header.php" />
-        <option value="$PROJECT_DIR$/application/views/auth/dashboard_users.php" />
-        <option value="$PROJECT_DIR$/application/controllers/OpenFile.php" />
-        <option value="$PROJECT_DIR$/application/views/open_file.php" />
-        <option value="$PROJECT_DIR$/application/views/asset_views/add_asset.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/edit_asset.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_detail.php" />
@@ -230,16 +201,22 @@
         <option value="$PROJECT_DIR$/application/controllers/general_settings/Department.php" />
         <option value="$PROJECT_DIR$/application/controllers/general_settings/StatusHR.php" />
         <option value="$PROJECT_DIR$/application/views/general_settings/status.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/LocationSub.php" />
+        <option value="$PROJECT_DIR$/application/models/Custom.php" />
+        <option value="$PROJECT_DIR$/application/models/general_setting_models/MLocation.php" />
+        <option value="$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/sync.php" />
+        <option value="$PROJECT_DIR$/application/views/general_settings/location.php" />
+        <option value="$PROJECT_DIR$/application/controllers/general_settings/Location.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="957" />
-    <option name="width" value="730" />
+    <option name="x" value="833" />
+    <option name="width" value="854" />
     <option name="height" value="1017" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -266,13 +243,14 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="general_settings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
@@ -285,6 +263,19 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="general_setting_models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -292,7 +283,7 @@
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="hr_views" type="462c0819:PsiDirectoryNode" />
+              <item name="general_settings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -469,14 +460,7 @@
       <workItem from="1621403220784" duration="251000" />
       <workItem from="1621488868087" duration="15816000" />
       <workItem from="1621575298474" duration="1298000" />
-      <workItem from="1622178560041" duration="1570000" />
-    </task>
-    <task id="LOCAL-00044" summary="ionauth">
-      <created>1615557311848</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1615557311848</updated>
+      <workItem from="1622178560041" duration="6749000" />
     </task>
     <task id="LOCAL-00045" summary="ionauth">
       <created>1615557706225</created>
@@ -814,11 +798,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621575795397</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="salary">
+      <created>1622180600968</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1622180600969</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475592000" />
+    <option name="totallyTimeSpent" value="480771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -849,7 +840,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="xframe" />
     <MESSAGE value="headers" />
     <MESSAGE value="edit" />
     <MESSAGE value="edit asset" />
@@ -874,7 +864,8 @@
     <MESSAGE value="asset docs export" />
     <MESSAGE value="Degree" />
     <MESSAGE value="General Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="General Settings" />
+    <MESSAGE value="salary" />
+    <option name="LAST_COMMIT_MESSAGE" value="salary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -933,165 +924,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="89" column="52" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/config.php" />
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="400" column="41" selection-start-line="400" selection-start-column="31" selection-end-line="400" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/actual.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/budget_views/project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="49" selection-end-line="205" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-411">
-          <caret line="593" lean-forward="true" selection-start-line="593" selection-end-line="615" />
-          <folding>
-            <element signature="e#51#56#0#PHP" />
-            <element signature="e#544#549#0#PHP" />
-            <element signature="e#667#672#0#PHP" />
-            <element signature="e#1417#1422#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/settings/group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="22" lean-forward="true" selection-end-line="310" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-753">
-          <caret line="810" column="23" lean-forward="true" selection-start-line="810" selection-start-column="23" selection-end-line="810" selection-end-column="23" />
-          <folding>
-            <element signature="n#__construct#0;n#Assets#0;n#!!top" />
-            <element signature="e#613#700#0#PHP" />
-            <element signature="e#5422#12060#0#PHP" />
-            <element signature="e#5471#6304#0#PHP" />
-            <element signature="e#5554#5639#0#PHP" />
-            <element signature="e#5640#5726#0#PHP" />
-            <element signature="e#5727#5813#0#PHP" />
-            <element signature="e#5814#5897#0#PHP" />
-            <element signature="e#5898#5985#0#PHP" />
-            <element signature="e#5986#6073#0#PHP" />
-            <element signature="e#6074#6161#0#PHP" />
-            <element signature="e#6162#6248#0#PHP" />
-            <element signature="e#6249#6304#0#PHP" />
-            <element signature="e#10248#10668#0#PHP" />
-            <element signature="e#10620#10668#0#PHP" />
-            <element signature="e#10682#11039#0#PHP" />
-            <element signature="e#10989#11039#0#PHP" />
-            <element signature="e#12069#12153#0#PHP" />
-            <element signature="e#13813#16733#0#PHP" />
-            <element signature="e#14531#14656#0#PHP" />
-            <element signature="e#14728#16681#0#PHP" />
-            <element signature="e#14790#16616#0#PHP" />
-            <element signature="e#14955#15070#0#PHP" />
-            <element signature="e#15341#16598#0#PHP" />
-            <element signature="e#15677#16510#0#PHP" />
-            <element signature="e#16437#16510#0#PHP" />
-            <element signature="e#16533#16598#0#PHP" />
-            <element signature="e#16632#16681#0#PHP" />
-            <element signature="e#16692#16733#0#PHP" />
-            <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
-            <element signature="e#16864#17585#0#PHP" />
-            <element signature="e#17228#17352#0#PHP" />
-            <element signature="e#17424#17533#0#PHP" />
-            <element signature="e#17484#17533#0#PHP" />
-            <element signature="e#17544#17585#0#PHP" />
-            <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
-            <element signature="e#17656#19189#0#PHP" />
-            <element signature="e#17835#17959#0#PHP" />
-            <element signature="e#18607#18702#0#PHP" />
-            <element signature="e#19123#19189#0#PHP" />
-            <element signature="n#bulkupdate#0;n#Assets#0;n#!!top" />
-            <element signature="e#19265#19383#0#PHP" />
-            <element signature="e#19392#19541#0#PHP" />
-            <element signature="e#19550#19671#0#PHP" />
-            <element signature="e#19680#19813#0#PHP" />
-            <element signature="e#19822#19967#0#PHP" />
-            <element signature="e#19976#20093#0#PHP" />
-            <element signature="e#20102#20259#0#PHP" />
-            <element signature="e#20268#20437#0#PHP" />
-            <element signature="e#20446#20629#0#PHP" />
-            <element signature="e#20638#20789#0#PHP" />
-            <element signature="e#20798#20907#0#PHP" />
-            <element signature="e#20948#22915#0#PHP" />
-            <element signature="e#21085#22735#0#PHP" />
-            <element signature="e#21378#22720#0#PHP" />
-            <element signature="e#21415#22477#0#PHP" />
-            <element signature="e#21473#22455#0#PHP" />
-            <element signature="e#21540#22429#0#PHP" />
-            <element signature="e#22498#22644#0#PHP" />
-            <element signature="e#22579#22644#0#PHP" />
-            <element signature="e#22663#22720#0#PHP" />
-            <element signature="e#22750#22863#0#PHP" />
-            <element signature="e#22874#22915#0#PHP" />
-            <element signature="n#bulkupdate2#0;n#Assets#0;n#!!top" />
-            <element signature="e#23061#23407#0#PHP" />
-            <element signature="e#23416#23823#0#PHP" />
-            <element signature="e#23832#24197#0#PHP" />
-            <element signature="e#24206#24579#0#PHP" />
-            <element signature="e#24588#24987#0#PHP" />
-            <element signature="e#24996#25345#0#PHP" />
-            <element signature="e#25354#25783#0#PHP" />
-            <element signature="e#25792#26281#0#PHP" />
-            <element signature="e#26290#26753#0#PHP" />
-            <element signature="e#26762#27149#0#PHP" />
-            <element signature="e#27158#27487#0#PHP" />
-            <element signature="e#27528#29086#0#PHP" />
-            <element signature="e#27629#28906#0#PHP" />
-            <element signature="e#27767#28891#0#PHP" />
-            <element signature="e#27804#28647#0#PHP" />
-            <element signature="e#28669#28815#0#PHP" />
-            <element signature="e#28750#28815#0#PHP" />
-            <element signature="e#28834#28891#0#PHP" />
-            <element signature="e#28921#29034#0#PHP" />
-            <element signature="e#29045#29086#0#PHP" />
-            <element signature="n#getPDF#0;n#Assets#0;n#!!top" />
-            <element signature="n#deleteDoc#0;n#Assets#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Add_asset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-365">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="n#chkTag#0;n#Add_asset#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MBand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1215,13 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDepartment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MCategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1264,20 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="246" column="22" lean-forward="true" selection-end-line="305" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/general_settings/department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="232" column="64" selection-start-line="232" selection-start-column="64" selection-end-line="232" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/general_settings/currency.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-535">
@@ -1296,13 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="56" column="79" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="109" column="77" selection-start-line="109" selection-start-column="77" selection-end-line="109" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -1344,24 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="106" column="10" lean-forward="true" selection-start-line="106" selection-start-column="10" selection-end-line="109" selection-end-column="17" />
-          <folding>
-            <element signature="n#index#0;n#Searchemployee#0;n#!!top" />
-            <element signature="e#811#929#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-256">
@@ -1371,10 +1157,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/empdetail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="366" column="68" selection-start-line="366" selection-start-column="68" selection-end-line="366" selection-end-column="68" />
+        <state relative-caret-position="425">
+          <caret line="355" column="56" lean-forward="true" selection-start-line="355" selection-start-column="56" selection-end-line="355" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Department.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" lean-forward="true" selection-end-line="126" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/LocationSub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="89" column="39" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDepartment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="32" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="182" column="34" lean-forward="true" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/degree.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="246" column="22" lean-forward="true" selection-end-line="305" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/department.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="232" column="64" selection-end-line="305" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="105" column="9" lean-forward="true" selection-start-line="103" selection-start-column="10" selection-end-line="105" selection-end-column="9" />
+          <folding>
+            <element signature="n#index#0;n#Searchemployee#0;n#!!top" />
+            <element signature="e#811#929#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/sync.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/general_settings/location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="234" column="66" selection-start-line="234" selection-start-column="66" selection-end-line="234" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="142" column="94" selection-start-line="142" selection-start-column="94" selection-end-line="142" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MLocation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <element signature="n#getEditLocation#0;n#MLocation#0;n#!!top" />
           </folding>
         </state>
       </provider>

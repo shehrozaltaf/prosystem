@@ -59,26 +59,20 @@ class Custom extends CI_Model
     function trackLogs($array, $log_type)
     {
         date_default_timezone_set("Asia/Karachi");
-        $UserName = (isset($array['UserName']) && $array['UserName'] != '' ? $array['UserName'] : $_SESSION['login']['username']);
-        if (isset($log_type) && $log_type == 'user_logs') {
-            $logFilePath = 'customLogs/user_logs/' . $UserName . 'logs_' . date("n_j_Y") . '.txt';
-        } else {
-            $logFilePath = 'customLogs/daily_logs/logs_' . date("n_j_Y") . '.txt';
+        $UserName = $_SESSION['login']['UserName'];
+//        $logFileDirPath='E:/PortalFiles/customLogs/user_logs/';
+        $logFileDirPath = 'C:/PortalFiles/customLogs/user_logs/';
+        if (!is_dir($logFileDirPath)) {
+            mkdir($logFileDirPath, 0777, TRUE);
         }
+        $logFilePath = $logFileDirPath . $UserName . 'logs_' . date("n_j_Y") . '.txt';
+        $activityName = (isset($array['activityName']) ? $array['activityName'] : 'Invalid activityName');
         $action = (isset($array['action']) ? $array['action'] : 'Invalid Action');
-
-        $Query = '';
-        if (isset($array['Query']) && $array['Query'] != '') {
-            $Query .= $array['Query'];
-
-        }
-
         $postData = '';
         if (isset($array['PostData']) && $array['PostData'] != '') {
             foreach ($array['PostData'] as $key => $post) {
                 $postData .= $key . ' = ' . $post . PHP_EOL;
             }
-
         }
         $result = (isset($array['result']) ? $array['result'] : 'Invalid Result');
         $idUser = (isset($array['idUser']) ? $array['idUser'] : $_SESSION['login']['idUser']);
@@ -86,13 +80,40 @@ class Custom extends CI_Model
             "idUser: " . $idUser .
             ", UserName: " . $UserName . PHP_EOL .
             "Action: " . $action . PHP_EOL .
-            "Query: " . $Query . PHP_EOL .
             "Result: " . $result . PHP_EOL .
             "PostData: " . $postData . PHP_EOL .
             "-------------------------------------------------" . PHP_EOL;
-        /* $txt = fopen($logFilePath, "a") or die("Unable to open file!");
-         fwrite($txt, $log);
-         fclose($txt);*/
+        $formArray = array();
+        $formArray['idUser'] = $idUser;
+        $formArray['activityName'] = $activityName;
+        $formArray['actiontype'] = $action;
+        $formArray['result'] = $result;
+        $formArray['postData'] = $postData;
+        $formArray['isActive'] = 1;
+        $formArray['createdBy'] = $_SESSION['login']['idUser'];
+        $formArray['createdDateTime'] = date('Y-m-d H:m:s');
+        $InsertData = $this->Insert($formArray, 'id', 'users_dash_activity', 'N');
+        $txt = fopen($logFilePath, "a") or die("Unable to open file!");
+        fwrite($txt, $log);
+        fclose($txt);
+//        echo file_put_contents($logFilePath . date("n_j_Y") . '.txt', $log);
+    }
+
+    function Insert($Data, $idReturn, $table, $getLastId = 'N')
+    {
+        $insert = $this->db->insert($table, $Data);
+        if ($insert) {
+            if ($getLastId === 'Y') {
+                $returnValue = $this->db->insert_id();
+            } elseif (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
+                $returnValue = 1;
+            } else {
+                $returnValue = $Data[$idReturn];
+            }
+            return $returnValue;
+        } else {
+            return FALSE;
+        }
     }
 
     function Edit_multi_where($Data, $where, $table)
@@ -116,6 +137,8 @@ class Custom extends CI_Model
         }
     }
 
+    /*==========Log=============*/
+
     function getGUID()
     {
         if (function_exists('com_create_guid')) {
@@ -129,7 +152,7 @@ class Custom extends CI_Model
         }
     }
 
-    /*==========Log=============*/
+    /*======================Custom Functions======================*/
 
     function insrt_AT($formId, $FormName, $Fieldid, $FieldName, $OldValue, $NewValue)
     {
@@ -148,25 +171,6 @@ class Custom extends CI_Model
             return true;
         } else {
             return false;
-        }
-    }
-
-    /*======================Custom Functions======================*/
-
-    function Insert($Data, $idReturn, $table, $getLastId = 'N')
-    {
-        $insert = $this->db->insert($table, $Data);
-        if ($insert) {
-            if ($getLastId === 'Y') {
-                $returnValue = $this->db->insert_id();
-            } elseif (!isset($Data[$idReturn]) || $Data[$idReturn] == '') {
-                $returnValue = 1;
-            } else {
-                $returnValue = $Data[$idReturn];
-            }
-            return $returnValue;
-        } else {
-            return FALSE;
         }
     }
 
