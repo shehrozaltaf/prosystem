@@ -22,41 +22,53 @@ class Degree extends CI_Controller
     function index()
     {
         $data = array();
-        /*==========Log=============*/
-        $Custom = new Custom();
-        $trackarray = array("action" => "View Degree", "activityName" => "Degree Main",
-            "result" => "View Degree Main page. URL: " . current_url() . " .  Function: Degree/index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-        /*==========Log=============*/
         $MSettings = new MSettings();
         $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', uri_string());
-        $model = new MDegree();
-        $data['myData'] = $model->getAllDegrees();
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('general_settings/degree', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $Custom = new Custom();
+            $trackarray = array("action" => "View Degree", "activityName" => "View Degree Pg",
+                "result" => "View Degree page. URL: " . current_url() . " .  Function: Degree/index()",
+                "PostData" => "");
+            $Custom->trackLogs($trackarray, "user_logs");
+
+            $model = new MDegree();
+            $data['myData'] = $model->getAllDegrees();
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('general_settings/degree', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
+        } else {
+            $this->load->view('page-not-authorized', $data);
+        }
     }
 
     function addDegreeData()
     {
         ob_end_clean();
+        $Custom = new Custom();
         if (isset($_POST['DegreeName']) && $_POST['DegreeName'] != '') {
-            $Custom = new Custom();
+            $InsertData = 0;
             $formArray = array();
             $formArray['degree'] = ucfirst($_POST['DegreeName']);
             $formArray['isActive'] = 1;
             $formArray['createdBy'] = $_SESSION['login']['idUser'];
             $formArray['createdDateTime'] = date('Y-m-d H:i:s');
-            $InsertData = $Custom->Insert($formArray, 'id', 'hr_degree', 'Y');
-            if ($InsertData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($formArray['degree']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $InsertData = $Custom->Insert($formArray, 'id', 'hr_degree', 'Y');
+                if ($InsertData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Degree Add -> Function: addDegreeData() Degree insert ",
+            $trackarray = array("action" => "Degree Add -> Function: addDegreeData() ",
                 "activityName" => "Add Degree",
                 "result" => $result . "--- resultID: " . $InsertData, "PostData" => $formArray);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -66,6 +78,14 @@ class Degree extends CI_Controller
         echo $result;
     }
 
+    function chkDuplicate($field)
+    {
+        $model = new MDegree();
+        $result = $model->chkDuplicateByName($field);
+        return count($result);
+    }
+
+
     public function getDegreeEdit()
     {
         $model = new MDegree();
@@ -73,22 +93,30 @@ class Degree extends CI_Controller
         echo json_encode($result, true);
     }
 
+
     function editDegreeData()
     {
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idDegree']) && $_POST['idDegree'] != '' && isset($_POST['DegreeName']) && $_POST['DegreeName'] != '') {
+            $editData = 0;
             $idDegree = $_POST['idDegree'];
-            $editArr['degree'] = $_POST['DegreeName'];
+            $editArr['degree'] = ucfirst($_POST['DegreeName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
-            $editData = $Custom->Edit($editArr, 'id', $idDegree, 'hr_degree');
-            if ($editData) {
-                $result = 1;
+
+            $chkDuplicate = $this->chkDuplicate($editArr['degree']);
+            if ($chkDuplicate >= 1) {
+                $result = 4; /*'already exist'*/
             } else {
-                $result = 2;
+                $editData = $Custom->Edit($editArr, 'id', $idDegree, 'hr_degree');
+                if ($editData) {
+                    $result = 1;
+                } else {
+                    $result = 2;
+                }
             }
-            $trackarray = array("action" => "Degree Edit -> Function: editDegreeData() Degree Edit ",
+            $trackarray = array("action" => "Degree Edit -> Function: editDegreeData()",
                 "activityName" => "Edit Degree",
                 "result" => $result . "--- resultID: " . $editData, "PostData" => $editArr);
             $Custom->trackLogs($trackarray, "user_logs");
@@ -97,6 +125,7 @@ class Degree extends CI_Controller
         }
         echo $result;
     }
+
 
     function deleteDegreeData()
     {

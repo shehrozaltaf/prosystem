@@ -99,7 +99,7 @@ class Location extends CI_Controller
         if (isset($_POST['idLocation']) && $_POST['idLocation'] != '' && isset($_POST['LocationName']) && $_POST['LocationName'] != '') {
             $editData = 0;
             $idLocation = $_POST['idLocation'];
-            $editArr['location'] = $_POST['LocationName'];
+            $editArr['location'] = ucfirst($_POST['LocationName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
 

@@ -103,7 +103,7 @@ class LocationSub extends CI_Controller
             $editData = 0;
             $idLocationSub = $_POST['idLocationSub'];
             $editArr['idLocation'] = $_POST['idLocation'];
-            $editArr['location_sub'] = $_POST['LocationSubName'];
+            $editArr['location_sub'] = ucfirst($_POST['LocationSubName']);
             $editArr['updatedBy'] = $_SESSION['login']['idUser'];
             $editArr['updatedDateTime'] = date('Y-m-d H:i:s');
 

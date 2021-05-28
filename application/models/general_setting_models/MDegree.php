@@ -23,4 +23,14 @@ class MDegree extends CI_Model
         return $query->result();
     }
 
+    function chkDuplicateByName($name)
+    {
+        $this->db->select('*');
+        $this->db->from('hr_degree');
+        $this->db->where('degree', $name);
+        $this->db->where('isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

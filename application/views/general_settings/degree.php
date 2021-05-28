@@ -214,6 +214,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     }, 500);
                 } else if (result == 3) {
                     toastMsg('Degree', 'Invalid Degree Name', 'error');
+                } else if (result == 4) {
+                    toastMsg('Degree', 'Degree Name already exist', 'error');
                 } else {
                     toastMsg('Error', 'Something went wrong', 'error');
                 }
@@ -269,6 +271,10 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     toastMsg('Degree', 'Something went wrong', 'error');
                 } else if (res == 3) {
                     toastMsg('Degree', 'Invalid Degree', 'error');
+                } else if (res == 4) {
+                    toastMsg('Degree', 'Degree Name already exist', 'error');
+                } else {
+                    toastMsg('Degree', 'Invalid Degree', 'error');
                 }
             });
         }
@@ -297,6 +303,8 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                 } else if (res == 2) {
                     toastMsg('Degree', 'Something went wrong', 'error');
                 } else if (res == 3) {
+                    toastMsg('Degree', 'Invalid Degree', 'error');
+                } else {
                     toastMsg('Degree', 'Invalid Degree', 'error');
                 }
 
