@@ -42,14 +42,14 @@ class Searchemployee extends CI_Controller
         $data['status'] = $Custom->selectAllQuery('hr_status', 'id');
         $data['desig'] = $Custom->selectAllQuery('hr_desig', 'desig');
         $data['band'] = $Custom->selectAllQuery('hr_band', 'band');
-        $data['CategoryHR'] = $Custom->selectAllQuery('hr_category', 'CategoryHR');
+        $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
 
 
         $Mempmodel = new Mempmodel();
         $searchData = array();
         $searchData['projects'] = (isset($_REQUEST['pro']) && $_REQUEST['pro'] != '' && $_REQUEST['pro'] != '0' ? $_REQUEST['pro'] : 0);
         $searchData['location'] = (isset($_REQUEST['loc']) && $_REQUEST['loc'] != '' && $_REQUEST['loc'] != '0' ? $_REQUEST['loc'] : 0);
-        $searchData['CategoryHR'] = (isset($_REQUEST['cat']) && $_REQUEST['cat'] != '' && $_REQUEST['cat'] != '0' ? $_REQUEST['cat'] : 0);
+        $searchData['category'] = (isset($_REQUEST['cat']) && $_REQUEST['cat'] != '' && $_REQUEST['cat'] != '0' ? $_REQUEST['cat'] : 0);
         $searchData['entity'] = (isset($_REQUEST['ent']) && $_REQUEST['ent'] != '' && $_REQUEST['ent'] != '0' ? $_REQUEST['ent'] : 0);
         $searchData['band'] = (isset($_REQUEST['band']) && $_REQUEST['band'] != '' && $_REQUEST['band'] != '0' ? $_REQUEST['band'] : 0);
         $searchData['status'] = (isset($_REQUEST['status']) && $_REQUEST['status'] != '' && $_REQUEST['status'] != '0' ? $_REQUEST['status'] : 0);
@@ -78,32 +78,37 @@ class Searchemployee extends CI_Controller
         $data = array();
         $MSettings = new MSettings();
         $Custom = new Custom();
-
-        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'index.php/hr_controllers/searchemployee');
-        /*==========Log=============*/
-        $trackarray = array("action" => "View Dashboard Users Page",
-            "result" => "View Dashboard Users page. Fucntion: index()");
-        $Custom->trackLogs($trackarray, "user_logs");
-
-        if (isset($_GET['emp']) && $_GET['emp'] != '') {
-            $data['emp'] = $_GET['emp'];
+        $data['permission'] = $MSettings->getUserRights($_SESSION['login']['idGroup'], '', 'hr_controllers/searchemployee');
+        if (isset($data['permission'][0]->CanView) && $data['permission'][0]->CanView == 1) {
+            /*==========Log=============*/
+            $trackarray = array("action" => "View Dashboard Users Page",
+                "result" => "View Dashboard Users page. Function: index()");
+            $Custom->trackLogs($trackarray, "user_logs");
+            if (isset($_GET['emp']) && $_GET['emp'] != '') {
+                $data['emp'] = $_GET['emp'];
+            } else {
+                $data['emp'] = '';
+            }
+            $Mempmodel = new Mempmodel();
+            $data['empDetails'] = $Mempmodel->getEmployeeDataByEmpNo($data['emp']);
+            $data['assetEmp'] = $Mempmodel->getAssetByEmpNo($data['emp']);
+            $searchdata = array();
+            $searchdata['empno'] = $data['emp'];
+            $data['emp_docs'] = $Mempmodel->getEmpDocsByEmpNo($searchdata);
+            $this->load->view('include/header');
+            $this->load->view('include/top_header');
+            $this->load->view('include/sidebar');
+            $this->load->view('hr_views/empdetail', $data);
+            $this->load->view('include/customizer');
+            $this->load->view('include/footer');
         } else {
-            $data['emp'] = '';
-//            header('location:');
+            $this->load->view('page-not-authorized', $data);
         }
+        /* echo '<pre>';
+         print_r($data['permission']);
+         echo '<pre>';
+         exit();*/
 
-        $Mempmodel = new Mempmodel();
-        $data['empDetails'] = $Mempmodel->getEmployeeDataByEmpNo($data['emp']);
-        $data['assetEmp'] = $Mempmodel->getAssetByEmpNo($data['emp']);
-        $searchdata = array();
-        $searchdata['empno'] = $data['emp'];
-        $data['emp_docs'] = $Mempmodel->getEmpDocsByEmpNo($searchdata);
-        $this->load->view('include/header');
-        $this->load->view('include/top_header');
-        $this->load->view('include/sidebar');
-        $this->load->view('hr_views/empdetail', $data);
-        $this->load->view('include/customizer');
-        $this->load->view('include/footer');
     }
 
 }

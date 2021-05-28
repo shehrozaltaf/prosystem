@@ -30,9 +30,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card profile-header mb-5 " style="padding-top: 150px;">
-
-                            <?php
-                            if (isset($empDetails[0]) && $empDetails[0] != '') {
+                            <?php if (isset($empDetails[0]) && $empDetails[0] != '') {
                                 $empD = $empDetails[0];
                             } else {
                                 $empD = '';
@@ -363,7 +361,12 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Hiring Salary</td>
                                                     <td>
-                                                        <?php echo(isset($empD->hiresalary) ? $this->encrypt->decode($empD->hiresalary) : '') ?>
+                                                        <?php if (isset($permission[0]->CanViewAllDetail) && $permission[0]->CanViewAllDetail == 1) {
+                                                            echo(isset($empD->hiresalary) ? $this->encrypt->decode($empD->hiresalary) : '');
+                                                        } else {
+                                                            echo '';
+                                                        }
+                                                        ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -472,62 +475,62 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
-                                            <?php
-                                            if (isset($emp_docs) && $emp_docs != '') {
-                                                foreach ($emp_docs as $docs) {
-                                                    $fileName = $docs->docName;
-                                                    $file = $docs->docPath;
-                                                    $img = base_url() . 'assets/images/icons/text.png';
-                                                    $ext = pathinfo($file, PATHINFO_EXTENSION);
-                                                    if ($ext == 'doc' || $ext == 'docx') {
-                                                        $type = 'application/msword';
-                                                        $img = base_url() . 'assets/images/icons/docs.png';
-                                                    } elseif ($ext == 'csv') {
-                                                        $type = 'text/csv';
-                                                        $img = base_url() . 'assets/images/icons/xls.png';
-                                                    } elseif ($ext == 'xls') {
-                                                        $type = 'application/vnd.ms-excel';
-                                                        $img = base_url() . 'assets/images/icons/xls.png';
-                                                    } elseif ($ext == 'xlsx') {
-                                                        $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-                                                        $img = base_url() . 'assets/images/icons/xls.png';
-                                                    } elseif ($ext == 'gif') {
-                                                        $type = 'image/gif';
-                                                        $img = base_url() . 'assets/images/icons/img.png';
-                                                    } elseif ($ext == 'html' || $ext == 'htm') {
-                                                        $type = 'text/html';
-                                                    } elseif ($ext == 'jpeg' || $ext == 'jpg') {
-                                                        $type = 'image/jpeg';
-                                                        $img = base_url() . 'assets/images/icons/img.png';
-                                                    } elseif ($ext == 'png') {
-                                                        $type = 'image/png';
-                                                        $img = base_url() . 'assets/images/icons/img.png';
-                                                    } elseif ($ext == 'pdf') {
-                                                        $type = 'application/pdf';
-                                                        $img = base_url() . 'assets/images/icons/pdf.png';
-                                                    } elseif ($ext == 'mp3') {
-                                                        $type = 'audio/mpeg';
-                                                        $img = base_url() . 'assets/images/icons/img.png';
-                                                    } elseif ($ext == 'mpeg') {
-                                                        $type = 'video/mpeg';
-                                                        $img = base_url() . 'assets/images/icons/img.png';
-                                                    } elseif ($ext == 'zip') {
-                                                        $type = 'application/zip';
-                                                    } else {
-                                                        $type = 'text/plain';
+                                                <?php
+                                                if (isset($emp_docs) && $emp_docs != '') {
+                                                    foreach ($emp_docs as $docs) {
+                                                        $fileName = $docs->docName;
+                                                        $file = $docs->docPath;
                                                         $img = base_url() . 'assets/images/icons/text.png';
-                                                    }
-                                                    echo '<div class="img-container col-2"  style="width: 150px;">
+                                                        $ext = pathinfo($file, PATHINFO_EXTENSION);
+                                                        if ($ext == 'doc' || $ext == 'docx') {
+                                                            $type = 'application/msword';
+                                                            $img = base_url() . 'assets/images/icons/docs.png';
+                                                        } elseif ($ext == 'csv') {
+                                                            $type = 'text/csv';
+                                                            $img = base_url() . 'assets/images/icons/xls.png';
+                                                        } elseif ($ext == 'xls') {
+                                                            $type = 'application/vnd.ms-excel';
+                                                            $img = base_url() . 'assets/images/icons/xls.png';
+                                                        } elseif ($ext == 'xlsx') {
+                                                            $type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                                                            $img = base_url() . 'assets/images/icons/xls.png';
+                                                        } elseif ($ext == 'gif') {
+                                                            $type = 'image/gif';
+                                                            $img = base_url() . 'assets/images/icons/img.png';
+                                                        } elseif ($ext == 'html' || $ext == 'htm') {
+                                                            $type = 'text/html';
+                                                        } elseif ($ext == 'jpeg' || $ext == 'jpg') {
+                                                            $type = 'image/jpeg';
+                                                            $img = base_url() . 'assets/images/icons/img.png';
+                                                        } elseif ($ext == 'png') {
+                                                            $type = 'image/png';
+                                                            $img = base_url() . 'assets/images/icons/img.png';
+                                                        } elseif ($ext == 'pdf') {
+                                                            $type = 'application/pdf';
+                                                            $img = base_url() . 'assets/images/icons/pdf.png';
+                                                        } elseif ($ext == 'mp3') {
+                                                            $type = 'audio/mpeg';
+                                                            $img = base_url() . 'assets/images/icons/img.png';
+                                                        } elseif ($ext == 'mpeg') {
+                                                            $type = 'video/mpeg';
+                                                            $img = base_url() . 'assets/images/icons/img.png';
+                                                        } elseif ($ext == 'zip') {
+                                                            $type = 'application/zip';
+                                                        } else {
+                                                            $type = 'text/plain';
+                                                            $img = base_url() . 'assets/images/icons/text.png';
+                                                        }
+                                                        echo '<div class="img-container col-2"  style="width: 150px;">
                                             <a data-ur="' . $file . '" href="' . base_url() . 'index.php/OpenFile?e=' . $docs->empno . '&doc=' . $fileName . '" target="_blank">
                                                 <img src="' . $img . '" class="img-fluid" alt="image">
                                                 <p class="  text-danger text-center">' . $fileName . '</p> 
                                             </a>
                                         </div> ';
+                                                    }
+                                                } else {
+                                                    echo '<p>No record found</p>';
                                                 }
-                                            } else {
-                                                echo '<p>No record found</p>';
-                                            }
-                                            ?></div>
+                                                ?></div>
                                         </div>
                                     </div>
                                 </div>
