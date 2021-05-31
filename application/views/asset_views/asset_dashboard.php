@@ -252,36 +252,36 @@
                                                class="table table-striped datatables-basic   table-bordered show-child-rows display">
                                             <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Action</th>
-                                                <th>PAEDS Id</th>
-                                                <th>Category</th>
-                                                <th>Description</th>
-                                                <th>Tag NO</th>
-                                                <th>Employee</th>
-                                                <th>Project</th>
-                                                <th>Location</th>
-                                                <th>Sub Location</th>
-                                                <th>Status</th>
-                                                <th>Document</th>
-                                                <th>Verification</th>
+                                                <th width="5%"></th>
+                                                <th width="10%">Action</th>
+                                                <th width="5%">PAEDS Id</th>
+                                                <th width="10%">Category</th>
+                                                <th width="10%">Description</th>
+                                                <th width="5%">Tag NO</th>
+                                                <th width="10%">Employee</th>
+                                                <th width="10%">Project</th>
+                                                <th width="10%">Location</th>
+                                                <th width="5%">Sub Location</th>
+                                                <th width="5%">Status</th>
+                                                <th width="10%">Document</th>
+                                                <th width="5%">Verification</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
-                                                <th></th>
-                                                <th>Action</th>
-                                                <th>PAEDS Id</th>
-                                                <th>Category</th>
-                                                <th>Description</th>
-                                                <th>Tag NO</th>
-                                                <th>Employee</th>
-                                                <th>Project</th>
-                                                <th>Location</th>
-                                                <th>Sub Location</th>
-                                                <th>Status</th>
-                                                <th>Document</th>
-                                                <th>Verification</th>
+                                                <th width="5%"></th>
+                                                <th width="10%">Action</th>
+                                                <th width="5%">PAEDS Id</th>
+                                                <th width="10%">Category</th>
+                                                <th width="10%">Description</th>
+                                                <th width="5%">Tag NO</th>
+                                                <th width="10%">Employee</th>
+                                                <th width="10%">Project</th>
+                                                <th width="10%">Location</th>
+                                                <th width="5%">Sub Location</th>
+                                                <th width="5%">Status</th>
+                                                <th width="10%">Document</th>
+                                                <th width="5%">Verification</th>
                                             </tr>
                                             </tfoot>
                                         </table>
