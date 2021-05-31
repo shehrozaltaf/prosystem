@@ -109,7 +109,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <h4 class="modal-title white" id="myModalLabel_add">Add Currency</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-Currency">
+                    <div class="form-group">
                         <label for="CurrencyName">Currency: </label>
                         <input type="text" class="form-control CurrencyName" id="CurrencyName">
                     </div>
@@ -134,7 +134,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <input type="hidden" id="edit_idCurrency" name="edit_idCurrency">
                 </div>
                 <div class="modal-body">
-                    <div class="form-Currency">
+                    <div class="form-group">
                         <label for="edit_CurrencyName">Currency: </label>
                         <input type="text" class="form-control edit_CurrencyName" id="edit_CurrencyName">
                     </div>

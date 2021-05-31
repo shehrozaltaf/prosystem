@@ -109,7 +109,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <h4 class="modal-title white" id="myModalLabel_add">Add Asset Category</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-CategoryAsset">
+                    <div class="form-group">
                         <label for="CategoryAssetName">Category: </label>
                         <input type="text" class="form-control CategoryAssetName" id="CategoryAssetName">
                     </div>
@@ -134,7 +134,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <input type="hidden" id="edit_idCategoryAsset" name="edit_idCategoryAsset">
                 </div>
                 <div class="modal-body">
-                    <div class="form-CategoryAsset">
+                    <div class="form-group">
                         <label for="edit_CategoryAssetName">Category: </label>
                         <input type="text" class="form-control edit_CategoryAssetName" id="edit_CategoryAssetName">
                     </div>

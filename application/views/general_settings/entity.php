@@ -109,7 +109,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <h4 class="modal-title white" id="myModalLabel_add">Add Entity</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-Entity">
+                    <div class="form-group">
                         <label for="EntityName">Entity: </label>
                         <input type="text" class="form-control EntityName" id="EntityName">
                     </div>
@@ -134,7 +134,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <input type="hidden" id="edit_idEntity" name="edit_idEntity">
                 </div>
                 <div class="modal-body">
-                    <div class="form-Entity">
+                    <div class="form-group">
                         <label for="edit_EntityName">Entity: </label>
                         <input type="text" class="form-control edit_EntityName" id="edit_EntityName">
                     </div>

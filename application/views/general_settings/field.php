@@ -109,7 +109,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <h4 class="modal-title white" id="myModalLabel_add">Add Field</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-Field">
+                    <div class="form-group">
                         <label for="FieldName">Field: </label>
                         <input type="text" class="form-control FieldName" id="FieldName">
                     </div>
@@ -134,7 +134,7 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) { ?>
                     <input type="hidden" id="edit_idField" name="edit_idField">
                 </div>
                 <div class="modal-body">
-                    <div class="form-Field">
+                    <div class="form-group">
                         <label for="edit_FieldName">Field: </label>
                         <input type="text" class="form-control edit_FieldName" id="edit_FieldName">
                     </div>
