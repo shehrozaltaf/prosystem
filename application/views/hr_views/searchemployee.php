@@ -221,11 +221,11 @@
                                             <table class="table table-striped childTable" id="empTable">
                                                 <thead>
                                                 <tr>
-                                                    <th>S.No</th>
-                                                    <th>Employee Type</th>
-                                                    <th>Category</th>
+                                                    <th>SNo</th>
                                                     <th>Employee No</th>
                                                     <th>Employee Name</th>
+                                                    <th>Employee Type</th>
+                                                    <th>Category</th>
                                                     <th>Supervisor Name</th>
                                                     <th>Working Project</th>
                                                     <th>Charging Project</th>
@@ -251,17 +251,18 @@
                                                                 <?php echo $sno ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $rows->emptype ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $rows->category ?>
-                                                            </td>
-                                                            <td>
                                                                 <?php echo $rows->empno ?>
                                                             </td>
                                                             <td style="text-transform: uppercase;">
                                                                 <?php echo $rows->empname ?>
                                                             </td>
+                                                            <td>
+                                                                <?php echo $rows->emptype ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows->category ?>
+                                                            </td>
+
                                                             <td class="auditcol_supernme"
                                                                 style="text-transform: uppercase;"
                                                                 data-key="<?php echo $rows->supernme ?>"
@@ -352,8 +353,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Page</h4>
-                    <input type="hidden" id="delete_idPage" name="delete_idPage">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Employee</h4>
+                    <input type="hidden" id="delete_idEmp" name="delete_idEmp">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -376,7 +377,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
                     <h4 class="modal-title white" id="myModalLabel_editEmpModal">Edit Employees</h4>
-                    <input type="hidden" id="delete_idPage" name="delete_idPage">
+                    <input type="hidden" id="delete_idEmp" name="delete_idEmp">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to edit these employees?</p>
@@ -940,67 +941,31 @@
         }
     }
 
-
-
-    function editData() {
-        $('#edit_pageName').css('border', '1px solid #babfc7');
-        var flag = 0;
-        var data = {};
-        data['idPage'] = $('#edit_idPage').val();
-        data['pageName'] = $('#edit_pageName').val();
-        if (data['idPage'] == '' || data['idPage'] == undefined || data['idPage'].length < 1) {
-            flag = 1;
-            return false;
-        }
-        if (data['pageName'] == '' || data['pageName'] == undefined || data['pageName'].length < 1) {
-            $('#edit_pageName').css('border', '1px solid red');
-            toastMsg('Page', 'Invalid Page Name', 'error');
-            flag = 1;
-            return false;
-        }
-        if (flag === 0) {
-            CallAjax('<?php echo base_url('index.php/Settings/editPageData')?>', data, 'POST', function (res) {
-                if (res == 1) {
-                    $('#editModal').modal('hide');
-                    toastMsg('Page', 'Successfully Edited', 'success');
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
-                } else if (res == 2) {
-                    toastMsg('Page', 'Something went wrong', 'error');
-                } else if (res == 3) {
-                    toastMsg('Page', 'Invalid Page', 'error');
-                }
-            });
-        }
-    }
-
-
     function getDelete(obj) {
         var id = $(obj).parent('td').attr('data-id');
-        $('#delete_idPage').val(id);
+        $('#delete_idEmp').val(id);
         $('#deleteModal').modal('show');
     }
 
     function deleteData() {
         var data = {};
-        data['idPage'] = $('#delete_idPage').val();
-        if (data['idPage'] == '' || data['idPage'] == undefined || data['idPage'] == 0) {
-            toastMsg('Page', 'Something went wrong', 'error');
+        data['idEmp'] = $('#delete_idEmp').val();
+        if (data['idEmp'] == '' || data['idEmp'] == undefined || data['idEmp'] == 0) {
+            toastMsg('Employee', 'Something went wrong', 'error');
             return false;
         } else {
-            CallAjax('<?php echo base_url('index.php/Settings/deletePageData')?>', data, 'POST', function (res) {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/Employee_entry/deleteEmp')?>', data, 'POST', function (res) {
 
                 if (res == 1) {
-                    toastMsg('Page', 'Successfully Deleted', 'success');
+                    toastMsg('Employee', 'Successfully Deleted', 'success');
                     $('#deleteModal').modal('hide');
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 } else if (res == 2) {
-                    toastMsg('Page', 'Something went wrong', 'error');
+                    toastMsg('Employee', 'Something went wrong', 'error');
                 } else if (res == 3) {
-                    toastMsg('Page', 'Invalid Page', 'error');
+                    toastMsg('Employee', 'Invalid Employee', 'error');
                 }
 
             });

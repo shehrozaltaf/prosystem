@@ -1,11 +1,7 @@
 <?php error_reporting(0);
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 ob_start();
-
 date_default_timezone_set('Asia/Karachi');
-
 
 class Employee_entry extends CI_controller
 {
@@ -266,6 +262,78 @@ class Employee_entry extends CI_controller
         echo json_encode($results);
     }
 
+    function getEmpDocs()
+    {
+        $result = array();
+        if (isset($_GET['e']) && $_GET['e'] != '') {
+            $Mempmodel = new Mempmodel();
+            $searchdata = array();
+            $searchdata['empno'] = $_GET['e'];
+            $storeFolder = 'assets/uploads/hrUploads/' . $searchdata['empno'] . '/docs/';
+            $docs = $Mempmodel->getEmpDocsByEmpNo($searchdata);
+            if (isset($docs) && $docs != '') {
+                foreach ($docs as $d) {
+                    $obj['name'] = $d->docName;
+                    $obj['size'] = filesize($storeFolder . '/' . $d->docName);
+                    $result[] = $obj;
+                }
+            }
+        }
+        header('Content-type: text/json');
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
+
+    function deleteDoc()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        $where = array();
+        if (isset($_POST['empno']) && $_POST['empno'] != '') {
+            $where['empno'] = $_POST['empno'];
+            if (isset($_POST['file']) && $_POST['file'] != '') {
+                $where['docName'] = $_POST['file'];
+                $editArr['isActive'] = 0;
+                $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+                $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+                $editData = $Custom->Edit_multi_where($editArr, $where, 'hr_employee_docs');
+                if ($editData) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            } else {
+                echo 3;
+            }
+        } else {
+            echo 4;
+        }
+    }
+
+    function deleteEmp()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idEmp']) && $_POST['idEmp'] != '') {
+            $idEmp= $_POST['idEmp'];
+            $editArr['isActive'] = 0;
+            $editArr['deleteBy'] = $_SESSION['login']['idUser'];
+            $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
+            $editData = $Custom->Edit($editArr, 'id', $idEmp, 'hr_employee');
+            $trackarray = array("action" => "Delete Employee -> Function: deleteEmp() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
+
     /*Edit Record*/
 
     function editData()
@@ -412,54 +480,6 @@ class Employee_entry extends CI_controller
 
         }
         echo json_encode($result);
-    }
-
-    function getEmpDocs()
-    {
-        $result = array();
-        if (isset($_GET['e']) && $_GET['e'] != '') {
-            $Mempmodel = new Mempmodel();
-            $searchdata = array();
-            $searchdata['empno'] = $_GET['e'];
-            $storeFolder = 'assets/uploads/hrUploads/' . $searchdata['empno'] . '/docs/';
-            $docs = $Mempmodel->getEmpDocsByEmpNo($searchdata);
-            if (isset($docs) && $docs != '') {
-                foreach ($docs as $d) {
-                    $obj['name'] = $d->docName;
-                    $obj['size'] = filesize($storeFolder . '/' . $d->docName);
-                    $result[] = $obj;
-                }
-            }
-        }
-        header('Content-type: text/json');
-        header('Content-type: application/json');
-        echo json_encode($result);
-    }
-
-    function deleteDoc()
-    {
-        $Custom = new Custom();
-        $editArr = array();
-        $where = array();
-        if (isset($_POST['empno']) && $_POST['empno'] != '') {
-            $where['empno'] = $_POST['empno'];
-            if (isset($_POST['file']) && $_POST['file'] != '') {
-                $where['docName'] = $_POST['file'];
-                $editArr['isActive'] = 0;
-                $editArr['deleteBy'] = $_SESSION['login']['idUser'];
-                $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
-                $editData = $Custom->Edit_multi_where($editArr, $where, 'hr_employee_docs');
-                if ($editData) {
-                    echo 1;
-                } else {
-                    echo 2;
-                }
-            } else {
-                echo 3;
-            }
-        } else {
-            echo 4;
-        }
     }
 
 
