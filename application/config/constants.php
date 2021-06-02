@@ -87,5 +87,6 @@ defined('EXIT__AUTO_MAX') OR define('EXIT__AUTO_MAX', 125); // highest automatic
 
 define('PROJECT_NAME', 'Staff Online Data Repository COE / DWCH');
 define('PROJECT_NAME1', '');
-define('EMPLOYEE_LOC', 'E:/PortalFiles/HR_PROREPORTS/');
+//define('EMPLOYEE_LOC', 'E:/PortalFiles/HR_PROREPORTS/');
+define('EMPLOYEE_LOC', 'C:/PortalFiles/HR_PROREPORTS/');
 define('ASSET_LOC', 'E:/PortalFiles/ASSET_PROREPORTS/');
