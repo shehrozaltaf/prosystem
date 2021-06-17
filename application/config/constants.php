@@ -85,7 +85,8 @@ defined('EXIT__AUTO_MIN') OR define('EXIT__AUTO_MIN', 9); // lowest automaticall
 defined('EXIT__AUTO_MAX') OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-define('PROJECT_NAME', 'Staff Online Data Repository COE / DWCH');
+//define('PROJECT_NAME', 'Staff Online Data Repository COE / DWCH');
+define('PROJECT_NAME', 'PRISM');
 define('PROJECT_NAME1', '');
 //define('EMPLOYEE_LOC', 'E:/PortalFiles/HR_PROREPORTS/');
 define('EMPLOYEE_LOC', 'C:/PortalFiles/HR_PROREPORTS/');

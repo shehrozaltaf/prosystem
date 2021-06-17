@@ -20880,7 +20880,7 @@ function resetSourceDefaulter(ecModel) {
  * before "series.getInitailData()" called.
  *
  * [The rule of making default encode]:
- * CategoryHR axis (if exists) alway map to the first dimension.
+ * Category axis (if exists) alway map to the first dimension.
  * Each other axis occupies a subsequent dimension.
  *
  * [Why make default encode]:
@@ -41108,7 +41108,7 @@ function fixValue(axisModel) {
     var axisPointerModel = axisInfo.axisPointerModel;
     var scale = axisInfo.axis.scale;
     var option = axisPointerModel.option;
-    var status = axisPointerModel.get('statushr.php');
+    var status = axisPointerModel.get('status');
     var value = axisPointerModel.get('value');
 
     // Parse init value for category and time axis.
@@ -68392,7 +68392,7 @@ BaseAxisPointer.prototype = {
      */
     render: function (axisModel, axisPointerModel, api, forceRender) {
         var value = axisPointerModel.get('value');
-        var status = axisPointerModel.get('statushr.php');
+        var status = axisPointerModel.get('status');
 
         // Bind them to `this`, not in closure, otherwise they will not
         // be replaced when user calling setOption in not merge mode.
@@ -68582,7 +68582,7 @@ BaseAxisPointer.prototype = {
         var handle = this._handle;
         var handleModel = axisPointerModel.getModel('handle');
 
-        var status = axisPointerModel.get('statushr.php');
+        var status = axisPointerModel.get('status');
         if (!handleModel.get('show') || !status || status === 'hide') {
             handle && zr.remove(handle);
             this._handle = null;

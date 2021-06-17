@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="<?php echo PROJECT_NAME ?>">
     <meta name="keywords" content="<?php echo PROJECT_NAME ?>">
-    <meta name="author" content="Javed Ahmed Khan & Shahroz Khan">
+    <meta name="author" content="Shahroz Khan">
     <title><?php echo PROJECT_NAME ?></title>
     <link rel="apple-touch-icon" href="<?php echo base_url() ?>assets/images/ico/apple-icon-120.png">
-<!--    <link rel="shortcut icon" type="image/x-icon" href="--><?php //echo base_url() ?><!--assets/images/ico/favicon.ico">-->
+    <!--    <link rel="shortcut icon" type="image/x-icon" href="-->
+    <?php //echo base_url() ?><!--assets/images/ico/favicon.ico">-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
 
@@ -41,20 +42,9 @@
     <script src="<?php echo base_url(); ?>assets/js/core.js" type="text/javascript"></script>
     <!-- BEGIN Vendor JS-->
 
-    <!-- BEGIN: Theme JS-->
-    <script src="<?php echo base_url() ?>assets/js/core/app-menu.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/core/app.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/scripts/components.js"></script>
-    <!-- END: Theme JS-->
 
-
-    <!-- BEGIN: Page JS-->
-    <script src="<?php echo base_url() ?>assets/js/scripts/modal/components-modal.js"></script>
-    <!-- END: Page JS-->
-
-
-    <!--    <link rel="stylesheet" type="text/css" href="-->
-    <?php //echo base_url() ?><!--assets/vendors/css/tables/datatable/datatables.min.css">-->
+    <link rel="stylesheet" type="text/css"
+          href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css"
           href="<?php echo base_url() ?>assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css"

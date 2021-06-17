@@ -90,6 +90,8 @@
 
 <script src="<?php echo base_url() ?>assets/vendors/js/forms/select/select2.full.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="<?php echo base_url() ?>assets/js/scripts/modal/components-modal.js"></script>
+
 
 </body>
 <!-- END: Body-->

@@ -11,28 +11,17 @@
                     </ul>
                 </div>
                 <ul class="nav navbar-nav float-right">
-
-                    <!--<li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
-                                    class="ficon feather icon-maximize"></i></a></li>-->
-                    <!--<li class="nav-item nav-search"><a class="nav-link nav-link-search"><i
-                                    class="ficon feather icon-search"></i></a>
-                        <div class="search-input">
-                            <div class="search-input-icon"><i class="feather icon-search primary"></i></div>
-                            <input class="input" type="text" placeholder="Explore Vuexy..." tabindex="-1"
-                                   data-search="template-list">
-                            <div class="search-input-close"><i class="feather icon-x"></i></div>
-                            <ul class="search-list search-list-main"></ul>
-                        </div>
-                    </li>-->
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
+                                    class="ficon feather icon-maximize"></i></a></li>
 
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link" href="<?php echo base_url() ?>" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none">
                                 <span class="user-name text-bold-600"><?php
-                                    if (isset($_SESSION['login']['full_name']) && $_SESSION['login']['full_name'] != '') {
-                                        echo "Welcome: " . ucwords($_SESSION['login']['full_name']);
-                                    } else {
-                                        echo 'Welcome2';
+                                    if (isset($_SESSION['login']['full_name']) && $_SESSION['login']['full_name']!='') {
+                                        echo 'Welcome '.ucwords($_SESSION['login']['full_name']);
+                                    }else{
+                                        echo 'Welcome';
                                     }
                                     ?></span>
                             </div>
@@ -61,57 +50,57 @@
 <!-- END: Header-->
 
 <div class="modal fade text-left" id="paswordModal" tabindex="-1" role="dialog"
-         aria-labelledby=""
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="">Change Password</h4>
-                    <input type="hidden" id="delete_idActual" name="delete_idActual">
+     aria-labelledby=""
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary white">
+                <h4 class="modal-title white" id="">Change Password</h4>
+                <input type="hidden" id="delete_idActual" name="delete_idActual">
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, change password?</p>
+            </div>
+            <div class="col-sm-6 col-6">
+                <div class="form-group">
+                    <label for="current_password" class="label-control">Currnet Password</label>
+                    <input type="text" class="form-control" id="current_password" name="current_password"
+                           autocomplete="current_password" required>
                 </div>
-                <div class="modal-body">
-                    <p>Are you sure, change password?</p>
+            </div>
+            <div>
+            </div>
+            <div class="col-sm-6 col-6">
+                <div class="form-group">
+                    <label for="new_password" class="label-control">New Password</label>
+                    <input type="text" class="form-control" id="new_password" name="new_password"
+                           autocomplete="new_password" required>
                 </div>
-                <div class="col-sm-6 col-6">
-                     <div class="form-group">
-                           <label for="current_password" class="label-control">Currnet Password</label>
-                            <input type="text" class="form-control" id="current_password" name="current_password"
-                                 autocomplete="current_password" required>
-                        </div>
-                    </div>
-                    <div>
+            </div>
+            <div>
+            </div>
+            <div class="col-sm-6 col-6">
+                <div class="form-group">
+                    <label for="confirm_password" class="label-control">Confirm Password</label>
+                    <input type="text" class="form-control" id="confirm_password" name="confirm_password"
+                           autocomplete="confirm_password" required>
                 </div>
-                <div class="col-sm-6 col-6">
-                     <div class="form-group">
-                           <label for="new_password" class="label-control">New Password</label>
-                            <input type="text" class="form-control" id="new_password" name="new_password"
-                                 autocomplete="new_password" required>
-                        </div>
-                    </div>
-                    <div>
-                </div>
-                <div class="col-sm-6 col-6">
-                     <div class="form-group">
-                           <label for="confirm_password" class="label-control">Confirm Password</label>
-                            <input type="text" class="form-control" id="confirm_password" name="confirm_password"
-                                 autocomplete="confirm_password" required>
-                        </div>
-                    </div>
-                    <div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="">Change Password
-                    </button>
-                </div>
+            </div>
+            <div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="">Change Password
+                </button>
             </div>
         </div>
     </div>
+</div>
 
 <script>
-function changePassword(obj) {
+    function changePassword(obj) {
         var id = $(obj).parent('td').attr('data-id');
         $('#delete_idActual').val(id);
         $('#paswordModal').modal('show');
     }
-    </script>
+</script>
