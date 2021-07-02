@@ -45,6 +45,7 @@ class Users extends CI_controller
         $this->load->view('include/footer');
     }
 
+
     public function getEdit()
     {
         $MUser = new MUser();

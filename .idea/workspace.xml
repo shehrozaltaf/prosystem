@@ -6,21 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/include/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/include/top_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/include/top_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/charts/echarts/echarts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.full.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/forms/select/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/datatables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/pdfmake.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/tables/datatable/pdfmake.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/vendors.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/vendors.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vendors/js/vendors_.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendors/js/vendors_.min.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,49 +35,33 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/core/app.js">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/MWRA-2021-07-02.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/LHW_HOUSEHOLD-2021-07-02.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="928" column="9" selection-start-line="928" selection-start-column="9" selection-end-line="928" selection-end-column="9" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
+        <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/uploads.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../naunehal/application/views/include/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="48" selection-end-column="92" />
+            <state relative-caret-position="272">
+              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/include/footer.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="91" column="94" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../naunehal/application/views/include/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="126" column="69" lean-forward="true" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="69" />
+            <state relative-caret-position="-1241">
+              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -108,7 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>edit_idLocation</find>
       <find>hr_Designation</find>
       <find>DesignationName</find>
       <find>chkDuplicateByName</find>
@@ -138,6 +106,7 @@
       <find>myDownloadBtn</find>
       <find>pickadate</find>
       <find>components</find>
+      <find>getExcel</find>
     </findStrings>
     <replaceStrings>
       <replace>hr_entity</replace>
@@ -178,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/general_settings/Currency.php" />
         <option value="$PROJECT_DIR$/application/controllers/general_settings/Department.php" />
         <option value="$PROJECT_DIR$/application/models/general_setting_models/MCategoryAsset.php" />
         <option value="$PROJECT_DIR$/application/models/general_setting_models/MCategoryHR.php" />
@@ -229,6 +197,7 @@
         <option value="$PROJECT_DIR$/../naunehal/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/include/footer.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
       </list>
     </option>
   </component>
@@ -245,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,58 +231,12 @@
               <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="pro_system" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vendors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pro_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pro_system" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vendors" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -496,14 +420,11 @@
       <workItem from="1622721489832" duration="22000" />
       <workItem from="1623494715952" duration="136000" />
       <workItem from="1623496255806" duration="503000" />
-      <workItem from="1623908317592" duration="3519000" />
-    </task>
-    <task id="LOCAL-00060" summary="upload data">
-      <created>1616167026224</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1616167026232</updated>
+      <workItem from="1623908317592" duration="4220000" />
+      <workItem from="1624348430964" duration="848000" />
+      <workItem from="1624362152999" duration="606000" />
+      <workItem from="1625211775829" duration="403000" />
+      <workItem from="1625218875639" duration="2428000" />
     </task>
     <task id="LOCAL-00061" summary="upload data">
       <created>1616167334749</created>
@@ -841,16 +762,24 @@
       <option name="project" value="LOCAL" />
       <updated>1622635555631</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="responsive">
+      <created>1623923269629</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1623923269630</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="506186000" />
+    <option name="totallyTimeSpent" value="511172000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.17359413" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.1809291" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.114914425" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -875,7 +804,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add HR" />
     <MESSAGE value="HR" />
     <MESSAGE value="Asset" />
     <MESSAGE value="Assets" />
@@ -900,7 +828,8 @@
     <MESSAGE value="settings" />
     <MESSAGE value="emp delete" />
     <MESSAGE value="emp" />
-    <option name="LAST_COMMIT_MESSAGE" value="emp" />
+    <MESSAGE value="responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="responsive" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -959,34 +888,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/Degree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="1" lean-forward="true" selection-end-line="155" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MDegree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="31" lean-forward="true" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/general_setting_models/MSourceOfPurchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/general_settings/SourceOfPurchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="110" column="66" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/general_settings/band.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -1081,11 +982,6 @@
         <state relative-caret-position="51">
           <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-926" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Upload_hr.php">
@@ -1302,31 +1198,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="283" column="80" selection-start-line="283" selection-start-column="80" selection-end-line="283" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/dbconfig.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="473" column="34" selection-start-line="473" selection-start-column="26" selection-end-line="473" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="314" column="29" selection-start-line="314" selection-start-column="29" selection-end-line="314" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1483,6 +1355,190 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="91" column="94" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/asset_controllers/Assets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="5" />
+          <folding>
+            <element signature="n#__construct#0;n#Assets#0;n#!!top" />
+            <element signature="e#613#700#0#PHP" />
+            <element signature="n#index#0;n#Assets#0;n#!!top" />
+            <element signature="e#853#973#0#PHP" />
+            <element signature="n#getAsset#0;n#Assets#0;n#!!top" />
+            <element signature="e#5422#12060#0#PHP" />
+            <element signature="e#5471#6304#0#PHP" />
+            <element signature="e#5554#5639#0#PHP" />
+            <element signature="e#5640#5726#0#PHP" />
+            <element signature="e#5727#5813#0#PHP" />
+            <element signature="e#5814#5897#0#PHP" />
+            <element signature="e#5898#5985#0#PHP" />
+            <element signature="e#5986#6073#0#PHP" />
+            <element signature="e#6074#6161#0#PHP" />
+            <element signature="e#6162#6248#0#PHP" />
+            <element signature="e#6249#6304#0#PHP" />
+            <element signature="e#10248#10668#0#PHP" />
+            <element signature="e#10620#10668#0#PHP" />
+            <element signature="e#10682#11039#0#PHP" />
+            <element signature="e#10989#11039#0#PHP" />
+            <element signature="e#12069#12153#0#PHP" />
+            <element signature="n#changeStatus#0;n#Assets#0;n#!!top" />
+            <element signature="e#13813#16733#0#PHP" />
+            <element signature="e#14531#14656#0#PHP" />
+            <element signature="e#14728#16681#0#PHP" />
+            <element signature="e#14790#16616#0#PHP" />
+            <element signature="e#14955#15070#0#PHP" />
+            <element signature="e#15341#16598#0#PHP" />
+            <element signature="e#15677#16510#0#PHP" />
+            <element signature="e#16437#16510#0#PHP" />
+            <element signature="e#16533#16598#0#PHP" />
+            <element signature="e#16632#16681#0#PHP" />
+            <element signature="e#16692#16733#0#PHP" />
+            <element signature="n#deleteAsset#0;n#Assets#0;n#!!top" />
+            <element signature="e#16864#17585#0#PHP" />
+            <element signature="e#17228#17352#0#PHP" />
+            <element signature="e#17424#17533#0#PHP" />
+            <element signature="e#17484#17533#0#PHP" />
+            <element signature="e#17544#17585#0#PHP" />
+            <element signature="n#assetDetail#0;n#Assets#0;n#!!top" />
+            <element signature="e#17656#19189#0#PHP" />
+            <element signature="e#17835#17959#0#PHP" />
+            <element signature="e#18607#18702#0#PHP" />
+            <element signature="e#19123#19189#0#PHP" />
+            <element signature="n#bulkupdate#0;n#Assets#0;n#!!top" />
+            <element signature="e#19265#19383#0#PHP" />
+            <element signature="e#19392#19541#0#PHP" />
+            <element signature="e#19550#19671#0#PHP" />
+            <element signature="e#19680#19813#0#PHP" />
+            <element signature="e#19822#19967#0#PHP" />
+            <element signature="e#19976#20093#0#PHP" />
+            <element signature="e#20102#20259#0#PHP" />
+            <element signature="e#20268#20437#0#PHP" />
+            <element signature="e#20446#20629#0#PHP" />
+            <element signature="e#20638#20789#0#PHP" />
+            <element signature="e#20798#20907#0#PHP" />
+            <element signature="e#20948#22915#0#PHP" />
+            <element signature="e#21085#22735#0#PHP" />
+            <element signature="e#21378#22720#0#PHP" />
+            <element signature="e#21415#22477#0#PHP" />
+            <element signature="e#21473#22455#0#PHP" />
+            <element signature="e#21540#22429#0#PHP" />
+            <element signature="e#22498#22644#0#PHP" />
+            <element signature="e#22579#22644#0#PHP" />
+            <element signature="e#22663#22720#0#PHP" />
+            <element signature="e#22750#22863#0#PHP" />
+            <element signature="e#22874#22915#0#PHP" />
+            <element signature="n#bulkupdate2#0;n#Assets#0;n#!!top" />
+            <element signature="e#23061#23407#0#PHP" />
+            <element signature="e#23416#23823#0#PHP" />
+            <element signature="e#23832#24197#0#PHP" />
+            <element signature="e#24206#24579#0#PHP" />
+            <element signature="e#24588#24987#0#PHP" />
+            <element signature="e#24996#25345#0#PHP" />
+            <element signature="e#25354#25783#0#PHP" />
+            <element signature="e#25792#26281#0#PHP" />
+            <element signature="e#26290#26753#0#PHP" />
+            <element signature="e#26762#27149#0#PHP" />
+            <element signature="e#27158#27487#0#PHP" />
+            <element signature="e#27528#29086#0#PHP" />
+            <element signature="e#27629#28906#0#PHP" />
+            <element signature="e#27767#28891#0#PHP" />
+            <element signature="e#27804#28647#0#PHP" />
+            <element signature="e#28669#28815#0#PHP" />
+            <element signature="e#28750#28815#0#PHP" />
+            <element signature="e#28834#28891#0#PHP" />
+            <element signature="e#28921#29034#0#PHP" />
+            <element signature="e#29045#29086#0#PHP" />
+            <element signature="n#getPDF#0;n#Assets#0;n#!!top" />
+            <element signature="e#29153#36431#0#PHP" />
+            <element signature="e#32632#32781#0#PHP" />
+            <element signature="e#34740#36168#0#PHP" />
+            <element signature="e#36360#36431#0#PHP" />
+            <element signature="n#getExcel#0;n#Assets#0;n#!!top" />
+            <element signature="e#36477#47740#0#PHP" />
+            <element signature="e#41958#47202#0#PHP" />
+            <element signature="e#44283#44555#0#PHP" />
+            <element signature="e#47669#47740#0#PHP" />
+            <element signature="n#editAsset#0;n#Assets#0;n#!!top" />
+            <element signature="e#47873#48007#0#PHP" />
+            <element signature="e#47963#48007#0#PHP" />
+            <element signature="e#48126#48237#0#PHP" />
+            <element signature="n#editData#0;n#Assets#0;n#!!top" />
+            <element signature="e#49543#55849#0#PHP" />
+            <element signature="e#49713#55849#0#PHP" />
+            <element signature="e#52072#55838#0#PHP" />
+            <element signature="e#52105#53085#0#PHP" />
+            <element signature="e#52161#53067#0#PHP" />
+            <element signature="e#52219#53045#0#PHP" />
+            <element signature="e#53102#55619#0#PHP" />
+            <element signature="e#53262#53377#0#PHP" />
+            <element signature="e#53506#55601#0#PHP" />
+            <element signature="e#53581#55579#0#PHP" />
+            <element signature="e#53971#55553#0#PHP" />
+            <element signature="e#54037#54285#0#PHP" />
+            <element signature="e#54192#54285#0#PHP" />
+            <element signature="e#54573#55378#0#PHP" />
+            <element signature="e#55409#55553#0#PHP" />
+            <element signature="e#55725#55838#0#PHP" />
+            <element signature="n#getAssetDocs#0;n#Assets#0;n#!!top" />
+            <element signature="e#55961#56553#0#PHP" />
+            <element signature="e#56272#56543#0#PHP" />
+            <element signature="e#56323#56529#0#PHP" />
+            <element signature="n#deleteDoc#0;n#Assets#0;n#!!top" />
+            <element signature="e#56814#57545#0#PHP" />
+            <element signature="e#56936#57498#0#PHP" />
+            <element signature="e#57324#57439#0#PHP" />
+            <element signature="e#57387#57439#0#PHP" />
+            <element signature="e#57454#57498#0#PHP" />
+            <element signature="e#57509#57545#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8024">
+          <caret line="472" column="36" selection-start-line="472" selection-start-column="36" selection-end-line="472" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16133">
+          <caret line="949" column="3" selection-start-line="949" selection-start-column="3" selection-end-line="1017" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/MWRA-2021-07-02.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive - Aga Khan University/Desktop/updatedAPIs/api/uploads.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/LHW_HOUSEHOLD-2021-07-02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1241">
+          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
         </state>
       </provider>
     </entry>
