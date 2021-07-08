@@ -39,7 +39,8 @@ class MLogin extends CI_Model
     function updateUserPassword($idUser, $newPassword)
     {
         $pramArray = array();
-        $pramArray['Password'] = $newPassword;
+        $pramArray['password'] = $newPassword;
+        $pramArray['passwordenc'] = hash('sha256', $newPassword);
         $result = $this->Modal->Edit($pramArray, 'idUser', $idUser, 'user');
         if ($result) {
             echo 1;
@@ -50,14 +51,15 @@ class MLogin extends CI_Model
 
     function ChkOldPassword($id, $Password)
     {
-        $query = "select Password from user where idUser='$id' and Password='$Password'";
+        $query = "select password,passwordenc from user where idUser='$id' and password='$Password'";
         return $this->Modal->selectAll($query);
     }
 
     function changeUserPassword($idPerson, $newPassword)
     {
         $pramArray = array();
-        $pramArray['Password'] = $newPassword;
+        $pramArray['password'] = $newPassword;
+        $pramArray['passwordenc'] = hash('sha256', $newPassword);
         $result = $this->Modal->Edit($pramArray, 'idUser', $idPerson, 'user');
         if ($result) {
             echo 1;

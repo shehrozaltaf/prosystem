@@ -92,7 +92,8 @@ class Users extends CI_controller
             $formArray['full_name'] = ucfirst($_POST['fullName']);
             $formArray['username'] = $_POST['userName'];
             $formArray['email'] = $_POST['userEmail'];
-            $formArray['password'] = hash('sha256', $_POST['userPassword']);
+            $formArray['password'] = $_POST['userPassword'];
+            $formArray['passwordenc'] = hash('sha256', $_POST['userPassword']);
             $formArray['designation'] = $_POST['designation'];
             $formArray['contact'] = $_POST['contactNo'];
             $formArray['idGroup'] = $_POST['userGroup'];
@@ -141,7 +142,8 @@ class Users extends CI_controller
             $formArray['full_name'] = ucfirst($_POST['fullName']);
             $formArray['username'] = $_POST['userName'];
             $formArray['email'] = $_POST['userEmail'];
-            $formArray['password'] = hash('sha256', $_POST['userPassword']);
+            $formArray['password'] = $_POST['userPassword'];
+            $formArray['passwordenc'] = hash('sha256', $_POST['userPassword']);
             $formArray['designation'] = $_POST['designation'];
             $formArray['contact'] = $_POST['contactNo'];
             $formArray['idGroup'] = $_POST['userGroup'];
@@ -166,19 +168,20 @@ class Users extends CI_controller
         $editArr = array();
         $flag = 0;
         if (!isset($_POST['newpassword']) || $_POST['newpassword'] == '') {
-            $result = 2;
+           echo $result = 2;
             $flag = 1;
             exit();
         }
 
         if (!isset($_POST['newpasswordconfirm']) || $_POST['newpasswordconfirm'] == '' || $_POST['newpassword'] != $_POST['newpasswordconfirm']) {
-            $result = 3;
+          echo  $result = 3;
             $flag = 1;
             exit();
         }
         if ($flag == 0 && isset($_SESSION['login']['idUser']) && $_SESSION['login']['idUser'] != '') {
             $idUser = $_SESSION['login']['idUser'];
             $editArr['password'] = $_POST['newpassword'];
+            $editArr['passwordenc'] = hash('sha256', $_POST['newpassword']);
             $editData = $Custom->Edit($editArr, 'idUser', $idUser, 'users');
             if ($editData) {
                 $result = 1;
