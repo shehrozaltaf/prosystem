@@ -7,7 +7,8 @@
     <list default="true" id="91e01f7f-b828-4d46-a8f0-8ea85897150c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +37,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="903" column="22" selection-start-line="903" selection-start-column="22" selection-end-line="903" selection-end-column="22" />
+              <folding>
+                <element signature="e#25976#38368#0#PHP" />
+                <element signature="e#38379#39438#0#PHP" />
+                <element signature="e#40490#47608#0#HTML" />
+                <element signature="e#47633#52582#0#HTML" />
+                <element signature="e#52615#55903#0#HTML" />
+                <element signature="e#55933#56058#0#HTML" />
+                <element signature="e#56086#57049#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="259" column="57" selection-start-line="259" selection-start-column="57" selection-end-line="259" selection-end-column="57" />
+              <folding>
+                <element signature="n#EmpDetail#0;n#Searchemployee#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="400" column="109" selection-start-line="400" selection-start-column="109" selection-end-line="400" selection-end-column="109" />
+            <state relative-caret-position="162">
+              <caret line="374" lean-forward="true" selection-start-line="374" selection-end-line="374" />
               <folding>
                 <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
                 <element signature="n#getEmployeeEmpNo#0;n#Employee_entry#0;n#!!top" />
@@ -57,15 +88,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="1452" column="40" selection-start-line="1452" selection-start-column="40" selection-end-line="1452" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -77,8 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Password</find>
-      <find>Invalid Password</find>
       <find>_id</find>
       <find>categ</find>
       <find>ret</find>
@@ -105,8 +125,10 @@
       <find>category</find>
       <find>getEmployeeEdit</find>
       <find>gopdt</find>
-      <find>status</find>
       <find>statushr</find>
+      <find>status</find>
+      <find>changeStatusSingle</find>
+      <find>saveStatusChange</find>
     </findStrings>
     <replaceStrings>
       <replace>['category']</replace>
@@ -193,10 +215,10 @@
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry_.php" />
         <option value="$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php" />
         <option value="$PROJECT_DIR$/application/models/hr_model/Mempmodel.php" />
-        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/empdetail.php" />
-        <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
         <option value="$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php" />
+        <option value="$PROJECT_DIR$/application/views/hr_views/searchemployee.php" />
+        <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php" />
         <option value="$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php" />
       </list>
     </option>
@@ -464,14 +486,7 @@
       <workItem from="1631599388181" duration="2208000" />
       <workItem from="1631611723540" duration="414000" />
       <workItem from="1631614869292" duration="816000" />
-      <workItem from="1631685673779" duration="12882000" />
-    </task>
-    <task id="LOCAL-00067" summary="changes">
-      <created>1617373290350</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1617373290352</updated>
+      <workItem from="1631685673779" duration="13518000" />
     </task>
     <task id="LOCAL-00068" summary="changes">
       <created>1619442184366</created>
@@ -809,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1631706154730</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="edit emp">
+      <created>1631706671426</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1631706671426</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="540992000" />
+    <option name="totallyTimeSpent" value="541628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -844,7 +866,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="emp docs" />
     <MESSAGE value="docs" />
     <MESSAGE value="updates" />
     <MESSAGE value="asset docs" />
@@ -869,7 +890,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="emp pg" />
     <MESSAGE value="dlt emp" />
-    <option name="LAST_COMMIT_MESSAGE" value="dlt emp" />
+    <MESSAGE value="edit emp" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit emp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1358,13 +1380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1889">
-          <caret line="276" column="42" lean-forward="true" selection-start-line="276" selection-start-column="42" selection-end-line="276" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/asset_views/asset_dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-69">
@@ -1475,72 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="897" column="82" selection-start-line="897" selection-start-column="68" selection-end-line="897" selection-end-column="82" />
-          <folding>
-            <element signature="e#40491#47609#0#HTML" />
-            <element signature="e#47634#52583#0#HTML" />
-            <element signature="e#52616#55904#0#HTML" />
-            <element signature="e#56507#57052#0#HTML" />
-            <element signature="e#56540#56813#0#HTML" />
-            <element signature="e#56715#56788#0#HTML" />
-            <element signature="e#56833#56927#0#HTML" />
-            <element signature="e#56947#57037#0#HTML" />
-            <element signature="e#56257#56673#0#HTML" />
-            <element signature="e#56423#56539#0#HTML" />
-            <element signature="e#56545#56667#0#HTML" />
-            <element signature="e#56708#57157#0#HTML" />
-            <element signature="e#56892#57054#0#HTML" />
-            <element signature="e#57060#57103#0#HTML" />
-            <element signature="e#57187#57747#0#HTML" />
-            <element signature="e#57363#57554#0#HTML" />
-            <element signature="e#57474#57544#0#HTML" />
-            <element signature="e#57587#57661#0#HTML" />
-            <element signature="e#57667#57741#0#HTML" />
-            <element signature="e#57776#59941#0#HTML" />
-            <element signature="e#58059#59266#0#HTML" />
-            <element signature="e#58170#59256#0#HTML" />
-            <element signature="e#59300#59855#0#HTML" />
-            <element signature="e#59345#59528#0#HTML" />
-            <element signature="e#59375#59438#0#HTML" />
-            <element signature="e#59444#59514#0#HTML" />
-            <element signature="e#59861#59935#0#HTML" />
-            <element signature="e#59969#61842#0#HTML" />
-            <element signature="e#60788#60952#0#HTML" />
-            <element signature="e#60887#60942#0#HTML" />
-            <element signature="e#61027#61750#0#HTML" />
-            <element signature="e#61102#61107#0#PHP" />
-            <element signature="e#61209#61737#0#HTML" />
-            <element signature="e#61244#61519#0#HTML" />
-            <element signature="e#61421#61494#0#HTML" />
-            <element signature="e#61542#61626#0#HTML" />
-            <element signature="e#61632#61723#0#HTML" />
-            <element signature="e#61756#61836#0#HTML" />
-            <element signature="e#61878#62118#0#HTML" />
-            <element signature="e#62154#62593#0#HTML" />
-            <element signature="e#62319#62447#0#HTML" />
-            <element signature="e#62453#62587#0#HTML" />
-            <element signature="e#62627#65170#0#HTML" />
-            <element signature="e#63312#63409#0#HTML" />
-            <element signature="e#63495#63591#0#HTML" />
-            <element signature="e#63597#65164#0#HTML" />
-            <element signature="e#63740#63868#0#HTML" />
-            <element signature="e#63982#64096#0#HTML" />
-            <element signature="e#64102#65153#0#HTML" />
-            <element signature="e#64160#64165#0#PHP" />
-            <element signature="e#64269#65131#0#HTML" />
-            <element signature="e#64339#64633#0#HTML" />
-            <element signature="e#64523#64604#0#HTML" />
-            <element signature="e#64653#64748#0#HTML" />
-            <element signature="e#64768#64873#0#HTML" />
-            <element signature="e#64893#65008#0#HTML" />
-            <element signature="e#65014#65113#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/hr_views/employee_entry_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -1548,10 +1497,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hr_views/searchemployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="903" column="22" selection-start-line="903" selection-start-column="22" selection-end-line="903" selection-end-column="22" />
+          <folding>
+            <element signature="e#25976#38368#0#PHP" />
+            <element signature="e#38379#39438#0#PHP" />
+            <element signature="e#40490#47608#0#HTML" />
+            <element signature="e#47633#52582#0#HTML" />
+            <element signature="e#52615#55903#0#HTML" />
+            <element signature="e#55933#56058#0#HTML" />
+            <element signature="e#56086#57049#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Searchemployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="259" column="57" selection-start-line="259" selection-start-column="57" selection-end-line="259" selection-end-column="57" />
+          <folding>
+            <element signature="n#EmpDetail#0;n#Searchemployee#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/hr_controllers/Employee_entry.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="400" column="109" selection-start-line="400" selection-start-column="109" selection-end-line="400" selection-end-column="109" />
+        <state relative-caret-position="162">
+          <caret line="374" lean-forward="true" selection-start-line="374" selection-end-line="374" />
           <folding>
             <element signature="n#__construct#0;n#Employee_entry#0;n#!!top" />
             <element signature="n#getEmployeeEmpNo#0;n#Employee_entry#0;n#!!top" />

@@ -47,7 +47,7 @@ class Searchemployee extends CI_Controller
         $data['category'] = $Custom->selectAllQuery('hr_category', 'id');
 
 
-        $Mempmodel = new Mempmodel();
+        /*$Mempmodel = new Mempmodel();
         $searchData = array();
         $searchData['projects'] = (isset($_REQUEST['pro']) && $_REQUEST['pro'] != '' && $_REQUEST['pro'] != '0' ? $_REQUEST['pro'] : 0);
         $searchData['location'] = (isset($_REQUEST['loc']) && $_REQUEST['loc'] != '' && $_REQUEST['loc'] != '0' ? $_REQUEST['loc'] : 0);
@@ -59,15 +59,13 @@ class Searchemployee extends CI_Controller
         $searchData['empno'] = (isset($_REQUEST['eno']) && $_REQUEST['eno'] != '' ? $_REQUEST['eno'] : 0);
         $searchData['hiredatefrom'] = (isset($_REQUEST['hfrom']) && $_REQUEST['hfrom'] != '' ? $_REQUEST['hfrom'] : 0);
         $searchData['hiredateto'] = (isset($_REQUEST['hto']) && $_REQUEST['hto'] != '' ? $_REQUEST['hto'] : 0);
-
         $searchData['start'] = (isset($_REQUEST['start']) && $_REQUEST['start'] != '' && $_REQUEST['start'] != 0 ? $_REQUEST['start'] : 0);
         $searchData['length'] = (isset($_REQUEST['length']) && $_REQUEST['length'] != '' ? $_REQUEST['length'] : 500000);
         $searchData['search'] = (isset($_REQUEST['search']['value']) && $_REQUEST['search']['value'] != '' ? $_REQUEST['search']['value'] : '');
         $searchData['orderby'] = (isset($orderby) && $orderby != '' ? $orderby : 'id');
         $searchData['ordersort'] = (isset($_REQUEST['order'][4]['dir']) && $_REQUEST['order'][4]['dir'] != '' ? $_REQUEST['order'][4]['dir'] : 'desc');
-
-//        $data['datatbl'] = $Mempmodel->getAllEmployee($searchData);
-        $data['searchData'] = $searchData;
+        $data['datatbl'] = $Mempmodel->getAllEmployee($searchData);
+        $data['searchData'] = $searchData;*/
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');
@@ -194,7 +192,7 @@ class Searchemployee extends CI_Controller
             $table_data[$value->empno]['emptype'] = $value->emptype;
 
             $table_data[$value->empno]['status'] = '<span class="label mystatus btn btn-sm btn-' . $statusClass . ' waves-effect waves-light" 
-             onclick="changeStatus(this)" data-id="' . $value->empno . '" data-status="' . $value->status . '"  data-status_name="' . $value->statusName . '">' . $value->statusName . '</span>';
+             onclick="changeStatus(this)" data-id="' . $value->id . '" data-status="' . $value->status . '"  data-status_name="' . $value->statusName . '">' . $value->statusName . '</span>';
 
 
             $searchdata_docs = array();
@@ -300,4 +298,25 @@ class Searchemployee extends CI_Controller
         }
     }
 
+    function changeStatus()
+    {
+        $Custom = new Custom();
+        $editArr = array();
+        if (isset($_POST['idEmp']) && $_POST['idEmp'] != '') {
+            $idEmp = $_POST['idEmp'];
+            $editArr['status'] = (isset($_POST['status']) && $_POST['status'] != '' ? $_POST['status'] : '1');
+            $editData = $Custom->Edit($editArr, 'id', $idEmp, 'hr_employee');
+            $trackarray = array("action" => "Change Employee Status -> Function: changeStatus() ",
+                "result" => $editData, "PostData" => $editArr);
+            $Custom->trackLogs($trackarray, "user_logs");
+            if ($editData) {
+                $result = 1;
+            } else {
+                $result = 2;
+            }
+        } else {
+            $result = 3;
+        }
+        echo $result;
+    }
 }

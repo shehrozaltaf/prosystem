@@ -131,7 +131,8 @@
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
                                                 <label for="designation">Designation</label>
-                                                <select class="select2 form-control" id="designation" name="designation">
+                                                <select class="select2 form-control" id="designation"
+                                                        name="designation">
                                                     <option value="0">All Designation</option>
                                                     <?php
                                                     if (isset($designation) && $designation != '') {
@@ -171,7 +172,8 @@
                                                 <label for="hiredateto">Hire / Rehire Date To</label>
                                                 <input type="text" id="hiredateto"
                                                        class="form-control pickadate-short-string"
-                                                       name="hiredateto" placeholder="Hire / Rehire Date To" value="<?php echo(isset($searchData['hiredateto']) && $searchData['hiredateto'] != '' ? $searchData['hiredateto'] : '') ?>">
+                                                       name="hiredateto" placeholder="Hire / Rehire Date To"
+                                                       value="<?php echo(isset($searchData['hiredateto']) && $searchData['hiredateto'] != '' ? $searchData['hiredateto'] : '') ?>">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
@@ -322,48 +324,24 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_status">Status asset</h4>
-                    <input type="hidden" id="status_idAsset" name="status_idAsset">
+                    <h4 class="modal-title white" id="myModalLabel_status">Status Employee</h4>
+                    <input type="hidden" id="status_idEmp" name="status_idEmp">
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="change_status" class="label-control">Select Status</label>
-                                <select class="select2 form-control" onchange="changeStatusSingle()"
+                                <select class="select2 form-control"
                                         autocomplete="change_status"
                                         id="change_status" required>
                                     <option value="0" readonly disabled selected></option>
                                     <?php if (isset($status) && $status != '') {
                                         foreach ($status as $k => $s) {
-                                            echo '<option value="' . $s->id . '">' . $s->status_name . '</option>';
+                                            echo '<option value="' . $s->id . '">' . $s->status . '</option>';
                                         }
                                     } ?>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12 hide status_writOff_formNo_div">
-                            <div class="form-group">
-                                <label for="status_writOff_formNo" class="label-control">Writ Off Form</label>
-                                <input type="text" class="form-control" id="status_writOff_formNo"
-                                       name="status_writOff_formNo"
-                                       autocomplete="status_writOff_formNo" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12 hide status_wo_date_div">
-                            <div class="form-group">
-                                <label for="status_wo_date" class="label-control">Writ Off Date</label>
-                                <input type="text" class="form-control mypickadat" id="status_wo_date"
-                                       name="status_wo_date"
-                                       autocomplete="status_wo_date" required>
-
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12 status_doc">
-                            <div class="form-group">
-                                <label for="status_doc" class="label-control">Document</label>
-                                <input type="file" required id="status_doc" name="status_doc">
-
                             </div>
                         </div>
                     </div>
@@ -635,7 +613,7 @@
         var html = '';
         html += '<div class="row">';
         html += '<div class="col-3">';
-        html+='<h6>Information</h6>';
+        html += '<h6>Information</h6>';
         html += '<p>Employee Number: <span class="text-primary">' + (d.empno != '' && d.empno != undefined && d.empno != null ? d.empno : '') + '</span></p>';
         html += '<p>Official Email: <span class="text-primary">' + (d.offemail != '' && d.offemail != undefined && d.offemail != null ? d.offemail : '') + '</span></p>';
         html += '<p>Full Name: <span class="text-primary">' + (d.empname != '' && d.empname != undefined && d.empname != null ? d.empname : '') + '</span></p>';
@@ -646,7 +624,7 @@
         html += '</div>';
 
         html += '<div class="col-3">';
-        html+='<h6>Contact Details</h6>';
+        html += '<h6>Contact Details</h6>';
         html += '<p>Residential Addres: <span class="text-primary">' + (d.resaddr != '' && d.resaddr != undefined && d.resaddr != null ? d.resaddr : '') + '</span></p>';
         html += '<p>Personal Email: <span class="text-primary">' + (d.peremail != '' && d.peremail != undefined && d.peremail != null ? d.peremail : '') + '</span></p>';
         html += '<p>Landline No: <span class="text-primary">' + (d.landline != '' && d.landline != undefined && d.landline != null ? d.landline : '') + '</span></p>';
@@ -658,7 +636,7 @@
         html += '</div>';
 
         html += '<div class="col-3">';
-        html+='<h6>Employment Details</h6>';
+        html += '<h6>Employment Details</h6>';
         html += '<p>Employment Type: <span class="text-primary">' + (d.emptype != '' && d.emptype != undefined && d.emptype != null ? d.emptype : '') + '</span></p>';
         html += '<p>Category: <span class="text-primary">' + (d.category != '' && d.category != undefined && d.category != null ? d.category : '') + '</span></p>';
         html += '<p>GNC No: <span class="text-primary">' + (d.gncno != '' && d.gncno != undefined && d.gncno != null ? d.gncno : '') + '</span></p>';
@@ -674,10 +652,10 @@
         html += '<p>Hardship Allowance: <span class="text-primary">' + (d.ddlhardship != '' && d.ddlhardship != undefined && d.ddlhardship != null ? d.ddlhardship : '') + '</span></p>';
         html += '<p>Amount: <span class="text-primary">' + (d.amount != '' && d.amount != undefined && d.amount != null ? d.amount : '') + '</span></p>';
         html += '<p>Benefits: <span class="text-primary">' + (d.benefits != '' && d.benefits != undefined && d.benefits != null ? d.benefits : '') + '</span></p>';
-         html += '</div>';
+        html += '</div>';
 
         html += '<div class="col-3">';
-        html+='<h6>Hiring Formalities</h6>';
+        html += '<h6>Hiring Formalities</h6>';
         html += '<p>PEME: <span class="text-primary">' + (d.peme != '' && d.peme != undefined && d.peme != null ? d.peme : '') + '</span></p>';
         html += '<p>General Orientation Program: <span class="text-primary">' + (d.gop != '' && d.gop != undefined && d.gop != null ? d.gop : '') + '</span></p>';
         html += '<p>GOP Date: <span class="text-primary">' + (d.gopdt != '' && d.gopdt != undefined && d.gopdt != null ? d.gopdt : '') + '</span></p>';
@@ -687,7 +665,7 @@
         html += '<p>Letter of Appointment Received: <span class="text-primary">' + (d.letterapp != '' && d.letterapp != undefined && d.letterapp != null ? d.letterapp : '') + '</span></p>';
         html += '<p>Confirmation: <span class="text-primary">' + (d.confirmation != '' && d.confirmation != undefined && d.confirmation != null ? d.confirmation : '') + '</span></p>';
         html += '<p>Status: <span class="text-primary">' + (d.statusName != '' && d.statusName != undefined && d.statusName != null ? d.statusName : '') + '</span></p>';
-       html += '</div>';
+        html += '</div>';
 
         html += '</div>';
 
@@ -913,6 +891,42 @@
         }
     }
 
+    function changeStatus(obj) {
+        var id = $(obj).attr('data-id');
+        var status = $(obj).attr('data-status');
+        $('#status_idEmp').val(id);
+        $("#change_status").val(status).select2("val", status);
+        $('#statusModal').modal('show');
+    }
+
+
+    function saveStatusChange() {
+        var data = {};
+        data['idEmp'] = $('#status_idEmp').val();
+        data['status'] = $('#change_status').val();
+        if (data['idEmp'] == '' || data['idEmp'] == undefined || data['idEmp'] == 0) {
+            toastMsg('Error', 'Invalid Employee', 'error');
+            return false;
+        } else if (data['status'] == '' || data['status'] == undefined || data['status'] == 0) {
+            toastMsg('Error', 'Invalid Status', 'error');
+            return false;
+        } else {
+            showloader();
+            CallAjax('<?php echo base_url('index.php/hr_controllers/Searchemployee/changeStatus')?>', data, 'POST', function (res) {
+                hideloader();
+                if (res == 1) {
+                    toastMsg('Success', 'Successfully Changes', 'success');
+                    $('#deleteModal').modal('hide');
+                } else if (res == 3) {
+                    toastMsg('Erorr', 'Invalid Asset Id', 'error');
+                } else {
+                    toastMsg('Erorr', 'Something went wrong', 'error');
+                }
+            });
+
+        }
+    }
+
 </script>
 <script>
 
@@ -1050,78 +1064,6 @@
 
         } else {
             toastMsg('Asset', 'Please select Asset first', 'error');
-        }
-    }
-
-    function changeStatus(obj) {
-        var id = $(obj).attr('data-id');
-        var status = $(obj).attr('data-status');
-        $('#status_idAsset').val(id);
-        $("#change_status").val(status).select2("val", status);
-        $('#statusModal').modal('show');
-    }
-
-    function changeStatusSingle() {
-        var status = $('#change_status').val();
-        if (status == 1 || status == 2 || status == 4 || status == 5 || status == 6 || status == 7 || status == 8) {
-            $('.status_writOff_formNo_div').addClass('hide');
-            $('.status_wo_date_div').addClass('hide');
-        } else {
-            $('.status_writOff_formNo_div').removeClass('hide');
-            $('.status_wo_date_div').removeClass('hide');
-        }
-    }
-
-    function saveStatusChange() {
-        var data = {};
-        data['idAsset'] = $('#status_idAsset').val();
-        data['status'] = $('#change_status').val();
-        data['writOff_formNo'] = $('#status_writOff_formNo').val();
-        data['wo_date'] = $('#status_wo_date').val();
-
-        var form_data = new FormData();
-        form_data.append('idAsset', data['idAsset']);
-        form_data.append('status', data['status']);
-        form_data.append('writOff_formNo', data['writOff_formNo']);
-        form_data.append('wo_date', data['wo_date']);
-        form_data.append('status_doc', $('#status_doc')[0].files[0]);
-
-
-        if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
-            toastMsg('Asset', 'Invalid Id Asset', 'error');
-            return false;
-        } else if (data['status'] == '' || data['status'] == undefined || data['status'] == 0) {
-            toastMsg('Status', 'Invalid Status', 'error');
-            return false;
-        } else {
-            if (data['status'] == 3 && (data['writOff_formNo'] == '' || data['writOff_formNo'] == undefined || data['writOff_formNo'] == 0)) {
-                toastMsg('Writ Off Form No', 'Invalid Writ Off Form No', 'error');
-                return false;
-            } else if (data['status'] == 3 && (data['wo_date'] == '' || data['wo_date'] == undefined || data['wo_date'] == 0)) {
-                toastMsg('Writ Date', 'Invalid Writ Date', 'error');
-                return false;
-            } else {
-                showloader();
-                CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/changeStatus')?>', form_data, 'POST', function (res) {
-                    hideloader();
-                    if (res == 1) {
-                        toastMsg('asset', 'Successfully Changes', 'success');
-                        $('#deleteModal').modal('hide');
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 500);
-                    } else if (res == 3) {
-                        toastMsg('Erorr', 'Invalid Asset Id', 'error');
-                    } else if (res == 4) {
-                        toastMsg('Erorr', 'Invalid Document Extension', 'error');
-                    } else if (res == 5) {
-                        toastMsg('Warning', 'Data edited, but file not uploaded', 'error');
-                    } else {
-                        toastMsg('Erorr', 'Something went wrong', 'error');
-                    }
-                }, true);
-            }
-
         }
     }
 

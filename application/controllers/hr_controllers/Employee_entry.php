@@ -210,7 +210,7 @@ class Employee_entry extends CI_controller
                                     } else {
                                         $empno = $InsertData;
                                     }
-                                    $filename = $empno.'_'.date('d_m_Y_H_i_s') . '.' . $ext;
+                                    $filename = $empno . '_' . date('d_m_Y_H_i_s') . '.' . $ext;
                                     $newName = $Mempmodel->file_newname($upload_location, $filename);
                                     $path = $upload_location . $newName;
                                     if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
@@ -315,7 +315,7 @@ class Employee_entry extends CI_controller
         $Custom = new Custom();
         $editArr = array();
         if (isset($_POST['idEmp']) && $_POST['idEmp'] != '') {
-            $idEmp= $_POST['idEmp'];
+            $idEmp = $_POST['idEmp'];
             $editArr['isActive'] = 0;
             $editArr['deleteBy'] = $_SESSION['login']['idUser'];
             $editArr['deletedDateTime'] = date('Y-m-d H:i:s');
@@ -452,7 +452,7 @@ class Employee_entry extends CI_controller
                             $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                             $valid_ext = array("png", "jpeg", "jpg", "doc", "docx", "pdf", "csv", "xls", "xlsx");
                             if (in_array($ext, $valid_ext)) {
-                                $filename = $empno.'_'.date('d_m_Y_H_i_s') . '.' . $ext;
+                                $filename = $empno . '_' . date('d_m_Y_H_i_s') . '.' . $ext;
                                 $newName = $Mempmodel->file_newname($upload_location, $filename);
                                 $path = $upload_location . $newName;
                                 if (move_uploaded_file($_FILES['file']['tmp_name'][$index], $path)) {
