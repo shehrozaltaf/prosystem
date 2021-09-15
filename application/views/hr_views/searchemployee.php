@@ -598,8 +598,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-primary white">
-                    <h4 class="modal-title white" id="myModalLabel_delete">Delete asset</h4>
-                    <input type="hidden" id="delete_idAsset" name="delete_idAsset">
+                    <h4 class="modal-title white" id="myModalLabel_delete">Delete Employee</h4>
+                    <input type="hidden" id="delete_idEmp" name="delete_idEmp">
                 </div>
                 <div class="modal-body">
                     <p>Are you sure, you want to delete this?</p>
@@ -882,22 +882,39 @@
         window.open(url, '_blank');
     }
 
+    function getDelete(obj) {
+        var id = $(obj).attr('data-id');
+        $('#delete_idEmp').val(id);
+        $('#deleteModal').modal('show');
+    }
+
+    function deleteData() {
+        var data = {};
+        data['idEmp'] = $('#delete_idEmp').val();
+        if (data['idEmp'] == '' || data['idEmp'] == undefined || data['idEmp'] == 0) {
+            toastMsg('Employee', 'Something went wrong', 'error');
+            return false;
+        } else {
+            CallAjax('<?php echo base_url('index.php/hr_controllers/Employee_entry/deleteEmp')?>', data, 'POST', function (res) {
+
+                if (res == 1) {
+                    toastMsg('Employee', 'Successfully Deleted', 'success');
+                    $('#deleteModal').modal('hide');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } else if (res == 2) {
+                    toastMsg('Employee', 'Something went wrong', 'error');
+                } else if (res == 3) {
+                    toastMsg('Employee', 'Invalid Employee', 'error');
+                }
+
+            });
+        }
+    }
+
 </script>
 <script>
-
-    $(document).ready(function () {
-        mydate();
-    });
-
-    function mydate() {
-        $('.mypickadat').pickadate({
-            selectYears: true,
-            selectMonths: true,
-            min: new Date(2019, 12, 1),
-            max: false,
-            format: 'dd-mm-yyyy'
-        });
-    }
 
     function chkStatus(obj) {
         var status = $('#upd_bulkstatus').val();
@@ -1036,9 +1053,6 @@
         }
     }
 
-
-
-
     function changeStatus(obj) {
         var id = $(obj).attr('data-id');
         var status = $(obj).attr('data-status');
@@ -1111,33 +1125,5 @@
         }
     }
 
-    function getDelete(obj) {
-        var id = $(obj).attr('data-id');
-        $('#delete_idAsset').val(id);
-        $('#deleteModal').modal('show');
-    }
-
-    function deleteData() {
-        var data = {};
-        data['idAsset'] = $('#delete_idAsset').val();
-        if (data['idAsset'] == '' || data['idAsset'] == undefined || data['idAsset'] == 0) {
-            toastMsg('Asset', 'Invalid Id Asset', 'error');
-            return false;
-        } else {
-            CallAjax('<?php echo base_url('index.php/asset_controllers/Assets/deleteAsset')?>', data, 'POST', function (res) {
-                if (res == 1) {
-                    toastMsg('asset', 'Successfully Deleted', 'success');
-                    $('#deleteModal').modal('hide');
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
-                } else if (res == 3) {
-                    toastMsg('asset', 'Invalid Asset Id', 'error');
-                } else {
-                    toastMsg('asset', 'Something went wrong', 'error');
-                }
-            });
-        }
-    }
 
 </script>
