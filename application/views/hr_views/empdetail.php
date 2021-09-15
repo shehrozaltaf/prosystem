@@ -224,7 +224,7 @@
                                                 <tr>
                                                     <td class="font-weight-bold">Landline Number</td>
                                                     <td>
-                                                        <?php echo(isset($empD->landlineccode) && $empD->landlineccode != '' ? $empD->landlineccode : '') ?>
+                                                        <?php echo(isset($empD->landline) && $empD->landline != '' ? $empD->landline : '') ?>
                                                     </td>
                                                 </tr>
                                                 <tr>

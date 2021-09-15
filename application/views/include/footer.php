@@ -18,6 +18,7 @@
 <script>
     $(document).ready(function () {
         getMenu();
+        pickDate();
         setTimeout(function () {
             var men = $('#menuactive').val();
             if(men!='' && men!=undefined){

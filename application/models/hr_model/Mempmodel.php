@@ -31,12 +31,14 @@ class Mempmodel extends CI_Model
             $length = $searchdata['length'];
         }
 
-
         if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
             $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
         }
         if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
             $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
+        }
+        if (isset($searchdata['sublocation']) && $searchdata['sublocation'] != '' && $searchdata['sublocation'] != null) {
+            $this->db->where("(e.ddlloc_sub like '%" . $searchdata['sublocation'] . "%')");
         }
         if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
             $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
@@ -47,35 +49,147 @@ class Mempmodel extends CI_Model
         if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
             $this->db->where('e.ddlband', $searchdata['band']);
         }
-
+        if (isset($searchdata['designation']) && $searchdata['designation'] != '' && $searchdata['designation'] != null) {
+            $this->db->where('e.titdesi', $searchdata['designation']);
+        }
         if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
             $this->db->where('e.status', $searchdata['status']);
         }
 
         if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
-            $this->db->where("(e.empname like '%" . $searchdata['empname'] . "%')");
+            $this->db->where("(e.empname like '%" . $searchdata['empname'] . "%' or e.empno like '%" . $searchdata['empname'] . "%')");
         }
 
-        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
-            $this->db->where('e.empno', $searchdata['empno']);
+        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null) {
+            $this->db->where("e.rehiredt >= '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
+        }
+        if (isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
+            $this->db->where("e.rehiredt <= '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "'");
+        }
+        if (isset($searchdata['contractdatefrom']) && $searchdata['contractdatefrom'] != '' && $searchdata['contractdatefrom'] != null) {
+            $this->db->where("e.conexpiry >= '" . date('Y-m-d', strtotime($searchdata['contractdatefrom'])) . "'");
+        }
+        if (isset($searchdata['contractdateto']) && $searchdata['contractdateto'] != '' && $searchdata['contractdateto'] != null) {
+            $this->db->where("e.conexpiry <= '" . date('Y-m-d', strtotime($searchdata['contractdateto'])) . "'");
         }
 
-        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null &&
-            isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
-            $this->db->where("e.rehiredt between '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "' and '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null && $searchdata['search'] != ' ') {
+            $search = trim($searchdata['search']);
+            $this->db->where("(
+            e.empno like '%" . $search . "%'
+            OR   e.empname like '%" . $search . "%' 
+            OR   e.offemail like '%" . $search . "%' 
+            OR   e.workproj like '%" . $search . "%' 
+            OR   e.workingProj like '%" . $search . "%' 
+            OR   e.chargproj like '%" . $search . "%' 
+            OR   e.chargingProj like '%" . $search . "%' 
+            OR   e.cellno1 like '%" . $search . "%' 
+            OR   e.cellno2 like '%" . $search . "%' 
+            OR   e.degreeName like '%" . $search . "%' 
+            OR   e.field like '%" . $search . "%' 
+            OR   e.band like '%" . $search . "%' 
+            OR   e.desig like '%" . $search . "%'  )");
         }
+
         if (isset($searchdata['orderby']) && $searchdata['orderby'] != '' && $searchdata['orderby'] != null) {
             $this->db->order_By($searchdata['orderby'], $searchdata['ordersort']);
         }
         $this->db->select('*');
         $this->db->from('employee_view e');
-        $this->db->where('e.isActive',1);
+        $this->db->where('e.isActive', 1);
         $this->db->limit($length, $start);
         $query = $this->db->get();
 
 
         return $query->result();
 
+    }
+
+    function getCntTotalEmp($searchdata)
+    {
+
+        if (isset($searchdata['projects']) && $searchdata['projects'] != '' && $searchdata['projects'] != null) {
+            $this->db->where("(e.workproj like '%" . $searchdata['projects'] . "%')");
+        }
+        if (isset($searchdata['location']) && $searchdata['location'] != '' && $searchdata['location'] != null) {
+            $this->db->where("(e.ddlloc like '%" . $searchdata['location'] . "%')");
+        }
+        if (isset($searchdata['sublocation']) && $searchdata['sublocation'] != '' && $searchdata['sublocation'] != null) {
+            $this->db->where("(e.ddlloc_sub like '%" . $searchdata['sublocation'] . "%')");
+        }
+        if (isset($searchdata['category']) && $searchdata['category'] != '' && $searchdata['category'] != null) {
+            $this->db->where("(e.ddlcategory like '%" . $searchdata['category'] . "%')");
+        }
+        if (isset($searchdata['entity']) && $searchdata['entity'] != '' && $searchdata['entity'] != null) {
+            $this->db->where('e.entity', $searchdata['entity']);
+        }
+        if (isset($searchdata['band']) && $searchdata['band'] != '' && $searchdata['band'] != null) {
+            $this->db->where('e.ddlband', $searchdata['band']);
+        }
+        if (isset($searchdata['designation']) && $searchdata['designation'] != '' && $searchdata['designation'] != null) {
+            $this->db->where('e.titdesi', $searchdata['designation']);
+        }
+        if (isset($searchdata['status']) && $searchdata['status'] != '' && $searchdata['status'] != null) {
+            $this->db->where('e.status', $searchdata['status']);
+        }
+
+        if (isset($searchdata['empname']) && $searchdata['empname'] != '' && $searchdata['empname'] != null) {
+            $this->db->where("(e.empname like '%" . $searchdata['empname'] . "%' or e.empno like '%" . $searchdata['empname'] . "%')");
+        }
+
+        if (isset($searchdata['hiredatefrom']) && $searchdata['hiredatefrom'] != '' && $searchdata['hiredatefrom'] != null) {
+            $this->db->where("e.rehiredt >= '" . date('Y-m-d', strtotime($searchdata['hiredatefrom'])) . "'");
+        }
+        if (isset($searchdata['hiredateto']) && $searchdata['hiredateto'] != '' && $searchdata['hiredateto'] != null) {
+            $this->db->where("e.rehiredt <= '" . date('Y-m-d', strtotime($searchdata['hiredateto'])) . "'");
+        }
+        if (isset($searchdata['contractdatefrom']) && $searchdata['contractdatefrom'] != '' && $searchdata['contractdatefrom'] != null) {
+            $this->db->where("e.conexpiry >= '" . date('Y-m-d', strtotime($searchdata['contractdatefrom'])) . "'");
+        }
+        if (isset($searchdata['contractdateto']) && $searchdata['contractdateto'] != '' && $searchdata['contractdateto'] != null) {
+            $this->db->where("e.conexpiry <= '" . date('Y-m-d', strtotime($searchdata['contractdateto'])) . "'");
+        }
+
+        if (isset($searchdata['search']) && $searchdata['search'] != '' && $searchdata['search'] != null && $searchdata['search'] != ' ') {
+            $search = trim($searchdata['search']);
+            $this->db->where("(
+            e.empno like '%" . $search . "%'
+            OR   e.empname like '%" . $search . "%' 
+            OR   e.offemail like '%" . $search . "%' 
+            OR   e.workproj like '%" . $search . "%' 
+            OR   e.workingProj like '%" . $search . "%' 
+            OR   e.chargproj like '%" . $search . "%' 
+            OR   e.chargingProj like '%" . $search . "%' 
+            OR   e.cellno1 like '%" . $search . "%' 
+            OR   e.cellno2 like '%" . $search . "%' 
+            OR   e.degreeName like '%" . $search . "%' 
+            OR   e.field like '%" . $search . "%' 
+            OR   e.band like '%" . $search . "%' 
+            OR   e.desig like '%" . $search . "%'  )");
+        }
+        $this->db->select('count(e.id) as cnttotal');
+        $this->db->from('employee_view e');
+        $this->db->where('e.isActive', 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getAssetDocsByEmpno($searchdata)
+    {
+        $empno = '';
+        if (isset($searchdata['empno']) && $searchdata['empno'] != '' && $searchdata['empno'] != null) {
+            $empno = $searchdata['empno'];
+        }
+        if (isset($searchdata['docName']) && $searchdata['docName'] != '' && $searchdata['docName'] != null) {
+            $this->db->where('docName', $searchdata['docName']);
+        }
+        $this->db->select('*');
+        $this->db->from('hr_employee_docs');
+        $this->db->where('empno', $empno);
+        $this->db->where('isActive', 1);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
     }
 
     /*shehroz*/
@@ -149,14 +263,11 @@ FROM
     }
 
 
-   /* function getDataFromTableByID($id)
-    {
-        $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,landlineccode,chk_landline,chk_emlandno,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where id='$id'");
-        return $query->result();
-    }*/
-
-
-
+    /* function getDataFromTableByID($id)
+     {
+         $query = $this->db->query("SELECT id,ddlemptype,ddlcategory,empno,offemail,empname,cnicno,convert(varchar(13), dob, 105) dob,landlineccode,chk_landline,chk_emlandno,landline,cellno1ccode,cellno1,cellno2ccode,cellno2,personnme,emcellnoccode,emcellno,emlandnoccode,emlandno,resaddr,peremail,gncno,ddlband,titdesi,convert(varchar(13), rehiredt, 105) rehiredt,convert(varchar(13), conexpiry, 105) conexpiry,workproj,chargproj,ddlloc,supernme,hiresalary,ddlhardship,amount,benefits,peme,gop,convert(varchar(13),gopdt, 105) gopdt,entity,dept,cardissue,letterapp,confirmation,status,remarks,pic,doc,userid,entrydate,degree,field FROM hr_employee where id='$id'");
+         return $query->result();
+     }*/
 
 
     function getDesignation($id)
@@ -169,7 +280,6 @@ FROM
 
         return $results;
     }
-
 
 
     function getEmployeeDataByEmpNo2($empno)

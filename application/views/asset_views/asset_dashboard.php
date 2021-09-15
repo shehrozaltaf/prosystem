@@ -1,21 +1,5 @@
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
-<style>
-    div.dt-button-collection .dt-button {
-        border-radius: 0;
-        background: #ececec;
-        text-align: center;
-        border-bottom: 1px solid;
-    }
-
-    #tblaudit th, #tblaudit td {
-        width: 10%;
-    }
-
-    table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
-        font-size: 12px;
-    }
-</style>
 <link rel="stylesheet" type="text/css"
       href="<?php echo base_url() ?>assets/dt/css/datatable/buttons.bootstrap4.min.css">
 
