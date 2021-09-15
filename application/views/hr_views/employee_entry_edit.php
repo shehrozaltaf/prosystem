@@ -517,8 +517,8 @@
                                                 $htmlQ = '';
                                                 $oldLabelQ = '';
                                                 $oldValQ = '';
-                                                if (isset($category) && $category != '') {
-                                                    foreach ($category as $v) {
+                                                if (isset($CategoryHR) && $CategoryHR != '') {
+                                                    foreach ($CategoryHR as $v) {
                                                         if (isset($editemp) && $editemp != '' && $editemp != null && $v->id === $editemp[0]->ddlcategory) {
                                                             $oldValQ = $v->id;
                                                             $oldLabelQ = $v->category;
@@ -778,7 +778,7 @@
                                                 <label for="hiresalary">Hiring Salary</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" id="hiresalary" required
+                                                <input type="text" id="hiresalary"
                                                        class="form-control" name="hiresalary"
                                                        onkeypress="return numeralsOnly();" MaxLength="7"
                                                        placeholder="Hiring Salary" autocomplete="hiresalary_Edit"
@@ -795,11 +795,11 @@
                                                 <label for="ddlhardship">Hardship Allowance</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2 required" id="ddlhardship"
+                                                <select class="form-control select2 " id="ddlhardship"
                                                         autocomplete="ddlhardship_add"
                                                         data-oldval="<?php echo(isset($editemp[0]->ddlhardship) && $editemp[0]->ddlhardship != '' ? $editemp[0]->ddlhardship : '') ?>"
                                                         data-oldLabel="<?php echo(isset($editemp[0]->ddlhardship) && $editemp[0]->ddlhardship != '' ? $editemp[0]->ddlhardship : '') ?>"
-                                                        required name="ddlhardship">
+                                                         name="ddlhardship">
                                                     <?php
                                                     echo '<option value="0" data-text="0" readonly ' . (!isset($editemp[0]->ddlhardship) || $editemp[0]->ddlhardship == "" ? "selected" : "") . '></option>
                                                     <option value="Yes" data-text="Yes" ' . ($editemp[0]->ddlhardship == "Yes" ? "selected" : "") . '>Yes</option>
@@ -816,7 +816,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <input type="text" id="amount" autocomplete="amount_add" MaxLength="6"
-                                                       required class="form-control required" name="amount"
+                                                        class="form-control " name="amount"
                                                        data-oldval="<?php echo(isset($editemp[0]->amount) && $editemp[0]->amount != '' ? $editemp[0]->amount : '') ?>"
                                                        value="<?php echo(isset($editemp[0]->amount) && $editemp[0]->amount != '' ? $editemp[0]->amount : '') ?>"
                                                        placeholder="Amount" onkeypress="return numeralsOnly();">
@@ -830,7 +830,7 @@
                                                 <label for="benefits">Benefits</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <select class="form-control select2 required" id="benefits"
+                                                <select class="form-control select2" id="benefits"
                                                         autocomplete="benefits_Edit"
                                                         data-oldval="<?php echo(isset($editemp[0]->benefits) && $editemp[0]->benefits != '' ? $editemp[0]->benefits : '') ?>"
                                                         data-oldLabel="<?php echo(isset($editemp[0]->benefits) && $editemp[0]->benefits != '' ? $editemp[0]->benefits : '') ?>"
@@ -911,7 +911,7 @@
                                                 <label for="gopdt">GOP Date</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" id="gopdt" required
+                                                <input type="text" id="gopdt"
                                                        class="form-control mypickadat" name="gopdt"
                                                        placeholder="GOP Date" autocomplete="gopdt_Edit"
                                                        value="<?php echo(isset($editemp[0]->gopdt) && $editemp[0]->gopdt != '' ? date('d-m-Y', strtotime($editemp[0]->gopdt)) : '') ?>"
@@ -1081,7 +1081,7 @@
                                                 <label for="remarks">Remarks</label>
                                             </div>
                                             <div class="col-sm-9">
- <textarea id="remarks" rows="5" required autocomplete="remarks_Edit"
+ <textarea id="remarks" rows="5" autocomplete="remarks_Edit"
            class="form-control" name="remarks"
            placeholder="Remarks"
  ><?php echo(isset($editemp[0]->remarks) ? $editemp[0]->remarks : '') ?></textarea>
@@ -1360,7 +1360,7 @@
                     form_data.append('cardissue', $('#cardissue').val());
                     form_data.append('letterapp', $('#letterapp').val());
                     form_data.append('confirmation', $('#confirmation').val());
-                    form_data.append('statushr.php', $('#status').val());
+                    form_data.append('status', $('#status').val());
                     form_data.append('remarks', $('#remarks').val());
                     form_data.append('pic', $('#pic')[0].files[0]);
                     form_data.append('entryType', $('#entryType').val());
@@ -1450,7 +1450,7 @@
                 form_data.append('cardissue', $('#cardissue').val());
                 form_data.append('letterapp', $('#letterapp').val());
                 form_data.append('confirmation', $('#confirmation').val());
-                form_data.append('statushr.php', $('#status').val());
+                form_data.append('status', $('#status').val());
                 form_data.append('remarks', $('#remarks').val());
                 form_data.append('pic', $('#pic')[0].files[0]);
                 form_data.append('entryType', $('#entryType').val());

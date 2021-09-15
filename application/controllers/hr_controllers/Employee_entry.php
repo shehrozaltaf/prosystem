@@ -398,7 +398,7 @@ class Employee_entry extends CI_controller
             $editArray['cardissue'] = (isset($_POST['cardissue']) && $_POST['cardissue'] != '' ? $_POST['cardissue'] : '');
             $editArray['letterapp'] = (isset($_POST['letterapp']) && $_POST['letterapp'] != '' ? $_POST['letterapp'] : '');
             $editArray['confirmation'] = (isset($_POST['confirmation']) && $_POST['confirmation'] != '' ? $_POST['confirmation'] : '');
-            $editArray['status'] = (isset($_POST['status']) && $_POST['status'] != '' ? $_POST['status'] : '');
+            $editArray['status'] = (isset($_POST['status']) && $_POST['status'] != '' ? $_POST['status'] : '1');
             $editArray['remarks'] = (isset($_POST['remarks']) && $_POST['remarks'] != '' ? $_POST['remarks'] : '');
             $editArray['entryType'] = (isset($_POST['entryType']) && $_POST['entryType'] != '' ? $_POST['entryType'] : '');
             $pic_location = EMPLOYEE_LOC . $empno . '/profilepic/';
