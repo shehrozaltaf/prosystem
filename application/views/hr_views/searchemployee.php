@@ -44,13 +44,15 @@
                                     <div class="row">
                                         <div class="col-sm-3 col-12">
                                             <div class="form-group">
+
                                                 <label for="projects">Working Project</label>
                                                 <select class="select2 form-control" id="projects" name="projects">
                                                     <option value="0">All Projects</option>
                                                     <?php
+
                                                     if (isset($project) && $project != '') {
                                                         foreach ($project as $k => $v) {
-                                                            echo '<option value="' . $v->proj_code . '">' . $v->proj_name . '</option>';
+                                                            echo '<option value="' . $v->proj_code . '" ' . (isset($searchData['projects']) && $searchData['projects'] == $v->proj_code ? 'selected' : '') . '>' . $v->proj_name . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -65,7 +67,7 @@
                                                     <?php
                                                     if (isset($location) && $location != '') {
                                                         foreach ($location as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->location . '</option>';
+                                                            echo '<option value="' . $v->id . '" ' . (isset($searchData['location']) && $searchData['location'] == $v->id ? 'selected' : '') . '>' . $v->location . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -80,7 +82,7 @@
                                                     <?php
                                                     if (isset($category) && $category != '') {
                                                         foreach ($category as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->category . '</option>';
+                                                            echo '<option value="' . $v->id . '" ' . (isset($searchData['category']) && $searchData['category'] == $v->id ? 'selected' : '') . '>' . $v->category . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -95,7 +97,7 @@
                                                     <?php
                                                     if (isset($entity) && $entity != '') {
                                                         foreach ($entity as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->entity . '</option>';
+                                                            echo '<option value="' . $v->id . '" ' . (isset($searchData['entity']) && $searchData['entity'] == $v->id ? 'selected' : '') . '>' . $v->entity . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -112,7 +114,7 @@
                                                     <?php
                                                     if (isset($band) && $band != '') {
                                                         foreach ($band as $k => $v) {
-                                                            echo '<option value="' . $v->id . '">' . $v->band . '</option>';
+                                                            echo '<option value="' . $v->id . '" ' . (isset($searchData['band']) && $searchData['band'] == $v->id ? 'selected' : '') . '>' . $v->band . '</option>';
                                                         }
                                                     }
                                                     ?>
@@ -126,7 +128,7 @@
                                                     <option value="0" selected>All Status</option>
                                                     <?php if (isset($status) && $status != '') {
                                                         foreach ($status as $k => $s) {
-                                                            echo '<option value="' . $s->id . '" >' . $s->status . '</option>';
+                                                            echo '<option value="' . $s->id . '"  ' . (isset($searchData['status']) && $searchData['status'] == $s->id ? 'selected' : '') . '>' . $s->status . '</option>';
                                                         }
                                                     } ?>
                                                 </select>
@@ -137,7 +139,8 @@
                                                 <label for="empname">Employee Name</label>
                                                 <input type="text" class="form-control" placeholder="Employee Name"
                                                        onkeypress="return lettersOnly_WithSpace();" id="empname"
-                                                       name="empname">
+                                                       name="empname"
+                                                       value="<?php echo(isset($searchData['empname']) && $searchData['empname'] != '' ? $searchData['empname'] : '') ?>">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
@@ -145,7 +148,7 @@
                                                 <label for="empno">Employee No</label>
                                                 <input type="text" class="form-control" placeholder="Employee No"
                                                        onkeypress="return numeralsOnly();" maxlength="6" id="empno"
-                                                       name="empno">
+                                                       name="empno" value="<?php echo(isset($searchData['empno']) && $searchData['empno'] != '' ? $searchData['empno'] : '') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +158,7 @@
                                                 <label for="hiredatefrom">Hire / Rehire Date <br/>From</label>
                                                 <input type="text" class="form-control pickadate-short-string"
                                                        id="hiredatefrom"
-                                                       name="hiredatefrom" placeholder="Hire / Rehire Date From">
+                                                       name="hiredatefrom" placeholder="Hire / Rehire Date From" value="<?php echo(isset($searchData['hiredatefrom']) && $searchData['hiredatefrom'] != '' ? $searchData['hiredatefrom'] : '') ?>">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-12">
@@ -163,7 +166,7 @@
                                                 <label for="hiredateto"><br/>To</label>
                                                 <input type="text" id="hiredateto"
                                                        class="form-control pickadate-short-string"
-                                                       name="hiredateto" placeholder="Hire / Rehire Date To">
+                                                       name="hiredateto" placeholder="Hire / Rehire Date To" value="<?php echo(isset($searchData['hiredateto']) && $searchData['hiredateto'] != '' ? $searchData['hiredateto'] : '') ?>">
                                             </div>
                                         </div>
                                         <!--<div class="col-sm-3 col-12">
@@ -298,12 +301,13 @@
                                                             </td>
                                                             <td data-id="<?php echo $rows->id ?>">
                                                                 <?php if (isset($permission[0]->CanView) && $permission[0]->CanView == 1) { ?>
-                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp='.$rows->empno) ?>" target="_blank">
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/searchemployee/EmpDetail?emp=' . $rows->empno) ?>"
+                                                                       target="_blank">
                                                                         <i class="feather icon-eye"></i> </a>
                                                                 <?php } ?>
                                                                 <?php if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) { ?>
-                                                                    <a href="<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEdit/'.$rows->empno) ?>"
-                                                                    target="_blank"> <i
+                                                                    <a href="<?php echo base_url('index.php/hr_controllers/employee_entry/getEmployeeEdit/' . $rows->empno) ?>"
+                                                                       target="_blank"> <i
                                                                                 class="feather icon-edit"></i> </a>
                                                                 <?php } ?>
                                                                 <?php if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) { ?>

@@ -65,6 +65,7 @@ class Searchemployee extends CI_Controller
         $searchData['ordersort'] = (isset($_REQUEST['order'][4]['dir']) && $_REQUEST['order'][4]['dir'] != '' ? $_REQUEST['order'][4]['dir'] : 'desc');
 
         $data['datatbl'] = $Mempmodel->getAllEmployee($searchData);
+        $data['searchData'] = $searchData;
         $this->load->view('include/header');
         $this->load->view('include/top_header');
         $this->load->view('include/sidebar');

@@ -471,8 +471,8 @@
                                                         name="ddlcategory" required>
                                                     <?php
                                                     $html_options_Q = '<option value="0" readonly selected></option>';
-                                                    if (isset($category) && $category != '') {
-                                                        foreach ($category as $v) {
+                                                    if (isset($CategoryHR) && $CategoryHR != '') {
+                                                        foreach ($CategoryHR as $v) {
                                                             $html_options_Q .= '<option data-text="' . $v->category . '" value="' . $v->id . '">' . $v->category . '</option>';
                                                         }
                                                     }

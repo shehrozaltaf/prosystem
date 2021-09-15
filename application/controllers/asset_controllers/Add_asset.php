@@ -124,7 +124,7 @@ class Add_asset extends CI_controller
                 $insertArray['last_verify_date'] = date('Y-m-d', strtotime($_POST['last_verify_date']));
                 $insertArray['due_date'] = date('Y-m-d', strtotime($_POST['due_date']));
                 $insertArray['pur_date'] = date('Y-m-d', strtotime($_POST['pur_date']));
-                $insertArray['status'] = $_POST['status'];
+                $insertArray['status'] = (isset($_POST['status']) && $_POST['status']!=''?$_POST['status']:1);
                 $insertArray['writOff_formNo'] = $_POST['writOff_formNo'];
                 $insertArray['wo_date'] = date('Y-m-d', strtotime($_POST['wo_date']));
                 $insertArray['remarks'] = $_POST['remarks'];
